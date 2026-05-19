@@ -1,0 +1,379 @@
+/* =========================================
+   한국 비평사 온톨로지 — 스타일시트
+   TEI 요소를 학술 사이트 스타일로 렌더링
+   ========================================= */
+
+/* ----- Reset & base ----- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f4f3ee;
+  --text: #1c1c1a;
+  --text-secondary: #5f5e5a;
+  --text-tertiary: #95938c;
+  --border: #e6e4dc;
+  --border-strong: #c9c7bf;
+  --accent: #6b3e26;          /* 짙은 갈색 (학술적, 따뜻한) */
+  --accent-light: #f0e8df;
+  --affirmative: #2d6a3e;     /* 긍정 */
+  --critical: #a33232;        /* 비판 */
+  --neutral: #4a5d8a;         /* 중립 */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  --font-serif: "Noto Serif KR", "Nanum Myeongjo", "Apple SD Gothic Neo", Georgia, serif;
+  --max-width: 1100px;
+  --reading-width: 680px;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ----- Site header ----- */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.site-nav a {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ----- Main layout ----- */
+main.container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+/* ----- Sidebar ----- */
+.essay-list h2 {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.essay-list ul {
+  list-style: none;
+}
+.essay-list li {
+  font-size: 14px;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.essay-list li:last-child { border-bottom: 1px solid var(--border); }
+.essay-list a { color: var(--text); }
+.essay-list a.active { color: var(--accent); font-weight: 500; }
+.essay-list .muted {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ----- Article (TEI viewer) ----- */
+#tei-viewer {
+  max-width: var(--reading-width);
+}
+
+.loading {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.error {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+}
+.error h2 { font-family: var(--font-serif); margin-bottom: 0.5rem; }
+.error code {
+  font-family: monospace;
+  background: var(--surface);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+/* =========================================
+   TEI 요소 스타일링 (CETEIcean이 tei-* 로 변환)
+   ========================================= */
+
+/* teiHeader는 숨김 (메타데이터는 별도 표시 영역에서) */
+tei-teiHeader { display: none; }
+
+/* 제목 영역 (titleStmt → 표지처럼 표시) */
+tei-text {
+  display: block;
+}
+
+/* TEI body는 마치 책의 본문처럼 */
+tei-body {
+  display: block;
+}
+
+/* ----- div: 구획 ----- */
+tei-div {
+  display: block;
+  margin: 2.5rem 0;
+}
+
+tei-div tei-div {
+  margin: 1.5rem 0 1.5rem 1rem;
+}
+
+/* div type별 차별화 */
+tei-div[type="introduction"] {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+tei-div[type="conclusion"] {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+/* ----- head: 구획 제목 ----- */
+tei-head {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+tei-div tei-div tei-head {
+  font-size: 18px;
+}
+
+/* ----- p: 단락 ----- */
+tei-p {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+/* ----- s: 문장 (인라인) ----- */
+tei-s {
+  /* 문장은 그냥 흐름대로 보임. 디버그용 ID는 hover 시에만 */
+}
+
+/* ----- persName: 인물 이름 ----- */
+tei-persName {
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border-strong);
+  cursor: default;
+  transition: background 0.15s;
+}
+tei-persName:hover {
+  background: var(--accent-light);
+  border-bottom-color: var(--accent);
+}
+/* 역할에 따라 색 차이 */
+tei-persName[role~="critic"] { color: var(--accent); }
+tei-persName[role~="poet"],
+tei-persName[role~="novelist"] { color: #2d4a6a; }
+tei-persName[role~="foreigner"] { color: #5d4a2a; }
+
+/* ----- title: 작품 제목 ----- */
+tei-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+tei-title[level="m"]::before { content: "『"; font-style: normal; }
+tei-title[level="m"]::after  { content: "』"; font-style: normal; }
+tei-title[level="a"]::before { content: "「"; font-style: normal; }
+tei-title[level="a"]::after  { content: "」"; font-style: normal; }
+tei-title[level="j"]::before { content: "《"; font-style: normal; }
+tei-title[level="j"]::after  { content: "》"; font-style: normal; }
+
+/* ----- term: 개념 용어 ----- */
+tei-term {
+  background: var(--surface-2);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.95em;
+  color: var(--accent);
+  font-weight: 500;
+  cursor: default;
+}
+
+/* ----- orgName: 기관명 ----- */
+tei-orgName {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* ----- quote: 인용 ----- */
+tei-quote {
+  display: block;
+  margin: 1.5rem 1.5rem;
+  padding: 1.25rem 1.75rem;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  position: relative;
+}
+tei-quote::before {
+  content: "“";
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 3rem;
+  color: var(--border-strong);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+tei-quote[type="paraphrase"] {
+  border-left-style: dashed;
+}
+tei-quote[type="indirect"] {
+  border-left-style: dotted;
+}
+
+/* ----- interp: 해석/평가 ----- */
+tei-interp {
+  position: relative;
+  padding: 0 4px;
+  border-radius: 2px;
+}
+tei-interp[value="affirmative"] {
+  background: rgba(45, 106, 62, 0.08);
+  border-bottom: 2px solid var(--affirmative);
+}
+tei-interp[value="critical"] {
+  background: rgba(163, 50, 50, 0.08);
+  border-bottom: 2px solid var(--critical);
+}
+tei-interp[value="neutral"] {
+  background: rgba(74, 93, 138, 0.08);
+  border-bottom: 2px solid var(--neutral);
+}
+
+/* ----- ref: 참조 (하이퍼링크) ----- */
+tei-ref {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+}
+
+/* ----- note: 주석 ----- */
+tei-note {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  vertical-align: super;
+}
+
+/* ----- lb: 줄바꿈 ----- */
+tei-lb {
+  display: block;
+  height: 0;
+}
+
+/* =========================================
+   범례 (Legend) - 색깔 의미 안내
+   ========================================= */
+.legend {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.legend strong { color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ----- Site footer ----- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  margin-top: 5rem;
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  main.container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 1.5rem;
+  }
+  .essay-list {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+  tei-p { font-size: 16px; }
+  tei-head { font-size: 20px; }
+  .site-nav { gap: 1rem; }
+  .site-nav a { font-size: 13px; }
+}
+
+/* ----- Dark mode (선택) ----- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1815;
+    --surface: #232019;
+    --surface-2: #2a2620;
+    --text: #ebe9e0;
+    --text-secondary: #a5a39a;
+    --text-tertiary: #75736c;
+    --border: #38342c;
+    --border-strong: #4d493f;
+    --accent: #c9986a;
+    --accent-light: #2e2519;
+    --affirmative: #6ba87a;
+    --critical: #d97070;
+    --neutral: #8aa0c9;
+  }
+}

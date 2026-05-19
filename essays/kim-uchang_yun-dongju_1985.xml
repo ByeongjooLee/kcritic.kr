@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schema/korean-critique-schema.xsd" type="application/xml"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>윤동주의 시와 근대적 자아</title>
+        <author><persName xml:id="p-kim-uchang"
+                          ref="https://www.wikidata.org/wiki/Q12498425"
+                          role="critic scholar">김우창</persName></author>
+        <respStmt>
+          <resp>디지털 인코딩 및 마크업</resp>
+          <name>[연구자명]</name>
+        </respStmt>
+      </titleStmt>
+
+      <publicationStmt>
+        <p>비평 온톨로지 프로젝트, 2026년 디지털 인코딩. 원문 © 김우창, 1985.</p>
+      </publicationStmt>
+
+      <sourceDesc>
+        <biblStruct type="publication">
+          <analytic>
+            <title>윤동주의 시와 근대적 자아</title>
+            <author><persName ref="#p-kim-uchang">김우창</persName></author>
+          </analytic>
+          <monogr>
+            <title>궁핍한 시대의 시인</title>
+            <author><persName ref="#p-kim-uchang">김우창</persName></author>
+            <imprint>
+              <pubPlace>서울</pubPlace>
+              <publisher>민음사</publisher>
+              <date when="1985">1985</date>
+            </imprint>
+          </monogr>
+        </biblStruct>
+      </sourceDesc>
+    </fileDesc>
+
+    <encodingDesc>
+      <editorialDecl>
+        <p>원문 철자를 보존하되 명백한 오식은 교정한다. 인물명·작품명·비평 개념을 의미적으로 마크업하며, 인용 태도를 interp 요소로 명시한다.</p>
+      </editorialDecl>
+
+      <tagsDecl>
+        <namespace>
+          <tagUsage gi="persName" occurs="11"/>
+          <tagUsage gi="title" occurs="3"/>
+          <tagUsage gi="quote" occurs="1"/>
+          <tagUsage gi="interp" occurs="4"/>
+          <tagUsage gi="term" occurs="4"/>
+        </namespace>
+      </tagsDecl>
+
+      <classDecl>
+        <taxonomy xml:id="tax-stance">
+          <category xml:id="affirmative"><catDesc>긍정적 평가</catDesc></category>
+          <category xml:id="critical"><catDesc>비판적 평가</catDesc></category>
+          <category xml:id="neutral"><catDesc>중립적 분석</catDesc></category>
+        </taxonomy>
+        <taxonomy xml:id="tax-concept">
+          <category xml:id="public-sphere"><catDesc>공론장</catDesc></category>
+          <category xml:id="modern-self"><catDesc>근대적 자아</catDesc></category>
+          <category xml:id="communicative-rationality"><catDesc>의사소통적 합리성</catDesc></category>
+        </taxonomy>
+      </classDecl>
+    </encodingDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+
+      <div type="introduction" xml:id="div-intro">
+        <head>들어가며</head>
+        <p>
+          <s xml:id="s-1"><persName xml:id="p-yun-dongju"
+                                     ref="https://www.wikidata.org/wiki/Q489582"
+                                     role="poet">윤동주</persName>의 시를 다시 읽는다는 것은 식민지 조선의 한 지식인이 어떻게 <term xml:id="t-modern-self" ref="#modern-self">근대적 자아</term>를 구성해 갔는가를 추적하는 일이다.</s>
+
+          <s xml:id="s-2">본고는 <persName xml:id="p-habermas"
+                                            ref="https://www.wikidata.org/wiki/Q76509"
+                                            role="foreigner scholar">위르겐 하버마스</persName>의 <term xml:id="t-public-sphere" ref="#public-sphere">공론장</term> 개념을 보조선으로 삼아, <persName ref="#p-yun-dongju">윤동주</persName>의 후기 시편에 나타난 자기 응시의 구조를 분석한다.</s>
+        </p>
+      </div>
+
+      <div type="argument" xml:id="div-arg-1">
+        <head>1. 자기 응시의 시학 — <title level="a" type="poem">자화상</title></head>
+        <p>
+          <s><persName ref="#p-yun-dongju">윤동주</persName>의 <title level="a" type="poem">자화상</title>은 화자가 우물을 들여다보는 행위로부터 시작된다.</s>
+
+          <s>이 응시는 단순한 자기 확인이 아닌, <interp value="affirmative" ana="#modern-self">대상화된 타자로서의 자신을 직시하는 행위</interp>이다.</s>
+        </p>
+
+        <p>
+          <s>해당 구절을 그대로 인용하면 다음과 같다.</s>
+        </p>
+
+        <p>
+          <s><quote type="direct" genre="poet" source="윤동주, 「자화상」, 1939" ana="#modern-self">우물 속에는 달이 밝고 구름이 흐르고 하늘이 펼치고 파아란 바람이 불고 가을이 있고 추억처럼 사나이가 있습니다</quote>.</s>
+        </p>
+
+        <p>
+          <s>여기서 화자는 자신을 "사나이"라고 3인칭화하여 호명한다.</s>
+          <s>이러한 자기 거리두기는 <persName ref="#p-habermas">하버마스</persName>가 말한 <term xml:id="t-communicative" ref="#communicative-rationality">의사소통적 합리성</term>의 시적 변용으로 읽힐 수 있다.</s>
+          <s>화자는 자신과 대화하기 위해 자신을 객체로 만든다.</s>
+        </p>
+      </div>
+
+      <div type="argument" xml:id="div-arg-2">
+        <head>2. 윤리적 주체의 가능성</head>
+        <p>
+          <s><persName ref="#p-yun-dongju">윤동주</persName>의 시에서 자아는 항상 <interp value="critical" ana="#modern-self">분열된 양상</interp>으로 등장한다.</s>
+
+          <s>그러나 이 분열은 결함이 아니라 오히려 근대적 주체의 본질적 조건이다.</s>
+
+          <s><persName ref="#p-habermas">하버마스</persName>가 지적했듯, 합리적 주체는 자기 자신을 비판적으로 대상화할 수 있을 때 비로소 성립한다.</s>
+        </p>
+
+        <p>
+          <s>다만 <persName ref="#p-yun-dongju">윤동주</persName>의 분열된 자아가 단지 서구적 의미의 근대 주체와 동일한 것은 아니다.</s>
+
+          <s>식민지 조선이라는 <interp value="critical" ana="#public-sphere">공론장이 부재한 조건</interp>은 그의 자기 응시에 독특한 윤리적 무게를 부여한다.</s>
+        </p>
+      </div>
+
+      <div type="conclusion" xml:id="div-conc">
+        <head>나가며</head>
+        <p>
+          <s><persName ref="#p-yun-dongju">윤동주</persName>의 시는 보편적 윤리의 주체가 될 수 없는 시대에, 그럼에도 그 가능성을 시적으로 모색한 기록이다.</s>
+
+          <s>그가 보여주는 자기 응시의 강도는 <persName ref="#p-habermas">하버마스</persName>적 의미의 <term ref="#public-sphere">공론장</term>이 결여된 자리에서, 시인이 어떻게 <interp value="affirmative" ana="#modern-self">윤리적 주체성을 발명해야 했는가</interp>를 증언한다.</s>
+        </p>
+      </div>
+
+    </body>
+  </text>
+</TEI>

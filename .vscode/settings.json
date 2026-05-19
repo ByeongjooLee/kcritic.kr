@@ -1,0 +1,31 @@
+{
+  "files.associations": {
+    "*.xsd": "xml"
+  },
+  "xml.fileAssociations": [
+    {
+      "pattern": "essays/**/*.xml",
+      "systemId": "./schema/korean-critique-schema.xsd"
+    }
+  ],
+  "xml.validation.enabled": true,
+  "xml.validation.schema.enabled": "always",
+  "xml.format.enabled": true,
+  "xml.format.maxLineWidth": 100,
+  "xml.format.splitAttributes": "preserve",
+  "files.exclude": {
+    ".git": true,
+    ".DS_Store": true
+  },
+  "editor.wordWrap": "on",
+  "editor.fontSize": 14,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.fontSize": 15
+  }
+}

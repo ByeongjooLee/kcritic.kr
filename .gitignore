@@ -1,0 +1,29 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/.bookmarks
+.vscode/workspace.code-workspace
+*.swp
+*~
+
+# Logs
+*.log
+
+# Build outputs (나중에 사용)
+build/
+dist/
+.cache/
+
+# Cloudflare Pages (선택)
+.cloudflare/
+
+# Dependencies (Python 변환 스크립트 추가 시)
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Node modules (선택)
+node_modules/
