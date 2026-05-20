@@ -12,8 +12,8 @@
              schemaLocation="http://www.w3.org/2001/xml.xsd"/>
 
   <!-- ===== 공통 단순형(enum) ===== -->
-  
-  <!-- 
+
+  <!--
  DivTypeEnum: <div> 요소의 type 속성에 사용할 수 있는 값들을 정의한 단순 타입.
  문헌이나 비평 텍스트 내부를 논리적/편집적 단위로 구분할 때 활용.
 -->
@@ -33,13 +33,13 @@
       <xs:enumeration value="notes"/>        <!-- 주석/비고: 본문 보조 설명, 참고사항, 추가 정보 -->
     </xs:restriction>
   </xs:simpleType>
-  
 
-  <!-- 
+
+  <!--
  TitleLevelEnum: <title> 요소의 'level' 속성에 사용할 수 있는 값들을 정의한 단순 타입.
  문헌의 계층적 수준(저작 단위, 논문 단위, 잡지/저널 단위 등)을 구분할 때 사용.
 -->
-  
+
   <xs:simpleType name="TitleLevelEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="m"/> <!-- monograph (단행본/책 수준): 전체 저작의 제목 -->
@@ -47,12 +47,12 @@
       <xs:enumeration value="j"/> <!-- journal (저널/잡지 수준): 연속간행물의 제목 -->
     </xs:restriction>
   </xs:simpleType>
-  
-  <!-- 
+
+  <!--
  TitleTypeEnum: <title> 요소의 'type' 속성에 사용할 수 있는 값들을 정의한 단순 타입.
  텍스트나 저작물의 장르·성격을 구체적으로 분류할 때 사용.
 -->
-  
+
   <xs:simpleType name="TitleTypeEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="critic"/>        <!-- 비평문: 문학·예술·사상 등을 분석/평가한 글 -->
@@ -65,19 +65,19 @@
       <xs:enumeration value="contribution"/>  <!-- 기고문: 잡지·신문 등에 독자나 외부 필자가 투고한 글 -->
       <xs:enumeration value="foreign"/>       <!-- 외국문학: 한국 외 문학(외국 저자의 작품) -->
       <xs:enumeration value="other"/>         <!-- 기타: 위 분류에 속하지 않는 제목/작품 -->
-      <xs:enumeration value="journal"/>     
-      <xs:enumeration value="newspaper"/>   
-      <xs:enumeration value="coterie"/>     
+      <xs:enumeration value="journal"/>
+      <xs:enumeration value="newspaper"/>
+      <xs:enumeration value="coterie"/>
       <xs:enumeration value="publication"/>
     </xs:restriction>
   </xs:simpleType>
-  
 
-  <!-- 
+
+  <!--
  QuoteTypeEnum: <quote> 요소의 'type' 속성에 사용할 수 있는 값들을 정의한 단순 타입.
  텍스트 내에서 인용이 어떤 성격을 갖는지 구분하는 데 활용.
 -->
-  
+
   <xs:simpleType name="QuoteTypeEnum">
     <xs:restriction base="xs:string">
       <xs:enumeration value="direct"/>        <!-- 원문 직인용: 따옴표 그대로 옮긴 인용 -->
@@ -89,9 +89,9 @@
       <xs:enumeration value="commentary"/>    <!-- 해설/주석 인용: 설명이나 주석에서 인용된 부분 -->
     </xs:restriction>
   </xs:simpleType>
-  
-  <!-- 
- QuoteGenreEnum: <quote> 요소의 'ana'(장르 분류) 속성 등에 사용할 수 있는 값들을 정의.
+
+  <!--
+ QuoteGenreEnum: <quote> 요소의 'genre' 속성에 사용할 수 있는 값들을 정의.
  인용된 텍스트가 어떤 장르의 글인지 명시할 때 사용.
 -->
   <xs:simpleType name="QuoteGenreEnum">
@@ -108,9 +108,9 @@
       <xs:enumeration value="other"/>         <!-- 기타: 위 분류에 속하지 않는 장르 인용 -->
     </xs:restriction>
   </xs:simpleType>
-  
-  
-  <!-- 
+
+
+  <!--
  InterpValueEnum: <interp> 요소의 'value' 속성에 사용.
  비평/언술의 태도나 논평의 긍·부정적 성격을 표시.
 -->
@@ -121,9 +121,9 @@
       <xs:enumeration value="critical"/>    <!-- 비판적/부정적 평가 -->
     </xs:restriction>
   </xs:simpleType>
-  
-  
-  <!-- 
+
+
+  <!--
  BiblTypeEnum: <biblStruct>나 <bibl> 요소의 'type' 속성에 사용.
  서지 단위의 출처 유형을 분류.
 -->
@@ -136,10 +136,30 @@
       <xs:enumeration value="other"/>        <!-- 기타: 위 분류에 속하지 않는 출처 -->
     </xs:restriction>
   </xs:simpleType>
-  
+
+
+  <!-- ===== v2 신규: 관계 유형 열거형 ===== -->
+
+  <!--
+ RelationTypeEnum: <relation> 요소의 'name' 속성에 사용.
+ 인물·기관 간의 관계 유형을 분류. 담론 네트워크 분석의 기초 데이터.
+-->
+  <xs:simpleType name="RelationTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mentor"/>        <!-- 사제관계: 스승→제자 -->
+      <xs:enumeration value="colleague"/>     <!-- 동료관계: 같은 문단/동인 활동 -->
+      <xs:enumeration value="opponent"/>      <!-- 논적관계: 논쟁에서 대립하는 관계 -->
+      <xs:enumeration value="ally"/>          <!-- 동조관계: 논쟁에서 입장을 같이하는 관계 -->
+      <xs:enumeration value="influence"/>     <!-- 영향관계: 사상적·문학적 영향 -->
+      <xs:enumeration value="membership"/>    <!-- 소속관계: 인물→기관/단체 -->
+      <xs:enumeration value="editorship"/>    <!-- 편집관계: 인물→매체 편집/주관 -->
+      <xs:enumeration value="other"/>         <!-- 기타 -->
+    </xs:restriction>
+  </xs:simpleType>
+
 
   <!-- ===== 인라인 엔터티 공통 타입 ===== -->
-  <!-- 
+  <!--
  PersNameType: <persName> 요소의 타입 정의.
  사람 이름을 단순 문자열로 저장하되, 식별자(xml:id), 참조(ref), 역할(role) 속성을 부여할 수 있음.
 -->
@@ -149,12 +169,13 @@
         <xs:attribute ref="xml:id" use="optional"/>         <!-- 고유 식별자 (예: xml:id="p-baek") -->
         <xs:attribute name="ref" type="xs:string" use="optional"/> <!-- 외부 참조 (URI, 위키 링크 등) -->
         <xs:attribute name="role" type="RoleList" use="optional"/> <!-- 인물의 역할(비평가, 시인 등)을 하나 이상 지정 -->
+        <xs:attribute name="lang" type="xs:string" use="optional"/> <!-- 언어 코드 (ko, en, fr 등) -->
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  RoleEnum: 인물의 역할(문학사적 직능)을 정의하는 단순 타입.
  예: <persName role="critic poet">김규동</persName>
 -->
@@ -169,22 +190,23 @@
       <xs:enumeration value="childrenauthor"/> <!-- 아동문학 작가 -->
       <xs:enumeration value="scholar"/>        <!-- 학자/연구자 -->
       <xs:enumeration value="foreigner"/>      <!-- 외국 문인/비평가 -->
+      <xs:enumeration value="writer"/>         <!-- 작가 (포괄적) -->
       <xs:enumeration value="other"/>          <!-- 기타 -->
     </xs:restriction>
   </xs:simpleType>
-  
-  
-  <!-- 
+
+
+  <!--
  RoleList: RoleEnum의 리스트 타입.
  여러 역할을 공백으로 구분해 나열할 수 있음.
- 예: role="critic scholar" 
+ 예: role="critic scholar"
 -->
   <xs:simpleType name="RoleList">
     <xs:list itemType="RoleEnum"/>
   </xs:simpleType>
-  
-  
-  <!-- 
+
+
+  <!--
  TitleInlineType: <title> 요소의 인라인(본문 내) 사용 정의.
  제목 문자열을 담고, level/type/id/ref 속성을 통해 계층·장르·식별자를 지정 가능.
 -->
@@ -198,9 +220,9 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
 
-  <!-- 
+
+  <!--
  OrgNameType: <orgName> 요소 정의.
  기관, 단체, 학회, 출판사 등의 이름을 단순 문자열로 표기.
  필요 시 고유 식별자(xml:id)와 외부 참조(ref, URI 등)를 속성으로 추가 가능.
@@ -213,9 +235,9 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  TermType: <term> 요소 정의.
  특정 개념·전문용어·사조명칭을 문자열로 기록.
  type 속성을 통해 용어의 분류(예: '사조', '비평용어')를 지정할 수 있음.
@@ -225,14 +247,15 @@
       <xs:extension base="xs:string">
         <xs:attribute name="type" type="xs:string" use="optional"/> <!-- 용어 분류 (예: "movement", "concept") -->
         <xs:attribute ref="xml:id" use="optional"/>                  <!-- 용어 고유 식별자 -->
+        <xs:attribute name="ref" type="xs:string" use="optional"/>   <!-- 외부 참조 -->
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  QuoteType: <quote> 요소 정의.
- 인용문을 저장하는 기본 구조. 
+ 인용문을 저장하는 기본 구조.
  텍스트와 함께 인명, 작품명 등의 인라인 요소를 포함할 수 있으며,
  인용의 유형(type), 출처(source), 장르(genre), 분석 연결(ana)을 속성으로 지정 가능.
 -->
@@ -245,13 +268,13 @@
       <xs:element name="note"     type="NoteType"/>       <!-- 인용문 내 주석 -->
       <xs:element name="lb"       type="EmptyElemType"/>  <!-- 줄바꿈 -->
     </xs:choice>
-    <xs:attribute name="type"   type="QuoteTypeEnum" use="optional"/>   <!-- 인용 방식 (직접/간접/의역 등) -->
-    <xs:attribute name="source" type="xs:string"     use="optional"/>   <!-- 인용 출처 (문헌명, 페이지 등) -->
+    <xs:attribute name="type"   type="QuoteTypeEnum"  use="optional"/>  <!-- 인용 방식 (직접/간접/의역 등) -->
+    <xs:attribute name="source" type="xs:string"      use="optional"/>  <!-- 인용 출처 (문헌명, 페이지 등) -->
     <xs:attribute name="genre"  type="QuoteGenreEnum" use="optional"/>  <!-- 인용 대상의 장르 (소설, 시, 비평 등) -->
-    <xs:attribute name="ana"    type="xs:IDREFS"     use="optional"/>   <!-- 분석/주석과 연결 (IDREFS) -->
+    <xs:attribute name="ana"    type="xs:IDREFS"      use="optional"/>  <!-- 분석/주석과 연결 (IDREFS) -->
   </xs:complexType>
-  
-  <!-- 
+
+  <!--
  InterpType: <interp> 요소 정의.
  특정 구절이나 텍스트 단위에 대한 해석/평가를 기록.
  value 속성으로 평가 태도(affirmative, neutral, critical)를 지정하고,
@@ -265,9 +288,9 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  NoteType: <note> 요소 정의.
  본문 주석, 각주, 편집자 설명 등을 문자열로 기록.
  type으로 주석 종류, target으로 연결 대상, ana로 분석 정보 추가 가능.
@@ -286,8 +309,8 @@
     <xs:attribute name="target" type="xs:string" use="optional"/>
     <xs:attribute name="ana"    type="xs:string" use="optional"/>
   </xs:complexType>
-  
-  <!-- 
+
+  <!--
  RefType: <ref> 요소 정의.
  다른 텍스트나 문서로의 참조(하이퍼링크)를 단순 문자열로 기록.
  target 속성에 참조 대상(URI 등)을 지정.
@@ -301,10 +324,140 @@
   </xs:complexType>
 
 
+  <!-- ===== v2 신규: profileDesc 관련 타입 정의 ===== -->
+
+  <!--
+ PersonType: <person> 요소 정의.
+ listPerson 내부에서 개별 인물의 상세 정보를 등록.
+ 다국어 인명(persName), 위키피디아 링크(note) 등을 포함.
+-->
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element name="persName" type="PersNameType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="note" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="xml:id" use="required"/>   <!-- ISNI 기반 식별자 (예: isni-0000000121171874) -->
+    <xs:attribute name="role" type="RoleList" use="optional"/>  <!-- 역할 (예: poet foreigner) -->
+  </xs:complexType>
+
+  <!--
+ ListPersonType: <listPerson> 요소 정의.
+ 문서에 등장하는 모든 인물의 레지스트리.
+ 본문의 persName ref="#isni-..." 가 이 목록을 참조.
+-->
+  <xs:complexType name="ListPersonType">
+    <xs:sequence>
+      <xs:element name="person" type="PersonType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--
+ OrgType: <org> 요소 정의.
+ listOrg 내부에서 개별 기관/단체/매체의 상세 정보를 등록.
+-->
+  <xs:complexType name="OrgType">
+    <xs:sequence>
+      <xs:element name="orgName" type="OrgNameType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="note" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute ref="xml:id" use="required"/>   <!-- 기관 식별자 (예: org-chosunilbo) -->
+    <xs:attribute name="type" type="xs:string" use="optional"/>  <!-- 기관 유형 (newspaper, coterie, publisher 등) -->
+  </xs:complexType>
+
+  <!--
+ ListOrgType: <listOrg> 요소 정의.
+ 문서에 등장하는 모든 기관/단체/매체의 레지스트리.
+ 본문의 orgName ref="#org-..." 가 이 목록을 참조.
+-->
+  <xs:complexType name="ListOrgType">
+    <xs:sequence>
+      <xs:element name="org" type="OrgType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--
+ BiblEntryType: <bibl> 요소 정의 (listBibl 내부용).
+ 작품/문헌의 서지 정보를 등록. title, author, note를 포함.
+-->
+  <xs:complexType name="BiblEntryType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="title" type="TitleInlineType"/>
+      <xs:element name="author" type="AuthorMixedType"/>
+      <xs:element name="note" type="NoteType"/>
+    </xs:choice>
+    <xs:attribute ref="xml:id" use="required"/>   <!-- 작품 식별자 (예: work-rain) -->
+    <xs:attribute name="type" type="BiblTypeEnum" use="optional"/>
+  </xs:complexType>
+
+  <!--
+ ListBiblType: <listBibl> 요소 정의.
+ 문서에 등장하는 모든 작품/문헌의 레지스트리.
+ 본문의 title ref="#work-..." 가 이 목록을 참조.
+-->
+  <xs:complexType name="ListBiblType">
+    <xs:sequence>
+      <xs:element name="bibl" type="BiblEntryType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--
+ EventType: <event> 요소 정의.
+ listEvent 내부에서 문학사적 사건/논쟁을 등록.
+ 담론분석에서 논쟁의 시간축과 참여자를 구조화.
+ 예: 기교주의 논쟁(1930-1931), 순수/참여 논쟁(1933-1935)
+-->
+  <xs:complexType name="EventType">
+    <xs:sequence>
+      <xs:element name="label" type="xs:string"/>                        <!-- 사건 명칭 -->
+      <xs:element name="note" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>  <!-- 사건 설명 -->
+    </xs:sequence>
+    <xs:attribute ref="xml:id" use="required"/>                          <!-- 사건 식별자 (예: evt-gigyojuui) -->
+    <xs:attribute name="type" type="xs:string" use="optional"/>          <!-- 사건 유형 (debate, movement, publication 등) -->
+    <xs:attribute name="from" type="xs:string" use="optional"/>          <!-- 시작 시점 (예: 1930) -->
+    <xs:attribute name="to" type="xs:string" use="optional"/>            <!-- 종료 시점 (예: 1931) -->
+    <xs:attribute name="when" type="xs:string" use="optional"/>          <!-- 단일 시점 (특정 날짜) -->
+  </xs:complexType>
+
+  <!--
+ ListEventType: <listEvent> 요소 정의.
+ 문서와 관련된 문학사적 사건/논쟁의 레지스트리.
+-->
+  <xs:complexType name="ListEventType">
+    <xs:sequence>
+      <xs:element name="event" type="EventType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--
+ RelationType: <relation> 요소 정의.
+ listRelation 내부에서 인물·기관 간의 관계를 명시.
+ 네트워크 분석(비평가-작가 관계, 사제관계 등)의 기초 데이터.
+-->
+  <xs:complexType name="RelationType">
+    <xs:sequence>
+      <xs:element name="note" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>  <!-- 관계 설명 -->
+    </xs:sequence>
+    <xs:attribute name="name" type="RelationTypeEnum" use="required"/>  <!-- 관계 유형 -->
+    <xs:attribute name="active" type="xs:string" use="required"/>       <!-- 관계의 주체 (예: #isni-xxx) -->
+    <xs:attribute name="passive" type="xs:string" use="optional"/>      <!-- 관계의 대상 (예: #isni-yyy) -->
+    <xs:attribute name="mutual" type="xs:string" use="optional"/>       <!-- 상호적 관계 대상들 (공백 구분) -->
+  </xs:complexType>
+
+  <!--
+ ListRelationType: <listRelation> 요소 정의.
+ 문서에 등장하는 인물·기관 간 관계의 레지스트리.
+-->
+  <xs:complexType name="ListRelationType">
+    <xs:sequence>
+      <xs:element name="relation" type="RelationType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
   <!-- ===== s / p / div 공통 타입 ===== -->
-  <!-- 
+  <!--
  SentenceType: <s> 요소 정의.
- 문장 단위 표현. 
+ 문장 단위 표현.
  mixed="true" → 단순 텍스트(문자 데이터)와 인라인 요소(persName, title 등)를 함께 허용.
  내부에 사람 이름, 작품 제목, 기관명, 용어, 인용, 해석, 주석, 참조 등 다양한 하위 요소 삽입 가능.
 -->
@@ -326,15 +479,14 @@
   <xs:complexType name="EmptyElemType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
-        <!-- 줄번호 등 필요시 -->
         <xs:attribute name="n" type="xs:string" use="optional"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  
-  <!-- 
+
+  <!--
  ParagraphType: <p> 요소 정의.
- 단락 단위 표현. 
+ 단락 단위 표현.
  mixed="true" → 일반 텍스트와 문장(<s>)를 함께 가질 수 있음.
 -->
   <xs:complexType name="ParagraphType" mixed="true">
@@ -342,9 +494,9 @@
       <xs:element name="s" type="SentenceType"/>  <!-- 문장 요소 -->
     </xs:choice>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  DivType: <div> 요소 정의.
  장(章)·절(節)·부분 등 구조적 구획을 표현.
  내부에 제목(<head>), 단락(<p>), 하위 div, 목록(<list>)을 포함할 수 있음.
@@ -353,7 +505,15 @@
 -->
   <xs:complexType name="DivType">
     <xs:sequence>
-      <xs:element name="head" type="xs:string" minOccurs="0"/> <!-- 구획 제목 -->
+      <xs:element name="head" minOccurs="0"> <!-- 구획 제목 -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:id" use="optional"/> <!-- 섹션 식별자 (예: sec-III, sec-III-1) -->
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:choice minOccurs="1" maxOccurs="unbounded">
         <xs:element name="p"   type="ParagraphType"/> <!-- 단락 -->
         <xs:element name="div" type="DivType"/>       <!-- 중첩 div -->
@@ -363,22 +523,30 @@
     <xs:attribute name="type" type="DivTypeEnum" use="optional"/> <!-- 구획 유형 -->
     <xs:attribute ref="xml:id" use="optional"/>                   <!-- 고유 식별자 -->
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  ListType: <list> 요소 정의.
- 항목들의 집합. 
+ 항목들의 집합.
  head로 목록 제목을 붙이고, item 요소들을 1개 이상 포함해야 함.
 -->
   <xs:complexType name="ListType">
     <xs:sequence>
-      <xs:element name="head" type="xs:string" minOccurs="0"/> <!-- 목록 제목 -->
+      <xs:element name="head" minOccurs="0"> <!-- 목록 제목 -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:id" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="item" type="ItemType" minOccurs="1" maxOccurs="unbounded"/> <!-- 항목 -->
     </xs:sequence>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  ItemType: <item> 요소 정의.
  목록 항목. mixed="true" → 텍스트와 인라인 요소 혼합 가능.
  예: <item n="1">작품 제목 <title>광장</title> <note type="page">p.21</note></item>
@@ -392,14 +560,22 @@
       <xs:element name="term"     type="TermType"/>       <!-- 용어 -->
       <xs:element name="note"     type="NoteType"/>       <!-- 주석 -->
       <xs:element name="list"     type="ListType"/>       <!-- 중첩 목록 -->
-      <xs:element name="head"     type="xs:string"/>      <!-- 항목 제목 -->
+      <xs:element name="head"> <!-- 항목 제목 -->
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute ref="xml:id" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
     </xs:choice>
     <xs:attribute name="n" type="xs:string" use="optional"/> <!-- 항목 번호/표시 -->
     <xs:attribute ref="xml:id" use="optional"/>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  AuthorMixedType: <author> 요소 정의.
  저자명을 기록. 텍스트와 <persName>을 섞어 사용할 수 있음.
  예: <author><persName ref="id-choi">최남선</persName>, <persName>이광수</persName></author>
@@ -409,9 +585,9 @@
       <xs:element name="persName" type="PersNameType" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  ImprintType: <imprint> 요소 정의.
  출판 관련 메타데이터 (출판지, 출판사, 출판일 등).
  <date>는 문자열과 함께 when 속성으로 기계가독 날짜 제공 가능.
@@ -431,9 +607,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  MonogrType: <monogr> 요소 정의.
  단행본(책) 단위의 서지 정보를 표현.
  제목, 저자, 발행 정보(imprint) 포함.
@@ -445,9 +621,9 @@
       <xs:element name="imprint" type="ImprintType"/>    <!-- 발행 정보 -->
     </xs:sequence>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  AnalyticType: <analytic> 요소 정의.
  책/저널 내부의 개별 글 단위 메타데이터.
  제목, 저자 정보 포함.
@@ -458,9 +634,9 @@
       <xs:element name="author" type="AuthorMixedType"/> <!-- 글 저자 -->
     </xs:sequence>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  BiblStructType: <biblStruct> 요소 정의.
  구조화된 서지 단위 (analytic + monogr).
  analytic: 개별 글(논문, 기사 등), monogr: 단행본/잡지 정보.
@@ -473,9 +649,9 @@
     </xs:sequence>
     <xs:attribute name="type" type="BiblTypeEnum" use="optional"/>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  BiblSimpleType: <bibl> 요소 정의.
  단순 서지 기록. 텍스트와 제목만 기록할 때 사용.
  type 속성으로 유형 지정 가능.
@@ -486,9 +662,9 @@
     </xs:choice>
     <xs:attribute name="type" type="BiblTypeEnum" use="optional"/>
   </xs:complexType>
-  
-  
-  <!-- 
+
+
+  <!--
  SourceDescType: <sourceDesc> 요소 정의.
  텍스트의 출처를 설명하는 메타데이터 블록.
  biblStruct(구조화된 서지) 또는 bibl(단순 서지) 중 선택.
@@ -499,36 +675,32 @@
       <xs:element name="bibl"       type="BiblSimpleType"/>
     </xs:choice>
   </xs:complexType>
-  
+
 
   <!-- ===== 상위 구조 ===== -->
   <xs:element name="TEI">
     <xs:complexType>
       <xs:sequence>
-        
+
         <!-- teiHeader (로컬)
            문서 메타데이터(서지, 출처, 인코딩 방침, 분류체계 등)를 담는 최상위 헤더 -->
         <xs:element name="teiHeader">
           <xs:complexType>
             <xs:sequence>
-              
+
               <!-- fileDesc
                  문서의 서지/출판 정보 핵심 블록: 제목, 저자, 책임표시, 출판, 출처 -->
               <xs:element name="fileDesc">
                 <xs:complexType>
                   <xs:sequence>
-                    
+
                     <!-- titleStmt
                        제목/저자/제작 책임(편집, 표점 등)을 기술 -->
                     <xs:element name="titleStmt">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="title" type="xs:string"/>
-                          <!-- author: AuthorMixedType
-                             여러 인명을 <persName>로 세분 가능(혼합 콘텐츠 허용) -->
                           <xs:element name="author" type="AuthorMixedType"/>
-                          <!-- respStmt
-                             문서 제작 관련 역할(resp)과 담당자(name) 표기 -->
                           <xs:element name="respStmt">
                             <xs:complexType>
                               <xs:sequence>
@@ -540,9 +712,8 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    
-                    <!-- publicationStmt
-                       출판/배포 관련 간단한 진술(발행사, 연도, 판본 설명 등)을 p로 기술 -->
+
+                    <!-- publicationStmt -->
                     <xs:element name="publicationStmt">
                       <xs:complexType>
                         <xs:sequence>
@@ -550,24 +721,18 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    
-                    <!-- sourceDesc
-                       텍스트의 출처 기술. 
-                       SourceDescType: biblStruct(구조 서지) 또는 bibl(단순 서지) 선택.
-                       복수 출처를 위해 1..* 허용 -->
+
+                    <!-- sourceDesc: biblStruct 또는 bibl, 복수 출처 허용 -->
                     <xs:element name="sourceDesc" type="SourceDescType" minOccurs="1" maxOccurs="unbounded"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              
-              <!-- encodingDesc
-                 편집/주석/태깅 방침(에디토리얼 폴리시, 태그 사용 내역, 분류체계)을 기술 -->
+
+              <!-- encodingDesc -->
               <xs:element name="encodingDesc">
                 <xs:complexType>
                   <xs:sequence>
-                    
-                    <!-- editorialDecl
-                       편집 원칙(철자 보존, 교정 범위, 보충 규칙 등)을 서술 -->
+
                     <xs:element name="editorialDecl">
                       <xs:complexType>
                         <xs:sequence>
@@ -575,16 +740,13 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    
-                    <!-- tagsDecl
-                       태그 사용 내역/지침. namespace 하위에 tagUsage로 빈도 등 기록 가능 -->
+
                     <xs:element name="tagsDecl">
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="namespace" minOccurs="1" maxOccurs="unbounded">
                             <xs:complexType>
                               <xs:sequence>
-                                <!-- tagUsage gi=@요소명, occurs=@사용 빈도/횟수 등 임의 표기 -->
                                 <xs:element name="tagUsage" minOccurs="0" maxOccurs="unbounded">
                                   <xs:complexType>
                                     <xs:attribute name="gi"     type="xs:string" use="required"/>
@@ -597,19 +759,13 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    
-                    <!-- classDecl
-                       분류체계(taxonomy)를 선언. 
-                       예: 사조 분류, 장르 분류, 인용 태도 분류 등 -->
+
                     <xs:element name="classDecl">
                       <xs:complexType>
                         <xs:sequence>
-                          <!-- taxonomy 1..* : 여러 분류체계 병행 가능(예: 장르 체계, 인물 역할 체계) -->
                           <xs:element name="taxonomy" minOccurs="1" maxOccurs="unbounded">
                             <xs:complexType>
                               <xs:sequence>
-                                <!-- category 1..* : 분류 항목(카테고리) 목록.
-                                   각 category는 필수 xml:id로 식별되어 @ana 등에서 참조 가능 -->
                                 <xs:element name="category" minOccurs="1" maxOccurs="unbounded">
                                   <xs:complexType>
                                     <xs:sequence>
@@ -619,84 +775,91 @@
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
-                              <!-- taxonomy 자체도 xml:id 필수 → 분류체계 단위의 식별자 제공 -->
                               <xs:attribute ref="xml:id" use="required"/>
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    
+
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              
+
+              <!-- ===== v2 신규: profileDesc =====
+                 텍스트의 비서지적 메타데이터.
+                 등장 인물, 기관, 작품, 사건, 관계 등을 레지스트리로 등록.
+                 본문의 ref="#..." 속성이 이 레지스트리의 xml:id를 참조. -->
+              <xs:element name="profileDesc" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+
+                    <!-- particDesc: 참여자(인물·기관) 기술 블록 -->
+                    <xs:element name="particDesc" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- listPerson: 등장 인물 레지스트리 (ISNI 기반 xml:id) -->
+                          <xs:element name="listPerson" type="ListPersonType" minOccurs="0"/>
+                          <!-- listOrg: 기관/단체/매체 레지스트리 -->
+                          <xs:element name="listOrg" type="ListOrgType" minOccurs="0"/>
+                          <!-- listRelation: 인물·기관 간 관계 레지스트리 (네트워크 엣지) -->
+                          <xs:element name="listRelation" type="ListRelationType" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+
+                    <!-- listBibl: 작품/문헌 레지스트리 -->
+                    <xs:element name="listBibl" type="ListBiblType" minOccurs="0"/>
+
+                    <!-- listEvent: 문학사적 사건/논쟁 레지스트리 -->
+                    <xs:element name="listEvent" type="ListEventType" minOccurs="0"/>
+
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        
 
-        <!-- ===== text (front/body/back 공통 div 구조) =====
-     TEI 본문 컨테이너. 순서는 반드시 front → body → back 이며,
-     이 중 body는 필수(1회 이상 등장)입니다.
-     ※ Validation 에러의 대부분이 body 미포함 또는 순서 위반에서 발생합니다. -->
+
+        <!-- ===== text (front/body/back) ===== -->
         <xs:element name="text">
           <xs:complexType>
             <xs:sequence>
-              
-              <!-- front: (선택) 서문·표지·목차(TOC)·서지전표 등 본문 앞머리 내용
-           - minOccurs="0": 없어도 됨
-           - 내부는 div 0..* : front 자체는 비워둘 수도 있고, 필요시 여러 div 수용
-           - 실제 콘텐츠는 <div type="contents"> 같은 구획으로 넣으세요. -->
+
+              <!-- front: (선택) 서문·표지·목차 등 -->
               <xs:element name="front" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="div" type="DivType" minOccurs="0" maxOccurs="unbounded"/>
-                    <!-- NOTE: front 바로 아래에 list/p를 두고 싶다면 DivType 안에서 head/p/list를 쓰세요.
-                       본 스키마는 front→div→(head|p|list) 구조를 전제로 합니다. -->
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              
-              <!-- body: (필수) 본문 핵심 내용
-           - 반드시 1회 이상 등장해야 하므로 누락하면 'text is not complete, body expected' 오류가 납니다.
-           - 내부는 div 1..* : 최소 한 개 이상의 구획(div)이 필요합니다. -->
+
+              <!-- body: (필수) 본문 핵심 내용, div 1개 이상 필수 -->
               <xs:element name="body">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="div" type="DivType" minOccurs="1" maxOccurs="unbounded"/>
-                    <!-- TIP: 장/절 구조는 <div type="section"> 중첩으로 표현하고,
-                     문단은 <p>, 문장은 <s> 로 세분합니다. -->
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              
-              <!-- back: (선택) 미주/부록/색인/참고문헌 등 본문 뒤꼬리 내용
-           - minOccurs="0": 없어도 됨
-           - 내부는 div 0..* : 필요시 여러 구획(div)로 나눌 수 있습니다. -->
+
+              <!-- back: (선택) 미주/부록/참고문헌 등 -->
               <xs:element name="back" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="div" type="DivType" minOccurs="0" maxOccurs="unbounded"/>
-                    <!-- 예: <div type="notes">, <div type="appendix"> 등으로 세분 가능
-                 (type 값은 DivTypeEnum 목록 중 선택) -->
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              
+
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        
-        <!-- 상위 TEI 루트의 끝단 주의:
-     - TEI 내부에서 teiHeader → text 순서를 반드시 지켜야 합니다.
-     - text를 닫기 전에 front/body/back 의 모든 닫는 태그가 정확히 일치해야 하며,
-       'XML document structures must start and end within the same entity' 오류는
-       보통 닫는 태그 누락/순서 꼬임/네임스페이스 혼재에서 발생합니다. -->
-        
+
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>
-
-
