@@ -343,6 +343,143 @@ tei-lb {
 }
 
 /* =========================================
+   칩 (인물 / 개념 배지)
+   ========================================= */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.chip-linked {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.chip-linked:hover { opacity: 0.8; text-decoration: none; }
+
+.chip-ext {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.role-critic {
+  background: #f0e8df;
+  color: #6b3e26;
+  border: 1px solid #d9c4b0;
+}
+
+.role-writer {
+  background: #deeaf5;
+  color: #1e4a72;
+  border: 1px solid #b3ceea;
+}
+
+.role-theorist {
+  background: #eae0f5;
+  color: #4a2b72;
+  border: 1px solid #c9b0e0;
+}
+
+.role-other {
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.chip-term {
+  background: var(--surface-2);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  font-weight: 400;
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* =========================================
+   Essay 메타 섹션
+   ========================================= */
+
+.essay-meta-body {
+  margin-top: 2rem;
+}
+
+.meta-section {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.75rem;
+}
+
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.work-item {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--text);
+}
+
+.work-author {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.source-badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.quote-source-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.essay-notice {
+  margin-top: 3rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface-2);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+/* =========================================
    Index 페이지 (비평글 목록)
    ========================================= */
 
