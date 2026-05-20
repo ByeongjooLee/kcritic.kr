@@ -28,6 +28,9 @@ venv/
 # Node modules (선택)
 node_modules/
 
+# 원문 포함 TEI XML — 저작권 보호, 로컬 전용
+essays/
+
 # wrangler files
 .wrangler
 .dev.vars*
