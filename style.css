@@ -798,8 +798,19 @@ tei-lb {
   font-weight: 500;
 }
 
-/* ----- Responsive ----- */
+/* =========================================
+   반응형 — 768px 이하 (모바일)
+   ========================================= */
 @media (max-width: 768px) {
+  /* 컨테이너 패딩 축소 */
+  .container { padding: 0 1rem; }
+
+  /* 헤더 */
+  .site-title { font-size: 16px; }
+  .site-nav { gap: 0.75rem; }
+  .site-nav a { font-size: 13px; }
+
+  /* 레거시 grid 레이아웃 */
   main.container {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -811,8 +822,35 @@ tei-lb {
   }
   tei-p { font-size: 16px; }
   tei-head { font-size: 20px; }
-  .site-nav { gap: 1rem; }
-  .site-nav a { font-size: 13px; }
+
+  /* ── Index 페이지 ── */
+  .index-main { padding-top: 2rem; padding-bottom: 3rem; }
+  .index-heading { font-size: 24px; }
+  .index-desc { font-size: 14px; }
+  .index-hero { margin-bottom: 2.5rem; padding-bottom: 2rem; }
+  .stat-row { gap: 1.5rem; }
+  .stat-num { font-size: 22px; }
+
+  .essay-card { padding: 1.25rem 0; }
+  .essay-card-title { font-size: 17px; }
+  .essay-card-tags { gap: 0.3rem; }
+
+  /* ── Essay 상세 페이지 ── */
+  .essay-main { padding-top: 1.75rem; padding-bottom: 3rem; }
+  .essay-article { max-width: 100%; }
+  .essay-title { font-size: 20px; }
+  .essay-header { margin-bottom: 1.75rem; padding-bottom: 1.25rem; }
+
+  .meta-section { padding: 1rem 0; }
+  .chip { font-size: 12px; padding: 3px 8px; }
+  .chip-group { gap: 0.3rem; }
+  .work-list { gap: 0.4rem 1rem; }
+  .work-item { font-size: 14px; }
+  .quote-source-list { font-size: 12px; }
+  .essay-notice { margin-top: 2rem; font-size: 12px; }
+
+  /* ── 사이트 푸터 ── */
+  .site-footer { margin-top: 2rem; font-size: 12px; }
 }
 
 /* ----- Dark mode (선택) ----- */

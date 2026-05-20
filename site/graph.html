@@ -24,6 +24,51 @@
       background: #fafaf7;
     }
 
+    /* ── 모바일 드로어 오버레이 ── */
+    #drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 50;
+    }
+    #drawer-overlay.visible { display: block; }
+
+    /* ── 모바일 드로어 ── */
+    #mobile-drawer {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.12);
+      z-index: 60;
+      max-height: 60vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    #mobile-drawer.open { transform: translateY(0); }
+
+    .drawer-handle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0 4px;
+      cursor: pointer;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      z-index: 1;
+    }
+    .drawer-handle-bar {
+      width: 36px; height: 4px;
+      background: #d0cec8;
+      border-radius: 2px;
+    }
+    #drawer-content { padding: 0.5rem 1.25rem 2rem; }
+
     /* ── 범례 ── */
     .graph-legend {
       position: absolute;
@@ -245,6 +290,25 @@
     .filter-btn.active-writer   { background: #deeaf5; color: #1e4a72; border-color: #b3ceea; }
     .filter-btn.active-theorist { background: #eae0f5; color: #4a2b72; border-color: #c9b0e0; }
     .filter-btn.active-essay    { background: #f0f0e8; color: #3a3a2a; border-color: #ccccc0; }
+
+    /* ── 모바일 (768px 이하) ── */
+    @media (max-width: 768px) {
+      /* 그래프가 화면 전체 차지, 사이드패널 숨김 */
+      .graph-layout { grid-template-columns: 1fr; }
+      #panel { display: none; }
+      #mobile-drawer { display: block; }
+
+      /* 툴바 위치 조정 */
+      .graph-toolbar { right: 0.75rem; top: 0.75rem; }
+
+      /* 필터 버튼 작게 */
+      .graph-filters { top: 0.75rem; left: 0.75rem; max-width: calc(100vw - 160px); }
+      .filter-btn { font-size: 11px; padding: 3px 9px; }
+      .toolbar-btn { font-size: 11px; padding: 5px 8px; }
+
+      /* 범례 숨김 (공간 부족) */
+      .graph-legend { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -290,7 +354,7 @@
       </div>
     </div>
 
-    <!-- 사이드패널 -->
+    <!-- 사이드패널 (데스크탑) -->
     <div id="panel">
       <div class="panel-empty">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -303,6 +367,15 @@
       </div>
       <div id="panel-content"></div>
     </div>
+  </div>
+
+  <!-- 모바일 드로어 -->
+  <div id="drawer-overlay" onclick="closeDrawer()"></div>
+  <div id="mobile-drawer">
+    <div class="drawer-handle" onclick="closeDrawer()">
+      <div class="drawer-handle-bar"></div>
+    </div>
+    <div id="drawer-content"></div>
   </div>
 
   <script>
@@ -329,6 +402,14 @@
 
   let cy;
   let activeFilters = new Set(['critic', 'writer', 'theorist', 'essay']);
+
+  // 그래프 레이아웃 높이를 헤더 실제 높이 기준으로 설정
+  function setLayoutHeight() {
+    const headerH = document.querySelector('.site-header').offsetHeight;
+    document.querySelector('.graph-layout').style.height = `calc(100vh - ${headerH}px)`;
+  }
+  setLayoutHeight();
+  window.addEventListener('resize', setLayoutHeight);
 
   fetch('data/graph.json')
     .then(r => r.json())
@@ -466,6 +547,7 @@
 
     cy.on('tap', 'node', e => showPanel(e.target, data));
     cy.on('tap', e => { if (e.target === cy) clearPanel(); });
+    cy.on('tap', e => { if (e.target === cy) closeDrawer(); });
 
     // 노드 hover
     cy.on('mouseover', 'node', e => {
@@ -601,15 +683,40 @@
         ${theoryEdges.length  ? `<div class="panel-section"><div class="panel-section-label">이론이 활용된 비평글</div>${makeEssayLinks(theoryEdges)}</div>` : ''}`;
     }
 
-    content.innerHTML = `
+    const innerHtml = `
       <span class="panel-type-badge ${badgeClass[type]}">${typeLabels[type] || type}</span>
       <div class="panel-name">${label}</div>
       ${wikidataHtml}
       ${relHtml}
     `;
 
-    empty.style.display = 'none';
-    content.classList.add('visible');
+    if (isMobile()) {
+      document.getElementById('drawer-content').innerHTML = innerHtml;
+      openDrawer();
+    } else {
+      content.innerHTML = innerHtml;
+      empty.style.display = 'none';
+      content.classList.add('visible');
+    }
+  }
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  function openDrawer() {
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    drawer.classList.add('open');
+    overlay.classList.add('visible');
+  }
+
+  function closeDrawer() {
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    drawer.classList.remove('open');
+    overlay.classList.remove('visible');
+    cy.nodes().removeClass('highlighted');
   }
 
   function clearPanel() {
