@@ -22,10 +22,10 @@
       "degree": 1
     },
     {
-      "id": "p-bergson",
-      "label": "베르그송",
+      "id": "p-hegel",
+      "label": "헤겔",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q184208",
+      "ref": "https://www.wikidata.org/wiki/Q9235",
       "degree": 1
     },
     {
@@ -36,17 +36,17 @@
       "degree": 1
     },
     {
+      "id": "p-bergson",
+      "label": "베르그송",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q184208",
+      "degree": 1
+    },
+    {
       "id": "p-whorf",
       "label": "벤자민 워프(Benjamin Whorf)",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q212577",
-      "degree": 1
-    },
-    {
-      "id": "p-hegel",
-      "label": "헤겔",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9235",
       "degree": 1
     },
     {
@@ -57,17 +57,17 @@
       "degree": 3
     },
     {
-      "id": "p-kim-jonggil",
-      "label": "김종길",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q12498536",
-      "degree": 1
-    },
-    {
       "id": "p-levi-strauss",
       "label": "레비-스트로스",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q30634",
+      "degree": 1
+    },
+    {
+      "id": "p-kim-jonggil",
+      "label": "김종길",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q12498536",
       "degree": 1
     },
     {
@@ -99,10 +99,10 @@
       "degree": 1
     },
     {
-      "id": "p-arnheim",
-      "label": "루돌프 아른하임",
+      "id": "p-kristeva",
+      "label": "줄리아 크리스테바",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q77266",
+      "ref": "https://www.wikidata.org/wiki/Q260281",
       "degree": 1
     },
     {
@@ -113,10 +113,10 @@
       "degree": 1
     },
     {
-      "id": "p-kristeva",
-      "label": "줄리아 크리스테바",
+      "id": "p-arnheim",
+      "label": "루돌프 아른하임",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q260281",
+      "ref": "https://www.wikidata.org/wiki/Q77266",
       "degree": 1
     },
     {
@@ -156,7 +156,7 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-bergson",
+      "target": "p-hegel",
       "type": "uses_theory",
       "weight": 1
     },
@@ -168,13 +168,13 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-whorf",
+      "target": "p-bergson",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-hegel",
+      "target": "p-whorf",
       "type": "uses_theory",
       "weight": 1
     },
@@ -186,13 +186,13 @@
     },
     {
       "source": "kim-uchang_politics-poetry_1979",
-      "target": "p-kim-jonggil",
+      "target": "p-levi-strauss",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_politics-poetry_1979",
-      "target": "p-levi-strauss",
+      "target": "p-kim-jonggil",
       "type": "uses_theory",
       "weight": 1
     },
@@ -222,7 +222,7 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-arnheim",
+      "target": "p-kristeva",
       "type": "uses_theory",
       "weight": 1
     },
@@ -234,7 +234,7 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-kristeva",
+      "target": "p-arnheim",
       "type": "uses_theory",
       "weight": 1
     },

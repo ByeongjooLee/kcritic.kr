@@ -297,6 +297,7 @@ def build_essay_html(stem, title, year, persons, subjects, theorists, quotes, ti
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
         <a href="../graph.html">관계망</a>
+        <a href="../../research.html">선행연구</a>
       </nav>
     </div>
   </header>
@@ -491,6 +492,7 @@ def build_critic_profile(critic_id, critic_info, essays):
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html" class="active">비평가</a>
         <a href="../graph.html">관계망</a>
+        <a href="../../research.html">선행연구</a>
       </nav>
     </div>
   </header>

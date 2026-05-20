@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선행연구 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── 선행연구 전용 레이아웃 ── */
+    .research-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+      padding-top: 3rem;
+      padding-bottom: 5rem;
+    }
+
+    /* ── 좌측 패널: 작가 목록 ── */
+    .writer-panel h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.75rem;
+    }
+
+    .writer-search {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      background: var(--surface);
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      outline: none;
+    }
+    .writer-search:focus { border-color: var(--accent); }
+
+    .writer-list {
+      list-style: none;
+      max-height: calc(100vh - 280px);
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .writer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.55rem 0.875rem;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text);
+      transition: background 0.1s;
+    }
+    .writer-item:last-child { border-bottom: none; }
+    .writer-item:hover { background: var(--accent-light); }
+    .writer-item.active {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .writer-item.has-node::after {
+      content: '●';
+      font-size: 7px;
+      color: var(--accent);
+      margin-left: 4px;
+    }
+    .writer-count {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      background: var(--surface-2);
+      padding: 1px 6px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ── 우측: 결과 영역 ── */
+    .research-main { min-width: 0; }
+
+    .research-empty {
+      padding: 4rem 0;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .result-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .result-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .result-node-link {
+      font-size: 12px;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .result-node-link:hover { background: var(--accent-light); text-decoration: none; }
+
+    /* ── 연도 분포 막대 ── */
+    .year-chart {
+      margin-bottom: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .year-chart-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.875rem;
+    }
+    .year-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 60px;
+    }
+    .year-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      flex: 1;
+      cursor: pointer;
+    }
+    .year-bar {
+      width: 100%;
+      background: var(--border);
+      border-radius: 2px 2px 0 0;
+      transition: background 0.15s;
+      min-height: 2px;
+    }
+    .year-bar-wrap:hover .year-bar,
+    .year-bar-wrap.active .year-bar { background: var(--accent); }
+    .year-bar-tick {
+      font-size: 9px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+    }
+
+    /* ── 필터 바 ── */
+    .filter-bar {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    .filter-chip {
+      font-size: 11px;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .filter-chip:hover { background: var(--surface-2); }
+    .filter-chip.active {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: #d9c4b0;
+      font-weight: 500;
+    }
+
+    /* ── 논문 목록 ── */
+    .thesis-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .thesis-item {
+      padding: 1rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .thesis-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .thesis-meta {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .thesis-year {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-variant-numeric: tabular-nums;
+      min-width: 2.5rem;
+    }
+    .thesis-author {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .thesis-institution {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+    .thesis-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+    .thesis-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .thesis-tag {
+      font-size: 11px;
+      padding: 2px 7px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-secondary);
+    }
+
+    .no-results {
+      padding: 2rem 0;
+      color: var(--text-tertiary);
+      font-size: 14px;
+    }
+
+    /* ── 모바일 ── */
+    @media (max-width: 768px) {
+      .research-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding-top: 1.5rem;
+      }
+      .writer-list { max-height: 240px; }
+      .year-bars { height: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="research.html" class="active">선행연구</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="research-layout">
+
+      <!-- 좌측: 작가 목록 -->
+      <aside class="writer-panel">
+        <h2>대상 작가</h2>
+        <input class="writer-search" type="search" placeholder="작가 이름 검색…" id="writer-search">
+        <ul class="writer-list" id="writer-list">
+          <li style="padding:1rem;color:var(--text-tertiary);font-size:13px;">불러오는 중…</li>
+        </ul>
+        <p style="margin-top:0.6rem;font-size:11px;color:var(--text-tertiary);">
+          ● 표시 = 관계망 노드와 연결됨
+        </p>
+      </aside>
+
+      <!-- 우측: 결과 -->
+      <section class="research-main" id="research-main">
+        <div class="research-empty">
+          <p>왼쪽에서 작가를 선택하면<br>관련 박사논문 목록이 표시됩니다</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>선행연구 데이터: 현대문학 박사학위논문 (2000–2020) · 비평 온톨로지 프로젝트</p>
+    </div>
+  </footer>
+
+  <script>
+  let allData = [];
+  let writerIndex = {};   // writer → [records]
+  let currentWriter = null;
+  let activeYear = null;
+  let activeGenre = null;
+
+  fetch('site/data/bibliography.json')
+    .then(r => r.json())
+    .then(data => {
+      allData = data;
+      buildWriterIndex();
+      renderWriterList();
+    })
+    .catch(() => {
+      document.getElementById('writer-list').innerHTML =
+        '<li style="padding:1rem;color:var(--text-tertiary);font-size:13px;">데이터 로드 실패. build.py 실행 후 배포 필요.</li>';
+    });
+
+  function buildWriterIndex() {
+    writerIndex = {};
+    for (const r of allData) {
+      if (!r.writer) continue;
+      if (!writerIndex[r.writer]) writerIndex[r.writer] = [];
+      writerIndex[r.writer].push(r);
+    }
+    // 각 작가 내 연도순 정렬
+    for (const w of Object.keys(writerIndex)) {
+      writerIndex[w].sort((a, b) => (a.year || 0) - (b.year || 0));
+    }
+  }
+
+  function renderWriterList(filter = '') {
+    const list = document.getElementById('writer-list');
+    const writers = Object.entries(writerIndex)
+      .filter(([w]) => !filter || w.includes(filter))
+      .sort((a, b) => b[1].length - a[1].length);  // 논문 많은 순
+
+    if (!writers.length) {
+      list.innerHTML = '<li style="padding:0.75rem 0.875rem;font-size:13px;color:var(--text-tertiary);">검색 결과 없음</li>';
+      return;
+    }
+
+    list.innerHTML = writers.map(([writer, records]) => {
+      const hasNode = records.some(r => r.writer_node_id);
+      const isActive = writer === currentWriter;
+      return `<li class="writer-item${isActive ? ' active' : ''}${hasNode ? ' has-node' : ''}"
+                  onclick="selectWriter('${writer.replace(/'/g,"\\'")}')">
+        <span>${writer}</span>
+        <span class="writer-count">${records.length}</span>
+      </li>`;
+    }).join('');
+  }
+
+  document.getElementById('writer-search').addEventListener('input', e => {
+    renderWriterList(e.target.value.trim());
+  });
+
+  function selectWriter(writer) {
+    currentWriter = writer;
+    activeYear = null;
+    activeGenre = null;
+    renderWriterList(document.getElementById('writer-search').value.trim());
+    renderResults();
+  }
+
+  function renderResults() {
+    const main = document.getElementById('research-main');
+    const records = writerIndex[currentWriter] || [];
+    if (!records.length) {
+      main.innerHTML = '<div class="research-empty"><p>해당 작가 논문 없음</p></div>';
+      return;
+    }
+
+    // 연결된 노드 ID
+    const nodeId = records.find(r => r.writer_node_id)?.writer_node_id;
+    const nodeLink = nodeId
+      ? `<a href="site/graph.html" class="result-node-link">관계망에서 보기 →</a>`
+      : '';
+
+    // 연도 분포
+    const yearMap = {};
+    for (const r of records) {
+      if (r.year) yearMap[r.year] = (yearMap[r.year] || 0) + 1;
+    }
+    const years = Object.keys(yearMap).map(Number).sort((a, b) => a - b);
+    const maxCount = Math.max(...Object.values(yearMap), 1);
+    const yearBars = years.map(y => {
+      const cnt = yearMap[y];
+      const h = Math.max(4, Math.round((cnt / maxCount) * 60));
+      const isActive = activeYear === y;
+      return `<div class="year-bar-wrap${isActive ? ' active' : ''}" onclick="filterByYear(${y})" title="${y}년 ${cnt}건">
+        <div class="year-bar" style="height:${h}px"></div>
+        <span class="year-bar-tick">${String(y).slice(2)}</span>
+      </div>`;
+    }).join('');
+
+    // 장르 필터
+    const genres = [...new Set(records.map(r => r.genre).filter(Boolean))].sort();
+    const genreChips = genres.map(g =>
+      `<span class="filter-chip${activeGenre === g ? ' active' : ''}" onclick="filterByGenre('${g}')">${g}</span>`
+    ).join('');
+
+    // 논문 목록 필터링
+    let filtered = records;
+    if (activeYear) filtered = filtered.filter(r => r.year === activeYear);
+    if (activeGenre) filtered = filtered.filter(r => r.genre === activeGenre);
+
+    const thesisList = filtered.length
+      ? filtered.map(r => {
+          const tags = r.keywords.slice(0, 5).map(k =>
+            `<span class="thesis-tag">${k}</span>`).join('');
+          const subj = [r.subject1, r.subject2].filter(Boolean).join(' › ');
+          return `<div class="thesis-item">
+            <div class="thesis-meta">
+              <span class="thesis-year">${r.year || '—'}</span>
+              <span class="thesis-author">${r.author}</span>
+              <span class="thesis-institution">${r.institution}</span>
+              ${subj ? `<span class="thesis-tag">${subj}</span>` : ''}
+            </div>
+            <div class="thesis-title">『${r.title}』</div>
+            ${tags ? `<div class="thesis-tags">${tags}</div>` : ''}
+          </div>`;
+        }).join('')
+      : '<div class="no-results">해당 조건의 논문이 없습니다.</div>';
+
+    const activeLabel = [
+      activeYear ? `${activeYear}년` : '',
+      activeGenre ? activeGenre : '',
+    ].filter(Boolean).join(' · ');
+
+    main.innerHTML = `
+      <div class="result-header">
+        <div>
+          <div class="result-title">${currentWriter}</div>
+          <div class="result-meta">
+            박사논문 ${records.length}건
+            ${activeLabel ? ` <span style="color:var(--accent)">/ ${activeLabel} 필터 적용</span>` : ''}
+            ${activeLabel ? `<button onclick="clearFilters()" style="margin-left:0.5rem;font-size:11px;border:none;background:none;color:var(--text-tertiary);cursor:pointer;">× 초기화</button>` : ''}
+          </div>
+        </div>
+        ${nodeLink}
+      </div>
+
+      <div class="year-chart">
+        <div class="year-chart-label">연도별 논문 수</div>
+        <div class="year-bars">${yearBars}</div>
+      </div>
+
+      ${genreChips ? `<div class="filter-bar">${genreChips}</div>` : ''}
+
+      <div class="thesis-list">${thesisList}</div>
+    `;
+  }
+
+  function filterByYear(year) {
+    activeYear = activeYear === year ? null : year;
+    renderResults();
+  }
+
+  function filterByGenre(genre) {
+    activeGenre = activeGenre === genre ? null : genre;
+    renderResults();
+  }
+
+  function clearFilters() {
+    activeYear = null;
+    activeGenre = null;
+    renderResults();
+  }
+  </script>
+</body>
+</html>
