@@ -342,6 +342,325 @@ tei-lb {
   text-align: center;
 }
 
+/* =========================================
+   Index 페이지 (비평글 목록)
+   ========================================= */
+
+.index-main {
+  display: block;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+
+.index-hero {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3rem;
+}
+
+.index-heading {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.index-desc {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 2rem;
+}
+
+.stat-row {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 1.5rem;
+}
+
+.essay-grid {
+  margin-bottom: 4rem;
+}
+
+.essay-card {
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--border);
+}
+.essay-card:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.essay-card-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.essay-card-year {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.essay-card-author {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.essay-card-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.essay-card-title a {
+  color: var(--text);
+}
+
+.essay-card-title a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.essay-card-source {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.essay-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.about-section {
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem;
+  max-width: 640px;
+}
+
+.about-section p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+/* =========================================
+   Essay 페이지 (개별 비평글)
+   ========================================= */
+
+.essay-main {
+  display: block;
+  max-width: 800px;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.essay-article {
+  max-width: 680px;
+}
+
+.essay-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.essay-byline {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.essay-author {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.essay-year {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.essay-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+
+.source-list {
+  list-style: none;
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.source-type {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ----- Essay body (HTML 변환 버전) ----- */
+
+.essay-body {
+  font-family: var(--font-serif);
+}
+
+.essay-body .tei-div {
+  margin: 2.5rem 0;
+}
+
+.essay-body .section-head {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+.essay-body p {
+  margin-bottom: 1.25rem;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+/* persName 인물 */
+.essay-body .tei-persname {
+  font-weight: 500;
+  border-bottom: 1px dotted var(--border-strong);
+  cursor: default;
+}
+.essay-body .tei-persname:hover {
+  background: var(--accent-light);
+}
+.essay-body .tei-persname[data-role~="critic"] { color: var(--accent); }
+.essay-body .tei-persname[data-role~="poet"] { color: #2d4a6a; }
+.essay-body .tei-persname[data-role~="foreigner"] { color: #5d4a2a; }
+
+/* title 작품 제목 */
+.essay-body .tei-title {
+  font-style: normal;
+  font-family: var(--font-serif);
+}
+
+/* interp 평가 */
+.essay-body .tei-interp {
+  padding: 0 3px;
+  border-radius: 2px;
+}
+.essay-body .tei-interp-affirmative {
+  background: rgba(45, 106, 62, 0.08);
+  border-bottom: 2px solid var(--affirmative);
+}
+.essay-body .tei-interp-critical {
+  background: rgba(163, 50, 50, 0.08);
+  border-bottom: 2px solid var(--critical);
+}
+.essay-body .tei-interp-neutral {
+  background: rgba(74, 93, 138, 0.08);
+  border-bottom: 2px solid var(--neutral);
+}
+
+/* term 개념 */
+.essay-body .tei-term {
+  background: var(--surface-2);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.95em;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* quote 인용 */
+.essay-body .tei-quote {
+  display: block;
+  margin: 1.5rem 0 1.5rem 1.5rem;
+  padding: 1.25rem 1.75rem;
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.essay-body .tei-quote p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.essay-body .quote-source {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+}
+
+/* nav에 active 표시 */
+.site-nav a.active {
+  color: var(--text);
+  font-weight: 500;
+}
+
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
   main.container {

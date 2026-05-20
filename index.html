@@ -7,88 +7,96 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/gh/TEIC/CETEIcean@master/CETEI.js"></script>
 </head>
 <body>
-
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
-        <a href="#">비평글</a>
-        <a href="#">비평가</a>
-        <a href="#">이론가</a>
-        <a href="#">그래프</a>
+        <a href="index.html" class="active">비평글</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container index-main">
+    <section class="index-hero">
+      <h1 class="index-heading">한국 비평사 온톨로지</h1>
+      <p class="index-desc">비평가 / 작가 / 이론가 / 비평글의 관계망 — TEI XML 기반 디지털 아카이브</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평가</span></div>
+        <div class="stat"><span class="stat-num">30+</span><span class="stat-label">인물 노드</span></div>
+      </div>
+    </section>
 
-    <aside class="essay-list">
-      <h2>비평글 목록</h2>
-      <ul>
-        <li><a href="?essay=kim-uchang_yun-dongju_1985" class="active">김우창 — 윤동주의 시와 근대적 자아 (1985)</a></li>
-        <li class="muted">새 비평글을 essays/ 폴더에 추가하면 여기 자동으로 나옵니다</li>
-      </ul>
-    </aside>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글</h2>
 
-    <article id="tei-viewer">
-      <p class="loading">비평글을 불러오는 중...</p>
-    </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1979</span>
+          <span class="essay-card-author">김우창</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="site/essays/kim-uchang_politics-poetry_1979.html">시와 정치 — 한국 현대 시의 한 측면에 대한 고찰</a>
+        </h3>
+        <p class="essay-card-source">《세계의 문학》 제14호, 민음사, 1979년 겨울호</p>
+        <div class="essay-card-tags">
+          <span class="tag">식민지 저항시</span>
+          <span class="tag">정치와 시</span>
+          <span class="tag">한용운</span>
+          <span class="tag">윤동주</span>
+          <span class="tag">이육사</span>
+        </div>
+      </article>
 
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1981</span>
+          <span class="essay-card-author">김우창</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="site/essays/kim-uchang_language-things_1981.html">시의 언어와 사물의 의미</a>
+        </h3>
+        <p class="essay-card-source">《시인의 보석 — 김우창전집 3》, 민음사, 1993</p>
+        <div class="essay-card-tags">
+          <span class="tag">언어와 사물</span>
+          <span class="tag">프로이트</span>
+          <span class="tag">라캉</span>
+          <span class="tag">정지용</span>
+          <span class="tag">수사학</span>
+        </div>
+      </article>
+
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1992</span>
+          <span class="essay-card-author">김우창</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="site/essays/kim-uchang_preface_1992.html">어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여</a>
+        </h3>
+        <p class="essay-card-source">《외국문학》 제33호, 열음사, 1992년 겨울호</p>
+        <div class="essay-card-tags">
+          <span class="tag">시의 근원</span>
+          <span class="tag">크리스테바</span>
+          <span class="tag">코라</span>
+          <span class="tag">변영로</span>
+          <span class="tag">김현승</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="about-section">
+      <h2 class="section-label">프로젝트 소개</h2>
+      <p>이 사이트는 한국 비평사의 주요 비평글을 TEI XML로 인코딩하고, 비평가·작가·이론가 사이의 관계망을 구조화하는 디지털 아카이브입니다. 각 비평글에는 인용된 작품, 언급된 인물, 핵심 개념, 비평 태도가 마크업되어 있습니다.</p>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>이 사이트는 <a href="https://tei-c.org">TEI</a> 표준과 <a href="https://github.com/TEIC/CETEIcean">CETEIcean</a>으로 렌더링됩니다.</p>
+      <p>비평 온톨로지 프로젝트 · TEI XML · Wikidata · 국립중앙도서관 LOD</p>
     </div>
   </footer>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const essayId = params.get('essay') || 'kim-uchang_yun-dongju_1985';
-    const xmlPath = `essays/${essayId}.xml`;
-
-    const c = new CETEI();
-
-    c.addBehaviors({
-      "tei": {
-        "persName": function(elt) {
-          const ref = elt.getAttribute("ref");
-          if (ref && ref.startsWith("http")) {
-            elt.setAttribute("title", `참조: ${ref}`);
-            elt.style.cursor = "help";
-          }
-        },
-        "title": function(elt) {
-          const ref = elt.getAttribute("ref");
-          if (ref && ref.startsWith("http")) {
-            elt.setAttribute("title", `참조: ${ref}`);
-          }
-        }
-      }
-    });
-
-    c.getHTML5(xmlPath, function(data) {
-      const viewer = document.getElementById("tei-viewer");
-      viewer.innerHTML = "";
-      viewer.appendChild(data);
-    });
-
-    window.addEventListener("error", function(e) {
-      const viewer = document.getElementById("tei-viewer");
-      if (viewer.querySelector(".loading")) {
-        viewer.innerHTML = `
-          <div class="error">
-            <h2>TEI 파일을 불러올 수 없습니다</h2>
-            <p>로컬에서 보고 계시면 VS Code의 <strong>Live Server</strong> 확장을 사용해주세요. file:// 프로토콜에서는 XML 파일 접근이 차단됩니다.</p>
-            <p>경로: <code>${xmlPath}</code></p>
-          </div>
-        `;
-      }
-    });
-  </script>
-
 </body>
 </html>
