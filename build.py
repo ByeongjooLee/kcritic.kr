@@ -337,9 +337,9 @@ def build_essay_html(stem, title, year, persons, subjects, theorists, quotes, ti
 # ── 전체 그래프 데이터 생성 ──────────────────────────────────
 
 def build_graph_data(all_essays):
-    """모든 비평글에서 노드/엣지 추출."""
+    """모든 비평글에서 노드/엣지 추출. 엣지 weight = 같은 source→target 쌍 등장 횟수."""
     nodes = {}
-    edges = []
+    raw_edges = []
 
     for essay in all_essays:
         stem = essay["stem"]
@@ -357,7 +357,7 @@ def build_graph_data(all_essays):
         if author_id and author_id in persons:
             p = persons[author_id]
             nodes[author_id] = {"id": author_id, "label": p["name"], "type": "critic", "ref": p.get("ref", "")}
-            edges.append({"source": author_id, "target": stem, "type": "wrote"})
+            raw_edges.append((author_id, stem, "wrote"))
 
         # 대상 작가 노드
         for pid in subjects:
@@ -365,7 +365,7 @@ def build_graph_data(all_essays):
                 p = persons[pid]
                 if pid not in nodes:
                     nodes[pid] = {"id": pid, "label": p["name"], "type": "writer", "ref": p.get("ref", "")}
-                edges.append({"source": stem, "target": pid, "type": "subject_of"})
+                raw_edges.append((stem, pid, "subject_of"))
 
         # 이론가 노드
         for pid in theorists:
@@ -373,9 +373,30 @@ def build_graph_data(all_essays):
                 p = persons[pid]
                 if pid not in nodes:
                     nodes[pid] = {"id": pid, "label": p["name"], "type": "theorist", "ref": p.get("ref", "")}
-                edges.append({"source": stem, "target": pid, "type": "uses_theory"})
+                raw_edges.append((stem, pid, "uses_theory"))
 
-    return {"nodes": list(nodes.values()), "edges": edges}
+    # 엣지 weight 집계 (같은 source→target→type 쌍이 여러 비평글에서 반복될 때 가중치 증가)
+    edge_counts = defaultdict(int)
+    for src, tgt, etype in raw_edges:
+        edge_counts[(src, tgt, etype)] += 1
+
+    edges = [
+        {"source": src, "target": tgt, "type": etype, "weight": cnt}
+        for (src, tgt, etype), cnt in edge_counts.items()
+    ]
+
+    # 노드 degree (연결된 엣지 수 합산, weight 반영)
+    degree = defaultdict(int)
+    for (src, tgt, etype), cnt in edge_counts.items():
+        degree[src] += cnt
+        degree[tgt] += cnt
+
+    node_list = []
+    for nid, n in nodes.items():
+        n["degree"] = degree.get(nid, 0)
+        node_list.append(n)
+
+    return {"nodes": node_list, "edges": edges}
 
 
 # ── 메인 ─────────────────────────────────────────────────────

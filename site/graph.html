@@ -338,8 +338,19 @@
   function initGraph(data) {
     const elements = [];
 
+    // 노드 크기 스케일링: degree 기반, 최소 56 최대 120 (essay는 별도)
+    const degrees = data.nodes.map(n => n.degree || 0);
+    const maxDeg = Math.max(...degrees, 1);
+
+    function nodeSize(n) {
+      if (n.type === 'essay') return null; // essay는 고정 (아래 selector에서 처리)
+      const deg = n.degree || 0;
+      return 56 + Math.round((deg / maxDeg) * 64);
+    }
+
     data.nodes.forEach(n => {
       const c = NODE_COLORS[n.type] || NODE_COLORS.essay;
+      const sz = nodeSize(n);
       elements.push({
         data: {
           id: n.id,
@@ -347,20 +358,30 @@
           type: n.type,
           year: n.year || '',
           ref: n.ref || '',
+          degree: n.degree || 0,
           bg: c.bg,
           border: c.border,
           textColor: c.text,
+          nodeSize: sz,
         }
       });
     });
 
+    // 엣지 굵기 스케일링: weight 기반, 최소 1.5 최대 6
+    const weights = data.edges.map(e => e.weight || 1);
+    const maxW = Math.max(...weights, 1);
+
     data.edges.forEach((e, i) => {
+      const w = e.weight || 1;
+      const width = 1.5 + ((w - 1) / maxW) * 4.5;
       elements.push({
         data: {
           id: `e${i}`,
           source: e.source,
           target: e.target,
           type: e.type,
+          weight: w,
+          edgeWidth: width,
           color: EDGE_COLORS[e.type] || '#aaa',
           label: EDGE_LABELS[e.type] || e.type,
         }
@@ -385,8 +406,8 @@
             'text-max-width': 90,
             'text-valign': 'center',
             'text-halign': 'center',
-            'width': 72,
-            'height': 72,
+            'width': 'data(nodeSize)',
+            'height': 'data(nodeSize)',
             'text-outline-color': 'data(bg)',
             'text-outline-width': 2,
             'transition-property': 'border-width, border-color, background-color',
@@ -422,7 +443,7 @@
             'target-arrow-color': 'data(color)',
             'target-arrow-shape': 'triangle',
             'curve-style': 'bezier',
-            'width': 1.5,
+            'width': 'data(edgeWidth)',
             'opacity': 0.7,
             'transition-property': 'opacity',
             'transition-duration': '0.15s',
