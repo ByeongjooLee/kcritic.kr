@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관계망 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+  <style>
+    body { overflow: hidden; }
+
+    .graph-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      height: calc(100vh - 57px); /* header 높이 제외 */
+    }
+
+    /* ── 그래프 캔버스 ── */
+    #cy {
+      width: 100%;
+      height: 100%;
+      background: #fafaf7;
+    }
+
+    /* ── 범례 ── */
+    .graph-legend {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #e6e4dc;
+      border-radius: 8px;
+      padding: 0.875rem 1rem;
+      font-size: 12px;
+      color: #5f5e5a;
+      backdrop-filter: blur(4px);
+      z-index: 10;
+    }
+    .graph-legend strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #95938c;
+      margin-bottom: 0.5rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 4px 0;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-rect {
+      width: 14px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .legend-line {
+      width: 20px;
+      height: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── 사이드패널 ── */
+    #panel {
+      background: #fff;
+      border-left: 1px solid #e6e4dc;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-empty {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      color: #95938c;
+    }
+    .panel-empty svg {
+      opacity: 0.25;
+      margin-bottom: 1rem;
+    }
+    .panel-empty p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    #panel-content {
+      padding: 1.5rem;
+      display: none;
+    }
+    #panel-content.visible { display: block; }
+
+    .panel-type-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .badge-critic   { background: #f0e8df; color: #6b3e26; }
+    .badge-writer   { background: #deeaf5; color: #1e4a72; }
+    .badge-theorist { background: #eae0f5; color: #4a2b72; }
+    .badge-essay    { background: #f0f0e8; color: #3a3a2a; }
+
+    .panel-name {
+      font-family: "Noto Serif KR", Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      color: #1c1c1a;
+    }
+
+    .panel-wikidata {
+      font-size: 12px;
+      color: #95938c;
+      margin-bottom: 1.25rem;
+    }
+    .panel-wikidata a {
+      color: #6b3e26;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .panel-section {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #e6e4dc;
+    }
+    .panel-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #95938c;
+      margin-bottom: 0.6rem;
+    }
+    .panel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .panel-list li {
+      font-size: 13px;
+      color: #1c1c1a;
+      line-height: 1.5;
+    }
+    .panel-list a {
+      color: #6b3e26;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .panel-list a:hover { text-decoration: underline; }
+
+    .panel-essay-link {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      background: #fafaf7;
+      border: 1px solid #e6e4dc;
+      border-radius: 5px;
+      font-size: 13px;
+      color: #1c1c1a;
+      text-decoration: none;
+      line-height: 1.45;
+      transition: background 0.1s;
+    }
+    .panel-essay-link:hover {
+      background: #f0e8df;
+      border-color: #d9c4b0;
+      text-decoration: none;
+    }
+    .panel-essay-year {
+      font-size: 11px;
+      color: #95938c;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── 툴바 ── */
+    .graph-toolbar {
+      position: absolute;
+      top: 1rem;
+      right: 316px;
+      display: flex;
+      gap: 0.4rem;
+      z-index: 10;
+    }
+    .toolbar-btn {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #e6e4dc;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: #5f5e5a;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.1s;
+    }
+    .toolbar-btn:hover { background: #f0e8df; color: #6b3e26; border-color: #d9c4b0; }
+    .toolbar-btn.active { background: #f0e8df; color: #6b3e26; border-color: #d9c4b0; font-weight: 500; }
+
+    /* ── 필터 ── */
+    .graph-filters {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: flex;
+      gap: 0.4rem;
+      z-index: 10;
+      flex-wrap: wrap;
+      max-width: 400px;
+    }
+    .filter-btn {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid #e6e4dc;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: #5f5e5a;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: all 0.1s;
+    }
+    .filter-btn:hover { background: #f0f0e8; }
+    .filter-btn.active-critic   { background: #f0e8df; color: #6b3e26; border-color: #d9c4b0; }
+    .filter-btn.active-writer   { background: #deeaf5; color: #1e4a72; border-color: #b3ceea; }
+    .filter-btn.active-theorist { background: #eae0f5; color: #4a2b72; border-color: #c9b0e0; }
+    .filter-btn.active-essay    { background: #f0f0e8; color: #3a3a2a; border-color: #ccccc0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../index.html">비평글</a>
+        <a href="graph.html" class="active">관계망</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="graph-layout" style="position:relative;">
+    <div style="position:relative; overflow:hidden;">
+      <div id="cy"></div>
+
+      <!-- 필터 -->
+      <div class="graph-filters">
+        <button class="filter-btn active-critic" data-type="critic" onclick="toggleFilter(this)">비평가</button>
+        <button class="filter-btn active-writer" data-type="writer" onclick="toggleFilter(this)">작가</button>
+        <button class="filter-btn active-theorist" data-type="theorist" onclick="toggleFilter(this)">이론가</button>
+        <button class="filter-btn active-essay" data-type="essay" onclick="toggleFilter(this)">비평글</button>
+      </div>
+
+      <!-- 툴바 -->
+      <div class="graph-toolbar">
+        <button class="toolbar-btn" onclick="cy.fit()">전체 보기</button>
+        <button class="toolbar-btn" onclick="resetLayout()">레이아웃 초기화</button>
+      </div>
+
+      <!-- 범례 -->
+      <div class="graph-legend">
+        <strong>노드 유형</strong>
+        <div class="legend-item"><div class="legend-dot" style="background:#c9986a;"></div> 비평가</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#6a9bc9;"></div> 작가</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#9a7ac9;"></div> 이론가</div>
+        <div class="legend-item"><div class="legend-rect" style="background:#b8b89a;"></div> 비평글</div>
+        <strong style="margin-top:0.75rem;">엣지 유형</strong>
+        <div class="legend-item"><div class="legend-line" style="background:#c9986a;"></div> 집필</div>
+        <div class="legend-item"><div class="legend-line" style="background:#6a9bc9;"></div> 비평 대상</div>
+        <div class="legend-item"><div class="legend-line" style="background:#9a7ac9;"></div> 이론 활용</div>
+      </div>
+    </div>
+
+    <!-- 사이드패널 -->
+    <div id="panel">
+      <div class="panel-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/>
+          <circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/>
+          <line x1="6" y1="6.5" x2="10" y2="11"/><line x1="18" y1="6.5" x2="14" y2="11"/>
+          <line x1="6" y1="17.5" x2="10" y2="13"/><line x1="18" y1="17.5" x2="14" y2="13"/>
+        </svg>
+        <p>노드를 클릭하면<br>상세 정보가 표시됩니다</p>
+      </div>
+      <div id="panel-content"></div>
+    </div>
+  </div>
+
+  <script>
+  // ── 데이터 로드 및 그래프 초기화 ──────────────────────────
+
+  const NODE_COLORS = {
+    critic:   { bg: '#c9986a', border: '#a07040', text: '#fff' },
+    writer:   { bg: '#6a9bc9', border: '#3a6a99', text: '#fff' },
+    theorist: { bg: '#9a7ac9', border: '#6a4a99', text: '#fff' },
+    essay:    { bg: '#c8c8a8', border: '#989870', text: '#3a3a2a' },
+  };
+
+  const EDGE_COLORS = {
+    wrote:        '#c9986a',
+    subject_of:   '#6a9bc9',
+    uses_theory:  '#9a7ac9',
+  };
+
+  const EDGE_LABELS = {
+    wrote:       '집필',
+    subject_of:  '비평 대상',
+    uses_theory: '이론 활용',
+  };
+
+  let cy;
+  let activeFilters = new Set(['critic', 'writer', 'theorist', 'essay']);
+
+  fetch('data/graph.json')
+    .then(r => r.json())
+    .then(data => initGraph(data))
+    .catch(e => console.error('graph.json 로드 실패:', e));
+
+  function initGraph(data) {
+    const elements = [];
+
+    data.nodes.forEach(n => {
+      const c = NODE_COLORS[n.type] || NODE_COLORS.essay;
+      elements.push({
+        data: {
+          id: n.id,
+          label: n.label,
+          type: n.type,
+          year: n.year || '',
+          ref: n.ref || '',
+          bg: c.bg,
+          border: c.border,
+          textColor: c.text,
+        }
+      });
+    });
+
+    data.edges.forEach((e, i) => {
+      elements.push({
+        data: {
+          id: `e${i}`,
+          source: e.source,
+          target: e.target,
+          type: e.type,
+          color: EDGE_COLORS[e.type] || '#aaa',
+          label: EDGE_LABELS[e.type] || e.type,
+        }
+      });
+    });
+
+    cy = cytoscape({
+      container: document.getElementById('cy'),
+      elements,
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'background-color': 'data(bg)',
+            'border-color': 'data(border)',
+            'border-width': 2,
+            'label': 'data(label)',
+            'color': 'data(textColor)',
+            'font-family': 'Pretendard, sans-serif',
+            'font-size': 11,
+            'text-wrap': 'wrap',
+            'text-max-width': 90,
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'width': 72,
+            'height': 72,
+            'text-outline-color': 'data(bg)',
+            'text-outline-width': 2,
+            'transition-property': 'border-width, border-color, background-color',
+            'transition-duration': '0.15s',
+          }
+        },
+        {
+          selector: 'node[type="essay"]',
+          style: {
+            'shape': 'round-rectangle',
+            'width': 110,
+            'height': 56,
+            'font-size': 10,
+            'text-max-width': 100,
+          }
+        },
+        {
+          selector: 'node:selected, node.highlighted',
+          style: {
+            'border-width': 4,
+            'border-color': '#6b3e26',
+            'background-color': 'data(bg)',
+          }
+        },
+        {
+          selector: 'node.faded',
+          style: { 'opacity': 0.2 }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'line-color': 'data(color)',
+            'target-arrow-color': 'data(color)',
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier',
+            'width': 1.5,
+            'opacity': 0.7,
+            'transition-property': 'opacity',
+            'transition-duration': '0.15s',
+          }
+        },
+        {
+          selector: 'edge.faded',
+          style: { 'opacity': 0.05 }
+        },
+        {
+          selector: 'edge.highlighted',
+          style: { 'width': 3, 'opacity': 1 }
+        },
+      ],
+      layout: getLayout(),
+      userZoomingEnabled: true,
+      userPanningEnabled: true,
+      boxSelectionEnabled: false,
+    });
+
+    cy.on('tap', 'node', e => showPanel(e.target, data));
+    cy.on('tap', e => { if (e.target === cy) clearPanel(); });
+
+    // 노드 hover
+    cy.on('mouseover', 'node', e => {
+      const n = e.target;
+      cy.elements().addClass('faded');
+      n.removeClass('faded');
+      n.connectedEdges().removeClass('faded').addClass('highlighted');
+      n.connectedEdges().connectedNodes().removeClass('faded');
+    });
+    cy.on('mouseout', 'node', () => {
+      cy.elements().removeClass('faded highlighted');
+    });
+  }
+
+  function getLayout() {
+    return {
+      name: 'cose',
+      animate: true,
+      animationDuration: 600,
+      nodeRepulsion: () => 6000,
+      edgeElasticity: () => 80,
+      idealEdgeLength: () => 120,
+      gravity: 1,
+      numIter: 1000,
+      fit: true,
+      padding: 40,
+    };
+  }
+
+  function resetLayout() {
+    cy.layout(getLayout()).run();
+  }
+
+  // ── 필터 ──────────────────────────────────────────────────
+
+  function toggleFilter(btn) {
+    const type = btn.dataset.type;
+    if (activeFilters.has(type)) {
+      activeFilters.delete(type);
+      btn.classList.remove(`active-${type}`);
+    } else {
+      activeFilters.add(type);
+      btn.classList.add(`active-${type}`);
+    }
+    applyFilter();
+  }
+
+  function applyFilter() {
+    cy.nodes().forEach(n => {
+      if (activeFilters.has(n.data('type'))) {
+        n.style('display', 'element');
+      } else {
+        n.style('display', 'none');
+      }
+    });
+    cy.edges().forEach(e => {
+      const srcVisible = activeFilters.has(e.source().data('type'));
+      const tgtVisible = activeFilters.has(e.target().data('type'));
+      e.style('display', srcVisible && tgtVisible ? 'element' : 'none');
+    });
+  }
+
+  // ── 사이드패널 ────────────────────────────────────────────
+
+  function showPanel(node, data) {
+    cy.nodes().removeClass('highlighted');
+    node.addClass('highlighted');
+
+    const id = node.data('id');
+    const type = node.data('type');
+    const label = node.data('label');
+    const year = node.data('year');
+    const ref = node.data('ref');
+
+    const content = document.getElementById('panel-content');
+    const empty = document.querySelector('.panel-empty');
+
+    const typeLabels = { critic: '비평가', writer: '작가', theorist: '이론가 / 사상가', essay: '비평글' };
+    const badgeClass = { critic: 'badge-critic', writer: 'badge-writer', theorist: 'badge-theorist', essay: 'badge-essay' };
+
+    let wikidataHtml = '';
+    if (ref && ref.includes('wikidata')) {
+      wikidataHtml = `<div class="panel-wikidata"><a href="${ref}" target="_blank">Wikidata ↗</a></div>`;
+    }
+
+    let relHtml = '';
+
+    if (type === 'essay') {
+      // 비평글: 비평가, 대상, 이론가 표시
+      const wrote = data.edges.filter(e => e.target === id && e.type === 'wrote');
+      const subjects = data.edges.filter(e => e.source === id && e.type === 'subject_of');
+      const theories = data.edges.filter(e => e.source === id && e.type === 'uses_theory');
+      const nodeMap = Object.fromEntries(data.nodes.map(n => [n.id, n]));
+
+      const criList = wrote.map(e => `<li>${nodeMap[e.source]?.label || e.source}</li>`).join('');
+      const subList = subjects.map(e => `<li>${nodeMap[e.target]?.label || e.target}</li>`).join('');
+      const thList = theories.map(e => `<li>${nodeMap[e.target]?.label || e.target}</li>`).join('');
+
+      relHtml = `
+        ${criList ? `<div class="panel-section"><div class="panel-section-label">비평가</div><ul class="panel-list">${criList}</ul></div>` : ''}
+        ${subList ? `<div class="panel-section"><div class="panel-section-label">비평 대상</div><ul class="panel-list">${subList}</ul></div>` : ''}
+        ${thList  ? `<div class="panel-section"><div class="panel-section-label">활용 이론가</div><ul class="panel-list">${thList}</ul></div>` : ''}
+        <div class="panel-section">
+          <a href="essays/${id}.html" class="panel-essay-link">
+            <span class="panel-essay-year">${year}</span>
+            구조화 데이터 페이지 보기 →
+          </a>
+        </div>`;
+    } else {
+      // 인물: 관련 비평글 표시
+      const nodeMap = Object.fromEntries(data.nodes.map(n => [n.id, n]));
+
+      // 집필한 비평글 (비평가인 경우)
+      const wroteEdges = data.edges.filter(e => e.source === id && e.type === 'wrote');
+      // 비평 대상이 된 비평글 (작가인 경우)
+      const subjectEdges = data.edges.filter(e => e.target === id && e.type === 'subject_of');
+      // 이론이 활용된 비평글 (이론가인 경우)
+      const theoryEdges = data.edges.filter(e => e.target === id && e.type === 'uses_theory');
+
+      const makeEssayLinks = edges => edges.map(e => {
+        const essayId = e.source === id ? e.target : e.source;
+        const essay = nodeMap[essayId];
+        if (!essay) return '';
+        return `<a href="essays/${essayId}.html" class="panel-essay-link">
+          <span class="panel-essay-year">${essay.year || ''}</span>
+          ${essay.label}
+        </a>`;
+      }).join('');
+
+      relHtml = `
+        ${wroteEdges.length  ? `<div class="panel-section"><div class="panel-section-label">집필한 비평글</div>${makeEssayLinks(wroteEdges)}</div>` : ''}
+        ${subjectEdges.length ? `<div class="panel-section"><div class="panel-section-label">비평 대상이 된 비평글</div>${makeEssayLinks(subjectEdges)}</div>` : ''}
+        ${theoryEdges.length  ? `<div class="panel-section"><div class="panel-section-label">이론이 활용된 비평글</div>${makeEssayLinks(theoryEdges)}</div>` : ''}`;
+    }
+
+    content.innerHTML = `
+      <span class="panel-type-badge ${badgeClass[type]}">${typeLabels[type] || type}</span>
+      <div class="panel-name">${label}</div>
+      ${wikidataHtml}
+      ${relHtml}
+    `;
+
+    empty.style.display = 'none';
+    content.classList.add('visible');
+  }
+
+  function clearPanel() {
+    cy.nodes().removeClass('highlighted');
+    document.querySelector('.panel-empty').style.display = 'flex';
+    const content = document.getElementById('panel-content');
+    content.classList.remove('visible');
+    content.innerHTML = '';
+  }
+  </script>
+</body>
+</html>
