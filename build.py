@@ -134,6 +134,7 @@ def extract_sources(root):
         pub_el = monogr.find(f"{tns('imprint')}/{tns('publisher')}")
         date_el = monogr.find(f"{tns('imprint')}/{tns('date')}")
         place_el = monogr.find(f"{tns('imprint')}/{tns('pubPlace')}")
+        note_el = biblstruct.find(tns("note"))
         sources.append({
             "type": btype,
             "journal_or_book": (title_el.text or "").strip() if title_el is not None else "",
@@ -141,6 +142,7 @@ def extract_sources(root):
             "date": (date_el.text or "").strip() if date_el is not None else "",
             "when": date_el.get("when", "") if date_el is not None else "",
             "place": (place_el.text or "").strip() if place_el is not None else "",
+            "note": (note_el.text or "").strip() if note_el is not None else "",
         })
     return sources
 
@@ -154,6 +156,17 @@ def get_pub_year(sources):
         when = s.get("when", "")
         if when and len(when) >= 4:
             return when[:4]
+    return ""
+
+def get_original_year(sources):
+    """<note>에서 '원 발표: YYYY년' 형태의 원 발표 연도 추출."""
+    import re
+    for s in sources:
+        note = s.get("note", "")
+        if note:
+            m = re.search(r"(\d{4})년", note)
+            if m:
+                return m.group(1)
     return ""
 
 # ── HTML 생성 ────────────────────────────────────────────────
@@ -204,7 +217,7 @@ def source_html(sources):
         )
     return '<ul class="source-list">' + "\n".join(items) + "</ul>"
 
-def build_essay_html(stem, title, year, persons, subjects, theorists, quotes, titles, terms, sources, author_id):
+def build_essay_html(stem, title, year, display_year, persons, subjects, theorists, quotes, titles, terms, sources, author_id):
     author = persons.get(author_id, {})
     author_name = author.get("name", "")
     author_ref = author.get("ref", "")
@@ -308,7 +321,7 @@ def build_essay_html(stem, title, year, persons, subjects, theorists, quotes, ti
       <header class="essay-header">
         <div class="essay-byline">
           <span class="chip role-critic">{author_link}</span>
-          <span class="essay-year">{year}</span>
+          <span class="essay-year">{display_year}</span>
         </div>
         <h1 class="essay-title">{title}</h1>
         {source_html(sources)}
@@ -405,7 +418,31 @@ def build_graph_data(all_essays):
 
 # ── 비평가 프로필 HTML 생성 ──────────────────────────────────
 
-def build_critic_profile(critic_id, critic_info, essays):
+def build_critic_mini_graph(critic_id, graph_data):
+    """비평가 관련 노드/엣지만 추출해 Cytoscape.js 임베드용 JSON 반환."""
+    # critic 노드와 직접 연결된 노드/엣지만 수집
+    connected_ids = {critic_id}
+    relevant_edges = []
+    for e in graph_data["edges"]:
+        if e["source"] == critic_id or e["target"] == critic_id:
+            connected_ids.add(e["source"])
+            connected_ids.add(e["target"])
+            relevant_edges.append(e)
+    # essay 노드들과 연결된 작가/이론가 엣지도 포함
+    essay_ids = {e["source"] for e in relevant_edges if e["type"] == "wrote"} | \
+                {e["target"] for e in relevant_edges if e["type"] == "wrote"}
+    for e in graph_data["edges"]:
+        if (e["source"] in essay_ids or e["target"] in essay_ids) and \
+           e not in relevant_edges:
+            connected_ids.add(e["source"])
+            connected_ids.add(e["target"])
+            relevant_edges.append(e)
+
+    relevant_nodes = [n for n in graph_data["nodes"] if n["id"] in connected_ids]
+    return {"nodes": relevant_nodes, "edges": relevant_edges}
+
+
+def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     """비평가 한 명의 프로필 페이지 생성. essays = 해당 비평가의 비평글 데이터 목록."""
     name = critic_info["name"]
     ref = critic_info.get("ref", "")
@@ -420,7 +457,7 @@ def build_critic_profile(critic_id, critic_info, essays):
 
     # 비평글 카드 목록
     essay_cards = []
-    for e in sorted(essays, key=lambda x: x["year"]):
+    for e in sorted(essays, key=lambda x: x.get("display_year") or x["year"]):
         tags_html = ""
         # 비평 대상 작가 chip
         subject_chips = " ".join(
@@ -433,11 +470,12 @@ def build_critic_profile(critic_id, critic_info, essays):
             for pid in sorted(e["theorists"])
         )
         tags_html = subject_chips + theorist_chips
+        card_year = e.get("display_year") or e["year"]
 
         essay_cards.append(f"""
       <article class="essay-card">
         <div class="essay-card-meta">
-          <span class="essay-card-year">{e["year"]}</span>
+          <span class="essay-card-year">{card_year}</span>
         </div>
         <h3 class="essay-card-title">
           <a href="../essays/{e["stem"]}.html">{e["title"]}</a>
@@ -473,6 +511,133 @@ def build_critic_profile(critic_id, critic_info, essays):
     ) if top_subjects else '<span class="muted">—</span>'
 
     essay_count = len(essays)
+
+    # 미니 그래프 섹션
+    mini_graph_html = ""
+    if graph_data:
+        subgraph = build_critic_mini_graph(critic_id, graph_data)
+        graph_json = json.dumps(subgraph, ensure_ascii=False)
+        mini_graph_html = f"""
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {{
+      var graphData = {graph_json};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {{
+        elements.push({{ data: {{ id: n.id, label: n.label, type: n.type, degree: n.degree || 1 }} }});
+      }});
+      graphData.edges.forEach(function(e) {{
+        elements.push({{ data: {{ source: e.source, target: e.target, type: e.type, weight: e.weight || 1 }} }});
+      }});
+
+      var TYPE_COLOR = {{
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      }};
+      var TYPE_TEXT_COLOR = {{
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      }};
+
+      var cy = cytoscape({{
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {{
+            selector: 'node',
+            style: {{
+              'background-color': function(ele) {{ return TYPE_COLOR[ele.data('type')] || '#aaa'; }},
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) {{ return ele.data('type') === 'essay' ? '10px' : '12px'; }},
+              'color': function(ele) {{ return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; }},
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {{
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              }},
+              'height': function(ele) {{
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              }},
+              'shape': function(ele) {{ return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; }},
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }}
+          }},
+          {{
+            selector: 'edge',
+            style: {{
+              'width': function(ele) {{ return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); }},
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }}
+          }},
+          {{
+            selector: 'node.faded',
+            style: {{ 'opacity': 0.15 }}
+          }},
+          {{
+            selector: 'edge.faded',
+            style: {{ 'opacity': 0.05 }}
+          }},
+          {{
+            selector: 'node.highlighted',
+            style: {{ 'border-width': 3, 'border-color': '#6b3e26' }}
+          }}
+        ],
+        layout: {{
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        }},
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      }});
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {{
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      }});
+      cy.on('mouseout', 'node', function() {{
+        cy.elements().removeClass('faded highlighted');
+      }});
+    }})();
+    </script>"""
 
     return f"""<!DOCTYPE html>
 <html lang="ko">
@@ -518,7 +683,7 @@ def build_critic_profile(critic_id, critic_info, essays):
         <div class="chip-group">{theorist_chips_html}</div>
       </div>
     </section>
-
+    {mini_graph_html}
     <section class="essay-grid">
       <h2 class="section-label">수록 비평글 ({essay_count}편)</h2>
       {"".join(essay_cards)}
@@ -540,15 +705,19 @@ def essays_persons_name(essay_data, pid):
 
 
 def _source_short(sources):
-    """서지 정보 한 줄 요약."""
+    """서지 정보 한 줄 요약 — 짧게 (간행처·연도만)."""
     if not sources:
         return ""
     s = sources[0]
-    parts = [s["journal_or_book"]]
+    title = s["journal_or_book"]
+    # 전집/총서 부제 괄호 이전만 사용 (예: "시인의 보석 — 현대 문학..." → "시인의 보석")
+    short_title = title.split(" — ")[0].split("（")[0].split("(")[0].strip()
+    parts = [short_title]
     if s["publisher"]:
         parts.append(s["publisher"])
-    if s["date"]:
-        parts.append(s["date"])
+    year = s["when"][:4] if s.get("when") and len(s["when"]) >= 4 else ""
+    if year:
+        parts.append(year)
     return ", ".join(parts)
 
 
@@ -595,10 +764,14 @@ def process(xml_path):
         if ("scholar" in role) and pid not in subjects and pid != author_id:
             theorists.add(pid)
 
+    original_year = get_original_year(sources)
+    display_year = original_year if original_year else year
+
     return {
         "stem": xml_path.stem,
         "title": title,
         "year": year,
+        "display_year": display_year,
         "persons": persons,
         "subjects": subjects,
         "theorists": theorists,
@@ -631,6 +804,7 @@ def main():
                 stem=data["stem"],
                 title=data["title"],
                 year=data["year"],
+                display_year=data["display_year"],
                 persons=data["persons"],
                 subjects=data["subjects"],
                 theorists=data["theorists"],
@@ -655,7 +829,7 @@ def main():
     # 비평가 프로필 페이지
     critics = build_critics_data(all_essays)
     for cid, cinfo in critics.items():
-        html = build_critic_profile(cid, cinfo, cinfo["essays"])
+        html = build_critic_profile(cid, cinfo, cinfo["essays"], graph_data=graph)
         out = CRITICS_DIR / f"{cid}.html"
         out.write_text(html, encoding="utf-8")
         print(f"  OK critic profile -> {out}")

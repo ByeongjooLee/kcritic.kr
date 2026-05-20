@@ -26,25 +26,145 @@
       <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q12498425" target="_blank" class="chip role-critic chip-linked">김우창 <span class="chip-ext">↗</span></a></div>
       <h1 class="index-heading">김우창</h1>
       <div class="stat-row">
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">12</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">13</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="chip role-writer">로렌스</span> <span class="chip role-writer">변영로</span> <span class="chip role-writer">윤동주</span></div>
+        <div class="chip-group"><span class="chip role-writer">릴케</span> <span class="chip role-writer">김현승</span> <span class="chip role-writer">조지훈</span> <span class="chip role-writer">박목월（朴木月）</span> <span class="chip role-writer">로렌스</span> <span class="chip role-writer">변영로</span> <span class="chip role-writer">윤동주</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="chip chip-term">자크 라캉(Jacques Lacan) (1)</span> <span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">베르그송 (1)</span> <span class="chip chip-term">벤자민 워프(Benjamin Whorf) (1)</span> <span class="chip chip-term">레비-스트로스 (1)</span> <span class="chip chip-term">김종길 (1)</span> <span class="chip chip-term">플라톤 (1)</span> <span class="chip chip-term">줄리아 크리스테바 (1)</span> <span class="chip chip-term">안톤 C. 지데어발드 (1)</span> <span class="chip chip-term">루돌프 아른하임 (1)</span> <span class="chip chip-term">위르겐 하버마스 (1)</span></div>
+        <div class="chip-group"><span class="chip chip-term">루돌프 아른하임 (2)</span> <span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">자크 라캉(Jacques Lacan) (1)</span> <span class="chip chip-term">벤자민 워프(Benjamin Whorf) (1)</span> <span class="chip chip-term">베르그송 (1)</span> <span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">순자 (1)</span> <span class="chip chip-term">레비-스트로스 (1)</span> <span class="chip chip-term">김종길 (1)</span> <span class="chip chip-term">안톤 C. 지데어발드 (1)</span> <span class="chip chip-term">플라톤 (1)</span> <span class="chip chip-term">줄리아 크리스테바 (1)</span> <span class="chip chip-term">위르겐 하버마스 (1)</span></div>
       </div>
     </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-uchang_language-things_1981", "label": "시의 언어와 사물의 의미", "type": "essay", "year": "1993", "degree": 6}, {"id": "p-kim-uchang", "label": "김우창", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12498425", "degree": 6}, {"id": "p-hegel", "label": "헤겔", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9235", "degree": 1}, {"id": "p-lacan", "label": "자크 라캉(Jacques Lacan)", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q168756", "degree": 1}, {"id": "p-whorf", "label": "벤자민 워프(Benjamin Whorf)", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q212577", "degree": 1}, {"id": "p-bergson", "label": "베르그송", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q184208", "degree": 1}, {"id": "p-freud", "label": "프로이트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9215", "degree": 1}, {"id": "kim-uchang_poetics-society_1982", "label": "시의 내면과 외면 — 시와 사회에 대한 한 생각", "type": "essay", "year": "1993", "degree": 3}, {"id": "p-rilke", "label": "릴케", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q29921", "degree": 1}, {"id": "p-arnheim", "label": "루돌프 아른하임(Rudolf Arnheim)", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q77266", "degree": 2}, {"id": "kim-uchang_poets-jewel_1984", "label": "시인의 보석", "type": "essay", "year": "1993", "degree": 5}, {"id": "p-kim-hyunseung", "label": "김현승", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12498504", "degree": 1}, {"id": "p-cho-jihun", "label": "조지훈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q495027", "degree": 1}, {"id": "p-park-mokwol", "label": "박목월（朴木月）", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q494989", "degree": 1}, {"id": "p-xunzi", "label": "순자", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q312967", "degree": 1}, {"id": "kim-uchang_politics-poetry_1979", "label": "시와 정치 — 한국 현대 시의 한 측면에 대한 고찰", "type": "essay", "year": "1979", "degree": 3}, {"id": "p-levi-strauss", "label": "레비-스트로스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q30634", "degree": 1}, {"id": "p-kim-jonggil", "label": "김종길", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12498536", "degree": 1}, {"id": "kim-uchang_preface_1992", "label": "어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여", "type": "essay", "year": "1992", "degree": 7}, {"id": "p-lawrence", "label": "로렌스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q33866", "degree": 1}, {"id": "p-byeon-youngro", "label": "변영로", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5003023", "degree": 1}, {"id": "p-zijderveld", "label": "안톤 C. 지데어발드", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q2647777", "degree": 1}, {"id": "p-platon", "label": "플라톤", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q859", "degree": 1}, {"id": "p-kristeva", "label": "줄리아 크리스테바", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q260281", "degree": 1}, {"id": "kim-uchang_yun-dongju_1985", "label": "윤동주의 시와 근대적 자아", "type": "essay", "year": "1985", "degree": 3}, {"id": "p-yun-dongju", "label": "윤동주", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q489582", "degree": 1}, {"id": "p-habermas", "label": "위르겐 하버마스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76509", "degree": 1}], "edges": [{"source": "p-kim-uchang", "target": "kim-uchang_language-things_1981", "type": "wrote", "weight": 1}, {"source": "p-kim-uchang", "target": "kim-uchang_poetics-society_1982", "type": "wrote", "weight": 1}, {"source": "p-kim-uchang", "target": "kim-uchang_poets-jewel_1984", "type": "wrote", "weight": 1}, {"source": "p-kim-uchang", "target": "kim-uchang_politics-poetry_1979", "type": "wrote", "weight": 1}, {"source": "p-kim-uchang", "target": "kim-uchang_preface_1992", "type": "wrote", "weight": 1}, {"source": "p-kim-uchang", "target": "kim-uchang_yun-dongju_1985", "type": "wrote", "weight": 1}, {"source": "kim-uchang_language-things_1981", "target": "p-hegel", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_language-things_1981", "target": "p-lacan", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_language-things_1981", "target": "p-whorf", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_language-things_1981", "target": "p-bergson", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_language-things_1981", "target": "p-freud", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_poetics-society_1982", "target": "p-rilke", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_poetics-society_1982", "target": "p-arnheim", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_poets-jewel_1984", "target": "p-kim-hyunseung", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_poets-jewel_1984", "target": "p-cho-jihun", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_poets-jewel_1984", "target": "p-park-mokwol", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_poets-jewel_1984", "target": "p-xunzi", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_politics-poetry_1979", "target": "p-levi-strauss", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_politics-poetry_1979", "target": "p-kim-jonggil", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_preface_1992", "target": "p-lawrence", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_preface_1992", "target": "p-byeon-youngro", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_preface_1992", "target": "p-zijderveld", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_preface_1992", "target": "p-platon", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_preface_1992", "target": "p-arnheim", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_preface_1992", "target": "p-kristeva", "type": "uses_theory", "weight": 1}, {"source": "kim-uchang_yun-dongju_1985", "target": "p-yun-dongju", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_yun-dongju_1985", "target": "p-habermas", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
 
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
     <section class="essay-grid">
-      <h2 class="section-label">수록 비평글 (4편)</h2>
+      <h2 class="section-label">수록 비평글 (6편)</h2>
       
       <article class="essay-card">
         <div class="essay-card-meta">
@@ -53,8 +173,28 @@
         <h3 class="essay-card-title">
           <a href="../essays/kim-uchang_politics-poetry_1979.html">시와 정치 — 한국 현대 시의 한 측면에 대한 고찰</a>
         </h3>
-        <p class="essay-card-source">세계의 문학, 민음사, 1979년 겨울호 제14호</p>
+        <p class="essay-card-source">세계의 문학, 민음사, 1979</p>
         <div class="essay-card-tags"><span class="tag">김종길</span> <span class="tag">레비-스트로스</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1982</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-uchang_poetics-society_1982.html">시의 내면과 외면 — 시와 사회에 대한 한 생각</a>
+        </h3>
+        <p class="essay-card-source">시인의 보석, 민음사, 1993</p>
+        <div class="essay-card-tags"><span class="tag">릴케</span><span class="tag">루돌프 아른하임(Rudolf Arnheim)</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1984</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-uchang_poets-jewel_1984.html">시인의 보석</a>
+        </h3>
+        <p class="essay-card-source">시인의 보석, 민음사, 1993</p>
+        <div class="essay-card-tags"><span class="tag">조지훈</span> <span class="tag">김현승</span> <span class="tag">박목월（朴木月）</span><span class="tag">순자</span></div>
       </article>
       <article class="essay-card">
         <div class="essay-card-meta">
@@ -73,7 +213,7 @@
         <h3 class="essay-card-title">
           <a href="../essays/kim-uchang_preface_1992.html">어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여</a>
         </h3>
-        <p class="essay-card-source">외국문학, 열음사, 1992년 겨울호 제33호</p>
+        <p class="essay-card-source">외국문학, 열음사, 1992</p>
         <div class="essay-card-tags"><span class="tag">변영로</span> <span class="tag">로렌스</span><span class="tag">루돌프 아른하임</span> <span class="tag">줄리아 크리스테바</span> <span class="tag">플라톤</span> <span class="tag">안톤 C. 지데어발드</span></div>
       </article>
       <article class="essay-card">
@@ -83,7 +223,7 @@
         <h3 class="essay-card-title">
           <a href="../essays/kim-uchang_language-things_1981.html">시의 언어와 사물의 의미</a>
         </h3>
-        <p class="essay-card-source">시인의 보석 — 현대 문학과 시인에 관한 에세이 (김우창전집 3), 민음사, 1993년 4월 5일 초판, 2015년 12월 14일 2판</p>
+        <p class="essay-card-source">시인의 보석, 민음사, 1993</p>
         <div class="essay-card-tags"><span class="tag">베르그송</span> <span class="tag">프로이트</span> <span class="tag">헤겔</span> <span class="tag">자크 라캉(Jacques Lacan)</span> <span class="tag">벤자민 워프(Benjamin Whorf)</span></div>
       </article>
     </section>

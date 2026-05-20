@@ -897,6 +897,49 @@ tei-lb {
 }
 
 /* =========================================
+   비평가 프로필 미니 그래프
+   ========================================= */
+
+.critic-mini-graph-section {
+  margin-bottom: 3rem;
+}
+
+.critic-mini-graph {
+  height: 420px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  margin: 1rem 0 0.75rem;
+}
+
+.mini-graph-legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.mini-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mini-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.dot-critic   { background: #c9986a; }
+.dot-writer   { background: #6a9bc9; }
+.dot-theorist { background: #9a7ac9; }
+.dot-essay    { background: #c8c8a8; border-radius: 3px; }
+
+/* =========================================
    반응형 — 768px 이하 (모바일)
    ========================================= */
 @media (max-width: 768px) {
@@ -954,6 +997,10 @@ tei-lb {
   .critic-grid { grid-template-columns: 1fr; gap: 0.75rem; }
   .critic-card { padding: 1.1rem; }
   .critic-card-name { font-size: 18px; }
+
+  /* ── 미니 그래프 ── */
+  .critic-mini-graph { height: 300px; }
+  .mini-graph-legend { gap: 0.75rem; }
 }
 
 /* ----- Dark mode (선택) ----- */
