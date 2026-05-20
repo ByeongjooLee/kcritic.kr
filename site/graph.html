@@ -317,6 +317,7 @@
       <a href="../index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
         <a href="../index.html">비평글</a>
+        <a href="../critics.html">비평가</a>
         <a href="graph.html" class="active">관계망</a>
       </nav>
     </div>
@@ -677,10 +678,15 @@
         </a>`;
       }).join('');
 
+      const profileLink = type === 'critic'
+        ? `<div class="panel-section"><a href="critics/${id}.html" class="panel-essay-link">비평가 프로필 보기 →</a></div>`
+        : '';
+
       relHtml = `
         ${wroteEdges.length  ? `<div class="panel-section"><div class="panel-section-label">집필한 비평글</div>${makeEssayLinks(wroteEdges)}</div>` : ''}
         ${subjectEdges.length ? `<div class="panel-section"><div class="panel-section-label">비평 대상이 된 비평글</div>${makeEssayLinks(subjectEdges)}</div>` : ''}
-        ${theoryEdges.length  ? `<div class="panel-section"><div class="panel-section-label">이론이 활용된 비평글</div>${makeEssayLinks(theoryEdges)}</div>` : ''}`;
+        ${theoryEdges.length  ? `<div class="panel-section"><div class="panel-section-label">이론이 활용된 비평글</div>${makeEssayLinks(theoryEdges)}</div>` : ''}
+        ${profileLink}`;
     }
 
     const innerHtml = `

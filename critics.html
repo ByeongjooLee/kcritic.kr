@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>비평가 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html" class="active">비평가</a>
+        <a href="site/graph.html">관계망</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="index-hero">
+      <h1 class="index-heading">비평가</h1>
+      <p class="index-desc">수록된 비평가 목록 — 이름을 클릭하면 비평글 목록과 관계 정보를 볼 수 있습니다</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num" id="critic-count">—</span><span class="stat-label">비평가</span></div>
+        <div class="stat"><span class="stat-num" id="essay-count-total">—</span><span class="stat-label">비평글</span></div>
+      </div>
+    </section>
+
+    <section class="critic-grid" id="critic-grid">
+      <p class="index-desc" style="color:var(--text-tertiary);">불러오는 중…</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>비평 온톨로지 프로젝트 · TEI XML 기반 디지털 아카이브</p>
+    </div>
+  </footer>
+
+  <script>
+  fetch('site/data/critics.json')
+    .then(r => r.json())
+    .then(critics => {
+      document.getElementById('critic-count').textContent = critics.length;
+      document.getElementById('essay-count-total').textContent =
+        critics.reduce((s, c) => s + c.essay_count, 0);
+
+      const grid = document.getElementById('critic-grid');
+      grid.innerHTML = critics.map(c => {
+        const wikiHref = (c.ref && c.ref.includes('wikidata'))
+          ? c.ref.split(' ').find(u => u.includes('wikidata'))
+          : null;
+        const wikiBadge = wikiHref
+          ? `<a href="${wikiHref}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">Wikidata ↗</a>`
+          : '';
+        return `
+        <article class="critic-card" onclick="location.href='site/critics/${c.id}.html'">
+          <div class="critic-card-header">
+            <h2 class="critic-card-name">${c.name}</h2>
+            ${wikiBadge}
+          </div>
+          <div class="critic-card-stats">
+            <span class="critic-stat"><strong>${c.essay_count}</strong> 비평글</span>
+            <span class="critic-stat"><strong>${c.subjects.length}</strong> 비평 대상</span>
+            <span class="critic-stat"><strong>${c.theorists.length}</strong> 활용 이론가</span>
+          </div>
+          <div class="critic-card-footer">
+            프로필 보기 →
+          </div>
+        </article>`;
+      }).join('');
+    })
+    .catch(() => {
+      document.getElementById('critic-grid').innerHTML =
+        '<p style="color:var(--text-tertiary);">데이터를 불러올 수 없습니다. build.py를 실행해 주세요.</p>';
+    });
+  </script>
+</body>
+</html>

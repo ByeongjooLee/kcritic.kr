@@ -14,6 +14,7 @@ TEI_NS = "http://www.w3.org/XML/1998/namespace"
 T = "http://www.tei-c.org/ns/1.0"
 ESSAYS_DIR = Path("essays")
 OUTPUT_DIR = Path("site/essays")
+CRITICS_DIR = Path("site/critics")
 DATA_DIR = Path("site/data")
 
 def tns(tag):
@@ -294,6 +295,8 @@ def build_essay_html(stem, title, year, persons, subjects, theorists, quotes, ti
       <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
+        <a href="../../critics.html">비평가</a>
+        <a href="../graph.html">관계망</a>
       </nav>
     </div>
   </header>
@@ -399,6 +402,168 @@ def build_graph_data(all_essays):
     return {"nodes": node_list, "edges": edges}
 
 
+# ── 비평가 프로필 HTML 생성 ──────────────────────────────────
+
+def build_critic_profile(critic_id, critic_info, essays):
+    """비평가 한 명의 프로필 페이지 생성. essays = 해당 비평가의 비평글 데이터 목록."""
+    name = critic_info["name"]
+    ref = critic_info.get("ref", "")
+    wikidata_link = ""
+    if ref and "wikidata" in ref:
+        for uri in ref.split():
+            if "wikidata" in uri:
+                wikidata_link = f'<a href="{uri}" target="_blank" class="chip role-critic chip-linked">{name} <span class="chip-ext">↗</span></a>'
+                break
+    if not wikidata_link:
+        wikidata_link = f'<span class="chip role-critic">{name}</span>'
+
+    # 비평글 카드 목록
+    essay_cards = []
+    for e in sorted(essays, key=lambda x: x["year"]):
+        tags_html = ""
+        # 비평 대상 작가 chip
+        subject_chips = " ".join(
+            f'<span class="tag">{essays_persons_name(e, pid)}</span>'
+            for pid in sorted(e["subjects"])
+        )
+        # 활용 이론가 chip
+        theorist_chips = " ".join(
+            f'<span class="tag">{essays_persons_name(e, pid)}</span>'
+            for pid in sorted(e["theorists"])
+        )
+        tags_html = subject_chips + theorist_chips
+
+        essay_cards.append(f"""
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">{e["year"]}</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/{e["stem"]}.html">{e["title"]}</a>
+        </h3>
+        <p class="essay-card-source">{_source_short(e["sources"])}</p>
+        <div class="essay-card-tags">{tags_html}</div>
+      </article>""")
+
+    # 자주 활용한 이론가 집계
+    theorist_count = defaultdict(int)
+    theorist_names = {}
+    for e in essays:
+        for pid in e["theorists"]:
+            theorist_count[pid] += 1
+            theorist_names[pid] = essays_persons_name(e, pid)
+    top_theorists = sorted(theorist_count.items(), key=lambda x: -x[1])
+    theorist_chips_html = " ".join(
+        f'<span class="chip chip-term">{theorist_names[pid]} ({cnt})</span>'
+        for pid, cnt in top_theorists
+    ) if top_theorists else '<span class="muted">—</span>'
+
+    # 비평 대상 작가 집계
+    subject_count = defaultdict(int)
+    subject_names = {}
+    for e in essays:
+        for pid in e["subjects"]:
+            subject_count[pid] += 1
+            subject_names[pid] = essays_persons_name(e, pid)
+    top_subjects = sorted(subject_count.items(), key=lambda x: -x[1])
+    subject_chips_html = " ".join(
+        f'<span class="chip role-writer">{subject_names[pid]}</span>'
+        for pid, _ in top_subjects
+    ) if top_subjects else '<span class="muted">—</span>'
+
+    essay_count = len(essays)
+
+    return f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{name} — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../graph.html">관계망</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline">{wikidata_link}</div>
+      <h1 class="index-heading">{name}</h1>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">{len(top_subjects)}</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">{len(top_theorists)}</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group">{subject_chips_html}</div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group">{theorist_chips_html}</div>
+      </div>
+    </section>
+
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 ({essay_count}편)</h2>
+      {"".join(essay_cards)}
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>비평 온톨로지 프로젝트 · TEI XML 기반 디지털 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>"""
+
+
+def essays_persons_name(essay_data, pid):
+    """essay 데이터에서 인물 이름 반환."""
+    return essay_data["persons"].get(pid, {}).get("name", pid)
+
+
+def _source_short(sources):
+    """서지 정보 한 줄 요약."""
+    if not sources:
+        return ""
+    s = sources[0]
+    parts = [s["journal_or_book"]]
+    if s["publisher"]:
+        parts.append(s["publisher"])
+    if s["date"]:
+        parts.append(s["date"])
+    return ", ".join(parts)
+
+
+def build_critics_data(all_essays):
+    """비평가별로 비평글 묶기. {critic_id: {info, essays[]}} 반환."""
+    critics = {}
+    for e in all_essays:
+        aid = e["author_id"]
+        if not aid:
+            continue
+        p = e["persons"].get(aid, {})
+        if aid not in critics:
+            critics[aid] = {"id": aid, "name": p.get("name", aid), "ref": p.get("ref", ""), "essays": []}
+        critics[aid]["essays"].append(e)
+    return critics
+
+
 # ── 메인 ─────────────────────────────────────────────────────
 
 def process(xml_path):
@@ -446,6 +611,7 @@ def process(xml_path):
 def main():
     print("TEI XML -> 메타데이터 HTML 변환 시작")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    CRITICS_DIR.mkdir(parents=True, exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     xml_files = sorted(ESSAYS_DIR.glob("*.xml"))
@@ -483,6 +649,30 @@ def main():
     graph_path = DATA_DIR / "graph.json"
     graph_path.write_text(json.dumps(graph, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  OK graph.json -> {graph_path} ({len(graph['nodes'])} nodes, {len(graph['edges'])} edges)")
+
+    # 비평가 프로필 페이지
+    critics = build_critics_data(all_essays)
+    for cid, cinfo in critics.items():
+        html = build_critic_profile(cid, cinfo, cinfo["essays"])
+        out = CRITICS_DIR / f"{cid}.html"
+        out.write_text(html, encoding="utf-8")
+        print(f"  OK critic profile -> {out}")
+
+    # 비평가 목록 JSON (critics.html에서 사용)
+    critics_json = [
+        {
+            "id": cid,
+            "name": cinfo["name"],
+            "ref": cinfo["ref"],
+            "essay_count": len(cinfo["essays"]),
+            "subjects": list({pid for e in cinfo["essays"] for pid in e["subjects"]}),
+            "theorists": list({pid for e in cinfo["essays"] for pid in e["theorists"]}),
+        }
+        for cid, cinfo in critics.items()
+    ]
+    critics_path = DATA_DIR / "critics.json"
+    critics_path.write_text(json.dumps(critics_json, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"  OK critics.json -> {critics_path} ({len(critics_json)} critics)")
 
     print("\n완료.")
 

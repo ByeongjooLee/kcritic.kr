@@ -799,6 +799,104 @@ tei-lb {
 }
 
 /* =========================================
+   비평가 목록 페이지 (critics.html)
+   ========================================= */
+
+.critic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+.critic-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.critic-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(107, 62, 38, 0.08);
+}
+
+.critic-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.critic-card-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.critic-card-wikidata {
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.critic-card-wikidata:hover { background: var(--accent-light); text-decoration: none; }
+
+.critic-card-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.critic-stat {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.critic-stat strong {
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 2px;
+}
+
+.critic-card-footer {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: auto;
+}
+
+/* =========================================
+   비평가 프로필 페이지 (site/critics/*.html)
+   ========================================= */
+
+.critic-profile-hero {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.critic-profile-byline {
+  margin-bottom: 0.75rem;
+}
+
+.critic-profile-meta {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* =========================================
    반응형 — 768px 이하 (모바일)
    ========================================= */
 @media (max-width: 768px) {
@@ -851,6 +949,11 @@ tei-lb {
 
   /* ── 사이트 푸터 ── */
   .site-footer { margin-top: 2rem; font-size: 12px; }
+
+  /* ── 비평가 목록 ── */
+  .critic-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .critic-card { padding: 1.1rem; }
+  .critic-card-name { font-size: 18px; }
 }
 
 /* ----- Dark mode (선택) ----- */
