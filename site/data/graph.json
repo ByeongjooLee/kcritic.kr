@@ -12,28 +12,7 @@
       "label": "김우창",
       "type": "critic",
       "ref": "https://www.wikidata.org/wiki/Q12498425",
-      "degree": 7
-    },
-    {
-      "id": "p-lacan",
-      "label": "자크 라캉(Jacques Lacan)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q168756",
-      "degree": 1
-    },
-    {
-      "id": "p-bergson",
-      "label": "베르그송",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q184208",
-      "degree": 1
-    },
-    {
-      "id": "p-whorf",
-      "label": "벤자민 워프(Benjamin Whorf)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q212577",
-      "degree": 1
+      "degree": 8
     },
     {
       "id": "p-freud",
@@ -47,6 +26,27 @@
       "label": "헤겔",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q9235",
+      "degree": 1
+    },
+    {
+      "id": "p-bergson",
+      "label": "베르그송",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q184208",
+      "degree": 1
+    },
+    {
+      "id": "p-lacan",
+      "label": "자크 라캉(Jacques Lacan)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q168756",
+      "degree": 1
+    },
+    {
+      "id": "p-whorf",
+      "label": "벤자민 워프(Benjamin Whorf)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q212577",
       "degree": 1
     },
     {
@@ -113,17 +113,17 @@
       "degree": 3
     },
     {
-      "id": "p-levi-strauss",
-      "label": "레비-스트로스",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q30634",
-      "degree": 1
-    },
-    {
       "id": "p-kim-jonggil",
       "label": "김종길",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q12498536",
+      "degree": 1
+    },
+    {
+      "id": "p-levi-strauss",
+      "label": "레비-스트로스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q30634",
       "degree": 1
     },
     {
@@ -134,13 +134,6 @@
       "degree": 7
     },
     {
-      "id": "p-byeon-youngro",
-      "label": "변영로",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q5003023",
-      "degree": 1
-    },
-    {
       "id": "p-lawrence",
       "label": "로렌스",
       "type": "writer",
@@ -148,10 +141,10 @@
       "degree": 1
     },
     {
-      "id": "p-platon",
-      "label": "플라톤",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q859",
+      "id": "p-byeon-youngro",
+      "label": "변영로",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q5003023",
       "degree": 1
     },
     {
@@ -169,6 +162,13 @@
       "degree": 1
     },
     {
+      "id": "p-platon",
+      "label": "플라톤",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q859",
+      "degree": 1
+    },
+    {
       "id": "kim-uchang_theory-korean-novel_1984",
       "label": "한국 현대 소설의 이론을 위한 서설",
       "type": "essay",
@@ -176,10 +176,17 @@
       "degree": 13
     },
     {
-      "id": "p-jung-jiyong",
-      "label": "정지용",
+      "id": "p-yeom-sangsub",
+      "label": "염상섭",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q494953",
+      "ref": "https://www.wikidata.org/wiki/Q498861",
+      "degree": 2
+    },
+    {
+      "id": "p-kim-dongin",
+      "label": "김동인",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499479",
       "degree": 1
     },
     {
@@ -190,17 +197,24 @@
       "degree": 1
     },
     {
-      "id": "p-kim-dongri",
-      "label": "김동리",
+      "id": "p-son-changsub",
+      "label": "손창섭",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499524",
+      "ref": "https://www.wikidata.org/wiki/Q499875",
       "degree": 1
     },
     {
-      "id": "p-yi-gwangsu",
-      "label": "이광수",
+      "id": "p-hwang-sunwon",
+      "label": "황순원",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499661",
+      "ref": "https://www.wikidata.org/wiki/Q1341804",
+      "degree": 2
+    },
+    {
+      "id": "p-jung-jiyong",
+      "label": "정지용",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q494953",
       "degree": 1
     },
     {
@@ -211,10 +225,17 @@
       "degree": 1
     },
     {
-      "id": "p-hwang-sunwon",
-      "label": "황순원",
+      "id": "p-yi-gwangsu",
+      "label": "이광수",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1341804",
+      "ref": "https://www.wikidata.org/wiki/Q499661",
+      "degree": 2
+    },
+    {
+      "id": "p-jang-yonghak",
+      "label": "장용학",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q1753016",
       "degree": 1
     },
     {
@@ -225,38 +246,87 @@
       "degree": 1
     },
     {
-      "id": "p-jang-yonghak",
-      "label": "장용학",
+      "id": "p-kim-dongri",
+      "label": "김동리",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1753016",
-      "degree": 1
-    },
-    {
-      "id": "p-son-changsub",
-      "label": "손창섭",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499875",
-      "degree": 1
-    },
-    {
-      "id": "p-kim-dongin",
-      "label": "김동인",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499479",
-      "degree": 1
-    },
-    {
-      "id": "p-yeom-sangsub",
-      "label": "염상섭",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q498861",
-      "degree": 1
+      "ref": "https://www.wikidata.org/wiki/Q499524",
+      "degree": 2
     },
     {
       "id": "p-ian-watt",
       "label": "이안 와트",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q4040568",
+      "degree": 2
+    },
+    {
+      "id": "kim-uchang_time-korean-novel_1981",
+      "label": "한국소설의 시간",
+      "type": "essay",
+      "year": "1993",
+      "degree": 15
+    },
+    {
+      "id": "p-jo-sehi",
+      "label": "조세희",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q495011",
+      "degree": 1
+    },
+    {
+      "id": "p-sim-hun",
+      "label": "심훈",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499847",
+      "degree": 1
+    },
+    {
+      "id": "p-yi-hyoseok",
+      "label": "이효석",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499600",
+      "degree": 1
+    },
+    {
+      "id": "p-lubbock",
+      "label": "퍼시 라보크（Percy Lubbock）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q2006867",
+      "degree": 1
+    },
+    {
+      "id": "p-walter-benjamin",
+      "label": "발터 벤야민（Walter Benjamin）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q44325",
+      "degree": 1
+    },
+    {
+      "id": "p-poulet",
+      "label": "조르주 풀레（Georges Poulet）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q3389861",
+      "degree": 1
+    },
+    {
+      "id": "p-baek-nakchung",
+      "label": "백낙청",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q499046",
+      "degree": 1
+    },
+    {
+      "id": "p-auerbach",
+      "label": "에리히 아우얼바하",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q76385",
+      "degree": 1
+    },
+    {
+      "id": "p-lukacs",
+      "label": "루카치（György Lukács）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q44040",
       "degree": 1
     },
     {
@@ -290,7 +360,13 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-lacan",
+      "target": "p-freud",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_language-things_1981",
+      "target": "p-hegel",
       "type": "uses_theory",
       "weight": 1
     },
@@ -302,19 +378,13 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
+      "target": "p-lacan",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_language-things_1981",
       "target": "p-whorf",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-things_1981",
-      "target": "p-freud",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-things_1981",
-      "target": "p-hegel",
       "type": "uses_theory",
       "weight": 1
     },
@@ -374,13 +444,13 @@
     },
     {
       "source": "kim-uchang_politics-poetry_1979",
-      "target": "p-levi-strauss",
+      "target": "p-kim-jonggil",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_politics-poetry_1979",
-      "target": "p-kim-jonggil",
+      "target": "p-levi-strauss",
       "type": "uses_theory",
       "weight": 1
     },
@@ -392,20 +462,14 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-byeon-youngro",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_preface_1992",
       "target": "p-lawrence",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-platon",
-      "type": "uses_theory",
+      "target": "p-byeon-youngro",
+      "type": "subject_of",
       "weight": 1
     },
     {
@@ -427,6 +491,12 @@
       "weight": 1
     },
     {
+      "source": "kim-uchang_preface_1992",
+      "target": "p-platon",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
       "source": "p-kim-uchang",
       "target": "kim-uchang_theory-korean-novel_1984",
       "type": "wrote",
@@ -434,55 +504,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-jung-jiyong",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yi-chungjun",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-kim-dongri",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yi-gwangsu",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-ko-un",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-hwang-sunwon",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-choi-inhun",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-jang-yonghak",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-son-changsub",
+      "target": "p-yeom-sangsub",
       "type": "subject_of",
       "weight": 1
     },
@@ -494,12 +516,150 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yeom-sangsub",
+      "target": "p-yi-chungjun",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-son-changsub",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-hwang-sunwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-jung-jiyong",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-ko-un",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-yi-gwangsu",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-jang-yonghak",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-choi-inhun",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-kim-dongri",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-ian-watt",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-uchang",
+      "target": "kim-uchang_time-korean-novel_1981",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-jo-sehi",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-yeom-sangsub",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-sim-hun",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-yi-hyoseok",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-hwang-sunwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-yi-gwangsu",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-kim-dongri",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-lubbock",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-walter-benjamin",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-poulet",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-baek-nakchung",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-auerbach",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-lukacs",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-ian-watt",
       "type": "uses_theory",
       "weight": 1
