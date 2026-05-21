@@ -53,20 +53,21 @@ critic-ontology/
 
 ---
 
-## 3. 사이트 구조 (탭 4개)
+## 3. 사이트 구조 (탭 5개)
 
 | 탭 | 파일 | 설명 |
 |---|---|---|
-| 비평글 | `index.html` | 수록 비평글 카드 목록 |
+| 비평글 | `index.html` | 수록 비평글 카드 목록 (현재 8편) |
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 |
+| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (50노드, 55엣지) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
+| 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
 
 ### 네비게이션 경로 (파일 위치별)
-- 루트 페이지(`index.html`, `critics.html`, `research.html`): `site/graph.html`, `research.html`, `critics.html`
-- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../research.html`
-- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../research.html`
-- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../research.html`
+- 루트 페이지(`index.html`, `critics.html`, `research.html`, `criticism.html`): `site/graph.html`, `research.html`, `critics.html`, `criticism.html`
+- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../research.html`, `../../criticism.html`
+- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../research.html`, `../../criticism.html`
+- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../research.html`, `../criticism.html`
 
 ---
 
@@ -95,6 +96,18 @@ py convert_phd.py
 - 입력: `200805_현대문학_박사논문.xlsx` (1,528건)
 - 출력: `critic-ontology/site/data/bibliography.json`
 - `WRITER_NODE_MAP` 에 작가명 → 노드 ID 매핑 추가하면 노드 연결 확장
+
+### 2000년대 비평 데이터 변환
+
+```powershell
+cd ..   # 온톨로지/ 디렉터리에서
+py convert_criticism.py
+```
+
+- 입력: `2000-2020년대 시 문학 진단 비평(목록) (1).xlsx` (3 시트, 총 136건)
+- 출력: `critic-ontology/site/data/criticism.json`
+- 엑셀에 subject(대상), topic(주제), debate(논쟁) 컬럼 추가 후 재실행하면 필터 UI에 자동 반영
+- COL 인덱스: no=0, year=1, title=2, author=3, journal=4, pages=5, note=6, subject=7, topic=8, debate=9
 
 ### 새 비평글 추가 절차
 
@@ -266,7 +279,7 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 |---|---|
 | 인코딩 | VS Code + Red Hat XML + `korean-critique-schema.xsd` |
 | 빌드 | `build.py` (Python 표준 라이브러리만) |
-| 데이터 변환 | `convert_phd.py` (openpyxl) |
+| 데이터 변환 | `convert_phd.py` (openpyxl), `convert_criticism.py` (openpyxl) |
 | 관계망 시각화 | Cytoscape.js 3.28 |
 | 호스팅 | Cloudflare Workers (무료) |
 | 비용 | 도메인 갱신비만 |
