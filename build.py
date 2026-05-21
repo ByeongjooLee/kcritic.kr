@@ -347,6 +347,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
+        <a href="../../sparql.html">SPARQL</a>
       </nav>
     </div>
   </header>
@@ -703,6 +704,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
+        <a href="../../sparql.html">SPARQL</a>
       </nav>
     </div>
   </header>
@@ -932,7 +934,142 @@ def main():
     critics_path.write_text(json.dumps(critics_json, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  OK critics.json -> {critics_path} ({len(critics_json)} critics)")
 
+    # RDF Turtle 발행
+    ttl = build_turtle(all_essays, graph)
+    ttl_path = DATA_DIR / "graph.ttl"
+    ttl_path.write_text(ttl, encoding="utf-8")
+    triple_count = ttl.count(" .\n")
+    print(f"  OK graph.ttl -> {ttl_path} (~{triple_count} triples)")
+
     print("\n완료.")
+
+
+# ── RDF Turtle 생성 ──────────────────────────────────────────
+
+BASE_URI = "https://kcritic.kr/resource/"
+ESSAY_PAGE_BASE = "https://kcritic.kr/site/essays/"
+
+def _ttl_str(s):
+    """Turtle 문자열 이스케이프."""
+    return '"' + s.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n') + '"'
+
+def _ttl_uri(s):
+    return f"<{s}>"
+
+def build_turtle(all_essays, graph):
+    lines = [
+        "@prefix kc: <https://kcritic.kr/resource/> .",
+        "@prefix kce: <https://kcritic.kr/resource/essay/> .",
+        "@prefix schema: <https://schema.org/> .",
+        "@prefix owl: <http://www.w3.org/2002/07/owl#> .",
+        "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
+        "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+        "@prefix dcterms: <http://purl.org/dc/terms/> .",
+        "@prefix wd: <https://www.wikidata.org/wiki/> .",
+        "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+        "",
+        "# ── 온톨로지 클래스 정의 ─────────────────────────────────",
+        "kc:Critic rdfs:subClassOf schema:Person .",
+        "kc:Writer rdfs:subClassOf schema:Person .",
+        "kc:Theorist rdfs:subClassOf schema:Person .",
+        "kc:CriticalEssay rdfs:subClassOf schema:ScholarlyArticle .",
+        "",
+        "# ── 프로퍼티 정의 ────────────────────────────────────────",
+        "kc:wrote rdfs:domain kc:Critic ; rdfs:range kc:CriticalEssay .",
+        "kc:subjectOf rdfs:domain kc:CriticalEssay ; rdfs:range kc:Writer .",
+        "kc:usesTheory rdfs:domain kc:CriticalEssay ; rdfs:range kc:Theorist .",
+        "kc:usesConcept rdfs:domain kc:CriticalEssay ; rdfs:range rdfs:Literal .",
+        "",
+        "# ── 인물 노드 ────────────────────────────────────────────",
+    ]
+
+    # 인물 노드 수집 (모든 에세이의 persons 병합, 중복 제거)
+    all_persons = {}
+    for essay in all_essays:
+        for pid, p in essay["persons"].items():
+            if pid not in all_persons:
+                all_persons[pid] = p
+            elif not all_persons[pid].get("ref") and p.get("ref"):
+                all_persons[pid]["ref"] = p["ref"]
+
+    # 인물 타입 수집 (graph.json nodes에서)
+    node_type_map = {n["id"]: n["type"] for n in graph["nodes"]}
+
+    for pid, p in sorted(all_persons.items()):
+        ntype = node_type_map.get(pid, "")
+        cls_map = {
+            "critic": "kc:Critic",
+            "writer": "kc:Writer",
+            "theorist": "kc:Theorist",
+        }
+        cls = cls_map.get(ntype)
+        if not cls:
+            continue
+        name = p.get("name", "")
+        ref = p.get("ref", "")
+        triples = [f"kc:{pid} a {cls} ;"]
+        triples.append(f'  schema:name {_ttl_str(name)} ;')
+        triples.append(f'  rdfs:label {_ttl_str(name)}@ko ;')
+        # Wikidata sameAs
+        for uri in ref.split():
+            if "wikidata" in uri:
+                triples.append(f'  owl:sameAs {_ttl_uri(uri)} ;')
+                break
+        # 페이지 링크
+        triples.append(f'  schema:url {_ttl_uri(BASE_URI + pid)} .')
+        lines.extend(triples)
+        lines.append("")
+
+    lines.append("# ── 비평글 노드 ─────────────────────────────────────────")
+
+    for essay in all_essays:
+        stem = essay["stem"]
+        title = essay["title"]
+        display_year = essay.get("display_year") or essay["year"]
+        author_id = essay["author_id"]
+        sources = essay["sources"]
+        concepts = essay.get("concepts", [])
+
+        # 출판처 정보
+        pub_info = ""
+        if sources:
+            s = sources[0]
+            pub_info = s.get("journal_or_book", "")
+
+        triples = [f"kce:{stem} a kc:CriticalEssay ;"]
+        triples.append(f'  schema:name {_ttl_str(title)} ;')
+        triples.append(f'  rdfs:label {_ttl_str(title)}@ko ;')
+        if display_year:
+            triples.append(f'  dcterms:date {_ttl_str(display_year)}^^xsd:gYear ;')
+        if pub_info:
+            triples.append(f'  schema:isPartOf {_ttl_str(pub_info)} ;')
+        triples.append(f'  schema:url {_ttl_uri(ESSAY_PAGE_BASE + stem + ".html")} ;')
+        if author_id:
+            triples.append(f'  dcterms:creator kc:{author_id} ;')
+            triples.append(f'  kc:wrote kc:{author_id} ;')  # inverse도 추가
+        # 비평 대상
+        for pid in sorted(essay["subjects"]):
+            triples.append(f'  kc:subjectOf kc:{pid} ;')
+        # 이론가
+        for pid in sorted(essay["theorists"]):
+            triples.append(f'  kc:usesTheory kc:{pid} ;')
+        # 개념어
+        for c in concepts:
+            triples.append(f'  kc:usesConcept {_ttl_str(c["name"])} ;')
+        # 마지막 세미콜론을 마침표로
+        if triples[-1].endswith(" ;"):
+            triples[-1] = triples[-1][:-2] + " ."
+        else:
+            triples.append("  .")
+        lines.extend(triples)
+        lines.append("")
+
+        # 비평가 → 에세이 wrote 트리플
+        if author_id:
+            lines.append(f"kc:{author_id} kc:wrote kce:{stem} .")
+            lines.append("")
+
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

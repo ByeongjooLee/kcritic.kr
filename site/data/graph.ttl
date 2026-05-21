@@ -1,0 +1,775 @@
+@prefix kc: <https://kcritic.kr/resource/> .
+@prefix kce: <https://kcritic.kr/resource/essay/> .
+@prefix schema: <https://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix wd: <https://www.wikidata.org/wiki/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── 온톨로지 클래스 정의 ─────────────────────────────────
+kc:Critic rdfs:subClassOf schema:Person .
+kc:Writer rdfs:subClassOf schema:Person .
+kc:Theorist rdfs:subClassOf schema:Person .
+kc:CriticalEssay rdfs:subClassOf schema:ScholarlyArticle .
+
+# ── 프로퍼티 정의 ────────────────────────────────────────
+kc:wrote rdfs:domain kc:Critic ; rdfs:range kc:CriticalEssay .
+kc:subjectOf rdfs:domain kc:CriticalEssay ; rdfs:range kc:Writer .
+kc:usesTheory rdfs:domain kc:CriticalEssay ; rdfs:range kc:Theorist .
+kc:usesConcept rdfs:domain kc:CriticalEssay ; rdfs:range rdfs:Literal .
+
+# ── 인물 노드 ────────────────────────────────────────────
+kc:p-arnheim a kc:Theorist ;
+  schema:name "루돌프 아른하임(Rudolf Arnheim)" ;
+  rdfs:label "루돌프 아른하임(Rudolf Arnheim)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q77266> ;
+  schema:url <https://kcritic.kr/resource/p-arnheim> .
+
+kc:p-auerbach a kc:Theorist ;
+  schema:name "에리히 아우얼바하" ;
+  rdfs:label "에리히 아우얼바하"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76385> ;
+  schema:url <https://kcritic.kr/resource/p-auerbach> .
+
+kc:p-austin a kc:Theorist ;
+  schema:name "J. L. 오스틴" ;
+  rdfs:label "J. L. 오스틴"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q108038> ;
+  schema:url <https://kcritic.kr/resource/p-austin> .
+
+kc:p-bacon a kc:Theorist ;
+  schema:name "프랜시스 베이컨" ;
+  rdfs:label "프랜시스 베이컨"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9204> ;
+  schema:url <https://kcritic.kr/resource/p-bacon> .
+
+kc:p-baek-chul a kc:Theorist ;
+  schema:name "백철" ;
+  rdfs:label "백철"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499004> ;
+  schema:url <https://kcritic.kr/resource/p-baek-chul> .
+
+kc:p-baek-nakchung a kc:Theorist ;
+  schema:name "백낙청" ;
+  rdfs:label "백낙청"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499046> ;
+  schema:url <https://kcritic.kr/resource/p-baek-nakchung> .
+
+kc:p-balazs a kc:Theorist ;
+  schema:name "에티엔 발라스" ;
+  rdfs:label "에티엔 발라스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q437773> ;
+  schema:url <https://kcritic.kr/resource/p-balazs> .
+
+kc:p-bergson a kc:Theorist ;
+  schema:name "베르그송" ;
+  rdfs:label "베르그송"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q184208> ;
+  schema:url <https://kcritic.kr/resource/p-bergson> .
+
+kc:p-bettelheim a kc:Theorist ;
+  schema:name "브루노 베텔하임" ;
+  rdfs:label "브루노 베텔하임"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76433> ;
+  schema:url <https://kcritic.kr/resource/p-bettelheim> .
+
+kc:p-binswanger a kc:Theorist ;
+  schema:name "루드비히 빈스방거（Ludwig Binswanger）" ;
+  rdfs:label "루드비히 빈스방거（Ludwig Binswanger）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76127> ;
+  schema:url <https://kcritic.kr/resource/p-binswanger> .
+
+kc:p-byeon-youngro a kc:Writer ;
+  schema:name "변영로" ;
+  rdfs:label "변영로"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q5003023> ;
+  schema:url <https://kcritic.kr/resource/p-byeon-youngro> .
+
+kc:p-campanella a kc:Theorist ;
+  schema:name "캄파넬라" ;
+  rdfs:label "캄파넬라"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q46867> ;
+  schema:url <https://kcritic.kr/resource/p-campanella> .
+
+kc:p-cho-jihun a kc:Writer ;
+  schema:name "조지훈" ;
+  rdfs:label "조지훈"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q495027> ;
+  schema:url <https://kcritic.kr/resource/p-cho-jihun> .
+
+kc:p-choi-inhun a kc:Writer ;
+  schema:name "최인훈" ;
+  rdfs:label "최인훈"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499133> ;
+  schema:url <https://kcritic.kr/resource/p-choi-inhun> .
+
+kc:p-coleridge a kc:Writer ;
+  schema:name "새뮤얼 테일러 콜리지" ;
+  rdfs:label "새뮤얼 테일러 콜리지"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q81412> ;
+  schema:url <https://kcritic.kr/resource/p-coleridge> .
+
+kc:p-descartes a kc:Theorist ;
+  schema:name "데카르트" ;
+  rdfs:label "데카르트"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9191> ;
+  schema:url <https://kcritic.kr/resource/p-descartes> .
+
+kc:p-freud a kc:Theorist ;
+  schema:name "프로이트" ;
+  rdfs:label "프로이트"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9215> ;
+  schema:url <https://kcritic.kr/resource/p-freud> .
+
+kc:p-habermas a kc:Theorist ;
+  schema:name "위르겐 하버마스" ;
+  rdfs:label "위르겐 하버마스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76509> ;
+  schema:url <https://kcritic.kr/resource/p-habermas> .
+
+kc:p-hegel a kc:Theorist ;
+  schema:name "헤겔" ;
+  rdfs:label "헤겔"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9235> ;
+  schema:url <https://kcritic.kr/resource/p-hegel> .
+
+kc:p-heidegger a kc:Theorist ;
+  schema:name "하이데거" ;
+  rdfs:label "하이데거"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q48301> ;
+  schema:url <https://kcritic.kr/resource/p-heidegger> .
+
+kc:p-hwang-dongkyu a kc:Writer ;
+  schema:name "황동규" ;
+  rdfs:label "황동규"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499298> ;
+  schema:url <https://kcritic.kr/resource/p-hwang-dongkyu> .
+
+kc:p-hwang-sunwon a kc:Writer ;
+  schema:name "황순원" ;
+  rdfs:label "황순원"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1341804> ;
+  schema:url <https://kcritic.kr/resource/p-hwang-sunwon> .
+
+kc:p-ian-watt a kc:Theorist ;
+  schema:name "이안 와트" ;
+  rdfs:label "이안 와트"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q4040568> ;
+  schema:url <https://kcritic.kr/resource/p-ian-watt> .
+
+kc:p-iser a kc:Theorist ;
+  schema:name "볼프강 이저" ;
+  rdfs:label "볼프강 이저"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76461> ;
+  schema:url <https://kcritic.kr/resource/p-iser> .
+
+kc:p-jang-yonghak a kc:Writer ;
+  schema:name "장용학" ;
+  rdfs:label "장용학"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1753016> ;
+  schema:url <https://kcritic.kr/resource/p-jang-yonghak> .
+
+kc:p-jo-sehi a kc:Writer ;
+  schema:name "조세희" ;
+  rdfs:label "조세희"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q495011> ;
+  schema:url <https://kcritic.kr/resource/p-jo-sehi> .
+
+kc:p-jung-heesung a kc:Writer ;
+  schema:name "정희성（鄭喜成）" ;
+  rdfs:label "정희성（鄭喜成）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12520476> ;
+  schema:url <https://kcritic.kr/resource/p-jung-heesung> .
+
+kc:p-jung-hyunjong a kc:Writer ;
+  schema:name "정현종（鄭玄宗）" ;
+  rdfs:label "정현종（鄭玄宗）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1354064> ;
+  schema:url <https://kcritic.kr/resource/p-jung-hyunjong> .
+
+kc:p-jung-jiyong a kc:Writer ;
+  schema:name "정지용" ;
+  rdfs:label "정지용"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q488800> ;
+  schema:url <https://kcritic.kr/resource/p-jung-jiyong> .
+
+kc:p-kant a kc:Theorist ;
+  schema:name "칸트" ;
+  rdfs:label "칸트"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9312> ;
+  schema:url <https://kcritic.kr/resource/p-kant> .
+
+kc:p-kim-changwan a kc:Writer ;
+  schema:name "김창완（金昌完）" ;
+  rdfs:label "김창완（金昌完）"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-changwan> .
+
+kc:p-kim-dongin a kc:Writer ;
+  schema:name "김동인" ;
+  rdfs:label "김동인"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499479> ;
+  schema:url <https://kcritic.kr/resource/p-kim-dongin> .
+
+kc:p-kim-dongri a kc:Writer ;
+  schema:name "김동리" ;
+  rdfs:label "김동리"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499524> ;
+  schema:url <https://kcritic.kr/resource/p-kim-dongri> .
+
+kc:p-kim-hyunseung a kc:Writer ;
+  schema:name "김현승" ;
+  rdfs:label "김현승"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12498504> ;
+  schema:url <https://kcritic.kr/resource/p-kim-hyunseung> .
+
+kc:p-kim-jonggil a kc:Theorist ;
+  schema:name "김종길" ;
+  rdfs:label "김종길"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12498536> ;
+  schema:url <https://kcritic.kr/resource/p-kim-jonggil> .
+
+kc:p-kim-suyoung a kc:Writer ;
+  schema:name "김수영（金洙暎）" ;
+  rdfs:label "김수영（金洙暎）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q16198424> ;
+  schema:url <https://kcritic.kr/resource/p-kim-suyoung> .
+
+kc:p-kim-uchang a kc:Critic ;
+  schema:name "김우창" ;
+  rdfs:label "김우창"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12498425> ;
+  schema:url <https://kcritic.kr/resource/p-kim-uchang> .
+
+kc:p-ko-un a kc:Writer ;
+  schema:name "고은（高銀）" ;
+  rdfs:label "고은（高銀）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q460427> ;
+  schema:url <https://kcritic.kr/resource/p-ko-un> .
+
+kc:p-kristeva a kc:Theorist ;
+  schema:name "줄리아 크리스테바" ;
+  rdfs:label "줄리아 크리스테바"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q260281> ;
+  schema:url <https://kcritic.kr/resource/p-kristeva> .
+
+kc:p-lacan a kc:Theorist ;
+  schema:name "자크 라캉(Jacques Lacan)" ;
+  rdfs:label "자크 라캉(Jacques Lacan)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q168756> ;
+  schema:url <https://kcritic.kr/resource/p-lacan> .
+
+kc:p-lawrence a kc:Writer ;
+  schema:name "로렌스" ;
+  rdfs:label "로렌스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q33866> ;
+  schema:url <https://kcritic.kr/resource/p-lawrence> .
+
+kc:p-levi-strauss a kc:Theorist ;
+  schema:name "레비-스트로스" ;
+  rdfs:label "레비-스트로스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q30634> ;
+  schema:url <https://kcritic.kr/resource/p-levi-strauss> .
+
+kc:p-lubbock a kc:Theorist ;
+  schema:name "퍼시 라보크（Percy Lubbock）" ;
+  rdfs:label "퍼시 라보크（Percy Lubbock）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q2006867> ;
+  schema:url <https://kcritic.kr/resource/p-lubbock> .
+
+kc:p-lukacs a kc:Theorist ;
+  schema:name "루카치（György Lukács）" ;
+  rdfs:label "루카치（György Lukács）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q44040> ;
+  schema:url <https://kcritic.kr/resource/p-lukacs> .
+
+kc:p-marcuse a kc:Theorist ;
+  schema:name "헤르베르트 마르쿠제" ;
+  rdfs:label "헤르베르트 마르쿠제"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q77203> ;
+  schema:url <https://kcritic.kr/resource/p-marcuse> .
+
+kc:p-oh-kyuwon a kc:Writer ;
+  schema:name "오규원（吳圭原）" ;
+  rdfs:label "오규원（吳圭原）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12614218> ;
+  schema:url <https://kcritic.kr/resource/p-oh-kyuwon> .
+
+kc:p-park-mokwol a kc:Writer ;
+  schema:name "박목월（朴木月）" ;
+  rdfs:label "박목월（朴木月）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494989> ;
+  schema:url <https://kcritic.kr/resource/p-park-mokwol> .
+
+kc:p-paul-hazard a kc:Theorist ;
+  schema:name "폴 아자르（Paul Hazard）" ;
+  rdfs:label "폴 아자르（Paul Hazard）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q3381578> ;
+  schema:url <https://kcritic.kr/resource/p-paul-hazard> .
+
+kc:p-platon a kc:Theorist ;
+  schema:name "플라톤" ;
+  rdfs:label "플라톤"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q859> ;
+  schema:url <https://kcritic.kr/resource/p-platon> .
+
+kc:p-poe a kc:Writer ;
+  schema:name "에드거 앨런 포" ;
+  rdfs:label "에드거 앨런 포"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q16867> ;
+  schema:url <https://kcritic.kr/resource/p-poe> .
+
+kc:p-popper a kc:Theorist ;
+  schema:name "칼 포퍼" ;
+  rdfs:label "칼 포퍼"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q105082> ;
+  schema:url <https://kcritic.kr/resource/p-popper> .
+
+kc:p-poulet a kc:Theorist ;
+  schema:name "조르주 풀레（Georges Poulet）" ;
+  rdfs:label "조르주 풀레（Georges Poulet）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q3389861> ;
+  schema:url <https://kcritic.kr/resource/p-poulet> .
+
+kc:p-rilke a kc:Writer ;
+  schema:name "릴케(Rilke)" ;
+  rdfs:label "릴케(Rilke)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q44593> ;
+  schema:url <https://kcritic.kr/resource/p-rilke> .
+
+kc:p-sartre a kc:Theorist ;
+  schema:name "사르트르" ;
+  rdfs:label "사르트르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9364> ;
+  schema:url <https://kcritic.kr/resource/p-sartre> .
+
+kc:p-sim-hun a kc:Writer ;
+  schema:name "심훈" ;
+  rdfs:label "심훈"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q497011> ;
+  schema:url <https://kcritic.kr/resource/p-sim-hun> .
+
+kc:p-sombart a kc:Theorist ;
+  schema:name "베르너 좀바르트" ;
+  rdfs:label "베르너 좀바르트"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76791> ;
+  schema:url <https://kcritic.kr/resource/p-sombart> .
+
+kc:p-son-changsub a kc:Writer ;
+  schema:name "손창섭" ;
+  rdfs:label "손창섭"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499875> ;
+  schema:url <https://kcritic.kr/resource/p-son-changsub> .
+
+kc:p-stendhal a kc:Writer ;
+  schema:name "스탕달" ;
+  rdfs:label "스탕달"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q502> ;
+  schema:url <https://kcritic.kr/resource/p-stendhal> .
+
+kc:p-thomas-more a kc:Theorist ;
+  schema:name "토머스 모어" ;
+  rdfs:label "토머스 모어"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q41271> ;
+  schema:url <https://kcritic.kr/resource/p-thomas-more> .
+
+kc:p-trilling a kc:Theorist ;
+  schema:name "라이오넬 트릴링" ;
+  rdfs:label "라이오넬 트릴링"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q936288> ;
+  schema:url <https://kcritic.kr/resource/p-trilling> .
+
+kc:p-valery a kc:Theorist ;
+  schema:name "발레리" ;
+  rdfs:label "발레리"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q42387> ;
+  schema:url <https://kcritic.kr/resource/p-valery> .
+
+kc:p-walter-benjamin a kc:Theorist ;
+  schema:name "발터 벤야민（Walter Benjamin）" ;
+  rdfs:label "발터 벤야민（Walter Benjamin）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q44325> ;
+  schema:url <https://kcritic.kr/resource/p-walter-benjamin> .
+
+kc:p-whorf a kc:Theorist ;
+  schema:name "벤자민 워프(Benjamin Whorf)" ;
+  rdfs:label "벤자민 워프(Benjamin Whorf)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q212577> ;
+  schema:url <https://kcritic.kr/resource/p-whorf> .
+
+kc:p-xunzi a kc:Theorist ;
+  schema:name "순자" ;
+  rdfs:label "순자"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q312967> ;
+  schema:url <https://kcritic.kr/resource/p-xunzi> .
+
+kc:p-yeom-sangsub a kc:Writer ;
+  schema:name "염상섭" ;
+  rdfs:label "염상섭"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q498861> ;
+  schema:url <https://kcritic.kr/resource/p-yeom-sangsub> .
+
+kc:p-yi-chungjun a kc:Writer ;
+  schema:name "이청준" ;
+  rdfs:label "이청준"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1751918> ;
+  schema:url <https://kcritic.kr/resource/p-yi-chungjun> .
+
+kc:p-yi-gwangsu a kc:Writer ;
+  schema:name "이광수" ;
+  rdfs:label "이광수"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499661> ;
+  schema:url <https://kcritic.kr/resource/p-yi-gwangsu> .
+
+kc:p-yi-hyoseok a kc:Writer ;
+  schema:name "이효석" ;
+  rdfs:label "이효석"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q499600> ;
+  schema:url <https://kcritic.kr/resource/p-yi-hyoseok> .
+
+kc:p-yoo-jongho a kc:Theorist ;
+  schema:name "유종호" ;
+  rdfs:label "유종호"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q13564819> ;
+  schema:url <https://kcritic.kr/resource/p-yoo-jongho> .
+
+kc:p-yun-dongju a kc:Writer ;
+  schema:name "윤동주" ;
+  rdfs:label "윤동주"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q488774> ;
+  schema:url <https://kcritic.kr/resource/p-yun-dongju> .
+
+kc:p-zijderveld a kc:Theorist ;
+  schema:name "안톤 C. 지데어발드" ;
+  rdfs:label "안톤 C. 지데어발드"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q2647777> ;
+  schema:url <https://kcritic.kr/resource/p-zijderveld> .
+
+# ── 비평글 노드 ─────────────────────────────────────────
+kce:kim-uchang_beauty-surface-depth_1984 a kc:CriticalEssay ;
+  schema:name "아름다움의 거죽과 깊이 — 심미 감각과 사회" ;
+  rdfs:label "아름다움의 거죽과 깊이 — 심미 감각과 사회"@ko ;
+  dcterms:date "1984"^^xsd:gYear ;
+  schema:isPartOf "아름다움의 거죽과 깊이 — 심미 감각과 사회" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_beauty-surface-depth_1984.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-coleridge ;
+  kc:subjectOf kc:p-poe ;
+  kc:subjectOf kc:p-stendhal ;
+  kc:usesTheory kc:p-sombart ;
+  kc:usesConcept "심미 감각" ;
+  kc:usesConcept "행복의 약속(promesse de bonheur)" ;
+  kc:usesConcept "심미주의" ;
+  kc:usesConcept "참다운 아름다움" ;
+  kc:usesConcept "상상력(Imagination)" ;
+  kc:usesConcept "삐뚤어짐의 마귀(imp of perversity)" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_beauty-surface-depth_1984 .
+
+kce:kim-uchang_conscience-poetry_1979 a kc:CriticalEssay ;
+  schema:name "괴로운 양심의 시대의 시" ;
+  rdfs:label "괴로운 양심의 시대의 시"@ko ;
+  dcterms:date "1979"^^xsd:gYear ;
+  schema:isPartOf "괴로운 양심의 시대의 시" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_conscience-poetry_1979.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-hwang-dongkyu ;
+  kc:subjectOf kc:p-jung-heesung ;
+  kc:subjectOf kc:p-jung-hyunjong ;
+  kc:subjectOf kc:p-kim-changwan ;
+  kc:subjectOf kc:p-kim-suyoung ;
+  kc:subjectOf kc:p-ko-un ;
+  kc:subjectOf kc:p-oh-kyuwon ;
+  kc:usesTheory kc:p-valery .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_conscience-poetry_1979 .
+
+kce:kim-uchang_hwang-seokyoung-minjung_1982 a kc:CriticalEssay ;
+  schema:name "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구" ;
+  rdfs:label "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구"@ko ;
+  dcterms:date "1982"^^xsd:gYear ;
+  schema:isPartOf "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_hwang-seokyoung-minjung_1982.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesConcept "실존적 행동주의" ;
+  kc:usesConcept "래디컬 엠피리시즘" ;
+  kc:usesConcept "금욕적인 정결성" ;
+  kc:usesConcept "자발성과 계획성(또는 이성적 기율)과의 긴장과 갈등" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_hwang-seokyoung-minjung_1982 .
+
+kce:kim-uchang_joy-use-literature_1984 a kc:CriticalEssay ;
+  schema:name "문학의 즐거움과 쓰임" ;
+  rdfs:label "문학의 즐거움과 쓰임"@ko ;
+  dcterms:date "1984"^^xsd:gYear ;
+  schema:isPartOf "문학의 즐거움과 쓰임" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_joy-use-literature_1984.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-bettelheim ;
+  kc:usesTheory kc:p-iser ;
+  kc:usesConcept "반복 강박 관념(repetition compulsion)" ;
+  kc:usesConcept "서스펜스" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_joy-use-literature_1984 .
+
+kce:kim-uchang_korean-poetry-today_1985 a kc:CriticalEssay ;
+  schema:name "오늘의 한국 시 — 서정에서 현실로" ;
+  rdfs:label "오늘의 한국 시 — 서정에서 현실로"@ko ;
+  dcterms:date "1985"^^xsd:gYear ;
+  schema:isPartOf "오늘의 한국 시 — 서정에서 현실로" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_korean-poetry-today_1985.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-sartre ;
+  kc:usesConcept "참여시" ;
+  kc:usesConcept "복합적 감수성" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_korean-poetry-today_1985 .
+
+kce:kim-uchang_language-society-style_1983 a kc:CriticalEssay ;
+  schema:name "언어, 사회, 문체 — 토착어를 중심으로 한 성찰" ;
+  rdfs:label "언어, 사회, 문체 — 토착어를 중심으로 한 성찰"@ko ;
+  dcterms:date "1983"^^xsd:gYear ;
+  schema:isPartOf "언어, 사회, 문체 — 토착어를 중심으로 한 성찰" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_language-society-style_1983.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesConcept "한자어" ;
+  kc:usesConcept "상위 언어 체계" ;
+  kc:usesConcept "자기 회귀적(再歸的)" ;
+  kc:usesConcept "리얼리즘" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_language-society-style_1983 .
+
+kce:kim-uchang_language-things_1981 a kc:CriticalEssay ;
+  schema:name "시의 언어와 사물의 의미" ;
+  rdfs:label "시의 언어와 사물의 의미"@ko ;
+  dcterms:date "1981"^^xsd:gYear ;
+  schema:isPartOf "시인의 보석 — 현대 문학과 시인에 관한 에세이 (김우창전집 3)" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_language-things_1981.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-bergson ;
+  kc:usesTheory kc:p-freud ;
+  kc:usesTheory kc:p-hegel ;
+  kc:usesTheory kc:p-lacan ;
+  kc:usesTheory kc:p-whorf .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_language-things_1981 .
+
+kce:kim-uchang_lee-mungoo-rural_1981 a kc:CriticalEssay ;
+  schema:name "근대화 속의 농촌 — 이문구의 농촌 소설" ;
+  rdfs:label "근대화 속의 농촌 — 이문구의 농촌 소설"@ko ;
+  dcterms:date "1981"^^xsd:gYear ;
+  schema:isPartOf "근대화 속의 농촌 — 이문구의 농촌 소설" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_lee-mungoo-rural_1981.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesConcept "근대화" ;
+  kc:usesConcept "하향식" ;
+  kc:usesConcept "소비의 일방적인 항진" ;
+  kc:usesConcept "사실의 확인 → 분노의 대결과 투쟁 → 화해 → 새로운 주체성의 성립" ;
+  kc:usesConcept "자율적 농촌 공동체" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_lee-mungoo-rural_1981 .
+
+kce:kim-uchang_literary-development_1980 a kc:CriticalEssay ;
+  schema:name "문학의 발전 — 문학적 지각의 본질에 대한 한 고찰" ;
+  rdfs:label "문학의 발전 — 문학적 지각의 본질에 대한 한 고찰"@ko ;
+  dcterms:date "1980"^^xsd:gYear ;
+  schema:isPartOf "문학의 발전 — 문학적 지각의 본질에 대한 한 고찰" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_literary-development_1980.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-heidegger ;
+  kc:usesTheory kc:p-kant ;
+  kc:usesConcept "심미적 감각" ;
+  kc:usesConcept "심미적 인식" ;
+  kc:usesConcept "관조(觀照)" ;
+  kc:usesConcept "목적 없는 목적성(Zweckmässigkeit ohne Zweck)" ;
+  kc:usesConcept "기분(Stimmung)" ;
+  kc:usesConcept "형식적 가능성" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_literary-development_1980 .
+
+kce:kim-uchang_literature-utopia_1985 a kc:CriticalEssay ;
+  schema:name "문학과 유토피아 — 문학적 상상력의 정치적 의의에 대한 한 고찰" ;
+  rdfs:label "문학과 유토피아 — 문학적 상상력의 정치적 의의에 대한 한 고찰"@ko ;
+  dcterms:date "1985"^^xsd:gYear ;
+  schema:isPartOf "문학과 유토피아 — 문학적 상상력의 정치적 의의에 대한 한 고찰" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_literature-utopia_1985.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-bacon ;
+  kc:usesTheory kc:p-campanella ;
+  kc:usesTheory kc:p-marcuse ;
+  kc:usesTheory kc:p-popper ;
+  kc:usesTheory kc:p-thomas-more ;
+  kc:usesTheory kc:p-trilling ;
+  kc:usesConcept "소원 성취(wish-fulfillment)" ;
+  kc:usesConcept "유토피아" ;
+  kc:usesConcept "유토피아적 사고" ;
+  kc:usesConcept "리비도적인 존재" ;
+  kc:usesConcept "소비문화" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_literature-utopia_1985 .
+
+kce:kim-uchang_poetics-society_1982 a kc:CriticalEssay ;
+  schema:name "시의 내면과 외면 — 시와 사회에 대한 한 생각" ;
+  rdfs:label "시의 내면과 외면 — 시와 사회에 대한 한 생각"@ko ;
+  dcterms:date "1982"^^xsd:gYear ;
+  schema:isPartOf "시인의 보석 — 현대 문학과 시인에 관한 에세이 (김우창전집 3)" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_poetics-society_1982.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-rilke ;
+  kc:usesTheory kc:p-arnheim .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_poetics-society_1982 .
+
+kce:kim-uchang_poets-jewel_1984 a kc:CriticalEssay ;
+  schema:name "시인의 보석" ;
+  rdfs:label "시인의 보석"@ko ;
+  dcterms:date "1984"^^xsd:gYear ;
+  schema:isPartOf "시인의 보석 — 현대 문학과 시인에 관한 에세이 (김우창전집 3)" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_poets-jewel_1984.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-cho-jihun ;
+  kc:subjectOf kc:p-kim-hyunseung ;
+  kc:subjectOf kc:p-park-mokwol ;
+  kc:usesTheory kc:p-xunzi .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_poets-jewel_1984 .
+
+kce:kim-uchang_politics-poetry_1979 a kc:CriticalEssay ;
+  schema:name "시와 정치 — 한국 현대 시의 한 측면에 대한 고찰" ;
+  rdfs:label "시와 정치 — 한국 현대 시의 한 측면에 대한 고찰"@ko ;
+  dcterms:date "1979"^^xsd:gYear ;
+  schema:isPartOf "세계의 문학" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_politics-poetry_1979.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-kim-jonggil ;
+  kc:usesTheory kc:p-levi-strauss .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_politics-poetry_1979 .
+
+kce:kim-uchang_preface_1992 a kc:CriticalEssay ;
+  schema:name "어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여" ;
+  rdfs:label "어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여"@ko ;
+  dcterms:date "1992"^^xsd:gYear ;
+  schema:isPartOf "외국문학" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_preface_1992.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-byeon-youngro ;
+  kc:subjectOf kc:p-lawrence ;
+  kc:usesTheory kc:p-arnheim ;
+  kc:usesTheory kc:p-kristeva ;
+  kc:usesTheory kc:p-platon ;
+  kc:usesTheory kc:p-zijderveld .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_preface_1992 .
+
+kce:kim-uchang_quotation-cultural-memory_1985 a kc:CriticalEssay ;
+  schema:name "인용에 대하여 — 문화전통의 이어짐에 대한 명상" ;
+  rdfs:label "인용에 대하여 — 문화전통의 이어짐에 대한 명상"@ko ;
+  dcterms:date "1985"^^xsd:gYear ;
+  schema:isPartOf "인용에 대하여 — 문화전통의 이어짐에 대한 명상" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_quotation-cultural-memory_1985.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-austin ;
+  kc:usesTheory kc:p-balazs ;
+  kc:usesConcept "언어의 역사적 자의식" ;
+  kc:usesConcept "인용" ;
+  kc:usesConcept "사실 문장(constative)" ;
+  kc:usesConcept "실행 문장(performative)" ;
+  kc:usesConcept "인유(allusion)" ;
+  kc:usesConcept "뉘앙스" ;
+  kc:usesConcept "문화적 전통" .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_quotation-cultural-memory_1985 .
+
+kce:kim-uchang_realism-yeom-sangsub_1984 a kc:CriticalEssay ;
+  schema:name "리얼리즘에의 길 — 염상섭의 초기 단편" ;
+  rdfs:label "리얼리즘에의 길 — 염상섭의 초기 단편"@ko ;
+  dcterms:date "1984"^^xsd:gYear ;
+  schema:isPartOf "리얼리즘에의 길 — 염상섭의 초기 단편" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_realism-yeom-sangsub_1984.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:usesTheory kc:p-baek-chul ;
+  kc:usesTheory kc:p-binswanger ;
+  kc:usesTheory kc:p-descartes ;
+  kc:usesTheory kc:p-paul-hazard ;
+  kc:usesTheory kc:p-yoo-jongho .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_realism-yeom-sangsub_1984 .
+
+kce:kim-uchang_theory-korean-novel_1984 a kc:CriticalEssay ;
+  schema:name "한국 현대 소설의 이론을 위한 서설" ;
+  rdfs:label "한국 현대 소설의 이론을 위한 서설"@ko ;
+  dcterms:date "1984"^^xsd:gYear ;
+  schema:isPartOf "궁핍한 시대의 시인 — 현대 문학과 인간 현실에 관한 에세이 (김우창전집 1)" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_theory-korean-novel_1984.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-choi-inhun ;
+  kc:subjectOf kc:p-hwang-sunwon ;
+  kc:subjectOf kc:p-jang-yonghak ;
+  kc:subjectOf kc:p-jung-jiyong ;
+  kc:subjectOf kc:p-kim-dongin ;
+  kc:subjectOf kc:p-kim-dongri ;
+  kc:subjectOf kc:p-ko-un ;
+  kc:subjectOf kc:p-son-changsub ;
+  kc:subjectOf kc:p-yeom-sangsub ;
+  kc:subjectOf kc:p-yi-chungjun ;
+  kc:subjectOf kc:p-yi-gwangsu ;
+  kc:usesTheory kc:p-ian-watt .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_theory-korean-novel_1984 .
+
+kce:kim-uchang_time-korean-novel_1981 a kc:CriticalEssay ;
+  schema:name "한국소설의 시간" ;
+  rdfs:label "한국소설의 시간"@ko ;
+  dcterms:date "1981"^^xsd:gYear ;
+  schema:isPartOf "궁핍한 시대의 시인 — 현대 문학과 인간 현실에 관한 에세이 (김우창전집 1)" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_time-korean-novel_1981.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-hwang-sunwon ;
+  kc:subjectOf kc:p-jo-sehi ;
+  kc:subjectOf kc:p-kim-dongri ;
+  kc:subjectOf kc:p-sim-hun ;
+  kc:subjectOf kc:p-yeom-sangsub ;
+  kc:subjectOf kc:p-yi-gwangsu ;
+  kc:subjectOf kc:p-yi-hyoseok ;
+  kc:usesTheory kc:p-auerbach ;
+  kc:usesTheory kc:p-baek-nakchung ;
+  kc:usesTheory kc:p-ian-watt ;
+  kc:usesTheory kc:p-lubbock ;
+  kc:usesTheory kc:p-lukacs ;
+  kc:usesTheory kc:p-poulet ;
+  kc:usesTheory kc:p-walter-benjamin .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_time-korean-novel_1981 .
+
+kce:kim-uchang_yun-dongju_1985 a kc:CriticalEssay ;
+  schema:name "윤동주의 시와 근대적 자아" ;
+  rdfs:label "윤동주의 시와 근대적 자아"@ko ;
+  dcterms:date "1985"^^xsd:gYear ;
+  schema:isPartOf "궁핍한 시대의 시인" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_yun-dongju_1985.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  kc:wrote kc:p-kim-uchang ;
+  kc:subjectOf kc:p-yun-dongju ;
+  kc:usesTheory kc:p-habermas .
+
+kc:p-kim-uchang kc:wrote kce:kim-uchang_yun-dongju_1985 .

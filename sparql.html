@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPARQL — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sparql-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 0;
+      min-height: calc(100vh - 57px - 56px);
+      align-items: start;
+    }
+
+    /* ── 예제 쿼리 사이드바 ── */
+    .sparql-sidebar {
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 57px;
+      max-height: calc(100vh - 57px);
+      overflow-y: auto;
+    }
+    .sparql-sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: 0 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .example-group-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: 0.75rem 1.25rem 0.25rem;
+    }
+    .example-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      font-size: 12.5px;
+      font-family: var(--font-sans);
+      color: var(--text);
+      cursor: pointer;
+      line-height: 1.45;
+      transition: background 0.1s;
+    }
+    .example-btn:hover { background: var(--surface-2); }
+    .example-btn.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
+    .example-btn .ex-desc {
+      display: block;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-top: 1px;
+      font-weight: 400;
+    }
+
+    /* ── 쿼리 패널 ── */
+    .sparql-main {
+      padding: 1.75rem 2rem 4rem;
+    }
+    .sparql-section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── 쿼리 에디터 ── */
+    .query-editor-wrap {
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+    #query-editor {
+      width: 100%;
+      min-height: 200px;
+      padding: 1rem;
+      font-family: "Fira Code", "Consolas", "Menlo", monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fafaf7;
+      color: var(--text);
+      resize: vertical;
+      outline: none;
+      box-sizing: border-box;
+      tab-size: 2;
+    }
+    #query-editor:focus { border-color: var(--accent); }
+
+    .query-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-run {
+      padding: 8px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .btn-run:hover { background: #5a3320; }
+    .btn-run:disabled { background: #ccc; cursor: not-allowed; }
+    .query-source-note {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+    .endpoint-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-left: auto;
+    }
+    .endpoint-toggle input[type="checkbox"] { cursor: pointer; }
+
+    /* ── 결과 테이블 ── */
+    .sparql-status {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 0.75rem;
+      min-height: 18px;
+    }
+    .sparql-status.error { color: #a33232; }
+    .sparql-status.ok { color: var(--affirmative); }
+
+    .result-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    #result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    #result-table th {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    #result-table td {
+      border-bottom: 1px solid var(--border);
+      padding: 8px 12px;
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.45;
+      max-width: 400px;
+      word-break: break-all;
+    }
+    #result-table tr:last-child td { border-bottom: none; }
+    #result-table tr:hover td { background: #fafaf7; }
+    #result-table td a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    #result-table td.uri-cell { font-size: 11px; color: var(--text-tertiary); }
+    .result-empty {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    /* ── 접두사 안내 ── */
+    .prefix-info {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .prefix-info code {
+      font-family: "Fira Code", "Consolas", monospace;
+      font-size: 11px;
+      background: #ededea;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+    .prefix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ── 모바일 ── */
+    @media (max-width: 768px) {
+      .sparql-layout { grid-template-columns: 1fr; }
+      .sparql-sidebar {
+        position: static;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .sparql-main { padding: 1.25rem 1rem 3rem; }
+      #query-editor { font-size: 12px; min-height: 160px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="sparql.html" class="active">SPARQL</a>
+        <a href="criticism.html">2000년대 비평</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="sparql-layout">
+    <!-- 좌: 예제 쿼리 목록 -->
+    <aside class="sparql-sidebar">
+      <div class="sparql-sidebar-title">예제 쿼리</div>
+
+      <div class="example-group-label">기본 조회</div>
+      <button class="example-btn" onclick="loadExample('all-essays')">
+        수록 비평글 전체
+        <span class="ex-desc">제목·연도·저자 목록</span>
+      </button>
+      <button class="example-btn" onclick="loadExample('all-persons')">
+        등장 인물 전체
+        <span class="ex-desc">이름·유형·Wikidata URI</span>
+      </button>
+      <button class="example-btn" onclick="loadExample('critics')">
+        비평가 목록
+        <span class="ex-desc">집필 에세이 수 포함</span>
+      </button>
+
+      <div class="example-group-label">관계 탐색</div>
+      <button class="example-btn" onclick="loadExample('writer-essays')">
+        작가별 비평 에세이
+        <span class="ex-desc">어떤 에세이에서 누가 다뤄졌나</span>
+      </button>
+      <button class="example-btn" onclick="loadExample('theorist-essays')">
+        이론가별 활용 에세이
+        <span class="ex-desc">이론이 어떤 비평글에서 쓰였나</span>
+      </button>
+      <button class="example-btn" onclick="loadExample('most-cited-theorists')">
+        가장 많이 활용된 이론가
+        <span class="ex-desc">활용 횟수 내림차순</span>
+      </button>
+      <button class="example-btn" onclick="loadExample('concept-essays')">
+        개념어 → 에세이
+        <span class="ex-desc">개념어가 쓰인 비평글</span>
+      </button>
+
+      <div class="example-group-label">Wikidata 페더레이션</div>
+      <button class="example-btn" onclick="loadExample('wikidata-birth')">
+        이론가 출생지 조회
+        <span class="ex-desc">Wikidata에서 실시간 조회</span>
+      </button>
+      <button class="example-btn" onclick="loadExample('wikidata-nationality')">
+        이론가 국적 분포
+        <span class="ex-desc">어느 나라 이론가를 많이 썼나</span>
+      </button>
+    </aside>
+
+    <!-- 우: 쿼리 에디터 + 결과 -->
+    <main class="sparql-main">
+      <div class="sparql-section-label">SPARQL 쿼리</div>
+
+      <div class="query-editor-wrap">
+        <textarea id="query-editor" spellcheck="false"></textarea>
+      </div>
+
+      <div class="query-actions">
+        <button class="btn-run" id="run-btn" onclick="runQuery()">쿼리 실행</button>
+        <label class="endpoint-toggle">
+          <input type="checkbox" id="federation-toggle">
+          Wikidata 페더레이션 활성화
+        </label>
+      </div>
+
+      <div class="sparql-status" id="sparql-status"></div>
+
+      <div class="result-wrap" id="result-wrap" style="display:none;">
+        <table id="result-table"></table>
+      </div>
+
+      <div class="prefix-info">
+        <strong>사용 가능한 접두사</strong>
+        <div class="prefix-grid">
+          <div><code>kc:</code> https://kcritic.kr/resource/</div>
+          <div><code>kce:</code> https://kcritic.kr/resource/essay/</div>
+          <div><code>schema:</code> https://schema.org/</div>
+          <div><code>dcterms:</code> http://purl.org/dc/terms/</div>
+          <div><code>owl:</code> http://www.w3.org/2002/07/owl#</div>
+          <div><code>rdfs:</code> http://www.w3.org/2000/01/rdf-schema#</div>
+          <div><code>wd:</code> https://www.wikidata.org/wiki/</div>
+          <div><code>wdt:</code> http://www.wikidata.org/prop/direct/</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>비평 온톨로지 프로젝트 · TEI XML 기반 디지털 아카이브 · RDF/Turtle 데이터: <a href="site/data/graph.ttl">graph.ttl 다운로드</a></p>
+    </div>
+  </footer>
+
+  <!-- Comunica SPARQL engine (브라우저용) -->
+  <script src="https://cdn.jsdelivr.net/npm/@comunica/query-sparql@3/dist/comunica-browser.js"></script>
+
+  <script>
+  // ── 예제 쿼리 정의 ──────────────────────────────────────────
+
+  const TTL_URL = location.origin + location.pathname.replace('sparql.html', '') + 'site/data/graph.ttl';
+
+  const PREFIXES = `PREFIX kc: <https://kcritic.kr/resource/>
+PREFIX kce: <https://kcritic.kr/resource/essay/>
+PREFIX schema: <https://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <https://www.wikidata.org/wiki/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+`;
+
+  const EXAMPLES = {
+    'all-essays': PREFIXES + `SELECT ?essay ?title ?year ?authorName WHERE {
+  ?essay a kc:CriticalEssay ;
+    schema:name ?title ;
+    dcterms:creator ?author .
+  ?author schema:name ?authorName .
+  OPTIONAL { ?essay dcterms:date ?year . }
+}
+ORDER BY ?year`,
+
+    'all-persons': PREFIXES + `SELECT ?person ?name ?type ?wikidata WHERE {
+  VALUES ?type { kc:Critic kc:Writer kc:Theorist }
+  ?person a ?type ;
+    schema:name ?name .
+  OPTIONAL { ?person owl:sameAs ?wikidata .
+             FILTER(CONTAINS(STR(?wikidata), "wikidata")) }
+}
+ORDER BY ?type ?name`,
+
+    'critics': PREFIXES + `SELECT ?critic ?name (COUNT(?essay) AS ?essayCount) WHERE {
+  ?critic a kc:Critic ;
+    schema:name ?name ;
+    kc:wrote ?essay .
+}
+GROUP BY ?critic ?name
+ORDER BY DESC(?essayCount)`,
+
+    'writer-essays': PREFIXES + `SELECT ?writerName ?essayTitle ?year WHERE {
+  ?essay a kc:CriticalEssay ;
+    schema:name ?essayTitle ;
+    kc:subjectOf ?writer .
+  ?writer schema:name ?writerName .
+  OPTIONAL { ?essay dcterms:date ?year . }
+}
+ORDER BY ?writerName ?year`,
+
+    'theorist-essays': PREFIXES + `SELECT ?theoristName ?essayTitle ?year WHERE {
+  ?essay a kc:CriticalEssay ;
+    schema:name ?essayTitle ;
+    kc:usesTheory ?theorist .
+  ?theorist schema:name ?theoristName .
+  OPTIONAL { ?essay dcterms:date ?year . }
+}
+ORDER BY ?theoristName ?year`,
+
+    'most-cited-theorists': PREFIXES + `SELECT ?theoristName (COUNT(?essay) AS ?count) ?wikidata WHERE {
+  ?essay a kc:CriticalEssay ;
+    kc:usesTheory ?theorist .
+  ?theorist schema:name ?theoristName .
+  OPTIONAL { ?theorist owl:sameAs ?wikidata .
+             FILTER(CONTAINS(STR(?wikidata), "wikidata")) }
+}
+GROUP BY ?theoristName ?wikidata
+ORDER BY DESC(?count)`,
+
+    'concept-essays': PREFIXES + `SELECT ?concept ?essayTitle ?year WHERE {
+  ?essay a kc:CriticalEssay ;
+    schema:name ?essayTitle ;
+    kc:usesConcept ?concept .
+  OPTIONAL { ?essay dcterms:date ?year . }
+}
+ORDER BY ?concept ?year`,
+
+    'wikidata-birth': PREFIXES + `SELECT ?theoristName ?birthPlace ?wikidata WHERE {
+  ?theorist a kc:Theorist ;
+    schema:name ?theoristName ;
+    owl:sameAs ?wikidata .
+  FILTER(CONTAINS(STR(?wikidata), "wikidata.org/wiki/Q"))
+
+  SERVICE <https://query.wikidata.org/sparql> {
+    ?wikidata wdt:P19 ?birthPlaceItem .
+    ?birthPlaceItem rdfs:label ?birthPlace .
+    FILTER(LANG(?birthPlace) = "ko" || LANG(?birthPlace) = "en")
+  }
+}
+ORDER BY ?theoristName
+LIMIT 30`,
+
+    'wikidata-nationality': PREFIXES + `SELECT ?countryName (COUNT(DISTINCT ?theorist) AS ?count) WHERE {
+  ?theorist a kc:Theorist ;
+    owl:sameAs ?wikidata .
+  FILTER(CONTAINS(STR(?wikidata), "wikidata.org/wiki/Q"))
+
+  SERVICE <https://query.wikidata.org/sparql> {
+    ?wikidata wdt:P27 ?country .
+    ?country rdfs:label ?countryName .
+    FILTER(LANG(?countryName) = "ko")
+  }
+}
+GROUP BY ?countryName
+ORDER BY DESC(?count)`,
+  };
+
+  // ── 예제 로드 ─────────────────────────────────────────────
+
+  let activeExample = null;
+
+  function loadExample(key) {
+    document.getElementById('query-editor').value = EXAMPLES[key];
+    // 사이드바 하이라이트
+    document.querySelectorAll('.example-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    activeExample = key;
+    // Wikidata 페더레이션 쿼리이면 토글 자동 ON
+    const needsFed = key.startsWith('wikidata-');
+    document.getElementById('federation-toggle').checked = needsFed;
+  }
+
+  // 기본 쿼리 로드
+  document.getElementById('query-editor').value = EXAMPLES['all-essays'];
+
+  // ── 쿼리 실행 ─────────────────────────────────────────────
+
+  async function runQuery() {
+    const queryText = document.getElementById('query-editor').value.trim();
+    if (!queryText) return;
+
+    const btn = document.getElementById('run-btn');
+    const statusEl = document.getElementById('sparql-status');
+    const resultWrap = document.getElementById('result-wrap');
+    const table = document.getElementById('result-table');
+
+    btn.disabled = true;
+    btn.textContent = '실행 중…';
+    statusEl.textContent = '쿼리 실행 중…';
+    statusEl.className = 'sparql-status';
+    resultWrap.style.display = 'none';
+    table.innerHTML = '';
+
+    const useFederation = document.getElementById('federation-toggle').checked;
+
+    try {
+      const sources = [{ type: 'file', value: TTL_URL }];
+      if (useFederation) {
+        sources.push({ type: 'sparql', value: 'https://query.wikidata.org/sparql' });
+      }
+
+      const engine = new Comunica.QueryEngine();
+      const result = await engine.query(queryText, { sources });
+
+      if (result.resultType !== 'bindings') {
+        statusEl.textContent = '이 쿼리 유형은 SELECT만 지원합니다.';
+        statusEl.className = 'sparql-status error';
+        btn.disabled = false;
+        btn.textContent = '쿼리 실행';
+        return;
+      }
+
+      const bindingsStream = await result.execute();
+      const rows = [];
+      let vars = [];
+
+      for await (const binding of bindingsStream) {
+        if (vars.length === 0) {
+          vars = [...binding.keys()].map(k => k.value);
+        }
+        const row = {};
+        for (const [key, term] of binding) {
+          row[key.value] = term;
+        }
+        rows.push(row);
+      }
+
+      if (rows.length === 0) {
+        statusEl.textContent = '결과 없음';
+        statusEl.className = 'sparql-status';
+        resultWrap.style.display = 'block';
+        table.innerHTML = '<tr><td class="result-empty">조건에 맞는 결과가 없습니다.</td></tr>';
+        btn.disabled = false;
+        btn.textContent = '쿼리 실행';
+        return;
+      }
+
+      // 헤더
+      const thead = document.createElement('thead');
+      thead.innerHTML = '<tr>' + vars.map(v => `<th>${v}</th>`).join('') + '</tr>';
+      table.appendChild(thead);
+
+      // 바디
+      const tbody = document.createElement('tbody');
+      for (const row of rows) {
+        const tr = document.createElement('tr');
+        for (const v of vars) {
+          const td = document.createElement('td');
+          const term = row[v];
+          if (!term) {
+            td.textContent = '';
+          } else if (term.termType === 'NamedNode') {
+            const uri = term.value;
+            const display = uri.replace('https://kcritic.kr/resource/', 'kc:')
+                               .replace('https://kcritic.kr/resource/essay/', 'kce:')
+                               .replace('https://www.wikidata.org/wiki/', 'wd:');
+            td.className = 'uri-cell';
+            td.innerHTML = `<a href="${uri}" target="_blank">${display}</a>`;
+          } else if (term.termType === 'Literal') {
+            td.textContent = term.value;
+          } else {
+            td.textContent = term.value;
+          }
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      }
+      table.appendChild(tbody);
+
+      statusEl.textContent = `✓ ${rows.length}개 결과`;
+      statusEl.className = 'sparql-status ok';
+      resultWrap.style.display = 'block';
+
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = `오류: ${err.message}`;
+      statusEl.className = 'sparql-status error';
+    }
+
+    btn.disabled = false;
+    btn.textContent = '쿼리 실행';
+  }
+
+  // Enter+Ctrl로 실행
+  document.getElementById('query-editor').addEventListener('keydown', e => {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      runQuery();
+    }
+  });
+  </script>
+</body>
+</html>
