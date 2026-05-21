@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개념어 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .concepts-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      min-height: calc(100vh - 57px - 56px);
+      align-items: start;
+    }
+
+    /* ── 개념어 목록 (좌) ── */
+    .concept-sidebar {
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 57px;
+      max-height: calc(100vh - 57px);
+      overflow-y: auto;
+    }
+    .concept-sidebar-header {
+      padding: 0 1.25rem 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .concept-sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+    .concept-search {
+      width: 100%;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--bg);
+      box-sizing: border-box;
+      outline: none;
+    }
+    .concept-search:focus { border-color: #7ac9a0; }
+
+    .concept-list {
+      list-style: none;
+      padding: 0 0.5rem;
+    }
+    .concept-list li {
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      transition: background 0.1s;
+    }
+    .concept-list li:hover { background: var(--surface-2); }
+    .concept-list li.active { background: #d8f0e4; }
+    .concept-list li.active .concept-name { color: #1a5c38; font-weight: 500; }
+    .concept-name {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.4;
+      flex: 1;
+    }
+    .concept-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .concept-list li.active .concept-badge {
+      background: #7ac9a0;
+      border-color: #4a9970;
+      color: #0a2e1a;
+    }
+
+    /* ── 상세 패널 (우) ── */
+    .concept-detail {
+      padding: 2.5rem 2.5rem 4rem;
+      min-height: 400px;
+    }
+    .concept-detail-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      color: var(--text-tertiary);
+      text-align: center;
+      gap: 1rem;
+    }
+    .concept-detail-empty svg { opacity: 0.25; }
+    .concept-detail-empty p { font-size: 13px; line-height: 1.6; }
+
+    .concept-detail-name {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .concept-detail-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .concept-essays-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+    }
+    .concept-essay-card {
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+      transition: border-color 0.1s, background 0.1s;
+    }
+    .concept-essay-card:hover {
+      border-color: #9adcbb;
+      background: #f5fdf8;
+    }
+    .concept-essay-year {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 0.25rem;
+    }
+    .concept-essay-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.45;
+    }
+    .concept-essay-title:hover { color: var(--accent); text-decoration: none; }
+
+    /* ── 모바일 ── */
+    @media (max-width: 768px) {
+      .concepts-layout { grid-template-columns: 1fr; }
+      .concept-sidebar {
+        position: static;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.5rem;
+      }
+      .concept-detail { padding: 1.5rem 1rem 3rem; }
+      .concept-detail-name { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html" class="active">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html">2000년대 비평</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="concepts-layout">
+    <!-- 좌: 개념어 목록 -->
+    <aside class="concept-sidebar">
+      <div class="concept-sidebar-header">
+        <div class="concept-sidebar-title">개념어 색인</div>
+        <input type="text" class="concept-search" id="concept-search"
+               placeholder="개념어 검색…" oninput="filterConcepts(this.value)" autocomplete="off">
+      </div>
+      <ul class="concept-list" id="concept-list"></ul>
+    </aside>
+
+    <!-- 우: 상세 패널 -->
+    <main class="concept-detail" id="concept-detail">
+      <div class="concept-detail-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <p>개념어를 선택하면<br>해당 개념이 사용된 비평글이 표시됩니다</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>비평 온톨로지 프로젝트 · TEI XML 기반 디지털 아카이브</p>
+    </div>
+  </footer>
+
+  <script>
+  let allConcepts = [];
+  let selectedSlug = null;
+
+  fetch('site/data/concepts.json')
+    .then(r => r.json())
+    .then(data => {
+      allConcepts = data;
+      renderList(data);
+      // URL hash로 진입한 경우
+      const hash = location.hash.slice(1);
+      if (hash) {
+        const found = data.find(c => c.slug === hash);
+        if (found) selectConcept(found);
+      }
+    })
+    .catch(e => console.error('concepts.json 로드 실패:', e));
+
+  function renderList(concepts) {
+    const ul = document.getElementById('concept-list');
+    ul.innerHTML = concepts.map(c => `
+      <li data-slug="${c.slug}" onclick="selectConcept(allConcepts.find(x=>x.slug==='${c.slug}'))">
+        <span class="concept-name">${c.name}</span>
+        <span class="concept-badge">${c.essay_count}</span>
+      </li>
+    `).join('');
+    // 현재 선택 유지
+    if (selectedSlug) {
+      const li = ul.querySelector(`[data-slug="${selectedSlug}"]`);
+      if (li) li.classList.add('active');
+    }
+  }
+
+  function filterConcepts(q) {
+    q = q.trim().toLowerCase();
+    const filtered = q
+      ? allConcepts.filter(c => c.name.toLowerCase().includes(q))
+      : allConcepts;
+    renderList(filtered);
+  }
+
+  function selectConcept(concept) {
+    if (!concept) return;
+    selectedSlug = concept.slug;
+
+    // 사이드바 하이라이트
+    document.querySelectorAll('.concept-list li').forEach(li => {
+      li.classList.toggle('active', li.dataset.slug === concept.slug);
+    });
+
+    // URL hash 업데이트 (뒤로가기 지원)
+    history.replaceState(null, '', '#' + concept.slug);
+
+    // 상세 패널 렌더링
+    const essayCards = concept.essays.map(e => `
+      <div class="concept-essay-card">
+        <div class="concept-essay-year">${e.year}</div>
+        <a href="site/essays/${e.stem}.html" class="concept-essay-title">${e.title}</a>
+      </div>
+    `).join('');
+
+    const plural = concept.essay_count === 1 ? '편의 비평글' : '편의 비평글';
+
+    document.getElementById('concept-detail').innerHTML = `
+      <div class="concept-detail-name">${concept.name}</div>
+      <div class="concept-detail-meta">총 ${concept.essay_count}${plural}에서 사용</div>
+      <div class="concept-essays-label">사용된 비평글</div>
+      ${essayCards}
+    `;
+  }
+  </script>
+</body>
+</html>

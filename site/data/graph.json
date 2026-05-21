@@ -5,7 +5,14 @@
       "label": "아름다움의 거죽과 깊이 — 심미 감각과 사회",
       "type": "essay",
       "year": "",
-      "degree": 10
+      "degree": 4
+    },
+    {
+      "id": "p-poe",
+      "label": "에드거 앨런 포",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q16867",
+      "degree": 1
     },
     {
       "id": "p-coleridge",
@@ -22,53 +29,10 @@
       "degree": 1
     },
     {
-      "id": "p-poe",
-      "label": "에드거 앨런 포",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q16867",
-      "degree": 1
-    },
-    {
       "id": "p-sombart",
       "label": "베르너 좀바르트",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q76791",
-      "degree": 1
-    },
-    {
-      "id": "concept-심미-감각",
-      "label": "심미 감각",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-행복의-약속-promesse-de-bonheur",
-      "label": "행복의 약속(promesse de bonheur)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-심미주의",
-      "label": "심미주의",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-참다운-아름다움",
-      "label": "참다운 아름다움",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-상상력-Imagination",
-      "label": "상상력(Imagination)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-삐뚤어짐의-마귀-imp-of-perversity",
-      "label": "삐뚤어짐의 마귀(imp of perversity)",
-      "type": "concept",
       "degree": 1
     },
     {
@@ -79,10 +43,24 @@
       "degree": 8
     },
     {
+      "id": "p-kim-suyoung",
+      "label": "김수영（金洙暎）",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q16198424",
+      "degree": 1
+    },
+    {
       "id": "p-oh-kyuwon",
       "label": "오규원（吳圭原）",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q12614218",
+      "degree": 1
+    },
+    {
+      "id": "p-jung-heesung",
+      "label": "정희성（鄭喜成）",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q12520476",
       "degree": 1
     },
     {
@@ -93,27 +71,6 @@
       "degree": 1
     },
     {
-      "id": "p-ko-un",
-      "label": "고은（高銀）",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q460427",
-      "degree": 2
-    },
-    {
-      "id": "p-jung-heesung",
-      "label": "정희성（鄭喜成）",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q12520476",
-      "degree": 1
-    },
-    {
-      "id": "p-hwang-dongkyu",
-      "label": "황동규",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499298",
-      "degree": 1
-    },
-    {
       "id": "p-jung-hyunjong",
       "label": "정현종（鄭玄宗）",
       "type": "writer",
@@ -121,10 +78,17 @@
       "degree": 1
     },
     {
-      "id": "p-kim-suyoung",
-      "label": "김수영（金洙暎）",
+      "id": "p-ko-un",
+      "label": "고은（高銀）",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q16198424",
+      "ref": "https://www.wikidata.org/wiki/Q460427",
+      "degree": 2
+    },
+    {
+      "id": "p-hwang-dongkyu",
+      "label": "황동규",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499298",
       "degree": 1
     },
     {
@@ -139,38 +103,14 @@
       "label": "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구",
       "type": "essay",
       "year": "",
-      "degree": 4
-    },
-    {
-      "id": "concept-실존적-행동주의",
-      "label": "실존적 행동주의",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-래디컬-엠피리시즘",
-      "label": "래디컬 엠피리시즘",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-금욕적인-정결성",
-      "label": "금욕적인 정결성",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-자발성과-계획성-또는-이성적-기율-과의-긴장과-갈등",
-      "label": "자발성과 계획성(또는 이성적 기율)과의 긴장과 갈등",
-      "type": "concept",
-      "degree": 1
+      "degree": 0
     },
     {
       "id": "kim-uchang_joy-use-literature_1984",
       "label": "문학의 즐거움과 쓰임",
       "type": "essay",
       "year": "",
-      "degree": 4
+      "degree": 2
     },
     {
       "id": "p-iser",
@@ -187,23 +127,11 @@
       "degree": 1
     },
     {
-      "id": "concept-반복-강박-관념-repetition-compulsion",
-      "label": "반복 강박 관념(repetition compulsion)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-서스펜스",
-      "label": "서스펜스",
-      "type": "concept",
-      "degree": 1
-    },
-    {
       "id": "kim-uchang_korean-poetry-today_1985",
       "label": "오늘의 한국 시 — 서정에서 현실로",
       "type": "essay",
       "year": "",
-      "degree": 4
+      "degree": 2
     },
     {
       "id": "p-kim-uchang",
@@ -220,47 +148,11 @@
       "degree": 1
     },
     {
-      "id": "concept-참여시",
-      "label": "참여시",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-복합적-감수성",
-      "label": "복합적 감수성",
-      "type": "concept",
-      "degree": 1
-    },
-    {
       "id": "kim-uchang_language-society-style_1983",
       "label": "언어, 사회, 문체 — 토착어를 중심으로 한 성찰",
       "type": "essay",
       "year": "",
-      "degree": 4
-    },
-    {
-      "id": "concept-한자어",
-      "label": "한자어",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-상위-언어-체계",
-      "label": "상위 언어 체계",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-자기-회귀적-再歸的",
-      "label": "자기 회귀적(再歸的)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-리얼리즘",
-      "label": "리얼리즘",
-      "type": "concept",
-      "degree": 1
+      "degree": 0
     },
     {
       "id": "kim-uchang_language-things_1981",
@@ -270,10 +162,10 @@
       "degree": 6
     },
     {
-      "id": "p-hegel",
-      "label": "헤겔",
+      "id": "p-freud",
+      "label": "프로이트",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9235",
+      "ref": "https://www.wikidata.org/wiki/Q9215",
       "degree": 1
     },
     {
@@ -291,13 +183,6 @@
       "degree": 1
     },
     {
-      "id": "p-freud",
-      "label": "프로이트",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9215",
-      "degree": 1
-    },
-    {
       "id": "p-lacan",
       "label": "자크 라캉(Jacques Lacan)",
       "type": "theorist",
@@ -305,11 +190,18 @@
       "degree": 1
     },
     {
+      "id": "p-hegel",
+      "label": "헤겔",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9235",
+      "degree": 1
+    },
+    {
       "id": "kim-uchang_lee-mungoo-rural_1981",
       "label": "근대화 속의 농촌 — 이문구의 농촌 소설",
       "type": "essay",
       "year": "",
-      "degree": 6
+      "degree": 1
     },
     {
       "id": "p-yeom-muwung",
@@ -319,41 +211,11 @@
       "degree": 1
     },
     {
-      "id": "concept-근대화",
-      "label": "근대화",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-하향식",
-      "label": "하향식",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-소비의-일방적인-항진",
-      "label": "소비의 일방적인 항진",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-사실의-확인---분노의-대결과-투쟁---화해---새로운-주체성의-성립",
-      "label": "사실의 확인 → 분노의 대결과 투쟁 → 화해 → 새로운 주체성의 성립",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-자율적-농촌-공동체",
-      "label": "자율적 농촌 공동체",
-      "type": "concept",
-      "degree": 1
-    },
-    {
       "id": "kim-uchang_literary-development_1980",
       "label": "문학의 발전 — 문학적 지각의 본질에 대한 한 고찰",
       "type": "essay",
       "year": "",
-      "degree": 8
+      "degree": 2
     },
     {
       "id": "p-heidegger",
@@ -370,54 +232,11 @@
       "degree": 1
     },
     {
-      "id": "concept-심미적-감각",
-      "label": "심미적 감각",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-심미적-인식",
-      "label": "심미적 인식",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-관조-觀照",
-      "label": "관조(觀照)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-목적-없는-목적성-Zweckmässigkeit-ohne-Zweck",
-      "label": "목적 없는 목적성(Zweckmässigkeit ohne Zweck)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-기분-Stimmung",
-      "label": "기분(Stimmung)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-형식적-가능성",
-      "label": "형식적 가능성",
-      "type": "concept",
-      "degree": 1
-    },
-    {
       "id": "kim-uchang_literature-utopia_1985",
       "label": "문학과 유토피아 — 문학적 상상력의 정치적 의의에 대한 한 고찰",
       "type": "essay",
       "year": "",
-      "degree": 11
-    },
-    {
-      "id": "p-trilling",
-      "label": "라이오넬 트릴링",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q936288",
-      "degree": 1
+      "degree": 6
     },
     {
       "id": "p-marcuse",
@@ -427,17 +246,17 @@
       "degree": 1
     },
     {
+      "id": "p-trilling",
+      "label": "라이오넬 트릴링",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q936288",
+      "degree": 1
+    },
+    {
       "id": "p-campanella",
       "label": "캄파넬라",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q46867",
-      "degree": 1
-    },
-    {
-      "id": "p-thomas-more",
-      "label": "토머스 모어",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q41271",
       "degree": 1
     },
     {
@@ -455,33 +274,10 @@
       "degree": 1
     },
     {
-      "id": "concept-소원-성취-wish-fulfillment",
-      "label": "소원 성취(wish-fulfillment)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-유토피아",
-      "label": "유토피아",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-유토피아적-사고",
-      "label": "유토피아적 사고",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-리비도적인-존재",
-      "label": "리비도적인 존재",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-소비문화",
-      "label": "소비문화",
-      "type": "concept",
+      "id": "p-thomas-more",
+      "label": "토머스 모어",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q41271",
       "degree": 1
     },
     {
@@ -608,14 +404,7 @@
       "label": "인용에 대하여 — 문화전통의 이어짐에 대한 명상",
       "type": "essay",
       "year": "",
-      "degree": 9
-    },
-    {
-      "id": "p-balazs",
-      "label": "에티엔 발라스",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q437773",
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "p-austin",
@@ -625,45 +414,10 @@
       "degree": 1
     },
     {
-      "id": "concept-언어의-역사적-자의식",
-      "label": "언어의 역사적 자의식",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-인용",
-      "label": "인용",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-사실-문장-constative",
-      "label": "사실 문장(constative)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-실행-문장-performative",
-      "label": "실행 문장(performative)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-인유-allusion",
-      "label": "인유(allusion)",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-뉘앙스",
-      "label": "뉘앙스",
-      "type": "concept",
-      "degree": 1
-    },
-    {
-      "id": "concept-문화적-전통",
-      "label": "문화적 전통",
-      "type": "concept",
+      "id": "p-balazs",
+      "label": "에티엔 발라스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q437773",
       "degree": 1
     },
     {
@@ -672,20 +426,6 @@
       "type": "essay",
       "year": "",
       "degree": 6
-    },
-    {
-      "id": "p-paul-hazard",
-      "label": "폴 아자르（Paul Hazard）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q3381578",
-      "degree": 1
-    },
-    {
-      "id": "p-binswanger",
-      "label": "루드비히 빈스방거（Ludwig Binswanger）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q76127",
-      "degree": 1
     },
     {
       "id": "p-descartes",
@@ -699,6 +439,20 @@
       "label": "유종호",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q13564819",
+      "degree": 1
+    },
+    {
+      "id": "p-binswanger",
+      "label": "루드비히 빈스방거（Ludwig Binswanger）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q76127",
+      "degree": 1
+    },
+    {
+      "id": "p-paul-hazard",
+      "label": "폴 아자르（Paul Hazard）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q3381578",
       "degree": 1
     },
     {
@@ -716,24 +470,10 @@
       "degree": 13
     },
     {
-      "id": "p-yi-chungjun",
-      "label": "이청준",
+      "id": "p-jung-jiyong",
+      "label": "정지용",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1751918",
-      "degree": 1
-    },
-    {
-      "id": "p-son-changsub",
-      "label": "손창섭",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499875",
-      "degree": 1
-    },
-    {
-      "id": "p-choi-inhun",
-      "label": "최인훈",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499133",
+      "ref": "https://www.wikidata.org/wiki/Q494953",
       "degree": 1
     },
     {
@@ -751,11 +491,11 @@
       "degree": 1
     },
     {
-      "id": "p-yeom-sangsub",
-      "label": "염상섭",
+      "id": "p-choi-inhun",
+      "label": "최인훈",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q498861",
-      "degree": 2
+      "ref": "https://www.wikidata.org/wiki/Q499133",
+      "degree": 1
     },
     {
       "id": "p-kim-dongri",
@@ -765,10 +505,10 @@
       "degree": 2
     },
     {
-      "id": "p-jung-jiyong",
-      "label": "정지용",
+      "id": "p-son-changsub",
+      "label": "손창섭",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q494953",
+      "ref": "https://www.wikidata.org/wiki/Q499875",
       "degree": 1
     },
     {
@@ -786,6 +526,20 @@
       "degree": 2
     },
     {
+      "id": "p-yi-chungjun",
+      "label": "이청준",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q1751918",
+      "degree": 1
+    },
+    {
+      "id": "p-yeom-sangsub",
+      "label": "염상섭",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q498861",
+      "degree": 2
+    },
+    {
       "id": "p-ian-watt",
       "label": "이안 와트",
       "type": "theorist",
@@ -798,13 +552,6 @@
       "type": "essay",
       "year": "1993",
       "degree": 15
-    },
-    {
-      "id": "p-yi-hyoseok",
-      "label": "이효석",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499600",
-      "degree": 1
     },
     {
       "id": "p-jo-sehi",
@@ -821,6 +568,41 @@
       "degree": 1
     },
     {
+      "id": "p-yi-hyoseok",
+      "label": "이효석",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499600",
+      "degree": 1
+    },
+    {
+      "id": "p-lukacs",
+      "label": "루카치（György Lukács）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q44040",
+      "degree": 1
+    },
+    {
+      "id": "p-baek-nakchung",
+      "label": "백낙청",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q499046",
+      "degree": 1
+    },
+    {
+      "id": "p-walter-benjamin",
+      "label": "발터 벤야민（Walter Benjamin）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q44325",
+      "degree": 1
+    },
+    {
+      "id": "p-lubbock",
+      "label": "퍼시 라보크（Percy Lubbock）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q2006867",
+      "degree": 1
+    },
+    {
       "id": "p-poulet",
       "label": "조르주 풀레（Georges Poulet）",
       "type": "theorist",
@@ -832,34 +614,6 @@
       "label": "에리히 아우얼바하",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q76385",
-      "degree": 1
-    },
-    {
-      "id": "p-lubbock",
-      "label": "퍼시 라보크（Percy Lubbock）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q2006867",
-      "degree": 1
-    },
-    {
-      "id": "p-walter-benjamin",
-      "label": "발터 벤야민（Walter Benjamin）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q44325",
-      "degree": 1
-    },
-    {
-      "id": "p-baek-nakchung",
-      "label": "백낙청",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q499046",
-      "degree": 1
-    },
-    {
-      "id": "p-lukacs",
-      "label": "루카치（György Lukács）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q44040",
       "degree": 1
     },
     {
@@ -887,6 +641,12 @@
   "edges": [
     {
       "source": "kim-uchang_beauty-surface-depth_1984",
+      "target": "p-poe",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_beauty-surface-depth_1984",
       "target": "p-coleridge",
       "type": "subject_of",
       "weight": 1
@@ -899,67 +659,19 @@
     },
     {
       "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "p-poe",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_beauty-surface-depth_1984",
       "target": "p-sombart",
       "type": "uses_theory",
       "weight": 1
     },
     {
-      "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "concept-심미-감각",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "concept-행복의-약속-promesse-de-bonheur",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "concept-심미주의",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "concept-참다운-아름다움",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "concept-상상력-Imagination",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_beauty-surface-depth_1984",
-      "target": "concept-삐뚤어짐의-마귀-imp-of-perversity",
-      "type": "uses_concept",
+      "source": "kim-uchang_conscience-poetry_1979",
+      "target": "p-kim-suyoung",
+      "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
       "target": "p-oh-kyuwon",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-kim-changwan",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-ko-un",
       "type": "subject_of",
       "weight": 1
     },
@@ -971,7 +683,7 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-hwang-dongkyu",
+      "target": "p-kim-changwan",
       "type": "subject_of",
       "weight": 1
     },
@@ -983,7 +695,13 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-kim-suyoung",
+      "target": "p-ko-un",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_conscience-poetry_1979",
+      "target": "p-hwang-dongkyu",
       "type": "subject_of",
       "weight": 1
     },
@@ -991,30 +709,6 @@
       "source": "kim-uchang_conscience-poetry_1979",
       "target": "p-valery",
       "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_hwang-seokyoung-minjung_1982",
-      "target": "concept-실존적-행동주의",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_hwang-seokyoung-minjung_1982",
-      "target": "concept-래디컬-엠피리시즘",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_hwang-seokyoung-minjung_1982",
-      "target": "concept-금욕적인-정결성",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_hwang-seokyoung-minjung_1982",
-      "target": "concept-자발성과-계획성-또는-이성적-기율-과의-긴장과-갈등",
-      "type": "uses_concept",
       "weight": 1
     },
     {
@@ -1030,18 +724,6 @@
       "weight": 1
     },
     {
-      "source": "kim-uchang_joy-use-literature_1984",
-      "target": "concept-반복-강박-관념-repetition-compulsion",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_joy-use-literature_1984",
-      "target": "concept-서스펜스",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
       "source": "p-kim-uchang",
       "target": "kim-uchang_korean-poetry-today_1985",
       "type": "wrote",
@@ -1054,42 +736,6 @@
       "weight": 1
     },
     {
-      "source": "kim-uchang_korean-poetry-today_1985",
-      "target": "concept-참여시",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_korean-poetry-today_1985",
-      "target": "concept-복합적-감수성",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-society-style_1983",
-      "target": "concept-한자어",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-society-style_1983",
-      "target": "concept-상위-언어-체계",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-society-style_1983",
-      "target": "concept-자기-회귀적-再歸的",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-society-style_1983",
-      "target": "concept-리얼리즘",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
       "source": "p-kim-uchang",
       "target": "kim-uchang_language-things_1981",
       "type": "wrote",
@@ -1097,7 +743,7 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-hegel",
+      "target": "p-freud",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1115,13 +761,13 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-freud",
+      "target": "p-lacan",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-lacan",
+      "target": "p-hegel",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1129,36 +775,6 @@
       "source": "p-yeom-muwung",
       "target": "kim-uchang_lee-mungoo-rural_1981",
       "type": "wrote",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_lee-mungoo-rural_1981",
-      "target": "concept-근대화",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_lee-mungoo-rural_1981",
-      "target": "concept-하향식",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_lee-mungoo-rural_1981",
-      "target": "concept-소비의-일방적인-항진",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_lee-mungoo-rural_1981",
-      "target": "concept-사실의-확인---분노의-대결과-투쟁---화해---새로운-주체성의-성립",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_lee-mungoo-rural_1981",
-      "target": "concept-자율적-농촌-공동체",
-      "type": "uses_concept",
       "weight": 1
     },
     {
@@ -1174,39 +790,9 @@
       "weight": 1
     },
     {
-      "source": "kim-uchang_literary-development_1980",
-      "target": "concept-심미적-감각",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literary-development_1980",
-      "target": "concept-심미적-인식",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literary-development_1980",
-      "target": "concept-관조-觀照",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literary-development_1980",
-      "target": "concept-목적-없는-목적성-Zweckmässigkeit-ohne-Zweck",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literary-development_1980",
-      "target": "concept-기분-Stimmung",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literary-development_1980",
-      "target": "concept-형식적-가능성",
-      "type": "uses_concept",
+      "source": "kim-uchang_literature-utopia_1985",
+      "target": "p-marcuse",
+      "type": "uses_theory",
       "weight": 1
     },
     {
@@ -1217,19 +803,7 @@
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
-      "target": "p-marcuse",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
       "target": "p-campanella",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
-      "target": "p-thomas-more",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1247,32 +821,8 @@
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
-      "target": "concept-소원-성취-wish-fulfillment",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
-      "target": "concept-유토피아",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
-      "target": "concept-유토피아적-사고",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
-      "target": "concept-리비도적인-존재",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
-      "target": "concept-소비문화",
-      "type": "uses_concept",
+      "target": "p-thomas-more",
+      "type": "uses_theory",
       "weight": 1
     },
     {
@@ -1367,13 +917,13 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-arnheim",
+      "target": "p-zijderveld",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-zijderveld",
+      "target": "p-arnheim",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1385,74 +935,20 @@
     },
     {
       "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "p-balazs",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
       "target": "p-austin",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-언어의-역사적-자의식",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-인용",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-사실-문장-constative",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-실행-문장-performative",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-인유-allusion",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-뉘앙스",
-      "type": "uses_concept",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "concept-문화적-전통",
-      "type": "uses_concept",
+      "target": "p-balazs",
+      "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "p-kim-uchang",
       "target": "kim-uchang_realism-yeom-sangsub_1984",
       "type": "wrote",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-paul-hazard",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-binswanger",
-      "type": "uses_theory",
       "weight": 1
     },
     {
@@ -1464,6 +960,18 @@
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
       "target": "p-yoo-jongho",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_realism-yeom-sangsub_1984",
+      "target": "p-binswanger",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_realism-yeom-sangsub_1984",
+      "target": "p-paul-hazard",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1481,25 +989,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yi-chungjun",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-son-changsub",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-choi-inhun",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-ko-un",
+      "target": "p-jung-jiyong",
       "type": "subject_of",
       "weight": 1
     },
@@ -1517,7 +1007,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yeom-sangsub",
+      "target": "p-choi-inhun",
       "type": "subject_of",
       "weight": 1
     },
@@ -1529,7 +1019,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-jung-jiyong",
+      "target": "p-son-changsub",
       "type": "subject_of",
       "weight": 1
     },
@@ -1542,6 +1032,24 @@
     {
       "source": "kim-uchang_theory-korean-novel_1984",
       "target": "p-yi-gwangsu",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-ko-un",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-yi-chungjun",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-yeom-sangsub",
       "type": "subject_of",
       "weight": 1
     },
@@ -1559,25 +1067,25 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-yi-hyoseok",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-yeom-sangsub",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-jo-sehi",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-sim-hun",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-kim-dongri",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-yi-hyoseok",
       "type": "subject_of",
       "weight": 1
     },
@@ -1595,31 +1103,13 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-sim-hun",
+      "target": "p-yeom-sangsub",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-poulet",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-auerbach",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-lubbock",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-walter-benjamin",
+      "target": "p-lukacs",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1631,7 +1121,25 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-lukacs",
+      "target": "p-walter-benjamin",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-lubbock",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-poulet",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-auerbach",
       "type": "uses_theory",
       "weight": 1
     },

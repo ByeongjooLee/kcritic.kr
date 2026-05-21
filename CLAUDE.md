@@ -59,7 +59,7 @@ critic-ontology/
 |---|---|---|
 | 비평글 | `index.html` | 수록 비평글 카드 목록 (현재 8편) |
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (50노드, 55엣지) |
+| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (132노드, 129엣지 — 2026-05-21 기준) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
 
@@ -127,19 +127,24 @@ py convert_criticism.py
     { "id": "p-kim-uchang", "label": "김우창", "type": "critic",
       "ref": "https://www.wikidata.org/wiki/Q12498425", "degree": 4 },
     { "id": "kim-uchang_yun-dongju_1985", "label": "윤동주의 시와 근대적 자아",
-      "type": "essay", "year": "1985", "degree": 3 }
+      "type": "essay", "year": "1985", "degree": 3 },
+    { "id": "concept-슬픔차로운-양심", "label": "괴로운 양심", "type": "concept", "degree": 2 }
   ],
   "edges": [
     { "source": "p-kim-uchang", "target": "kim-uchang_yun-dongju_1985",
-      "type": "wrote", "weight": 1 }
+      "type": "wrote", "weight": 1 },
+    { "source": "kim-uchang_yun-dongju_1985", "target": "concept-괴로운-양심",
+      "type": "uses_concept", "weight": 1 }
   ]
 }
 ```
 
 - `node.degree` — 연결 엣지 수 합산 (weight 반영). 노드 크기에 반영
 - `edge.weight` — 같은 source→target 쌍 반복 횟수. 엣지 굵기에 반영
-- `node.type`: `critic` | `writer` | `theorist` | `essay`
-- `edge.type`: `wrote` | `subject_of` | `uses_theory`
+- `node.type`: `critic` | `writer` | `theorist` | `essay` | `concept`
+- `edge.type`: `wrote` | `subject_of` | `uses_theory` | `uses_concept`
+- concept 노드: `interp[type='concept']` 텍스트에서 자동 추출. ID = `concept-{slug}` (40자 이내)
+- 같은 개념 텍스트가 여러 에세이에 반복 출현 시 weight 증가 → 에세이 간 공유 개념을 시각적으로 강조
 
 ---
 
@@ -174,20 +179,25 @@ py convert_criticism.py
 
 Cytoscape.js 3.28 기반.
 
-- 노드 크기: `degree` 비례 (56~120px). essay 노드 고정 110×56
+- 노드 크기: `degree` 비례 (56~120px). essay 노드 고정 110×56. concept 노드 다이아몬드 52×52
 - 엣지 굵기: `weight` 비례 (1.5~6px)
 - 노드 클릭: 사이드패널 (데스크탑) / 하단 드로어 슬라이드업 (모바일 768px 이하)
 - 비평가 노드 클릭 시 → "비평가 프로필 보기" 링크 포함
+- 에세이 노드 클릭 시 → "구조화 데이터 페이지 보기" 링크 포함
+- 개념 노드 클릭 시 → "이 개념이 사용된 비평글" 목록
 - 노드 hover: 연결 강조, 나머지 페이드
-- 필터: 비평가/작가/이론가/비평글 유형별 토글
+- 필터: 비평가/작가/이론가/비평글/개념어 유형별 토글
+- 검색: 왼쪽 상단 검색창 — 한글 포함 노드 이름 실시간 검색, 클릭 시 해당 노드로 줌·포커스
+- URL hash: `site/graph.html#essay-stem` 형태로 진입 시 해당 노드 자동 포커스 (index.html "관계망에서 보기" 버튼 연동)
 
 ### 색상 시스템
-| 유형 | 색상 |
-|---|---|
-| 비평가 (critic) | #c9986a |
-| 작가 (writer) | #6a9bc9 |
-| 이론가 (theorist) | #9a7ac9 |
-| 비평글 (essay) | #c8c8a8 |
+| 유형 | 색상 | 모양 |
+|---|---|---|
+| 비평가 (critic) | #c9986a | 원 |
+| 작가 (writer) | #6a9bc9 | 원 |
+| 이론가 (theorist) | #9a7ac9 | 원 |
+| 비평글 (essay) | #c8c8a8 | 둥근 직사각형 |
+| 개념어 (concept) | #7ac9a0 | 다이아몬드 |
 
 ---
 
@@ -250,6 +260,15 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 
 ### build.py 이론가 추출 로직
 `role`에 `scholar` 포함 + 비평 대상(`subjects`)에 없음 + 비평가 본인 아님 → `theorist`
+
+### 개념어 인코딩
+```xml
+<interp type="concept">서스펜스</interp>
+```
+- `interp[type='concept']` 텍스트가 graph.json의 `concept` 노드로 자동 추출
+- 노드 ID: `concept-{slug}` (slug = 특수문자 제거 후 최대 40자)
+- 에세이 → 개념 엣지 유형: `uses_concept`
+- 같은 개념이 여러 에세이에 반복 출현하면 edge weight 증가 → 비평 언어의 공유·전파 추적 가능
 
 ---
 

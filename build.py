@@ -326,6 +326,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
         <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
       </nav>
     </div>
@@ -407,14 +408,6 @@ def build_graph_data(all_essays):
                 if pid not in nodes:
                     nodes[pid] = {"id": pid, "label": p["name"], "type": "theorist", "ref": p.get("ref", "")}
                 raw_edges.append((stem, pid, "uses_theory"))
-
-        # 개념 노드 (interp[type='concept'])
-        for concept in essay.get("concepts", []):
-            cid = f"concept-{concept['slug']}"
-            label = concept["name"]
-            if cid not in nodes:
-                nodes[cid] = {"id": cid, "label": label, "type": "concept"}
-            raw_edges.append((stem, cid, "uses_concept"))
 
     # 엣지 weight 집계 (같은 source→target→type 쌍이 여러 비평글에서 반복될 때 가중치 증가)
     edge_counts = defaultdict(int)
@@ -681,6 +674,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html" class="active">비평가</a>
         <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
       </nav>
     </div>
@@ -859,6 +853,28 @@ def main():
         out = CRITICS_DIR / f"{cid}.html"
         out.write_text(html, encoding="utf-8")
         print(f"  OK critic profile -> {out}")
+
+    # 개념어 JSON (concepts.html에서 사용)
+    concept_map = defaultdict(list)  # concept_name -> [essay 정보]
+    for e in all_essays:
+        for c in e.get("concepts", []):
+            concept_map[c["name"]].append({
+                "stem": e["stem"],
+                "title": e["title"],
+                "year": e.get("display_year") or e["year"],
+            })
+    concepts_json = [
+        {
+            "name": name,
+            "slug": re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-"),
+            "essay_count": len(essays),
+            "essays": essays,
+        }
+        for name, essays in sorted(concept_map.items(), key=lambda x: -len(x[1]))
+    ]
+    concepts_path = DATA_DIR / "concepts.json"
+    concepts_path.write_text(json.dumps(concepts_json, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"  OK concepts.json -> {concepts_path} ({len(concepts_json)} concepts)")
 
     # 비평가 목록 JSON (critics.html에서 사용)
     critics_json = [
