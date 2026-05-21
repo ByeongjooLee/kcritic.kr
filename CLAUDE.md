@@ -57,17 +57,18 @@ critic-ontology/
 
 | 탭 | 파일 | 설명 |
 |---|---|---|
-| 비평글 | `index.html` | 수록 비평글 카드 목록 (현재 8편) |
+| 비평글 | `index.html` | 수록 비평글 카드 목록 |
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (132노드, 129엣지 — 2026-05-21 기준) |
+| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (91노드, 88엣지 — 2026-05-21 기준) |
+| 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
 
 ### 네비게이션 경로 (파일 위치별)
-- 루트 페이지(`index.html`, `critics.html`, `research.html`, `criticism.html`): `site/graph.html`, `research.html`, `critics.html`, `criticism.html`
-- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../research.html`, `../../criticism.html`
-- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../research.html`, `../../criticism.html`
-- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../research.html`, `../criticism.html`
+- 루트 페이지(`index.html`, `critics.html`, `concepts.html`, `research.html`, `criticism.html`): `site/graph.html`, `concepts.html`, `research.html`, `critics.html`, `criticism.html`
+- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
+- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
+- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`
 
 ---
 
@@ -148,7 +149,26 @@ py convert_criticism.py
 
 ---
 
-## 6. bibliography.json 형식
+## 6. concepts.json 형식
+
+```json
+[
+  {
+    "name": "서스펜스",
+    "slug": "서스펜스",
+    "essay_count": 2,
+    "essays": [
+      { "stem": "kim-uchang_joy-use-literature_1984", "title": "문학의 즐거움과 쓰임", "year": "1984" }
+    ]
+  }
+]
+```
+
+- `concepts.html`에서 fetch해 좌측 목록 / 우측 에세이 상세 UI로 표시
+- 빈도(essay_count) 내림차순 정렬
+- `interp[type='concept']` 텍스트가 그대로 `name`. 같은 개념이 여러 에세이에 반복 출현 시 essay_count 증가
+
+## 7. bibliography.json 형식
 
 ```json
 {
