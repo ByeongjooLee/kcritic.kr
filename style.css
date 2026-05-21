@@ -1003,6 +1003,158 @@ tei-lb {
   .mini-graph-legend { gap: 0.75rem; }
 }
 
+/* =========================================
+   2000년대 비평 탭 (criticism.html)
+   ========================================= */
+
+.criticism-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.filter-btn-group {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: 500;
+}
+
+.filter-note {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.criticism-search {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  width: 280px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.criticism-search:focus { border-color: var(--accent); }
+
+.criticism-results-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.result-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.group-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.criticism-group {
+  margin-bottom: 2rem;
+}
+
+.criticism-group-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.group-count {
+  font-size: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1px 7px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.criticism-card {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+.criticism-card:last-child { border-bottom: 1px solid var(--border); }
+
+.criticism-card-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.tag-subject { background: #deeaf5; color: #1e4a72; border-color: #b3ceea; }
+.tag-topic   { background: #eae0f5; color: #4a2b72; border-color: #c9b0e0; }
+.tag-debate  { background: #fce8e8; color: #a33232; border-color: #e8b0b0; font-weight: 600; }
+
+@media (max-width: 768px) {
+  .criticism-filters { padding: 1rem; gap: 0.6rem; }
+  .filter-label { width: 32px; font-size: 10px; }
+  .criticism-search { width: 100%; }
+  .criticism-card-title { font-size: 15px; }
+}
+
 /* ----- Dark mode (선택) ----- */
 @media (prefers-color-scheme: dark) {
   :root {

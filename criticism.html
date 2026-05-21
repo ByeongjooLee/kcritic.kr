@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2000년대 이후 비평 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html" class="active">2000년대 비평</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+
+    <section class="index-hero" style="margin-bottom:2.5rem; padding-bottom:2rem;">
+      <h1 class="index-heading">2000년대 이후 비평</h1>
+      <p class="index-desc">2000·2010·2020년대 한국 시 문학 진단 비평 목록</p>
+      <div class="stat-row" id="stat-row">
+        <div class="stat"><span class="stat-num" id="stat-total">—</span><span class="stat-label">비평글</span></div>
+        <div class="stat"><span class="stat-num" id="stat-journals">—</span><span class="stat-label">수록 잡지</span></div>
+        <div class="stat"><span class="stat-num" id="stat-authors">—</span><span class="stat-label">비평가</span></div>
+      </div>
+    </section>
+
+    <!-- 필터 패널 -->
+    <section class="criticism-filters">
+
+      <!-- 연대 탭 -->
+      <div class="filter-row">
+        <span class="filter-label">연대</span>
+        <div class="filter-btn-group" id="decade-btns">
+          <button class="filter-btn active" data-decade="all">전체</button>
+          <button class="filter-btn" data-decade="2000">2000년대</button>
+          <button class="filter-btn" data-decade="2010">2010년대</button>
+          <button class="filter-btn" data-decade="2020">2020년대</button>
+        </div>
+      </div>
+
+      <!-- 보기 방식: 대상 / 주제 / 논쟁 -->
+      <div class="filter-row">
+        <span class="filter-label">분류</span>
+        <div class="filter-btn-group" id="view-btns">
+          <button class="filter-btn active" data-view="list">목록</button>
+          <button class="filter-btn" data-view="subject">대상별</button>
+          <button class="filter-btn" data-view="topic">주제별</button>
+          <button class="filter-btn" data-view="debate">논쟁글만</button>
+        </div>
+        <span class="filter-note" id="col-note" style="display:none;">
+          ※ 대상·주제·논쟁 데이터는 엑셀에 컬럼 추가 후 자동 반영됩니다.
+        </span>
+      </div>
+
+      <!-- 검색 -->
+      <div class="filter-row">
+        <span class="filter-label">검색</span>
+        <input type="text" id="search-input" class="criticism-search" placeholder="제목 또는 저자 검색…">
+      </div>
+
+    </section>
+
+    <!-- 결과 -->
+    <section class="criticism-results">
+      <div class="criticism-results-header">
+        <span id="result-count" class="result-count"></span>
+        <span id="group-label" class="group-label"></span>
+      </div>
+      <div id="criticism-list"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>비평 온톨로지 프로젝트 · TEI XML · 2000–2020년대 비평 목록</p>
+    </div>
+  </footer>
+
+<script>
+(function() {
+  let allRecords = [];
+  let meta = {};
+  let currentDecade = "all";
+  let currentView = "list";
+  let searchQuery = "";
+
+  fetch("site/data/criticism.json")
+    .then(r => r.json())
+    .then(data => {
+      allRecords = data.records;
+      meta = data.meta;
+      document.getElementById("stat-total").textContent = meta.total;
+      document.getElementById("stat-journals").textContent = meta.journals.length;
+      document.getElementById("stat-authors").textContent = meta.authors.length;
+      render();
+    })
+    .catch(e => {
+      document.getElementById("criticism-list").innerHTML =
+        '<p class="muted" style="padding:2rem 0;">데이터를 불러올 수 없습니다.</p>';
+    });
+
+  // 연대 버튼
+  document.getElementById("decade-btns").addEventListener("click", function(e) {
+    const btn = e.target.closest("[data-decade]");
+    if (!btn) return;
+    currentDecade = btn.dataset.decade;
+    this.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+  });
+
+  // 보기 방식 버튼
+  document.getElementById("view-btns").addEventListener("click", function(e) {
+    const btn = e.target.closest("[data-view]");
+    if (!btn) return;
+    currentView = btn.dataset.view;
+    this.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const note = document.getElementById("col-note");
+    note.style.display = (currentView === "subject" || currentView === "topic") ? "inline" : "none";
+    render();
+  });
+
+  // 검색
+  document.getElementById("search-input").addEventListener("input", function() {
+    searchQuery = this.value.trim().toLowerCase();
+    render();
+  });
+
+  function filterRecords() {
+    return allRecords.filter(r => {
+      if (currentDecade !== "all" && r.decade !== parseInt(currentDecade)) return false;
+      if (currentView === "debate" && !r.debate) return false;
+      if (searchQuery) {
+        const haystack = (r.title + " " + r.authors.join(" ")).toLowerCase();
+        if (!haystack.includes(searchQuery)) return false;
+      }
+      return true;
+    });
+  }
+
+  function cardHtml(r) {
+    const authors = r.authors.join(", ") || "—";
+    const subjectTags = r.subject.length
+      ? r.subject.map(s => `<span class="tag tag-subject">${s}</span>`).join(" ")
+      : "";
+    const topicTags = r.topic.length
+      ? r.topic.map(t => `<span class="tag tag-topic">${t}</span>`).join(" ")
+      : "";
+    const debateBadge = r.debate ? `<span class="tag tag-debate">논쟁</span>` : "";
+    const tags = [subjectTags, topicTags, debateBadge].filter(Boolean).join(" ");
+    return `<article class="criticism-card">
+      <div class="criticism-card-meta">
+        <span class="essay-card-year">${r.year}</span>
+        <span class="essay-card-author">${authors}</span>
+      </div>
+      <h3 class="criticism-card-title">${r.title}</h3>
+      <p class="essay-card-source">${r.journal_abbr}${r.pages ? " · " + r.pages + "쪽" : ""}</p>
+      ${tags ? `<div class="essay-card-tags">${tags}</div>` : ""}
+    </article>`;
+  }
+
+  function render() {
+    const filtered = filterRecords();
+    const countEl = document.getElementById("result-count");
+    const labelEl = document.getElementById("group-label");
+    const listEl = document.getElementById("criticism-list");
+    countEl.textContent = filtered.length + "건";
+
+    if (filtered.length === 0) {
+      listEl.innerHTML = '<p class="muted" style="padding:2rem 0;">해당하는 비평글이 없습니다.</p>';
+      labelEl.textContent = "";
+      return;
+    }
+
+    // 대상별 / 주제별 그룹핑
+    if (currentView === "subject" || currentView === "topic") {
+      const key = currentView === "subject" ? "subject" : "topic";
+      const label = currentView === "subject" ? "대상" : "주제";
+
+      // 데이터 있는지 확인
+      const hasData = filtered.some(r => r[key].length > 0);
+      if (!hasData) {
+        labelEl.textContent = `※ 아직 ${label} 데이터가 없습니다. 엑셀에 컬럼을 추가해주세요.`;
+        listEl.innerHTML = '<div class="criticism-group">' +
+          filtered.map(cardHtml).join("") + "</div>";
+        return;
+      }
+
+      // 그룹핑
+      const groups = {};
+      const noGroup = [];
+      filtered.forEach(r => {
+        if (r[key].length === 0) { noGroup.push(r); return; }
+        r[key].forEach(k => {
+          if (!groups[k]) groups[k] = [];
+          groups[k].push(r);
+        });
+      });
+
+      let html = "";
+      Object.keys(groups).sort().forEach(groupName => {
+        html += `<div class="criticism-group">
+          <h3 class="criticism-group-label">${groupName} <span class="group-count">${groups[groupName].length}</span></h3>
+          ${groups[groupName].map(cardHtml).join("")}
+        </div>`;
+      });
+      if (noGroup.length) {
+        html += `<div class="criticism-group">
+          <h3 class="criticism-group-label">미분류 <span class="group-count">${noGroup.length}</span></h3>
+          ${noGroup.map(cardHtml).join("")}
+        </div>`;
+      }
+      listEl.innerHTML = html;
+      labelEl.textContent = "";
+      return;
+    }
+
+    // 목록 / 논쟁 — 연도별 그룹
+    const byYear = {};
+    filtered.forEach(r => {
+      if (!byYear[r.year]) byYear[r.year] = [];
+      byYear[r.year].push(r);
+    });
+
+    let html = "";
+    Object.keys(byYear).sort().forEach(year => {
+      html += `<div class="criticism-group">
+        <h3 class="criticism-group-label">${year}년 <span class="group-count">${byYear[year].length}</span></h3>
+        ${byYear[year].map(cardHtml).join("")}
+      </div>`;
+    });
+    listEl.innerHTML = html;
+    labelEl.textContent = "";
+  }
+})();
+</script>
+</body>
+</html>
