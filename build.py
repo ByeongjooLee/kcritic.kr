@@ -139,8 +139,10 @@ def collect_interp_concepts(root):
     return concepts
 
 def extract_sources(root):
-    """sourceDesc에서 서지 정보 추출."""
+    """sourceDesc에서 서지 정보 추출. biblStruct 및 bibl 모두 처리."""
     sources = []
+
+    # biblStruct (기존 구조)
     for biblstruct in root.findall(f".//{tns('sourceDesc')}/{tns('biblStruct')}"):
         btype = biblstruct.get("type", "")
         monogr = biblstruct.find(tns("monogr"))
@@ -160,6 +162,23 @@ def extract_sources(root):
             "place": (place_el.text or "").strip() if place_el is not None else "",
             "note": (note_el.text or "").strip() if note_el is not None else "",
         })
+
+    # bibl (단순 구조 — 최근 추가된 XML들)
+    if not sources:
+        for bibl in root.findall(f".//{tns('sourceDesc')}/{tns('bibl')}"):
+            title_el = bibl.find(tns("title"))
+            date_el = bibl.find(tns("date"))
+            note_el = bibl.find(tns("note"))
+            sources.append({
+                "type": "bibl",
+                "journal_or_book": (title_el.text or "").strip() if title_el is not None else "",
+                "publisher": "",
+                "date": (date_el.text or "").strip() if date_el is not None else "",
+                "when": date_el.get("when", "") if date_el is not None else "",
+                "place": "",
+                "note": (note_el.text or "").strip() if note_el is not None else "",
+            })
+
     return sources
 
 def extract_essay_meta(root):
@@ -384,13 +403,21 @@ def build_graph_data(all_essays):
         theorists = essay["theorists"]
         author_id = essay["author_id"]
 
-        # 비평글 노드
-        nodes[stem] = {"id": stem, "label": title, "type": "essay", "year": year}
+        # 비평글 노드 (graph.json에는 display_year 사용 — 원발표연도 우선)
+        display_year = essay.get("display_year") or year
+        nodes[stem] = {"id": stem, "label": title, "type": "essay", "year": display_year}
 
-        # 비평가 노드
+        # 비평가 노드 (ref가 있는 버전 우선 유지)
         if author_id and author_id in persons:
             p = persons[author_id]
-            nodes[author_id] = {"id": author_id, "label": p["name"], "type": "critic", "ref": p.get("ref", "")}
+            existing_ref = nodes.get(author_id, {}).get("ref", "")
+            new_ref = p.get("ref", "")
+            nodes[author_id] = {
+                "id": author_id,
+                "label": p["name"],
+                "type": "critic",
+                "ref": new_ref if new_ref else existing_ref,
+            }
             raw_edges.append((author_id, stem, "wrote"))
 
         # 대상 작가 노드
@@ -768,12 +795,22 @@ def process(xml_path):
     titles_map = collect_titles(root)
     terms = collect_terms(root)
 
-    # 비평가 = 첫 번째 xml:id 있는 persName with role=critic
+    # 비평가 = titleStmt > author > persName 에서 추출 (TEI 표준)
+    # xml:id 있으면 그대로 사용, ref="#p-xxx" 형태면 p-xxx 추출
     author_id = ""
-    for pid, p in persons.items():
-        if "critic" in p.get("role", ""):
+    auth_pn = root.find(f".//{tns('titleStmt')}/{tns('author')}/{tns('persName')}")
+    if auth_pn is not None:
+        pid = get_attr_id(auth_pn)
+        ref = auth_pn.get("ref", "")
+        role = auth_pn.get("role", "")
+        name = "".join(auth_pn.itertext()).strip()
+        if pid:
             author_id = pid
-            break
+        elif ref.startswith("#"):
+            author_id = ref[1:]
+        # persons dict에 없으면 추가 (ref-only 참조라 collect_persons가 못 잡은 경우)
+        if author_id and author_id not in persons:
+            persons[author_id] = {"id": author_id, "name": name, "role": role, "ref": ""}
 
     # 이론가 = scholar 또는 foreigner scholar — 비평 대상 작가 제외
     theorists = set()
@@ -783,7 +820,10 @@ def process(xml_path):
             theorists.add(pid)
 
     original_year = get_original_year(sources)
-    display_year = original_year if original_year else year
+    # display_year: 원발표연도 > note 추출연도 > 파일명 suffix > sources 연도
+    stem_year_match = re.search(r"_(\d{4})$", xml_path.stem)
+    stem_year = stem_year_match.group(1) if stem_year_match else ""
+    display_year = original_year or stem_year or year
     concepts = collect_interp_concepts(root)
 
     return {
