@@ -164,6 +164,7 @@
     .badge-writer   { background: #deeaf5; color: #1e4a72; }
     .badge-theorist { background: #eae0f5; color: #4a2b72; }
     .badge-essay    { background: #f0f0e8; color: #3a3a2a; }
+    .badge-concept  { background: #d8f0e4; color: #1a5c38; }
 
     .panel-name {
       font-family: "Noto Serif KR", Georgia, serif;
@@ -290,6 +291,59 @@
     .filter-btn.active-writer   { background: #deeaf5; color: #1e4a72; border-color: #b3ceea; }
     .filter-btn.active-theorist { background: #eae0f5; color: #4a2b72; border-color: #c9b0e0; }
     .filter-btn.active-essay    { background: #f0f0e8; color: #3a3a2a; border-color: #ccccc0; }
+    .filter-btn.active-concept  { background: #d8f0e4; color: #1a5c38; border-color: #9adcbb; }
+
+    /* ── 검색 ── */
+    .graph-search {
+      position: absolute;
+      top: 3.5rem;
+      left: 1rem;
+      z-index: 10;
+      width: 220px;
+    }
+    .graph-search input {
+      width: 100%;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-family: Pretendard, sans-serif;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid #e6e4dc;
+      border-radius: 6px;
+      outline: none;
+      box-sizing: border-box;
+      backdrop-filter: blur(4px);
+    }
+    .graph-search input:focus { border-color: #c9986a; }
+    .search-results {
+      list-style: none;
+      margin: 4px 0 0;
+      padding: 0;
+      background: #fff;
+      border: 1px solid #e6e4dc;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 220px;
+      overflow-y: auto;
+      display: none;
+    }
+    .search-results.visible { display: block; }
+    .search-results li {
+      padding: 7px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #f0efea;
+    }
+    .search-results li:last-child { border-bottom: none; }
+    .search-results li:hover { background: #fafaf7; }
+    .search-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .graph-search { top: 3rem; max-width: calc(100vw - 160px); width: 180px; }
+    }
 
     /* ── 모바일 (768px 이하) ── */
     @media (max-width: 768px) {
@@ -335,6 +389,13 @@
         <button class="filter-btn active-writer" data-type="writer" onclick="toggleFilter(this)">작가</button>
         <button class="filter-btn active-theorist" data-type="theorist" onclick="toggleFilter(this)">이론가</button>
         <button class="filter-btn active-essay" data-type="essay" onclick="toggleFilter(this)">비평글</button>
+        <button class="filter-btn active-concept" data-type="concept" onclick="toggleFilter(this)">개념</button>
+      </div>
+
+      <!-- 검색 -->
+      <div class="graph-search" id="graph-search-wrap">
+        <input type="text" id="graph-search" placeholder="노드 검색…" autocomplete="off" oninput="onSearch(this.value)" onfocus="showSearchResults()" />
+        <ul id="search-results" class="search-results"></ul>
       </div>
 
       <!-- 툴바 -->
@@ -350,10 +411,12 @@
         <div class="legend-item"><div class="legend-dot" style="background:#6a9bc9;"></div> 작가</div>
         <div class="legend-item"><div class="legend-dot" style="background:#9a7ac9;"></div> 이론가</div>
         <div class="legend-item"><div class="legend-rect" style="background:#b8b89a;"></div> 비평글</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7ac9a0; transform:rotate(45deg); border-radius:2px;"></div> 개념어</div>
         <strong style="margin-top:0.75rem;">엣지 유형</strong>
         <div class="legend-item"><div class="legend-line" style="background:#c9986a;"></div> 집필</div>
         <div class="legend-item"><div class="legend-line" style="background:#6a9bc9;"></div> 비평 대상</div>
         <div class="legend-item"><div class="legend-line" style="background:#9a7ac9;"></div> 이론 활용</div>
+        <div class="legend-item"><div class="legend-line" style="background:#7ac9a0;"></div> 개념 사용</div>
       </div>
     </div>
 
@@ -389,22 +452,25 @@
     writer:   { bg: '#6a9bc9', border: '#3a6a99', text: '#fff' },
     theorist: { bg: '#9a7ac9', border: '#6a4a99', text: '#fff' },
     essay:    { bg: '#c8c8a8', border: '#989870', text: '#3a3a2a' },
+    concept:  { bg: '#7ac9a0', border: '#4a9970', text: '#0a2e1a' },
   };
 
   const EDGE_COLORS = {
     wrote:        '#c9986a',
     subject_of:   '#6a9bc9',
     uses_theory:  '#9a7ac9',
+    uses_concept: '#7ac9a0',
   };
 
   const EDGE_LABELS = {
-    wrote:       '집필',
-    subject_of:  '비평 대상',
-    uses_theory: '이론 활용',
+    wrote:        '집필',
+    subject_of:   '비평 대상',
+    uses_theory:  '이론 활용',
+    uses_concept: '개념 사용',
   };
 
   let cy;
-  let activeFilters = new Set(['critic', 'writer', 'theorist', 'essay']);
+  let activeFilters = new Set(['critic', 'writer', 'theorist', 'essay', 'concept']);
 
   // 그래프 레이아웃 높이를 헤더 실제 높이 기준으로 설정
   function setLayoutHeight() {
@@ -509,6 +575,16 @@
           }
         },
         {
+          selector: 'node[type="concept"]',
+          style: {
+            'shape': 'diamond',
+            'width': 52,
+            'height': 52,
+            'font-size': 9,
+            'text-max-width': 80,
+          }
+        },
+        {
           selector: 'node:selected, node.highlighted',
           style: {
             'border-width': 4,
@@ -551,6 +627,20 @@
     cy.on('tap', 'node', e => showPanel(e.target, data));
     cy.on('tap', e => { if (e.target === cy) clearPanel(); });
     cy.on('tap', e => { if (e.target === cy) closeDrawer(); });
+
+    initSearch(data);
+
+    // URL hash로 진입한 경우 해당 노드 포커스
+    const hash = location.hash.slice(1);
+    if (hash) {
+      setTimeout(() => {
+        const node = cy.getElementById(hash);
+        if (node.length) {
+          cy.animate({ fit: { eles: node.closedNeighborhood(), padding: 80 }, duration: 500 });
+          showPanel(node, data);
+        }
+      }, 700);
+    }
 
     // 노드 hover
     cy.on('mouseover', 'node', e => {
@@ -628,8 +718,8 @@
     const content = document.getElementById('panel-content');
     const empty = document.querySelector('.panel-empty');
 
-    const typeLabels = { critic: '비평가', writer: '작가', theorist: '이론가 / 사상가', essay: '비평글' };
-    const badgeClass = { critic: 'badge-critic', writer: 'badge-writer', theorist: 'badge-theorist', essay: 'badge-essay' };
+    const typeLabels = { critic: '비평가', writer: '작가', theorist: '이론가 / 사상가', essay: '비평글', concept: '개념어' };
+    const badgeClass = { critic: 'badge-critic', writer: 'badge-writer', theorist: 'badge-theorist', essay: 'badge-essay', concept: 'badge-concept' };
 
     let wikidataHtml = '';
     if (ref && ref.includes('wikidata')) {
@@ -638,7 +728,22 @@
 
     let relHtml = '';
 
-    if (type === 'essay') {
+    if (type === 'concept') {
+      // 개념어: 이 개념을 사용하는 비평글 목록
+      const nodeMap = Object.fromEntries(data.nodes.map(n => [n.id, n]));
+      const usedIn = data.edges.filter(e => e.target === id && e.type === 'uses_concept');
+      const essayLinks = usedIn.map(e => {
+        const essay = nodeMap[e.source];
+        if (!essay) return '';
+        return `<a href="essays/${e.source}.html" class="panel-essay-link">
+          <span class="panel-essay-year">${essay.year || ''}</span>
+          ${essay.label}
+        </a>`;
+      }).join('');
+      relHtml = usedIn.length
+        ? `<div class="panel-section"><div class="panel-section-label">이 개념이 사용된 비평글</div>${essayLinks}</div>`
+        : '';
+    } else if (type === 'essay') {
       // 비평글: 비평가, 대상, 이론가 표시
       const wrote = data.edges.filter(e => e.target === id && e.type === 'wrote');
       const subjects = data.edges.filter(e => e.source === id && e.type === 'subject_of');
@@ -734,6 +839,51 @@
     content.classList.remove('visible');
     content.innerHTML = '';
   }
+
+  // ── 검색 ──────────────────────────────────────────────────
+
+  let allNodes = [];
+
+  function initSearch(data) {
+    allNodes = data.nodes.map(n => ({ id: n.id, label: n.label, type: n.type }));
+  }
+
+  function onSearch(q) {
+    const list = document.getElementById('search-results');
+    q = q.trim();
+    if (!q) { list.classList.remove('visible'); return; }
+    const hits = allNodes.filter(n => n.label.toLowerCase().includes(q.toLowerCase())).slice(0, 12);
+    list.innerHTML = hits.map(n => {
+      const col = (NODE_COLORS[n.type] || NODE_COLORS.essay).bg;
+      return `<li onclick="focusNode('${n.id}')" data-id="${n.id}">
+        <span class="search-dot" style="background:${col}"></span>${n.label}
+      </li>`;
+    }).join('');
+    list.classList.toggle('visible', hits.length > 0);
+  }
+
+  function showSearchResults() {
+    const q = document.getElementById('graph-search').value.trim();
+    if (q) onSearch(q);
+  }
+
+  function focusNode(id) {
+    document.getElementById('search-results').classList.remove('visible');
+    document.getElementById('graph-search').value = '';
+    if (!cy) return;
+    const node = cy.getElementById(id);
+    if (!node.length) return;
+    cy.animate({ fit: { eles: node.closedNeighborhood(), padding: 80 }, duration: 400 });
+    // 패널 표시를 위해 저장된 그래프 데이터 사용
+    node.emit('tap');
+  }
+
+  document.addEventListener('click', e => {
+    const wrap = document.getElementById('graph-search-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      document.getElementById('search-results').classList.remove('visible');
+    }
+  });
   </script>
 </body>
 </html>

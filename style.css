@@ -614,6 +614,31 @@ tei-lb {
   border: 1px solid var(--border);
 }
 
+.essay-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.btn-graph {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+.btn-graph:hover {
+  background: #d8f0e4;
+  border-color: #9adcbb;
+  color: #1a5c38;
+  text-decoration: none;
+}
+
 .about-section {
   border-top: 1px solid var(--border);
   padding-top: 2.5rem;

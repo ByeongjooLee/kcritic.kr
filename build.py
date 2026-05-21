@@ -122,6 +122,22 @@ def collect_terms(root):
             terms.append({"id": xml_id, "name": name})
     return terms
 
+
+def collect_interp_concepts(root):
+    """interp[type='concept'] 요소에서 핵심 개념어 수집 (중복 제거)."""
+    seen = set()
+    concepts = []
+    for el in root.iter(tns("interp")):
+        if el.get("type") != "concept":
+            continue
+        name = "".join(el.itertext()).strip()
+        if name and name not in seen:
+            seen.add(name)
+            # slug: 첫 16자 ASCII+숫자, 나머지는 한글 그대로 허용
+            slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
+            concepts.append({"name": name, "slug": slug})
+    return concepts
+
 def extract_sources(root):
     """sourceDesc에서 서지 정보 추출."""
     sources = []
@@ -391,6 +407,14 @@ def build_graph_data(all_essays):
                 if pid not in nodes:
                     nodes[pid] = {"id": pid, "label": p["name"], "type": "theorist", "ref": p.get("ref", "")}
                 raw_edges.append((stem, pid, "uses_theory"))
+
+        # 개념 노드 (interp[type='concept'])
+        for concept in essay.get("concepts", []):
+            cid = f"concept-{concept['slug']}"
+            label = concept["name"]
+            if cid not in nodes:
+                nodes[cid] = {"id": cid, "label": label, "type": "concept"}
+            raw_edges.append((stem, cid, "uses_concept"))
 
     # 엣지 weight 집계 (같은 source→target→type 쌍이 여러 비평글에서 반복될 때 가중치 증가)
     edge_counts = defaultdict(int)
@@ -766,6 +790,7 @@ def process(xml_path):
 
     original_year = get_original_year(sources)
     display_year = original_year if original_year else year
+    concepts = collect_interp_concepts(root)
 
     return {
         "stem": xml_path.stem,
@@ -778,6 +803,7 @@ def process(xml_path):
         "quotes": quotes,
         "titles": titles_map,
         "terms": terms,
+        "concepts": concepts,
         "sources": sources,
         "author_id": author_id,
     }

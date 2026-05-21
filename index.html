@@ -29,7 +29,7 @@
       <div class="stat-row">
         <div class="stat"><span class="stat-num">19</span><span class="stat-label">비평글</span></div>
         <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평가</span></div>
-        <div class="stat"><span class="stat-num">91</span><span class="stat-label">관계망 노드</span></div>
+        <div class="stat"><span class="stat-num">132</span><span class="stat-label">관계망 노드</span></div>
       </div>
     </section>
 
@@ -395,5 +395,24 @@
       <p>비평 온톨로지 프로젝트 · TEI XML · Wikidata · 국립중앙도서관 LOD</p>
     </div>
   </footer>
+  <script>
+  // 각 에세이 카드에 "관계망에서 보기" 버튼 동적 삽입
+  document.querySelectorAll('.essay-card').forEach(card => {
+    const titleLink = card.querySelector('.essay-card-title a');
+    if (!titleLink) return;
+    const href = titleLink.getAttribute('href'); // e.g. site/essays/kim-uchang_xxx.html
+    const match = href.match(/essays\/([^/]+)\.html/);
+    if (!match) return;
+    const stem = match[1];
+    const tagsEl = card.querySelector('.essay-card-tags');
+    if (!tagsEl) return;
+    const actions = document.createElement('div');
+    actions.className = 'essay-card-actions';
+    actions.innerHTML = `<a href="site/graph.html#${stem}" class="btn-graph">관계망에서 보기 →</a>`;
+    tagsEl.after(actions);
+  });
+
+  // graph.html로 넘어갈 때 hash로 노드 포커스
+  </script>
 </body>
 </html>
