@@ -48,12 +48,12 @@ a:hover { text-decoration: underline; }
 .site-header {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  padding: 1.25rem 0;
+  padding: 1rem 0 0;
 }
 .site-header .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 .site-title {
   font-family: var(--font-serif);
@@ -64,11 +64,28 @@ a:hover { text-decoration: underline; }
 }
 .site-nav {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0 0;
+  border-top: 1px solid var(--border);
+  margin: 0 -2rem;
+  padding: 0 2rem;
 }
 .site-nav a {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-secondary);
+  padding: 0.55rem 1rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.site-nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom-color: var(--border-strong);
+}
+.site-nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 500;
 }
 
 /* ----- Main layout (에세이 뷰어 전용 — site/essays/*.html) ----- */
@@ -817,11 +834,6 @@ tei-lb {
   font-style: normal;
 }
 
-/* nav에 active 표시 */
-.site-nav a.active {
-  color: var(--text);
-  font-weight: 500;
-}
 
 /* =========================================
    비평가 목록 페이지 (critics.html)
@@ -973,8 +985,8 @@ tei-lb {
 
   /* 헤더 */
   .site-title { font-size: 16px; }
-  .site-nav { gap: 0.75rem; }
-  .site-nav a { font-size: 13px; }
+  .site-nav { margin: 0 -1rem; padding: 0 1rem; }
+  .site-nav a { font-size: 12.5px; padding: 0.5rem 0.65rem; }
 
   /* 레거시 grid 레이아웃 */
   main.container {

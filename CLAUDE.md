@@ -38,6 +38,8 @@ critic-ontology/
 │   ├── data/
 │   │   ├── graph.json       ← build.py 출력: 관계망 데이터
 │   │   ├── critics.json     ← build.py 출력: 비평가 목록 데이터
+│   │   ├── concepts.json    ← build.py 출력: 개념어 색인
+│   │   ├── graph.ttl        ← build.py 출력: RDF Turtle LOD 직렬화
 │   │   └── bibliography.json ← convert_phd.py 출력: 선행연구 데이터
 │   └── graph.html           ← Cytoscape.js 관계망 시각화
 ├── index.html               ← 비평글 목록 (메인)
@@ -59,7 +61,7 @@ critic-ontology/
 |---|---|---|
 | 비평글 | `index.html` | 수록 비평글 카드 목록 |
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (91노드, 88엣지 — 2026-05-21 기준) |
+| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (94노드, 100엣지 — 2026-05-21 기준) |
 | 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
@@ -320,6 +322,72 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 | 빌드 | `build.py` (Python 표준 라이브러리만) |
 | 데이터 변환 | `convert_phd.py` (openpyxl), `convert_criticism.py` (openpyxl) |
 | 관계망 시각화 | Cytoscape.js 3.28 |
+| SPARQL | Comunica 브라우저 엔진 (sparql.html) |
 | 호스팅 | Cloudflare Workers (무료) |
 | 비용 | 도메인 갱신비만 |
 | LOD | Wikidata + 국립중앙도서관 LOD |
+
+---
+
+## 15. 공식 OWL 온톨로지 (critic_v5_kcritic.rdf)
+
+파일 위치: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v5_kcritic.rdf`
+
+`build.py`의 `build_turtle()`은 이 온톨로지를 준거로 삼아 RDF Turtle을 생성함.
+
+### 온톨로지 URI
+- Base: `http://kcritic.kr/ontology/`
+- 접두사: `critic: <http://kcritic.kr/ontology/critic#>`
+
+### 클래스 매핑
+| build.py 내부 타입 | TTL 클래스 | 온톨로지 클래스 |
+|---|---|---|
+| `critic` | `critic:Critic` | `http://kcritic.kr/ontology/critic#Critic` |
+| `writer` / `theorist` | `foaf:Person` | `http://xmlns.com/foaf/0.1/Person` |
+| essay | `critic:CriticalEssay` | `http://kcritic.kr/ontology/critic#CriticalEssay` |
+
+### 핵심 프로퍼티 매핑 (2026-05-22 수정)
+| 관계 | TTL 프로퍼티 | 온톨로지 준거 | 비고 |
+|---|---|---|---|
+| 에세이 저자 | `dcterms:creator` | Dublin Core | |
+| 비평 대상 (작가) | `cito:discusses` | CiTO | 비평적 분석의 직접 대상 |
+| 이론 인용 (이론가) | `cito:citesAsAuthority` | CiTO | 작가와 이론가 구별 — **기존 cito:discusses에서 변경** |
+| 비평가 → 대상 직접 관계 | `critic:analyzes` | 이 온톨로지의 핵심 관계 | |
+| 인물 이름 | `foaf:name` | FOAF | |
+| 에세이 제목 | `dcterms:title` | Dublin Core | |
+| 발표 연도 | `dcterms:date` | Dublin Core | 타입: `xsd:gYear` (**기존 xsd:decimal에서 수정**) |
+| 개념어 | `dcterms:subject` | Dublin Core | |
+
+### 통제어휘 규칙 (concept interp 정규화)
+같은 개념을 에세이마다 다르게 표기하지 않는다. 통합 결정:
+- `심미 감각` → `심미적 감각` (기준어)
+- `정돈된 언어` → `균제된 언어` (기준어)
+- `농촌적 삶의 긍정` / `농경적 삶` → `농촌적 삶` (기준어)
+- `자의식 있는 낭만주의` → `현실적 낭만주의` (기준어)
+- 다층 개념(원초적 생명력/마적 힘/원시적 낭만주의 등)은 개념 계층 관계로 처리 — 무분별한 통합 금지
+
+### 온톨로지 인물 연결
+- `_ONTOLOGY_WIKIDATA` 딕셔너리에 등록된 인물만 `owl:sameAs <http://kcritic.kr/ontology/한국어이름>` 추가
+- 김우창 Wikidata: `Q12595024` (온톨로지 준거값; graph.json의 `Q12498425`는 확인 필요)
+- 새 인물이 온톨로지에 추가되면 `_ONTOLOGY_WIKIDATA` 딕셔너리도 함께 업데이트할 것
+
+---
+
+## 16. 프로젝트 단계 로드맵
+
+### 완료 (Phase 0 — 파일럿)
+- 김우창 비평 23편 TEI 인코딩
+- RDF Turtle 생성 (169 트리플), Cytoscape.js 관계망, SPARQL 인터페이스
+- 사이트 정체성: "kcritic — 한국 비평사 온톨로지 · 파일럿: 김우창 비평 (1979–1992)"
+
+### 다음 단계 (Phase 1 — 비교 관계망)
+**학술적 의미를 확보하려면 비평가가 2명 이상 필요.**
+우선 추가 대상: 김윤식(반-김우창 입장), 유종호(구체적 비교 가능)
+- 김윤식 에세이 최소 5편 인코딩 → 비평가 간 비교 가능
+- `critic:respondsTo` 프로퍼티 추가 (에세이 → 에세이 응답 관계)
+- 공유 개념어(같은 `dcterms:subject`가 다른 비평가에게 출현)가 진짜 비평사적 신호가 됨
+
+### 다음 단계 (Phase 2 — 개념어 계층)
+- 개념어 `encodingDesc` 계층 선언: `<taxonomy>` 요소로 상위-하위 개념 관계 명시
+- 예: `명징성` > `언어적 명징화` > `명징한 간결성`
+- SKOS 어휘 활용 (`skos:broader`, `skos:narrower`) → concepts.json에 계층 반영

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>작가 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="writers.html" class="active">작가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="sparql.html">SPARQL</a>
+        <a href="criticism.html">2000년대 비평</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="index-hero">
+      <h1 class="index-heading">작가</h1>
+      <p class="index-desc">비평 대상으로 다뤄진 작가 목록 — 이름을 클릭하면 관련 비평글과 비평가를 볼 수 있습니다</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num" id="writer-count">—</span><span class="stat-label">작가</span></div>
+        <div class="stat"><span class="stat-num" id="essay-count-total">—</span><span class="stat-label">관련 비평글</span></div>
+      </div>
+    </section>
+
+    <div class="search-bar-wrap" style="margin-bottom:1.5rem;">
+      <input type="text" id="search-input" placeholder="작가 이름 검색…"
+             style="width:100%;max-width:320px;padding:8px 14px;border:1px solid var(--border-strong);border-radius:6px;font-family:var(--font-sans);font-size:0.95rem;background:var(--surface);color:var(--text);">
+    </div>
+
+    <section class="critic-grid" id="writer-grid">
+      <p class="index-desc" style="color:var(--text-tertiary);">불러오는 중…</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
+    </div>
+  </footer>
+
+  <script>
+  let allWriters = [];
+
+  fetch('site/data/writers.json')
+    .then(r => r.json())
+    .then(writers => {
+      allWriters = writers;
+      document.getElementById('writer-count').textContent = writers.length;
+      document.getElementById('essay-count-total').textContent =
+        writers.reduce((s, w) => s + w.essay_count, 0);
+      renderGrid(writers);
+    })
+    .catch(() => {
+      document.getElementById('writer-grid').innerHTML =
+        '<p style="color:var(--text-tertiary);">데이터를 불러올 수 없습니다. build.py를 실행해 주세요.</p>';
+    });
+
+  function renderGrid(writers) {
+    const grid = document.getElementById('writer-grid');
+    if (writers.length === 0) {
+      grid.innerHTML = '<p style="color:var(--text-tertiary);">검색 결과가 없습니다.</p>';
+      return;
+    }
+    grid.innerHTML = writers.map(w => {
+      const wikiHref = (w.ref && w.ref.includes('wikidata'))
+        ? w.ref.split(' ').find(u => u.includes('wikidata'))
+        : null;
+      const wikiBadge = wikiHref
+        ? `<a href="${wikiHref}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">Wikidata ↗</a>`
+        : '';
+      const criticCount = (w.critics || []).length;
+      return `
+      <article class="critic-card" onclick="location.href='site/writers/${w.id}.html'">
+        <div class="critic-card-header">
+          <h2 class="critic-card-name">${w.name}</h2>
+          ${wikiBadge}
+        </div>
+        <div class="critic-card-stats">
+          <span class="critic-stat"><strong>${w.essay_count}</strong> 관련 비평글</span>
+          <span class="critic-stat"><strong>${criticCount}</strong> 비평한 비평가</span>
+        </div>
+        <div class="critic-card-footer">
+          프로필 보기 →
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  document.getElementById('search-input').addEventListener('input', function() {
+    const q = this.value.trim();
+    if (!q) { renderGrid(allWriters); return; }
+    renderGrid(allWriters.filter(w => w.name.includes(q)));
+  });
+  </script>
+</body>
+</html>

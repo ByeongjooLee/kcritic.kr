@@ -15,6 +15,7 @@ T = "http://www.tei-c.org/ns/1.0"
 ESSAYS_DIR = Path("essays")
 OUTPUT_DIR = Path("site/essays")
 CRITICS_DIR = Path("site/critics")
+WRITERS_DIR = Path("site/writers")
 DATA_DIR = Path("site/data")
 
 def tns(tag):
@@ -344,6 +345,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
+        <a href="../../writers.html">작가</a>
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
@@ -381,7 +383,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
 
   <footer class="site-footer">
     <div class="container">
-      <p>비평 온톨로지 프로젝트 · TEI XML 기반 디지털 아카이브</p>
+      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
     </div>
   </footer>
 </body>
@@ -701,6 +703,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
@@ -739,7 +742,115 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
 
   <footer class="site-footer">
     <div class="container">
-      <p>비평 온톨로지 프로젝트 · TEI XML 기반 디지털 아카이브</p>
+      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
+    </div>
+  </footer>
+</body>
+</html>"""
+
+
+def build_writer_profile(writer_id, writer_info, essays_about):
+    """작가 한 명의 프로필 페이지. essays_about = 이 작가를 비평 대상으로 다룬 에세이 목록."""
+    name = writer_info["name"]
+    ref = writer_info.get("ref", "")
+
+    wikidata_uri = ""
+    for uri in ref.split():
+        if "wikidata" in uri:
+            wikidata_uri = uri
+            break
+
+    if wikidata_uri:
+        name_chip = f'<a href="{wikidata_uri}" target="_blank" class="chip role-writer chip-linked">{name} <span class="chip-ext">↗</span></a>'
+    else:
+        name_chip = f'<span class="chip role-writer">{name}</span>'
+
+    # 비평가 집계 — 이 작가를 다룬 비평가
+    critic_count = defaultdict(int)
+    critic_names = {}
+    for e in essays_about:
+        aid = e["author_id"]
+        if aid:
+            critic_count[aid] += 1
+            critic_names[aid] = e["persons"].get(aid, {}).get("name", aid)
+
+    critics_chips_html = " ".join(
+        f'<a href="../critics/{cid}.html" class="chip role-critic chip-linked">{critic_names[cid]} ({cnt}편)<span class="chip-ext"> →</span></a>'
+        for cid, cnt in sorted(critic_count.items(), key=lambda x: -x[1])
+    ) if critic_count else '<span class="muted">—</span>'
+
+    # 비평글 카드 목록
+    essay_cards = []
+    for e in sorted(essays_about, key=lambda x: x.get("display_year") or x["year"]):
+        aid = e["author_id"]
+        critic_name = e["persons"].get(aid, {}).get("name", "") if aid else ""
+        card_year = e.get("display_year") or e["year"]
+        essay_cards.append(f"""
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">{card_year}</span>
+          {f'<a href="../critics/{aid}.html" class="chip role-critic chip-linked" style="font-size:0.8rem;padding:2px 8px;">{critic_name}</a>' if aid else ''}
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/{e["stem"]}.html">{e["title"]}</a>
+        </h3>
+        <p class="essay-card-source">{_source_short(e["sources"])}</p>
+      </article>""")
+
+    essay_count = len(essays_about)
+
+    return f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{name} — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html">비평가</a>
+        <a href="../../writers.html" class="active">작가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../sparql.html">SPARQL</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline">{name_chip}</div>
+      <h1 class="index-heading">{name}</h1>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">관련 비평글</span></div>
+        <div class="stat"><span class="stat-num">{len(critic_count)}</span><span class="stat-label">비평한 비평가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">이 작가를 비평한 비평가</h2>
+        <div class="chip-group">{critics_chips_html}</div>
+      </div>
+    </section>
+
+    <section class="essay-grid">
+      <h2 class="section-label">관련 비평글 ({essay_count}편)</h2>
+      {"".join(essay_cards)}
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
     </div>
   </footer>
 </body>
@@ -849,6 +960,7 @@ def main():
     print("TEI XML -> 메타데이터 HTML 변환 시작")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     CRITICS_DIR.mkdir(parents=True, exist_ok=True)
+    WRITERS_DIR.mkdir(parents=True, exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     xml_files = sorted(ESSAYS_DIR.glob("*.xml"))
@@ -934,6 +1046,38 @@ def main():
     critics_path.write_text(json.dumps(critics_json, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  OK critics.json -> {critics_path} ({len(critics_json)} critics)")
 
+    # 작가 프로필 페이지 + 작가 목록 JSON
+    # writer_id -> {info, essays[]} 수집
+    writers_map = {}
+    for e in all_essays:
+        for pid in e["subjects"]:
+            p = e["persons"].get(pid, {})
+            if not p:
+                continue
+            if pid not in writers_map:
+                writers_map[pid] = {"id": pid, "name": p.get("name", pid), "ref": p.get("ref", ""), "essays": []}
+            writers_map[pid]["essays"].append(e)
+
+    for wid, winfo in writers_map.items():
+        html = build_writer_profile(wid, winfo, winfo["essays"])
+        out = WRITERS_DIR / f"{wid}.html"
+        out.write_text(html, encoding="utf-8")
+        print(f"  OK writer profile -> {out}")
+
+    writers_json = [
+        {
+            "id": wid,
+            "name": winfo["name"],
+            "ref": winfo["ref"],
+            "essay_count": len(winfo["essays"]),
+            "critics": list({e["author_id"] for e in winfo["essays"] if e["author_id"]}),
+        }
+        for wid, winfo in sorted(writers_map.items(), key=lambda x: -len(x[1]["essays"]))
+    ]
+    writers_path = DATA_DIR / "writers.json"
+    writers_path.write_text(json.dumps(writers_json, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"  OK writers.json -> {writers_path} ({len(writers_json)} writers)")
+
     # RDF Turtle 발행
     ttl = build_turtle(all_essays, graph)
     ttl_path = DATA_DIR / "graph.ttl"
@@ -945,9 +1089,41 @@ def main():
 
 
 # ── RDF Turtle 생성 ──────────────────────────────────────────
+# critic_v5_kcritic.rdf 온톨로지 (http://kcritic.kr/ontology/critic#) 준거:
+#   클래스: critic:Critic, critic:CriticalEssay, foaf:Person
+#   프로퍼티: critic:analyzes (비평가→인물), dcterms:creator (에세이→비평가),
+#             cito:discusses (에세이→인물), foaf:name, dcterms:title, dcterms:date
 
 BASE_URI = "https://kcritic.kr/resource/"
 ESSAY_PAGE_BASE = "https://kcritic.kr/site/essays/"
+ONTOLOGY_BASE = "http://kcritic.kr/ontology/"
+
+# RDF 온톨로지 인물명 → Wikidata URI 매핑 (critic_v5_kcritic.rdf에서 추출)
+_ONTOLOGY_WIKIDATA = {
+    "김우창":  "http://www.wikidata.org/entity/Q12595024",
+    "김윤식":  "http://www.wikidata.org/entity/Q12594764",
+    "김종길":  "http://www.wikidata.org/entity/Q12594791",
+    "유종호":  "http://www.wikidata.org/entity/Q12607768",
+    "김소월":  "http://www.wikidata.org/entity/Q484063",
+    "김수영":  "http://www.wikidata.org/entity/Q12594637",
+    "김현승":  "http://www.wikidata.org/entity/Q12594919",
+    "박두진":  "http://www.wikidata.org/entity/Q12598972",
+    "박목월":  "http://www.wikidata.org/entity/Q12598974",
+    "서정주":  "http://www.wikidata.org/entity/Q487022",
+    "신동엽":  "http://www.wikidata.org/entity/Q12600842",
+    "안수길":  "http://www.wikidata.org/entity/Q12604192",
+    "윤동주":  "http://www.wikidata.org/entity/Q493297",
+    "정지용":  "http://www.wikidata.org/entity/Q12617484",
+    "정현종":  "http://www.wikidata.org/entity/Q12617486",
+    "조지훈":  "http://www.wikidata.org/entity/Q12610858",
+    "주요한":  "http://www.wikidata.org/entity/Q12614972",
+    "천상병":  "http://www.wikidata.org/entity/Q12612988",
+    "최남선":  "http://www.wikidata.org/entity/Q484710",
+    "최인훈":  "http://www.wikidata.org/entity/Q491597",
+    "피천득":  "http://www.wikidata.org/entity/Q12619274",
+    "하버마스": "http://www.wikidata.org/entity/Q76357",
+    "한용운":  "http://www.wikidata.org/entity/Q484383",
+}
 
 def _ttl_str(s):
     """Turtle 문자열 이스케이프."""
@@ -956,29 +1132,32 @@ def _ttl_str(s):
 def _ttl_uri(s):
     return f"<{s}>"
 
+def _ontology_uri(name):
+    """인물 한국어 이름 → 온톨로지 URI (IRI 인코딩 없이 꺽쇠로 감쌈)."""
+    return f"<{ONTOLOGY_BASE}{name}>"
+
 def build_turtle(all_essays, graph):
     lines = [
-        "@prefix kc: <https://kcritic.kr/resource/> .",
-        "@prefix kce: <https://kcritic.kr/resource/essay/> .",
-        "@prefix schema: <https://schema.org/> .",
-        "@prefix owl: <http://www.w3.org/2002/07/owl#> .",
-        "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
-        "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+        "# 한국 비평사 온톨로지 — RDF Turtle 직렬화",
+        "# 온톨로지 준거: http://kcritic.kr/ontology/ (critic_v5_kcritic.rdf)",
+        "",
+        "@prefix kc:      <https://kcritic.kr/resource/> .",
+        "@prefix kce:     <https://kcritic.kr/resource/essay/> .",
+        "@prefix critic:  <http://kcritic.kr/ontology/critic#> .",
+        "@prefix ko:      <http://kcritic.kr/ontology/> .",
+        "@prefix foaf:    <http://xmlns.com/foaf/0.1/> .",
+        "@prefix cito:    <http://purl.org/spar/cito/> .",
         "@prefix dcterms: <http://purl.org/dc/terms/> .",
-        "@prefix wd: <https://www.wikidata.org/wiki/> .",
-        "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+        "@prefix owl:     <http://www.w3.org/2002/07/owl#> .",
+        "@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
+        "@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .",
+        "@prefix schema:  <https://schema.org/> .",
+        "@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .",
         "",
-        "# ── 온톨로지 클래스 정의 ─────────────────────────────────",
-        "kc:Critic rdfs:subClassOf schema:Person .",
-        "kc:Writer rdfs:subClassOf schema:Person .",
-        "kc:Theorist rdfs:subClassOf schema:Person .",
-        "kc:CriticalEssay rdfs:subClassOf schema:ScholarlyArticle .",
-        "",
-        "# ── 프로퍼티 정의 ────────────────────────────────────────",
-        "kc:wrote rdfs:domain kc:Critic ; rdfs:range kc:CriticalEssay .",
-        "kc:subjectOf rdfs:domain kc:CriticalEssay ; rdfs:range kc:Writer .",
-        "kc:usesTheory rdfs:domain kc:CriticalEssay ; rdfs:range kc:Theorist .",
-        "kc:usesConcept rdfs:domain kc:CriticalEssay ; rdfs:range rdfs:Literal .",
+        "# ── 온톨로지 임포트 선언 ─────────────────────────────────",
+        "<https://kcritic.kr/resource/>",
+        "  a owl:Ontology ;",
+        "  owl:imports <http://kcritic.kr/ontology/> .",
         "",
         "# ── 인물 노드 ────────────────────────────────────────────",
     ]
@@ -995,27 +1174,42 @@ def build_turtle(all_essays, graph):
     # 인물 타입 수집 (graph.json nodes에서)
     node_type_map = {n["id"]: n["type"] for n in graph["nodes"]}
 
+    # critic:analyzes 집계 (비평가 → 비평 대상 인물 직접 관계)
+    analyzes_map = defaultdict(set)  # critic_id -> {writer_id, ...}
+
     for pid, p in sorted(all_persons.items()):
         ntype = node_type_map.get(pid, "")
+        # critic:Critic / foaf:Person 클래스 매핑 (온톨로지 준거)
         cls_map = {
-            "critic": "kc:Critic",
-            "writer": "kc:Writer",
-            "theorist": "kc:Theorist",
+            "critic":   "critic:Critic",
+            "writer":   "foaf:Person",
+            "theorist": "foaf:Person",
         }
         cls = cls_map.get(ntype)
         if not cls:
             continue
         name = p.get("name", "")
         ref = p.get("ref", "")
+
         triples = [f"kc:{pid} a {cls} ;"]
-        triples.append(f'  schema:name {_ttl_str(name)} ;')
+        triples.append(f'  foaf:name {_ttl_str(name)}@ko ;')
         triples.append(f'  rdfs:label {_ttl_str(name)}@ko ;')
-        # Wikidata sameAs
+
+        # Wikidata sameAs: TEI ref 우선, 없으면 온톨로지 매핑에서 보완
+        wikidata_uri = ""
         for uri in ref.split():
             if "wikidata" in uri:
-                triples.append(f'  owl:sameAs {_ttl_uri(uri)} ;')
+                wikidata_uri = uri
                 break
-        # 페이지 링크
+        if not wikidata_uri and name in _ONTOLOGY_WIKIDATA:
+            wikidata_uri = _ONTOLOGY_WIKIDATA[name]
+        if wikidata_uri:
+            triples.append(f'  owl:sameAs {_ttl_uri(wikidata_uri)} ;')
+
+        # 온톨로지 named individual과 owl:sameAs 연결 (critic_v5_kcritic.rdf에 존재하는 인물만)
+        if name in _ONTOLOGY_WIKIDATA:
+            triples.append(f'  owl:sameAs {_ontology_uri(name)} ;')
+
         triples.append(f'  schema:url {_ttl_uri(BASE_URI + pid)} .')
         lines.extend(triples)
         lines.append("")
@@ -1030,32 +1224,34 @@ def build_turtle(all_essays, graph):
         sources = essay["sources"]
         concepts = essay.get("concepts", [])
 
-        # 출판처 정보
         pub_info = ""
         if sources:
             s = sources[0]
             pub_info = s.get("journal_or_book", "")
 
-        triples = [f"kce:{stem} a kc:CriticalEssay ;"]
-        triples.append(f'  schema:name {_ttl_str(title)} ;')
+        # critic:CriticalEssay 클래스 사용 (온톨로지 준거)
+        triples = [f"kce:{stem} a critic:CriticalEssay ;"]
+        triples.append(f'  dcterms:title {_ttl_str(title)}@ko ;')
         triples.append(f'  rdfs:label {_ttl_str(title)}@ko ;')
         if display_year:
-            triples.append(f'  dcterms:date {_ttl_str(display_year)}^^xsd:gYear ;')
+            triples.append(f'  dcterms:date "{display_year}"^^xsd:gYear ;')
         if pub_info:
             triples.append(f'  schema:isPartOf {_ttl_str(pub_info)} ;')
         triples.append(f'  schema:url {_ttl_uri(ESSAY_PAGE_BASE + stem + ".html")} ;')
         if author_id:
+            # dcterms:creator (온톨로지 준거)
             triples.append(f'  dcterms:creator kc:{author_id} ;')
-            triples.append(f'  kc:wrote kc:{author_id} ;')  # inverse도 추가
-        # 비평 대상
+        # cito:discusses — 비평 대상 작가 (비평적 분석의 직접 대상)
         for pid in sorted(essay["subjects"]):
-            triples.append(f'  kc:subjectOf kc:{pid} ;')
-        # 이론가
+            triples.append(f'  cito:discusses kc:{pid} ;')
+            if author_id:
+                analyzes_map[author_id].add(pid)
+        # cito:citesAsAuthority — 이론가 (권위로 인용, 비평 대상과 구별)
         for pid in sorted(essay["theorists"]):
-            triples.append(f'  kc:usesTheory kc:{pid} ;')
+            triples.append(f'  cito:citesAsAuthority kc:{pid} ;')
         # 개념어
         for c in concepts:
-            triples.append(f'  kc:usesConcept {_ttl_str(c["name"])} ;')
+            triples.append(f'  dcterms:subject {_ttl_str(c["name"])}@ko ;')
         # 마지막 세미콜론을 마침표로
         if triples[-1].endswith(" ;"):
             triples[-1] = triples[-1][:-2] + " ."
@@ -1064,10 +1260,20 @@ def build_turtle(all_essays, graph):
         lines.extend(triples)
         lines.append("")
 
-        # 비평가 → 에세이 wrote 트리플
-        if author_id:
-            lines.append(f"kc:{author_id} kc:wrote kce:{stem} .")
-            lines.append("")
+    # 비평가 → 에세이 wrote + critic:analyzes (온톨로지 핵심 관계)
+    lines.append("# ── 비평가 관계 (wrote / critic:analyzes) ───────────────")
+    wrote_by_critic = defaultdict(list)
+    for essay in all_essays:
+        if essay["author_id"]:
+            wrote_by_critic[essay["author_id"]].append(essay["stem"])
+
+    for cid, stems in sorted(wrote_by_critic.items()):
+        for stem in stems:
+            lines.append(f"kc:{cid} dcterms:creator kce:{stem} .")
+        # critic:analyzes (비평가 → 비평 대상 직접 관계, 온톨로지 핵심 관계)
+        for target_pid in sorted(analyzes_map.get(cid, set())):
+            lines.append(f"kc:{cid} critic:analyzes kc:{target_pid} .")
+        lines.append("")
 
     return "\n".join(lines)
 
