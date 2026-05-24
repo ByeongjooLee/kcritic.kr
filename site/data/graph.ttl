@@ -130,6 +130,12 @@ kc:p-descartes a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9191> ;
   schema:url <https://kcritic.kr/resource/p-descartes> .
 
+kc:p-dufrenne a foaf:Person ;
+  foaf:name "미켈 뒤프렌"@ko ;
+  rdfs:label "미켈 뒤프렌"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q461751> ;
+  schema:url <https://kcritic.kr/resource/p-dufrenne> .
+
 kc:p-eliot a foaf:Person ;
   foaf:name "T.S. 엘리엇"@ko ;
   rdfs:label "T.S. 엘리엇"@ko ;
@@ -342,6 +348,12 @@ kc:p-paul-hazard a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q3381578> ;
   schema:url <https://kcritic.kr/resource/p-paul-hazard> .
 
+kc:p-plato a foaf:Person ;
+  foaf:name "플라톤"@ko ;
+  rdfs:label "플라톤"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q859> ;
+  schema:url <https://kcritic.kr/resource/p-plato> .
+
 kc:p-platon a foaf:Person ;
   foaf:name "플라톤"@ko ;
   rdfs:label "플라톤"@ko ;
@@ -367,9 +379,9 @@ kc:p-poulet a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-poulet> .
 
 kc:p-rilke a foaf:Person ;
-  foaf:name "릴케(Rilke)"@ko ;
-  rdfs:label "릴케(Rilke)"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q44593> ;
+  foaf:name "릴케"@ko ;
+  rdfs:label "릴케"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q34271> ;
   schema:url <https://kcritic.kr/resource/p-rilke> .
 
 kc:p-sartre a foaf:Person ;
@@ -625,6 +637,29 @@ kce:kim-uchang_joy-use-literature_1984 a critic:CriticalEssay ;
   dcterms:subject "반복 강박 관념(repetition compulsion)"@ko ;
   dcterms:subject "서스펜스"@ko .
 
+kce:kim-uchang_kim-chaesu_1989 a critic:CriticalEssay ;
+  dcterms:title "내면성의 시 — 김채수 씨의 시에 부쳐"@ko ;
+  rdfs:label "내면성의 시 — 김채수 씨의 시에 부쳐"@ko ;
+  dcterms:date "1989"^^xsd:gYear ;
+  schema:isPartOf "내면성의 시 — 김채수 씨의 시에 부쳐" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_kim-chaesu_1989.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:citesAsAuthority kc:p-dufrenne ;
+  cito:citesAsAuthority kc:p-plato ;
+  cito:citesAsAuthority kc:p-rilke ;
+  dcterms:subject "내면적 존재로서의 인간 존중"@ko ;
+  dcterms:subject "물질문화 비판"@ko ;
+  dcterms:subject "세계의 내면화"@ko ;
+  dcterms:subject "예술의 현실적·구성적 의미"@ko ;
+  dcterms:subject "인간화된 세계"@ko ;
+  dcterms:subject "반성적·관찰적 시학"@ko ;
+  dcterms:subject "경이감과 세계 구성"@ko ;
+  dcterms:subject "자연과 인간의 상응"@ko ;
+  dcterms:subject "망각과 추억의 변증법"@ko ;
+  dcterms:subject "도덕적 민감성과 자연 질서"@ko ;
+  dcterms:subject "현대 도시 공간의 비인간화"@ko ;
+  dcterms:subject "시인의 역할 — 내면성의 상기"@ko .
+
 kce:kim-uchang_kim-kwanggyu_1983 a critic:CriticalEssay ;
   dcterms:title "언어적 명징화의 추구 — 김광규의 시"@ko ;
   rdfs:label "언어적 명징화의 추구 — 김광규의 시"@ko ;
@@ -871,6 +906,7 @@ kc:p-kim-uchang dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-seokyoung-minjung_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_jeong-dongju_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_joy-use-literature_1984 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_kim-chaesu_1989 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_kim-kwanggyu_1983 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_korean-poetry-today_1985 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_language-society-style_1983 .
