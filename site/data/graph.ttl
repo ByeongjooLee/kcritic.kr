@@ -104,6 +104,12 @@ kc:p-campanella a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q46867> ;
   schema:url <https://kcritic.kr/resource/p-campanella> .
 
+kc:p-camus a foaf:Person ;
+  foaf:name "카뮈"@ko ;
+  rdfs:label "카뮈"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q34670> ;
+  schema:url <https://kcritic.kr/resource/p-camus> .
+
 kc:p-chernyshevsky a foaf:Person ;
   foaf:name "체르니솁스키"@ko ;
   rdfs:label "체르니솁스키"@ko ;
@@ -149,6 +155,12 @@ kc:p-coleridge a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q81412> ;
   schema:url <https://kcritic.kr/resource/p-coleridge> .
 
+kc:p-day-lewis a foaf:Person ;
+  foaf:name "C. 데이 루이스"@ko ;
+  rdfs:label "C. 데이 루이스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q459600> ;
+  schema:url <https://kcritic.kr/resource/p-day-lewis> .
+
 kc:p-descartes a foaf:Person ;
   foaf:name "데카르트"@ko ;
   rdfs:label "데카르트"@ko ;
@@ -191,11 +203,23 @@ kc:p-engels a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34262> ;
   schema:url <https://kcritic.kr/resource/p-engels> .
 
+kc:p-fraser a foaf:Person ;
+  foaf:name "프레이저"@ko ;
+  rdfs:label "프레이저"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q5531746> ;
+  schema:url <https://kcritic.kr/resource/p-fraser> .
+
 kc:p-freud a foaf:Person ;
   foaf:name "프로이트"@ko ;
   rdfs:label "프로이트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9215> ;
   schema:url <https://kcritic.kr/resource/p-freud> .
+
+kc:p-fromm a foaf:Person ;
+  foaf:name "에리히 프롬"@ko ;
+  rdfs:label "에리히 프롬"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76621> ;
+  schema:url <https://kcritic.kr/resource/p-fromm> .
 
 kc:p-gorky a foaf:Person ;
   foaf:name "막심 고리키"@ko ;
@@ -572,6 +596,12 @@ kc:p-seo-jeongju a foaf:Person ;
   owl:sameAs <http://kcritic.kr/ontology/서정주> ;
   schema:url <https://kcritic.kr/resource/p-seo-jeongju> .
 
+kc:p-shelley a foaf:Person ;
+  foaf:name "퍼시 비시 셸리"@ko ;
+  rdfs:label "퍼시 비시 셸리"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q93343> ;
+  schema:url <https://kcritic.kr/resource/p-shelley> .
+
 kc:p-sim-hun a foaf:Person ;
   foaf:name "심훈"@ko ;
   rdfs:label "심훈"@ko ;
@@ -601,6 +631,12 @@ kc:p-stendhal a foaf:Person ;
   rdfs:label "스탕달"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q502> ;
   schema:url <https://kcritic.kr/resource/p-stendhal> .
+
+kc:p-stevenson a foaf:Person ;
+  foaf:name "스티븐슨"@ko ;
+  rdfs:label "스티븐슨"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q35548> ;
+  schema:url <https://kcritic.kr/resource/p-stevenson> .
 
 kc:p-thomas-more a foaf:Person ;
   foaf:name "토머스 모어"@ko ;
@@ -1429,6 +1465,40 @@ kce:yu-jongho_modern-poetry-50years_1962 a critic:CriticalEssay ;
   dcterms:subject "산문으로의 하강 — 저능한 산문의 창궐"@ko ;
   dcterms:subject "운율 분석 불가능성 — 한국 시비평의 구조적 제약"@ko .
 
+kce:yu-jongho_modern-poetry-face_1959 a critic:CriticalEssay ;
+  dcterms:title "현대시의 표정"@ko ;
+  rdfs:label "현대시의 표정"@ko ;
+  dcterms:date "1959"^^xsd:gYear ;
+  schema:isPartOf "현대시의 표정" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_modern-poetry-face_1959.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:discusses kc:p-kim-sowol ;
+  cito:citesAsAuthority kc:p-camus ;
+  cito:citesAsAuthority kc:p-day-lewis ;
+  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-fraser ;
+  cito:citesAsAuthority kc:p-fromm ;
+  cito:citesAsAuthority kc:p-mallarme ;
+  cito:citesAsAuthority kc:p-plato ;
+  cito:citesAsAuthority kc:p-shelley ;
+  cito:citesAsAuthority kc:p-stevenson ;
+  dcterms:subject "셸리의 시인론 — 승인되지 않은 입법자"@ko ;
+  dcterms:subject "한국 시단의 정신적 빈곤 — 탁월한 정신의 소산으로서의 시 문제"@ko ;
+  dcterms:subject "인유와 전통의 위력 — 보이지 않는 인용부호의 압력"@ko ;
+  dcterms:subject "한국 문학의 인유 부재 — 영향력 없는 문학의 고립"@ko ;
+  dcterms:subject "공감의 분실 — 동시대 시단의 근본 문제"@ko ;
+  dcterms:subject "카뮈적 이방인과 프롬의 심리적 고립 — 언어의 연대 기능 상실"@ko ;
+  dcterms:subject "데이 루이스의 시인 3대 요건 — 작품량·독창성·철학"@ko ;
+  dcterms:subject "한국 시인의 3대 요건 결핍 — 불모한 생산량과 빈약한 철학"@ko ;
+  dcterms:subject "사이비 독창성 — 기초 수련 없는 허영과 기만의 산물"@ko ;
+  dcterms:subject "사특함 없는 글 — 공자의 시경론과 진정성의 문제"@ko ;
+  dcterms:subject "엘리엇의 시 향유론 — 즐김과 이해의 순환"@ko ;
+  dcterms:subject "말라르메 백조 소네트 — 즐김 없이 이해 없다는 원리의 실례"@ko ;
+  dcterms:subject "의미론적 의미와 시적 의미의 구별 — 이해 없는 즐김의 가능성"@ko ;
+  dcterms:subject "의미론적 의미와 시적 의미의 괴리 — 상징주의의 영광스러운 파산"@ko ;
+  dcterms:subject "즐거움을 주지 못하는 시의 무자격 — 시단 비판의 준거"@ko ;
+  dcterms:subject "절망과 배반 — 이해도 즐김도 불가능한 시단의 진단"@ko .
+
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
@@ -1498,6 +1568,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
 kc:p-yu-jongho critic:analyzes kc:p-han-yongun .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
