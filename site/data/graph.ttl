@@ -178,6 +178,12 @@ kc:p-freud a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9215> ;
   schema:url <https://kcritic.kr/resource/p-freud> .
 
+kc:p-gorky a foaf:Person ;
+  foaf:name "막심 고리키"@ko ;
+  rdfs:label "막심 고리키"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12706> ;
+  schema:url <https://kcritic.kr/resource/p-gorky> .
+
 kc:p-habermas a foaf:Person ;
   foaf:name "위르겐 하버마스"@ko ;
   rdfs:label "위르겐 하버마스"@ko ;
@@ -454,6 +460,11 @@ kc:p-poulet a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q3389861> ;
   schema:url <https://kcritic.kr/resource/p-poulet> .
 
+kc:p-radek a foaf:Person ;
+  foaf:name "라데크"@ko ;
+  rdfs:label "라데크"@ko ;
+  schema:url <https://kcritic.kr/resource/p-radek> .
+
 kc:p-raymond-williams a foaf:Person ;
   foaf:name "레이먼드 윌리엄스(Raymond Williams)"@ko ;
   rdfs:label "레이먼드 윌리엄스(Raymond Williams)"@ko ;
@@ -599,6 +610,12 @@ kc:p-yun-dongju a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q488774> ;
   owl:sameAs <http://kcritic.kr/ontology/윤동주> ;
   schema:url <https://kcritic.kr/resource/p-yun-dongju> .
+
+kc:p-zhdanov a foaf:Person ;
+  foaf:name "즈다노프"@ko ;
+  rdfs:label "즈다노프"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q203980> ;
+  schema:url <https://kcritic.kr/resource/p-zhdanov> .
 
 kc:p-zijderveld a foaf:Person ;
   foaf:name "안톤 C. 지데어발드"@ko ;
@@ -988,6 +1005,69 @@ kce:kim-uchang_literature-utopia_1985 a critic:CriticalEssay ;
   dcterms:subject "리비도적인 존재"@ko ;
   dcterms:subject "소비문화"@ko .
 
+kce:kim-uchang_north-korean-criticism_1981 a critic:CriticalEssay ;
+  dcterms:title "이념과 표현 2 — 북한의 문학비평: 문학적 진실과 사회주의적 진실"@ko ;
+  rdfs:label "이념과 표현 2 — 북한의 문학비평: 문학적 진실과 사회주의적 진실"@ko ;
+  dcterms:date "1981"^^xsd:gYear ;
+  schema:isPartOf "이념과 표현 2 — 북한의 문학비평: 문학적 진실과 사회주의적 진실" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_north-korean-criticism_1981.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:citesAsAuthority kc:p-dufrenne ;
+  cito:citesAsAuthority kc:p-engels ;
+  cito:citesAsAuthority kc:p-gorky ;
+  cito:citesAsAuthority kc:p-hegel ;
+  cito:citesAsAuthority kc:p-lenin ;
+  cito:citesAsAuthority kc:p-marx ;
+  cito:citesAsAuthority kc:p-merleau-ponty ;
+  cito:citesAsAuthority kc:p-radek ;
+  cito:citesAsAuthority kc:p-zhdanov ;
+  dcterms:subject "북한 문학비평 연구의 자료적 한계"@ko ;
+  dcterms:subject "조선문학 1950~60년대 평론의 대표성"@ko ;
+  dcterms:subject "북한 문학이론과 즈다노비즘의 관계"@ko ;
+  dcterms:subject "북한 문학이론의 연역적·체계적 성격"@ko ;
+  dcterms:subject "문학 창작의 의식적 기획론 — 영감과 무의식의 배제"@ko ;
+  dcterms:subject "김일성 명제의 문학이론 출발점화"@ko ;
+  dcterms:subject "마르크스의 의식결정론과 문학의 사회적 반영"@ko ;
+  dcterms:subject "엥겔스의 진실 묘사론 — 비판적 사실주의의 기초"@ko ;
+  dcterms:subject "레닌의 당성 원리와 문학의 도구화"@ko ;
+  dcterms:subject "당성의 진실 독점 — 문학의 독자적 탐구 불허"@ko ;
+  dcterms:subject "북한 문학평론의 연역적 전개 방법론"@ko ;
+  dcterms:subject "사회주의적 사실주의의 유일 문학방법 규정"@ko ;
+  dcterms:subject "고전적 사실주의의 반대 정의로서의 성격"@ko ;
+  dcterms:subject "비판적 사실주의에서 사회주의적 사실주의로의 역전"@ko ;
+  dcterms:subject "엥겔스의 전형성 정식과 그 이데올로기적 전용"@ko ;
+  dcterms:subject "라데크의 본질성 선택론 — 비본질적인 것의 억압 기제"@ko ;
+  dcterms:subject "뒤프렌의 물질적 아프리오리와 구체성 상실의 위험"@ko ;
+  dcterms:subject "혁명적 낭만성의 사실주의 딜레마 해소 기능"@ko ;
+  dcterms:subject "RAPP 해체와 폭로의 요구 폐기 — 스탈린주의 승리의 귀결"@ko ;
+  dcterms:subject "고리키의 신화적 사실주의 — 낭만성 도입의 선구"@ko ;
+  dcterms:subject "즈다노프의 혁명적 낭만주의 편입 선언"@ko ;
+  dcterms:subject "혁명적 낭만성의 현재 내재적 미래 개념"@ko ;
+  dcterms:subject "낭만주의와 혁명적 낭만성의 구분 — 해방 전후 낭만주의의 단절"@ko ;
+  dcterms:subject "혁명적 낭만성과 혁명적 낭만주의의 개념적 구분"@ko ;
+  dcterms:subject "혁명적 대작 창작 요구 — 북한 문학의 공용화 완성"@ko ;
+  dcterms:subject "모범에 의한 교육 — 긍정적 주인공의 기능론적 근거"@ko ;
+  dcterms:subject "전형의 사회적 세력 매듭 개념 — 헤겔의 세계역사적 인물 유비"@ko ;
+  dcterms:subject "헤겔의 세계역사적 인물과 사실주의 전형의 유비"@ko ;
+  dcterms:subject "긍정적 주인공의 유일성 — 부정적 전형의 배제"@ko ;
+  dcterms:subject "당적 인간 개념 — 당의 지도 노선을 열성적으로 이행하는 긍정적 주인공"@ko ;
+  dcterms:subject "사회주의 비극 불가론 — 안함광의 갈등 부재 테제"@ko ;
+  dcterms:subject "민족성·인간성 논의 — 계급적 단일성에 대한 제한적 저항"@ko ;
+  dcterms:subject "예술 형상의 전인류적 보편성 — 계급성 초월의 시도"@ko ;
+  dcterms:subject "기록주의·도식주의 비판 — 이념의 연역적 지배가 낳는 예술적 건조화"@ko ;
+  dcterms:subject "빠포스의 정의 — 낭만적 정열의 북한 문학이론 내 기능"@ko ;
+  dcterms:subject "주정·주의적 강조의 동양 전통적 근거와 마르크스주의적 귀결"@ko ;
+  dcterms:subject "이미 알려진 진실의 전달 도구로서의 문학 — 탐구 기능의 소멸"@ko ;
+  dcterms:subject "이데올로기적 감정의 도덕적 정감 표출 — 빠포스의 구체적 실체"@ko ;
+  dcterms:subject "의무로서의 감정의 공허성 — 빠포스 시학의 내적 모순"@ko ;
+  dcterms:subject "사회주의 리얼리즘의 진실관 — 예술의 독자적 진실 탐구 배제"@ko ;
+  dcterms:subject "예술 본래의 진실 탐구 기능 — 일상적 감각과 보편성의 연결"@ko ;
+  dcterms:subject "구체적 보편성 개념 — 한정과 영원의 예술적 통일"@ko ;
+  dcterms:subject "구체적 전체성 개념 — 개체와 사회적 범주의 변증법적 관계"@ko ;
+  dcterms:subject "메를로퐁티의 개념 없는 보편성 — 예술적 진리의 개념 초과성"@ko ;
+  dcterms:subject "사실주의 가설의 유동적 변증법 — 고정된 현실 이해와의 불양립"@ko ;
+  dcterms:subject "사회주의 리얼리즘의 유동성 포기 — 진실 탐구 기능의 정지"@ko .
+
 kce:kim-uchang_north-korean-poetry_1980 a critic:CriticalEssay ;
   dcterms:title "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름"@ko ;
   rdfs:label "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름"@ko ;
@@ -1179,6 +1259,7 @@ kc:p-kim-uchang dcterms:creator kce:kim-uchang_language-things_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_lee-mungoo-rural_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_literary-development_1980 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_literature-utopia_1985 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_north-korean-criticism_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_north-korean-poetry_1980 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_poetics-society_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_poets-jewel_1984 .
