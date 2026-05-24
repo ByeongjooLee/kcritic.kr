@@ -136,6 +136,12 @@ kc:p-dufrenne a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q461751> ;
   schema:url <https://kcritic.kr/resource/p-dufrenne> .
 
+kc:p-durkheim a foaf:Person ;
+  foaf:name "뒤르켐"@ko ;
+  rdfs:label "뒤르켐"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q188875> ;
+  schema:url <https://kcritic.kr/resource/p-durkheim> .
+
 kc:p-eliot a foaf:Person ;
   foaf:name "T.S. 엘리엇"@ko ;
   rdfs:label "T.S. 엘리엇"@ko ;
@@ -163,7 +169,7 @@ kc:p-hegel a foaf:Person ;
 kc:p-heidegger a foaf:Person ;
   foaf:name "하이데거"@ko ;
   rdfs:label "하이데거"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q48301> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
   schema:url <https://kcritic.kr/resource/p-heidegger> .
 
 kc:p-hwang-dongkyu a foaf:Person ;
@@ -256,6 +262,12 @@ kc:p-kim-hyunseung a foaf:Person ;
   owl:sameAs <http://kcritic.kr/ontology/김현승> ;
   schema:url <https://kcritic.kr/resource/p-kim-hyunseung> .
 
+kc:p-kim-jiha a foaf:Person ;
+  foaf:name "김지하"@ko ;
+  rdfs:label "김지하"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q498610> ;
+  schema:url <https://kcritic.kr/resource/p-kim-jiha> .
+
 kc:p-kim-jonggil a foaf:Person ;
   foaf:name "김종길"@ko ;
   rdfs:label "김종길"@ko ;
@@ -335,6 +347,11 @@ kc:p-oh-kyuwon a foaf:Person ;
   rdfs:label "오규원（吳圭原）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12614218> ;
   schema:url <https://kcritic.kr/resource/p-oh-kyuwon> .
+
+kc:p-pak-jiwon a foaf:Person ;
+  foaf:name "박지원"@ko ;
+  rdfs:label "박지원"@ko ;
+  schema:url <https://kcritic.kr/resource/p-pak-jiwon> .
 
 kc:p-park-mokwol a foaf:Person ;
   foaf:name "박목월（朴木月）"@ko ;
@@ -593,6 +610,40 @@ kce:kim-uchang_conscience-poetry_1979 a critic:CriticalEssay ;
   cito:discusses kc:p-ko-un ;
   cito:discusses kc:p-oh-kyuwon ;
   cito:citesAsAuthority kc:p-valery .
+
+kce:kim-uchang_cultural-subjectivity_1982 a critic:CriticalEssay ;
+  dcterms:title "문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰"@ko ;
+  rdfs:label "문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰"@ko ;
+  dcterms:date "1982"^^xsd:gYear ;
+  schema:isPartOf "문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_cultural-subjectivity_1982.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:discusses kc:p-kim-jiha ;
+  cito:citesAsAuthority kc:p-durkheim ;
+  cito:citesAsAuthority kc:p-heidegger ;
+  cito:citesAsAuthority kc:p-kant ;
+  cito:citesAsAuthority kc:p-pak-jiwon ;
+  cito:citesAsAuthority kc:p-weber ;
+  dcterms:subject "문물과 문화의 구별"@ko ;
+  dcterms:subject "칸트의 미학과 문화의 통일성"@ko ;
+  dcterms:subject "삶에 의미를 부여하려는 근본 욕구"@ko ;
+  dcterms:subject "식민지 역사와 문화적 정체성의 위기"@ko ;
+  dcterms:subject "외래 문물과 문화적 맥락의 분리"@ko ;
+  dcterms:subject "근대화의 맹목적 수용과 문화적 공동화"@ko ;
+  dcterms:subject "전통 공연예술의 집단적 생명력"@ko ;
+  dcterms:subject "마당극·판소리의 현재적 의미"@ko ;
+  dcterms:subject "뒤르켐의 집합 의례와 문화 통합"@ko ;
+  dcterms:subject "연암의 이용후생 — 실질적 문물 수용의 원칙"@ko ;
+  dcterms:subject "전통 형식의 현대적 재창조"@ko ;
+  dcterms:subject "대중매체와 문화의 균질화"@ko ;
+  dcterms:subject "문화의 수동적 소비자로 전락"@ko ;
+  dcterms:subject "문화적 진정성과 상업화의 대립"@ko ;
+  dcterms:subject "비판적 문화 의식의 훈련"@ko ;
+  dcterms:subject "하이데거의 언어와 존재의 집"@ko ;
+  dcterms:subject "심체허명의 이상 — 주체적 교양의 전통"@ko ;
+  dcterms:subject "전통과 현재의 창조적 긴장"@ko ;
+  dcterms:subject "주체적 교양과 외래 문물의 내면화"@ko ;
+  dcterms:subject "실존적 뿌리와 세계적 개방성의 동시 추구"@ko .
 
 kce:kim-uchang_culture-meaning_1982 a critic:CriticalEssay ;
   dcterms:title "우리 문화의 의미"@ko ;
@@ -933,6 +984,7 @@ kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_choe-seungho-observation_1983 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_cultural-subjectivity_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_culture-meaning_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-seokyoung-minjung_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_jeong-dongju_1984 .
@@ -972,6 +1024,7 @@ kc:p-kim-uchang critic:analyzes kc:p-kim-changwan .
 kc:p-kim-uchang critic:analyzes kc:p-kim-dongin .
 kc:p-kim-uchang critic:analyzes kc:p-kim-dongri .
 kc:p-kim-uchang critic:analyzes kc:p-kim-hyunseung .
+kc:p-kim-uchang critic:analyzes kc:p-kim-jiha .
 kc:p-kim-uchang critic:analyzes kc:p-kim-kwanggyu .
 kc:p-kim-uchang critic:analyzes kc:p-kim-suyoung .
 kc:p-kim-uchang critic:analyzes kc:p-ko-un .
