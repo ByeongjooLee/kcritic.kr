@@ -349,7 +349,6 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
-        <a href="../../sparql.html">SPARQL</a>
       </nav>
     </div>
   </header>
@@ -707,7 +706,6 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
-        <a href="../../sparql.html">SPARQL</a>
       </nav>
     </div>
   </header>
@@ -820,7 +818,6 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
-        <a href="../../sparql.html">SPARQL</a>
       </nav>
     </div>
   </header>
