@@ -86,6 +86,12 @@ kc:p-binswanger a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76127> ;
   schema:url <https://kcritic.kr/resource/p-binswanger> .
 
+kc:p-brooks a foaf:Person ;
+  foaf:name "브룩스"@ko ;
+  rdfs:label "브룩스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1079527> ;
+  schema:url <https://kcritic.kr/resource/p-brooks> .
+
 kc:p-byeon-youngro a foaf:Person ;
   foaf:name "변영로"@ko ;
   rdfs:label "변영로"@ko ;
@@ -116,6 +122,13 @@ kc:p-cho-taeill a foaf:Person ;
   rdfs:label "조태일"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q16181007> ;
   schema:url <https://kcritic.kr/resource/p-cho-taeill> .
+
+kc:p-choe-namseon a foaf:Person ;
+  foaf:name "최남선"@ko ;
+  rdfs:label "최남선"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q490672> ;
+  owl:sameAs <http://kcritic.kr/ontology/최남선> ;
+  schema:url <https://kcritic.kr/resource/p-choe-namseon> .
 
 kc:p-choe-seungho a foaf:Person ;
   foaf:name "최승호"@ko ;
@@ -196,6 +209,13 @@ kc:p-habermas a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76509> ;
   schema:url <https://kcritic.kr/resource/p-habermas> .
 
+kc:p-han-yongun a foaf:Person ;
+  foaf:name "한용운"@ko ;
+  rdfs:label "한용운"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q493282> ;
+  owl:sameAs <http://kcritic.kr/ontology/한용운> ;
+  schema:url <https://kcritic.kr/resource/p-han-yongun> .
+
 kc:p-hegel a foaf:Person ;
   foaf:name "헤겔"@ko ;
   rdfs:label "헤겔"@ko ;
@@ -249,11 +269,25 @@ kc:p-jeong-dongju a foaf:Person ;
   rdfs:label "정동주"@ko ;
   schema:url <https://kcritic.kr/resource/p-jeong-dongju> .
 
+kc:p-jeong-jiyong a foaf:Person ;
+  foaf:name "정지용"@ko ;
+  rdfs:label "정지용"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494573> ;
+  owl:sameAs <http://kcritic.kr/ontology/정지용> ;
+  schema:url <https://kcritic.kr/resource/p-jeong-jiyong> .
+
 kc:p-jo-sehi a foaf:Person ;
   foaf:name "조세희"@ko ;
   rdfs:label "조세희"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q495011> ;
   schema:url <https://kcritic.kr/resource/p-jo-sehi> .
+
+kc:p-ju-yohan a foaf:Person ;
+  foaf:name "주요한"@ko ;
+  rdfs:label "주요한"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12614972> ;
+  owl:sameAs <http://kcritic.kr/ontology/주요한> ;
+  schema:url <https://kcritic.kr/resource/p-ju-yohan> .
 
 kc:p-jung-heesung a foaf:Person ;
   foaf:name "정희성（鄭喜成）"@ko ;
@@ -290,6 +324,12 @@ kc:p-kim-changwan a foaf:Person ;
   rdfs:label "김창완（金昌完）"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-changwan> .
 
+kc:p-kim-chungsu a foaf:Person ;
+  foaf:name "김춘수"@ko ;
+  rdfs:label "김춘수"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12610123> ;
+  schema:url <https://kcritic.kr/resource/p-kim-chungsu> .
+
 kc:p-kim-dongin a foaf:Person ;
   foaf:name "김동인"@ko ;
   rdfs:label "김동인"@ko ;
@@ -322,6 +362,12 @@ kc:p-kim-jonggil a foaf:Person ;
   owl:sameAs <http://kcritic.kr/ontology/김종길> ;
   schema:url <https://kcritic.kr/resource/p-kim-jonggil> .
 
+kc:p-kim-kirim a foaf:Person ;
+  foaf:name "김기림"@ko ;
+  rdfs:label "김기림"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q19580956> ;
+  schema:url <https://kcritic.kr/resource/p-kim-kirim> .
+
 kc:p-kim-kwanggyu a foaf:Person ;
   foaf:name "김광규"@ko ;
   rdfs:label "김광규"@ko ;
@@ -332,6 +378,13 @@ kc:p-kim-sikwon a foaf:Person ;
   foaf:name "김시권"@ko ;
   rdfs:label "김시권"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-sikwon> .
+
+kc:p-kim-sowol a foaf:Person ;
+  foaf:name "김소월"@ko ;
+  rdfs:label "김소월"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494639> ;
+  owl:sameAs <http://kcritic.kr/ontology/김소월> ;
+  schema:url <https://kcritic.kr/resource/p-kim-sowol> .
 
 kc:p-kim-suyoung a foaf:Person ;
   foaf:name "김수영（金洙暎）"@ko ;
@@ -345,6 +398,12 @@ kc:p-kim-uchang a critic:Critic ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12498425> ;
   owl:sameAs <http://kcritic.kr/ontology/김우창> ;
   schema:url <https://kcritic.kr/resource/p-kim-uchang> .
+
+kc:p-kim-yeongnang a foaf:Person ;
+  foaf:name "영랑"@ko ;
+  rdfs:label "영랑"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494618> ;
+  schema:url <https://kcritic.kr/resource/p-kim-yeongnang> .
 
 kc:p-ko-un a foaf:Person ;
   foaf:name "고은（高銀）"@ko ;
@@ -399,6 +458,12 @@ kc:p-lukacs a foaf:Person ;
   rdfs:label "루카치"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q51585> ;
   schema:url <https://kcritic.kr/resource/p-lukacs> .
+
+kc:p-mallarme a foaf:Person ;
+  foaf:name "말라르메"@ko ;
+  rdfs:label "말라르메"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q79025> ;
+  schema:url <https://kcritic.kr/resource/p-mallarme> .
 
 kc:p-marcuse a foaf:Person ;
   foaf:name "헤르베르트 마르쿠제"@ko ;
@@ -499,6 +564,13 @@ kc:p-sartre a foaf:Person ;
   rdfs:label "사르트르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9711> ;
   schema:url <https://kcritic.kr/resource/p-sartre> .
+
+kc:p-seo-jeongju a foaf:Person ;
+  foaf:name "서정주"@ko ;
+  rdfs:label "서정주"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494585> ;
+  owl:sameAs <http://kcritic.kr/ontology/서정주> ;
+  schema:url <https://kcritic.kr/resource/p-seo-jeongju> .
 
 kc:p-sim-hun a foaf:Person ;
   foaf:name "심훈"@ko ;
@@ -620,6 +692,19 @@ kc:p-yoo-jongho a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q13564819> ;
   owl:sameAs <http://kcritic.kr/ontology/유종호> ;
   schema:url <https://kcritic.kr/resource/p-yoo-jongho> .
+
+kc:p-yu-chihan a foaf:Person ;
+  foaf:name "유치환"@ko ;
+  rdfs:label "유치환"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494629> ;
+  schema:url <https://kcritic.kr/resource/p-yu-chihan> .
+
+kc:p-yu-jongho a critic:Critic ;
+  foaf:name "유종호"@ko ;
+  rdfs:label "유종호"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12610003> ;
+  owl:sameAs <http://kcritic.kr/ontology/유종호> ;
+  schema:url <https://kcritic.kr/resource/p-yu-jongho> .
 
 kc:p-yun-dongju a foaf:Person ;
   foaf:name "윤동주"@ko ;
@@ -1304,6 +1389,46 @@ kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
   cito:discusses kc:p-yun-dongju ;
   cito:citesAsAuthority kc:p-habermas .
 
+kce:yu-jongho_modern-poetry-50years_1962 a critic:CriticalEssay ;
+  dcterms:title "현대시의 50년"@ko ;
+  rdfs:label "현대시의 50년"@ko ;
+  dcterms:date "1962"^^xsd:gYear ;
+  schema:isPartOf "현대시의 50년" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_modern-poetry-50years_1962.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:discusses kc:p-choe-namseon ;
+  cito:discusses kc:p-han-yongun ;
+  cito:discusses kc:p-jeong-jiyong ;
+  cito:discusses kc:p-ju-yohan ;
+  cito:discusses kc:p-kim-chungsu ;
+  cito:discusses kc:p-kim-kirim ;
+  cito:discusses kc:p-kim-kwanggyu ;
+  cito:discusses kc:p-kim-sowol ;
+  cito:discusses kc:p-kim-yeongnang ;
+  cito:discusses kc:p-seo-jeongju ;
+  cito:discusses kc:p-yu-chihan ;
+  cito:discusses kc:p-yun-dongju ;
+  cito:citesAsAuthority kc:p-brooks ;
+  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-mallarme ;
+  dcterms:subject "신시의 기점과 한국 현대시 50년의 역사"@ko ;
+  dcterms:subject "한국 문학사의 단절 — 현대와 이전 시가 사이의 심연"@ko ;
+  dcterms:subject "전통 단절의 한국적 특수성 — 역사의식 없는 창작의 가능성"@ko ;
+  dcterms:subject "엘리엇의 역사의식 — 살아 있는 전통의 위력"@ko ;
+  dcterms:subject "전통 부재의 괴로운 자유 — 백지의 공포와 무모성"@ko ;
+  dcterms:subject "정지용 — 시는 언어로 만들어진다는 진리를 최초로 자각한 시인"@ko ;
+  dcterms:subject "정지용의 공적 — 시학 확립·자율성 인식·우리말 탐구·내재율 발명"@ko ;
+  dcterms:subject "감정의 절도와 언어의 경제 — 정지용 시학의 핵심 덕목"@ko ;
+  dcterms:subject "서정주의 3단계 시세계론 — 정지용 과소평가에 대한 반론"@ko ;
+  dcterms:subject "한국어의 감각어휘 풍부성과 정지용의 감각적 성격 — 언어의 운명"@ko ;
+  dcterms:subject "정지용의 압도적 영향 — 한국 현대시의 아버지"@ko ;
+  dcterms:subject "정지용 재평가 — 한국시는 우리말로 만들어진다는 진리"@ko ;
+  dcterms:subject "한국시의 산문시적 성격 — 운문과 산문의 미분화"@ko ;
+  dcterms:subject "브룩스의 운문 개념과 한국어의 운문·산문 미분화"@ko ;
+  dcterms:subject "모호한 내재율 — 한국시의 산문시적 성격의 실상"@ko ;
+  dcterms:subject "산문으로의 하강 — 저능한 산문의 창궐"@ko ;
+  dcterms:subject "운율 분석 불가능성 — 한국 시비평의 구조적 제약"@ko .
+
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
@@ -1371,3 +1496,17 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-chungjun .
 kc:p-kim-uchang critic:analyzes kc:p-yi-gwangsu .
 kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
+
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
+kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
+kc:p-yu-jongho critic:analyzes kc:p-han-yongun .
+kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
+kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
+kc:p-yu-jongho critic:analyzes kc:p-kim-chungsu .
+kc:p-yu-jongho critic:analyzes kc:p-kim-kirim .
+kc:p-yu-jongho critic:analyzes kc:p-kim-kwanggyu .
+kc:p-yu-jongho critic:analyzes kc:p-kim-sowol .
+kc:p-yu-jongho critic:analyzes kc:p-kim-yeongnang .
+kc:p-yu-jongho critic:analyzes kc:p-seo-jeongju .
+kc:p-yu-jongho critic:analyzes kc:p-yu-chihan .
+kc:p-yu-jongho critic:analyzes kc:p-yun-dongju .
