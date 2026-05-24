@@ -166,6 +166,12 @@ kc:p-eliot a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q37045> ;
   schema:url <https://kcritic.kr/resource/p-eliot> .
 
+kc:p-engels a foaf:Person ;
+  foaf:name "엥겔스"@ko ;
+  rdfs:label "엥겔스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q34262> ;
+  schema:url <https://kcritic.kr/resource/p-engels> .
+
 kc:p-freud a foaf:Person ;
   foaf:name "프로이트"@ko ;
   rdfs:label "프로이트"@ko ;
@@ -189,6 +195,12 @@ kc:p-heidegger a foaf:Person ;
   rdfs:label "하이데거"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
   schema:url <https://kcritic.kr/resource/p-heidegger> .
+
+kc:p-homer a foaf:Person ;
+  foaf:name "호메로스"@ko ;
+  rdfs:label "호메로스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q6691> ;
+  schema:url <https://kcritic.kr/resource/p-homer> .
 
 kc:p-hwang-dongkyu a foaf:Person ;
   foaf:name "황동규"@ko ;
@@ -299,6 +311,11 @@ kc:p-kim-kwanggyu a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q13582904> ;
   schema:url <https://kcritic.kr/resource/p-kim-kwanggyu> .
 
+kc:p-kim-sikwon a foaf:Person ;
+  foaf:name "김시권"@ko ;
+  rdfs:label "김시권"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-sikwon> .
+
 kc:p-kim-suyoung a foaf:Person ;
   foaf:name "김수영（金洙暎）"@ko ;
   rdfs:label "김수영（金洙暎）"@ko ;
@@ -336,6 +353,12 @@ kc:p-lawrence a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q33866> ;
   schema:url <https://kcritic.kr/resource/p-lawrence> .
 
+kc:p-lenin a foaf:Person ;
+  foaf:name "레닌"@ko ;
+  rdfs:label "레닌"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1307> ;
+  schema:url <https://kcritic.kr/resource/p-lenin> .
+
 kc:p-levi-strauss a foaf:Person ;
   foaf:name "레비-스트로스"@ko ;
   rdfs:label "레비-스트로스"@ko ;
@@ -349,9 +372,9 @@ kc:p-lubbock a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lubbock> .
 
 kc:p-lukacs a foaf:Person ;
-  foaf:name "루카치（György Lukács）"@ko ;
-  rdfs:label "루카치（György Lukács）"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q44040> ;
+  foaf:name "루카치"@ko ;
+  rdfs:label "루카치"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q51585> ;
   schema:url <https://kcritic.kr/resource/p-lukacs> .
 
 kc:p-marcuse a foaf:Person ;
@@ -359,6 +382,12 @@ kc:p-marcuse a foaf:Person ;
   rdfs:label "헤르베르트 마르쿠제"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q77203> ;
   schema:url <https://kcritic.kr/resource/p-marcuse> .
+
+kc:p-marx a foaf:Person ;
+  foaf:name "마르크스"@ko ;
+  rdfs:label "마르크스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9061> ;
+  schema:url <https://kcritic.kr/resource/p-marx> .
 
 kc:p-merleau-ponty a foaf:Person ;
   foaf:name "메를로퐁티"@ko ;
@@ -400,6 +429,12 @@ kc:p-platon a foaf:Person ;
   rdfs:label "플라톤"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q859> ;
   schema:url <https://kcritic.kr/resource/p-platon> .
+
+kc:p-plekhanov a foaf:Person ;
+  foaf:name "플레하노프"@ko ;
+  rdfs:label "플레하노프"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q215228> ;
+  schema:url <https://kcritic.kr/resource/p-plekhanov> .
 
 kc:p-poe a foaf:Person ;
   foaf:name "에드거 앨런 포"@ko ;
@@ -491,6 +526,12 @@ kc:p-vico a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q10292> ;
   schema:url <https://kcritic.kr/resource/p-vico> .
 
+kc:p-virgil a foaf:Person ;
+  foaf:name "베르길리우스"@ko ;
+  rdfs:label "베르길리우스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1398> ;
+  schema:url <https://kcritic.kr/resource/p-virgil> .
+
 kc:p-walter-benjamin a foaf:Person ;
   foaf:name "발터 벤야민（Walter Benjamin）"@ko ;
   rdfs:label "발터 벤야민（Walter Benjamin）"@ko ;
@@ -502,6 +543,12 @@ kc:p-weber a foaf:Person ;
   rdfs:label "막스 베버"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9240> ;
   schema:url <https://kcritic.kr/resource/p-weber> .
+
+kc:p-whitman a foaf:Person ;
+  foaf:name "월트 휘트먼"@ko ;
+  rdfs:label "월트 휘트먼"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q81438> ;
+  schema:url <https://kcritic.kr/resource/p-whitman> .
 
 kc:p-whorf a foaf:Person ;
   foaf:name "벤자민 워프(Benjamin Whorf)"@ko ;
@@ -941,6 +988,50 @@ kce:kim-uchang_literature-utopia_1985 a critic:CriticalEssay ;
   dcterms:subject "리비도적인 존재"@ko ;
   dcterms:subject "소비문화"@ko .
 
+kce:kim-uchang_north-korean-poetry_1980 a critic:CriticalEssay ;
+  dcterms:title "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름"@ko ;
+  rdfs:label "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름"@ko ;
+  dcterms:date "1980"^^xsd:gYear ;
+  schema:isPartOf "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_north-korean-poetry_1980.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:discusses kc:p-kim-sikwon ;
+  cito:citesAsAuthority kc:p-engels ;
+  cito:citesAsAuthority kc:p-hegel ;
+  cito:citesAsAuthority kc:p-homer ;
+  cito:citesAsAuthority kc:p-lenin ;
+  cito:citesAsAuthority kc:p-lukacs ;
+  cito:citesAsAuthority kc:p-marx ;
+  cito:citesAsAuthority kc:p-plato ;
+  cito:citesAsAuthority kc:p-plekhanov ;
+  cito:citesAsAuthority kc:p-virgil ;
+  cito:citesAsAuthority kc:p-whitman ;
+  dcterms:subject "의식 활동의 물질에 의한 규제 — 사회적 존재가 의식을 결정한다"@ko ;
+  dcterms:subject "마르크시즘 문학이론의 애매성 — 사실 충실과 이념 표현의 긴장"@ko ;
+  dcterms:subject "레닌의 당성·이념성·인민성 — 사회주의 문학의 세 원칙"@ko ;
+  dcterms:subject "사회주의 리얼리즘 — 긍정적 현실 묘사와 교훈적 의도"@ko ;
+  dcterms:subject "스탈린 시대 사회주의 리얼리즘의 경직화 — 억지 낙관주의와 갈등의 배제"@ko ;
+  dcterms:subject "북한 문학의 근본 입장 — 당 노선에 따른 사회주의적 현실 묘사"@ko ;
+  dcterms:subject "북한 문학의 세 원칙 — 인민성·계급성·당파성의 논리적 귀결"@ko ;
+  dcterms:subject "서사시의 집단지향과 사회주의 이데올로기의 집단주의의 합치"@ko ;
+  dcterms:subject "헤겔의 구체적 보편성과 서사시 — 문학 표현의 두 충동의 종합"@ko ;
+  dcterms:subject "전형성 개념의 이데올로기적 기능 — 비전형적 개인 체험의 배제"@ko ;
+  dcterms:subject "북한 시의 서사화 — 개인적 체험을 사회주의 건설의 과업 속에 흡수"@ko ;
+  dcterms:subject "공적 행사시의 상투성 — 집단주의 요구에 대한 가장 손쉬운 대응"@ko ;
+  dcterms:subject "개인적 서정의 잔존 — 정치적 경직성 속의 소박한 정조"@ko ;
+  dcterms:subject "시인의 창작 고뇌 — 문학의 이념적 원천에 대한 반증"@ko ;
+  dcterms:subject "개인적 체험의 사회적 해석 — 역사적 테두리 속에서의 이해"@ko ;
+  dcterms:subject "회상과 서사화의 수법 — 현재 체험을 역사적 과거에 편입"@ko ;
+  dcterms:subject "이념의 내면화와 전체주의화의 진행 — 1960년대 북한 시의 특징"@ko ;
+  dcterms:subject "어린이 주제의 이데올로기적 기능 — 투쟁과 건설의 구극적 정당화"@ko ;
+  dcterms:subject "시의 사회적 순화 기능 — 개인적 체험에 의미를 부여하는 치유적 기능"@ko ;
+  dcterms:subject "김일성 숭배와 서사시 — 북한 시의 내적 논리의 귀결"@ko ;
+  dcterms:subject "김일성의 신화화·신격화 — 편재성과 구세주적 존재로서의 투영"@ko ;
+  dcterms:subject "자비로운 자부(慈父)로서의 김일성 — 찬양의 온화한 면"@ko ;
+  dcterms:subject "범신론적 편재성의 수사 — 모든 사물과 공간에 실재하는 지도자"@ko ;
+  dcterms:subject "김일성 서사시의 한계 — 실감 있는 갈등과 개성적 영웅의 결여"@ko ;
+  dcterms:subject "다양하고 심오한 삶의 흐름 속으로 전면적 인격을 해방시킬 자유 — 진정한 서사시의 조건"@ko .
+
 kce:kim-uchang_poetics-society_1982 a critic:CriticalEssay ;
   dcterms:title "시의 내면과 외면 — 시와 사회에 대한 한 생각"@ko ;
   rdfs:label "시의 내면과 외면 — 시와 사회에 대한 한 생각"@ko ;
@@ -1088,6 +1179,7 @@ kc:p-kim-uchang dcterms:creator kce:kim-uchang_language-things_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_lee-mungoo-rural_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_literary-development_1980 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_literature-utopia_1985 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_north-korean-poetry_1980 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_poetics-society_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_poets-jewel_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_politics-poetry_1979 .
@@ -1117,6 +1209,7 @@ kc:p-kim-uchang critic:analyzes kc:p-kim-dongri .
 kc:p-kim-uchang critic:analyzes kc:p-kim-hyunseung .
 kc:p-kim-uchang critic:analyzes kc:p-kim-jiha .
 kc:p-kim-uchang critic:analyzes kc:p-kim-kwanggyu .
+kc:p-kim-uchang critic:analyzes kc:p-kim-sikwon .
 kc:p-kim-uchang critic:analyzes kc:p-kim-suyoung .
 kc:p-kim-uchang critic:analyzes kc:p-ko-un .
 kc:p-kim-uchang critic:analyzes kc:p-lawrence .

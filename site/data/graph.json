@@ -12,7 +12,7 @@
       "label": "김우창",
       "type": "critic",
       "ref": "https://www.wikidata.org/wiki/Q12498425",
-      "degree": 27
+      "degree": 28
     },
     {
       "id": "p-coleridge",
@@ -85,48 +85,6 @@
       "degree": 10
     },
     {
-      "id": "p-starobinski",
-      "label": "스타로뱅스키(Starobinski)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q948889",
-      "degree": 1
-    },
-    {
-      "id": "p-vico",
-      "label": "비코(Vico)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q10292",
-      "degree": 1
-    },
-    {
-      "id": "p-freud",
-      "label": "프로이트",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9215",
-      "degree": 2
-    },
-    {
-      "id": "p-raymond-williams",
-      "label": "레이먼드 윌리엄스(Raymond Williams)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q528678",
-      "degree": 1
-    },
-    {
-      "id": "p-chernyshevsky",
-      "label": "체르니솁스키",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q162544",
-      "degree": 1
-    },
-    {
-      "id": "p-dilthey",
-      "label": "딜타이(Dilthey)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q76411",
-      "degree": 1
-    },
-    {
       "id": "p-merleau-ponty",
       "label": "메를로퐁티",
       "type": "theorist",
@@ -141,18 +99,53 @@
       "degree": 1
     },
     {
+      "id": "p-freud",
+      "label": "프로이트",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9215",
+      "degree": 2
+    },
+    {
+      "id": "p-vico",
+      "label": "비코(Vico)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q10292",
+      "degree": 1
+    },
+    {
+      "id": "p-starobinski",
+      "label": "스타로뱅스키(Starobinski)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q948889",
+      "degree": 1
+    },
+    {
+      "id": "p-dilthey",
+      "label": "딜타이(Dilthey)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q76411",
+      "degree": 1
+    },
+    {
+      "id": "p-chernyshevsky",
+      "label": "체르니솁스키",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q162544",
+      "degree": 1
+    },
+    {
+      "id": "p-raymond-williams",
+      "label": "레이먼드 윌리엄스(Raymond Williams)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q528678",
+      "degree": 1
+    },
+    {
       "id": "kim-uchang_conscience-poetry_1979",
       "label": "괴로운 양심의 시대의 시",
       "type": "essay",
       "year": "1979",
       "degree": 9
-    },
-    {
-      "id": "p-kim-changwan",
-      "label": "김창완（金昌完）",
-      "type": "writer",
-      "ref": "",
-      "degree": 1
     },
     {
       "id": "p-ko-un",
@@ -162,13 +155,6 @@
       "degree": 2
     },
     {
-      "id": "p-jung-heesung",
-      "label": "정희성（鄭喜成）",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q12520476",
-      "degree": 1
-    },
-    {
       "id": "p-kim-suyoung",
       "label": "김수영（金洙暎）",
       "type": "writer",
@@ -176,10 +162,17 @@
       "degree": 1
     },
     {
-      "id": "p-oh-kyuwon",
-      "label": "오규원（吳圭原）",
+      "id": "p-jung-hyunjong",
+      "label": "정현종（鄭玄宗）",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q12614218",
+      "ref": "https://www.wikidata.org/wiki/Q1354064",
+      "degree": 1
+    },
+    {
+      "id": "p-jung-heesung",
+      "label": "정희성（鄭喜成）",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q12520476",
       "degree": 1
     },
     {
@@ -190,10 +183,17 @@
       "degree": 1
     },
     {
-      "id": "p-jung-hyunjong",
-      "label": "정현종（鄭玄宗）",
+      "id": "p-kim-changwan",
+      "label": "김창완（金昌完）",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1354064",
+      "ref": "",
+      "degree": 1
+    },
+    {
+      "id": "p-oh-kyuwon",
+      "label": "오규원（吳圭原）",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q12614218",
       "degree": 1
     },
     {
@@ -218,10 +218,10 @@
       "degree": 1
     },
     {
-      "id": "p-weber",
-      "label": "막스 베버",
+      "id": "p-heidegger",
+      "label": "하이데거",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9240",
+      "ref": "https://www.wikidata.org/wiki/Q48767",
       "degree": 2
     },
     {
@@ -232,18 +232,18 @@
       "degree": 1
     },
     {
+      "id": "p-weber",
+      "label": "막스 베버",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9240",
+      "degree": 2
+    },
+    {
       "id": "p-durkheim",
       "label": "뒤르켐",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q188875",
       "degree": 1
-    },
-    {
-      "id": "p-heidegger",
-      "label": "하이데거",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q48767",
-      "degree": 2
     },
     {
       "id": "p-kant",
@@ -323,18 +323,18 @@
       "degree": 2
     },
     {
-      "id": "p-plato",
-      "label": "플라톤",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q859",
-      "degree": 1
-    },
-    {
       "id": "p-dufrenne",
       "label": "미켈 뒤프렌",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q461751",
       "degree": 1
+    },
+    {
+      "id": "p-plato",
+      "label": "플라톤",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q859",
+      "degree": 2
     },
     {
       "id": "kim-uchang_kim-kwanggyu_1983",
@@ -372,18 +372,18 @@
       "degree": 6
     },
     {
-      "id": "p-bergson",
-      "label": "베르그송",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q184208",
-      "degree": 1
-    },
-    {
       "id": "p-whorf",
       "label": "벤자민 워프(Benjamin Whorf)",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q212577",
       "degree": 1
+    },
+    {
+      "id": "p-hegel",
+      "label": "헤겔",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9235",
+      "degree": 2
     },
     {
       "id": "p-lacan",
@@ -393,10 +393,10 @@
       "degree": 1
     },
     {
-      "id": "p-hegel",
-      "label": "헤겔",
+      "id": "p-bergson",
+      "label": "베르그송",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9235",
+      "ref": "https://www.wikidata.org/wiki/Q184208",
       "degree": 1
     },
     {
@@ -421,13 +421,6 @@
       "degree": 7
     },
     {
-      "id": "p-marcuse",
-      "label": "헤르베르트 마르쿠제",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q77203",
-      "degree": 1
-    },
-    {
       "id": "p-popper",
       "label": "칼 포퍼",
       "type": "theorist",
@@ -435,10 +428,10 @@
       "degree": 1
     },
     {
-      "id": "p-bacon",
-      "label": "프랜시스 베이컨",
+      "id": "p-campanella",
+      "label": "캄파넬라",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9204",
+      "ref": "https://www.wikidata.org/wiki/Q46867",
       "degree": 1
     },
     {
@@ -449,6 +442,13 @@
       "degree": 1
     },
     {
+      "id": "p-bacon",
+      "label": "프랜시스 베이컨",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9204",
+      "degree": 1
+    },
+    {
       "id": "p-trilling",
       "label": "라이오넬 트릴링",
       "type": "theorist",
@@ -456,10 +456,80 @@
       "degree": 1
     },
     {
-      "id": "p-campanella",
-      "label": "캄파넬라",
+      "id": "p-marcuse",
+      "label": "헤르베르트 마르쿠제",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q46867",
+      "ref": "https://www.wikidata.org/wiki/Q77203",
+      "degree": 1
+    },
+    {
+      "id": "kim-uchang_north-korean-poetry_1980",
+      "label": "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름",
+      "type": "essay",
+      "year": "1980",
+      "degree": 12
+    },
+    {
+      "id": "p-kim-sikwon",
+      "label": "김시권",
+      "type": "writer",
+      "ref": "",
+      "degree": 1
+    },
+    {
+      "id": "p-engels",
+      "label": "엥겔스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q34262",
+      "degree": 1
+    },
+    {
+      "id": "p-virgil",
+      "label": "베르길리우스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q1398",
+      "degree": 1
+    },
+    {
+      "id": "p-plekhanov",
+      "label": "플레하노프",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q215228",
+      "degree": 1
+    },
+    {
+      "id": "p-lukacs",
+      "label": "루카치",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q51585",
+      "degree": 2
+    },
+    {
+      "id": "p-lenin",
+      "label": "레닌",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q1307",
+      "degree": 1
+    },
+    {
+      "id": "p-marx",
+      "label": "마르크스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9061",
+      "degree": 1
+    },
+    {
+      "id": "p-homer",
+      "label": "호메로스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q6691",
+      "degree": 1
+    },
+    {
+      "id": "p-whitman",
+      "label": "월트 휘트먼",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q81438",
       "degree": 1
     },
     {
@@ -484,17 +554,17 @@
       "degree": 5
     },
     {
-      "id": "p-cho-jihun",
-      "label": "조지훈",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q495027",
-      "degree": 1
-    },
-    {
       "id": "p-park-mokwol",
       "label": "박목월（朴木月）",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q494989",
+      "degree": 1
+    },
+    {
+      "id": "p-cho-jihun",
+      "label": "조지훈",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q495027",
       "degree": 1
     },
     {
@@ -540,13 +610,6 @@
       "degree": 7
     },
     {
-      "id": "p-byeon-youngro",
-      "label": "변영로",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q5003023",
-      "degree": 1
-    },
-    {
       "id": "p-lawrence",
       "label": "로렌스",
       "type": "writer",
@@ -554,17 +617,10 @@
       "degree": 1
     },
     {
-      "id": "p-platon",
-      "label": "플라톤",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q859",
-      "degree": 1
-    },
-    {
-      "id": "p-zijderveld",
-      "label": "안톤 C. 지데어발드",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q2647777",
+      "id": "p-byeon-youngro",
+      "label": "변영로",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q5003023",
       "degree": 1
     },
     {
@@ -575,6 +631,20 @@
       "degree": 1
     },
     {
+      "id": "p-zijderveld",
+      "label": "안톤 C. 지데어발드",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q2647777",
+      "degree": 1
+    },
+    {
+      "id": "p-platon",
+      "label": "플라톤",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q859",
+      "degree": 1
+    },
+    {
       "id": "kim-uchang_quotation-cultural-memory_1985",
       "label": "인용에 대하여 — 문화전통의 이어짐에 대한 명상",
       "type": "essay",
@@ -582,17 +652,17 @@
       "degree": 3
     },
     {
-      "id": "p-balazs",
-      "label": "에티엔 발라스",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q437773",
-      "degree": 1
-    },
-    {
       "id": "p-austin",
       "label": "J. L. 오스틴",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q108038",
+      "degree": 1
+    },
+    {
+      "id": "p-balazs",
+      "label": "에티엔 발라스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q437773",
       "degree": 1
     },
     {
@@ -603,10 +673,10 @@
       "degree": 6
     },
     {
-      "id": "p-binswanger",
-      "label": "루드비히 빈스방거（Ludwig Binswanger）",
+      "id": "p-descartes",
+      "label": "데카르트",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q76127",
+      "ref": "https://www.wikidata.org/wiki/Q9191",
       "degree": 1
     },
     {
@@ -617,10 +687,10 @@
       "degree": 1
     },
     {
-      "id": "p-paul-hazard",
-      "label": "폴 아자르（Paul Hazard）",
+      "id": "p-binswanger",
+      "label": "루드비히 빈스방거（Ludwig Binswanger）",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q3381578",
+      "ref": "https://www.wikidata.org/wiki/Q76127",
       "degree": 1
     },
     {
@@ -631,10 +701,10 @@
       "degree": 1
     },
     {
-      "id": "p-descartes",
-      "label": "데카르트",
+      "id": "p-paul-hazard",
+      "label": "폴 아자르（Paul Hazard）",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9191",
+      "ref": "https://www.wikidata.org/wiki/Q3381578",
       "degree": 1
     },
     {
@@ -645,52 +715,17 @@
       "degree": 13
     },
     {
-      "id": "p-jang-yonghak",
-      "label": "장용학",
+      "id": "p-jung-jiyong",
+      "label": "정지용",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1753016",
+      "ref": "https://www.wikidata.org/wiki/Q494953",
       "degree": 1
-    },
-    {
-      "id": "p-yeom-sangsub",
-      "label": "염상섭",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q498861",
-      "degree": 2
-    },
-    {
-      "id": "p-son-changsub",
-      "label": "손창섭",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499875",
-      "degree": 1
-    },
-    {
-      "id": "p-hwang-sunwon",
-      "label": "황순원",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1341804",
-      "degree": 2
-    },
-    {
-      "id": "p-kim-dongri",
-      "label": "김동리",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499524",
-      "degree": 2
     },
     {
       "id": "p-kim-dongin",
       "label": "김동인",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q499479",
-      "degree": 1
-    },
-    {
-      "id": "p-choi-inhun",
-      "label": "최인훈",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q499133",
       "degree": 1
     },
     {
@@ -701,10 +736,10 @@
       "degree": 1
     },
     {
-      "id": "p-jung-jiyong",
-      "label": "정지용",
+      "id": "p-son-changsub",
+      "label": "손창섭",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q494953",
+      "ref": "https://www.wikidata.org/wiki/Q499875",
       "degree": 1
     },
     {
@@ -712,6 +747,41 @@
       "label": "이광수",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q499661",
+      "degree": 2
+    },
+    {
+      "id": "p-jang-yonghak",
+      "label": "장용학",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q1753016",
+      "degree": 1
+    },
+    {
+      "id": "p-kim-dongri",
+      "label": "김동리",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499524",
+      "degree": 2
+    },
+    {
+      "id": "p-choi-inhun",
+      "label": "최인훈",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q499133",
+      "degree": 1
+    },
+    {
+      "id": "p-hwang-sunwon",
+      "label": "황순원",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q1341804",
+      "degree": 2
+    },
+    {
+      "id": "p-yeom-sangsub",
+      "label": "염상섭",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q498861",
       "degree": 2
     },
     {
@@ -729,13 +799,6 @@
       "degree": 15
     },
     {
-      "id": "p-jo-sehi",
-      "label": "조세희",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q495011",
-      "degree": 1
-    },
-    {
       "id": "p-sim-hun",
       "label": "심훈",
       "type": "writer",
@@ -750,24 +813,17 @@
       "degree": 1
     },
     {
+      "id": "p-jo-sehi",
+      "label": "조세희",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q495011",
+      "degree": 1
+    },
+    {
       "id": "p-poulet",
       "label": "조르주 풀레（Georges Poulet）",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q3389861",
-      "degree": 1
-    },
-    {
-      "id": "p-lubbock",
-      "label": "퍼시 라보크（Percy Lubbock）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q2006867",
-      "degree": 1
-    },
-    {
-      "id": "p-lukacs",
-      "label": "루카치（György Lukács）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q44040",
       "degree": 1
     },
     {
@@ -778,6 +834,13 @@
       "degree": 1
     },
     {
+      "id": "p-auerbach",
+      "label": "에리히 아우얼바하",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q76385",
+      "degree": 1
+    },
+    {
       "id": "p-walter-benjamin",
       "label": "발터 벤야민（Walter Benjamin）",
       "type": "theorist",
@@ -785,10 +848,10 @@
       "degree": 1
     },
     {
-      "id": "p-auerbach",
-      "label": "에리히 아우얼바하",
+      "id": "p-lubbock",
+      "label": "퍼시 라보크（Percy Lubbock）",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q76385",
+      "ref": "https://www.wikidata.org/wiki/Q2006867",
       "degree": 1
     },
     {
@@ -882,48 +945,6 @@
     },
     {
       "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-starobinski",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-vico",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-freud",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-raymond-williams",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-chernyshevsky",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-sartre",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-dilthey",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
       "target": "p-merleau-ponty",
       "type": "uses_theory",
       "weight": 1
@@ -935,6 +956,48 @@
       "weight": 1
     },
     {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-freud",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-vico",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-starobinski",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-dilthey",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-sartre",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-chernyshevsky",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-raymond-williams",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
       "source": "p-kim-uchang",
       "target": "kim-uchang_conscience-poetry_1979",
       "type": "wrote",
@@ -942,19 +1005,7 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-kim-changwan",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_conscience-poetry_1979",
       "target": "p-ko-un",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-jung-heesung",
       "type": "subject_of",
       "weight": 1
     },
@@ -966,7 +1017,13 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-oh-kyuwon",
+      "target": "p-jung-hyunjong",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_conscience-poetry_1979",
+      "target": "p-jung-heesung",
       "type": "subject_of",
       "weight": 1
     },
@@ -978,7 +1035,13 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-jung-hyunjong",
+      "target": "p-kim-changwan",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_conscience-poetry_1979",
+      "target": "p-oh-kyuwon",
       "type": "subject_of",
       "weight": 1
     },
@@ -1002,7 +1065,7 @@
     },
     {
       "source": "kim-uchang_cultural-subjectivity_1982",
-      "target": "p-weber",
+      "target": "p-heidegger",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1014,13 +1077,13 @@
     },
     {
       "source": "kim-uchang_cultural-subjectivity_1982",
-      "target": "p-durkheim",
+      "target": "p-weber",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_cultural-subjectivity_1982",
-      "target": "p-heidegger",
+      "target": "p-durkheim",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1098,13 +1161,13 @@
     },
     {
       "source": "kim-uchang_kim-chaesu_1989",
-      "target": "p-plato",
+      "target": "p-dufrenne",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_kim-chaesu_1989",
-      "target": "p-dufrenne",
+      "target": "p-plato",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1146,12 +1209,6 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-bergson",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-things_1981",
       "target": "p-freud",
       "type": "uses_theory",
       "weight": 1
@@ -1164,13 +1221,19 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
+      "target": "p-hegel",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_language-things_1981",
       "target": "p-lacan",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-hegel",
+      "target": "p-bergson",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1188,13 +1251,13 @@
     },
     {
       "source": "kim-uchang_literary-development_1980",
-      "target": "p-kant",
+      "target": "p-heidegger",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_literary-development_1980",
-      "target": "p-heidegger",
+      "target": "p-kant",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1206,19 +1269,13 @@
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
-      "target": "p-marcuse",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_literature-utopia_1985",
       "target": "p-popper",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
-      "target": "p-bacon",
+      "target": "p-campanella",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1230,13 +1287,91 @@
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
+      "target": "p-bacon",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_literature-utopia_1985",
       "target": "p-trilling",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
-      "target": "p-campanella",
+      "target": "p-marcuse",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-uchang",
+      "target": "kim-uchang_north-korean-poetry_1980",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-kim-sikwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-engels",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-virgil",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-plato",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-plekhanov",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-hegel",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-lukacs",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-lenin",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-marx",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-homer",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-whitman",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1266,13 +1401,13 @@
     },
     {
       "source": "kim-uchang_poets-jewel_1984",
-      "target": "p-cho-jihun",
+      "target": "p-park-mokwol",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_poets-jewel_1984",
-      "target": "p-park-mokwol",
+      "target": "p-cho-jihun",
       "type": "subject_of",
       "weight": 1
     },
@@ -1314,25 +1449,19 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-byeon-youngro",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_preface_1992",
       "target": "p-lawrence",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-platon",
-      "type": "uses_theory",
+      "target": "p-byeon-youngro",
+      "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-zijderveld",
+      "target": "p-arnheim",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1344,7 +1473,13 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-arnheim",
+      "target": "p-zijderveld",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_preface_1992",
+      "target": "p-platon",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1356,13 +1491,13 @@
     },
     {
       "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "p-balazs",
+      "target": "p-austin",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "p-austin",
+      "target": "p-balazs",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1374,7 +1509,7 @@
     },
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-binswanger",
+      "target": "p-descartes",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1386,7 +1521,7 @@
     },
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-paul-hazard",
+      "target": "p-binswanger",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1398,7 +1533,7 @@
     },
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-descartes",
+      "target": "p-paul-hazard",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1410,37 +1545,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-jang-yonghak",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yeom-sangsub",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-son-changsub",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-ko-un",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-hwang-sunwon",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-kim-dongri",
+      "target": "p-jung-jiyong",
       "type": "subject_of",
       "weight": 1
     },
@@ -1452,25 +1557,55 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-choi-inhun",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
       "target": "p-yi-chungjun",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-jung-jiyong",
+      "target": "p-ko-un",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-son-changsub",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
       "target": "p-yi-gwangsu",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-jang-yonghak",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-kim-dongri",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-choi-inhun",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-hwang-sunwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-yeom-sangsub",
       "type": "subject_of",
       "weight": 1
     },
@@ -1484,30 +1619,6 @@
       "source": "p-kim-uchang",
       "target": "kim-uchang_time-korean-novel_1981",
       "type": "wrote",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-yeom-sangsub",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-hwang-sunwon",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-kim-dongri",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-jo-sehi",
-      "type": "subject_of",
       "weight": 1
     },
     {
@@ -1530,25 +1641,31 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-kim-dongri",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-jo-sehi",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-hwang-sunwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-yeom-sangsub",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-poulet",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-lubbock",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-lukacs",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-baek-nakchung",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1560,13 +1677,31 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-walter-benjamin",
+      "target": "p-baek-nakchung",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-auerbach",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-lukacs",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-walter-benjamin",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-lubbock",
       "type": "uses_theory",
       "weight": 1
     },
