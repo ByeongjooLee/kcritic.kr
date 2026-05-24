@@ -438,6 +438,12 @@ kc:p-walter-benjamin a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q44325> ;
   schema:url <https://kcritic.kr/resource/p-walter-benjamin> .
 
+kc:p-weber a foaf:Person ;
+  foaf:name "막스 베버"@ko ;
+  rdfs:label "막스 베버"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9240> ;
+  schema:url <https://kcritic.kr/resource/p-weber> .
+
 kc:p-whorf a foaf:Person ;
   foaf:name "벤자민 워프(Benjamin Whorf)"@ko ;
   rdfs:label "벤자민 워프(Benjamin Whorf)"@ko ;
@@ -587,6 +593,30 @@ kce:kim-uchang_conscience-poetry_1979 a critic:CriticalEssay ;
   cito:discusses kc:p-ko-un ;
   cito:discusses kc:p-oh-kyuwon ;
   cito:citesAsAuthority kc:p-valery .
+
+kce:kim-uchang_culture-meaning_1982 a critic:CriticalEssay ;
+  dcterms:title "우리 문화의 의미"@ko ;
+  rdfs:label "우리 문화의 의미"@ko ;
+  dcterms:date "1982"^^xsd:gYear ;
+  schema:isPartOf "우리 문화의 의미" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_culture-meaning_1982.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:citesAsAuthority kc:p-weber ;
+  dcterms:subject "문화적 구조물과 문화의 구별"@ko ;
+  dcterms:subject "문화의 본질은 향수의 가능성"@ko ;
+  dcterms:subject "기쁨의 능력"@ko ;
+  dcterms:subject "세계와 자아의 균형 인식 — 심미적 기쁨의 근원"@ko ;
+  dcterms:subject "삶과 세계의 조화에 대한 찬미"@ko ;
+  dcterms:subject "창조적 에너지의 증표"@ko ;
+  dcterms:subject "정자의 공간 구성 원리"@ko ;
+  dcterms:subject "천재는 집단의식의 대표"@ko ;
+  dcterms:subject "추상적 사회의식과 민족의식의 매개"@ko ;
+  dcterms:subject "단순한 일체성과 조화의 이상"@ko ;
+  dcterms:subject "조화된 문화적 공간과 문화재의 관계"@ko ;
+  dcterms:subject "물질적 소유보다 조화된 삶의 강조"@ko ;
+  dcterms:subject "자연 생태계의 한계"@ko ;
+  dcterms:subject "조촐한 행복의 범례"@ko ;
+  dcterms:subject "삶의 실존적 뿌리 — 자신의 토양에의 뿌리내림"@ko .
 
 kce:kim-uchang_hwang-seokyoung-minjung_1982 a critic:CriticalEssay ;
   dcterms:title "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구"@ko ;
@@ -903,6 +933,7 @@ kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_choe-seungho-observation_1983 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_culture-meaning_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-seokyoung-minjung_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_jeong-dongju_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_joy-use-literature_1984 .
