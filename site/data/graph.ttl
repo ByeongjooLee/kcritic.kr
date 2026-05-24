@@ -26,6 +26,12 @@ kc:p-arnheim a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q77266> ;
   schema:url <https://kcritic.kr/resource/p-arnheim> .
 
+kc:p-arnold a foaf:Person ;
+  foaf:name "매슈 아널드"@ko ;
+  rdfs:label "매슈 아널드"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q182897> ;
+  schema:url <https://kcritic.kr/resource/p-arnold> .
+
 kc:p-auerbach a foaf:Person ;
   foaf:name "에리히 아우얼바하"@ko ;
   rdfs:label "에리히 아우얼바하"@ko ;
@@ -161,9 +167,9 @@ kc:p-durkheim a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-durkheim> .
 
 kc:p-eliot a foaf:Person ;
-  foaf:name "T.S. 엘리엇"@ko ;
-  rdfs:label "T.S. 엘리엇"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q37045> ;
+  foaf:name "T. S. 엘리엇"@ko ;
+  rdfs:label "T. S. 엘리엇"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q41166> ;
   schema:url <https://kcritic.kr/resource/p-eliot> .
 
 kc:p-engels a foaf:Person ;
@@ -274,6 +280,11 @@ kc:p-kant a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9312> ;
   schema:url <https://kcritic.kr/resource/p-kant> .
 
+kc:p-kim-byungik a foaf:Person ;
+  foaf:name "김병익"@ko ;
+  rdfs:label "김병익"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-byungik> .
+
 kc:p-kim-changwan a foaf:Person ;
   foaf:name "김창완（金昌完）"@ko ;
   rdfs:label "김창완（金昌完）"@ko ;
@@ -358,6 +369,12 @@ kc:p-lawrence a foaf:Person ;
   rdfs:label "로렌스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q33866> ;
   schema:url <https://kcritic.kr/resource/p-lawrence> .
+
+kc:p-leibniz a foaf:Person ;
+  foaf:name "라이프니츠"@ko ;
+  rdfs:label "라이프니츠"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9047> ;
+  schema:url <https://kcritic.kr/resource/p-leibniz> .
 
 kc:p-lenin a foaf:Person ;
   foaf:name "레닌"@ko ;
@@ -823,6 +840,53 @@ kce:kim-uchang_culture-meaning_1982 a critic:CriticalEssay ;
   dcterms:subject "조촐한 행복의 범례"@ko ;
   dcterms:subject "삶의 실존적 뿌리 — 자신의 토양에의 뿌리내림"@ko .
 
+kce:kim-uchang_hwang-dongkyu_1982 a critic:CriticalEssay ;
+  dcterms:title "내적 의식과 의식이 지칭하는 것 — 황동규의 시"@ko ;
+  rdfs:label "내적 의식과 의식이 지칭하는 것 — 황동규의 시"@ko ;
+  dcterms:date "1982"^^xsd:gYear ;
+  schema:isPartOf "내적 의식과 의식이 지칭하는 것 — 황동규의 시" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_hwang-dongkyu_1982.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:discusses kc:p-hwang-dongkyu ;
+  cito:discusses kc:p-kim-suyoung ;
+  cito:citesAsAuthority kc:p-arnold ;
+  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-kim-byungik ;
+  cito:citesAsAuthority kc:p-leibniz ;
+  dcterms:subject "아널드의 시론: 영웅적 행동·수난의 소재론"@ko ;
+  dcterms:subject "아널드의 고대 시 이념과 근대 시의 타락 진단"@ko ;
+  dcterms:subject "한국 현대시와 수동적 고뇌의 지속 문제"@ko ;
+  dcterms:subject "역사적 억압과 영웅적 이상의 시적 표현 불가 조건"@ko ;
+  dcterms:subject "외래 박해와 반작용으로서의 수동성 — 내발적 에너지의 부재"@ko ;
+  dcterms:subject "황동규 시력의 전체적 조감 — 수동적 고뇌에서 외부 현실로의 이행"@ko ;
+  dcterms:subject "비가의 성경적 스타일과 장엄한 슬픔의 예고"@ko ;
+  dcterms:subject "감정의 내면화와 외적 계기의 차단 — 비가의 구조적 딜레마"@ko ;
+  dcterms:subject "교훈화된 풍경 — 슬픔의 기호로서의 자연"@ko ;
+  dcterms:subject "엘리엇의 텅 빈 인간과 비가의 세계 — 그림자의 지배"@ko ;
+  dcterms:subject "시의 의미와 기분 — 내면의 리듬에서 발생하는 시적 의미"@ko ;
+  dcterms:subject "소곡 연작 — 내면화의 움직임과 세계의 고요로의 흡수"@ko ;
+  dcterms:subject "내면화의 좌절 — 대상적 접촉의 결여와 방황"@ko ;
+  dcterms:subject "기다림 자체의 절대화 — 내면 칩거의 역설적 긍정"@ko ;
+  dcterms:subject "패배의 수용과 해방 — 허무의 역설적 긍정"@ko ;
+  dcterms:subject "내적 고뇌의 지속 표현의 한계 — 모호성과 단조로움으로의 귀결"@ko ;
+  dcterms:subject "태평가의 전환 — 내면 침잠에서 외부 현실의 구체어로"@ko ;
+  dcterms:subject "최소한의 기대철학과 삶의 에너지 — 명징성의 역설적 원천"@ko ;
+  dcterms:subject "태평가의 정치시적 완성 — 거시적 국제 정세와 일상적 몸짓의 연결"@ko ;
+  dcterms:subject "라이프니츠의 미세 지각과 시적 감동의 원천"@ko ;
+  dcterms:subject "기항지 1의 간결한 객관성 — 현실 속 인간의 관점에서 그려진 우화"@ko ;
+  dcterms:subject "열하일기 이후 — 정치 현실의 상징적 처리 시기"@ko ;
+  dcterms:subject "상징적 정치시의 양면 — 전체적 요약의 효과와 내면화의 위험"@ko ;
+  dcterms:subject "김수영 풀 — 상징적 정치시의 모범으로서의 상황 요약"@ko ;
+  dcterms:subject "현실의 상징 속 무산 — 자기 만족적 정치시의 위험"@ko ;
+  dcterms:subject "소형백제불상 — 예술과 영원의 관점이 가르쳐 주는 숙명의 이중성"@ko ;
+  dcterms:subject "시인의 양심적 관찰자 위치 — 정치 현실의 내면적 굴절"@ko ;
+  dcterms:subject "공적 의무와 사적 행복의 균열 — 지식인의 이중적 긴장"@ko ;
+  dcterms:subject "겨울의 빛 이후의 변화 — 의식의 내부보다 의식이 지칭하는 밖으로의 전환"@ko ;
+  dcterms:subject "긍정적 에너지의 출현 — 내면 괴로움을 넘어선 행동과 꿈"@ko ;
+  dcterms:subject "정치시의 상징적 모호함의 지속 — 역사적 조건의 제약"@ko ;
+  dcterms:subject "표현의 자유와 역사적 조건 — 억압 속에서도 가능한 사실적 표현"@ko ;
+  dcterms:subject "감각의 싱싱함 — 정신의 싱싱함이자 삶의 에너지의 약속"@ko .
+
 kce:kim-uchang_hwang-seokyoung-minjung_1982 a critic:CriticalEssay ;
   dcterms:title "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구"@ko ;
   rdfs:label "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구"@ko ;
@@ -1248,6 +1312,7 @@ kc:p-kim-uchang dcterms:creator kce:kim-uchang_concrete-universality_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cultural-subjectivity_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_culture-meaning_1982 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-dongkyu_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-seokyoung-minjung_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_jeong-dongju_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_joy-use-literature_1984 .
