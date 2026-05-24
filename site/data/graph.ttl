@@ -92,6 +92,12 @@ kc:p-campanella a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q46867> ;
   schema:url <https://kcritic.kr/resource/p-campanella> .
 
+kc:p-chernyshevsky a foaf:Person ;
+  foaf:name "체르니솁스키"@ko ;
+  rdfs:label "체르니솁스키"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q162544> ;
+  schema:url <https://kcritic.kr/resource/p-chernyshevsky> .
+
 kc:p-cho-jihun a foaf:Person ;
   foaf:name "조지훈"@ko ;
   rdfs:label "조지훈"@ko ;
@@ -129,6 +135,18 @@ kc:p-descartes a foaf:Person ;
   rdfs:label "데카르트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9191> ;
   schema:url <https://kcritic.kr/resource/p-descartes> .
+
+kc:p-dilthey a foaf:Person ;
+  foaf:name "딜타이(Dilthey)"@ko ;
+  rdfs:label "딜타이(Dilthey)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76411> ;
+  schema:url <https://kcritic.kr/resource/p-dilthey> .
+
+kc:p-dostoevsky a foaf:Person ;
+  foaf:name "도스토옙스키"@ko ;
+  rdfs:label "도스토옙스키"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q991> ;
+  schema:url <https://kcritic.kr/resource/p-dostoevsky> .
 
 kc:p-dufrenne a foaf:Person ;
   foaf:name "미켈 뒤프렌"@ko ;
@@ -342,6 +360,12 @@ kc:p-marcuse a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q77203> ;
   schema:url <https://kcritic.kr/resource/p-marcuse> .
 
+kc:p-merleau-ponty a foaf:Person ;
+  foaf:name "메를로퐁티"@ko ;
+  rdfs:label "메를로퐁티"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q156564> ;
+  schema:url <https://kcritic.kr/resource/p-merleau-ponty> .
+
 kc:p-oh-kyuwon a foaf:Person ;
   foaf:name "오규원（吳圭原）"@ko ;
   rdfs:label "오규원（吳圭原）"@ko ;
@@ -395,6 +419,12 @@ kc:p-poulet a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q3389861> ;
   schema:url <https://kcritic.kr/resource/p-poulet> .
 
+kc:p-raymond-williams a foaf:Person ;
+  foaf:name "레이먼드 윌리엄스(Raymond Williams)"@ko ;
+  rdfs:label "레이먼드 윌리엄스(Raymond Williams)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q528678> ;
+  schema:url <https://kcritic.kr/resource/p-raymond-williams> .
+
 kc:p-rilke a foaf:Person ;
   foaf:name "릴케"@ko ;
   rdfs:label "릴케"@ko ;
@@ -425,6 +455,12 @@ kc:p-son-changsub a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499875> ;
   schema:url <https://kcritic.kr/resource/p-son-changsub> .
 
+kc:p-starobinski a foaf:Person ;
+  foaf:name "스타로뱅스키(Starobinski)"@ko ;
+  rdfs:label "스타로뱅스키(Starobinski)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q948889> ;
+  schema:url <https://kcritic.kr/resource/p-starobinski> .
+
 kc:p-stendhal a foaf:Person ;
   foaf:name "스탕달"@ko ;
   rdfs:label "스탕달"@ko ;
@@ -448,6 +484,12 @@ kc:p-valery a foaf:Person ;
   rdfs:label "발레리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q42387> ;
   schema:url <https://kcritic.kr/resource/p-valery> .
+
+kc:p-vico a foaf:Person ;
+  foaf:name "비코(Vico)"@ko ;
+  rdfs:label "비코(Vico)"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q10292> ;
+  schema:url <https://kcritic.kr/resource/p-vico> .
 
 kc:p-walter-benjamin a foaf:Person ;
   foaf:name "발터 벤야민（Walter Benjamin）"@ko ;
@@ -594,6 +636,54 @@ kce:kim-uchang_choe-seungho-observation_1983 a critic:CriticalEssay ;
   dcterms:subject "초현실적 비약"@ko ;
   dcterms:subject "유기적 삶의 상실"@ko ;
   dcterms:subject "객관성을 거쳐 나가는 길"@ko .
+
+kce:kim-uchang_concrete-universality_1981 a critic:CriticalEssay ;
+  dcterms:title "구체적 보편성에로 — 역사와 문학의 관계에 대한 한 고찰"@ko ;
+  rdfs:label "구체적 보편성에로 — 역사와 문학의 관계에 대한 한 고찰"@ko ;
+  dcterms:date "1981"^^xsd:gYear ;
+  schema:isPartOf "구체적 보편성에로 — 역사와 문학의 관계에 대한 한 고찰" ;
+  schema:url <https://kcritic.kr/site/essays/kim-uchang_concrete-universality_1981.html> ;
+  dcterms:creator kc:p-kim-uchang ;
+  cito:citesAsAuthority kc:p-chernyshevsky ;
+  cito:citesAsAuthority kc:p-dilthey ;
+  cito:citesAsAuthority kc:p-dostoevsky ;
+  cito:citesAsAuthority kc:p-freud ;
+  cito:citesAsAuthority kc:p-merleau-ponty ;
+  cito:citesAsAuthority kc:p-raymond-williams ;
+  cito:citesAsAuthority kc:p-sartre ;
+  cito:citesAsAuthority kc:p-starobinski ;
+  cito:citesAsAuthority kc:p-vico ;
+  dcterms:subject "역사의식의 두 계기 — 객체적 한계와 주체적 창조"@ko ;
+  dcterms:subject "역사적 사실의 주술적 힘 — 불가역의 시간 뒤에 있는 것"@ko ;
+  dcterms:subject "식민지 역사와 객관적 제약으로서의 역사 체험"@ko ;
+  dcterms:subject "비코의 \"역사는 사람이 만든다\" — 주체적 창조로서의 역사"@ko ;
+  dcterms:subject "윌리엄스의 추상적 객관성과 역사적 객관성의 구별"@ko ;
+  dcterms:subject "역사의 이성 — 경험과 실천 속에서 형성되는 질서"@ko ;
+  dcterms:subject "역사적 인간의 전략적 사고 — 이론과 실천의 교환"@ko ;
+  dcterms:subject "역사의식 — 이론과 실천, 객관과 주관의 교환 작용"@ko ;
+  dcterms:subject "역사적 실천 — 현실의 변증법적 균열에 개입"@ko ;
+  dcterms:subject "역사적 실천과 시인의 비유적 변용의 유비"@ko ;
+  dcterms:subject "주체적 의지의 집단적 규모와 역사적 실천"@ko ;
+  dcterms:subject "역사의 이성 — 인간의 대화와 설득의 활발한 상태"@ko ;
+  dcterms:subject "이성과 비이성의 변증법 — 기존 질서와 새로운 주체성의 대립"@ko ;
+  dcterms:subject "이성의 정당성과 보편성 — 집단의 실천적 능력에 달린 이성의 권리"@ko ;
+  dcterms:subject "새로운 주체성의 자기정당화 — 보다 참다운 이성의 질서로서"@ko ;
+  dcterms:subject "개체적 주체성의 우선성 — 감성적·본능적으로 주어지는 자기 체험"@ko ;
+  dcterms:subject "도스토옙스키의 지하 인간 — 이성적 질서에 저항하는 개체적 의지"@ko ;
+  dcterms:subject "프로이트의 문명과 개체적 희생의 불가피성"@ko ;
+  dcterms:subject "집단적 정치 행동의 축제적 성격 — 행동적 고양과 비일상성"@ko ;
+  dcterms:subject "개체와 집단의 불가피한 긴장 — 완전한 일치보다 긴장 속의 공존"@ko ;
+  dcterms:subject "개체적 삶의 실존적 기획 — 주어진 가능성 속에서의 선택"@ko ;
+  dcterms:subject "이성의 이념 — 전체성과 보편성, 민주적·발전적 질서"@ko ;
+  dcterms:subject "구체적 보편성의 이념 — 개체적 역사성을 포용하는 전체"@ko ;
+  dcterms:subject "구체적 보편성과 민족주의 — 구체적 역사적 민족주의의 정당성"@ko ;
+  dcterms:subject "진정한 역사 — 구체적 보편성을 실현하는 역사"@ko ;
+  dcterms:subject "문학과 역사의 근본적 차이 — 주체성과 객관적 사실"@ko ;
+  dcterms:subject "딜타이의 이해(Verstehen) — 공감적 내적 연관의 파악"@ko ;
+  dcterms:subject "문학적 허구의 인식론적 필연성 — 주체성은 객관화될 수 없다"@ko ;
+  dcterms:subject "사르트르의 자서전과 소설 — 허구가 사실을 더 잘 드러낸다"@ko ;
+  dcterms:subject "문학과 역사의 방법적 차이와 본질적 연관"@ko ;
+  dcterms:subject "지적 활동으로서의 문학과 역사 — 역사 현실의 움직임을 나타내는 약호"@ko .
 
 kce:kim-uchang_conscience-poetry_1979 a critic:CriticalEssay ;
   dcterms:title "괴로운 양심의 시대의 시"@ko ;
@@ -983,6 +1073,7 @@ kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_choe-seungho-observation_1983 .
+kc:p-kim-uchang dcterms:creator kce:kim-uchang_concrete-universality_1981 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cultural-subjectivity_1982 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_culture-meaning_1982 .
