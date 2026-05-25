@@ -126,12 +126,38 @@ def collect_terms(root):
 
 def collect_interp_concepts(root):
     """interp[type='concept'] 요소에서 핵심 개념어 수집 (중복 제거).
-    각 개념어의 첫 출현 위치의 부모 <p>/<s> 텍스트를 excerpt로 함께 저장."""
-    # child → parent 역방향 맵 구성 (ElementTree에 getparent() 없음)
+    본문 <body> 안의 interp를 우선 순회해 excerpt를 추출하고,
+    teiHeader 선언부(interpGrp)는 excerpt 없이 보완용으로만 사용."""
     parent_map = {child: parent for parent in root.iter() for child in parent}
 
+    def find_excerpt(el):
+        node = el
+        while node is not None:
+            node = parent_map.get(node)
+            if node is None:
+                break
+            local = node.tag.split("}")[-1] if "}" in node.tag else node.tag
+            if local in ("p", "s"):
+                raw = " ".join("".join(node.itertext()).split()).strip()
+                return raw[:150] + ("…" if len(raw) > 150 else "")
+        return ""
+
+    # 1단계: 본문 <body> 안의 interp — excerpt 있음
     seen = set()
     concepts = []
+    body = root.find(f".//{tns('body')}")
+    if body is not None:
+        for el in body.iter(tns("interp")):
+            if el.get("type") != "concept":
+                continue
+            name = "".join(el.itertext()).strip()
+            if not name or name in seen:
+                continue
+            seen.add(name)
+            slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
+            concepts.append({"name": name, "slug": slug, "excerpt": find_excerpt(el)})
+
+    # 2단계: teiHeader interpGrp 선언 — 본문에 없는 것만 보완 (excerpt 없음)
     for el in root.iter(tns("interp")):
         if el.get("type") != "concept":
             continue
@@ -140,21 +166,8 @@ def collect_interp_concepts(root):
             continue
         seen.add(name)
         slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
+        concepts.append({"name": name, "slug": slug, "excerpt": ""})
 
-        # 가장 가까운 <p> 또는 <s> 조상에서 텍스트 추출
-        excerpt = ""
-        node = el
-        while node is not None:
-            node = parent_map.get(node)
-            if node is None:
-                break
-            local = node.tag.split("}")[-1] if "}" in node.tag else node.tag
-            if local in ("p", "s"):
-                raw = "".join(node.itertext()).strip()
-                excerpt = raw[:150] + ("…" if len(raw) > 150 else "")
-                break
-
-        concepts.append({"name": name, "slug": slug, "excerpt": excerpt})
     return concepts
 
 def extract_sources(root):
