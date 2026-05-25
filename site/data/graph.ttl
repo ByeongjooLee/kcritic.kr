@@ -68,6 +68,12 @@ kc:p-austin a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q108038> ;
   schema:url <https://kcritic.kr/resource/p-austin> .
 
+kc:p-babbitt-irving a foaf:Person ;
+  foaf:name "어빙 배빗"@ko ;
+  rdfs:label "어빙 배빗"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q457866> ;
+  schema:url <https://kcritic.kr/resource/p-babbitt-irving> .
+
 kc:p-bacon a foaf:Person ;
   foaf:name "프랜시스 베이컨"@ko ;
   rdfs:label "프랜시스 베이컨"@ko ;
@@ -679,9 +685,9 @@ kc:p-massis a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-massis> .
 
 kc:p-maugham a foaf:Person ;
-  foaf:name "서머셋 모옴"@ko ;
-  rdfs:label "서머셋 모옴"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q43439> ;
+  foaf:name "모옴"@ko ;
+  rdfs:label "모옴"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q43643> ;
   schema:url <https://kcritic.kr/resource/p-maugham> .
 
 kc:p-maupassant a foaf:Person ;
@@ -965,6 +971,11 @@ kc:p-trilling a foaf:Person ;
   rdfs:label "라이오넬 트릴링"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q936288> ;
   schema:url <https://kcritic.kr/resource/p-trilling> .
+
+kc:p-tyndall-william a foaf:Person ;
+  foaf:name "틴들"@ko ;
+  rdfs:label "틴들"@ko ;
+  schema:url <https://kcritic.kr/resource/p-tyndall-william> .
 
 kc:p-valery a foaf:Person ;
   foaf:name "발레리"@ko ;
@@ -1765,6 +1776,29 @@ kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
   cito:discusses kc:p-yun-dongju ;
   cito:citesAsAuthority kc:p-habermas .
 
+kce:yu-jongho_aesthetics-vulgarity_1960 a critic:CriticalEssay ;
+  dcterms:title "비속의 미학"@ko ;
+  rdfs:label "비속의 미학"@ko ;
+  dcterms:date "1960"^^xsd:gYear ;
+  schema:isPartOf "비속의 미학" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_aesthetics-vulgarity_1960.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-babbitt-irving ;
+  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-mallarme ;
+  cito:citesAsAuthority kc:p-maugham ;
+  cito:citesAsAuthority kc:p-sainte-beuve ;
+  cito:citesAsAuthority kc:p-tyndall-william ;
+  dcterms:subject "낭만적 실족의 환멸"@ko ;
+  dcterms:subject "부르주아 혐오"@ko ;
+  dcterms:subject "예술에 대한 신앙"@ko ;
+  dcterms:subject "비속의 미학"@ko ;
+  dcterms:subject "스타일의 연금술"@ko ;
+  dcterms:subject "서정과 비속의 이중 심연"@ko ;
+  dcterms:subject "정확과 신비의 리얼리즘"@ko ;
+  dcterms:subject "산문정신"@ko ;
+  dcterms:subject "순수예술에의 지향"@ko .
+
 kce:yu-jongho_bisunsu-declaration_1960 a critic:CriticalEssay ;
   dcterms:title "비순수의 선언"@ko ;
   rdfs:label "비순수의 선언"@ko ;
@@ -2259,6 +2293,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-gwangsu .
 kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_aesthetics-vulgarity_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-problems_1958 .
