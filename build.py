@@ -125,18 +125,36 @@ def collect_terms(root):
 
 
 def collect_interp_concepts(root):
-    """interp[type='concept'] 요소에서 핵심 개념어 수집 (중복 제거)."""
+    """interp[type='concept'] 요소에서 핵심 개념어 수집 (중복 제거).
+    각 개념어의 첫 출현 위치의 부모 <p>/<s> 텍스트를 excerpt로 함께 저장."""
+    # child → parent 역방향 맵 구성 (ElementTree에 getparent() 없음)
+    parent_map = {child: parent for parent in root.iter() for child in parent}
+
     seen = set()
     concepts = []
     for el in root.iter(tns("interp")):
         if el.get("type") != "concept":
             continue
         name = "".join(el.itertext()).strip()
-        if name and name not in seen:
-            seen.add(name)
-            # slug: 첫 16자 ASCII+숫자, 나머지는 한글 그대로 허용
-            slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
-            concepts.append({"name": name, "slug": slug})
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
+
+        # 가장 가까운 <p> 또는 <s> 조상에서 텍스트 추출
+        excerpt = ""
+        node = el
+        while node is not None:
+            node = parent_map.get(node)
+            if node is None:
+                break
+            local = node.tag.split("}")[-1] if "}" in node.tag else node.tag
+            if local in ("p", "s"):
+                raw = "".join(node.itertext()).strip()
+                excerpt = raw[:150] + ("…" if len(raw) > 150 else "")
+                break
+
+        concepts.append({"name": name, "slug": slug, "excerpt": excerpt})
     return concepts
 
 def extract_sources(root):
@@ -1013,6 +1031,7 @@ def main():
                 "stem": e["stem"],
                 "title": e["title"],
                 "year": e.get("display_year") or e["year"],
+                "excerpt": c.get("excerpt", ""),
             })
     concepts_json = [
         {

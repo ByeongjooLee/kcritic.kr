@@ -156,6 +156,13 @@
       line-height: 1.45;
     }
     .concept-essay-title:hover { color: var(--accent); text-decoration: none; }
+    .concept-essay-excerpt {
+      margin-top: 0.5rem;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-style: italic;
+    }
 
     /* ── 모바일 ── */
     @media (max-width: 768px) {
@@ -276,6 +283,7 @@
       <div class="concept-essay-card">
         <div class="concept-essay-year">${e.year}</div>
         <a href="site/essays/${e.stem}.html" class="concept-essay-title">${e.title}</a>
+        ${e.excerpt ? `<div class="concept-essay-excerpt">${e.excerpt}</div>` : ''}
       </div>
     `).join('');
 
