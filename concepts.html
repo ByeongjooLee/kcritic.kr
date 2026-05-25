@@ -232,8 +232,8 @@
   fetch('site/data/concepts.json')
     .then(r => r.json())
     .then(data => {
-      allConcepts = data;
-      renderList(data);
+      allConcepts = data.filter(c => c.essay_count >= 2);
+      renderList(allConcepts);
       // URL hash로 진입한 경우
       const hash = location.hash.slice(1);
       if (hash) {
