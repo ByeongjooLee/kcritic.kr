@@ -19,15 +19,6 @@
     ]
   },
   {
-    "id": "p-hwang-dongkyu",
-    "name": "황동규",
-    "ref": "https://www.wikidata.org/wiki/Q499298",
-    "essay_count": 2,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
     "id": "p-ko-un",
     "name": "고은（高銀）",
     "ref": "https://www.wikidata.org/wiki/Q460427",
@@ -46,9 +37,18 @@
     ]
   },
   {
-    "id": "p-hwang-sunwon",
-    "name": "황순원",
-    "ref": "https://www.wikidata.org/wiki/Q1341804",
+    "id": "p-hwang-dongkyu",
+    "name": "황동규",
+    "ref": "https://www.wikidata.org/wiki/Q499298",
+    "essay_count": 2,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-kim-dongri",
+    "name": "김동리",
+    "ref": "https://www.wikidata.org/wiki/Q499524",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
@@ -64,18 +64,18 @@
     ]
   },
   {
-    "id": "p-yi-gwangsu",
-    "name": "이광수",
-    "ref": "https://www.wikidata.org/wiki/Q499661",
+    "id": "p-hwang-sunwon",
+    "name": "황순원",
+    "ref": "https://www.wikidata.org/wiki/Q1341804",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
     ]
   },
   {
-    "id": "p-kim-dongri",
-    "name": "김동리",
-    "ref": "https://www.wikidata.org/wiki/Q499524",
+    "id": "p-yi-gwangsu",
+    "name": "이광수",
+    "ref": "https://www.wikidata.org/wiki/Q499661",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
@@ -101,6 +101,15 @@
     ]
   },
   {
+    "id": "p-stendhal",
+    "name": "스탕달",
+    "ref": "https://www.wikidata.org/wiki/Q502",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
     "id": "p-poe",
     "name": "에드거 앨런 포",
     "ref": "https://www.wikidata.org/wiki/Q16867",
@@ -113,15 +122,6 @@
     "id": "p-coleridge",
     "name": "새뮤얼 테일러 콜리지",
     "ref": "https://www.wikidata.org/wiki/Q81412",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-stendhal",
-    "name": "스탕달",
-    "ref": "https://www.wikidata.org/wiki/Q502",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -245,15 +245,6 @@
     ]
   },
   {
-    "id": "p-lawrence",
-    "name": "로렌스",
-    "ref": "https://www.wikidata.org/wiki/Q33866",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
     "id": "p-byeon-youngro",
     "name": "변영로",
     "ref": "https://www.wikidata.org/wiki/Q5003023",
@@ -263,36 +254,9 @@
     ]
   },
   {
-    "id": "p-jung-jiyong",
-    "name": "정지용",
-    "ref": "https://www.wikidata.org/wiki/Q494953",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-son-changsub",
-    "name": "손창섭",
-    "ref": "https://www.wikidata.org/wiki/Q499875",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-kim-dongin",
-    "name": "김동인",
-    "ref": "https://www.wikidata.org/wiki/Q499479",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-jang-yonghak",
-    "name": "장용학",
-    "ref": "https://www.wikidata.org/wiki/Q1753016",
+    "id": "p-lawrence",
+    "name": "로렌스",
+    "ref": "https://www.wikidata.org/wiki/Q33866",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -308,6 +272,15 @@
     ]
   },
   {
+    "id": "p-jung-jiyong",
+    "name": "정지용",
+    "ref": "https://www.wikidata.org/wiki/Q494953",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
     "id": "p-yi-chungjun",
     "name": "이청준",
     "ref": "https://www.wikidata.org/wiki/Q1751918",
@@ -317,9 +290,27 @@
     ]
   },
   {
-    "id": "p-yi-hyoseok",
-    "name": "이효석",
-    "ref": "https://www.wikidata.org/wiki/Q499600",
+    "id": "p-kim-dongin",
+    "name": "김동인",
+    "ref": "https://www.wikidata.org/wiki/Q499479",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-son-changsub",
+    "name": "손창섭",
+    "ref": "https://www.wikidata.org/wiki/Q499875",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-jang-yonghak",
+    "name": "장용학",
+    "ref": "https://www.wikidata.org/wiki/Q1753016",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -344,8 +335,53 @@
     ]
   },
   {
-    "id": "p-ju-yohan",
-    "name": "주요한",
+    "id": "p-yi-hyoseok",
+    "name": "이효석",
+    "ref": "https://www.wikidata.org/wiki/Q499600",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-yu-chihan",
+    "name": "유치환",
+    "ref": "https://www.wikidata.org/wiki/Q494629",
+    "essay_count": 1,
+    "critics": [
+      "p-yu-jongho"
+    ]
+  },
+  {
+    "id": "p-kim-yeongnang",
+    "name": "영랑",
+    "ref": "https://www.wikidata.org/wiki/Q494618",
+    "essay_count": 1,
+    "critics": [
+      "p-yu-jongho"
+    ]
+  },
+  {
+    "id": "p-choe-namseon",
+    "name": "최남선",
+    "ref": "https://www.wikidata.org/wiki/Q490672",
+    "essay_count": 1,
+    "critics": [
+      "p-yu-jongho"
+    ]
+  },
+  {
+    "id": "p-seo-jeongju",
+    "name": "서정주",
+    "ref": "https://www.wikidata.org/wiki/Q494585",
+    "essay_count": 1,
+    "critics": [
+      "p-yu-jongho"
+    ]
+  },
+  {
+    "id": "p-kim-kirim",
+    "name": "김기림",
     "ref": "",
     "essay_count": 1,
     "critics": [
@@ -362,9 +398,9 @@
     ]
   },
   {
-    "id": "p-kim-yeongnang",
-    "name": "영랑",
-    "ref": "https://www.wikidata.org/wiki/Q494618",
+    "id": "p-ju-yohan",
+    "name": "주요한",
+    "ref": "",
     "essay_count": 1,
     "critics": [
       "p-yu-jongho"
@@ -374,42 +410,6 @@
     "id": "p-han-yongun",
     "name": "한용운",
     "ref": "https://www.wikidata.org/wiki/Q298175",
-    "essay_count": 1,
-    "critics": [
-      "p-yu-jongho"
-    ]
-  },
-  {
-    "id": "p-kim-kirim",
-    "name": "김기림",
-    "ref": "",
-    "essay_count": 1,
-    "critics": [
-      "p-yu-jongho"
-    ]
-  },
-  {
-    "id": "p-seo-jeongju",
-    "name": "서정주",
-    "ref": "https://www.wikidata.org/wiki/Q494585",
-    "essay_count": 1,
-    "critics": [
-      "p-yu-jongho"
-    ]
-  },
-  {
-    "id": "p-yu-chihan",
-    "name": "유치환",
-    "ref": "https://www.wikidata.org/wiki/Q494629",
-    "essay_count": 1,
-    "critics": [
-      "p-yu-jongho"
-    ]
-  },
-  {
-    "id": "p-choe-namseon",
-    "name": "최남선",
-    "ref": "https://www.wikidata.org/wiki/Q490672",
     "essay_count": 1,
     "critics": [
       "p-yu-jongho"

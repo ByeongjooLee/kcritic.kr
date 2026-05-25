@@ -573,6 +573,12 @@ kc:p-marx a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9061> ;
   schema:url <https://kcritic.kr/resource/p-marx> .
 
+kc:p-massis a foaf:Person ;
+  foaf:name "마시스"@ko ;
+  rdfs:label "마시스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q3286424> ;
+  schema:url <https://kcritic.kr/resource/p-massis> .
+
 kc:p-maugham a foaf:Person ;
   foaf:name "서머셋 모옴"@ko ;
   rdfs:label "서머셋 모옴"@ko ;
@@ -755,6 +761,12 @@ kc:p-stevenson a foaf:Person ;
   rdfs:label "스티븐슨"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q35548> ;
   schema:url <https://kcritic.kr/resource/p-stevenson> .
+
+kc:p-swift a foaf:Person ;
+  foaf:name "스위프트"@ko ;
+  rdfs:label "스위프트"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q82084> ;
+  schema:url <https://kcritic.kr/resource/p-swift> .
 
 kc:p-taine a foaf:Person ;
   foaf:name "텐"@ko ;
@@ -1627,6 +1639,33 @@ kce:yu-jongho_bisunsu-declaration_1960 a critic:CriticalEssay ;
   dcterms:subject "독자로 하여금 미와 예술의 문제를 생각하게 한다는 사실 자체가 「하여지향」의 특성이다. 비순수의 선언이다."@ko ;
   dcterms:subject "한국 문학의 현단계는 실험단계이며, 많은 실험을 자꾸 할 때다. 시간이란 가장 냉혹한 비평가다."@ko .
 
+kce:yu-jongho_confession_1961 a critic:CriticalEssay ;
+  dcterms:title "고백이라는 것"@ko ;
+  rdfs:label "고백이라는 것"@ko ;
+  dcterms:date "1961"^^xsd:gYear ;
+  schema:isPartOf "고백이라는 것" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_confession_1961.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-massis ;
+  cito:citesAsAuthority kc:p-swift ;
+  dcterms:subject "위악적인 자기폭로와 피학적인 자조의식이 일관해서 흐른다."@ko ;
+  dcterms:subject "자신의 추태와 악덕을 폭로하면서 작자는 늘 반문을 가지고 있다. 〈그것은 그대들도 소유하고 있는 것이다. 차이점은 내가 악덕으로 시인하는 데 반하여 위선적인 그대들은 그것을 합리화한다는 사실에 있을 뿐이다.〉"@ko ;
+  dcterms:subject "손창섭의 문학은 불행했던 과거의 보상으로서 쓰지 않고는 못 배기는 내적 필연성에서 유래했다."@ko ;
+  dcterms:subject "소크라테스가 〈나는 나의 무지를 안다〉로 소피스트들에게 도전했듯 손창섭은 위악과 추태애로 인간에 도전한다. 〈나는 이런 놈이다. 너희들은 별수 있느냐〉는 통속적 냉소주의가 자기폭로의 내적 필연성 속에 자리잡고 있다."@ko ;
+  dcterms:subject "「신의 희작」은 고백의 진실성의 원광(圓光)에 대한 야유다. 고백을 부정하는 고백이다."@ko ;
+  dcterms:subject "실생활에서는 자기중심벽이 혐오감을 일으키지만 문학의 세계에서는 오히려 매력이 된다. 여기에 문학 미학의 비밀이 숨어 있다."@ko ;
+  dcterms:subject "문학세계에서 자기중심벽이 매력으로 변질하는 것도 그것이 먼뎃사람의 고백이라는 데서 오는 힘이 표현의 힘과 어울리기 때문이다."@ko ;
+  dcterms:subject "이웃 사람을 사랑하라고 하지만, 먼뎃사람은 사랑할 수 있을지언정 이웃 사람은 사랑할 수 없다는\n          도스토예프스키의 이반의 고백이 이를 증명한다."@ko ;
+  dcterms:subject "현실의 구체적 인간에게 혐오감을 느끼는 사람은 추상명사로서의 인간을 그리워한다. 추상명사에 대한 격정은 자기 최면적인 공허한 흥분이다."@ko ;
+  dcterms:subject "작자의 기억의 고배의 주요 성분은 이미 다 작품화되었다는 감이 든다. 자화상을 정공으로 다룬 것도 주요 성분의 탕진을 자각하고 원한의 카타르시스의 직선적 완성을 꾀한 것이 아닐까."@ko ;
+  dcterms:subject "이상이나 꿈을 치몽(稚夢)으로 부정하는 작가에게 가능한 것의 자서전이란 염두에 둘 수 있는 것인가. 모멸과 냉소 일색으로 채색된 작가에게 가지가지의 인물 창조가 가능할 수 있을까. 이런 사실을 상기할 때 이 작가의 한계성이 점점 더 뚜렷해진다."@ko ;
+  dcterms:subject "손창섭에게 인간모멸이나 냉소는 호흡작용처럼 자연스럽고 불가결한 정신의 호흡이다. 종전의 작품세계는 생애의 감수성의 총화처럼 되어 있는 생리다."@ko ;
+  dcterms:subject "씨가 고백 뒤에 오는 공허감을 어떻게 메울 것인가 하는 것은 궁금한 일이다."@ko ;
+  dcterms:subject "신비평가들은 작품을 작가의 전기적 사실에서 설명하는 것을 문학비평의 월경(越境)이라고 주장한다. 그 선언은 엘리엇에서 발단하였고 시비평의 영역에서 활동무대를 얻었다."@ko ;
+  dcterms:subject "「보바리 부인」을 이해하는 데 플로베르의 유년기 〈관용적 관념표〉가, 「걸리버 여행기」를 이해하는 데 스위프트의 파산했던 세속적 욕망이, 발자크의 서사시를 이해하는 데 19세기 초반의 프랑스 사회가 결정적인 단서를 준다."@ko ;
+  dcterms:subject "나이를 먹어감에 따라 인간의 무심한 발언 속에도 얼마나 많은 자기변명과 자기변호가 비장되어 있는가를 깨닫게 된다. 모든 인간의 견해와 태도는 그 사람의 이해관계와 이기주의와 밀접하게 관련되어 있다."@ko ;
+  dcterms:subject "하나의 진술이나 주장은 필경 하나의 악센트이다. 여러 가지 사실에서 하나를 선정해서 붙인 강조다. 논쟁이 빠지는 함정은 하나의 악센트에 열중하여 다른 일체의 음가를 무시하게 되는 것이다."@ko .
+
 kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
   dcterms:title "한국의 슬픔 — 소월을 위한 노트"@ko ;
   rdfs:label "한국의 슬픔 — 소월을 위한 노트"@ko ;
@@ -1842,6 +1881,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
