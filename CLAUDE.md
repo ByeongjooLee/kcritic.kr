@@ -156,11 +156,14 @@ py convert_criticism.py
 ```json
 [
   {
-    "name": "서스펜스",
-    "slug": "서스펜스",
+    "name": "인간모멸",
+    "slug": "인간모멸",
     "essay_count": 2,
     "essays": [
-      { "stem": "kim-uchang_joy-use-literature_1984", "title": "문학의 즐거움과 쓰임", "year": "1984" }
+      { "stem": "yu-jongho_son-changsub_1959", "title": "모멸과 연민 — 손창섭론", "year": "1959",
+        "excerpt": "손창섭의 작업은 인간의 추태를 집요하게 폭로하는..." },
+      { "stem": "yu-jongho_confession_1961", "title": "고백이라는 것", "year": "1961",
+        "excerpt": "이상이나 꿈을 치몽으로 부정하는 작가에게..." }
     ]
   }
 ]
@@ -169,6 +172,8 @@ py convert_criticism.py
 - `concepts.html`에서 fetch해 좌측 목록 / 우측 에세이 상세 UI로 표시
 - 빈도(essay_count) 내림차순 정렬
 - `interp[type='concept']` 텍스트가 그대로 `name`. 같은 개념이 여러 에세이에 반복 출현 시 essay_count 증가
+- `excerpt`: build.py가 해당 interp의 부모 `<p>`/`<s>` 텍스트에서 자동 추출 (최대 150자)
+- **concepts.html 표시 기준: `essay_count >= 2`인 개념어만 공개** — 1편만 등장한 개념어는 JSON에는 있지만 UI에서 숨김
 
 ## 7. bibliography.json 형식
 
@@ -284,13 +289,31 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 `role`에 `scholar` 포함 + 비평 대상(`subjects`)에 없음 + 비평가 본인 아님 → `theorist`
 
 ### 개념어 인코딩
+
+**개념어는 teiHeader의 `<interpGrp type="concept">` 블록에 선언하고, 본문 `<p>`/`<s>` 안에서 `<interp type="concept">` 로 참조한다.**
+
 ```xml
-<interp type="concept">서스펜스</interp>
+<!-- teiHeader > encodingDesc > interpGrp -->
+<interpGrp type="concept">
+  <interp xml:id="c-slug" type="concept">핵심어</interp>
+</interpGrp>
+
+<!-- 본문 참조 -->
+<interp type="concept">핵심어</interp>
 ```
+
 - `interp[type='concept']` 텍스트가 graph.json의 `concept` 노드로 자동 추출
 - 노드 ID: `concept-{slug}` (slug = 특수문자 제거 후 최대 40자)
 - 에세이 → 개념 엣지 유형: `uses_concept`
 - 같은 개념이 여러 에세이에 반복 출현하면 edge weight 증가 → 비평 언어의 공유·전파 추적 가능
+
+**개념어 추출 기준 (엄수)**
+- 에세이당 **8~12개** 이내
+- 포함: 반복 등장하는 비평 핵심어, 이론가에게서 차용한 이론 개념, 논지의 중심이 되는 해석 개념
+- 제외: 요약 문장, 서술적 단언, 결론 진술, 특정 작품 묘사에만 쓰이는 표현
+- 표기: **짧은 명사구** (2~8자 내외). 문장 전체를 개념어로 쓰지 말 것
+  - 나쁜 예: "손창섭의 작업은 인간의 추태를 집요하게 폭로하는 인간존재에 대한 근본적 모멸이다."
+  - 좋은 예: "인간모멸"
 
 ---
 
@@ -359,12 +382,19 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 | 개념어 | `dcterms:subject` | Dublin Core | |
 
 ### 통제어휘 규칙 (concept interp 정규화)
-같은 개념을 에세이마다 다르게 표기하지 않는다. 통합 결정:
+같은 개념을 에세이마다 다르게 표기하지 않는다. **표기가 다르면 별개 노드로 분리되어 essay_count가 늘지 않는다.**
+
+기존 통합 결정:
 - `심미 감각` → `심미적 감각` (기준어)
 - `정돈된 언어` → `균제된 언어` (기준어)
 - `농촌적 삶의 긍정` / `농경적 삶` → `농촌적 삶` (기준어)
 - `자의식 있는 낭만주의` → `현실적 낭만주의` (기준어)
 - 다층 개념(원초적 생명력/마적 힘/원시적 낭만주의 등)은 개념 계층 관계로 처리 — 무분별한 통합 금지
+
+새 에세이에 개념어를 추가할 때, 기존 XML의 개념어 목록을 먼저 확인하고 동일 개념이 있으면 표기를 맞춰야 한다. 확인 방법:
+```powershell
+py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name']) for c in json.load(open('site/data/concepts.json',encoding='utf-8'))]"
+```
 
 ### 온톨로지 인물 연결
 - `_ONTOLOGY_WIKIDATA` 딕셔너리에 등록된 인물만 `owl:sameAs <http://kcritic.kr/ontology/한국어이름>` 추가
