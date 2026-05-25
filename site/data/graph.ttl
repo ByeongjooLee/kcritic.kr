@@ -233,6 +233,12 @@ kc:p-eliot a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q41166> ;
   schema:url <https://kcritic.kr/resource/p-eliot> .
 
+kc:p-empson a foaf:Person ;
+  foaf:name "엠프슨"@ko ;
+  rdfs:label "엠프슨"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q333464> ;
+  schema:url <https://kcritic.kr/resource/p-empson> .
+
 kc:p-engels a foaf:Person ;
   foaf:name "엥겔스"@ko ;
   rdfs:label "엥겔스"@ko ;
@@ -292,6 +298,12 @@ kc:p-gorky a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12706> ;
   schema:url <https://kcritic.kr/resource/p-gorky> .
 
+kc:p-gourmont a foaf:Person ;
+  foaf:name "쿠르몽"@ko ;
+  rdfs:label "쿠르몽"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q562628> ;
+  schema:url <https://kcritic.kr/resource/p-gourmont> .
+
 kc:p-habermas a foaf:Person ;
   foaf:name "위르겐 하버마스"@ko ;
   rdfs:label "위르겐 하버마스"@ko ;
@@ -310,6 +322,12 @@ kc:p-heidegger a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
   schema:url <https://kcritic.kr/resource/p-heidegger> .
 
+kc:p-henry-miller a foaf:Person ;
+  foaf:name "헨리 밀러"@ko ;
+  rdfs:label "헨리 밀러"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q189378> ;
+  schema:url <https://kcritic.kr/resource/p-henry-miller> .
+
 kc:p-herbert-read a foaf:Person ;
   foaf:name "허버트 리드"@ko ;
   rdfs:label "허버트 리드"@ko ;
@@ -327,6 +345,12 @@ kc:p-homer a foaf:Person ;
   rdfs:label "호메로스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q6691> ;
   schema:url <https://kcritic.kr/resource/p-homer> .
+
+kc:p-hulme a foaf:Person ;
+  foaf:name "흄"@ko ;
+  rdfs:label "흄"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q364095> ;
+  schema:url <https://kcritic.kr/resource/p-hulme> .
 
 kc:p-huxley a foaf:Person ;
   foaf:name "올더스 헉슬리"@ko ;
@@ -517,6 +541,11 @@ kc:p-lacan a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q168756> ;
   schema:url <https://kcritic.kr/resource/p-lacan> .
 
+kc:p-laforge-rene a foaf:Person ;
+  foaf:name "르네 라포르그"@ko ;
+  rdfs:label "르네 라포르그"@ko ;
+  schema:url <https://kcritic.kr/resource/p-laforge-rene> .
+
 kc:p-langer a foaf:Person ;
   foaf:name "수잔 랭거"@ko ;
   rdfs:label "수잔 랭거"@ko ;
@@ -552,6 +581,12 @@ kc:p-levi-strauss a foaf:Person ;
   rdfs:label "레비-스트로스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q30634> ;
   schema:url <https://kcritic.kr/resource/p-levi-strauss> .
+
+kc:p-lowes a foaf:Person ;
+  foaf:name "로즈"@ko ;
+  rdfs:label "로즈"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q6694476> ;
+  schema:url <https://kcritic.kr/resource/p-lowes> .
 
 kc:p-lubbock a foaf:Person ;
   foaf:name "퍼시 라보크（Percy Lubbock）"@ko ;
@@ -606,6 +641,12 @@ kc:p-merleau-ponty a foaf:Person ;
   rdfs:label "메를로퐁티"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q156564> ;
   schema:url <https://kcritic.kr/resource/p-merleau-ponty> .
+
+kc:p-murry a foaf:Person ;
+  foaf:name "머리"@ko ;
+  rdfs:label "머리"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q336937> ;
+  schema:url <https://kcritic.kr/resource/p-murry> .
 
 kc:p-nietzsche a foaf:Person ;
   foaf:name "니체"@ko ;
@@ -730,6 +771,12 @@ kc:p-russell a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q33760> ;
   schema:url <https://kcritic.kr/resource/p-russell> .
 
+kc:p-sainte-beuve a foaf:Person ;
+  foaf:name "생트-뵈브"@ko ;
+  rdfs:label "생트-뵈브"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q162467> ;
+  schema:url <https://kcritic.kr/resource/p-sainte-beuve> .
+
 kc:p-santayana a foaf:Person ;
   foaf:name "조지 산타야나"@ko ;
   rdfs:label "조지 산타야나"@ko ;
@@ -741,6 +788,12 @@ kc:p-sartre a foaf:Person ;
   rdfs:label "사르트르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9711> ;
   schema:url <https://kcritic.kr/resource/p-sartre> .
+
+kc:p-schleiermacher a foaf:Person ;
+  foaf:name "슐라이어마허"@ko ;
+  rdfs:label "슐라이어마허"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q57286> ;
+  schema:url <https://kcritic.kr/resource/p-schleiermacher> .
 
 kc:p-schopenhauer a foaf:Person ;
   foaf:name "쇼펜하우어"@ko ;
@@ -777,6 +830,12 @@ kc:p-son-changsub a foaf:Person ;
   rdfs:label "손창섭"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499875> ;
   schema:url <https://kcritic.kr/resource/p-son-changsub> .
+
+kc:p-spender a foaf:Person ;
+  foaf:name "스티븐 스펜더"@ko ;
+  rdfs:label "스티븐 스펜더"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q234896> ;
+  schema:url <https://kcritic.kr/resource/p-spender> .
 
 kc:p-starobinski a foaf:Person ;
   foaf:name "스타로뱅스키(Starobinski)"@ko ;
@@ -1731,6 +1790,33 @@ kce:yu-jongho_confession_1961 a critic:CriticalEssay ;
   dcterms:subject "전기적 비평의 한계"@ko ;
   dcterms:subject "비평적 악센트"@ko .
 
+kce:yu-jongho_criticism-reflection_1958 a critic:CriticalEssay ;
+  dcterms:title "비평의 반성"@ko ;
+  rdfs:label "비평의 반성"@ko ;
+  dcterms:date "1958"^^xsd:gYear ;
+  schema:isPartOf "비평의 반성" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_criticism-reflection_1958.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-empson ;
+  cito:citesAsAuthority kc:p-gourmont ;
+  cito:citesAsAuthority kc:p-henry-miller ;
+  cito:citesAsAuthority kc:p-hulme ;
+  cito:citesAsAuthority kc:p-laforge-rene ;
+  cito:citesAsAuthority kc:p-lowes ;
+  cito:citesAsAuthority kc:p-murry ;
+  cito:citesAsAuthority kc:p-sainte-beuve ;
+  cito:citesAsAuthority kc:p-schleiermacher ;
+  cito:citesAsAuthority kc:p-spender ;
+  dcterms:subject "비평정신과 자의식"@ko ;
+  dcterms:subject "창조적 비평"@ko ;
+  dcterms:subject "과학적 비평의 한계"@ko ;
+  dcterms:subject "에세이 정신"@ko ;
+  dcterms:subject "체계에의 의지와 추상화"@ko ;
+  dcterms:subject "분석비평의 한계"@ko ;
+  dcterms:subject "비평적 자유와 굴종"@ko ;
+  dcterms:subject "인상비평의 작품성"@ko ;
+  dcterms:subject "비평에서의 개성과 독창성"@ko .
+
 kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
   dcterms:title "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
   rdfs:label "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
@@ -2054,6 +2140,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-reflection_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
