@@ -2258,6 +2258,21 @@ kce:yu-jongho_tradition-establishment_1960 a critic:CriticalEssay ;
   dcterms:subject "산문정신"@ko ;
   dcterms:subject "개척자 정신"@ko .
 
+kce:yu-jongho_weeping-humanism_1961 a critic:CriticalEssay ;
+  dcterms:title "오열하는 휴머니즘 — 한 상투 문구에의 의혹"@ko ;
+  rdfs:label "오열하는 휴머니즘 — 한 상투 문구에의 의혹"@ko ;
+  dcterms:date "1961"^^xsd:gYear ;
+  schema:isPartOf "오열하는 휴머니즘 — 한 상투 문구에의 의혹" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_weeping-humanism_1961.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-valery ;
+  dcterms:subject "언어의 연상대"@ko ;
+  dcterms:subject "성선설적 인물 공식"@ko ;
+  dcterms:subject "인간악의 탐구"@ko ;
+  dcterms:subject "휴머니즘의 상투성"@ko ;
+  dcterms:subject "작가 포즈의 훼손성"@ko ;
+  dcterms:subject "진정한 휴머니즘"@ko .
+
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
@@ -2342,6 +2357,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_native-language_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_weeping-humanism_1961 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
 kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
