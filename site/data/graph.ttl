@@ -269,6 +269,11 @@ kc:p-gide a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34989> ;
   schema:url <https://kcritic.kr/resource/p-gide> .
 
+kc:p-gide-son a foaf:Person ;
+  foaf:name "지드"@ko ;
+  rdfs:label "지드"@ko ;
+  schema:url <https://kcritic.kr/resource/p-gide-son> .
+
 kc:p-gorky a foaf:Person ;
   foaf:name "막심 고리키"@ko ;
   rdfs:label "막심 고리키"@ko ;
@@ -1695,6 +1700,35 @@ kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
   dcterms:subject "소박한 진실의 보편적 감동력 — 계층을 초월한 소월 시의 독자층"@ko ;
   dcterms:subject "소월의 산문·편지 — 시의 정한과 삶의 정한의 일치"@ko .
 
+kce:yu-jongho_korean-pessimism_1961 a critic:CriticalEssay ;
+  dcterms:title "한국의 페시미즘 — 운명론의 계보"@ko ;
+  rdfs:label "한국의 페시미즘 — 운명론의 계보"@ko ;
+  dcterms:date "1961"^^xsd:gYear ;
+  schema:isPartOf "한국의 페시미즘 — 운명론의 계보" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_korean-pessimism_1961.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-gide-son ;
+  dcterms:subject "운명이란 말은 실의·절망·체념·회한 등 인간비감의 총화를 거느린 채 인간의 살아 있는 비명과 같다. 인간의 무력감이 이렇게 집약적으로 토로되어 있는 말을 달리 알지 못한다."@ko ;
+  dcterms:subject "니체는 〈일체의 필연적인 것은 높은 곳에서 내려다보는 경우 그것 자체가 유용한 것이다. 운명을 사랑하는 것Amor fati, 이것은 나의 가장 내적인 본성이다〉라고 했다."@ko ;
+  dcterms:subject "우리에게 운명이란 말은 우발적 단편적인 감탄사가 아니다. 소박한 대로 토착적 인생관의 주조를 이루고 있다. 한국의 불행이 빚어낸 것은 이 운명론일 것이다."@ko ;
+  dcterms:subject "부모처자와 헤어지고 집을 잃은 낙백의 영혼은 운명의 검은 손길을 깨닫는다. 〈내 뜻이며 힘으로 나를 이끌어가는 것이 힘든 일인 것을 생각하고 이것들보다 더 크고 높은 것이 있어서 나를 마음대로 굴려가는 것을 생각〉한다. 비애와 영탄을 여과하여 체념을 배우고, 암벽에 외로이 서서 눈을 맞는 갈매나무처럼 살기를 다짐하는 것이다."@ko ;
+  dcterms:subject "민속적·토착적이라는 형용사를 들어가면서 이 겨레의 생활감정과 풍토를 추구한 시인의 절정의 노래가 바로 비관론적 운명론에의 귀의라는 사실은 결코 우연이 아니다. 만인에게 호소할 수 있는 독창성이란 바로 이런 것이다."@ko ;
+  dcterms:subject "예술은 국민적인 것일수록 깊은 인간성에 근원을 둔다."@ko ;
+  dcterms:subject "「마른 여울목」은 비정의 허무주의와 악수하고 있는 운명론의 애가다. 일체의 감정이 극도로 절제된 황량한 원색의 허무주의다."@ko ;
+  dcterms:subject "신라는 한국어의 시적 가능성의 극한을 토착어의 조직에 설정한 서정주에게, 그 가능성을 실증하는 소재로서의 의미를 가지고 있다. 토착어 조직의 무대로서 신라를 차용한 것이었다."@ko ;
+  dcterms:subject "귀향자 서정주의 참모습은 〈하여간 난 무언지 잃긴 잃었다〉는 공허한 허탈의식, 〈내 기다림은 끝났다〉는 체념, 〈뺨 부비듯 결국은 그게 그거다〉라는 달관 속에 있다."@ko ;
+  dcterms:subject "풀을 뜯는 염소의 모습에서 〈어느 낯선 나라에서 잘못 온 듯한 나그네〉를 느끼고 거기에서 자기의 운명을 공감하는 것은 갈 데 없는 한국의 아웃사이더이던 효석의 진면목이다."@ko ;
+  dcterms:subject "이효석의 시경지는 세련된 문장으로 조직된 작가의 정감의 발로에서 온다. 동양인들이 발명한 심경소설이 때때로 풍기는 서정감이다."@ko ;
+  dcterms:subject "심경서술은 인간의 욕망·충동·이기주의·갈등을 냉철하게 기록하는 심리묘사와 질이 다르다. 어둡고 깊은 호심 내부를 건드리는 것이 아니라 일목요연한 호면의 자세를 알리는 것이다."@ko ;
+  dcterms:subject "「황토기」의 발상은 절맥설에서 볼 수 있듯 풍수지리설의 잔재형태에서 기원하며, 「역마」는 역마살을 체현한 주인공을 운명론적 주조로 그린다."@ko ;
+  dcterms:subject "「황토기」를 일관해서 흐르는 것은 자기적 허무감과 운명론이다. 억쇠는 자기가 비장해왔던 힘의 무상성을 홍소로 표현하며 운명에 전적으로 굴종한다."@ko ;
+  dcterms:subject "능히 격퇴할 수 있는 적수의 주먹을 굳이 피하지 않고 홍소를 짓는 억쇠의 모습에서 운명에의 전적인 굴종과 자기위탁에서 오는 피학적 쾌감을 본다."@ko ;
+  dcterms:subject "민족의 전기라고 할 수 있는 우리의 역사는 한마디로 해서 애사(哀史)이외의 아무것도 아니다. 이러한 애사의 주인공들이 발랄한 낙관주의를 생산한다는 것은 쓰레기통에서 장미를 찾아내는 것보다 더 어려운 일이다."@ko ;
+  dcterms:subject "운명론은 이 겨레 서민들의 최후의 도피처로서 고난의 진정제 구실을 해왔다. 겨레는 운명론이 주는 체념을 통한 비애 표출로써 자기위안을 얻었다."@ko ;
+  dcterms:subject "근대에 와서도 운명론이 보편성을 누리는 것은 우리가 참다운 의미의 자아를 확립하지 못하고 진정한 의미의 자유도 누려보지 못했다는 사실에서 연유한다. 봉건적 굴레 속에서 개인이란 관념을 획득하기 전에 이미 식민지 피압박 민족으로 전락하였고, 자유라는 관념을 자유의 상실 속에서 획득하였다."@ko ;
+  dcterms:subject "우리들의 운명론적 비관주의는 비극적 낙관주의로 대치되어야 할 것이다. 그런 연후에야 우리는 감상적 애화가 아닌 진정한 의미의 비극을 기록할 수 있을 것이다."@ko ;
+  dcterms:subject "역설적으로, 우리의 운명론적 비관주의의 거취를 결정하는 것은 앞으로의 우리 민족의 운명일 것이다."@ko .
+
 kce:yu-jongho_modern-poetry-50years_1962 a critic:CriticalEssay ;
   dcterms:title "현대시의 50년"@ko ;
   rdfs:label "현대시의 50년"@ko ;
@@ -1883,6 +1917,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
