@@ -38,6 +38,12 @@ kc:p-arnold a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q182897> ;
   schema:url <https://kcritic.kr/resource/p-arnold> .
 
+kc:p-auden a foaf:Person ;
+  foaf:name "오든"@ko ;
+  rdfs:label "오든"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q179678> ;
+  schema:url <https://kcritic.kr/resource/p-auden> .
+
 kc:p-auerbach a foaf:Person ;
   foaf:name "에리히 아우얼바하"@ko ;
   rdfs:label "에리히 아우얼바하"@ko ;
@@ -73,6 +79,12 @@ kc:p-balazs a foaf:Person ;
   rdfs:label "에티엔 발라스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q437773> ;
   schema:url <https://kcritic.kr/resource/p-balazs> .
+
+kc:p-baudelaire a foaf:Person ;
+  foaf:name "보들레르"@ko ;
+  rdfs:label "보들레르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q501> ;
+  schema:url <https://kcritic.kr/resource/p-baudelaire> .
 
 kc:p-bergson a foaf:Person ;
   foaf:name "베르그송"@ko ;
@@ -209,6 +221,12 @@ kc:p-engels a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34262> ;
   schema:url <https://kcritic.kr/resource/p-engels> .
 
+kc:p-flaubert a foaf:Person ;
+  foaf:name "플로베르"@ko ;
+  rdfs:label "플로베르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q43444> ;
+  schema:url <https://kcritic.kr/resource/p-flaubert> .
+
 kc:p-fraser a foaf:Person ;
   foaf:name "프레이저"@ko ;
   rdfs:label "프레이저"@ko ;
@@ -226,6 +244,12 @@ kc:p-fromm a foaf:Person ;
   rdfs:label "에리히 프롬"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76621> ;
   schema:url <https://kcritic.kr/resource/p-fromm> .
+
+kc:p-gide a foaf:Person ;
+  foaf:name "지드"@ko ;
+  rdfs:label "지드"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q34989> ;
+  schema:url <https://kcritic.kr/resource/p-gide> .
 
 kc:p-gorky a foaf:Person ;
   foaf:name "막심 고리키"@ko ;
@@ -257,6 +281,12 @@ kc:p-heidegger a foaf:Person ;
   rdfs:label "하이데거"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
   schema:url <https://kcritic.kr/resource/p-heidegger> .
+
+kc:p-herbert-read a foaf:Person ;
+  foaf:name "허버트 리드"@ko ;
+  rdfs:label "허버트 리드"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1596448> ;
+  schema:url <https://kcritic.kr/resource/p-herbert-read> .
 
 kc:p-homer a foaf:Person ;
   foaf:name "호메로스"@ko ;
@@ -513,11 +543,23 @@ kc:p-marx a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9061> ;
   schema:url <https://kcritic.kr/resource/p-marx> .
 
+kc:p-maupassant a foaf:Person ;
+  foaf:name "모파상"@ko ;
+  rdfs:label "모파상"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9327> ;
+  schema:url <https://kcritic.kr/resource/p-maupassant> .
+
 kc:p-merleau-ponty a foaf:Person ;
   foaf:name "메를로퐁티"@ko ;
   rdfs:label "메를로퐁티"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q156564> ;
   schema:url <https://kcritic.kr/resource/p-merleau-ponty> .
+
+kc:p-nietzsche a foaf:Person ;
+  foaf:name "니체"@ko ;
+  rdfs:label "니체"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9358> ;
+  schema:url <https://kcritic.kr/resource/p-nietzsche> .
 
 kc:p-oh-kyuwon a foaf:Person ;
   foaf:name "오규원（吳圭原）"@ko ;
@@ -577,6 +619,12 @@ kc:p-poulet a foaf:Person ;
   rdfs:label "조르주 풀레（Georges Poulet）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q3389861> ;
   schema:url <https://kcritic.kr/resource/p-poulet> .
+
+kc:p-proust a foaf:Person ;
+  foaf:name "프루스트（Proust）"@ko ;
+  rdfs:label "프루스트（Proust）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q7199> ;
+  schema:url <https://kcritic.kr/resource/p-proust> .
 
 kc:p-radek a foaf:Person ;
   foaf:name "라데크"@ko ;
@@ -650,6 +698,18 @@ kc:p-stevenson a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q35548> ;
   schema:url <https://kcritic.kr/resource/p-stevenson> .
 
+kc:p-thibaudet a foaf:Person ;
+  foaf:name "알베르 티보데"@ko ;
+  rdfs:label "알베르 티보데"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q2539082> ;
+  schema:url <https://kcritic.kr/resource/p-thibaudet> .
+
+kc:p-thomas-mann a foaf:Person ;
+  foaf:name "토마스 만"@ko ;
+  rdfs:label "토마스 만"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q37030> ;
+  schema:url <https://kcritic.kr/resource/p-thomas-mann> .
+
 kc:p-thomas-more a foaf:Person ;
   foaf:name "토머스 모어"@ko ;
   rdfs:label "토머스 모어"@ko ;
@@ -709,6 +769,12 @@ kc:p-xunzi a foaf:Person ;
   rdfs:label "순자"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q312967> ;
   schema:url <https://kcritic.kr/resource/p-xunzi> .
+
+kc:p-yeats a foaf:Person ;
+  foaf:name "W.B. 예이츠"@ko ;
+  rdfs:label "W.B. 예이츠"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q34474> ;
+  schema:url <https://kcritic.kr/resource/p-yeats> .
 
 kc:p-yeom-sangsub a foaf:Person ;
   foaf:name "염상섭"@ko ;
@@ -1437,6 +1503,49 @@ kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
   cito:discusses kc:p-yun-dongju ;
   cito:citesAsAuthority kc:p-habermas .
 
+kce:yu-jongho_bisunsu-declaration_1960 a critic:CriticalEssay ;
+  dcterms:title "비순수의 선언"@ko ;
+  rdfs:label "비순수의 선언"@ko ;
+  dcterms:date "1960"^^xsd:gYear ;
+  schema:isPartOf "비순수의 선언" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_bisunsu-declaration_1960.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-auden ;
+  cito:citesAsAuthority kc:p-baudelaire ;
+  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-flaubert ;
+  cito:citesAsAuthority kc:p-gide ;
+  cito:citesAsAuthority kc:p-herbert-read ;
+  cito:citesAsAuthority kc:p-mallarme ;
+  cito:citesAsAuthority kc:p-maupassant ;
+  cito:citesAsAuthority kc:p-nietzsche ;
+  cito:citesAsAuthority kc:p-proust ;
+  cito:citesAsAuthority kc:p-sartre ;
+  cito:citesAsAuthority kc:p-thibaudet ;
+  cito:citesAsAuthority kc:p-thomas-mann ;
+  cito:citesAsAuthority kc:p-valery ;
+  cito:citesAsAuthority kc:p-yeats ;
+  dcterms:subject "송욱의 「하여지향」은 한국 현대시의 고민이 상징된 비평적 시다."@ko ;
+  dcterms:subject "〈나는 이렇게 본다〉는 선언에는 〈나는 당신들이 보았다고 하는 것을 그대로 받아들일 수가 없다〉는 신념이 잠재해 있다."@ko ;
+  dcterms:subject "시인 작가가 이론을 내세운다는 것은 자기 작품과 독자와의 교량 역할을 자처하는 것으로, 자기변호 내지 자기선전의 뜻이 농후하다."@ko ;
+  dcterms:subject "철학자들은 20세기를 본질주의적 사고가 종말을 고한 시대라고 말한다. 이에 따라 본질 개념의 해체가 일어났다."@ko ;
+  dcterms:subject "시세계의 확장"@ko ;
+  dcterms:subject "산문적인 것의 도입 — 역사적·사회적·일상적 현실의 대담한 도입 — 이 시세계 확장의 핵심이다."@ko ;
+  dcterms:subject "시의 세계가 현실세계와 단절될 때 말이 가지고 있는 조응성·지칭성referential character of language이 탈락되고 시는 극히 불투명하게 된다."@ko ;
+  dcterms:subject "현실세계와의 완벽한 단절에서 오는 순수한 시적인 것의 추구는 말라르메가 영탄한 불모성을 결과했다."@ko ;
+  dcterms:subject "이러한 현대의 기후 속에서 시인들도 의식의 변혁을 일으켰다."@ko ;
+  dcterms:subject "산문적인 제재를 도입하면서도 시를 저능한 산문으로 전락시키지 않고 시의 자율성과 특성을 사수하려는 것이 송욱의 실험이 돋보이는 이유다."@ko ;
+  dcterms:subject "시의 음악성으로 산문에의 전락을 예방한다."@ko ;
+  dcterms:subject "음악만은 공리적 목적을 가진 매체의 매개를 거치지 않고 직접 호소하는데, 이것이 음악의 추상성이다."@ko ;
+  dcterms:subject "의미와 음상이 유리되지 않은 음악성"@ko ;
+  dcterms:subject "현재와 과거의 병치적 대조"@ko ;
+  dcterms:subject "「하여지향」의 위트와 풍자미는 도회 경박청년의 재담 수준에 머물 위험이 있다."@ko ;
+  dcterms:subject "재래적 민요의 기지와 비평정신이 도시인의 양복쟁이 서울아리랑으로 변한 것이 송욱의 시가 아니냐는 질문이 제기된다."@ko ;
+  dcterms:subject "스타일의 연금술로 비속한 현실을 예술로 전환시키는 미학은 19세기만의 것이 아니다."@ko ;
+  dcterms:subject "미와 예술은 결코 동의어가 아니다. 추나 공포를 나타내는 예술작품도 많이 있다."@ko ;
+  dcterms:subject "독자로 하여금 미와 예술의 문제를 생각하게 한다는 사실 자체가 「하여지향」의 특성이다. 비순수의 선언이다."@ko ;
+  dcterms:subject "한국 문학의 현단계는 실험단계이며, 많은 실험을 자꾸 할 때다. 시간이란 가장 냉혹한 비평가다."@ko .
+
 kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
   dcterms:title "한국의 슬픔 — 소월을 위한 노트"@ko ;
   rdfs:label "한국의 슬픔 — 소월을 위한 노트"@ko ;
@@ -1608,6 +1717,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-gwangsu .
 kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
