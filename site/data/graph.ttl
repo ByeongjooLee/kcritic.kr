@@ -304,6 +304,12 @@ kc:p-herbert-read a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1596448> ;
   schema:url <https://kcritic.kr/resource/p-herbert-read> .
 
+kc:p-hobbes a foaf:Person ;
+  foaf:name "토마스 홉스"@ko ;
+  rdfs:label "토마스 홉스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q37562> ;
+  schema:url <https://kcritic.kr/resource/p-hobbes> .
+
 kc:p-homer a foaf:Person ;
   foaf:name "호메로스"@ko ;
   rdfs:label "호메로스"@ko ;
@@ -675,6 +681,12 @@ kc:p-roman-rolland a foaf:Person ;
   rdfs:label "로맹 롤랑"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q47162> ;
   schema:url <https://kcritic.kr/resource/p-roman-rolland> .
+
+kc:p-russell a foaf:Person ;
+  foaf:name "버트런드 러셀"@ko ;
+  rdfs:label "버트런드 러셀"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q33760> ;
+  schema:url <https://kcritic.kr/resource/p-russell> .
 
 kc:p-sartre a foaf:Person ;
   foaf:name "사르트르"@ko ;
@@ -1653,6 +1665,26 @@ kce:yu-jongho_confession_1961 a critic:CriticalEssay ;
   dcterms:subject "나이를 먹어감에 따라 인간의 무심한 발언 속에도 얼마나 많은 자기변명과 자기변호가 비장되어 있는가를 깨닫게 된다. 모든 인간의 견해와 태도는 그 사람의 이해관계와 이기주의와 밀접하게 관련되어 있다."@ko ;
   dcterms:subject "하나의 진술이나 주장은 필경 하나의 악센트이다. 여러 가지 사실에서 하나를 선정해서 붙인 강조다. 논쟁이 빠지는 함정은 하나의 악센트에 열중하여 다른 일체의 음가를 무시하게 되는 것이다."@ko .
 
+kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
+  dcterms:title "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
+  rdfs:label "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
+  dcterms:date "1962"^^xsd:gYear ;
+  schema:isPartOf "인간 부재 — 한국 문학에서의 휴머니즘" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_humanism-absence_1962.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-hobbes ;
+  cito:citesAsAuthority kc:p-russell ;
+  dcterms:subject "휴머니즘의 다의성"@ko ;
+  dcterms:subject "동정의 미학"@ko ;
+  dcterms:subject "감상주의"@ko ;
+  dcterms:subject "선악 이원론"@ko ;
+  dcterms:subject "소설에서의 인간 부재"@ko ;
+  dcterms:subject "사회적 인간의 거세"@ko ;
+  dcterms:subject "연기만 보고 불을 못 보는 시선"@ko ;
+  dcterms:subject "갱생형 인간조작 공식"@ko ;
+  dcterms:subject "인간의 자기소외"@ko ;
+  dcterms:subject "실천적 휴머니즘"@ko .
+
 kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
   dcterms:title "한국의 슬픔 — 소월을 위한 노트"@ko ;
   rdfs:label "한국의 슬픔 — 소월을 위한 노트"@ko ;
@@ -1894,6 +1926,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
