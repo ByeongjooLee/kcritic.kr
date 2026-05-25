@@ -269,6 +269,12 @@ kc:p-fromm a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76621> ;
   schema:url <https://kcritic.kr/resource/p-fromm> .
 
+kc:p-fukuzawa a foaf:Person ;
+  foaf:name "후쿠자와 유키치"@ko ;
+  rdfs:label "후쿠자와 유키치"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q275118> ;
+  schema:url <https://kcritic.kr/resource/p-fukuzawa> .
+
 kc:p-gide a foaf:Person ;
   foaf:name "지드"@ko ;
   rdfs:label "지드"@ko ;
@@ -1884,6 +1890,24 @@ kce:yu-jongho_modern-poetry-face_1959 a critic:CriticalEssay ;
   dcterms:subject "시적 의미"@ko ;
   dcterms:subject "절망과 배반"@ko .
 
+kce:yu-jongho_native-language_1959 a critic:CriticalEssay ;
+  dcterms:title "토착어와 한자어"@ko ;
+  rdfs:label "토착어와 한자어"@ko ;
+  dcterms:date "1959"^^xsd:gYear ;
+  schema:isPartOf "토착어와 한자어" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_native-language_1959.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-camus ;
+  cito:citesAsAuthority kc:p-fukuzawa ;
+  dcterms:subject "토착어의 정서적 연상대"@ko ;
+  dcterms:subject "전근대적 인간상"@ko ;
+  dcterms:subject "한자어의 생경함"@ko ;
+  dcterms:subject "감성과 이성의 공존"@ko ;
+  dcterms:subject "관념의 형상화"@ko ;
+  dcterms:subject "한국적인 것의 정의"@ko ;
+  dcterms:subject "언어의 근대화 과제"@ko ;
+  dcterms:subject "언어의 지칭성"@ko .
+
 kce:yu-jongho_prose-spirit_1958 a critic:CriticalEssay ;
   dcterms:title "산문정신고"@ko ;
   rdfs:label "산문정신고"@ko ;
@@ -2036,6 +2060,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_language-valley_1957 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_native-language_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
