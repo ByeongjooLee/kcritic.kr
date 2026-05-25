@@ -600,6 +600,12 @@ kc:p-lawrence a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q33866> ;
   schema:url <https://kcritic.kr/resource/p-lawrence> .
 
+kc:p-lawrence-dh a foaf:Person ;
+  foaf:name "로렌스"@ko ;
+  rdfs:label "로렌스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q38459> ;
+  schema:url <https://kcritic.kr/resource/p-lawrence-dh> .
+
 kc:p-leibniz a foaf:Person ;
   foaf:name "라이프니츠"@ko ;
   rdfs:label "라이프니츠"@ko ;
@@ -2168,6 +2174,23 @@ kce:yu-jongho_son-changsub_1959 a critic:CriticalEssay ;
   dcterms:subject "시각의 협소성"@ko ;
   dcterms:subject "절망의 문학의 역설"@ko .
 
+kce:yu-jongho_tradition-establishment_1960 a critic:CriticalEssay ;
+  dcterms:title "전통의 확립을 위하여"@ko ;
+  rdfs:label "전통의 확립을 위하여"@ko ;
+  dcterms:date "1960"^^xsd:gYear ;
+  schema:isPartOf "전통의 확립을 위하여" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_tradition-establishment_1960.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-lawrence-dh ;
+  dcterms:subject "패배의 미학"@ko ;
+  dcterms:subject "전근대적 인간상"@ko ;
+  dcterms:subject "문학의 사회적 고립"@ko ;
+  dcterms:subject "전통의 개방성"@ko ;
+  dcterms:subject "인습과 전통의 구별"@ko ;
+  dcterms:subject "지각의 비애"@ko ;
+  dcterms:subject "산문정신"@ko ;
+  dcterms:subject "개척자 정신"@ko .
+
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
@@ -2249,6 +2272,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_native-language_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
 kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
