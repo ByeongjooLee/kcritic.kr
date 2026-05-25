@@ -26,6 +26,11 @@ kc:p-akutagawa a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q42858> ;
   schema:url <https://kcritic.kr/resource/p-akutagawa> .
 
+kc:p-alberes a foaf:Person ;
+  foaf:name "알베레스"@ko ;
+  rdfs:label "알베레스"@ko ;
+  schema:url <https://kcritic.kr/resource/p-alberes> .
+
 kc:p-amiel a foaf:Person ;
   foaf:name "아미엘"@ko ;
   rdfs:label "아미엘"@ko ;
@@ -648,6 +653,12 @@ kc:p-lubbock a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q2006867> ;
   schema:url <https://kcritic.kr/resource/p-lubbock> .
 
+kc:p-lubbock-percy a foaf:Person ;
+  foaf:name "퍼시 라보크"@ko ;
+  rdfs:label "퍼시 라보크"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q6698093> ;
+  schema:url <https://kcritic.kr/resource/p-lubbock-percy> .
+
 kc:p-lukacs a foaf:Person ;
   foaf:name "루카치"@ko ;
   rdfs:label "루카치"@ko ;
@@ -1022,7 +1033,7 @@ kc:p-weber a foaf:Person ;
 kc:p-wellek a foaf:Person ;
   foaf:name "웰렉"@ko ;
   rdfs:label "웰렉"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q732895> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q314959> ;
   schema:url <https://kcritic.kr/resource/p-wellek> .
 
 kc:p-whitman a foaf:Person ;
@@ -1955,6 +1966,28 @@ kce:yu-jongho_criticism-reflection_1958 a critic:CriticalEssay ;
   dcterms:subject "인상비평의 작품성"@ko ;
   dcterms:subject "비평에서의 개성과 독창성"@ko .
 
+kce:yu-jongho_experience-imagination-viewpoint_1961 a critic:CriticalEssay ;
+  dcterms:title "경험 · 상상력 · 관점 — 한국소설의 반성"@ko ;
+  rdfs:label "경험 · 상상력 · 관점 — 한국소설의 반성"@ko ;
+  dcterms:date "1961"^^xsd:gYear ;
+  schema:isPartOf "경험 · 상상력 · 관점 — 한국소설의 반성" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_experience-imagination-viewpoint_1961.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-alberes ;
+  cito:citesAsAuthority kc:p-freud ;
+  cito:citesAsAuthority kc:p-lubbock-percy ;
+  cito:citesAsAuthority kc:p-marx ;
+  cito:citesAsAuthority kc:p-nietzsche ;
+  cito:citesAsAuthority kc:p-wellek ;
+  dcterms:subject "소박한 리얼리즘"@ko ;
+  dcterms:subject "현실성의 환상"@ko ;
+  dcterms:subject "경험의 객관화"@ko ;
+  dcterms:subject "비정의 거리"@ko ;
+  dcterms:subject "가능한 것의 자서전"@ko ;
+  dcterms:subject "소설과 상상력"@ko ;
+  dcterms:subject "작가의 관점"@ko ;
+  dcterms:subject "작가 포즈의 훼손성"@ko .
+
 kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
   dcterms:title "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
   rdfs:label "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
@@ -2298,6 +2331,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-problems_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-reflection_1958 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_experience-imagination-viewpoint_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
