@@ -20,6 +20,12 @@
   owl:imports <http://kcritic.kr/ontology/> .
 
 # ── 인물 노드 ────────────────────────────────────────────
+kc:p-akutagawa a foaf:Person ;
+  foaf:name "아쿠타가와 류노스케"@ko ;
+  rdfs:label "아쿠타가와 류노스케"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q42858> ;
+  schema:url <https://kcritic.kr/resource/p-akutagawa> .
+
 kc:p-arnheim a foaf:Person ;
   foaf:name "루돌프 아른하임(Rudolf Arnheim)"@ko ;
   rdfs:label "루돌프 아른하임(Rudolf Arnheim)"@ko ;
@@ -446,6 +452,12 @@ kc:p-lacan a foaf:Person ;
   rdfs:label "자크 라캉(Jacques Lacan)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q168756> ;
   schema:url <https://kcritic.kr/resource/p-lacan> .
+
+kc:p-lautreamont a foaf:Person ;
+  foaf:name "로트레아몽"@ko ;
+  rdfs:label "로트레아몽"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q190027> ;
+  schema:url <https://kcritic.kr/resource/p-lautreamont> .
 
 kc:p-lawrence a foaf:Person ;
   foaf:name "로렌스"@ko ;
@@ -1425,6 +1437,35 @@ kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
   cito:discusses kc:p-yun-dongju ;
   cito:citesAsAuthority kc:p-habermas .
 
+kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
+  dcterms:title "한국의 슬픔 — 소월을 위한 노트"@ko ;
+  rdfs:label "한국의 슬픔 — 소월을 위한 노트"@ko ;
+  dcterms:date "1960"^^xsd:gYear ;
+  schema:isPartOf "한국의 슬픔 — 소월을 위한 노트" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_kim-sowol_1960.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:discusses kc:p-jeong-jiyong ;
+  cito:discusses kc:p-kim-kwanggyu ;
+  cito:discusses kc:p-kim-sowol ;
+  cito:citesAsAuthority kc:p-akutagawa ;
+  cito:citesAsAuthority kc:p-lautreamont ;
+  dcterms:subject "소월의 국민시인·민족시인적 위치 — 희구의 과녁에 맞은 행복한 우연"@ko ;
+  dcterms:subject "국민시인 희구의 보편성 — 모국어 시인에 대한 정감의 의탁"@ko ;
+  dcterms:subject "로트레아몽의 만인의 시 — 소월 시의 보편성을 이해하는 준거"@ko ;
+  dcterms:subject "소월 시의 제재의 보편성 — 시의 원초적 상태와 첫 관문"@ko ;
+  dcterms:subject "소월 시의 소박한 발상형식 — 직정(直情)의 음률화"@ko ;
+  dcterms:subject "소월 시의 불가피성 — 신시 초기의 원초적 필연성"@ko ;
+  dcterms:subject "30년의 풍상에도 퇴색하지 않는 소월 시의 내구성 — 소박한 진실의 힘"@ko ;
+  dcterms:subject "한국의 슬픔의 방출구로서의 소월 — 민족적 정한의 체현"@ko ;
+  dcterms:subject "감상과 정한의 구별 — 원망·하소·신세타령의 민족적 오열"@ko ;
+  dcterms:subject "소월의 개인적 정한과 민족적 정한의 행복한 일치"@ko ;
+  dcterms:subject "정지용 — 한국 현대시의 기본적 시학을 최초로 확립한 시인"@ko ;
+  dcterms:subject "소월 — 신시 초기의 외로운 갈미봉 — 기본적 시학 이전의 옥돌"@ko ;
+  dcterms:subject "구정의 갈미봉 — 주류 밖에서 모든 이의 향수를 불러일으키는 소월의 위치"@ko ;
+  dcterms:subject "제재와 정형의 불가분성 — 내용과 형식 구분의 불합리를 실증하는 소월"@ko ;
+  dcterms:subject "소박한 진실의 보편적 감동력 — 계층을 초월한 소월 시의 독자층"@ko ;
+  dcterms:subject "소월의 산문·편지 — 시의 정한과 삶의 정한의 일치"@ko .
+
 kce:yu-jongho_modern-poetry-50years_1962 a critic:CriticalEssay ;
   dcterms:title "현대시의 50년"@ko ;
   rdfs:label "현대시의 50년"@ko ;
@@ -1567,6 +1608,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-gwangsu .
 kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
