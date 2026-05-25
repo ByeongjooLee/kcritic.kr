@@ -26,6 +26,18 @@ kc:p-akutagawa a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q42858> ;
   schema:url <https://kcritic.kr/resource/p-akutagawa> .
 
+kc:p-amiel a foaf:Person ;
+  foaf:name "아미엘"@ko ;
+  rdfs:label "아미엘"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q123916> ;
+  schema:url <https://kcritic.kr/resource/p-amiel> .
+
+kc:p-aristotle a foaf:Person ;
+  foaf:name "아리스토텔레스"@ko ;
+  rdfs:label "아리스토텔레스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q868> ;
+  schema:url <https://kcritic.kr/resource/p-aristotle> .
+
 kc:p-arnheim a foaf:Person ;
   foaf:name "루돌프 아른하임(Rudolf Arnheim)"@ko ;
   rdfs:label "루돌프 아른하임(Rudolf Arnheim)"@ko ;
@@ -79,6 +91,12 @@ kc:p-balazs a foaf:Person ;
   rdfs:label "에티엔 발라스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q437773> ;
   schema:url <https://kcritic.kr/resource/p-balazs> .
+
+kc:p-balzac a foaf:Person ;
+  foaf:name "발자크"@ko ;
+  rdfs:label "발자크"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9711> ;
+  schema:url <https://kcritic.kr/resource/p-balzac> .
 
 kc:p-baudelaire a foaf:Person ;
   foaf:name "보들레르"@ko ;
@@ -294,6 +312,12 @@ kc:p-homer a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q6691> ;
   schema:url <https://kcritic.kr/resource/p-homer> .
 
+kc:p-huxley a foaf:Person ;
+  foaf:name "올더스 헉슬리"@ko ;
+  rdfs:label "올더스 헉슬리"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q46792> ;
+  schema:url <https://kcritic.kr/resource/p-huxley> .
+
 kc:p-hwang-dongkyu a foaf:Person ;
   foaf:name "황동규"@ko ;
   rdfs:label "황동규"@ko ;
@@ -373,6 +397,12 @@ kc:p-kant a foaf:Person ;
   rdfs:label "칸트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9312> ;
   schema:url <https://kcritic.kr/resource/p-kant> .
+
+kc:p-kenneth-burke a foaf:Person ;
+  foaf:name "케네스 버크"@ko ;
+  rdfs:label "케네스 버크"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q960081> ;
+  schema:url <https://kcritic.kr/resource/p-kenneth-burke> .
 
 kc:p-kim-byungik a foaf:Person ;
   foaf:name "김병익"@ko ;
@@ -543,6 +573,12 @@ kc:p-marx a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9061> ;
   schema:url <https://kcritic.kr/resource/p-marx> .
 
+kc:p-maugham a foaf:Person ;
+  foaf:name "서머셋 모옴"@ko ;
+  rdfs:label "서머셋 모옴"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q43439> ;
+  schema:url <https://kcritic.kr/resource/p-maugham> .
+
 kc:p-maupassant a foaf:Person ;
   foaf:name "모파상"@ko ;
   rdfs:label "모파상"@ko ;
@@ -560,6 +596,11 @@ kc:p-nietzsche a foaf:Person ;
   rdfs:label "니체"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9358> ;
   schema:url <https://kcritic.kr/resource/p-nietzsche> .
+
+kc:p-nietzsche-son a foaf:Person ;
+  foaf:name "니체"@ko ;
+  rdfs:label "니체"@ko ;
+  schema:url <https://kcritic.kr/resource/p-nietzsche-son> .
 
 kc:p-oh-kyuwon a foaf:Person ;
   foaf:name "오규원（吳圭原）"@ko ;
@@ -643,6 +684,12 @@ kc:p-rilke a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34271> ;
   schema:url <https://kcritic.kr/resource/p-rilke> .
 
+kc:p-roman-rolland a foaf:Person ;
+  foaf:name "로맹 롤랑"@ko ;
+  rdfs:label "로맹 롤랑"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q47162> ;
+  schema:url <https://kcritic.kr/resource/p-roman-rolland> .
+
 kc:p-sartre a foaf:Person ;
   foaf:name "사르트르"@ko ;
   rdfs:label "사르트르"@ko ;
@@ -661,6 +708,12 @@ kc:p-shelley a foaf:Person ;
   rdfs:label "퍼시 비시 셸리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q93343> ;
   schema:url <https://kcritic.kr/resource/p-shelley> .
+
+kc:p-shestov a foaf:Person ;
+  foaf:name "셰스토프"@ko ;
+  rdfs:label "셰스토프"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q314189> ;
+  schema:url <https://kcritic.kr/resource/p-shestov> .
 
 kc:p-sim-hun a foaf:Person ;
   foaf:name "심훈"@ko ;
@@ -692,11 +745,22 @@ kc:p-stendhal a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q502> ;
   schema:url <https://kcritic.kr/resource/p-stendhal> .
 
+kc:p-stendhal-son a foaf:Person ;
+  foaf:name "스탕달"@ko ;
+  rdfs:label "스탕달"@ko ;
+  schema:url <https://kcritic.kr/resource/p-stendhal-son> .
+
 kc:p-stevenson a foaf:Person ;
   foaf:name "스티븐슨"@ko ;
   rdfs:label "스티븐슨"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q35548> ;
   schema:url <https://kcritic.kr/resource/p-stevenson> .
+
+kc:p-taine a foaf:Person ;
+  foaf:name "텐"@ko ;
+  rdfs:label "텐"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q297726> ;
+  schema:url <https://kcritic.kr/resource/p-taine> .
 
 kc:p-thibaudet a foaf:Person ;
   foaf:name "알베르 티보데"@ko ;
@@ -709,6 +773,11 @@ kc:p-thomas-mann a foaf:Person ;
   rdfs:label "토마스 만"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q37030> ;
   schema:url <https://kcritic.kr/resource/p-thomas-mann> .
+
+kc:p-thomas-mann-son a foaf:Person ;
+  foaf:name "토마스 만"@ko ;
+  rdfs:label "토마스 만"@ko ;
+  schema:url <https://kcritic.kr/resource/p-thomas-mann-son> .
 
 kc:p-thomas-more a foaf:Person ;
   foaf:name "토머스 모어"@ko ;
@@ -746,11 +815,23 @@ kc:p-walter-benjamin a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q44325> ;
   schema:url <https://kcritic.kr/resource/p-walter-benjamin> .
 
+kc:p-warren a foaf:Person ;
+  foaf:name "워런"@ko ;
+  rdfs:label "워런"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q111925348> ;
+  schema:url <https://kcritic.kr/resource/p-warren> .
+
 kc:p-weber a foaf:Person ;
   foaf:name "막스 베버"@ko ;
   rdfs:label "막스 베버"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9240> ;
   schema:url <https://kcritic.kr/resource/p-weber> .
+
+kc:p-wellek a foaf:Person ;
+  foaf:name "웰렉"@ko ;
+  rdfs:label "웰렉"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q732895> ;
+  schema:url <https://kcritic.kr/resource/p-wellek> .
 
 kc:p-whitman a foaf:Person ;
   foaf:name "월트 휘트먼"@ko ;
@@ -1649,6 +1730,49 @@ kce:yu-jongho_modern-poetry-face_1959 a critic:CriticalEssay ;
   dcterms:subject "즐거움을 주지 못하는 시의 무자격 — 시단 비판의 준거"@ko ;
   dcterms:subject "절망과 배반 — 이해도 즐김도 불가능한 시단의 진단"@ko .
 
+kce:yu-jongho_son-changsub_1959 a critic:CriticalEssay ;
+  dcterms:title "모멸과 연민 — 손창섭론"@ko ;
+  rdfs:label "모멸과 연민 — 손창섭론"@ko ;
+  dcterms:date "1959"^^xsd:gYear ;
+  schema:isPartOf "모멸과 연민 — 손창섭론" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_son-changsub_1959.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-amiel ;
+  cito:citesAsAuthority kc:p-aristotle ;
+  cito:citesAsAuthority kc:p-balzac ;
+  cito:citesAsAuthority kc:p-freud ;
+  cito:citesAsAuthority kc:p-huxley ;
+  cito:citesAsAuthority kc:p-kenneth-burke ;
+  cito:citesAsAuthority kc:p-maugham ;
+  cito:citesAsAuthority kc:p-nietzsche-son ;
+  cito:citesAsAuthority kc:p-roman-rolland ;
+  cito:citesAsAuthority kc:p-shestov ;
+  cito:citesAsAuthority kc:p-stendhal-son ;
+  cito:citesAsAuthority kc:p-taine ;
+  cito:citesAsAuthority kc:p-thomas-mann-son ;
+  cito:citesAsAuthority kc:p-warren ;
+  cito:citesAsAuthority kc:p-wellek ;
+  dcterms:subject "위대한 작가들이 제시하는 것은 여태껏 세인들이 간과하였던 인간현실의 새로운 양상이다."@ko ;
+  dcterms:subject "독창성이란 문학작품에서 작가의 눈의 강도를 지칭하며, 독창적인 작가는 명명자다."@ko ;
+  dcterms:subject "중요한 것은 작가의 눈이다. 작가의 눈은 그 작가의 정신구조에 의해 지배된다."@ko ;
+  dcterms:subject "손창섭의 강점은 독특한 작가적 시각을 가지고 있다는 데 있다. 그것이 협소하더라도 그는 분명히 작가의 눈을 가지고 있다."@ko ;
+  dcterms:subject "「설중행」의 귀남 대사가 보여주듯 손창섭의 거의 전 작품은 인생은 저속한 멜로드라마이며 인간은 습성화된 위선의 가면을 벗지 못한다는 단순한 개념의 육화이자 연장이다."@ko ;
+  dcterms:subject "손창섭의 인수극은 일반인보다 무가치하고 추한 인물들이 등장하며, 악의 개념 없이 인간존재에 대한 근본적 모멸만 있다."@ko ;
+  dcterms:subject "손창섭 소설에는 악의 개념이 없다. 인간동물에게 선악이란 개념은 있을 수 없기 때문이다. 따라서 증오도 없고, 가해자에게도 피해자에게도 측은한 연민감이 지불된다."@ko ;
+  dcterms:subject "소설의 현실성이란 독자가 소설을 읽으면서 실생활을 읽고 있다는 환상이다. 작가의 역량은 이 환상을 시종일관 유지하는 기술이다."@ko ;
+  dcterms:subject "손창섭의 작업은 인간의 추태를 집요하게 폭로하는 인간존재에 대한 근본적 모멸이다."@ko ;
+  dcterms:subject "괴테의 파우스트·베르테르, 도스토예프스키의 카라마조프 형제, 플로베르의 보바리, 스탕달의 쥘리앙 — 모두 작가 자신의 일면의 투영이다."@ko ;
+  dcterms:subject "「조건부」의 갑식이 〈도대체 세상에 이렇게 억울한 일이 또 있습니까〉라고 반복하듯, 작중인물들은 한결같이 부당한 대우를 받았다고 생각한다."@ko ;
+  dcterms:subject "손창섭의 철저한 인간모멸과 인간희화는 자기에게 부당한 대우를 한 인간 전체에 대한 보복행위이자, 인간 전반에 대한 원한과 혐오의 카타르시스다."@ko ;
+  dcterms:subject "「혈서」의 준석이 도둑이 제 발 저린다고 자기의 약점을 타인에게 투사하듯, 손창섭 소설 도처에 투사작용의 심리적 인간통찰이 산재한다."@ko ;
+  dcterms:subject "한국 소설에서 정신분석학자들에게 병리증상의 자료를 가장 많이 제공할 수 있는 것은 아마 손창섭 소설일 것이다."@ko ;
+  dcterms:subject "황막한 일모의 풍경이나 음산한 우경은 그대로 절망과 무기력과 무위로 구질구질한 작중인물의 심경의 상태다."@ko ;
+  dcterms:subject "손창섭의 첫째 문제는 작가의 눈의 지나친 협소성이다. 작중인물은 모멸 일색으로만 칠해져 있고, 철저성과 집요성 때문에 깊이가 있는 듯한 착각을 줄 뿐 단조한 편협성 위에 서 있다."@ko ;
+  dcterms:subject "손창섭은 너무나 오랫동안 한 군데로만 관찰의 초점을 집중시켜 놓고 있다. 그 초점에서 빗나간 인간의 진상이 많다. 심리적 인간상을 사회적 인간상과 합류시키지 않는 한 단조성은 외골목으로만 흐를 것이다."@ko ;
+  dcterms:subject "인생을 낙서로 보면서도 그것을 표현하는 데 고심참담 청서했다는 역설 — 많은 비관주의 문학·절망의 문학이 이 역설을 구현한다. 문자 그대로의 절망의 문학은 없다."@ko ;
+  dcterms:subject "손창섭 소설의 재미는 냉혹하게 말하면 통속적 냉소주의로 규정할 수 있다. 그것이 심화되지 않는 한 〈위대하다〉는 형용사는 영원히 피안의 언어로 남아 있게 될 것이다."@ko ;
+  dcterms:subject "자기가 그려놓은 모멸의 인간상에서 연민의 정을 느끼게 될 것이다. 연민은 동정과 애정의 시초다. 그리고 연민의 인간상 속에 작가 자신도 포함되어 있다는 쑥스러운 자의식을 획득할 것이다."@ko .
+
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
@@ -1721,6 +1845,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
 kc:p-yu-jongho critic:analyzes kc:p-han-yongun .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
