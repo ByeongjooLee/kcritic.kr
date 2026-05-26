@@ -13,7 +13,7 @@ import anthropic
 
 load_dotenv()
 
-NEO4J_URI  = os.getenv("NEO4J_URI", "neo4j://127.0.0.1:7687")
+NEO4J_URI  = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
 NEO4J_USER = os.getenv("NEO4J_USERNAME", "neo4j")
 NEO4J_PWD  = os.getenv("NEO4J_PASSWORD", "")
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")

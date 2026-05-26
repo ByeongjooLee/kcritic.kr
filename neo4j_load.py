@@ -1,17 +1,28 @@
 """
 graph.json → Neo4j 적재 스크립트
-실행: py neo4j_load.py
+실행: py neo4j_load.py        (로컬 Neo4j Desktop)
+      py neo4j_load.py --aura (Neo4j Aura 클라우드)
 """
 import json
 import os
+import sys
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
 
 load_dotenv()
 
-URI      = os.getenv("NEO4J_URI", "neo4j://127.0.0.1:7687")
-USER     = os.getenv("NEO4J_USERNAME", "neo4j")
-PASSWORD = os.getenv("NEO4J_PASSWORD", "")
+AURA = "--aura" in sys.argv
+
+if AURA:
+    URI      = os.getenv("AURA_URI", "")
+    USER     = os.getenv("AURA_USERNAME", "")
+    PASSWORD = os.getenv("AURA_PASSWORD", "")
+    print("대상: Neo4j Aura (클라우드)")
+else:
+    URI      = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
+    USER     = os.getenv("NEO4J_USERNAME", "neo4j")
+    PASSWORD = os.getenv("NEO4J_PASSWORD", "")
+    print("대상: 로컬 Neo4j Desktop")
 
 GRAPH_JSON = "site/data/graph.json"
 
