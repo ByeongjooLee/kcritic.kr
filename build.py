@@ -1307,5 +1307,52 @@ def build_turtle(all_essays, graph):
     return "\n".join(lines)
 
 
+def sync_neo4j(graph: dict):
+    """graph.json 데이터를 Neo4j에 동기화."""
+    try:
+        from neo4j import GraphDatabase
+        from dotenv import load_dotenv
+        import os
+        load_dotenv()
+        uri  = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
+        user = os.getenv("NEO4J_USERNAME", "neo4j")
+        pwd  = os.getenv("NEO4J_PASSWORD", "")
+        driver = GraphDatabase.driver(uri, auth=(user, pwd))
+        driver.verify_connectivity()
+    except Exception as e:
+        print(f"  Neo4j 연결 실패 (건너뜀): {e}")
+        return
+
+    nodes = graph["nodes"]
+    edges = graph["edges"]
+    with driver.session() as s:
+        s.run("MATCH (n) DETACH DELETE n")
+        for n in nodes:
+            label = n.get("type", "node").capitalize()
+            s.run(
+                f"MERGE (n:{label} {{id: $id}}) "
+                "SET n.label=$label, n.type=$type, n.year=$year, n.ref=$ref, n.degree=$degree",
+                id=n["id"], label=n.get("label",""), type=n.get("type",""),
+                year=n.get("year",""), ref=n.get("ref",""), degree=n.get("degree",0),
+            )
+        for e in edges:
+            rel = e.get("type","related").upper().replace("-","_")
+            s.run(
+                f"MATCH (a {{id:$src}}),(b {{id:$tgt}}) MERGE (a)-[r:{rel}]->(b) SET r.weight=$w",
+                src=e["source"], tgt=e["target"], w=e.get("weight",1),
+            )
+    driver.close()
+    print(f"  Neo4j 동기화 완료: 노드 {len(nodes)}개, 엣지 {len(edges)}개")
+
+
 if __name__ == "__main__":
     main()
+    # Neo4j 동기화 (Neo4j가 실행 중일 때만 작동, 꺼져있으면 자동 건너뜀)
+    print("\nNeo4j 동기화 시도 중...")
+    graph_path = DATA_DIR / "graph.json"
+    if graph_path.exists():
+        with open(graph_path, encoding="utf-8") as f:
+            graph_data = json.load(f)
+        sync_neo4j(graph_data)
+    else:
+        print("  graph.json 없음, 동기화 건너뜀")

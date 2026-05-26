@@ -44,10 +44,18 @@ critic-ontology/
 │   └── graph.html           ← Cytoscape.js 관계망 시각화
 ├── index.html               ← 비평글 목록 (메인)
 ├── critics.html             ← 비평가 목록 탭
+├── writers.html             ← 작가 목록 탭
+├── concepts.html            ← 개념어 탭
 ├── research.html            ← 선행연구 탭
+├── criticism.html           ← 2000년대 비평 탭
+├── ask.html                 ← 질문하기 탭 (Neo4j GraphRAG UI)
+├── sparql.html              ← SPARQL 탭 (숨김 상태 — Comunica 오류)
 ├── style.css                ← 공유 스타일 (반응형 포함)
-├── build.py                 ← TEI XML → HTML + JSON 빌드 스크립트
+├── build.py                 ← TEI XML → HTML + JSON + Neo4j 동기화 빌드 스크립트
+├── neo4j_api.py             ← FastAPI GraphRAG 서버 (포트 8000)
+├── neo4j_load.py            ← graph.json → Neo4j 단독 로드 스크립트
 ├── convert_phd.py           ← 박사논문 xlsx → bibliography.json 변환
+├── .env                     ← Neo4j/Anthropic 크레덴셜 (gitignored, 절대 커밋 금지)
 ├── wrangler.jsonc           ← Cloudflare Workers 배포 설정
 ├── .gitignore
 └── CLAUDE.md                ← 이 파일
@@ -55,22 +63,24 @@ critic-ontology/
 
 ---
 
-## 3. 사이트 구조 (탭 5개)
+## 3. 사이트 구조 (탭 8개)
 
 | 탭 | 파일 | 설명 |
 |---|---|---|
 | 비평글 | `index.html` | 수록 비평글 카드 목록 |
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (94노드, 100엣지 — 2026-05-21 기준) |
+| 작가 | `writers.html` | 비평 대상 작가 목록 → 클릭 시 프로필 페이지 |
+| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (231노드, 288엣지 — 2026-05-26 기준) |
 | 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
+| 질문하기 | `ask.html` | Neo4j GraphRAG — 자연어 질문 → Cypher 자동 생성 → 학술 답변 |
 
 ### 네비게이션 경로 (파일 위치별)
-- 루트 페이지(`index.html`, `critics.html`, `concepts.html`, `research.html`, `criticism.html`): `site/graph.html`, `concepts.html`, `research.html`, `critics.html`, `criticism.html`
+- 루트 페이지(`index.html`, `critics.html`, `writers.html`, `concepts.html`, `research.html`, `criticism.html`): `site/graph.html`, `concepts.html`, `research.html`, `critics.html`, `criticism.html`, `ask.html`
 - `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
 - `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`
+- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`
 
 ---
 
@@ -112,13 +122,35 @@ py convert_criticism.py
 - 엑셀에 subject(대상), topic(주제), debate(논쟁) 컬럼 추가 후 재실행하면 필터 UI에 자동 반영
 - COL 인덱스: no=0, year=1, title=2, author=3, journal=4, pages=5, note=6, subject=7, topic=8, debate=9
 
+### Neo4j 동기화 (자동)
+
+`py build.py` 실행 시 끝에 Neo4j 자동 동기화 시도. Neo4j Desktop이 실행 중이면 graph.json을 Neo4j에 반영. 꺼져 있으면 경고 출력 후 건너뜀 (빌드 실패 아님).
+
+수동 로드가 필요할 때:
+```powershell
+cd critic-ontology
+py neo4j_load.py
+```
+
+### GraphRAG API 서버 실행
+
+```powershell
+cd critic-ontology
+py -m uvicorn neo4j_api:app --reload
+```
+
+- 포트: 8000. ask.html이 `http://127.0.0.1:8000/ask`에 POST 요청
+- Neo4j Desktop이 실행 중이어야 함
+- `.env` 파일에 `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, `ANTHROPIC_API_KEY` 필요
+- 엔드포인트: `GET /` (헬스체크), `POST /ask` (GraphRAG 질의), `GET /stats`
+
 ### 새 비평글 추가 절차
 
 1. 원문 텍스트를 `essays/{stem}.txt` 저장
 2. `essays/{stem}.xml` 생성 및 TEI 인코딩
-3. `py build.py` 실행
+3. `py build.py` 실행 (사이트 + Neo4j 동시 갱신)
 4. `index.html` 에 essay-card 추가
-5. Git diff 확인 (essays/ 제외) → push
+5. Git diff 확인 (essays/, .env 제외) → push
 
 ---
 
@@ -321,11 +353,13 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 
 - **원문 텍스트를 HTML에 포함하는 코드 작성 금지**
 - **essays/*.xml, *.txt 를 git staging에 추가하는 명령 실행 금지**
+- **`.env` 파일을 git staging에 추가하는 명령 실행 금지** (크레덴셜 포함)
 - 인물 xml:id 는 한 번 정해지면 변경 금지
 - Wikidata ref 추측 채우기 금지 — 모르면 빈값
 - build.py 수정 후 반드시 `py build.py` 테스트
 - convert_phd.py 수정 후 반드시 `py convert_phd.py` 테스트
 - PowerShell에서 한글 포함 git commit 메시지는 here-string 파싱 오류 발생 → ASCII 메시지 사용
+- Neo4j URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
 
 ---
 
@@ -342,19 +376,24 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 | 목적 | 도구 |
 |---|---|
 | 인코딩 | VS Code + Red Hat XML + `korean-critique-schema.xsd` |
-| 빌드 | `build.py` (Python 표준 라이브러리만) |
+| 빌드 | `build.py` (Python 표준 라이브러리만 + neo4j driver 선택적) |
 | 데이터 변환 | `convert_phd.py` (openpyxl), `convert_criticism.py` (openpyxl) |
 | 관계망 시각화 | Cytoscape.js 3.28 |
-| SPARQL | Comunica 브라우저 엔진 (sparql.html) |
+| 그래프 DB | Neo4j Desktop (로컬, bolt://127.0.0.1:7687, APOC 플러그인) |
+| GraphRAG API | FastAPI + uvicorn (`neo4j_api.py`, 포트 8000) |
+| AI 답변 | Anthropic Claude API (`claude-sonnet-4-6`) — Cypher 생성 + 학술 답변 |
+| SPARQL | Comunica 브라우저 엔진 (sparql.html, 현재 숨김) |
 | 호스팅 | Cloudflare Workers (무료) |
-| 비용 | 도메인 갱신비만 |
+| 비용 | 도메인 갱신비 + Anthropic API 사용료 |
 | LOD | Wikidata + 국립중앙도서관 LOD |
 
 ---
 
-## 15. 공식 OWL 온톨로지 (critic_v5_kcritic.rdf)
+## 15. 공식 OWL 온톨로지 (critic_v6_kcritic.rdf)
 
-파일 위치: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v5_kcritic.rdf`
+- v5 파일: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v5_kcritic.rdf`
+- **v6 파일 (최신)**: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v6_kcritic.rdf`
+  - v5 대비 추가: `critic:Thinker` 클래스, `cito:citesAsAuthority` 프로퍼티, 이론가 68명, 에세이 48편 인용관계
 
 `build.py`의 `build_turtle()`은 이 온톨로지를 준거로 삼아 RDF Turtle을 생성함.
 
