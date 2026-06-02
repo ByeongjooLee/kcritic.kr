@@ -258,6 +258,62 @@
       font-size: 14px;
     }
 
+    /* ── 탭 ── */
+    .research-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 0;
+      padding-top: 1.5rem;
+    }
+    .research-tab {
+      padding: 0.6rem 1.25rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s;
+      user-select: none;
+    }
+    .research-tab:hover { color: var(--text); }
+    .research-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .research-pane { display: none; }
+    .research-pane.active { display: block; }
+
+    /* ── 장르 분포 도넛 ── */
+    .genre-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .genre-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .genre-bar-row:hover .genre-bar-fill { opacity: 0.8; }
+    .genre-bar-row.active .genre-bar-fill { opacity: 1; outline: 2px solid var(--accent); }
+    .genre-bar-label { width: 2.5rem; color: var(--text-secondary); text-align: right; flex-shrink: 0; }
+    .genre-bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .genre-bar-fill  { height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.3s; }
+    .genre-bar-count { width: 2rem; color: var(--text-tertiary); font-size: 11px; flex-shrink: 0; }
+
+    /* ── 주요 연구 작가 태그 ── */
+    .writer-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem; }
+    .writer-tag-btn {
+      font-size: 12px; padding: 3px 10px;
+      border: 1px solid var(--border); border-radius: 20px;
+      background: var(--surface); color: var(--text-secondary);
+      cursor: pointer; transition: all 0.1s;
+    }
+    .writer-tag-btn:hover { border-color: var(--accent); color: var(--accent); }
+
     /* ── 모바일 ── */
     @media (max-width: 768px) {
       .research-layout {
@@ -288,28 +344,55 @@
   </header>
 
   <main class="container" style="display:block;">
-    <div class="research-layout">
 
-      <!-- 좌측: 작가 목록 -->
-      <aside class="writer-panel">
-        <h2>대상 작가</h2>
-        <input class="writer-search" type="search" placeholder="작가 이름 검색…" id="writer-search">
-        <ul class="writer-list" id="writer-list">
-          <li style="padding:1rem;color:var(--text-tertiary);font-size:13px;">불러오는 중…</li>
-        </ul>
-        <p style="margin-top:0.6rem;font-size:11px;color:var(--text-tertiary);">
-          ● 표시 = 관계망 노드와 연결됨
-        </p>
-      </aside>
-
-      <!-- 우측: 결과 -->
-      <section class="research-main" id="research-main">
-        <div class="research-empty">
-          <p>왼쪽에서 작가를 선택하면<br>관련 박사논문 목록이 표시됩니다</p>
-        </div>
-      </section>
-
+    <!-- 탭 -->
+    <div class="research-tabs">
+      <div class="research-tab active" onclick="switchTab('writer')">대상 작가별</div>
+      <div class="research-tab" onclick="switchTab('advisor')">지도교수별</div>
     </div>
+
+    <!-- 작가별 탭 -->
+    <div class="research-pane active" id="pane-writer">
+      <div class="research-layout">
+        <aside class="writer-panel">
+          <h2>대상 작가</h2>
+          <input class="writer-search" type="search" placeholder="작가 이름 검색…" id="writer-search">
+          <ul class="writer-list" id="writer-list">
+            <li style="padding:1rem;color:var(--text-tertiary);font-size:13px;">불러오는 중…</li>
+          </ul>
+          <p style="margin-top:0.6rem;font-size:11px;color:var(--text-tertiary);">
+            ● 표시 = 관계망 노드와 연결됨
+          </p>
+        </aside>
+        <section class="research-main" id="research-main">
+          <div class="research-empty">
+            <p>왼쪽에서 작가를 선택하면<br>관련 박사논문 목록이 표시됩니다</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- 지도교수별 탭 -->
+    <div class="research-pane" id="pane-advisor">
+      <div class="research-layout">
+        <aside class="writer-panel">
+          <h2>지도교수</h2>
+          <input class="writer-search" type="search" placeholder="교수 이름 검색…" id="advisor-search">
+          <ul class="writer-list" id="advisor-list">
+            <li style="padding:1rem;color:var(--text-tertiary);font-size:13px;">불러오는 중…</li>
+          </ul>
+          <p style="margin-top:0.6rem;font-size:11px;color:var(--text-tertiary);">
+            690건에 지도교수 정보 수록 (45%)
+          </p>
+        </aside>
+        <section class="research-main" id="advisor-main">
+          <div class="research-empty">
+            <p>왼쪽에서 지도교수를 선택하면<br>지도 논문 목록이 표시됩니다</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
   </main>
 
   <footer class="site-footer">
@@ -320,17 +403,32 @@
 
   <script>
   let allData = [];
-  let writerIndex = {};   // writer → [records]
-  let currentWriter = null;
-  let activeYear = null;
+  let writerIndex  = {};
+  let advisorIndex = {};
+  let currentWriter  = null;
+  let currentAdvisor = null;
+  let activeYear  = null;
   let activeGenre = null;
+  let advisorActiveYear  = null;
+  let advisorActiveGenre = null;
+
+  // ── 탭 전환 ──
+  function switchTab(tab) {
+    document.querySelectorAll('.research-tab').forEach((el, i) => {
+      el.classList.toggle('active', (i === 0 && tab === 'writer') || (i === 1 && tab === 'advisor'));
+    });
+    document.getElementById('pane-writer').classList.toggle('active', tab === 'writer');
+    document.getElementById('pane-advisor').classList.toggle('active', tab === 'advisor');
+  }
 
   fetch('site/data/bibliography.json')
     .then(r => r.json())
     .then(data => {
       allData = data;
       buildWriterIndex();
+      buildAdvisorIndex();
       renderWriterList();
+      renderAdvisorList();
     })
     .catch(() => {
       document.getElementById('writer-list').innerHTML =
@@ -487,6 +585,186 @@
     activeYear = null;
     activeGenre = null;
     renderResults();
+  }
+
+  // ══════════════════════════════════════
+  // 지도교수 탭
+  // ══════════════════════════════════════
+
+  function buildAdvisorIndex() {
+    advisorIndex = {};
+    for (const r of allData) {
+      if (!r.advisor) continue;
+      if (!advisorIndex[r.advisor]) advisorIndex[r.advisor] = [];
+      advisorIndex[r.advisor].push(r);
+    }
+    for (const a of Object.keys(advisorIndex)) {
+      advisorIndex[a].sort((a, b) => (a.year || 0) - (b.year || 0));
+    }
+  }
+
+  function renderAdvisorList(filter = '') {
+    const list = document.getElementById('advisor-list');
+    const advisors = Object.entries(advisorIndex)
+      .filter(([a]) => !filter || a.includes(filter))
+      .sort((a, b) => b[1].length - a[1].length);
+
+    if (!advisors.length) {
+      list.innerHTML = '<li style="padding:0.75rem 0.875rem;font-size:13px;color:var(--text-tertiary);">검색 결과 없음</li>';
+      return;
+    }
+    list.innerHTML = advisors.map(([advisor, records]) => {
+      const isActive = advisor === currentAdvisor;
+      return `<li class="writer-item${isActive ? ' active' : ''}"
+                  onclick="selectAdvisor('${advisor.replace(/'/g,"\\'")}')">
+        <span>${advisor}</span>
+        <span class="writer-count">${records.length}</span>
+      </li>`;
+    }).join('');
+  }
+
+  document.getElementById('advisor-search').addEventListener('input', e => {
+    renderAdvisorList(e.target.value.trim());
+  });
+
+  function selectAdvisor(advisor) {
+    currentAdvisor = advisor;
+    advisorActiveYear = null;
+    advisorActiveGenre = null;
+    renderAdvisorList(document.getElementById('advisor-search').value.trim());
+    renderAdvisorResults();
+  }
+
+  function renderAdvisorResults() {
+    const main = document.getElementById('advisor-main');
+    const records = advisorIndex[currentAdvisor] || [];
+    if (!records.length) {
+      main.innerHTML = '<div class="research-empty"><p>해당 교수 논문 없음</p></div>';
+      return;
+    }
+
+    // 연도 분포
+    const yearMap = {};
+    for (const r of records) {
+      if (r.year) yearMap[r.year] = (yearMap[r.year] || 0) + 1;
+    }
+    const years = Object.keys(yearMap).map(Number).sort((a, b) => a - b);
+    const maxCount = Math.max(...Object.values(yearMap), 1);
+    const yearBars = years.map(y => {
+      const cnt = yearMap[y];
+      const h = Math.max(4, Math.round((cnt / maxCount) * 60));
+      const isActive = advisorActiveYear === y;
+      return `<div class="year-bar-wrap${isActive ? ' active' : ''}" onclick="advisorFilterYear(${y})" title="${y}년 ${cnt}건">
+        <div class="year-bar" style="height:${h}px"></div>
+        <span class="year-bar-tick">${String(y).slice(2)}</span>
+      </div>`;
+    }).join('');
+
+    // 장르 분포 (가로 막대)
+    const genreMap = {};
+    for (const r of records) {
+      if (r.genre) genreMap[r.genre] = (genreMap[r.genre] || 0) + 1;
+    }
+    const genreMax = Math.max(...Object.values(genreMap), 1);
+    const genreBars = Object.entries(genreMap)
+      .sort((a, b) => b[1] - a[1])
+      .map(([g, cnt]) => {
+        const pct = Math.round((cnt / genreMax) * 100);
+        const isActive = advisorActiveGenre === g;
+        return `<div class="genre-bar-row${isActive ? ' active' : ''}" onclick="advisorFilterGenre('${g}')">
+          <span class="genre-bar-label">${g}</span>
+          <div class="genre-bar-track"><div class="genre-bar-fill" style="width:${pct}%"></div></div>
+          <span class="genre-bar-count">${cnt}</span>
+        </div>`;
+      }).join('');
+
+    // 주요 연구 작가 태그 (상위 10)
+    const writerMap = {};
+    for (const r of records) {
+      if (r.writer) writerMap[r.writer] = (writerMap[r.writer] || 0) + 1;
+    }
+    const topWriters = Object.entries(writerMap)
+      .sort((a, b) => b[1] - a[1]).slice(0, 12);
+    const writerTags = topWriters.map(([w, cnt]) =>
+      `<button class="writer-tag-btn" onclick="switchTab('writer');setTimeout(()=>selectWriter('${w.replace(/'/g,"\\'")}'),50)">${w} <span style="color:var(--text-tertiary);font-size:10px">${cnt}</span></button>`
+    ).join('');
+
+    // 논문 목록 필터링
+    let filtered = records;
+    if (advisorActiveYear)  filtered = filtered.filter(r => r.year === advisorActiveYear);
+    if (advisorActiveGenre) filtered = filtered.filter(r => r.genre === advisorActiveGenre);
+
+    const activeLabel = [
+      advisorActiveYear  ? `${advisorActiveYear}년` : '',
+      advisorActiveGenre ? advisorActiveGenre : '',
+    ].filter(Boolean).join(' · ');
+
+    const thesisList = filtered.length
+      ? filtered.map(r => {
+          const tags = r.keywords.slice(0, 5).map(k =>
+            `<span class="thesis-tag">${k}</span>`).join('');
+          const subj = [r.subject1, r.subject2].filter(Boolean).join(' › ');
+          return `<div class="thesis-item">
+            <div class="thesis-meta">
+              <span class="thesis-year">${r.year || '—'}</span>
+              <span class="thesis-author">${r.author}</span>
+              <span class="thesis-institution">${r.institution}</span>
+              ${r.writer ? `<span class="thesis-tag" style="color:var(--accent);border-color:var(--accent)">${r.writer}</span>` : ''}
+              ${subj ? `<span class="thesis-tag">${subj}</span>` : ''}
+            </div>
+            <div class="thesis-title">『${r.title}』</div>
+            ${tags ? `<div class="thesis-tags">${tags}</div>` : ''}
+          </div>`;
+        }).join('')
+      : '<div class="no-results">해당 조건의 논문이 없습니다.</div>';
+
+    main.innerHTML = `
+      <div class="result-header">
+        <div>
+          <div class="result-title">${currentAdvisor}</div>
+          <div class="result-meta">
+            지도 논문 ${records.length}건
+            ${activeLabel ? ` <span style="color:var(--accent)">/ ${activeLabel} 필터 적용</span>` : ''}
+            ${activeLabel ? `<button onclick="advisorClearFilters()" style="margin-left:0.5rem;font-size:11px;border:none;background:none;color:var(--text-tertiary);cursor:pointer;">× 초기화</button>` : ''}
+          </div>
+        </div>
+      </div>
+
+      <div class="year-chart">
+        <div class="year-chart-label">연도별 지도 논문 수</div>
+        <div class="year-bars">${yearBars}</div>
+      </div>
+
+      ${genreBars ? `
+      <div class="year-chart" style="margin-bottom:1.25rem;">
+        <div class="year-chart-label">장르 분포</div>
+        <div class="genre-bars">${genreBars}</div>
+      </div>` : ''}
+
+      ${topWriters.length ? `
+      <div style="margin-bottom:1.25rem;">
+        <div class="year-chart-label" style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:0.5rem;">주요 연구 작가</div>
+        <div class="writer-tags">${writerTags}</div>
+      </div>` : ''}
+
+      <div class="thesis-list">${thesisList}</div>
+    `;
+  }
+
+  function advisorFilterYear(year) {
+    advisorActiveYear = advisorActiveYear === year ? null : year;
+    renderAdvisorResults();
+  }
+
+  function advisorFilterGenre(genre) {
+    advisorActiveGenre = advisorActiveGenre === genre ? null : genre;
+    renderAdvisorResults();
+  }
+
+  function advisorClearFilters() {
+    advisorActiveYear = null;
+    advisorActiveGenre = null;
+    renderAdvisorResults();
   }
   </script>
 </body>
