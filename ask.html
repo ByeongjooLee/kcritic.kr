@@ -125,18 +125,18 @@
   </footer>
 
   <script>
-  const API = 'http://127.0.0.1:8000';
+  const API = 'https://kcritic-api.onrender.com';
 
   // API 상태 확인
   fetch(API + '/')
     .then(r => r.json())
     .then(() => {
       document.getElementById('api-status').innerHTML =
-        '<span class="api-ok">● API 연결됨 (로컬 GraphRAG 서버)</span>';
+        '<span class="api-ok">● API 연결됨 (GraphRAG 서버)</span>';
     })
     .catch(() => {
       document.getElementById('api-status').innerHTML =
-        '<span class="api-err">● API 오프라인 — py -m uvicorn neo4j_api:app --reload 실행 필요</span>';
+        '<span class="api-err">● API 오프라인 — Render 서버 기동 중 (최대 50초 소요)</span>';
     });
 
   function setQ(el) {
