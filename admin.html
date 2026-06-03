@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 검토 — kcritic</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-wrap { max-width: 860px; margin: 0 auto; padding: 2.5rem 0 5rem; }
+
+    /* 로그인 */
+    .login-box {
+      max-width: 360px; margin: 6rem auto;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem;
+    }
+    .login-box h1 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem; }
+    .login-input {
+      width: 100%; padding: .65rem .9rem; margin-bottom: .75rem;
+      border: 1.5px solid var(--border); border-radius: 7px;
+      background: var(--bg); color: var(--text-primary);
+      font-size: .9rem; font-family: inherit;
+    }
+    .login-input:focus { outline: none; border-color: var(--accent); }
+    .login-btn {
+      width: 100%; padding: .7rem; border: none; border-radius: 7px;
+      background: var(--accent); color: #fff; font-size: .95rem;
+      font-family: inherit; font-weight: 600; cursor: pointer;
+    }
+    .login-error { color: #e05; font-size: .83rem; margin-top: .5rem; }
+
+    /* 탭 */
+    .admin-tabs {
+      display: flex; gap: 0; border-bottom: 2px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .admin-tab {
+      padding: .55rem 1.1rem; font-size: .85rem; font-weight: 500;
+      color: var(--text-tertiary); cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+    }
+    .admin-tab:hover { color: var(--text); }
+    .admin-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .admin-tab .badge {
+      display: inline-block; font-size: .65rem; font-weight: 700;
+      background: var(--accent); color: #fff;
+      padding: 1px 5px; border-radius: 8px; margin-left: 4px;
+    }
+
+    /* 카드 */
+    .contrib-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 1rem;
+    }
+    .contrib-card-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 1rem; margin-bottom: .75rem; flex-wrap: wrap;
+    }
+    .contrib-type-badge {
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .06em; padding: 2px 8px; border-radius: 4px;
+      background: var(--accent-light); color: var(--accent); flex-shrink: 0;
+    }
+    .contrib-id { font-size: .72rem; color: var(--text-tertiary); font-family: monospace; }
+    .contrib-date { font-size: .75rem; color: var(--text-tertiary); }
+
+    .contrib-summary {
+      font-size: .95rem; font-weight: 500; margin-bottom: .5rem; line-height: 1.5;
+    }
+    .contrib-person {
+      font-size: .82rem; color: var(--text-secondary); margin-bottom: .75rem;
+    }
+    .contrib-person span { color: var(--accent); font-weight: 500; }
+
+    .detail-toggle {
+      font-size: .78rem; color: var(--accent); cursor: pointer;
+      border: none; background: none; padding: 0; font-family: inherit;
+      margin-bottom: .75rem; display: block;
+    }
+    .detail-box {
+      display: none; font-family: monospace; font-size: .78rem;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: .75rem 1rem; margin-bottom: .75rem;
+      white-space: pre-wrap; word-break: break-all; color: var(--text-secondary);
+      max-height: 200px; overflow-y: auto;
+    }
+    .detail-box.open { display: block; }
+
+    .nlk-badges { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .75rem; }
+    .nlk-badge {
+      font-size: .72rem; padding: 2px 8px; border-radius: 10px;
+      background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32;
+    }
+
+    .action-row {
+      display: flex; gap: .5rem; align-items: center; flex-wrap: wrap;
+    }
+    .btn-approve {
+      padding: .4rem 1rem; border: none; border-radius: 6px;
+      background: #4caf50; color: #fff; font-size: .83rem;
+      font-family: inherit; font-weight: 600; cursor: pointer;
+    }
+    .btn-approve:hover { background: #43a047; }
+    .btn-reject {
+      padding: .4rem 1rem; border: 1px solid var(--border); border-radius: 6px;
+      background: var(--bg); color: var(--text-secondary); font-size: .83rem;
+      font-family: inherit; cursor: pointer;
+    }
+    .btn-reject:hover { border-color: #e05; color: #e05; }
+    .reject-input {
+      flex: 1; min-width: 140px; padding: .35rem .7rem;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: .8rem; font-family: inherit; background: var(--bg);
+      color: var(--text-primary);
+    }
+    .reject-input:focus { outline: none; border-color: #e05; }
+
+    .status-chip {
+      font-size: .72rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 10px; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .status-chip.approved { background: #e8f5e9; color: #2e7d32; }
+    .status-chip.rejected { background: #fff0f0; color: #c62828; }
+
+    .empty-msg {
+      padding: 3rem 0; text-align: center;
+      color: var(--text-tertiary); font-size: .9rem;
+    }
+
+    /* 상단 액션 바 */
+    .admin-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 1.2rem; flex-wrap: wrap; gap: .5rem;
+    }
+    .admin-bar h1 { font-size: 1.1rem; font-weight: 600; }
+    .batch-btn {
+      padding: .45rem 1rem; border: 1px solid var(--accent); border-radius: 7px;
+      background: var(--accent-light); color: var(--accent); font-size: .82rem;
+      font-family: inherit; font-weight: 600; cursor: pointer;
+    }
+    .batch-btn:hover { background: var(--accent); color: #fff; }
+    .refresh-btn {
+      padding: .45rem 1rem; border: 1px solid var(--border); border-radius: 7px;
+      background: var(--bg); color: var(--text-secondary); font-size: .82rem;
+      font-family: inherit; cursor: pointer;
+    }
+    .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .toast {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: #333; color: #fff; padding: .65rem 1.2rem;
+      border-radius: 8px; font-size: .85rem; opacity: 0;
+      transition: opacity .3s; pointer-events: none; z-index: 999;
+    }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="writers.html">작가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html">2000년대 비평</a>
+        <a href="ask.html">질문하기</a>
+        <a href="contribute.html">기여하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+
+    <!-- 로그인 화면 -->
+    <div id="login-screen">
+      <div class="login-box">
+        <h1>관리자 로그인</h1>
+        <input class="login-input" type="password" id="token-input"
+          placeholder="관리자 토큰" onkeydown="if(event.key==='Enter')login()">
+        <button class="login-btn" onclick="login()">확인</button>
+        <div class="login-error" id="login-error"></div>
+      </div>
+    </div>
+
+    <!-- 관리자 대시보드 -->
+    <div id="admin-screen" style="display:none;">
+      <div class="admin-wrap">
+        <div class="admin-bar">
+          <h1>기여 제안 검토</h1>
+          <div style="display:flex;gap:.5rem;">
+            <button class="batch-btn" onclick="runBatch()">🔍 AI 검증 실행</button>
+            <button class="refresh-btn" onclick="loadContribs()">↻ 새로고침</button>
+          </div>
+        </div>
+
+        <div class="admin-tabs">
+          <div class="admin-tab active" onclick="switchTab('validated')" id="tab-validated">
+            검증 완료 <span class="badge" id="badge-validated">0</span>
+          </div>
+          <div class="admin-tab" onclick="switchTab('pending')" id="tab-pending">
+            대기 중 <span class="badge" id="badge-pending">0</span>
+          </div>
+          <div class="admin-tab" onclick="switchTab('approved')" id="tab-approved">
+            승인됨 <span class="badge" id="badge-approved">0</span>
+          </div>
+          <div class="admin-tab" onclick="switchTab('rejected')" id="tab-rejected">
+            거절됨 <span class="badge" id="badge-rejected">0</span>
+          </div>
+        </div>
+
+        <div id="contribs-container">
+          <div class="empty-msg">불러오는 중…</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>비평 온톨로지 프로젝트 · TEI XML · Wikidata · 국립중앙도서관 LOD</p>
+    </div>
+  </footer>
+
+  <script>
+  const API = 'https://kcritic-api.onrender.com';
+  let adminToken = '';
+  let allContribs = {};
+  let currentTab = 'validated';
+
+  const TYPE_LABELS = {
+    new_essay:  '새 비평글',
+    fix_essay:  '비평글 수정',
+    new_person: '새 인물',
+    fix_person: '인물 수정',
+    other:      '기타',
+  };
+
+  // ── 로그인 ──
+  async function login() {
+    const token = document.getElementById('token-input').value.trim();
+    if (!token) return;
+    try {
+      const resp = await fetch(API + '/admin/contributions', {
+        headers: { 'X-Admin-Token': token }
+      });
+      if (resp.status === 401) throw new Error('토큰 오류');
+      const data = await resp.json();
+      adminToken = token;
+      allContribs = data;
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-screen').style.display = 'block';
+      renderAll();
+    } catch (e) {
+      document.getElementById('login-error').textContent = e.message === '토큰 오류'
+        ? '관리자 토큰이 올바르지 않습니다.' : '서버 연결 실패. 잠시 후 다시 시도하세요.';
+    }
+  }
+
+  document.getElementById('token-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') login();
+  });
+
+  // ── 데이터 로드 ──
+  async function loadContribs() {
+    try {
+      const resp = await fetch(API + '/admin/contributions', {
+        headers: { 'X-Admin-Token': adminToken }
+      });
+      allContribs = await resp.json();
+      renderAll();
+      showToast('새로고침 완료');
+    } catch (e) {
+      showToast('로드 실패: ' + e.message);
+    }
+  }
+
+  // ── 탭 전환 ──
+  function switchTab(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.admin-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    renderContribs();
+  }
+
+  function renderAll() {
+    const counts = allContribs.counts || {};
+    ['validated','pending','approved','rejected'].forEach(k => {
+      const el = document.getElementById('badge-' + k);
+      if (el) el.textContent = counts[k] || 0;
+    });
+    renderContribs();
+  }
+
+  // ── 카드 렌더링 ──
+  function renderContribs() {
+    const container = document.getElementById('contribs-container');
+    const items = allContribs[currentTab] || [];
+    if (!items.length) {
+      container.innerHTML = `<div class="empty-msg">${tabLabel(currentTab)} 제안이 없습니다.</div>`;
+      return;
+    }
+    container.innerHTML = items.map(item => renderCard(item)).join('');
+  }
+
+  function tabLabel(tab) {
+    return { validated:'검증 완료', pending:'대기 중', approved:'승인된', rejected:'거절된' }[tab] || tab;
+  }
+
+  function renderCard(item) {
+    const typeLabel = TYPE_LABELS[item.type] || item.type;
+    const date = item.submitted_at ? item.submitted_at.slice(0,10) : '';
+    const nlkBadges = item.nlk_verified
+      ? Object.entries(item.nlk_verified).map(([name, uri]) =>
+          `<a href="${uri}" target="_blank" class="nlk-badge">NLK: ${name}</a>`
+        ).join('') : '';
+    const isReviewed = currentTab === 'approved' || currentTab === 'rejected';
+    const statusChip = isReviewed
+      ? `<span class="status-chip ${currentTab}">${currentTab === 'approved' ? '승인' : '거절'}</span>` : '';
+    const rejectReason = item.reject_reason
+      ? `<div style="font-size:.78rem;color:#c62828;margin-top:.35rem;">거절 사유: ${item.reject_reason}</div>` : '';
+
+    const actionRow = !isReviewed ? `
+      <div class="action-row">
+        <button class="btn-approve" onclick="approve('${item.id}')">✓ 승인</button>
+        <input class="reject-input" type="text" id="reason-${item.id}" placeholder="거절 사유 (선택)">
+        <button class="btn-reject" onclick="reject('${item.id}')">✗ 거절</button>
+      </div>` : '';
+
+    return `
+      <div class="contrib-card" id="card-${item.id}">
+        <div class="contrib-card-header">
+          <div>
+            <span class="contrib-type-badge">${typeLabel}</span>
+            ${item.gemini_normalized ? '<span style="font-size:.7rem;color:#1a5c35;margin-left:.5rem;">✓ AI 검증됨</span>' : ''}
+          </div>
+          <div style="text-align:right;">
+            <div class="contrib-id">#${item.id}</div>
+            <div class="contrib-date">${date}</div>
+          </div>
+        </div>
+
+        <div class="contrib-summary">${escHtml(item.summary)}</div>
+        <div class="contrib-person">
+          제출자: <span>${escHtml(item.name)}</span>
+          ${item.affiliation ? ` · ${escHtml(item.affiliation)}` : ''}
+          · <a href="mailto:${escHtml(item.email)}" style="color:inherit">${escHtml(item.email)}</a>
+        </div>
+
+        ${nlkBadges ? `<div class="nlk-badges">${nlkBadges}</div>` : ''}
+
+        <button class="detail-toggle" onclick="toggleDetail('${item.id}')">▶ 상세 내용 보기</button>
+        <div class="detail-box" id="detail-${item.id}">${escHtml(item.detail || '')}${item.source ? '\n\n출처: ' + item.source : ''}</div>
+
+        ${statusChip}${rejectReason}
+        ${actionRow}
+      </div>`;
+  }
+
+  function toggleDetail(id) {
+    const box = document.getElementById('detail-' + id);
+    const btn = box.previousElementSibling;
+    const open = box.classList.toggle('open');
+    btn.textContent = (open ? '▼' : '▶') + ' 상세 내용 보기';
+  }
+
+  function escHtml(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── 승인 ──
+  async function approve(id) {
+    try {
+      const resp = await fetch(`${API}/admin/approve/${id}`, {
+        method: 'POST', headers: { 'X-Admin-Token': adminToken }
+      });
+      if (!resp.ok) throw new Error(await resp.text());
+      showToast('승인 완료');
+      await loadContribs();
+    } catch (e) { showToast('오류: ' + e.message); }
+  }
+
+  // ── 거절 ──
+  async function reject(id) {
+    const reason = document.getElementById('reason-' + id)?.value.trim() || '';
+    try {
+      const resp = await fetch(`${API}/admin/reject/${id}?reason=${encodeURIComponent(reason)}`, {
+        method: 'POST', headers: { 'X-Admin-Token': adminToken }
+      });
+      if (!resp.ok) throw new Error(await resp.text());
+      showToast('거절 처리 완료');
+      await loadContribs();
+    } catch (e) { showToast('오류: ' + e.message); }
+  }
+
+  // ── 수동 AI 검증 ──
+  async function runBatch() {
+    try {
+      const resp = await fetch(API + '/admin/run-batch', {
+        method: 'POST', headers: { 'X-Admin-Token': adminToken }
+      });
+      const data = await resp.json();
+      showToast(data.message);
+      await loadContribs();
+    } catch (e) { showToast('오류: ' + e.message); }
+  }
+
+  // ── 토스트 ──
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 2500);
+  }
+  </script>
+</body>
+</html>
