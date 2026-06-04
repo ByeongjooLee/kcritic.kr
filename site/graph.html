@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="../style.css">
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dagre@0.8.5/dist/dagre.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
   <style>
     body { overflow: hidden; }
 
@@ -413,11 +415,8 @@
       <!-- 툴바 -->
       <div class="graph-toolbar">
         <select class="toolbar-select" id="layout-select" onchange="changeLayout(this.value)">
-          <option value="cose">Force (기본)</option>
-          <option value="concentric">동심원</option>
-          <option value="breadthfirst">계층형</option>
-          <option value="circle">원형</option>
-          <option value="grid">격자</option>
+          <option value="cose">Force</option>
+          <option value="dagre">계층형 (Dagre)</option>
         </select>
         <button class="toolbar-btn" onclick="cy.fit()">전체 보기</button>
         <button class="toolbar-btn" onclick="resetLayout()">레이아웃 초기화</button>
@@ -672,35 +671,14 @@
       fit: true,
       padding: 40,
     },
-    concentric: {
-      name: 'concentric',
+    dagre: {
+      name: 'dagre',
       animate: true,
       animationDuration: 500,
-      concentric: n => n.data('degree') || 1,
-      levelWidth: () => 3,
-      fit: true,
-      padding: 40,
-    },
-    breadthfirst: {
-      name: 'breadthfirst',
-      animate: true,
-      animationDuration: 500,
-      directed: false,
-      fit: true,
-      padding: 40,
-      spacingFactor: 1.2,
-    },
-    circle: {
-      name: 'circle',
-      animate: true,
-      animationDuration: 500,
-      fit: true,
-      padding: 40,
-    },
-    grid: {
-      name: 'grid',
-      animate: true,
-      animationDuration: 500,
+      rankDir: 'TB',       // 비평가(상단) → 에세이 → 작가/이론가(하단)
+      ranker: 'network-simplex',
+      nodeSep: 40,
+      rankSep: 80,
       fit: true,
       padding: 40,
     },
