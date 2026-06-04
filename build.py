@@ -26,11 +26,13 @@ if PERSONS_FILE.exists():
 
 def _registry_ref(xml_id: str) -> str:
     """persons.json에서 xml_id의 외부 식별자 URI 문자열을 조합해 반환.
-    wikidata > nlk > isni 순으로 있는 것만 포함."""
+    wikidata > encykorea > nlk > isni 순으로 있는 것만 포함."""
     p = _PERSONS_REGISTRY.get(xml_id, {})
     uris = []
     if p.get("wikidata"):
         uris.append(f"https://www.wikidata.org/wiki/{p['wikidata']}")
+    if p.get("encykorea"):
+        uris.append(p["encykorea"])
     if p.get("nlk"):
         uris.append(p["nlk"])
     if p.get("isni"):
@@ -288,9 +290,19 @@ def person_chip(p, role_type=None):
             wikidata = uri
             break
 
+    # encykorea 링크 (persons.json에서 직접 조회)
+    encykorea = _PERSONS_REGISTRY.get(pid, {}).get("encykorea", "") if pid else ""
+
     chip = f'<span class="chip {cls}" data-id="{pid}">{name}</span>'
-    if wikidata:
+    if wikidata and encykorea:
+        chip = (f'<span class="chip {cls}" data-id="{pid}">{name}'
+                f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
+                f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
+                f'</span>')
+    elif wikidata:
         chip = f'<a href="{wikidata}" target="_blank" class="chip {cls} chip-linked" data-id="{pid}" title="Wikidata">{name} <span class="chip-ext">↗</span></a>'
+    elif encykorea:
+        chip = f'<a href="{encykorea}" target="_blank" class="chip {cls} chip-linked" data-id="{pid}" title="한국민족문화대백과">{name} <span class="chip-ext">↗</span></a>'
     return chip
 
 def source_html(sources):

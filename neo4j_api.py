@@ -26,8 +26,10 @@ ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 GEMINI_KEY    = os.getenv("GEMINI_API_KEY", "")
 ADMIN_TOKEN   = os.getenv("ADMIN_TOKEN", "")
 NLK_API_KEY   = os.getenv("NLK_API_KEY", "")
+AKS_API_KEY   = os.getenv("AKS_API_KEY", "")
 
 NLK_SRCH_URL  = "https://apis.data.go.kr/1371029/AuthorInformationService/getAuthorInformationSrch"
+AKS_SRCH_URL  = "https://devin.aks.ac.kr:8080/api/articles/search"
 
 CONTRIB_DIR = Path("/tmp/kcritic_contributions")
 CONTRIB_DIR.mkdir(exist_ok=True)
@@ -185,26 +187,62 @@ def _nlk_search(name: str) -> list[dict]:
         return []
 
 
+def _aks_search(name: str) -> list[dict]:
+    """민족문화대백과사전 항목 검색. 인물 항목만 필터링."""
+    if not AKS_API_KEY:
+        return []
+    params = urllib.parse.urlencode({"q": name, "p": 1, "ps": 5})
+    try:
+        req = urllib.request.Request(
+            f"{AKS_SRCH_URL}?{params}",
+            headers={"X-API-Key": AKS_API_KEY, "User-Agent": "kcritic-ontology/1.0"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.load(r)
+        return [item for item in data.get("items", [])
+                if item.get("primaryTypePartA") == "인물"]
+    except Exception:
+        return []
+
+
 @app.get("/person-lookup")
 def person_lookup(name: str):
-    """저자명으로 NLK 저자정보 조회 — 사이트 기여/검색 연동용."""
+    """저자명으로 NLK + 민족문화대백과 동시 조회 — 사이트 기여/검색 연동용."""
     if not name or not name.strip():
         raise HTTPException(status_code=400, detail="name 파라미터 필요")
-    items = _nlk_search(name.strip())
-    results = []
-    for item in items:
+    name = name.strip()
+
+    nlk_items = _nlk_search(name)
+    aks_items = _aks_search(name)
+
+    nlk_results = []
+    for item in nlk_items:
         auth_id = item.get("authNo") or item.get("authId") or item.get("id")
         nlk_uri = f"https://lod.nl.go.kr/resource/KAC{str(auth_id).zfill(8)}" if auth_id else None
-        results.append({
+        nlk_results.append({
             "name": item.get("authNm", ""),
             "birth": item.get("birthYear", ""),
             "death": item.get("deathYear", ""),
             "occupation": item.get("occpNm", ""),
-            "nationality": item.get("natnNm", ""),
             "nlk_uri": nlk_uri,
-            "nlk_id": str(auth_id) if auth_id else None,
         })
-    return {"query": name, "count": len(results), "results": results}
+
+    aks_results = []
+    for item in aks_items:
+        aks_results.append({
+            "headword": item.get("headword", ""),
+            "definition": item.get("definition", ""),
+            "era": item.get("era", ""),
+            "field": item.get("field", ""),
+            "url": item.get("url", ""),
+            "eid": item.get("eid", ""),
+        })
+
+    return {
+        "query": name,
+        "nlk": {"count": len(nlk_results), "results": nlk_results},
+        "encykorea": {"count": len(aks_results), "results": aks_results},
+    }
 
 
 # ──────────────────────────────────────────
