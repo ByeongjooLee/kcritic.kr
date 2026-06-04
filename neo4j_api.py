@@ -25,6 +25,9 @@ NEO4J_PWD     = os.getenv("NEO4J_PASSWORD", "")
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 GEMINI_KEY    = os.getenv("GEMINI_API_KEY", "")
 ADMIN_TOKEN   = os.getenv("ADMIN_TOKEN", "")
+NLK_API_KEY   = os.getenv("NLK_API_KEY", "")
+
+NLK_SRCH_URL  = "https://apis.data.go.kr/1371029/AuthorInformationService/getAuthorInformationSrch"
 
 CONTRIB_DIR = Path("/tmp/kcritic_contributions")
 CONTRIB_DIR.mkdir(exist_ok=True)
@@ -149,6 +152,59 @@ def stats():
     nodes = run_cypher("MATCH (n) RETURN labels(n)[0] AS label, count(*) AS cnt ORDER BY cnt DESC")
     edges = run_cypher("MATCH ()-[r]->() RETURN type(r) AS type, count(*) AS cnt ORDER BY cnt DESC")
     return {"nodes": nodes, "edges": edges}
+
+
+# ──────────────────────────────────────────
+# NLK 저자정보 조회
+# ──────────────────────────────────────────
+
+def _nlk_search(name: str) -> list[dict]:
+    """국립중앙도서관 저자정보 API 조회. 결과 item 목록 반환."""
+    if not NLK_API_KEY:
+        return []
+    params = urllib.parse.urlencode({
+        "serviceKey": NLK_API_KEY,
+        "authNm": name,
+        "pageNo": 1,
+        "numOfRows": 5,
+        "type": "json",
+    })
+    url = f"{NLK_SRCH_URL}?{params}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "kcritic-ontology/1.0"})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.load(r)
+        items = (data.get("response", {})
+                     .get("body", {})
+                     .get("items", {})
+                     .get("item", []))
+        if isinstance(items, dict):
+            items = [items]
+        return items or []
+    except Exception as e:
+        return []
+
+
+@app.get("/person-lookup")
+def person_lookup(name: str):
+    """저자명으로 NLK 저자정보 조회 — 사이트 기여/검색 연동용."""
+    if not name or not name.strip():
+        raise HTTPException(status_code=400, detail="name 파라미터 필요")
+    items = _nlk_search(name.strip())
+    results = []
+    for item in items:
+        auth_id = item.get("authNo") or item.get("authId") or item.get("id")
+        nlk_uri = f"https://lod.nl.go.kr/resource/KAC{str(auth_id).zfill(8)}" if auth_id else None
+        results.append({
+            "name": item.get("authNm", ""),
+            "birth": item.get("birthYear", ""),
+            "death": item.get("deathYear", ""),
+            "occupation": item.get("occpNm", ""),
+            "nationality": item.get("natnNm", ""),
+            "nlk_uri": nlk_uri,
+            "nlk_id": str(auth_id) if auth_id else None,
+        })
+    return {"query": name, "count": len(results), "results": results}
 
 
 # ──────────────────────────────────────────
