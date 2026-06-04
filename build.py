@@ -959,7 +959,8 @@ def build_critics_data(all_essays):
             continue
         p = e["persons"].get(aid, {})
         if aid not in critics:
-            critics[aid] = {"id": aid, "name": p.get("name", aid), "ref": p.get("ref", ""), "essays": []}
+            reg_ref = _registry_ref(aid)
+            critics[aid] = {"id": aid, "name": p.get("name", aid), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
         critics[aid]["essays"].append(e)
     return critics
 
@@ -1127,7 +1128,8 @@ def main():
             if not p:
                 continue
             if pid not in writers_map:
-                writers_map[pid] = {"id": pid, "name": p.get("name", pid), "ref": p.get("ref", ""), "essays": []}
+                reg_ref = _registry_ref(pid)
+                writers_map[pid] = {"id": pid, "name": p.get("name", pid), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
             writers_map[pid]["essays"].append(e)
 
     for wid, winfo in writers_map.items():
