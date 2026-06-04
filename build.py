@@ -17,6 +17,25 @@ OUTPUT_DIR = Path("site/essays")
 CRITICS_DIR = Path("site/critics")
 WRITERS_DIR = Path("site/writers")
 DATA_DIR = Path("site/data")
+PERSONS_FILE = Path("persons.json")
+
+# persons.json 권위 소스 로드 (없으면 빈 dict)
+_PERSONS_REGISTRY: dict = {}
+if PERSONS_FILE.exists():
+    _PERSONS_REGISTRY = json.loads(PERSONS_FILE.read_text(encoding="utf-8"))
+
+def _registry_ref(xml_id: str) -> str:
+    """persons.json에서 xml_id의 외부 식별자 URI 문자열을 조합해 반환.
+    wikidata > nlk > isni 순으로 있는 것만 포함."""
+    p = _PERSONS_REGISTRY.get(xml_id, {})
+    uris = []
+    if p.get("wikidata"):
+        uris.append(f"https://www.wikidata.org/wiki/{p['wikidata']}")
+    if p.get("nlk"):
+        uris.append(p["nlk"])
+    if p.get("isni"):
+        uris.append(f"https://isni.org/isni/{p['isni']}")
+    return " ".join(uris)
 
 def tns(tag):
     return f"{{{T}}}{tag}"
@@ -255,16 +274,20 @@ ROLE_CLASS = {
 def person_chip(p, role_type=None):
     role = role_type or classify_role(p.get("role", ""))
     cls = ROLE_CLASS.get(role, "role-other")
-    ref = p.get("ref", "")
-    wikidata = ""
-    if ref and "wikidata" in ref:
-        # ref에 복수 URI 있을 수 있음
-        for uri in ref.split():
-            if "wikidata" in uri:
-                wikidata = uri
-                break
     name = p.get("name", "")
     pid = p.get("id", "")
+
+    # persons.json 우선, 없으면 XML ref에서 추출
+    reg_ref = _registry_ref(pid) if pid else ""
+    xml_ref = p.get("ref", "")
+    combined_ref = reg_ref if reg_ref else xml_ref
+
+    wikidata = ""
+    for uri in combined_ref.split():
+        if "wikidata" in uri:
+            wikidata = uri
+            break
+
     chip = f'<span class="chip {cls}" data-id="{pid}">{name}</span>'
     if wikidata:
         chip = f'<a href="{wikidata}" target="_blank" class="chip {cls} chip-linked" data-id="{pid}" title="Wikidata">{name} <span class="chip-ext">↗</span></a>'
@@ -440,16 +463,16 @@ def build_graph_data(all_essays):
         display_year = essay.get("display_year") or year
         nodes[stem] = {"id": stem, "label": title, "type": "essay", "year": display_year}
 
-        # 비평가 노드 (ref가 있는 버전 우선 유지)
+        # 비평가 노드 (persons.json 권위 소스 우선, 없으면 XML ref)
         if author_id and author_id in persons:
             p = persons[author_id]
-            existing_ref = nodes.get(author_id, {}).get("ref", "")
-            new_ref = p.get("ref", "")
+            reg_ref = _registry_ref(author_id)
+            xml_ref = p.get("ref", "")
             nodes[author_id] = {
                 "id": author_id,
                 "label": p["name"],
                 "type": "critic",
-                "ref": new_ref if new_ref else existing_ref,
+                "ref": reg_ref if reg_ref else xml_ref,
             }
             raw_edges.append((author_id, stem, "wrote"))
 
@@ -458,7 +481,9 @@ def build_graph_data(all_essays):
             if pid in persons:
                 p = persons[pid]
                 if pid not in nodes:
-                    nodes[pid] = {"id": pid, "label": p["name"], "type": "writer", "ref": p.get("ref", "")}
+                    reg_ref = _registry_ref(pid)
+                    nodes[pid] = {"id": pid, "label": p["name"], "type": "writer",
+                                  "ref": reg_ref if reg_ref else p.get("ref", "")}
                 raw_edges.append((stem, pid, "subject_of"))
 
         # 이론가 노드
@@ -466,7 +491,9 @@ def build_graph_data(all_essays):
             if pid in persons:
                 p = persons[pid]
                 if pid not in nodes:
-                    nodes[pid] = {"id": pid, "label": p["name"], "type": "theorist", "ref": p.get("ref", "")}
+                    reg_ref = _registry_ref(pid)
+                    nodes[pid] = {"id": pid, "label": p["name"], "type": "theorist",
+                                  "ref": reg_ref if reg_ref else p.get("ref", "")}
                 raw_edges.append((stem, pid, "uses_theory"))
 
     # 엣지 weight 집계 (같은 source→target→type 쌍이 여러 비평글에서 반복될 때 가중치 증가)
@@ -522,7 +549,9 @@ def build_critic_mini_graph(critic_id, graph_data):
 def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     """비평가 한 명의 프로필 페이지 생성. essays = 해당 비평가의 비평글 데이터 목록."""
     name = critic_info["name"]
-    ref = critic_info.get("ref", "")
+    reg_ref = _registry_ref(critic_id)
+    xml_ref = critic_info.get("ref", "")
+    ref = reg_ref if reg_ref else xml_ref
     wikidata_link = ""
     if ref and "wikidata" in ref:
         for uri in ref.split():
@@ -781,7 +810,9 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
 def build_writer_profile(writer_id, writer_info, essays_about):
     """작가 한 명의 프로필 페이지. essays_about = 이 작가를 비평 대상으로 다룬 에세이 목록."""
     name = writer_info["name"]
-    ref = writer_info.get("ref", "")
+    reg_ref = _registry_ref(writer_id)
+    xml_ref = writer_info.get("ref", "")
+    ref = reg_ref if reg_ref else xml_ref
 
     wikidata_uri = ""
     for uri in ref.split():
