@@ -30,7 +30,7 @@ CONTRIB_DIR = Path("/tmp/kcritic_contributions")
 CONTRIB_DIR.mkdir(exist_ok=True)
 BATCH_THRESHOLD = 10
 
-RATE_LIMIT = 20          # IP당 하루 최대 질문 횟수
+RATE_LIMIT = 5           # IP당 하루 최대 질문 횟수
 _rate: dict = {}         # {ip: {"date": "YYYY-MM-DD", "count": N}}
 
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PWD))
