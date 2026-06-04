@@ -10,9 +10,77 @@
   <style>
     .contrib-wrap { max-width: 680px; margin: 0 auto; padding: 3rem 0 5rem; }
 
-    .contrib-hero { margin-bottom: 2.5rem; }
+    .contrib-hero { margin-bottom: 2rem; }
     .contrib-hero h1 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.6rem; }
     .contrib-hero p  { font-size: .93rem; color: var(--text-secondary); line-height: 1.8; }
+
+    /* 기여 방식 탭 */
+    .contrib-tabs {
+      display: flex; gap: 0; margin-bottom: 2rem;
+      border: 1.5px solid var(--border); border-radius: 9px; overflow: hidden;
+    }
+    .contrib-tab {
+      flex: 1; padding: .7rem 1rem; text-align: center;
+      font-size: .88rem; font-weight: 500; cursor: pointer;
+      background: var(--bg-card); color: var(--text-secondary);
+      border: none; border-right: 1px solid var(--border);
+      transition: all .15s; font-family: inherit;
+    }
+    .contrib-tab:last-child { border-right: none; }
+    .contrib-tab.active { background: var(--accent); color: #fff; }
+    .contrib-tab:hover:not(.active) { background: var(--bg-hover, #f5f5f5); }
+
+    .contrib-pane { display: none; }
+    .contrib-pane.active { display: block; }
+
+    /* 엑셀 업로드 */
+    .excel-section { margin-bottom: 2rem; }
+    .excel-section h2 {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-tertiary);
+      margin-bottom: 1rem; padding-bottom: .4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .template-btns { display: flex; gap: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .template-btn {
+      padding: .45rem .9rem; border: 1.5px solid var(--border);
+      border-radius: 7px; background: var(--bg-card);
+      color: var(--text-secondary); font-size: .82rem;
+      font-family: inherit; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: .35rem;
+      transition: border-color .15s;
+    }
+    .template-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .upload-zone {
+      border: 2px dashed var(--border); border-radius: 10px;
+      padding: 2rem; text-align: center; cursor: pointer;
+      transition: border-color .15s; margin-bottom: 1rem;
+      background: var(--bg-card);
+    }
+    .upload-zone:hover, .upload-zone.dragover { border-color: var(--accent); }
+    .upload-zone .upload-icon { font-size: 2rem; margin-bottom: .5rem; }
+    .upload-zone p { font-size: .88rem; color: var(--text-secondary); margin: 0; }
+    .upload-zone .upload-hint { font-size: .78rem; color: var(--text-tertiary); margin-top: .3rem; }
+
+    .preview-table-wrap {
+      overflow-x: auto; margin-bottom: 1rem;
+      border: 1px solid var(--border); border-radius: 8px;
+      display: none;
+    }
+    .preview-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    .preview-table th {
+      background: var(--bg-card); padding: .5rem .7rem;
+      text-align: left; font-weight: 600; font-size: .75rem;
+      border-bottom: 1px solid var(--border); white-space: nowrap;
+    }
+    .preview-table td {
+      padding: .45rem .7rem; border-bottom: 1px solid var(--border);
+      white-space: nowrap; max-width: 200px;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .preview-table tr:last-child td { border-bottom: none; }
+    .preview-info { font-size: .8rem; color: var(--text-secondary); margin-bottom: .8rem; }
 
     .process-steps {
       display: flex; gap: 0; margin: 1.5rem 0 2.5rem;
@@ -139,6 +207,15 @@
         제출된 내용은 Gemini AI로 서식 검증 후 관리자가 최종 검토하여 반영합니다.</p>
       </div>
 
+      <!-- 기여 방식 탭 -->
+      <div class="contrib-tabs">
+        <button class="contrib-tab active" onclick="switchContribTab('form', this)">텍스트 폼</button>
+        <button class="contrib-tab" onclick="switchContribTab('excel', this)">엑셀 업로드</button>
+      </div>
+
+      <!-- 텍스트 폼 탭 -->
+      <div class="contrib-pane active" id="pane-form">
+
       <div class="process-steps">
         <div class="process-step">
           <span class="step-num">Step 1</span>아래 폼 작성 후 제출
@@ -251,6 +328,66 @@
 
       <div class="status-box" id="status-box"></div>
 
+      </div><!-- /pane-form -->
+
+      <!-- 엑셀 업로드 탭 -->
+      <div class="contrib-pane" id="pane-excel">
+
+        <div class="excel-section">
+          <h2>템플릿 다운로드</h2>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;">
+            아래 템플릿을 다운로드해서 작성 후 업로드해주세요.
+          </p>
+          <div class="template-btns">
+            <a class="template-btn" href="templates/template_essay.xlsx" download>
+              ↓ 비평글 템플릿
+            </a>
+            <a class="template-btn" href="templates/template_research.xlsx" download>
+              ↓ 선행연구 템플릿 (박사·석사·KCI)
+            </a>
+          </div>
+        </div>
+
+        <div class="excel-section">
+          <h2>파일 업로드</h2>
+          <div class="upload-zone" id="upload-zone"
+               onclick="document.getElementById('excel-file').click()"
+               ondragover="handleDragOver(event)"
+               ondragleave="handleDragLeave(event)"
+               ondrop="handleDrop(event)">
+            <div class="upload-icon">📂</div>
+            <p>클릭하거나 파일을 여기로 드래그하세요</p>
+            <p class="upload-hint">.xlsx 파일만 지원 · 최대 5MB</p>
+          </div>
+          <input type="file" id="excel-file" accept=".xlsx" style="display:none" onchange="handleFileSelect(event)">
+
+          <div class="preview-info" id="preview-info"></div>
+          <div class="preview-table-wrap" id="preview-wrap">
+            <table class="preview-table" id="preview-table"></table>
+          </div>
+
+          <div class="form-row" style="margin-top:1rem;">
+            <label>기여자 이름 <span class="req">*</span></label>
+            <input class="form-input" type="text" id="ex-name" placeholder="홍길동">
+          </div>
+          <div class="form-row">
+            <label>이메일 <span class="req">*</span>
+              <span class="hint">승인/거절 알림, 외부 비공개</span>
+            </label>
+            <input class="form-input" type="email" id="ex-email" placeholder="example@university.ac.kr">
+          </div>
+          <div class="form-row">
+            <label>소속 기관 <span class="hint">(선택)</span></label>
+            <input class="form-input" type="text" id="ex-affiliation" placeholder="○○대학교">
+          </div>
+
+          <button class="submit-btn" id="excel-submit-btn" onclick="submitExcel()" disabled
+                  style="margin-top:1rem;">파일 제출하기</button>
+          <div class="status-box" id="excel-status-box"></div>
+        </div>
+
+      </div><!-- /pane-excel -->
+
     </div>
   </main>
 
@@ -314,6 +451,142 @@
       box.style.display = 'block';
       btn.disabled = false;
       btn.textContent = '제안 제출하기';
+    }
+  }
+  // ── 탭 전환 ──
+  function switchContribTab(name, btn) {
+    document.querySelectorAll('.contrib-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.contrib-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('pane-' + name).classList.add('active');
+  }
+
+  // ── 엑셀 업로드 ──
+  let parsedRows = [];
+  let detectedType = '';
+
+  function handleDragOver(e) {
+    e.preventDefault();
+    document.getElementById('upload-zone').classList.add('dragover');
+  }
+  function handleDragLeave(e) {
+    document.getElementById('upload-zone').classList.remove('dragover');
+  }
+  function handleDrop(e) {
+    e.preventDefault();
+    document.getElementById('upload-zone').classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) processExcelFile(file);
+  }
+  function handleFileSelect(e) {
+    const file = e.target.files[0];
+    if (file) processExcelFile(file);
+  }
+
+  async function processExcelFile(file) {
+    if (!file.name.endsWith('.xlsx')) {
+      alert('.xlsx 파일만 업로드할 수 있습니다.');
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      alert('파일 크기가 5MB를 초과합니다.');
+      return;
+    }
+
+    // SheetJS 라이브러리 동적 로드
+    if (!window.XLSX) {
+      await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+        s.onload = resolve; s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
+
+    const buf = await file.arrayBuffer();
+    const wb = XLSX.read(buf, { type: 'array' });
+    const sheetName = wb.SheetNames[0];
+    const ws = wb.Sheets[sheetName];
+    const data = XLSX.utils.sheet_to_json(ws, { defval: '' });
+
+    if (!data.length) { alert('데이터가 없습니다.'); return; }
+
+    // 시트명으로 유형 감지
+    if (sheetName.includes('비평글')) detectedType = 'essay';
+    else if (sheetName.includes('선행연구')) detectedType = 'research';
+    else detectedType = 'unknown';
+
+    parsedRows = data;
+    renderPreview(data);
+    document.getElementById('excel-submit-btn').disabled = false;
+    document.getElementById('upload-zone').querySelector('p').textContent = `✓ ${file.name} (${data.length}행)`;
+  }
+
+  function renderPreview(data) {
+    const wrap = document.getElementById('preview-wrap');
+    const table = document.getElementById('preview-table');
+    const info = document.getElementById('preview-info');
+    const headers = Object.keys(data[0]);
+    const preview = data.slice(0, 5);
+
+    info.textContent = `총 ${data.length}행 · 미리보기 최대 5행 표시`;
+    table.innerHTML = `
+      <thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${preview.map(row =>
+        `<tr>${headers.map(h => `<td title="${row[h]}">${row[h]}</td>`).join('')}</tr>`
+      ).join('')}</tbody>
+    `;
+    wrap.style.display = 'block';
+  }
+
+  async function submitExcel() {
+    const name = document.getElementById('ex-name').value.trim();
+    const email = document.getElementById('ex-email').value.trim();
+    if (!name || !email) { alert('이름과 이메일을 입력해주세요.'); return; }
+    if (!parsedRows.length) { alert('파일을 먼저 업로드해주세요.'); return; }
+
+    const btn = document.getElementById('excel-submit-btn');
+    const box = document.getElementById('excel-status-box');
+    btn.disabled = true;
+    btn.textContent = '제출 중…';
+    box.style.display = 'none';
+
+    const payload = {
+      type: detectedType === 'essay' ? 'new_essay' : 'new_research',
+      name,
+      email,
+      affiliation: document.getElementById('ex-affiliation').value.trim() || null,
+      summary: `엑셀 일괄 제출 — ${detectedType === 'essay' ? '비평글' : '선행연구'} ${parsedRows.length}건`,
+      detail: JSON.stringify(parsedRows, null, 2),
+      source: null,
+    };
+
+    try {
+      const resp = await fetch(API + '/contribute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await resp.json();
+      if (resp.ok) {
+        box.className = 'status-box success';
+        box.innerHTML = `<strong>제출 완료!</strong> (ID: <code>${data.id}</code>)<br>
+          ${parsedRows.length}건의 데이터가 접수되었습니다. 검토 후 이메일로 알려드립니다.`;
+        parsedRows = [];
+        document.getElementById('preview-wrap').style.display = 'none';
+        document.getElementById('preview-info').textContent = '';
+        document.getElementById('upload-zone').querySelector('p').textContent = '클릭하거나 파일을 여기로 드래그하세요';
+        btn.disabled = true;
+      } else {
+        throw new Error(data.detail || '서버 오류');
+      }
+    } catch (err) {
+      box.className = 'status-box error';
+      box.innerHTML = `<strong>오류:</strong> ${err.message}`;
+    } finally {
+      box.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '파일 제출하기';
     }
   }
   </script>
