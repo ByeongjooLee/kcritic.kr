@@ -10,7 +10,7 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Header
+from fastapi import FastAPI, HTTPException, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
@@ -30,6 +30,9 @@ CONTRIB_DIR = Path("/tmp/kcritic_contributions")
 CONTRIB_DIR.mkdir(exist_ok=True)
 BATCH_THRESHOLD = 10
 
+RATE_LIMIT = 20          # IP당 하루 최대 질문 횟수
+_rate: dict = {}         # {ip: {"date": "YYYY-MM-DD", "count": N}}
+
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PWD))
 claude = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
 
@@ -40,6 +43,19 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+def check_rate(request_ip: str):
+    today = datetime.date.today().isoformat()
+    rec = _rate.get(request_ip)
+    if rec and rec["date"] == today:
+        if rec["count"] >= RATE_LIMIT:
+            raise HTTPException(
+                status_code=429,
+                detail=f"하루 질문 한도({RATE_LIMIT}회)를 초과했습니다. 내일 다시 시도해주세요."
+            )
+        rec["count"] += 1
+    else:
+        _rate[request_ip] = {"date": today, "count": 1}
 
 # ──────────────────────────────────────────
 # GraphRAG (기존)
@@ -123,7 +139,9 @@ def root():
     return {"status": "ok", "service": "kcritic GraphRAG API"}
 
 @app.post("/ask")
-def ask(q: Question):
+def ask(q: Question, request: Request):
+    ip = request.client.host
+    check_rate(ip)
     return ask_claude(q.question)
 
 @app.get("/stats")
