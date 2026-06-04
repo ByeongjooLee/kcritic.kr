@@ -105,7 +105,7 @@ def run_cypher(query: str, params: dict = {}) -> list:
 
 def ask_claude(question: str) -> dict:
     cypher_resp = claude.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-haiku-4-5-20251001",
         max_tokens=512,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": f"다음 질문에 답하기 위한 Cypher 쿼리만 작성하세요.\n쿼리만 출력하고 설명은 하지 마세요. 코드블록 없이 순수 Cypher만.\n\n질문: {question}"}]
@@ -121,7 +121,7 @@ def ask_claude(question: str) -> dict:
 
     context = json.dumps(rows, ensure_ascii=False, indent=2) if rows else "조회 결과 없음"
     answer_resp = claude.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-haiku-4-5-20251001",
         max_tokens=1024,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": f"질문: {question}\n\nNeo4j 조회 결과:\n{context}\n\n위 데이터를 바탕으로 질문에 학술적으로 답해주세요."}]
