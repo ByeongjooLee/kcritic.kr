@@ -15,25 +15,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 from neo4j import GraphDatabase
-import anthropic
 
 load_dotenv()
 
-NEO4J_URI     = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
-NEO4J_USER    = os.getenv("NEO4J_USERNAME", "neo4j")
-NEO4J_PWD     = os.getenv("NEO4J_PASSWORD", "")
-ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-GEMINI_KEY    = os.getenv("GEMINI_API_KEY", "")
-ADMIN_TOKEN   = os.getenv("ADMIN_TOKEN", "")          # 관리자 인증 토큰
+NEO4J_URI   = os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
+NEO4J_USER  = os.getenv("NEO4J_USERNAME", "neo4j")
+NEO4J_PWD   = os.getenv("NEO4J_PASSWORD", "")
+GEMINI_KEY  = os.getenv("GEMINI_API_KEY", "")
+ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "")
 
-# 제안 저장 경로 (Render 임시 디스크 — 재시작 시 초기화됨)
-# 영구 저장이 필요하면 추후 Neo4j 또는 GitHub Issues로 교체
 CONTRIB_DIR = Path("/tmp/kcritic_contributions")
 CONTRIB_DIR.mkdir(exist_ok=True)
-BATCH_THRESHOLD = 10   # 이 건수마다 Gemini 검증 배치 실행
+BATCH_THRESHOLD = 10
 
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PWD))
-claude = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
 
 app = FastAPI(title="kcritic GraphRAG API")
 app.add_middleware(
@@ -89,14 +84,30 @@ def run_cypher(query: str, params: dict = {}) -> list:
         result = s.run(query, **params)
         return [dict(r) for r in result]
 
-def ask_claude(question: str) -> dict:
-    cypher_resp = claude.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=512,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": f"다음 질문에 답하기 위한 Cypher 쿼리만 작성하세요.\n쿼리만 출력하고 설명은 하지 마세요. 코드블록 없이 순수 Cypher만.\n\n질문: {question}"}]
-    )
-    cypher = cypher_resp.content[0].text.strip().replace("```cypher", "").replace("```", "").strip()
+def gemini_generate(prompt: str, max_tokens: int = 1024) -> str:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}"
+    body = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"maxOutputTokens": max_tokens}
+    }).encode()
+    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        result = json.load(r)
+    return result["candidates"][0]["content"]["parts"][0]["text"].strip()
+
+def ask_gemini(question: str) -> dict:
+    cypher_prompt = f"""{SYSTEM_PROMPT}
+
+다음 질문에 답하기 위한 Cypher 쿼리만 작성하세요.
+쿼리만 출력하고 설명은 하지 마세요. 코드블록 없이 순수 Cypher만.
+
+질문: {question}"""
+
+    try:
+        cypher = gemini_generate(cypher_prompt, max_tokens=512)
+        cypher = cypher.replace("```cypher", "").replace("```", "").strip()
+    except Exception as e:
+        return {"question": question, "cypher": "", "cypher_error": str(e), "rows": [], "answer": "Gemini API 오류가 발생했습니다."}
 
     try:
         rows = run_cypher(cypher)
@@ -106,18 +117,26 @@ def ask_claude(question: str) -> dict:
         cypher_error = str(e)
 
     context = json.dumps(rows, ensure_ascii=False, indent=2) if rows else "조회 결과 없음"
-    answer_resp = claude.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=1024,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": f"질문: {question}\n\nNeo4j 조회 결과:\n{context}\n\n위 데이터를 바탕으로 질문에 학술적으로 답해주세요."}]
-    )
+    answer_prompt = f"""{SYSTEM_PROMPT}
+
+질문: {question}
+
+Neo4j 조회 결과:
+{context}
+
+위 데이터를 바탕으로 질문에 학술적으로 답해주세요."""
+
+    try:
+        answer = gemini_generate(answer_prompt, max_tokens=1024)
+    except Exception as e:
+        answer = f"답변 생성 중 오류: {e}"
+
     return {
         "question": question,
         "cypher": cypher,
         "cypher_error": cypher_error,
         "rows": rows,
-        "answer": answer_resp.content[0].text.strip(),
+        "answer": answer,
     }
 
 @app.get("/")
@@ -126,7 +145,7 @@ def root():
 
 @app.post("/ask")
 def ask(q: Question):
-    return ask_claude(q.question)
+    return ask_gemini(q.question)
 
 @app.get("/stats")
 def stats():
