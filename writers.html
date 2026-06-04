@@ -55,7 +55,7 @@
   <script>
   let allWriters = [];
 
-  fetch('site/data/writers.json')
+  fetch('site/data/writers.json?v=' + Date.now())
     .then(r => r.json())
     .then(writers => {
       allWriters = writers;

@@ -48,7 +48,7 @@
   </footer>
 
   <script>
-  fetch('site/data/critics.json')
+  fetch('site/data/critics.json?v=' + Date.now())
     .then(r => r.json())
     .then(critics => {
       document.getElementById('critic-count').textContent = critics.length;

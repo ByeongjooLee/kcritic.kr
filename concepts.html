@@ -231,7 +231,7 @@
   let allConcepts = [];
   let selectedSlug = null;
 
-  fetch('site/data/concepts.json')
+  fetch('site/data/concepts.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       allConcepts = data.filter(c => c.essay_count >= 2);

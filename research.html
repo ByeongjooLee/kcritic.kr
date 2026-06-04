@@ -422,7 +422,7 @@
     document.getElementById('pane-advisor').classList.toggle('active', tab === 'advisor');
   }
 
-  fetch('site/data/bibliography.json')
+  fetch('site/data/bibliography.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       allData = data;
