@@ -256,6 +256,11 @@ kc:p-eliot a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q41166> ;
   schema:url <https://kcritic.kr/resource/p-eliot> .
 
+kc:p-eliot-wr a foaf:Person ;
+  foaf:name "엘리엇"@ko ;
+  rdfs:label "엘리엇"@ko ;
+  schema:url <https://kcritic.kr/resource/p-eliot-wr> .
+
 kc:p-empson a foaf:Person ;
   foaf:name "엠프슨"@ko ;
   rdfs:label "엠프슨"@ko ;
@@ -404,6 +409,12 @@ kc:p-hwang-sunwon a foaf:Person ;
   rdfs:label "황순원"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q18914> ;
   schema:url <https://kcritic.kr/resource/p-hwang-sunwon> .
+
+kc:p-hyman a foaf:Person ;
+  foaf:name "하이만"@ko ;
+  rdfs:label "하이만"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q5470284> ;
+  schema:url <https://kcritic.kr/resource/p-hyman> .
 
 kc:p-ian-watt a foaf:Person ;
   foaf:name "이안 와트"@ko ;
@@ -2220,6 +2231,23 @@ kce:yu-jongho_weeping-humanism_1961 a critic:CriticalEssay ;
   dcterms:subject "작가 포즈의 훼손성"@ko ;
   dcterms:subject "진정한 휴머니즘"@ko .
 
+kce:yu-jongho_writer-reader_1961 a critic:CriticalEssay ;
+  dcterms:title "작가와 독자 — 그 생리"@ko ;
+  rdfs:label "작가와 독자 — 그 생리"@ko ;
+  dcterms:date "1961"^^xsd:gYear ;
+  schema:isPartOf "작가와 독자 — 그 생리" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_writer-reader_1961.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-eliot-wr ;
+  cito:citesAsAuthority kc:p-hyman ;
+  dcterms:subject "창조적 욕망"@ko ;
+  dcterms:subject "제작의식의 개인차"@ko ;
+  dcterms:subject "작품의 자율성"@ko ;
+  dcterms:subject "독자의 다층성"@ko ;
+  dcterms:subject "해석의 다양성"@ko ;
+  dcterms:subject "주조적 관심"@ko ;
+  dcterms:subject "보편성의 친화력"@ko .
+
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
 kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
@@ -2306,6 +2334,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_weeping-humanism_1961 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_writer-reader_1961 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
 kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
