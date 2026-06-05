@@ -458,7 +458,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
 
   <footer class="site-footer">
     <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
     </div>
   </footer>
 </body>
@@ -845,7 +845,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
 
   <footer class="site-footer">
     <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
     </div>
   </footer>
 </body>
@@ -956,7 +956,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
 
   <footer class="site-footer">
     <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 · TEI XML 기반 LOD 아카이브 · 파일럿: 김우창 비평 (1979–1992)</p>
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
     </div>
   </footer>
 </body>
