@@ -538,7 +538,7 @@
               ${r.advisor ? `<span class="thesis-tag" style="color:var(--text-secondary)">지도 ${r.advisor}</span>` : ''}
               ${subj ? `<span class="thesis-tag">${subj}</span>` : ''}
             </div>
-            <div class="thesis-title">『${r.title}』</div>
+            <div class="thesis-title">${r.title}</div>
             ${tags ? `<div class="thesis-tags">${tags}</div>` : ''}
           </div>`;
         }).join('')
@@ -714,7 +714,7 @@
               ${r.writer ? `<span class="thesis-tag" style="color:var(--accent);border-color:var(--accent)">${r.writer}</span>` : ''}
               ${subj ? `<span class="thesis-tag">${subj}</span>` : ''}
             </div>
-            <div class="thesis-title">『${r.title}』</div>
+            <div class="thesis-title">${r.title}</div>
             ${tags ? `<div class="thesis-tags">${tags}</div>` : ''}
           </div>`;
         }).join('')
