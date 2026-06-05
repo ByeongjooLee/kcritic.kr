@@ -322,22 +322,30 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 
 ### 개념어 인코딩
 
-**개념어는 teiHeader의 `<interpGrp type="concept">` 블록에 선언하고, 본문 `<p>`/`<s>` 안에서 `<interp type="concept">` 로 참조한다.**
+**개념어는 teiHeader의 `<interpGrp type="concept">` 블록에 선언하고, 본문 `<p>`/`<s>` 안에서 `<interp type="concept">핵심어</interp>` 로 직접 텍스트를 포함한다.**
 
 ```xml
-<!-- teiHeader > encodingDesc > interpGrp -->
+<!-- teiHeader > encodingDesc > interpGrp (선언부) -->
 <interpGrp type="concept">
   <interp xml:id="c-slug" type="concept">핵심어</interp>
 </interpGrp>
 
-<!-- 본문 참조 -->
+<!-- 본문: 핵심어를 텍스트로 직접 포함 (excerpt 자동 추출) -->
 <interp type="concept">핵심어</interp>
 ```
 
-- `interp[type='concept']` 텍스트가 graph.json의 `concept` 노드로 자동 추출
+- `interp[type='concept']` **텍스트**가 graph.json의 `concept` 노드로 자동 추출
 - 노드 ID: `concept-{slug}` (slug = 특수문자 제거 후 최대 40자)
 - 에세이 → 개념 엣지 유형: `uses_concept`
 - 같은 개념이 여러 에세이에 반복 출현하면 edge weight 증가 → 비평 언어의 공유·전파 추적 가능
+
+**금지 패턴 — 개념어가 추출되지 않음:**
+- `<interp type="concept" corresp="#c-slug"/>` — 텍스트 없이 corresp 속성만 사용하면 build.py가 빈 문자열을 읽어 무시함
+- `classDecl > taxonomy > category` 구조 — build.py가 처리하지 않음
+
+**interpGrp type 구분:**
+- `type="concept"` — 개념어용 (build.py가 concept 노드로 추출)
+- `type="stance"` — 인용 태도 분류용 (긍정/비판/중립). build.py에서 무시됨. 현재 사용 중단 권장
 
 **개념어 추출 기준 (엄수)**
 - 에세이당 **8~12개** 이내
