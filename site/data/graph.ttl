@@ -665,6 +665,12 @@ kc:p-lukacs a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q51585> ;
   schema:url <https://kcritic.kr/resource/p-lukacs> .
 
+kc:p-madame-roland a foaf:Person ;
+  foaf:name "롤랑 부인"@ko ;
+  rdfs:label "롤랑 부인"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q234935> ;
+  schema:url <https://kcritic.kr/resource/p-madame-roland> .
+
 kc:p-malinowski a foaf:Person ;
   foaf:name "말리노프스키"@ko ;
   rdfs:label "말리노프스키"@ko ;
@@ -1952,6 +1958,23 @@ kce:yu-jongho_experience-imagination-viewpoint_1961 a critic:CriticalEssay ;
   dcterms:subject "작가의 관점"@ko ;
   dcterms:subject "작가 포즈의 훼손성"@ko .
 
+kce:yu-jongho_freedom-name_1960 a critic:CriticalEssay ;
+  dcterms:title "자유라는 이름 아래"@ko ;
+  rdfs:label "자유라는 이름 아래"@ko ;
+  dcterms:date "1960"^^xsd:gYear ;
+  schema:isPartOf "자유라는 이름 아래" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_freedom-name_1960.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-madame-roland ;
+  dcterms:subject "자유의 구호화"@ko ;
+  dcterms:subject "추상어의 환멸"@ko ;
+  dcterms:subject "자유의 전락"@ko ;
+  dcterms:subject "구호의 사고마비"@ko ;
+  dcterms:subject "실업할 자유"@ko ;
+  dcterms:subject "자유의 장미색"@ko ;
+  dcterms:subject "자유로부터의 도피"@ko ;
+  dcterms:subject "빈곤과 비참"@ko .
+
 kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
   dcterms:title "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
   rdfs:label "인간 부재 — 한국 문학에서의 휴머니즘"@ko ;
@@ -2271,6 +2294,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-problems_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-reflection_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_experience-imagination-viewpoint_1961 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_freedom-name_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
