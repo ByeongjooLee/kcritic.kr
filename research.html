@@ -398,7 +398,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>선행연구 데이터: 박사학위 논문(2000∼2019) 데이터 분석을 통해 본 한국 현대문학 연구의 변화와 전망, 『상허학보』 60, 2020, pp. 443–517 (DOI: <a href="https://doi.org/10.22936/sh.60..202010.012" target="_blank" style="color:inherit;">10.22936/sh.60..202010.012</a>) · 비평 온톨로지 프로젝트</p>
+      <p>선행연구 데이터: 천정환·김병준, 「박사학위 논문(2000∼2019) 데이터 분석을 통해 본 한국 현대문학 연구의 변화와 전망」, 『상허학보』 60, 2020, pp. 443–517 (DOI: <a href="https://doi.org/10.22936/sh.60..202010.012" target="_blank" style="color:inherit;">10.22936/sh.60..202010.012</a>) · 비평 온톨로지 프로젝트</p>
     </div>
   </footer>
 
@@ -535,6 +535,7 @@
               <span class="thesis-year">${r.year || '—'}</span>
               <span class="thesis-author">${r.author}</span>
               <span class="thesis-institution">${r.institution}</span>
+              ${r.advisor ? `<span class="thesis-tag" style="color:var(--text-secondary)">지도 ${r.advisor}</span>` : ''}
               ${subj ? `<span class="thesis-tag">${subj}</span>` : ''}
             </div>
             <div class="thesis-title">『${r.title}』</div>
@@ -718,6 +719,8 @@
           </div>`;
         }).join('')
       : '<div class="no-results">해당 조건의 논문이 없습니다.</div>';
+
+    // 지도교수별 탭 — advisor 필드는 이미 currentAdvisor로 표시됨, 카드에 중복 생략
 
     main.innerHTML = `
       <div class="result-header">
