@@ -1,17 +1,17 @@
 [
   {
-    "id": "p-kim-suyoung",
-    "name": "김수영（金洙暎）",
-    "ref": "https://www.wikidata.org/wiki/Q16198424 https://encykorea.aks.ac.kr/Article/E0009567",
+    "id": "p-hwang-dongkyu",
+    "name": "황동규",
+    "ref": "https://www.wikidata.org/wiki/Q499298 http://lod.nl.go.kr/resource/KAC201200312 https://isni.org/isni/0000000078377888 http://viaf.org/viaf/84479211",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
     ]
   },
   {
-    "id": "p-hwang-dongkyu",
-    "name": "황동규",
-    "ref": "https://www.wikidata.org/wiki/Q499298 http://lod.nl.go.kr/resource/KAC201200312 https://isni.org/isni/0000000078377888 http://viaf.org/viaf/84479211",
+    "id": "p-kim-suyoung",
+    "name": "김수영（金洙暎）",
+    "ref": "https://www.wikidata.org/wiki/Q16198424 https://encykorea.aks.ac.kr/Article/E0009567",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
@@ -27,9 +27,9 @@
     ]
   },
   {
-    "id": "p-yi-gwangsu",
-    "name": "이광수",
-    "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564",
+    "id": "p-kim-dongri",
+    "name": "김동리",
+    "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
@@ -45,15 +45,6 @@
     ]
   },
   {
-    "id": "p-kim-dongri",
-    "name": "김동리",
-    "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433",
-    "essay_count": 2,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
     "id": "p-hwang-sunwon",
     "name": "황순원",
     "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095",
@@ -63,18 +54,27 @@
     ]
   },
   {
-    "id": "p-kim-sowol",
-    "name": "소월",
-    "ref": "https://www.wikidata.org/wiki/Q494639 https://encykorea.aks.ac.kr/Article/E0009535 http://lod.nl.go.kr/resource/KAC201101982",
+    "id": "p-yi-gwangsu",
+    "name": "이광수",
+    "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564",
     "essay_count": 2,
     "critics": [
-      "p-yu-jongho"
+      "p-kim-uchang"
     ]
   },
   {
     "id": "p-jeong-jiyong",
     "name": "정지용",
     "ref": "https://www.wikidata.org/wiki/Q4707772 https://encykorea.aks.ac.kr/Article/E0050953",
+    "essay_count": 2,
+    "critics": [
+      "p-yu-jongho"
+    ]
+  },
+  {
+    "id": "p-kim-sowol",
+    "name": "소월",
+    "ref": "https://www.wikidata.org/wiki/Q494639 https://encykorea.aks.ac.kr/Article/E0009535 http://lod.nl.go.kr/resource/KAC201101982",
     "essay_count": 2,
     "critics": [
       "p-yu-jongho"
@@ -126,9 +126,9 @@
     ]
   },
   {
-    "id": "p-oh-kyuwon",
-    "name": "오규원（吳圭原）",
-    "ref": "https://www.wikidata.org/wiki/Q12614218 https://encykorea.aks.ac.kr/Article/E0071287",
+    "id": "p-kim-changwan",
+    "name": "김창완（金昌完）",
+    "ref": "",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -153,9 +153,9 @@
     ]
   },
   {
-    "id": "p-kim-changwan",
-    "name": "김창완（金昌完）",
-    "ref": "",
+    "id": "p-oh-kyuwon",
+    "name": "오규원（吳圭原）",
+    "ref": "https://www.wikidata.org/wiki/Q12614218 https://encykorea.aks.ac.kr/Article/E0071287",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -207,6 +207,15 @@
     ]
   },
   {
+    "id": "p-park-mokwol",
+    "name": "박목월（朴木月）",
+    "ref": "https://www.wikidata.org/wiki/Q7137910 https://encykorea.aks.ac.kr/Article/E0020682",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
     "id": "p-cho-jihun",
     "name": "조지훈",
     "ref": "https://www.wikidata.org/wiki/Q623681 https://encykorea.aks.ac.kr/Article/E0052655",
@@ -219,15 +228,6 @@
     "id": "p-kim-hyunseung",
     "name": "김현승",
     "ref": "https://www.wikidata.org/wiki/Q16080688 https://encykorea.aks.ac.kr/Article/E0011043",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-park-mokwol",
-    "name": "박목월（朴木月）",
-    "ref": "https://www.wikidata.org/wiki/Q7137910 https://encykorea.aks.ac.kr/Article/E0020682",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -252,15 +252,6 @@
     ]
   },
   {
-    "id": "p-jung-jiyong",
-    "name": "정지용",
-    "ref": "https://www.wikidata.org/wiki/Q4707772 https://encykorea.aks.ac.kr/Article/E0050953",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
     "id": "p-son-changsub",
     "name": "손창섭",
     "ref": "https://www.wikidata.org/wiki/Q12602771 https://encykorea.aks.ac.kr/Article/E0079619",
@@ -279,18 +270,27 @@
     ]
   },
   {
-    "id": "p-choi-inhun",
-    "name": "최인훈",
-    "ref": "https://www.wikidata.org/wiki/Q11274314",
+    "id": "p-jang-yonghak",
+    "name": "장용학",
+    "ref": "https://www.wikidata.org/wiki/Q12614625 https://encykorea.aks.ac.kr/Article/E0048708",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
     ]
   },
   {
-    "id": "p-jang-yonghak",
-    "name": "장용학",
-    "ref": "https://www.wikidata.org/wiki/Q12614625 https://encykorea.aks.ac.kr/Article/E0048708",
+    "id": "p-jung-jiyong",
+    "name": "정지용",
+    "ref": "https://www.wikidata.org/wiki/Q4707772 https://encykorea.aks.ac.kr/Article/E0050953",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-choi-inhun",
+    "name": "최인훈",
+    "ref": "https://www.wikidata.org/wiki/Q11274314",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -315,18 +315,18 @@
     ]
   },
   {
-    "id": "p-jo-sehi",
-    "name": "조세희",
-    "ref": "https://www.wikidata.org/wiki/Q5103384 http://lod.nl.go.kr/resource/KAC201110793 https://isni.org/isni/000000007978395X http://viaf.org/viaf/79079950",
+    "id": "p-sim-hun",
+    "name": "심훈",
+    "ref": "https://www.wikidata.org/wiki/Q625225 https://encykorea.aks.ac.kr/Article/E0033978 http://lod.nl.go.kr/resource/KAC200108734 https://isni.org/isni/0000000083928357 http://viaf.org/viaf/71502158",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
     ]
   },
   {
-    "id": "p-sim-hun",
-    "name": "심훈",
-    "ref": "https://www.wikidata.org/wiki/Q625225 https://encykorea.aks.ac.kr/Article/E0033978 http://lod.nl.go.kr/resource/KAC200108734 https://isni.org/isni/0000000083928357 http://viaf.org/viaf/71502158",
+    "id": "p-jo-sehi",
+    "name": "조세희",
+    "ref": "https://www.wikidata.org/wiki/Q5103384 http://lod.nl.go.kr/resource/KAC201110793 https://isni.org/isni/000000007978395X http://viaf.org/viaf/79079950",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
