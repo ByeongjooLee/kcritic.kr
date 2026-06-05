@@ -309,6 +309,12 @@ kc:p-fukuzawa a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q275118> ;
   schema:url <https://kcritic.kr/resource/p-fukuzawa> .
 
+kc:p-gheorghiu a foaf:Person ;
+  foaf:name "게오르규"@ko ;
+  rdfs:label "게오르규"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q740105> ;
+  schema:url <https://kcritic.kr/resource/p-gheorghiu> .
+
 kc:p-gide a foaf:Person ;
   foaf:name "지드"@ko ;
   rdfs:label "지드"@ko ;
@@ -2006,6 +2012,27 @@ kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
   dcterms:subject "인간의 자기소외"@ko ;
   dcterms:subject "실천적 휴머니즘"@ko .
 
+kce:yu-jongho_jang-yonghak_1960 a critic:CriticalEssay ;
+  dcterms:title "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
+  rdfs:label "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
+  dcterms:date "1960"^^xsd:gYear ;
+  schema:isPartOf "현대인의 운명 — 「현대의 야」에 부쳐" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_jang-yonghak_1960.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:discusses kc:p-jang-yonghak ;
+  cito:citesAsAuthority kc:p-camus ;
+  cito:citesAsAuthority kc:p-gheorghiu ;
+  cito:citesAsAuthority kc:p-kafka ;
+  cito:citesAsAuthority kc:p-valery ;
+  dcterms:subject "관념의 과잉"@ko ;
+  dcterms:subject "관념육화의 부족"@ko ;
+  dcterms:subject "현대인의 운명"@ko ;
+  dcterms:subject "현대의 메커니즘"@ko ;
+  dcterms:subject "이방인적 단절의식"@ko ;
+  dcterms:subject "스타일 공명 불가"@ko ;
+  dcterms:subject "사색자의 표정"@ko ;
+  dcterms:subject "상식의 도금"@ko .
+
 kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
   dcterms:title "한국의 슬픔 — 소월을 위한 노트"@ko ;
   rdfs:label "한국의 슬픔 — 소월을 위한 노트"@ko ;
@@ -2342,6 +2369,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-reflection_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_experience-imagination-viewpoint_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_freedom-name_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_jang-yonghak_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_language-valley_1957 .
@@ -2355,6 +2383,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_weeping-humanism_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_writer-reader_1961 .
 kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
+kc:p-yu-jongho critic:analyzes kc:p-jang-yonghak .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
 kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
 kc:p-yu-jongho critic:analyzes kc:p-kim-sowol .
