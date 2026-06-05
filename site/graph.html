@@ -789,9 +789,12 @@
         const essayId = e.source === id ? e.target : e.source;
         const essay = nodeMap[essayId];
         if (!essay) return '';
+        // 이 에세이의 저자(비평가) 찾기
+        const authorEdge = data.edges.find(ed => ed.target === essayId && ed.type === 'wrote');
+        const authorLabel = authorEdge ? (nodeMap[authorEdge.source]?.label || '') : '';
         return `<a href="essays/${essayId}.html" class="panel-essay-link">
           <span class="panel-essay-year">${essay.year || ''}</span>
-          ${essay.label}
+          ${authorLabel ? `<span style="color:var(--accent-muted,#c9986a);font-size:11px;margin-right:3px;">${authorLabel}</span>` : ''}${essay.label}
         </a>`;
       }).join('');
 
