@@ -26,7 +26,7 @@ if PERSONS_FILE.exists():
 
 def _registry_ref(xml_id: str) -> str:
     """persons.json에서 xml_id의 외부 식별자 URI 문자열을 조합해 반환.
-    wikidata > encykorea > nlk > isni 순으로 있는 것만 포함."""
+    wikidata > encykorea > nlk > isni > viaf 순으로 있는 것만 포함."""
     p = _PERSONS_REGISTRY.get(xml_id, {})
     uris = []
     if p.get("wikidata"):
@@ -37,6 +37,8 @@ def _registry_ref(xml_id: str) -> str:
         uris.append(p["nlk"])
     if p.get("isni"):
         uris.append(f"https://isni.org/isni/{p['isni']}")
+    if p.get("viaf"):
+        uris.append(p["viaf"])
     return " ".join(uris)
 
 def tns(tag):
@@ -290,19 +292,23 @@ def person_chip(p, role_type=None):
             wikidata = uri
             break
 
-    # encykorea 링크 (persons.json에서 직접 조회)
-    encykorea = _PERSONS_REGISTRY.get(pid, {}).get("encykorea", "") if pid else ""
+    # persons.json에서 직접 조회
+    preg = _PERSONS_REGISTRY.get(pid, {}) if pid else {}
+    encykorea = preg.get("encykorea", "") or ""
+    viaf = preg.get("viaf", "") or ""
 
-    chip = f'<span class="chip {cls}" data-id="{pid}">{name}</span>'
-    if wikidata and encykorea:
-        chip = (f'<span class="chip {cls}" data-id="{pid}">{name}'
-                f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
-                f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
-                f'</span>')
-    elif wikidata:
-        chip = f'<a href="{wikidata}" target="_blank" class="chip {cls} chip-linked" data-id="{pid}" title="Wikidata">{name} <span class="chip-ext">↗</span></a>'
-    elif encykorea:
-        chip = f'<a href="{encykorea}" target="_blank" class="chip {cls} chip-linked" data-id="{pid}" title="한국민족문화대백과">{name} <span class="chip-ext">↗</span></a>'
+    badges = ""
+    if wikidata:
+        badges += f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
+    if encykorea:
+        badges += f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
+    if viaf:
+        badges += f' <a href="{viaf}" target="_blank" class="chip-ext-link" title="VIAF">V</a>'
+
+    if badges:
+        chip = f'<span class="chip {cls}" data-id="{pid}">{name}{badges}</span>'
+    else:
+        chip = f'<span class="chip {cls}" data-id="{pid}">{name}</span>'
     return chip
 
 def source_html(sources):
@@ -558,6 +564,25 @@ def build_critic_mini_graph(critic_id, graph_data):
     return {"nodes": relevant_nodes, "edges": relevant_edges}
 
 
+def _lod_links_html(xml_id):
+    """persons.json에서 LOD 외부 링크 뱃지 HTML 생성."""
+    p = _PERSONS_REGISTRY.get(xml_id, {})
+    badges = []
+    if p.get("wikidata"):
+        badges.append(f'<a href="https://www.wikidata.org/wiki/{p["wikidata"]}" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a>')
+    if p.get("encykorea"):
+        badges.append(f'<a href="{p["encykorea"]}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
+    if p.get("nlk"):
+        badges.append(f'<a href="{p["nlk"]}" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a>')
+    if p.get("isni"):
+        badges.append(f'<a href="https://isni.org/isni/{p["isni"]}" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a>')
+    if p.get("viaf"):
+        badges.append(f'<a href="{p["viaf"]}" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a>')
+    if not badges:
+        return ""
+    return '<div class="lod-links">' + " ".join(badges) + '</div>'
+
+
 def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     """비평가 한 명의 프로필 페이지 생성. essays = 해당 비평가의 비평글 데이터 목록."""
     name = critic_info["name"]
@@ -572,6 +597,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
                 break
     if not wikidata_link:
         wikidata_link = f'<span class="chip role-critic">{name}</span>'
+    lod_links = _lod_links_html(critic_id)
 
     # 비평글 카드 목록
     essay_cards = []
@@ -786,6 +812,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     <section class="critic-profile-hero">
       <div class="critic-profile-byline">{wikidata_link}</div>
       <h1 class="index-heading">{name}</h1>
+      {lod_links}
       <div class="stat-row">
         <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">{len(top_subjects)}</span><span class="stat-label">비평 대상 작가</span></div>
@@ -836,6 +863,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         name_chip = f'<a href="{wikidata_uri}" target="_blank" class="chip role-writer chip-linked">{name} <span class="chip-ext">↗</span></a>'
     else:
         name_chip = f'<span class="chip role-writer">{name}</span>'
+    lod_links = _lod_links_html(writer_id)
 
     # 비평가 집계 — 이 작가를 다룬 비평가
     critic_count = defaultdict(int)
@@ -900,6 +928,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
     <section class="critic-profile-hero">
       <div class="critic-profile-byline">{name_chip}</div>
       <h1 class="index-heading">{name}</h1>
+      {lod_links}
       <div class="stat-row">
         <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">관련 비평글</span></div>
         <div class="stat"><span class="stat-num">{len(critic_count)}</span><span class="stat-label">비평한 비평가</span></div>
