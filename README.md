@@ -11,12 +11,13 @@
 
 | 항목 | 수량 |
 |---|---|
-| 비평글 (TEI XML 인코딩) | 47편 |
-| 비평가 | 2명 (김우창 30편, 유종호 17편) |
-| 작가 노드 | 39명 |
+| 비평글 (TEI XML 인코딩) | 49편 |
+| 비평가 | 2명 (김우창 32편, 유종호 17편) |
+| 작가 노드 | 40명 |
 | 이론가 노드 | 143명 |
 | 그래프 엣지 | 288개 |
-| 선행연구 (박사논문) | 1,528건 |
+| 선행연구 (박사논문) | 1,528건 → 복수 작가 분리 후 1,859건 |
+| persons.json 권위 파일 | 255명 (NLK 48명, Wikidata 연결) |
 
 ---
 
@@ -40,8 +41,8 @@
 | 비평가 | `/critics.html` | 비평가 프로필 · 에세이 목록 |
 | 작가 | `/writers.html` | 비평 대상 작가 목록 |
 | 관계망 | `/site/graph.html` | Cytoscape.js 인터랙티브 네트워크 |
-| 개념어 | `/concepts.html` | 비평 개념어 색인 (17개 공유 개념) |
-| 선행연구 | `/research.html` | 박사논문 1,528건 — 작가별 · 지도교수별 탐색 |
+| 개념어 | `/concepts.html` | 비평 개념어 색인 (2편 이상 공유 개념) |
+| 선행연구 | `/research.html` | 박사논문 1,859건 — 작가별 · 지도교수별 탐색 |
 | 2000년대 비평 | `/criticism.html` | 2000년대 시 문학 비평 136건 |
 | 질문하기 | `/ask.html` | Neo4j GraphRAG — 자연어 질문 → 학술 답변 |
 | 기여하기 | `/contribute.html` | 크라우드소싱 기여 신청 폼 |
@@ -63,9 +64,10 @@ critic-ontology/
 │   ├── data/
 │   │   ├── graph.json       ← 관계망 데이터 (231 노드, 288 엣지)
 │   │   ├── critics.json     ← 비평가 목록
-│   │   ├── concepts.json    ← 개념어 색인 (514개)
+│   │   ├── writers.json     ← 작가 목록 (LOD 링크 포함)
+│   │   ├── concepts.json    ← 개념어 색인
 │   │   ├── graph.ttl        ← RDF Turtle LOD 직렬화
-│   │   └── bibliography.json ← 선행연구 데이터 (1,528건)
+│   │   └── bibliography.json ← 선행연구 데이터 (1,859건, 복수 작가 분리)
 │   └── graph.html           ← Cytoscape.js 관계망 시각화
 ├── index.html               ← 비평글 목록
 ├── critics.html
@@ -107,6 +109,8 @@ py convert_phd.py
 
 - 입력: `200805_현대문학_박사논문.xlsx` (1,528건)
 - 출력: `critic-ontology/site/data/bibliography.json`
+- 쉼표 구분 복수 작가 자동 분리 → 1,859건
+- `WRITER_NODE_MAP`에 54명 등록 → 온톨로지 노드와 652건 연결
 
 ### GraphRAG API 서버 (로컬)
 
@@ -166,16 +170,29 @@ py -m uvicorn neo4j_api:app --reload
 
 ## 외부 LOD 연결
 
-각 인물은 Wikidata `@ref` URI로 글로벌 연결됩니다:
+각 인물은 `persons.json` 권위 파일에서 관리하며 다중 식별자를 연결합니다.
 
-```xml
-<persName xml:id="p-habermas"
-          ref="https://www.wikidata.org/wiki/Q76357"
-          role="foreigner scholar">위르겐 하버마스</persName>
+```json
+{
+  "p-yun-dongju": {
+    "label": "윤동주", "role": "poet",
+    "wikidata": "Q625089",
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0042294",
+    "nlk": "http://lod.nl.go.kr/resource/KAC201110203",
+    "isni": "0000000081384480",
+    "viaf": "http://viaf.org/viaf/59228311"
+  }
+}
 ```
 
-- **비평가·작가**: 국립중앙도서관 LOD (https://lod.nl.go.kr) 우선
-- **외국 이론가**: Wikidata (https://wikidata.org) 우선
+**연결 우선순위 (한국 인물)**:
+1. 한국민족문화대백과 (encykorea)
+2. 국립중앙도서관 LOD (nlk) — 1차 신뢰 소스, NLK RDF에서 ISNI·VIAF 교차 추출
+3. Wikidata
+4. ISNI
+5. VIAF
+
+**외국 이론가**: Wikidata + VIAF + ISNI 사용. NLK는 한국 인물 전용.
 
 ---
 
