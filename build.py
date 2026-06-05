@@ -295,6 +295,7 @@ def person_chip(p, role_type=None):
     # persons.json에서 직접 조회
     preg = _PERSONS_REGISTRY.get(pid, {}) if pid else {}
     encykorea = preg.get("encykorea", "") or ""
+    encykorea_work = preg.get("encykorea_work", "") or ""
     viaf = preg.get("viaf", "") or ""
 
     badges = ""
@@ -302,6 +303,8 @@ def person_chip(p, role_type=None):
         badges += f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
     if encykorea:
         badges += f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
+    if encykorea_work:
+        badges += f' <a href="{encykorea_work}" target="_blank" class="chip-ext-link chip-ext-work" title="한국민족문화대백과(작품)">한*</a>'
     if viaf:
         badges += f' <a href="{viaf}" target="_blank" class="chip-ext-link" title="VIAF">V</a>'
 
@@ -572,6 +575,8 @@ def _lod_links_html(xml_id):
         badges.append(f'<a href="https://www.wikidata.org/wiki/{p["wikidata"]}" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a>')
     if p.get("encykorea"):
         badges.append(f'<a href="{p["encykorea"]}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
+    if p.get("encykorea_work"):
+        badges.append(f'<a href="{p["encykorea_work"]}" target="_blank" class="lod-badge lod-badge-work" title="한국민족문화대백과 (작품)">한국민족문화대백과 (작품) ↗</a>')
     if p.get("nlk"):
         badges.append(f'<a href="{p["nlk"]}" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a>')
     if p.get("isni"):

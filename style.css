@@ -402,6 +402,7 @@ tei-lb {
   opacity: 0.75;
 }
 .chip-ext-link:hover { opacity: 1; background: rgba(0,0,0,0.22); }
+.chip-ext-work { background: rgba(100,140,100,0.18); color: inherit; }
 
 .lod-links {
   display: flex;
@@ -426,6 +427,16 @@ tei-lb {
   border-color: #7ac9a0;
   color: #1a5c38;
   text-decoration: none;
+}
+.lod-badge-work {
+  background: #eef5ee;
+  border-color: #b0ccb0;
+  color: #3a5a3a;
+}
+.lod-badge-work:hover {
+  background: #d0e8d0;
+  border-color: #7ac97a;
+  color: #1a4a1a;
 }
 
 .role-critic {
