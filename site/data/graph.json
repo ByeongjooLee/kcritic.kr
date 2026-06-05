@@ -85,32 +85,11 @@
       "degree": 10
     },
     {
-      "id": "p-merleau-ponty",
-      "label": "메를로퐁티",
+      "id": "p-dostoevsky",
+      "label": "도스토옙스키",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q156564",
-      "degree": 2
-    },
-    {
-      "id": "p-chernyshevsky",
-      "label": "체르니솁스키",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q162544",
+      "ref": "https://www.wikidata.org/wiki/Q991",
       "degree": 1
-    },
-    {
-      "id": "p-raymond-williams",
-      "label": "레이먼드 윌리엄스(Raymond Williams)",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q528678",
-      "degree": 1
-    },
-    {
-      "id": "p-freud",
-      "label": "프로이트",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9215",
-      "degree": 4
     },
     {
       "id": "p-dilthey",
@@ -127,10 +106,31 @@
       "degree": 1
     },
     {
-      "id": "p-dostoevsky",
-      "label": "도스토옙스키",
+      "id": "p-merleau-ponty",
+      "label": "메를로퐁티",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q991",
+      "ref": "https://www.wikidata.org/wiki/Q156564",
+      "degree": 2
+    },
+    {
+      "id": "p-raymond-williams",
+      "label": "레이먼드 윌리엄스(Raymond Williams)",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q528678",
+      "degree": 1
+    },
+    {
+      "id": "p-freud",
+      "label": "프로이트",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9215",
+      "degree": 4
+    },
+    {
+      "id": "p-chernyshevsky",
+      "label": "체르니솁스키",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q162544",
       "degree": 1
     },
     {
@@ -148,24 +148,10 @@
       "degree": 9
     },
     {
-      "id": "p-ko-un",
-      "label": "고은（高銀）",
+      "id": "p-jung-hyunjong",
+      "label": "정현종（鄭玄宗）",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788",
-      "degree": 2
-    },
-    {
-      "id": "p-oh-kyuwon",
-      "label": "오규원（吳圭原）",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q12614218",
-      "degree": 1
-    },
-    {
-      "id": "p-jung-heesung",
-      "label": "정희성（鄭喜成）",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q12520476",
+      "ref": "https://www.wikidata.org/wiki/Q1354064 http://lod.nl.go.kr/resource/KAC201207472",
       "degree": 1
     },
     {
@@ -176,6 +162,20 @@
       "degree": 1
     },
     {
+      "id": "p-oh-kyuwon",
+      "label": "오규원（吳圭原）",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q12614218 https://encykorea.aks.ac.kr/Article/E0071287",
+      "degree": 1
+    },
+    {
+      "id": "p-ko-un",
+      "label": "고은（高銀）",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788",
+      "degree": 2
+    },
+    {
       "id": "p-hwang-dongkyu",
       "label": "황동규",
       "type": "writer",
@@ -183,10 +183,10 @@
       "degree": 2
     },
     {
-      "id": "p-jung-hyunjong",
-      "label": "정현종（鄭玄宗）",
+      "id": "p-jung-heesung",
+      "label": "정희성（鄭喜成）",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q1354064 http://lod.nl.go.kr/resource/KAC201207472",
+      "ref": "https://www.wikidata.org/wiki/Q12520476",
       "degree": 1
     },
     {
@@ -218,11 +218,18 @@
       "degree": 1
     },
     {
-      "id": "p-pak-jiwon",
-      "label": "박지원",
+      "id": "p-durkheim",
+      "label": "뒤르켐",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q188875",
       "degree": 1
+    },
+    {
+      "id": "p-weber",
+      "label": "막스 베버",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9240",
+      "degree": 2
     },
     {
       "id": "p-heidegger",
@@ -232,10 +239,10 @@
       "degree": 2
     },
     {
-      "id": "p-durkheim",
-      "label": "뒤르켐",
+      "id": "p-pak-jiwon",
+      "label": "박지원",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q188875",
+      "ref": "",
       "degree": 1
     },
     {
@@ -243,13 +250,6 @@
       "label": "칸트",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q9312",
-      "degree": 2
-    },
-    {
-      "id": "p-weber",
-      "label": "막스 베버",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9240",
       "degree": 2
     },
     {
@@ -267,6 +267,20 @@
       "degree": 7
     },
     {
+      "id": "p-eliot",
+      "label": "T. S. 엘리엇",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q41166",
+      "degree": 7
+    },
+    {
+      "id": "p-leibniz",
+      "label": "라이프니츠",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9047",
+      "degree": 1
+    },
+    {
       "id": "p-kim-byungik",
       "label": "김병익",
       "type": "theorist",
@@ -279,20 +293,6 @@
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q182897",
       "degree": 1
-    },
-    {
-      "id": "p-leibniz",
-      "label": "라이프니츠",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9047",
-      "degree": 1
-    },
-    {
-      "id": "p-eliot",
-      "label": "T. S. 엘리엇",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q41166",
-      "degree": 7
     },
     {
       "id": "kim-uchang_hwang-seokyoung-minjung_1982",
@@ -323,17 +323,17 @@
       "degree": 3
     },
     {
-      "id": "p-bettelheim",
-      "label": "브루노 베텔하임",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q76433",
-      "degree": 1
-    },
-    {
       "id": "p-iser",
       "label": "볼프강 이저",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q76461",
+      "degree": 1
+    },
+    {
+      "id": "p-bettelheim",
+      "label": "브루노 베텔하임",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q76433",
       "degree": 1
     },
     {
@@ -344,18 +344,18 @@
       "degree": 4
     },
     {
-      "id": "p-plato",
-      "label": "플라톤",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q859",
-      "degree": 3
-    },
-    {
       "id": "p-rilke",
       "label": "릴케",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q76483",
       "degree": 2
+    },
+    {
+      "id": "p-plato",
+      "label": "플라톤",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q859",
+      "degree": 3
     },
     {
       "id": "p-dufrenne",
@@ -400,13 +400,6 @@
       "degree": 6
     },
     {
-      "id": "p-hegel",
-      "label": "헤겔",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9235",
-      "degree": 3
-    },
-    {
       "id": "p-bergson",
       "label": "베르그송",
       "type": "theorist",
@@ -426,6 +419,13 @@
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q169906",
       "degree": 1
+    },
+    {
+      "id": "p-hegel",
+      "label": "헤겔",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9235",
+      "degree": 3
     },
     {
       "id": "kim-uchang_lee-mungoo-rural_1981",
@@ -470,6 +470,13 @@
       "degree": 1
     },
     {
+      "id": "p-campanella",
+      "label": "캄파넬라",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q46867",
+      "degree": 1
+    },
+    {
       "id": "p-marcuse",
       "label": "헤르베르트 마르쿠제",
       "type": "theorist",
@@ -484,25 +491,11 @@
       "degree": 1
     },
     {
-      "id": "p-campanella",
-      "label": "캄파넬라",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q46867",
-      "degree": 1
-    },
-    {
       "id": "kim-uchang_north-korean-criticism_1981",
       "label": "이념과 표현 2 — 북한의 문학비평: 문학적 진실과 사회주의적 진실",
       "type": "essay",
       "year": "1981",
       "degree": 10
-    },
-    {
-      "id": "p-gorky",
-      "label": "막심 고리키",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q12706",
-      "degree": 1
     },
     {
       "id": "p-radek",
@@ -512,6 +505,13 @@
       "degree": 1
     },
     {
+      "id": "p-marx",
+      "label": "마르크스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9061",
+      "degree": 3
+    },
+    {
       "id": "p-lenin",
       "label": "레닌",
       "type": "theorist",
@@ -519,18 +519,18 @@
       "degree": 2
     },
     {
+      "id": "p-gorky",
+      "label": "막심 고리키",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q12706",
+      "degree": 1
+    },
+    {
       "id": "p-engels",
       "label": "엥겔스",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q34262",
       "degree": 2
-    },
-    {
-      "id": "p-marx",
-      "label": "마르크스",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9061",
-      "degree": 3
     },
     {
       "id": "p-zhdanov",
@@ -554,24 +554,17 @@
       "degree": 1
     },
     {
-      "id": "p-homer",
-      "label": "호메로스",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q6691",
-      "degree": 1
-    },
-    {
-      "id": "p-lukacs",
-      "label": "루카치",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q151523",
-      "degree": 2
-    },
-    {
       "id": "p-virgil",
       "label": "베르길리우스",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q1398",
+      "degree": 1
+    },
+    {
+      "id": "p-whitman",
+      "label": "월트 휘트먼",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q81438",
       "degree": 1
     },
     {
@@ -582,10 +575,17 @@
       "degree": 1
     },
     {
-      "id": "p-whitman",
-      "label": "월트 휘트먼",
+      "id": "p-lukacs",
+      "label": "루카치",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q81438",
+      "ref": "https://www.wikidata.org/wiki/Q151523",
+      "degree": 2
+    },
+    {
+      "id": "p-homer",
+      "label": "호메로스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q6691",
       "degree": 1
     },
     {
@@ -610,13 +610,6 @@
       "degree": 5
     },
     {
-      "id": "p-kim-hyunseung",
-      "label": "김현승",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q16080688 https://encykorea.aks.ac.kr/Article/E0011043",
-      "degree": 1
-    },
-    {
       "id": "p-cho-jihun",
       "label": "조지훈",
       "type": "writer",
@@ -627,7 +620,14 @@
       "id": "p-park-mokwol",
       "label": "박목월（朴木月）",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q7137910",
+      "ref": "https://www.wikidata.org/wiki/Q7137910 https://encykorea.aks.ac.kr/Article/E0020682",
+      "degree": 1
+    },
+    {
+      "id": "p-kim-hyunseung",
+      "label": "김현승",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q16080688 https://encykorea.aks.ac.kr/Article/E0011043",
       "degree": 1
     },
     {
@@ -708,17 +708,17 @@
       "degree": 3
     },
     {
-      "id": "p-austin",
-      "label": "J. L. 오스틴",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q108038",
-      "degree": 1
-    },
-    {
       "id": "p-balazs",
       "label": "에티엔 발라스",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q437773",
+      "degree": 1
+    },
+    {
+      "id": "p-austin",
+      "label": "J. L. 오스틴",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q108038",
       "degree": 1
     },
     {
@@ -729,10 +729,10 @@
       "degree": 6
     },
     {
-      "id": "p-paul-hazard",
-      "label": "폴 아자르（Paul Hazard）",
+      "id": "p-binswanger",
+      "label": "루드비히 빈스방거（Ludwig Binswanger）",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q3381578",
+      "ref": "https://www.wikidata.org/wiki/Q116614",
       "degree": 1
     },
     {
@@ -743,17 +743,10 @@
       "degree": 1
     },
     {
-      "id": "p-binswanger",
-      "label": "루드비히 빈스방거（Ludwig Binswanger）",
+      "id": "p-paul-hazard",
+      "label": "폴 아자르（Paul Hazard）",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q116614",
-      "degree": 1
-    },
-    {
-      "id": "p-baek-chul",
-      "label": "백철",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q16179744 https://encykorea.aks.ac.kr/Article/E0022415 http://lod.nl.go.kr/resource/KAC201515133 https://isni.org/isni/0000000079385564 http://viaf.org/viaf/37098125",
+      "ref": "https://www.wikidata.org/wiki/Q3381578",
       "degree": 1
     },
     {
@@ -764,6 +757,13 @@
       "degree": 1
     },
     {
+      "id": "p-baek-chul",
+      "label": "백철",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q16179744 https://encykorea.aks.ac.kr/Article/E0022415 http://lod.nl.go.kr/resource/KAC201515133 https://isni.org/isni/0000000079385564 http://viaf.org/viaf/37098125",
+      "degree": 1
+    },
+    {
       "id": "kim-uchang_theory-korean-novel_1984",
       "label": "한국 현대 소설의 이론을 위한 서설",
       "type": "essay",
@@ -771,10 +771,31 @@
       "degree": 13
     },
     {
-      "id": "p-hwang-sunwon",
-      "label": "황순원",
+      "id": "p-yi-gwangsu",
+      "label": "이광수",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095",
+      "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564",
+      "degree": 2
+    },
+    {
+      "id": "p-yeom-sangsub",
+      "label": "염상섭",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q8054832 https://encykorea.aks.ac.kr/Article/E0037111 http://lod.nl.go.kr/resource/KAC201010743 https://isni.org/isni/0000000109091795 http://viaf.org/viaf/64115500",
+      "degree": 2
+    },
+    {
+      "id": "p-choi-inhun",
+      "label": "최인훈",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q11274314",
+      "degree": 1
+    },
+    {
+      "id": "p-kim-dongri",
+      "label": "김동리",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433",
       "degree": 2
     },
     {
@@ -785,10 +806,10 @@
       "degree": 1
     },
     {
-      "id": "p-yi-gwangsu",
-      "label": "이광수",
+      "id": "p-hwang-sunwon",
+      "label": "황순원",
       "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564",
+      "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095",
       "degree": 2
     },
     {
@@ -804,27 +825,6 @@
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q12614625 https://encykorea.aks.ac.kr/Article/E0048708",
       "degree": 1
-    },
-    {
-      "id": "p-choi-inhun",
-      "label": "최인훈",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q11274314",
-      "degree": 1
-    },
-    {
-      "id": "p-yeom-sangsub",
-      "label": "염상섭",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q8054832 https://encykorea.aks.ac.kr/Article/E0037111 http://lod.nl.go.kr/resource/KAC201010743 https://isni.org/isni/0000000109091795 http://viaf.org/viaf/64115500",
-      "degree": 2
-    },
-    {
-      "id": "p-kim-dongri",
-      "label": "김동리",
-      "type": "writer",
-      "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433",
-      "degree": 2
     },
     {
       "id": "p-jung-jiyong",
@@ -883,13 +883,6 @@
       "degree": 1
     },
     {
-      "id": "p-poulet",
-      "label": "조르주 풀레（Georges Poulet）",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q1367032",
-      "degree": 1
-    },
-    {
       "id": "p-walter-benjamin",
       "label": "발터 벤야민（Walter Benjamin）",
       "type": "theorist",
@@ -908,6 +901,13 @@
       "label": "에리히 아우얼바하",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q57603",
+      "degree": 1
+    },
+    {
+      "id": "p-poulet",
+      "label": "조르주 풀레（Georges Poulet）",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q1367032",
       "degree": 1
     },
     {
@@ -946,18 +946,18 @@
       "degree": 17
     },
     {
+      "id": "p-babbitt-irving",
+      "label": "어빙 배빗",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q457866",
+      "degree": 1
+    },
+    {
       "id": "p-sainte-beuve",
       "label": "생트-뵈브",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q162467",
       "degree": 3
-    },
-    {
-      "id": "p-tyndall-william",
-      "label": "틴들",
-      "type": "theorist",
-      "ref": "",
-      "degree": 1
     },
     {
       "id": "p-mallarme",
@@ -967,18 +967,18 @@
       "degree": 4
     },
     {
-      "id": "p-babbitt-irving",
-      "label": "어빙 배빗",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q457866",
-      "degree": 1
-    },
-    {
       "id": "p-maugham",
       "label": "모옴",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q43643",
       "degree": 2
+    },
+    {
+      "id": "p-tyndall-william",
+      "label": "틴들",
+      "type": "theorist",
+      "ref": "",
+      "degree": 1
     },
     {
       "id": "yu-jongho_bisunsu-declaration_1960",
@@ -988,25 +988,25 @@
       "degree": 16
     },
     {
+      "id": "p-nietzsche",
+      "label": "니체",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q9358",
+      "degree": 3
+    },
+    {
+      "id": "p-herbert-read",
+      "label": "허버트 리드",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q1596448",
+      "degree": 1
+    },
+    {
       "id": "p-flaubert",
       "label": "플로베르",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q43444",
       "degree": 1
-    },
-    {
-      "id": "p-maupassant",
-      "label": "모파상",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9327",
-      "degree": 2
-    },
-    {
-      "id": "p-baudelaire",
-      "label": "보들레르",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q501",
-      "degree": 2
     },
     {
       "id": "p-auden",
@@ -1016,6 +1016,13 @@
       "degree": 1
     },
     {
+      "id": "p-thibaudet",
+      "label": "알베르 티보데",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q2539082",
+      "degree": 2
+    },
+    {
       "id": "p-thomas-mann",
       "label": "토마스 만",
       "type": "theorist",
@@ -1023,10 +1030,17 @@
       "degree": 1
     },
     {
-      "id": "p-herbert-read",
-      "label": "허버트 리드",
+      "id": "p-baudelaire",
+      "label": "보들레르",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q1596448",
+      "ref": "https://www.wikidata.org/wiki/Q501",
+      "degree": 2
+    },
+    {
+      "id": "p-proust",
+      "label": "프루스트",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q7199 http://lod.nl.go.kr/resource/KAC199622210 https://isni.org/isni/0000000121003911 http://viaf.org/viaf/32001793",
       "degree": 1
     },
     {
@@ -1037,17 +1051,10 @@
       "degree": 1
     },
     {
-      "id": "p-nietzsche",
-      "label": "니체",
+      "id": "p-maupassant",
+      "label": "모파상",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q9358",
-      "degree": 3
-    },
-    {
-      "id": "p-thibaudet",
-      "label": "알베르 티보데",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q2539082",
+      "ref": "https://www.wikidata.org/wiki/Q9327",
       "degree": 2
     },
     {
@@ -1055,13 +1062,6 @@
       "label": "지드",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q34989",
-      "degree": 1
-    },
-    {
-      "id": "p-proust",
-      "label": "프루스트",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q7199 http://lod.nl.go.kr/resource/KAC199622210 https://isni.org/isni/0000000121003911 http://viaf.org/viaf/32001793",
       "degree": 1
     },
     {
@@ -1093,6 +1093,48 @@
       "degree": 23
     },
     {
+      "id": "p-malinowski",
+      "label": "말리노프스키",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q122701",
+      "degree": 1
+    },
+    {
+      "id": "p-goethe",
+      "label": "괴테",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q5879",
+      "degree": 1
+    },
+    {
+      "id": "p-chekhov",
+      "label": "체호프",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q36252",
+      "degree": 1
+    },
+    {
+      "id": "p-william-james",
+      "label": "윌리엄 제임스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q132908",
+      "degree": 2
+    },
+    {
+      "id": "p-levy-bruhl",
+      "label": "레비 브률",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q310248",
+      "degree": 1
+    },
+    {
+      "id": "p-pound",
+      "label": "파운드",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q37079",
+      "degree": 1
+    },
+    {
       "id": "p-balzac",
       "label": "발자크",
       "type": "theorist",
@@ -1100,11 +1142,18 @@
       "degree": 2
     },
     {
-      "id": "p-taine",
-      "label": "테느",
+      "id": "p-huxley",
+      "label": "헉슬리",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q214085",
+      "ref": "https://www.wikidata.org/wiki/Q46792",
       "degree": 2
+    },
+    {
+      "id": "p-moulton",
+      "label": "몰튼",
+      "type": "theorist",
+      "ref": "",
+      "degree": 1
     },
     {
       "id": "p-korzybski",
@@ -1121,27 +1170,6 @@
       "degree": 1
     },
     {
-      "id": "p-chekhov",
-      "label": "체호프",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q36252",
-      "degree": 1
-    },
-    {
-      "id": "p-pound",
-      "label": "파운드",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q37079",
-      "degree": 1
-    },
-    {
-      "id": "p-moulton",
-      "label": "몰튼",
-      "type": "theorist",
-      "ref": "",
-      "degree": 1
-    },
-    {
       "id": "p-benedict-ruth",
       "label": "루스 베네딕트",
       "type": "theorist",
@@ -1149,10 +1177,10 @@
       "degree": 1
     },
     {
-      "id": "p-william-james",
-      "label": "윌리엄 제임스",
+      "id": "p-taine",
+      "label": "테느",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q132908",
+      "ref": "https://www.wikidata.org/wiki/Q214085",
       "degree": 2
     },
     {
@@ -1163,34 +1191,6 @@
       "degree": 1
     },
     {
-      "id": "p-huxley",
-      "label": "헉슬리",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q46792",
-      "degree": 2
-    },
-    {
-      "id": "p-goethe",
-      "label": "괴테",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q5879",
-      "degree": 1
-    },
-    {
-      "id": "p-malinowski",
-      "label": "말리노프스키",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q122701",
-      "degree": 1
-    },
-    {
-      "id": "p-levy-bruhl",
-      "label": "레비 브률",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q310248",
-      "degree": 1
-    },
-    {
       "id": "yu-jongho_criticism-reflection_1958",
       "label": "비평의 반성",
       "type": "essay",
@@ -1198,38 +1198,17 @@
       "degree": 11
     },
     {
-      "id": "p-empson",
-      "label": "엠프슨",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q333464",
-      "degree": 1
-    },
-    {
-      "id": "p-gourmont",
-      "label": "쿠르몽",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q562628",
-      "degree": 1
-    },
-    {
-      "id": "p-hulme",
-      "label": "흄",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q364095",
-      "degree": 1
-    },
-    {
-      "id": "p-spender",
-      "label": "스티븐 스펜더",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q234896",
-      "degree": 1
-    },
-    {
       "id": "p-murry",
       "label": "머리",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q336937",
+      "degree": 1
+    },
+    {
+      "id": "p-schleiermacher",
+      "label": "슐라이어마허",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q57286",
       "degree": 1
     },
     {
@@ -1247,17 +1226,38 @@
       "degree": 1
     },
     {
-      "id": "p-schleiermacher",
-      "label": "슐라이어마허",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q57286",
-      "degree": 1
-    },
-    {
       "id": "p-henry-miller",
       "label": "헨리 밀러",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q189378",
+      "degree": 1
+    },
+    {
+      "id": "p-hulme",
+      "label": "흄",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q364095",
+      "degree": 1
+    },
+    {
+      "id": "p-gourmont",
+      "label": "쿠르몽",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q562628",
+      "degree": 1
+    },
+    {
+      "id": "p-spender",
+      "label": "스티븐 스펜더",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q234896",
+      "degree": 1
+    },
+    {
+      "id": "p-empson",
+      "label": "엠프슨",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q333464",
       "degree": 1
     },
     {
@@ -1268,17 +1268,17 @@
       "degree": 7
     },
     {
-      "id": "p-alberes",
-      "label": "알베레스",
-      "type": "theorist",
-      "ref": "",
-      "degree": 1
-    },
-    {
       "id": "p-lubbock-percy",
       "label": "퍼시 라보크",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q6698093",
+      "degree": 1
+    },
+    {
+      "id": "p-alberes",
+      "label": "알베레스",
+      "type": "theorist",
+      "ref": "",
       "degree": 1
     },
     {
@@ -1296,17 +1296,17 @@
       "degree": 3
     },
     {
-      "id": "p-russell",
-      "label": "버트런드 러셀",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q33760",
-      "degree": 1
-    },
-    {
       "id": "p-hobbes",
       "label": "토마스 홉스",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q37562",
+      "degree": 1
+    },
+    {
+      "id": "p-russell",
+      "label": "버트런드 러셀",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q33760",
       "degree": 1
     },
     {
@@ -1331,17 +1331,17 @@
       "degree": 2
     },
     {
-      "id": "p-akutagawa",
-      "label": "아쿠타가와 류노스케",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q42858",
-      "degree": 1
-    },
-    {
       "id": "p-lautreamont",
       "label": "로트레아몽",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q190027",
+      "degree": 1
+    },
+    {
+      "id": "p-akutagawa",
+      "label": "아쿠타가와 류노스케",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q42858",
       "degree": 1
     },
     {
@@ -1373,20 +1373,6 @@
       "degree": 1
     },
     {
-      "id": "p-pascal",
-      "label": "파스칼",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q1290",
-      "degree": 1
-    },
-    {
-      "id": "p-fiedler-konrad",
-      "label": "콘라트 피들러",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q96384",
-      "degree": 1
-    },
-    {
       "id": "p-richards",
       "label": "I. A. 리처즈",
       "type": "theorist",
@@ -1398,6 +1384,20 @@
       "label": "장 폴랑",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q470606",
+      "degree": 1
+    },
+    {
+      "id": "p-fiedler-konrad",
+      "label": "콘라트 피들러",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q96384",
+      "degree": 1
+    },
+    {
+      "id": "p-pascal",
+      "label": "파스칼",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q1290",
       "degree": 1
     },
     {
@@ -1436,20 +1436,6 @@
       "degree": 11
     },
     {
-      "id": "p-stevenson",
-      "label": "스티븐슨",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q35548",
-      "degree": 1
-    },
-    {
-      "id": "p-fraser",
-      "label": "프레이저",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q5531746",
-      "degree": 1
-    },
-    {
       "id": "p-camus",
       "label": "카뮈",
       "type": "theorist",
@@ -1464,10 +1450,17 @@
       "degree": 1
     },
     {
-      "id": "p-day-lewis",
-      "label": "C. 데이 루이스",
+      "id": "p-stevenson",
+      "label": "스티븐슨",
       "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q459600",
+      "ref": "https://www.wikidata.org/wiki/Q35548",
+      "degree": 1
+    },
+    {
+      "id": "p-fraser",
+      "label": "프레이저",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q5531746",
       "degree": 1
     },
     {
@@ -1475,6 +1468,13 @@
       "label": "에리히 프롬",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q76621",
+      "degree": 1
+    },
+    {
+      "id": "p-day-lewis",
+      "label": "C. 데이 루이스",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q459600",
       "degree": 1
     },
     {
@@ -1499,17 +1499,17 @@
       "degree": 5
     },
     {
-      "id": "p-kafka",
-      "label": "카프카",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q905",
-      "degree": 1
-    },
-    {
       "id": "p-walter-pater",
       "label": "월터 페이터",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q186211",
+      "degree": 1
+    },
+    {
+      "id": "p-kafka",
+      "label": "카프카",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q905",
       "degree": 1
     },
     {
@@ -1534,31 +1534,17 @@
       "degree": 16
     },
     {
+      "id": "p-stendhal-son",
+      "label": "스탕달",
+      "type": "theorist",
+      "ref": "#p-stendhal",
+      "degree": 1
+    },
+    {
       "id": "p-thomas-mann-son",
       "label": "토마스 만",
       "type": "theorist",
       "ref": "#p-thomas-mann",
-      "degree": 1
-    },
-    {
-      "id": "p-roman-rolland",
-      "label": "로맹 롤랑",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q47162",
-      "degree": 1
-    },
-    {
-      "id": "p-nietzsche-son",
-      "label": "니체",
-      "type": "theorist",
-      "ref": "#p-nietzsche",
-      "degree": 1
-    },
-    {
-      "id": "p-warren",
-      "label": "워런",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q111925348",
       "degree": 1
     },
     {
@@ -1569,17 +1555,17 @@
       "degree": 1
     },
     {
-      "id": "p-stendhal-son",
-      "label": "스탕달",
-      "type": "theorist",
-      "ref": "#p-stendhal",
-      "degree": 1
-    },
-    {
       "id": "p-kenneth-burke",
       "label": "케네스 버크",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q960081",
+      "degree": 1
+    },
+    {
+      "id": "p-roman-rolland",
+      "label": "로맹 롤랑",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q47162",
       "degree": 1
     },
     {
@@ -1594,6 +1580,20 @@
       "label": "셰스토프",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q314189",
+      "degree": 1
+    },
+    {
+      "id": "p-nietzsche-son",
+      "label": "니체",
+      "type": "theorist",
+      "ref": "#p-nietzsche",
+      "degree": 1
+    },
+    {
+      "id": "p-warren",
+      "label": "워런",
+      "type": "theorist",
+      "ref": "https://www.wikidata.org/wiki/Q111925348",
       "degree": 1
     },
     {
@@ -1687,31 +1687,7 @@
     },
     {
       "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-merleau-ponty",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-chernyshevsky",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-sartre",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-raymond-williams",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-freud",
+      "target": "p-dostoevsky",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1729,7 +1705,31 @@
     },
     {
       "source": "kim-uchang_concrete-universality_1981",
-      "target": "p-dostoevsky",
+      "target": "p-merleau-ponty",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-raymond-williams",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-freud",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-chernyshevsky",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_concrete-universality_1981",
+      "target": "p-sartre",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1747,19 +1747,7 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-ko-un",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-oh-kyuwon",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-jung-heesung",
+      "target": "p-jung-hyunjong",
       "type": "subject_of",
       "weight": 1
     },
@@ -1771,13 +1759,25 @@
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
+      "target": "p-oh-kyuwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_conscience-poetry_1979",
+      "target": "p-ko-un",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_conscience-poetry_1979",
       "target": "p-hwang-dongkyu",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_conscience-poetry_1979",
-      "target": "p-jung-hyunjong",
+      "target": "p-jung-heesung",
       "type": "subject_of",
       "weight": 1
     },
@@ -1807,7 +1807,13 @@
     },
     {
       "source": "kim-uchang_cultural-subjectivity_1982",
-      "target": "p-pak-jiwon",
+      "target": "p-durkheim",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_cultural-subjectivity_1982",
+      "target": "p-weber",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1819,19 +1825,13 @@
     },
     {
       "source": "kim-uchang_cultural-subjectivity_1982",
-      "target": "p-durkheim",
+      "target": "p-pak-jiwon",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_cultural-subjectivity_1982",
       "target": "p-kant",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_cultural-subjectivity_1982",
-      "target": "p-weber",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1855,25 +1855,19 @@
     },
     {
       "source": "kim-uchang_hwang-dongkyu_1982",
-      "target": "p-kim-suyoung",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_hwang-dongkyu_1982",
       "target": "p-hwang-dongkyu",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_hwang-dongkyu_1982",
-      "target": "p-kim-byungik",
-      "type": "uses_theory",
+      "target": "p-kim-suyoung",
+      "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_hwang-dongkyu_1982",
-      "target": "p-arnold",
+      "target": "p-eliot",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1885,7 +1879,13 @@
     },
     {
       "source": "kim-uchang_hwang-dongkyu_1982",
-      "target": "p-eliot",
+      "target": "p-kim-byungik",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_hwang-dongkyu_1982",
+      "target": "p-arnold",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1921,13 +1921,13 @@
     },
     {
       "source": "kim-uchang_joy-use-literature_1984",
-      "target": "p-bettelheim",
+      "target": "p-iser",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_joy-use-literature_1984",
-      "target": "p-iser",
+      "target": "p-bettelheim",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1939,13 +1939,13 @@
     },
     {
       "source": "kim-uchang_kim-chaesu_1989",
-      "target": "p-plato",
+      "target": "p-rilke",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_kim-chaesu_1989",
-      "target": "p-rilke",
+      "target": "p-plato",
       "type": "uses_theory",
       "weight": 1
     },
@@ -1993,12 +1993,6 @@
     },
     {
       "source": "kim-uchang_language-things_1981",
-      "target": "p-hegel",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_language-things_1981",
       "target": "p-bergson",
       "type": "uses_theory",
       "weight": 1
@@ -2018,6 +2012,12 @@
     {
       "source": "kim-uchang_language-things_1981",
       "target": "p-lacan",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_language-things_1981",
+      "target": "p-hegel",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2071,6 +2071,12 @@
     },
     {
       "source": "kim-uchang_literature-utopia_1985",
+      "target": "p-campanella",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_literature-utopia_1985",
       "target": "p-marcuse",
       "type": "uses_theory",
       "weight": 1
@@ -2082,12 +2088,6 @@
       "weight": 1
     },
     {
-      "source": "kim-uchang_literature-utopia_1985",
-      "target": "p-campanella",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
       "source": "p-kim-uchang",
       "target": "kim-uchang_north-korean-criticism_1981",
       "type": "wrote",
@@ -2095,43 +2095,7 @@
     },
     {
       "source": "kim-uchang_north-korean-criticism_1981",
-      "target": "p-gorky",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-criticism_1981",
       "target": "p-radek",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-criticism_1981",
-      "target": "p-hegel",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-criticism_1981",
-      "target": "p-lenin",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-criticism_1981",
-      "target": "p-dufrenne",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-criticism_1981",
-      "target": "p-merleau-ponty",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-criticism_1981",
-      "target": "p-engels",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2143,7 +2107,43 @@
     },
     {
       "source": "kim-uchang_north-korean-criticism_1981",
+      "target": "p-merleau-ponty",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-criticism_1981",
+      "target": "p-lenin",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-criticism_1981",
+      "target": "p-gorky",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-criticism_1981",
+      "target": "p-engels",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-criticism_1981",
       "target": "p-zhdanov",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-criticism_1981",
+      "target": "p-hegel",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-criticism_1981",
+      "target": "p-dufrenne",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2161,25 +2161,7 @@
     },
     {
       "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-homer",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-hegel",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-lenin",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-lukacs",
+      "target": "p-marx",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2191,13 +2173,25 @@
     },
     {
       "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-plekhanov",
+      "target": "p-plato",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-plato",
+      "target": "p-whitman",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-lenin",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-plekhanov",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2209,13 +2203,19 @@
     },
     {
       "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-marx",
+      "target": "p-lukacs",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_north-korean-poetry_1980",
-      "target": "p-whitman",
+      "target": "p-hegel",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_north-korean-poetry_1980",
+      "target": "p-homer",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2245,12 +2245,6 @@
     },
     {
       "source": "kim-uchang_poets-jewel_1984",
-      "target": "p-kim-hyunseung",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_poets-jewel_1984",
       "target": "p-cho-jihun",
       "type": "subject_of",
       "weight": 1
@@ -2258,6 +2252,12 @@
     {
       "source": "kim-uchang_poets-jewel_1984",
       "target": "p-park-mokwol",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_poets-jewel_1984",
+      "target": "p-kim-hyunseung",
       "type": "subject_of",
       "weight": 1
     },
@@ -2305,12 +2305,6 @@
     },
     {
       "source": "kim-uchang_preface_1992",
-      "target": "p-arnheim",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_preface_1992",
       "target": "p-zijderveld",
       "type": "uses_theory",
       "weight": 1
@@ -2318,6 +2312,12 @@
     {
       "source": "kim-uchang_preface_1992",
       "target": "p-kristeva",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_preface_1992",
+      "target": "p-arnheim",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2335,13 +2335,13 @@
     },
     {
       "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "p-austin",
+      "target": "p-balazs",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_quotation-cultural-memory_1985",
-      "target": "p-balazs",
+      "target": "p-austin",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2353,7 +2353,7 @@
     },
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-paul-hazard",
+      "target": "p-binswanger",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2365,19 +2365,19 @@
     },
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-binswanger",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_realism-yeom-sangsub_1984",
-      "target": "p-baek-chul",
+      "target": "p-paul-hazard",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "kim-uchang_realism-yeom-sangsub_1984",
       "target": "p-yoo-jongho",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_realism-yeom-sangsub_1984",
+      "target": "p-baek-chul",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2389,7 +2389,25 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-hwang-sunwon",
+      "target": "p-yi-gwangsu",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-yeom-sangsub",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-choi-inhun",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_theory-korean-novel_1984",
+      "target": "p-kim-dongri",
       "type": "subject_of",
       "weight": 1
     },
@@ -2401,13 +2419,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yi-gwangsu",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-ko-un",
+      "target": "p-hwang-sunwon",
       "type": "subject_of",
       "weight": 1
     },
@@ -2425,19 +2437,7 @@
     },
     {
       "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-choi-inhun",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-yeom-sangsub",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_theory-korean-novel_1984",
-      "target": "p-kim-dongri",
+      "target": "p-ko-un",
       "type": "subject_of",
       "weight": 1
     },
@@ -2467,7 +2467,7 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-hwang-sunwon",
+      "target": "p-yi-gwangsu",
       "type": "subject_of",
       "weight": 1
     },
@@ -2479,19 +2479,13 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-yi-gwangsu",
+      "target": "p-yeom-sangsub",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-jo-sehi",
-      "type": "subject_of",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-yeom-sangsub",
       "type": "subject_of",
       "weight": 1
     },
@@ -2509,6 +2503,12 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-hwang-sunwon",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-baek-nakchung",
       "type": "uses_theory",
       "weight": 1
@@ -2516,18 +2516,6 @@
     {
       "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-ian-watt",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-lukacs",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "kim-uchang_time-korean-novel_1981",
-      "target": "p-poulet",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2545,7 +2533,19 @@
     },
     {
       "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-lukacs",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
       "target": "p-auerbach",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "kim-uchang_time-korean-novel_1981",
+      "target": "p-poulet",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2575,13 +2575,13 @@
     },
     {
       "source": "yu-jongho_aesthetics-vulgarity_1960",
-      "target": "p-sainte-beuve",
+      "target": "p-babbitt-irving",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_aesthetics-vulgarity_1960",
-      "target": "p-tyndall-william",
+      "target": "p-sainte-beuve",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2593,19 +2593,19 @@
     },
     {
       "source": "yu-jongho_aesthetics-vulgarity_1960",
-      "target": "p-babbitt-irving",
+      "target": "p-maugham",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_aesthetics-vulgarity_1960",
+      "target": "p-tyndall-william",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_aesthetics-vulgarity_1960",
       "target": "p-eliot",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_aesthetics-vulgarity_1960",
-      "target": "p-maugham",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2617,25 +2617,19 @@
     },
     {
       "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-nietzsche",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-herbert-read",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
       "target": "p-flaubert",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-maupassant",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-baudelaire",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-sartre",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2653,43 +2647,7 @@
     },
     {
       "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-thomas-mann",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-herbert-read",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-yeats",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-nietzsche",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-eliot",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
       "target": "p-thibaudet",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_bisunsu-declaration_1960",
-      "target": "p-gide",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2701,7 +2659,49 @@
     },
     {
       "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-thomas-mann",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-baudelaire",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
       "target": "p-proust",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-yeats",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-eliot",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-sartre",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-maupassant",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_bisunsu-declaration_1960",
+      "target": "p-gide",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2731,115 +2731,7 @@
     },
     {
       "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-sartre",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-balzac",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-eliot",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-taine",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-valery",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-sainte-beuve",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-korzybski",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-hazlitt",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-chekhov",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-pound",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-moulton",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-benedict-ruth",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-william-james",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-nietzsche",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-lamb-charles",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-huxley",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-maupassant",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
       "target": "p-baudelaire",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-problems_1958",
-      "target": "p-goethe",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2851,13 +2743,121 @@
     },
     {
       "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-goethe",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-chekhov",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-nietzsche",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-william-james",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-sainte-beuve",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
       "target": "p-levy-bruhl",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-pound",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-balzac",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-huxley",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-moulton",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-korzybski",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
       "target": "p-thibaudet",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-hazlitt",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-benedict-ruth",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-valery",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-taine",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-lamb-charles",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-eliot",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-sartre",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-problems_1958",
+      "target": "p-maupassant",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2869,37 +2869,19 @@
     },
     {
       "source": "yu-jongho_criticism-reflection_1958",
-      "target": "p-empson",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-reflection_1958",
       "target": "p-sainte-beuve",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_criticism-reflection_1958",
-      "target": "p-gourmont",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-reflection_1958",
-      "target": "p-hulme",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-reflection_1958",
-      "target": "p-spender",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_criticism-reflection_1958",
       "target": "p-murry",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-reflection_1958",
+      "target": "p-schleiermacher",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2917,13 +2899,31 @@
     },
     {
       "source": "yu-jongho_criticism-reflection_1958",
-      "target": "p-schleiermacher",
+      "target": "p-henry-miller",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_criticism-reflection_1958",
-      "target": "p-henry-miller",
+      "target": "p-hulme",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-reflection_1958",
+      "target": "p-gourmont",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-reflection_1958",
+      "target": "p-spender",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_criticism-reflection_1958",
+      "target": "p-empson",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2935,19 +2935,7 @@
     },
     {
       "source": "yu-jongho_experience-imagination-viewpoint_1961",
-      "target": "p-freud",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_experience-imagination-viewpoint_1961",
-      "target": "p-alberes",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_experience-imagination-viewpoint_1961",
-      "target": "p-marx",
+      "target": "p-nietzsche",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2959,7 +2947,19 @@
     },
     {
       "source": "yu-jongho_experience-imagination-viewpoint_1961",
-      "target": "p-nietzsche",
+      "target": "p-marx",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_experience-imagination-viewpoint_1961",
+      "target": "p-alberes",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_experience-imagination-viewpoint_1961",
+      "target": "p-freud",
       "type": "uses_theory",
       "weight": 1
     },
@@ -2977,13 +2977,13 @@
     },
     {
       "source": "yu-jongho_humanism-absence_1962",
-      "target": "p-russell",
+      "target": "p-hobbes",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_humanism-absence_1962",
-      "target": "p-hobbes",
+      "target": "p-russell",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3007,13 +3007,13 @@
     },
     {
       "source": "yu-jongho_kim-sowol_1960",
-      "target": "p-akutagawa",
+      "target": "p-lautreamont",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_kim-sowol_1960",
-      "target": "p-lautreamont",
+      "target": "p-akutagawa",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3043,18 +3043,6 @@
     },
     {
       "source": "yu-jongho_language-valley_1957",
-      "target": "p-pascal",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_language-valley_1957",
-      "target": "p-fiedler-konrad",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_language-valley_1957",
       "target": "p-william-james",
       "type": "uses_theory",
       "weight": 1
@@ -3072,6 +3060,18 @@
       "weight": 1
     },
     {
+      "source": "yu-jongho_language-valley_1957",
+      "target": "p-fiedler-konrad",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_language-valley_1957",
+      "target": "p-pascal",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
       "source": "p-yu-jongho",
       "target": "yu-jongho_modern-poetry-50years_1962",
       "type": "wrote",
@@ -3079,13 +3079,13 @@
     },
     {
       "source": "yu-jongho_modern-poetry-50years_1962",
-      "target": "p-jeong-jiyong",
+      "target": "p-ju-yohan",
       "type": "subject_of",
       "weight": 1
     },
     {
       "source": "yu-jongho_modern-poetry-50years_1962",
-      "target": "p-ju-yohan",
+      "target": "p-jeong-jiyong",
       "type": "subject_of",
       "weight": 1
     },
@@ -3097,13 +3097,13 @@
     },
     {
       "source": "yu-jongho_modern-poetry-50years_1962",
-      "target": "p-mallarme",
+      "target": "p-eliot",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_modern-poetry-50years_1962",
-      "target": "p-eliot",
+      "target": "p-mallarme",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3127,6 +3127,30 @@
     },
     {
       "source": "yu-jongho_modern-poetry-face_1959",
+      "target": "p-camus",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_modern-poetry-face_1959",
+      "target": "p-shelley",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_modern-poetry-face_1959",
+      "target": "p-plato",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_modern-poetry-face_1959",
+      "target": "p-mallarme",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_modern-poetry-face_1959",
       "target": "p-stevenson",
       "type": "uses_theory",
       "weight": 1
@@ -3139,19 +3163,7 @@
     },
     {
       "source": "yu-jongho_modern-poetry-face_1959",
-      "target": "p-plato",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_modern-poetry-face_1959",
-      "target": "p-camus",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_modern-poetry-face_1959",
-      "target": "p-mallarme",
+      "target": "p-fromm",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3163,19 +3175,7 @@
     },
     {
       "source": "yu-jongho_modern-poetry-face_1959",
-      "target": "p-shelley",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_modern-poetry-face_1959",
       "target": "p-day-lewis",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_modern-poetry-face_1959",
-      "target": "p-fromm",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3205,13 +3205,13 @@
     },
     {
       "source": "yu-jongho_prose-spirit_1958",
-      "target": "p-kafka",
+      "target": "p-walter-pater",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_prose-spirit_1958",
-      "target": "p-walter-pater",
+      "target": "p-kafka",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3235,79 +3235,19 @@
     },
     {
       "source": "yu-jongho_son-changsub_1959",
-      "target": "p-thomas-mann-son",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-roman-rolland",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-balzac",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-nietzsche-son",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-freud",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-warren",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-amiel",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
       "target": "p-stendhal-son",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_son-changsub_1959",
-      "target": "p-kenneth-burke",
+      "target": "p-thomas-mann-son",
       "type": "uses_theory",
       "weight": 1
     },
     {
       "source": "yu-jongho_son-changsub_1959",
-      "target": "p-aristotle",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-maugham",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-taine",
-      "type": "uses_theory",
-      "weight": 1
-    },
-    {
-      "source": "yu-jongho_son-changsub_1959",
-      "target": "p-shestov",
+      "target": "p-wellek",
       "type": "uses_theory",
       "weight": 1
     },
@@ -3319,7 +3259,67 @@
     },
     {
       "source": "yu-jongho_son-changsub_1959",
-      "target": "p-wellek",
+      "target": "p-taine",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-amiel",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-maugham",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-freud",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-kenneth-burke",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-roman-rolland",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-aristotle",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-balzac",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-shestov",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-nietzsche-son",
+      "type": "uses_theory",
+      "weight": 1
+    },
+    {
+      "source": "yu-jongho_son-changsub_1959",
+      "target": "p-warren",
       "type": "uses_theory",
       "weight": 1
     },
