@@ -2143,6 +2143,24 @@ kce:yu-jongho_native-language_1959 a critic:CriticalEssay ;
   dcterms:subject "언어의 근대화 과제"@ko ;
   dcterms:subject "언어의 지칭성"@ko .
 
+kce:yu-jongho_newspaper-novel_1961 a critic:CriticalEssay ;
+  dcterms:title "신문소설고 — 그 생태와 공과"@ko ;
+  rdfs:label "신문소설고 — 그 생태와 공과"@ko ;
+  dcterms:date "1961"^^xsd:gYear ;
+  schema:isPartOf "신문소설고 — 그 생태와 공과" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_newspaper-novel_1961.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-aristotle ;
+  cito:citesAsAuthority kc:p-platon ;
+  dcterms:subject "신문소설의 통속성"@ko ;
+  dcterms:subject "시장성의 의식"@ko ;
+  dcterms:subject "계몽문학"@ko ;
+  dcterms:subject "풍속소설/세태소설"@ko ;
+  dcterms:subject "건강한 노선"@ko ;
+  dcterms:subject "플라톤의 시부정론"@ko ;
+  dcterms:subject "시민으로서의 자각"@ko ;
+  dcterms:subject "정신의 혼미"@ko .
+
 kce:yu-jongho_prose-spirit_1958 a critic:CriticalEssay ;
   dcterms:title "산문정신고"@ko ;
   rdfs:label "산문정신고"@ko ;
@@ -2330,6 +2348,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_language-valley_1957 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_native-language_1959 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_newspaper-novel_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
