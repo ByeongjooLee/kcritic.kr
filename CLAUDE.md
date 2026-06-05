@@ -149,8 +149,48 @@ py -m uvicorn neo4j_api:app --reload
 1. 원문 텍스트를 `essays/{stem}.txt` 저장
 2. `essays/{stem}.xml` 생성 및 TEI 인코딩
 3. `py build.py` 실행 (사이트 + Neo4j 동시 갱신)
-4. `index.html` 에 essay-card 추가
-5. Git diff 확인 (essays/, .env 제외) → push
+4. build 결과 확인: graph.json 노드·엣지, concepts.json 개념어·excerpt
+5. `index.html` 에 essay-card 추가
+6. Git diff 확인 (essays/, .env 제외) → push
+
+### 파일명 규칙
+
+`{비평가-슬러그}_{대상-슬러그}_{연도}.xml`
+
+- 특정 작가 없는 에세이(시평·사회비평 등): `{비평가-슬러그}_{주제-슬러그}_{연도}.xml`
+  예: `yu-jongho_freedom-name_1960.xml`
+
+### sourceDesc 출처 기재 규칙
+
+**초출지 있는 경우:**
+```xml
+<bibl>
+  <title>에세이 제목</title>
+  <date when="1960">1960</date>
+  <note>《현대문학》, 1960년 9월호. 수록: 『비순수의 선언 — 유종호 전집 1』, 민음사, 1995</note>
+</bibl>
+```
+
+**초출지 미상인 경우:**
+```xml
+<bibl>
+  <title>에세이 제목</title>
+  <date when="1960">1960</date>
+  <note>초출지 미상 (1960). 수록: 『비순수의 선언 — 유종호 전집 1』, 민음사, 1995</note>
+</bibl>
+```
+
+**전집 수록 시 대체·편집 사항은 note에 추가:**
+```
+전집 편집 시 「원래 글 제목」을 대체하여 수록.
+```
+
+### 특정 작가 없는 에세이 처리
+
+정치·사회 시평, 문학론, 비평론 등 비평 대상 작가가 없는 에세이:
+- `subject` 없이 비평가 단독 에세이로 처리
+- 이론가로 인용된 인물은 `role="foreigner scholar"` 또는 `role="scholar"`로 마크업 → `uses_theory` 엣지 생성
+- graph.json에서 `wrote` 엣지만 생성 (subject_of 없음)
 
 ---
 
