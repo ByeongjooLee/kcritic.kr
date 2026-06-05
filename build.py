@@ -296,17 +296,18 @@ def person_chip(p, role_type=None):
     preg = _PERSONS_REGISTRY.get(pid, {}) if pid else {}
     encykorea = preg.get("encykorea", "") or ""
     encykorea_work = preg.get("encykorea_work", "") or ""
-    viaf = preg.get("viaf", "") or ""
+    nlk = preg.get("nlk", "") or ""
 
+    # 카드 chip: 한(민족문화대백과) → NLK → W(Wikidata) 핵심 3개만
     badges = ""
-    if wikidata:
-        badges += f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
     if encykorea:
         badges += f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
     if encykorea_work:
         badges += f' <a href="{encykorea_work}" target="_blank" class="chip-ext-link chip-ext-work" title="한국민족문화대백과(작품)">한*</a>'
-    if viaf:
-        badges += f' <a href="{viaf}" target="_blank" class="chip-ext-link" title="VIAF">V</a>'
+    if nlk:
+        badges += f' <a href="{nlk}" target="_blank" class="chip-ext-link" title="국립중앙도서관 LOD">NLK</a>'
+    if wikidata:
+        badges += f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
 
     if badges:
         chip = f'<span class="chip {cls}" data-id="{pid}">{name}{badges}</span>'
@@ -568,17 +569,17 @@ def build_critic_mini_graph(critic_id, graph_data):
 
 
 def _lod_links_html(xml_id):
-    """persons.json에서 LOD 외부 링크 뱃지 HTML 생성."""
+    """persons.json에서 LOD 외부 링크 뱃지 HTML 생성. 순서: encykorea → NLK → Wikidata → ISNI → VIAF"""
     p = _PERSONS_REGISTRY.get(xml_id, {})
     badges = []
-    if p.get("wikidata"):
-        badges.append(f'<a href="https://www.wikidata.org/wiki/{p["wikidata"]}" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a>')
     if p.get("encykorea"):
         badges.append(f'<a href="{p["encykorea"]}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
     if p.get("encykorea_work"):
         badges.append(f'<a href="{p["encykorea_work"]}" target="_blank" class="lod-badge lod-badge-work" title="한국민족문화대백과 (작품)">한국민족문화대백과 (작품) ↗</a>')
     if p.get("nlk"):
         badges.append(f'<a href="{p["nlk"]}" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a>')
+    if p.get("wikidata"):
+        badges.append(f'<a href="https://www.wikidata.org/wiki/{p["wikidata"]}" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a>')
     if p.get("isni"):
         badges.append(f'<a href="https://isni.org/isni/{p["isni"]}" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a>')
     if p.get("viaf"):

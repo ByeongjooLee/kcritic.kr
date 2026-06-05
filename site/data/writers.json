@@ -1,8 +1,8 @@
 [
   {
-    "id": "p-ko-un",
-    "name": "고은（高銀）",
-    "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788",
+    "id": "p-kim-suyoung",
+    "name": "김수영（金洙暎）",
+    "ref": "https://www.wikidata.org/wiki/Q16198424 https://encykorea.aks.ac.kr/Article/E0009567",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
@@ -18,9 +18,9 @@
     ]
   },
   {
-    "id": "p-kim-suyoung",
-    "name": "김수영（金洙暎）",
-    "ref": "https://www.wikidata.org/wiki/Q16198424 https://encykorea.aks.ac.kr/Article/E0009567",
+    "id": "p-ko-un",
+    "name": "고은（高銀）",
+    "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788",
     "essay_count": 2,
     "critics": [
       "p-kim-uchang"
@@ -126,24 +126,6 @@
     ]
   },
   {
-    "id": "p-jung-hyunjong",
-    "name": "정현종（鄭玄宗）",
-    "ref": "https://www.wikidata.org/wiki/Q1354064 http://lod.nl.go.kr/resource/KAC201207472",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-kim-changwan",
-    "name": "김창완（金昌完）",
-    "ref": "",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
     "id": "p-oh-kyuwon",
     "name": "오규원（吳圭原）",
     "ref": "https://www.wikidata.org/wiki/Q12614218 https://encykorea.aks.ac.kr/Article/E0071287",
@@ -153,9 +135,27 @@
     ]
   },
   {
+    "id": "p-jung-hyunjong",
+    "name": "정현종（鄭玄宗）",
+    "ref": "https://www.wikidata.org/wiki/Q1354064 http://lod.nl.go.kr/resource/KAC201207472",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
     "id": "p-jung-heesung",
     "name": "정희성（鄭喜成）",
     "ref": "https://www.wikidata.org/wiki/Q12520476",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-kim-changwan",
+    "name": "김창완（金昌完）",
+    "ref": "",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -216,15 +216,6 @@
     ]
   },
   {
-    "id": "p-park-mokwol",
-    "name": "박목월（朴木月）",
-    "ref": "https://www.wikidata.org/wiki/Q7137910 https://encykorea.aks.ac.kr/Article/E0020682",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
     "id": "p-kim-hyunseung",
     "name": "김현승",
     "ref": "https://www.wikidata.org/wiki/Q16080688 https://encykorea.aks.ac.kr/Article/E0011043",
@@ -234,9 +225,9 @@
     ]
   },
   {
-    "id": "p-byeon-youngro",
-    "name": "변영로",
-    "ref": "https://www.wikidata.org/wiki/Q11245147 https://encykorea.aks.ac.kr/Article/E0022940",
+    "id": "p-park-mokwol",
+    "name": "박목월（朴木月）",
+    "ref": "https://www.wikidata.org/wiki/Q7137910 https://encykorea.aks.ac.kr/Article/E0020682",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -252,36 +243,9 @@
     ]
   },
   {
-    "id": "p-choi-inhun",
-    "name": "최인훈",
-    "ref": "https://www.wikidata.org/wiki/Q11274314",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-kim-dongin",
-    "name": "김동인",
-    "ref": "https://www.wikidata.org/wiki/Q625815 https://encykorea.aks.ac.kr/Article/E0009003",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-son-changsub",
-    "name": "손창섭",
-    "ref": "https://www.wikidata.org/wiki/Q12602771 https://encykorea.aks.ac.kr/Article/E0079619",
-    "essay_count": 1,
-    "critics": [
-      "p-kim-uchang"
-    ]
-  },
-  {
-    "id": "p-jang-yonghak",
-    "name": "장용학",
-    "ref": "https://www.wikidata.org/wiki/Q12614625 https://encykorea.aks.ac.kr/Article/E0048708",
+    "id": "p-byeon-youngro",
+    "name": "변영로",
+    "ref": "https://www.wikidata.org/wiki/Q11245147 https://encykorea.aks.ac.kr/Article/E0022940",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"
@@ -297,9 +261,45 @@
     ]
   },
   {
+    "id": "p-son-changsub",
+    "name": "손창섭",
+    "ref": "https://www.wikidata.org/wiki/Q12602771 https://encykorea.aks.ac.kr/Article/E0079619",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
     "id": "p-yi-chungjun",
     "name": "이청준",
     "ref": "https://www.wikidata.org/wiki/Q31737 https://encykorea.aks.ac.kr/Article/E0071310",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-choi-inhun",
+    "name": "최인훈",
+    "ref": "https://www.wikidata.org/wiki/Q11274314",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-jang-yonghak",
+    "name": "장용학",
+    "ref": "https://www.wikidata.org/wiki/Q12614625 https://encykorea.aks.ac.kr/Article/E0048708",
+    "essay_count": 1,
+    "critics": [
+      "p-kim-uchang"
+    ]
+  },
+  {
+    "id": "p-kim-dongin",
+    "name": "김동인",
+    "ref": "https://www.wikidata.org/wiki/Q625815 https://encykorea.aks.ac.kr/Article/E0009003",
     "essay_count": 1,
     "critics": [
       "p-kim-uchang"

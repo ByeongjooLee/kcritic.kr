@@ -77,20 +77,24 @@
     }
     grid.innerHTML = writers.map(w => {
       const refs = (w.ref || '').split(' ').filter(Boolean);
-      const wikiHref = refs.find(u => u.includes('wikidata')) || null;
       const encyHref = refs.find(u => u.includes('encykorea')) || null;
-      const wikiBadge = wikiHref
-        ? `<a href="${wikiHref}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">W ↗</a>`
-        : '';
+      const nlkHref  = refs.find(u => u.includes('lod.nl.go.kr')) || null;
+      const wikiHref = refs.find(u => u.includes('wikidata')) || null;
       const encyBadge = encyHref
         ? `<a href="${encyHref}" target="_blank" class="critic-card-wikidata" style="background:#e8f0e8;color:#2a5a2a;" onclick="event.stopPropagation()">한 ↗</a>`
+        : '';
+      const nlkBadge = nlkHref
+        ? `<a href="${nlkHref}" target="_blank" class="critic-card-wikidata" style="background:#e8eef5;color:#1a3a5a;" onclick="event.stopPropagation()">NLK ↗</a>`
+        : '';
+      const wikiBadge = wikiHref
+        ? `<a href="${wikiHref}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">W ↗</a>`
         : '';
       const criticCount = (w.critics || []).length;
       return `
       <article class="critic-card" onclick="location.href='site/writers/${w.id}.html'">
         <div class="critic-card-header">
           <h2 class="critic-card-name">${w.name}</h2>
-          <span style="display:flex;gap:4px;">${wikiBadge}${encyBadge}</span>
+          <span style="display:flex;gap:4px;">${encyBadge}${nlkBadge}${wikiBadge}</span>
         </div>
         <div class="critic-card-stats">
           <span class="critic-stat"><strong>${w.essay_count}</strong> 관련 비평글</span>
