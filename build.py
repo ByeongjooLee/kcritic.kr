@@ -1209,7 +1209,7 @@ ONTOLOGY_BASE = "http://kcritic.kr/ontology/"
 
 # RDF 온톨로지 인물명 → Wikidata URI 매핑 (critic_v5_kcritic.rdf에서 추출)
 _ONTOLOGY_WIKIDATA = {
-    "김우창":  "http://www.wikidata.org/entity/Q12595024",
+    "김우창":  "http://www.wikidata.org/entity/Q17129594",
     "김윤식":  "http://www.wikidata.org/entity/Q12594764",
     "김종길":  "http://www.wikidata.org/entity/Q12594791",
     "유종호":  "http://www.wikidata.org/entity/Q12607768",

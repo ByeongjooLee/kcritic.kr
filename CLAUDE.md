@@ -160,7 +160,7 @@ py -m uvicorn neo4j_api:app --reload
 {
   "nodes": [
     { "id": "p-kim-uchang", "label": "김우창", "type": "critic",
-      "ref": "https://www.wikidata.org/wiki/Q12498425", "degree": 4 },
+      "ref": "https://www.wikidata.org/wiki/Q17129594", "degree": 4 },
     { "id": "kim-uchang_yun-dongju_1985", "label": "윤동주의 시와 근대적 자아",
       "type": "essay", "year": "1985", "degree": 3 },
     { "id": "concept-슬픔차로운-양심", "label": "괴로운 양심", "type": "concept", "degree": 2 }
@@ -437,7 +437,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 
 ### 온톨로지 인물 연결
 - `_ONTOLOGY_WIKIDATA` 딕셔너리에 등록된 인물만 `owl:sameAs <http://kcritic.kr/ontology/한국어이름>` 추가
-- 김우창 Wikidata: `Q12595024` (온톨로지 준거값; graph.json의 `Q12498425`는 확인 필요)
+- 김우창 Wikidata: `Q17129594` (검증 완료)
 - 새 인물이 온톨로지에 추가되면 `_ONTOLOGY_WIKIDATA` 딕셔너리도 함께 업데이트할 것
 
 ---
