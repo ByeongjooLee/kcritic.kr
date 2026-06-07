@@ -2244,6 +2244,22 @@ kce:yu-jongho_son-changsub_1959 a critic:CriticalEssay ;
   dcterms:subject "절망의 문학의 역설"@ko ;
   dcterms:subject "통속적 냉소주의"@ko .
 
+kce:yu-jongho_thought-revolution_1959 a critic:CriticalEssay ;
+  dcterms:title "사고의 변혁을 위하여 — 하나의 진단"@ko ;
+  rdfs:label "사고의 변혁을 위하여 — 하나의 진단"@ko ;
+  dcterms:date "1959"^^xsd:gYear ;
+  schema:isPartOf "사고의 변혁을 위하여 — 하나의 진단" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_thought-revolution_1959.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  dcterms:subject "이가치적 사고"@ko ;
+  dcterms:subject "경험의 복잡성"@ko ;
+  dcterms:subject "감정의 지배"@ko ;
+  dcterms:subject "이가치적 문예비평"@ko ;
+  dcterms:subject "광신과 횡포"@ko ;
+  dcterms:subject "다가치적 사고"@ko ;
+  dcterms:subject "관용과 공정"@ko ;
+  dcterms:subject "사고의 변혁"@ko .
+
 kce:yu-jongho_tradition-establishment_1960 a critic:CriticalEssay ;
   dcterms:title "전통의 확립을 위하여"@ko ;
   rdfs:label "전통의 확립을 위하여"@ko ;
@@ -2379,6 +2395,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_native-language_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_newspaper-novel_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_thought-revolution_1959 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_weeping-humanism_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_writer-reader_1961 .
