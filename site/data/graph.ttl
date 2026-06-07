@@ -29,6 +29,7 @@ kc:p-akutagawa a foaf:Person ;
 kc:p-alberes a foaf:Person ;
   foaf:name "알베레스"@ko ;
   rdfs:label "알베레스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q55672180> ;
   schema:url <https://kcritic.kr/resource/p-alberes> .
 
 kc:p-amiel a foaf:Person ;
@@ -114,6 +115,12 @@ kc:p-baudelaire a foaf:Person ;
   rdfs:label "보들레르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q501> ;
   schema:url <https://kcritic.kr/resource/p-baudelaire> .
+
+kc:p-beethoven a foaf:Person ;
+  foaf:name "베토벤"@ko ;
+  rdfs:label "베토벤"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q255> ;
+  schema:url <https://kcritic.kr/resource/p-beethoven> .
 
 kc:p-benedict-ruth a foaf:Person ;
   foaf:name "루스 베네딕트"@ko ;
@@ -259,6 +266,7 @@ kc:p-eliot a foaf:Person ;
 kc:p-eliot-wr a foaf:Person ;
   foaf:name "엘리엇"@ko ;
   rdfs:label "엘리엇"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q41166> ;
   schema:url <https://kcritic.kr/resource/p-eliot-wr> .
 
 kc:p-empson a foaf:Person ;
@@ -309,6 +317,12 @@ kc:p-fukuzawa a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q275118> ;
   schema:url <https://kcritic.kr/resource/p-fukuzawa> .
 
+kc:p-furtwangler a foaf:Person ;
+  foaf:name "푸르트벵글러"@ko ;
+  rdfs:label "푸르트벵글러"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q153758> ;
+  schema:url <https://kcritic.kr/resource/p-furtwangler> .
+
 kc:p-gheorghiu a foaf:Person ;
   foaf:name "게오르규"@ko ;
   rdfs:label "게오르규"@ko ;
@@ -318,12 +332,13 @@ kc:p-gheorghiu a foaf:Person ;
 kc:p-gide a foaf:Person ;
   foaf:name "지드"@ko ;
   rdfs:label "지드"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q34989> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q47484> ;
   schema:url <https://kcritic.kr/resource/p-gide> .
 
 kc:p-gide-son a foaf:Person ;
   foaf:name "지드"@ko ;
   rdfs:label "지드"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q47484> ;
   schema:url <https://kcritic.kr/resource/p-gide-son> .
 
 kc:p-goethe a foaf:Person ;
@@ -524,6 +539,11 @@ kc:p-kim-dongri a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499524> ;
   schema:url <https://kcritic.kr/resource/p-kim-dongri> .
 
+kc:p-kim-guyong a foaf:Person ;
+  foaf:name "김구용"@ko ;
+  rdfs:label "김구용"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-guyong> .
+
 kc:p-kim-hyunseung a foaf:Person ;
   foaf:name "김현승"@ko ;
   rdfs:label "김현승"@ko ;
@@ -602,6 +622,7 @@ kc:p-lacan a foaf:Person ;
 kc:p-laforge-rene a foaf:Person ;
   foaf:name "르네 라포르그"@ko ;
   rdfs:label "르네 라포르그"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q366581> ;
   schema:url <https://kcritic.kr/resource/p-laforge-rene> .
 
 kc:p-lamb-charles a foaf:Person ;
@@ -730,6 +751,12 @@ kc:p-maupassant a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9327> ;
   schema:url <https://kcritic.kr/resource/p-maupassant> .
 
+kc:p-max-jacob a foaf:Person ;
+  foaf:name "Max Jacob"@ko ;
+  rdfs:label "Max Jacob"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q313975> ;
+  schema:url <https://kcritic.kr/resource/p-max-jacob> .
+
 kc:p-merleau-ponty a foaf:Person ;
   foaf:name "메를로퐁티"@ko ;
   rdfs:label "메를로퐁티"@ko ;
@@ -739,6 +766,7 @@ kc:p-merleau-ponty a foaf:Person ;
 kc:p-moulton a foaf:Person ;
   foaf:name "몰튼"@ko ;
   rdfs:label "몰튼"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q7326053> ;
   schema:url <https://kcritic.kr/resource/p-moulton> .
 
 kc:p-murry a foaf:Person ;
@@ -756,6 +784,7 @@ kc:p-nietzsche a foaf:Person ;
 kc:p-nietzsche-son a foaf:Person ;
   foaf:name "니체"@ko ;
   rdfs:label "니체"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9358> ;
   schema:url <https://kcritic.kr/resource/p-nietzsche-son> .
 
 kc:p-oh-kyuwon a foaf:Person ;
@@ -767,6 +796,7 @@ kc:p-oh-kyuwon a foaf:Person ;
 kc:p-pak-jiwon a foaf:Person ;
   foaf:name "박지원"@ko ;
   rdfs:label "박지원"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q495720> ;
   schema:url <https://kcritic.kr/resource/p-pak-jiwon> .
 
 kc:p-park-mokwol a foaf:Person ;
@@ -844,6 +874,7 @@ kc:p-proust a foaf:Person ;
 kc:p-radek a foaf:Person ;
   foaf:name "라데크"@ko ;
   rdfs:label "라데크"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q84266> ;
   schema:url <https://kcritic.kr/resource/p-radek> .
 
 kc:p-raymond-williams a foaf:Person ;
@@ -906,6 +937,13 @@ kc:p-schopenhauer a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q38193> ;
   schema:url <https://kcritic.kr/resource/p-schopenhauer> .
 
+kc:p-seo-jeongju a foaf:Person ;
+  foaf:name "서정주"@ko ;
+  rdfs:label "서정주"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494977> ;
+  owl:sameAs <http://kcritic.kr/ontology/서정주> ;
+  schema:url <https://kcritic.kr/resource/p-seo-jeongju> .
+
 kc:p-shelley a foaf:Person ;
   foaf:name "퍼시 비시 셸리"@ko ;
   rdfs:label "퍼시 비시 셸리"@ko ;
@@ -948,15 +986,10 @@ kc:p-starobinski a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q948889> ;
   schema:url <https://kcritic.kr/resource/p-starobinski> .
 
-kc:p-stendhal a foaf:Person ;
-  foaf:name "스탕달"@ko ;
-  rdfs:label "스탕달"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q502> ;
-  schema:url <https://kcritic.kr/resource/p-stendhal> .
-
 kc:p-stendhal-son a foaf:Person ;
   foaf:name "스탕달"@ko ;
   rdfs:label "스탕달"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q502> ;
   schema:url <https://kcritic.kr/resource/p-stendhal-son> .
 
 kc:p-stevenson a foaf:Person ;
@@ -992,6 +1025,7 @@ kc:p-thomas-mann a foaf:Person ;
 kc:p-thomas-mann-son a foaf:Person ;
   foaf:name "토마스 만"@ko ;
   rdfs:label "토마스 만"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q37030> ;
   schema:url <https://kcritic.kr/resource/p-thomas-mann-son> .
 
 kc:p-thomas-more a foaf:Person ;
@@ -1009,6 +1043,7 @@ kc:p-trilling a foaf:Person ;
 kc:p-tyndall-william a foaf:Person ;
   foaf:name "틴들"@ko ;
   rdfs:label "틴들"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q6167772> ;
   schema:url <https://kcritic.kr/resource/p-tyndall-william> .
 
 kc:p-valery a foaf:Person ;
@@ -1156,7 +1191,6 @@ kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-uchang ;
   cito:discusses kc:p-coleridge ;
   cito:discusses kc:p-poe ;
-  cito:discusses kc:p-stendhal ;
   cito:citesAsAuthority kc:p-sombart ;
   dcterms:subject "심미적 감각"@ko ;
   dcterms:subject "행복의 약속(promesse de bonheur)"@ko ;
@@ -1833,6 +1867,30 @@ kce:yu-jongho_aesthetics-vulgarity_1960 a critic:CriticalEssay ;
   dcterms:subject "산문정신"@ko ;
   dcterms:subject "순수예술에의 지향"@ko .
 
+kce:yu-jongho_barren-schema_1957 a critic:CriticalEssay ;
+  dcterms:title "불모의 도식 — 1957년의 시"@ko ;
+  rdfs:label "불모의 도식 — 1957년의 시"@ko ;
+  dcterms:date "1957"^^xsd:gYear ;
+  schema:isPartOf "불모의 도식 — 1957년의 시" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_barren-schema_1957.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:discusses kc:p-kim-guyong ;
+  cito:discusses kc:p-seo-jeongju ;
+  cito:citesAsAuthority kc:p-beethoven ;
+  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-furtwangler ;
+  cito:citesAsAuthority kc:p-huxley ;
+  cito:citesAsAuthority kc:p-max-jacob ;
+  cito:citesAsAuthority kc:p-nietzsche ;
+  dcterms:subject "언어의 마술"@ko ;
+  dcterms:subject "산문에의 굴종"@ko ;
+  dcterms:subject "전면적 진실"@ko ;
+  dcterms:subject "시의 음악성"@ko ;
+  dcterms:subject "복잡하게 말하기"@ko ;
+  dcterms:subject "시의 자율성"@ko ;
+  dcterms:subject "불모의 도식"@ko ;
+  dcterms:subject "비평 기능의 부재"@ko .
+
 kce:yu-jongho_bisunsu-declaration_1960 a critic:CriticalEssay ;
   dcterms:title "비순수의 선언"@ko ;
   rdfs:label "비순수의 선언"@ko ;
@@ -2370,7 +2428,6 @@ kc:p-kim-uchang critic:analyzes kc:p-poe .
 kc:p-kim-uchang critic:analyzes kc:p-rilke .
 kc:p-kim-uchang critic:analyzes kc:p-sim-hun .
 kc:p-kim-uchang critic:analyzes kc:p-son-changsub .
-kc:p-kim-uchang critic:analyzes kc:p-stendhal .
 kc:p-kim-uchang critic:analyzes kc:p-yeom-sangsub .
 kc:p-kim-uchang critic:analyzes kc:p-yi-chungjun .
 kc:p-kim-uchang critic:analyzes kc:p-yi-gwangsu .
@@ -2378,6 +2435,7 @@ kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
 kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
 
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_aesthetics-vulgarity_1960 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_barren-schema_1957 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-problems_1958 .
@@ -2403,4 +2461,6 @@ kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
 kc:p-yu-jongho critic:analyzes kc:p-jang-yonghak .
 kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
 kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
+kc:p-yu-jongho critic:analyzes kc:p-kim-guyong .
 kc:p-yu-jongho critic:analyzes kc:p-kim-sowol .
+kc:p-yu-jongho critic:analyzes kc:p-seo-jeongju .
