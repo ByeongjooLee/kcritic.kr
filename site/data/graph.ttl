@@ -228,6 +228,12 @@ kc:p-coleridge a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q81412> ;
   schema:url <https://kcritic.kr/resource/p-coleridge> .
 
+kc:p-dahrendorf a foaf:Person ;
+  foaf:name "달렌도르프"@ko ;
+  rdfs:label "달렌도르프"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q76538> ;
+  schema:url <https://kcritic.kr/resource/p-dahrendorf> .
+
 kc:p-day-lewis a foaf:Person ;
   foaf:name "C. 데이 루이스"@ko ;
   rdfs:label "C. 데이 루이스"@ko ;
@@ -717,6 +723,12 @@ kc:p-mallarme a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q767> ;
   schema:url <https://kcritic.kr/resource/p-mallarme> .
 
+kc:p-mannheim a foaf:Person ;
+  foaf:name "만하임"@ko ;
+  rdfs:label "만하임"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q75905> ;
+  schema:url <https://kcritic.kr/resource/p-mannheim> .
+
 kc:p-marcuse a foaf:Person ;
   foaf:name "헤르베르트 마르쿠제"@ko ;
   rdfs:label "헤르베르트 마르쿠제"@ko ;
@@ -782,6 +794,12 @@ kc:p-oh-kyuwon a foaf:Person ;
   rdfs:label "오규원（吳圭原）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12614218> ;
   schema:url <https://kcritic.kr/resource/p-oh-kyuwon> .
+
+kc:p-oscar-wilde a foaf:Person ;
+  foaf:name "오스카 와일드"@ko ;
+  rdfs:label "오스카 와일드"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q30875> ;
+  schema:url <https://kcritic.kr/resource/p-oscar-wilde> .
 
 kc:p-pak-jiwon a foaf:Person ;
   foaf:name "박지원"@ko ;
@@ -1042,6 +1060,12 @@ kc:p-virgil a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1398> ;
   schema:url <https://kcritic.kr/resource/p-virgil> .
 
+kc:p-voltaire a foaf:Person ;
+  foaf:name "볼테르"@ko ;
+  rdfs:label "볼테르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9068> ;
+  schema:url <https://kcritic.kr/resource/p-voltaire> .
+
 kc:p-walter-benjamin a foaf:Person ;
   foaf:name "발터 벤야민（Walter Benjamin）"@ko ;
   rdfs:label "발터 벤야민（Walter Benjamin）"@ko ;
@@ -1164,6 +1188,12 @@ kc:p-zijderveld a foaf:Person ;
   rdfs:label "안톤 C. 지데어발드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q383190> ;
   schema:url <https://kcritic.kr/resource/p-zijderveld> .
+
+kc:p-zola a foaf:Person ;
+  foaf:name "에밀 졸라"@ko ;
+  rdfs:label "에밀 졸라"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q504> ;
+  schema:url <https://kcritic.kr/resource/p-zola> .
 
 # ── 비평글 노드 ─────────────────────────────────────────
 kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
@@ -2073,6 +2103,30 @@ kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
   dcterms:subject "인간의 자기소외"@ko ;
   dcterms:subject "실천적 휴머니즘"@ko .
 
+kce:yu-jongho_intellectual-freedom_1974 a critic:CriticalEssay ;
+  dcterms:title "지식인과 지적 자유"@ko ;
+  rdfs:label "지식인과 지적 자유"@ko ;
+  dcterms:date "1974"^^xsd:gYear ;
+  schema:isPartOf "지식인과 지적 자유" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_intellectual-freedom_1974.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-dahrendorf ;
+  cito:citesAsAuthority kc:p-fromm ;
+  cito:citesAsAuthority kc:p-mannheim ;
+  cito:citesAsAuthority kc:p-oscar-wilde ;
+  cito:citesAsAuthority kc:p-russell ;
+  cito:citesAsAuthority kc:p-voltaire ;
+  cito:citesAsAuthority kc:p-william-james ;
+  cito:citesAsAuthority kc:p-zola ;
+  dcterms:subject "사회의 양심으로서의 지식인"@ko ;
+  dcterms:subject "자유부동 지식인"@ko ;
+  dcterms:subject "어릿광대 은유"@ko ;
+  dcterms:subject "지적 이단의 합법성"@ko ;
+  dcterms:subject "지적 자유 효용론"@ko ;
+  dcterms:subject "반지식인주의"@ko ;
+  dcterms:subject "비판과 불평의 동일시"@ko ;
+  dcterms:subject "전문가 숭배의 반지성"@ko .
+
 kce:yu-jongho_jang-yonghak_1960 a critic:CriticalEssay ;
   dcterms:title "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
   rdfs:label "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
@@ -2447,6 +2501,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_experience-imagination-viewpoint_19
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_freedom-name_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_glance-word_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-freedom_1974 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_jang-yonghak_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
