@@ -49,7 +49,7 @@ critic-ontology/
 ├── research.html            ← 선행연구 탭
 ├── criticism.html           ← 2000년대 비평 탭
 ├── ask.html                 ← 질문하기 탭 (Neo4j GraphRAG UI)
-├── sparql.html              ← SPARQL 탭 (숨김 상태 — Comunica 오류)
+├── sparql.html              ← SPARQL 탭 (숨김 상태 — ask.html 내 SPARQL 탭으로 대체)
 ├── style.css                ← 공유 스타일 (반응형 포함)
 ├── build.py                 ← TEI XML → HTML + JSON + Neo4j 동기화 빌드 스크립트
 ├── neo4j_api.py             ← FastAPI GraphRAG 서버 (포트 8000)
@@ -430,18 +430,21 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 | 그래프 DB | Neo4j Desktop (로컬, bolt://127.0.0.1:7687, APOC 플러그인) |
 | GraphRAG API | FastAPI + uvicorn (`neo4j_api.py`, 포트 8000) |
 | AI 답변 | Anthropic Claude API (`claude-sonnet-4-6`) — Cypher 생성 + 학술 답변 |
-| SPARQL | Comunica 브라우저 엔진 (sparql.html, 현재 숨김) |
+| SPARQL | Comunica + N3 로컬 번들 (site/sparql-bundle.js, ask.html SPARQL 탭에 통합) |
 | 호스팅 | Cloudflare Workers (무료) |
 | 비용 | 도메인 갱신비 + Anthropic API 사용료 |
 | LOD | Wikidata + 국립중앙도서관 LOD |
 
 ---
 
-## 15. 공식 OWL 온톨로지 (critic_v6_kcritic.rdf)
+## 15. 공식 OWL 온톨로지 (critic_v7_kcritic.rdf)
 
 - v5 파일: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v5_kcritic.rdf`
-- **v6 파일 (최신)**: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v6_kcritic.rdf`
+- v6 파일: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v6_kcritic.rdf`
   - v5 대비 추가: `critic:Thinker` 클래스, `cito:citesAsAuthority` 프로퍼티, 이론가 68명, 에세이 48편 인용관계
+- **v7 파일 (최신)**: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v7_kcritic.rdf`
+  - v6 대비 추가: `critic:Writer` 클래스, 한국 작가 40명 NamedIndividual + owl:sameAs (Wikidata/encykorea/NLK LOD/ISNI/VIAF) 177트리플
+  - 비평가 owl:sameAs: 김우창(encykorea), 유종호(NLK LOD)
 
 `build.py`의 `build_turtle()`은 이 온톨로지를 준거로 삼아 RDF Turtle을 생성함.
 
