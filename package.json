@@ -1,0 +1,28 @@
+{
+  "name": "critic-ontology",
+  "version": "1.0.0",
+  "description": "비평가 · 작가 · 이론가 · 비평글의 관계망을 TEI XML로 인코딩하고 정적 웹사이트로 발행하는 인문학 데이터 프로젝트.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByeongjooLee/kcritic.kr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ByeongjooLee/kcritic.kr/issues"
+  },
+  "homepage": "https://github.com/ByeongjooLee/kcritic.kr#readme",
+  "dependencies": {
+    "@comunica/query-sparql-rdfjs": "^5.2.3",
+    "esbuild": "^0.28.0",
+    "n3": "^2.0.3"
+  }
+}
