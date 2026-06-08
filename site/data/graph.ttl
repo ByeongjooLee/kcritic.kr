@@ -154,9 +154,9 @@ kc:p-binswanger a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-binswanger> .
 
 kc:p-brooks a foaf:Person ;
-  foaf:name "브룩스"@ko ;
-  rdfs:label "브룩스"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q1079527> ;
+  foaf:name "클리언스 브룩스"@ko ;
+  rdfs:label "클리언스 브룩스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q382476> ;
   schema:url <https://kcritic.kr/resource/p-brooks> .
 
 kc:p-byeon-youngro a foaf:Person ;
@@ -383,6 +383,12 @@ kc:p-heidegger a foaf:Person ;
   rdfs:label "하이데거"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
   schema:url <https://kcritic.kr/resource/p-heidegger> .
+
+kc:p-hemingway a foaf:Person ;
+  foaf:name "헤밍웨이（Hemingway）"@ko ;
+  rdfs:label "헤밍웨이（Hemingway）"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q23434> ;
+  schema:url <https://kcritic.kr/resource/p-hemingway> .
 
 kc:p-henry-james a foaf:Person ;
   foaf:name "헨리 제임스"@ko ;
@@ -1084,9 +1090,9 @@ kc:p-walter-pater a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-walter-pater> .
 
 kc:p-warren a foaf:Person ;
-  foaf:name "워런"@ko ;
-  rdfs:label "워런"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q111925348> ;
+  foaf:name "로버트 펜 워렌"@ko ;
+  rdfs:label "로버트 펜 워렌"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q314001> ;
   schema:url <https://kcritic.kr/resource/p-warren> .
 
 kc:p-weber a foaf:Person ;
@@ -2160,6 +2166,27 @@ kce:yu-jongho_intellectual-literature_1965 a critic:CriticalEssay ;
   dcterms:subject "이방인적 선량의식"@ko ;
   dcterms:subject "민족문학의 공허한 구호"@ko .
 
+kce:yu-jongho_intelligence-anti_1964 a critic:CriticalEssay ;
+  dcterms:title "지성과 반지성"@ko ;
+  rdfs:label "지성과 반지성"@ko ;
+  dcterms:date "1964"^^xsd:gYear ;
+  schema:isPartOf "지성과 반지성" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_intelligence-anti_1964.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:citesAsAuthority kc:p-brooks ;
+  cito:citesAsAuthority kc:p-hemingway ;
+  cito:citesAsAuthority kc:p-huxley ;
+  cito:citesAsAuthority kc:p-thomas-mann ;
+  cito:citesAsAuthority kc:p-warren ;
+  dcterms:subject "외재적 지성"@ko ;
+  dcterms:subject "지적 요소의 도입"@ko ;
+  dcterms:subject "복잡하게 말하기"@ko ;
+  dcterms:subject "반지성의 스타일"@ko ;
+  dcterms:subject "지성불신"@ko ;
+  dcterms:subject "관념의 극화"@ko ;
+  dcterms:subject "스타일과 사상의 비장"@ko ;
+  dcterms:subject "지성의 내재화"@ko .
+
 kce:yu-jongho_jang-yonghak_1960 a critic:CriticalEssay ;
   dcterms:title "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
   rdfs:label "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
@@ -2536,6 +2563,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_glance-word_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-freedom_1974 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-literature_1965 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_intelligence-anti_1964 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_jang-yonghak_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
