@@ -503,48 +503,41 @@ ORDER BY ?year`,
     document.getElementById('sparql-input').value = SPARQL_EXAMPLES[idx];
   }
 
-  // ── SPARQL 엔진: Comunica + N3 (CDN: jsDelivr) ──────────────
-  let n3Store = null;
-  let comunicaEngine = null;
+  // ── SPARQL: ESM 모듈로 로드 (별도 script type=module) ──────
+  // doSparql / setSparql 은 아래 ESM 블록에서 window에 등록됨
+  </script>
 
-  function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
-      const s = document.createElement('script');
-      s.src = src;
-      s.onload = resolve;
-      s.onerror = () => reject(new Error('스크립트 로드 실패: ' + src));
-      document.head.appendChild(s);
-    });
-  }
+  <script type="module">
+  import { QueryEngine } from 'https://esm.sh/@comunica/query-sparql-rdfjs@3.3.0';
+  import { Store, Parser } from 'https://esm.sh/n3@1.17.2';
+
+  let _store = null;
+  let _engine = null;
 
   async function getStore() {
-    if (n3Store) return n3Store;
-    await loadScript('https://cdn.jsdelivr.net/npm/n3@1/browser/n3.min.js');
+    if (_store) return _store;
     const ttlUrl = new URL('site/data/graph.ttl', window.location.href).href;
     const resp = await fetch(ttlUrl);
     if (!resp.ok) throw new Error('graph.ttl 로드 실패: ' + resp.status);
     const text = await resp.text();
-    const store = new N3.Store();
+    const store = new Store();
     await new Promise((resolve, reject) => {
-      new N3.Parser({ format: 'text/turtle' }).parse(text, (err, quad) => {
+      new Parser({ format: 'text/turtle' }).parse(text, (err, quad) => {
         if (err) return reject(err);
         if (quad) store.addQuad(quad);
         else resolve();
       });
     });
-    n3Store = store;
+    _store = store;
     return store;
   }
 
-  async function getEngine() {
-    if (comunicaEngine) return comunicaEngine;
-    await loadScript('https://cdn.jsdelivr.net/npm/@comunica/query-sparql-rdfjs@3/browser/comunica-browser.js');
-    comunicaEngine = new Comunica.QueryEngine();
-    return comunicaEngine;
+  function getEngine() {
+    if (!_engine) _engine = new QueryEngine();
+    return _engine;
   }
 
-  async function doSparql() {
+  window.doSparql = async function() {
     const query = document.getElementById('sparql-input').value.trim();
     if (!query) return;
 
@@ -557,7 +550,7 @@ ORDER BY ?year`,
     try {
       const [engine, store] = await Promise.all([getEngine(), getStore()]);
       const bindingsStream = await engine.queryBindings(query, {
-        sources: [{ type: 'rdfjsSource', value: store }],
+        sources: [store],
       });
 
       const bindings = await bindingsStream.toArray();
@@ -590,7 +583,7 @@ ORDER BY ?year`,
       btn.disabled = false;
       btn.textContent = '실행';
     }
-  }
+  };
   </script>
 </body>
 </html>
