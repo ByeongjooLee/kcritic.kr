@@ -1,0 +1,1686 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+    ===================================================================================
+    온톨로지 개요 (Ontology Overview)
+    ===================================================================================
+
+    명칭  : 김우창·유종호 문학비평 온톨로지 (Literary Criticism Ontology)
+    약어  : critic
+    기반 URI : http://kcritic.kr/ontology/critic#
+    작성일 : 2026-05-26
+    버전  : 7.0-kcritic (수정일: 2026-06-08)
+    작성자 : 이병주
+
+    ── v6 → v7 변경 ─────────────────────────────────────────────────────────────────
+    핵심 추가: 이론가 인물 속성 강화
+      - critic:Role 클래스 추가 — 인물의 학문적 역할(철학자·문학비평가 등)
+      - critic:hasRole ObjectProperty 추가 (Person → Role, 복수 부여 가능)
+      - critic:nationality DatatypeProperty 추가 (문학·사상사적 귀속 국가, 출생국 아님 — 예: 엘리엇→영국, 크리스테바→프랑스)
+      - 이론가 143명 전원에 nationality + hasRole 부여
+
+    ── 클래스 계층 ───────────────────────────────────────────────────────────────────
+    owl:Thing
+    ├── critic:Agent                           행위주체 (≡ foaf:Agent)
+    │   └── critic:Person                      사람 (≡ foaf:Person)
+    │       ├── critic:Critic                  비평가
+    │       ├── critic:Thinker                 이론가·사상가 (인용 대상)
+    │       └── (critic:Person)                작가 (비평 대상)
+    ├── critic:Document                        문서 (≡ foaf:Document)
+    │   └── critic:CriticalEssay               비평문
+    └── critic:Role                            인물 역할 (philosopher, poet 등)
+
+    ── 핵심 관계 ─────────────────────────────────────────────────────────────────────
+    critic:analyzes          비평가(Critic) → 사람(Person)     "김우창이 윤동주를 비평했다"
+    critic:hasRole           사람(Person) → 역할(Role)         "하이데거는 철학자다"
+    cito:discusses           비평문 → 사람(작가)               "이 비평문이 윤동주를 다룬다"
+    cito:citesAsAuthority    비평문 → Thinker(이론가)          "이 비평문이 하버마스를 인용했다"
+    dcterms:creator          비평문 → 비평가                   "이 비평문은 김우창이 썼다"
+
+    ── 통계 (v7) ────────────────────────────────────────────────────────────────────
+    클래스: 7개 (Agent, Person, Document, Critic, Thinker, CriticalEssay, Role)
+    OWL 정렬: critic:Agent ≡ foaf:Agent, critic:Person ≡ foaf:Person, critic:Document ≡ foaf:Document
+    자체 ObjectProperty: 2개 (critic:analyzes, critic:hasRole)
+    재사용 ObjectProperty: 3개 (cito:discusses, cito:citesAsAuthority, dcterms:creator)
+    자체 DataProperty: 2개 (critic:name ≡ foaf:name, critic:nationality)
+    재사용 DataProperty: 2개 (dcterms:title, dcterms:date)
+    비평가 개인: 2명 (김우창, 유종호)
+    이론가 개인: 143명
+    비평문 개인: 48편
+    이론가 인용 트리플: 192개
+    Role 인스턴스: 10개
+    nationality 트리플: 143개
+
+    ── 선행 온톨로지 참조 ──────────────────────────────────────────────────────────
+    CiTO         https://sparontologies.github.io/cito/current/cito.html
+    Dublin Core  https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+    FOAF         http://xmlns.com/foaf/0.1/spec/  (OWL 정렬용 — import 없음)
+    Wikidata     https://www.wikidata.org/
+    ===================================================================================
+-->
+
+<rdf:RDF
+  xmlns:cito="http://purl.org/spar/cito/"
+  xmlns:critic="http://kcritic.kr/ontology/critic#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://kcritic.kr/ontology/">
+
+  <owl:Ontology rdf:about="http://kcritic.kr/ontology/">
+    <rdfs:label xml:lang="ko">한국 비평사 온톨로지 — 김우창·유종호</rdfs:label>
+    <rdfs:comment xml:lang="ko">한국 문학비평에서 "누가·누구를·어떻게·어떤 이론으로" 비평했는가를 표현하는 온톨로지 (v7-kcritic)</rdfs:comment>
+    <owl:versionInfo>7.0-kcritic</owl:versionInfo>
+  </owl:Ontology>
+
+  <!-- ============================================================
+       Object Properties
+       ============================================================ -->
+
+  <owl:ObjectProperty rdf:about="http://kcritic.kr/ontology/critic#analyzes">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Critic" />
+    <rdfs:range rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">~을 비평하다</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평가가 특정 인물을 비평 대상으로 삼는 관계. 이 온톨로지의 핵심 관계.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://kcritic.kr/ontology/critic#hasRole">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:range rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <rdfs:label xml:lang="ko">역할을 갖다</rdfs:label>
+    <rdfs:comment xml:lang="ko">인물이 학문적·문학적 역할을 갖는 관계. 한 인물에 복수 역할 부여 가능.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       재사용 외부 ObjectProperty (재선언 없이 URI만으로 사용)
+       ──────────────────────────────────────────────────────────────
+       dcterms:creator
+         설명 : 비평문의 저자(작성자)를 가리키는 관계. 비평문 → 비평가.
+         출처 : Dublin Core Metadata Terms
+         URI  : http://purl.org/dc/terms/creator
+
+       cito:discusses
+         설명 : 비평문이 특정 인물(작가·비평 대상)을 논의 대상으로 다루는 관계. 비평문 → Person.
+         출처 : Citation Typing Ontology (CiTO)
+         URI  : http://purl.org/spar/cito/discusses
+
+       cito:citesAsAuthority
+         설명 : 비평문이 특정 이론가·사상가를 이론적 권위로 인용하는 관계. 비평문 → Thinker.
+         출처 : Citation Typing Ontology (CiTO)
+         URI  : http://purl.org/spar/cito/citesAsAuthority
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- ============================================================
+       Datatype Properties
+       ============================================================ -->
+
+  <owl:DatatypeProperty rdf:about="http://kcritic.kr/ontology/critic#name">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <rdfs:label xml:lang="ko">이름</rdfs:label>
+    <rdfs:comment xml:lang="ko">인물의 이름. 언어 태그(xml:lang)로 한국어·영어 병기 가능.</rdfs:comment>
+    <owl:equivalentProperty rdf:resource="http://xmlns.com/foaf/0.1/name" />
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://kcritic.kr/ontology/critic#nationality">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <rdfs:label xml:lang="ko">국적</rdfs:label>
+    <rdfs:comment xml:lang="ko">인물의 문학·사상사적 귀속 국가. 출생국이 아니라 해당 인물이 주로 귀속되는 사상 전통의 국가를 한국어로 기재 (예: T.S. 엘리엇→영국, 줄리아 크리스테바→프랑스). Wikidata에 없는 인물을 위해 온톨로지에 직접 입력.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/title">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <rdfs:label xml:lang="ko">제목</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평문의 제목. Dublin Core에서 재사용.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/title" />
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/date">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear" />
+    <rdfs:label xml:lang="ko">발표 연도</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평문의 발표 연도. Dublin Core에서 재사용.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/date" />
+  </owl:DatatypeProperty>
+
+  <!-- ============================================================
+       Classes
+       ============================================================ -->
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Agent">
+    <rdfs:label xml:lang="ko">행위주체</rdfs:label>
+    <rdfs:comment xml:lang="ko">행위 능력을 갖는 존재의 최상위 클래스.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Person">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Agent" />
+    <rdfs:label xml:lang="ko">사람</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평 행위와 관련되는 모든 인물의 상위 클래스. critic:Critic, critic:Thinker의 상위.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Document">
+    <rdfs:label xml:lang="ko">문서</rdfs:label>
+    <rdfs:comment xml:lang="ko">텍스트 문서의 상위 클래스. critic:CriticalEssay의 상위.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Document" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Critic">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">비평가</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평 행위의 주체. critic:analyzes 관계의 domain.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Thinker">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">이론가·사상가</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평문에서 이론적 권위로 인용되는 철학자·이론가·사상가. cito:citesAsAuthority 관계의 range.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Writer">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">작가</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평의 대상이 되는 시인·소설가·문인. cito:discusses 관계의 range.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#CriticalEssay">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Document" />
+    <rdfs:label xml:lang="ko">비평문</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평가가 집필한 개별 비평 에세이.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Role">
+    <rdfs:label xml:lang="ko">역할</rdfs:label>
+    <rdfs:comment xml:lang="ko">인물의 학문적·문학적 역할. critic:hasRole의 range. 한 인물이 복수의 역할을 가질 수 있다(예: 사르트르 — 철학자이자 소설가이자 비평가).</rdfs:comment>
+  </owl:Class>
+
+  <!-- ============================================================
+       역할 (Role) Individuals
+       ============================================================ -->
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/philosopher">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">철학자</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/literary-critic">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">문학비평가</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/poet">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">시인</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/novelist">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">소설가</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/sociologist">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">사회학자</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/psychologist">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">심리학자</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/political-theorist">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">정치이론가</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/historian">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">역사학자</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/linguist">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">언어학자</critic:name>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/role/aesthetician">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Role" />
+    <critic:name xml:lang="ko">미학자</critic:name>
+  </owl:NamedIndividual>
+
+  <!-- ============================================================
+       비평가 (Critic) Individuals
+       ============================================================ -->
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김우창">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Critic" />
+    <critic:name xml:lang="ko">김우창</critic:name>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12595024" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0010002" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/유종호">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Critic" />
+    <critic:name xml:lang="ko">유종호</critic:name>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q13564819" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201106284" />
+  </owl:NamedIndividual>
+
+  <!-- ============================================================
+       이론가·사상가 (Thinker) Individuals
+       ============================================================ -->
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/T.S.엘리엇">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">T. S. 엘리엇</critic:name>
+    <critic:name xml:lang="en">T. S. Eliot</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37767" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/I.A.리처즈">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">I. A. 리처즈</critic:name>
+    <critic:name xml:lang="en">I. A. Richards</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q718585" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/J.L.오스틴">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">J. L. 오스틴</critic:name>
+    <critic:name xml:lang="en">J. L. Austin</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q108038" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/괴테">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">괴테</critic:name>
+    <critic:name xml:lang="en">Johann Wolfgang von Goethe</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/novelist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q5879" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/니체">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">니체</critic:name>
+    <critic:name xml:lang="en">Friedrich Nietzsche</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9358" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/데카르트">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">데카르트</critic:name>
+    <critic:name xml:lang="en">René Descartes</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9191" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/도스토옙스키">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">도스토옙스키</critic:name>
+    <critic:name xml:lang="en">Fyodor Dostoevsky</critic:name>
+    <critic:nationality>러시아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/novelist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q991" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/뒤르켐">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">뒤르켐</critic:name>
+    <critic:name xml:lang="en">Émile Durkheim</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/sociologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q15948" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/딜타이">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">딜타이</critic:name>
+    <critic:name xml:lang="en">Wilhelm Dilthey</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/historian" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q60080" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/라이오넬트릴링">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">라이오넬 트릴링</critic:name>
+    <critic:name xml:lang="en">Lionel Trilling</critic:name>
+    <critic:nationality>미국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1827287" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/라이프니츠">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">라이프니츠</critic:name>
+    <critic:name xml:lang="en">Gottfried Wilhelm Leibniz</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9047" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/레닌">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">레닌</critic:name>
+    <critic:name xml:lang="en">Vladimir Lenin</critic:name>
+    <critic:nationality>러시아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1394" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/레비스트로스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">레비-스트로스</critic:name>
+    <critic:name xml:lang="en">Claude Lévi-Strauss</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/sociologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q128126" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/레이먼드윌리엄스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">레이먼드 윌리엄스</critic:name>
+    <critic:name xml:lang="en">Raymond Williams</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/sociologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q394628" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/루카치">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">루카치</critic:name>
+    <critic:name xml:lang="en">György Lukács</critic:name>
+    <critic:nationality>헝가리</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q151523" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/릴케">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">릴케</critic:name>
+    <critic:name xml:lang="en">Rainer Maria Rilke</critic:name>
+    <critic:nationality>오스트리아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q76483" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/마르크스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">마르크스</critic:name>
+    <critic:name xml:lang="en">Karl Marx</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9061" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/막스베버">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">막스 베버</critic:name>
+    <critic:name xml:lang="en">Max Weber</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/sociologist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9387" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/막심고리키">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">막심 고리키</critic:name>
+    <critic:name xml:lang="en">Maxim Gorky</critic:name>
+    <critic:nationality>러시아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/novelist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12706" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/말라르메">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">말라르메</critic:name>
+    <critic:name xml:lang="en">Stéphane Mallarmé</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q767" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/매슈아널드">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">매슈 아널드</critic:name>
+    <critic:name xml:lang="en">Matthew Arnold</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q271032" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/메를로퐁티">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">메를로퐁티</critic:name>
+    <critic:name xml:lang="en">Maurice Merleau-Ponty</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q212639" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/미켈뒤프렌">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">미켈 뒤프렌</critic:name>
+    <critic:name xml:lang="en">Mikel Dufrenne</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/aesthetician" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q2548282" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/발터벤야민">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">발터 벤야민</critic:name>
+    <critic:name xml:lang="en">Walter Benjamin</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q61078" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/베르그송">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">베르그송</critic:name>
+    <critic:name xml:lang="en">Henri Bergson</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q42156" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/베르너좀바르트">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">베르너 좀바르트</critic:name>
+    <critic:name xml:lang="en">Werner Sombart</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/sociologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q58031" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/벤자민워프">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">벤자민 워프</critic:name>
+    <critic:name xml:lang="en">Benjamin Lee Whorf</critic:name>
+    <critic:nationality>미국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/linguist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q331853" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/보들레르">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">보들레르</critic:name>
+    <critic:name xml:lang="en">Charles Baudelaire</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q501" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/볼프강이저">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">볼프강 이저</critic:name>
+    <critic:name xml:lang="en">Wolfgang Iser</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q60486" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/비코">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">비코</critic:name>
+    <critic:name xml:lang="en">Giambattista Vico</critic:name>
+    <critic:nationality>이탈리아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/historian" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q178709" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/사르트르">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">사르트르</critic:name>
+    <critic:name xml:lang="en">Jean-Paul Sartre</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/novelist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9364" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/수잔랭거">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">수잔 랭거</critic:name>
+    <critic:name xml:lang="en">Susanne Langer</critic:name>
+    <critic:nationality>미국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/aesthetician" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q466026" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/순자">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">순자</critic:name>
+    <critic:name xml:lang="en">Xunzi</critic:name>
+    <critic:nationality>중국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q216072" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/스타로뱅스키">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">스타로뱅스키</critic:name>
+    <critic:name xml:lang="en">Jean Starobinski</critic:name>
+    <critic:nationality>스위스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q123507" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/아리스토텔레스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">아리스토텔레스</critic:name>
+    <critic:name xml:lang="en">Aristotle</critic:name>
+    <critic:nationality>그리스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q868" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/에리히아우어바흐">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">에리히 아우어바흐</critic:name>
+    <critic:name xml:lang="en">Erich Auerbach</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/historian" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q57603" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/에리히프롬">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">에리히 프롬</critic:name>
+    <critic:name xml:lang="en">Erich Fromm</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q57085" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/엥겔스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">엥겔스</critic:name>
+    <critic:name xml:lang="en">Friedrich Engels</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q34787" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/예이츠">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">예이츠</critic:name>
+    <critic:name xml:lang="en">W. B. Yeats</critic:name>
+    <critic:nationality>아일랜드</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q40213" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이안와트">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">이안 와트</critic:name>
+    <critic:name xml:lang="en">Ian Watt</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/historian" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q112525285" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/자크라캉">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">자크 라캉</critic:name>
+    <critic:name xml:lang="en">Jacques Lacan</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q169906" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/장폴랑">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">장 폴랑</critic:name>
+    <critic:name xml:lang="en">Jean Paulhan</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q470557" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조르주풀레">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">조르주 풀레</critic:name>
+    <critic:name xml:lang="en">Georges Poulet</critic:name>
+    <critic:nationality>벨기에</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1367032" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/줄리아크리스테바">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">줄리아 크리스테바</critic:name>
+    <critic:name xml:lang="en">Julia Kristeva</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q159876" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/즈다노프">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">즈다노프</critic:name>
+    <critic:name xml:lang="en">Andrei Zhdanov</critic:name>
+    <critic:nationality>러시아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q207879" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/체르니솁스키">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">체르니솁스키</critic:name>
+    <critic:name xml:lang="en">Nikolai Chernyshevsky</critic:name>
+    <critic:nationality>러시아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q192331" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/카뮈">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">카뮈</critic:name>
+    <critic:name xml:lang="en">Albert Camus</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/novelist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q34670" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/칸트">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">칸트</critic:name>
+    <critic:name xml:lang="en">Immanuel Kant</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9312" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/칼포퍼">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">칼 포퍼</critic:name>
+    <critic:name xml:lang="en">Karl Popper</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q81244" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/캄파넬라">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">캄파넬라</critic:name>
+    <critic:name xml:lang="en">Tommaso Campanella</critic:name>
+    <critic:nationality>이탈리아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q191850" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/토머스모어">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">토머스 모어</critic:name>
+    <critic:name xml:lang="en">Thomas More</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q42544" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/파스칼">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">파스칼</critic:name>
+    <critic:name xml:lang="en">Blaise Pascal</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1290" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/플라톤">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">플라톤</critic:name>
+    <critic:name xml:lang="en">Plato</critic:name>
+    <critic:nationality>그리스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q859" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/플레하노프">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">플레하노프</critic:name>
+    <critic:name xml:lang="en">Georgi Plekhanov</critic:name>
+    <critic:nationality>러시아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q182905" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/하버마스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">하버마스</critic:name>
+    <critic:name xml:lang="en">Jürgen Habermas</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/sociologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q76357" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/하이데거">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">하이데거</critic:name>
+    <critic:name xml:lang="en">Martin Heidegger</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q48301" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/헤겔">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">헤겔</critic:name>
+    <critic:name xml:lang="en">Georg Wilhelm Friedrich Hegel</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9235" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/헤르베르트마르쿠제">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">헤르베르트 마르쿠제</critic:name>
+    <critic:name xml:lang="en">Herbert Marcuse</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q60030" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/루돌프아른하임">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">루돌프 아른하임</critic:name>
+    <critic:name xml:lang="en">Rudolf Arnheim</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/aesthetician" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q213642" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/루드비히빈스방거">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">루드비히 빈스방거</critic:name>
+    <critic:name xml:lang="en">Ludwig Binswanger</critic:name>
+    <critic:nationality>스위스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q116614" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/폴아자르">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">폴 아자르</critic:name>
+    <critic:name xml:lang="en">Paul Hazard</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/historian" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q462281" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/브루노베텔하임">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">브루노 베텔하임</critic:name>
+    <critic:name xml:lang="en">Bruno Bettelheim</critic:name>
+    <critic:nationality>오스트리아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q84386" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/발레리">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">발레리</critic:name>
+    <critic:name xml:lang="en">Paul Valéry</critic:name>
+    <critic:nationality>프랑스</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/poet" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/literary-critic" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q200639" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/프랜시스베이컨">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">프랜시스 베이컨</critic:name>
+    <critic:name xml:lang="en">Francis Bacon</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37388" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/프로이트">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">프로이트</critic:name>
+    <critic:name xml:lang="en">Sigmund Freud</critic:name>
+    <critic:nationality>오스트리아</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9215" />
+  </owl:NamedIndividual>
+
+  <!-- 유종호 전용 이론가 (Wikidata 보유) -->
+
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/쇼펜하우어">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">쇼펜하우어</critic:name>
+    <critic:name xml:lang="en">Arthur Schopenhauer</critic:name>
+    <critic:nationality>독일</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q38193" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/버트런드러셀">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">버트런드 러셀</critic:name>
+    <critic:name xml:lang="en">Bertrand Russell</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q33760" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/토마스홉스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">토마스 홉스</critic:name>
+    <critic:name xml:lang="en">Thomas Hobbes</critic:name>
+    <critic:nationality>영국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/political-theorist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37621" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/윌리엄제임스">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Thinker" />
+    <critic:name xml:lang="ko">윌리엄 제임스</critic:name>
+    <critic:name xml:lang="en">William James</critic:name>
+    <critic:nationality>미국</critic:nationality>
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/philosopher" />
+    <critic:hasRole rdf:resource="http://kcritic.kr/ontology/role/psychologist" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q125249" />
+  </owl:NamedIndividual>
+
+  <!-- ============================================================
+       작가 (Writer) Individuals — 비평 대상 인물
+       owl:sameAs: Wikidata · 한국민족문화대백과 · 국립중앙도서관 LOD · ISNI · VIAF
+       ============================================================ -->
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/고은">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">고은</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494036" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201011569" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000110791051" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/98400788" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김광규">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김광규</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q13582904" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김구용">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김구용</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009830" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김동리">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김동리</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625849" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0008984" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201010751" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000116982203" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/109680433" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김동인">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김동인</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625815" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009003" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김성한">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김성한</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0079618" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김수영">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김수영</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q16198424" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009567" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김시권">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김시권</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009656" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김지하">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김지하</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q498610" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201205697" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김창완">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김창완</critic:name>
+    <critic:nationality>한국</critic:nationality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김현승">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김현승</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q16080688" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0011043" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/박목월">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">박목월</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q7137910" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0020682" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/변영로">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">변영로</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q11245147" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0022940" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/서정주">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">서정주</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494585" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0028180" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207962" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000008403163X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/53008278" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/소월">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">김소월</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494639" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009535" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201101982" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/손창섭">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">손창섭</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12602771" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0079619" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/심훈">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">심훈</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625225" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0033978" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108734" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083928357" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/71502158" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/안수길">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">안수길</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0034835" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/염상섭">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">염상섭</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q8054832" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0037111" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201010743" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000109091795" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/64115500" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/오규원">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">오규원</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12614218" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071287" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/윤동주">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">윤동주</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625089" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0042294" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201110203" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081384480" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/59228311" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이광수">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">이광수</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q495454" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0043688" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108735" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000110594496" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/42639564" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이상">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">이상</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q500649" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0080798" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207958" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000358137117" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/61657532" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이청준">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">이청준</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q31737" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071310" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이호철">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">이호철</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494836" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이효석">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">이효석</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q483075" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0046643" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108736" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083795582" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/46870729" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/장용학">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">장용학</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12614625" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0048708" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정동주">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">정동주</critic:name>
+    <critic:nationality>한국</critic:nationality>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정지용">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">정지용</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q4707772" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0050953" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정현종">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">정현종</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q1354064" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201207472" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정희성">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">정희성</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12520476" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조세희">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">조세희</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q5103384" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201110793" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000007978395X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/79079950" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조지훈">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">조지훈</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q623681" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0052655" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조태일">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">조태일</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q16181007" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0052727" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/주요한">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">주요한</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0053372" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/최남선">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">최남선</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q490672" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0057237" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/최승호">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">최승호</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q5103956" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201102262" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000078245412" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/25752073" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/최인훈">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">최인훈</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q11274314" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/황동규">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">황동규</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q499298" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201200312" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000078377888" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/84479211" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/황순원">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
+    <critic:name xml:lang="ko">황순원</critic:name>
+    <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q18914" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071297" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201102511" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000108762577" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/19699095" />
+  </owl:NamedIndividual>
+
+  <!-- ============================================================
+       비평문 (CriticalEssay) Individuals — 김우창 23편
+       cito:discusses: 비평 대상(작가) / cito:citesAsAuthority: 인용 이론가
+       ============================================================ -->
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_concrete-universality_1981">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">구체적 보편성에로 — 역사와 문학의 관계에 대한 한 고찰</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1981</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/프로이트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/스타로뱅스키" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/메를로퐁티" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/도스토옙스키" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/비코" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/레이먼드윌리엄스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/딜타이" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/체르니솁스키" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/사르트르" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_language-things_1981">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">시의 언어와 사물의 의미</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1981</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/프로이트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/자크라캉" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/베르그송" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/헤겔" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/벤자민워프" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_time-korean-novel_1981">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">한국소설의 시간</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1981</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/발터벤야민" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/이안와트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/루카치" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/에리히아우어바흐" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/조르주풀레" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_north-korean-poetry_1980">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/플레하노프" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/엥겔스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/레닌" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/플라톤" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/마르크스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/루카치" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/헤겔" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_north-korean-criticism_1981">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">이념과 표현 2 — 북한의 문학비평: 문학적 진실과 사회주의적 진실</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1981</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/엥겔스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/레닌" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/막심고리키" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/메를로퐁티" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/마르크스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/미켈뒤프렌" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/헤겔" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/즈다노프" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/체르니솁스키" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_literary-development_1980">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">문학의 발전 — 문학적 지각의 본질에 대한 한 고찰</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1980</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/칸트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/하이데거" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_cultural-subjectivity_1982">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1984</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/칸트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/하이데거" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/뒤르켐" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/막스베버" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_culture-meaning_1982">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">우리 문화의 의미</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1982</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/막스베버" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_hwang-dongkyu_1982">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">내적 의식과 의식이 지칭하는 것 — 황동규의 시</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1982</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/매슈아널드" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/라이프니츠" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_poetics-society_1982">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">시의 내면과 외면 — 시와 사회에 대한 한 생각</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1982</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/루돌프아른하임" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_jeong-dongju_1984">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">'위조천국'의 언어와 진실 — 정동주의 「순례자」</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1984</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_beauty-surface-depth_1984">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">아름다움의 거죽과 깊이 — 심미 감각과 사회</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1984</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/베르너좀바르트" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_realism-yeom-sangsub_1984">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">리얼리즘에의 길 — 염상섭의 초기 단편</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1984</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/폴아자르" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/루드비히빈스방거" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/데카르트" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_theory-korean-novel_1984">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">한국 현대 소설의 이론을 위한 서설</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1984</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/이안와트" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_joy-use-literature_1984">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">문학의 즐거움과 쓰임</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1984</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/볼프강이저" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/브루노베텔하임" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_literature-utopia_1985">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">문학과 유토피아 — 문학적 상상력의 정치적 의의에 대한 한 고찰</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1985</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/헤르베르트마르쿠제" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/토머스모어" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/캄파넬라" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/라이오넬트릴링" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/프랜시스베이컨" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/칼포퍼" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_cho-taeill_1985">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">참여시와 현실적 낭만주의 — 조태일의 시</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1985</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/사르트르" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_korean-poetry-today_1985">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">오늘의 한국 시 — 서정에서 현실로</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1985</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/사르트르" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_quotation-cultural-memory_1985">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">인용에 대하여 — 문화전통의 이어짐에 대한 명상</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1985</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/J.L.오스틴" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_yun-dongju_1985">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">윤동주의 시와 근대적 자아</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1985</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/하버마스" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_kim-chaesu_1989">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">내면성의 시 — 김채수 씨의 시에 부쳐</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1989</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/미켈뒤프렌" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/릴케" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/플라톤" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_preface_1992">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1992</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/플라톤" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/줄리아크리스테바" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/루돌프아른하임" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_conscience-poetry_1979">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">괴로운 양심의 시대의 시</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1979</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/발레리" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/kim-uchang_politics-poetry_1979">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/김우창" />
+    <dcterms:title xml:lang="ko">시와 정치 — 한국 현대 시의 한 측면에 대한 고찰</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1979</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/레비스트로스" />
+  </owl:NamedIndividual>
+
+  <!-- ============================================================
+       비평문 (CriticalEssay) Individuals — 유종호 25편
+       ============================================================ -->
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_language-valley_1957">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">언어의 유곡</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1957</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/I.A.리처즈" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/수잔랭거" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/윌리엄제임스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/파스칼" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/장폴랑" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_criticism-reflection_1958">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">비평의 반성</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1958</dcterms:date>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_prose-spirit_1958">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">산문정신고</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1958</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/쇼펜하우어" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_criticism-problems_1958">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">비평의 문제들</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1958</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/니체" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/보들레르" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/발레리" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/사르트르" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/윌리엄제임스" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_modern-poetry-face_1959">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">현대시의 표정</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1959</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/플라톤" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/카뮈" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/말라르메" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/에리히프롬" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_native-language_1959">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">토착어와 한자어</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1959</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/카뮈" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_bisunsu-declaration_1960">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">비순수의 선언</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1960</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/발레리" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/예이츠" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/니체" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/말라르메" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/사르트르" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_aesthetics-vulgarity_1960">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">비속의 미학</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1960</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/말라르메" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_tradition-establishment_1960">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">전통의 확립을 위하여</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1960</dcterms:date>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_weeping-humanism_1961">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">오열하는 휴머니즘 — 한 상투 문구에의 의혹</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1961</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/발레리" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_experience-imagination-viewpoint_1961">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">경험 · 상상력 · 관점 — 한국소설의 반성</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1961</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/프로이트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/마르크스" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/니체" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_korean-pessimism_1961">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">한국의 페시미즘 — 운명론의 계보</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1961</dcterms:date>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_confession_1961">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">고백이라는 것</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1961</dcterms:date>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_modern-poetry-50years_1962">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">현대시의 50년</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1962</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/T.S.엘리엇" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/말라르메" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_humanism-absence_1962">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">인간 부재 — 한국 문학에서의 휴머니즘</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1962</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/버트런드러셀" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/토마스홉스" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_son-changsub_1959">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">모멸과 연민 — 손창섭론</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1959</dcterms:date>
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/프로이트" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/니체" />
+    <cito:citesAsAuthority rdf:resource="http://kcritic.kr/ontology/아리스토텔레스" />
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/essay/yu-jongho_kim-sowol_1960">
+    <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#CriticalEssay" />
+    <dcterms:creator rdf:resource="http://kcritic.kr/ontology/유종호" />
+    <dcterms:title xml:lang="ko">한국의 슬픔 — 소월을 위한 노트</dcterms:title>
+    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1960</dcterms:date>
+  </owl:NamedIndividual>
+
+</rdf:RDF>
