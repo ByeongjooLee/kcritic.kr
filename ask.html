@@ -503,25 +503,44 @@ ORDER BY ?year`,
     document.getElementById('sparql-input').value = SPARQL_EXAMPLES[idx];
   }
 
-  // ── SPARQL 엔진: Comunica query-sparql (일반 버전, TTL URL 직접 지원) ──
+  // ── SPARQL 엔진: Comunica + N3 (CDN: jsDelivr) ──────────────
+  let n3Store = null;
   let comunicaEngine = null;
-  let ttlUrl = null;
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
       if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
       const s = document.createElement('script');
-      s.src = src; s.onload = resolve; s.onerror = reject;
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = () => reject(new Error('스크립트 로드 실패: ' + src));
       document.head.appendChild(s);
     });
   }
 
+  async function getStore() {
+    if (n3Store) return n3Store;
+    await loadScript('https://cdn.jsdelivr.net/npm/n3@1/browser/n3.min.js');
+    const ttlUrl = new URL('site/data/graph.ttl', window.location.href).href;
+    const resp = await fetch(ttlUrl);
+    if (!resp.ok) throw new Error('graph.ttl 로드 실패: ' + resp.status);
+    const text = await resp.text();
+    const store = new N3.Store();
+    await new Promise((resolve, reject) => {
+      new N3.Parser({ format: 'text/turtle' }).parse(text, (err, quad) => {
+        if (err) return reject(err);
+        if (quad) store.addQuad(quad);
+        else resolve();
+      });
+    });
+    n3Store = store;
+    return store;
+  }
+
   async function getEngine() {
     if (comunicaEngine) return comunicaEngine;
-    await loadScript('https://unpkg.com/@comunica/query-sparql@3/browser/comunica-browser.js');
+    await loadScript('https://cdn.jsdelivr.net/npm/@comunica/query-sparql-rdfjs@3/browser/comunica-browser.js');
     comunicaEngine = new Comunica.QueryEngine();
-    // TTL 파일의 절대 URL 계산 (ask.html 기준)
-    ttlUrl = new URL('site/data/graph.ttl', window.location.href).href;
     return comunicaEngine;
   }
 
@@ -536,9 +555,9 @@ ORDER BY ?year`,
     resultEl.innerHTML = '<div class="sparql-result-placeholder"><span class="spinner"></span> 쿼리 실행 중…</div>';
 
     try {
-      const engine = await getEngine();
+      const [engine, store] = await Promise.all([getEngine(), getStore()]);
       const bindingsStream = await engine.queryBindings(query, {
-        sources: [ttlUrl],
+        sources: [{ type: 'rdfjsSource', value: store }],
       });
 
       const bindings = await bindingsStream.toArray();
