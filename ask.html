@@ -503,17 +503,9 @@ ORDER BY ?year`,
     document.getElementById('sparql-input').value = SPARQL_EXAMPLES[idx];
   }
 
+  // ── SPARQL 엔진: Comunica query-sparql (일반 버전, TTL URL 직접 지원) ──
   let comunicaEngine = null;
-
-  async function getComunica() {
-    if (comunicaEngine) return comunicaEngine;
-    // Comunica SPARQL browser engine (CDN)
-    await loadScript('https://unpkg.com/@comunica/query-sparql-rdfjs@3/browser/comunica-browser.js');
-    const store = await loadTurtle('site/data/graph.ttl');
-    comunicaEngine = new Comunica.QueryEngine();
-    comunicaEngine._store = store;
-    return comunicaEngine;
-  }
+  let ttlUrl = null;
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -524,20 +516,13 @@ ORDER BY ?year`,
     });
   }
 
-  async function loadTurtle(url) {
-    await loadScript('https://unpkg.com/n3@1/browser/n3.min.js');
-    const resp = await fetch(url + '?v=' + Date.now());
-    const text = await resp.text();
-    const store = new N3.Store();
-    await new Promise((resolve, reject) => {
-      const parser = new N3.Parser({ format: 'text/turtle' });
-      parser.parse(text, (err, quad, prefixes) => {
-        if (err) return reject(err);
-        if (quad) store.addQuad(quad);
-        else resolve(prefixes);
-      });
-    });
-    return store;
+  async function getEngine() {
+    if (comunicaEngine) return comunicaEngine;
+    await loadScript('https://unpkg.com/@comunica/query-sparql@3/browser/comunica-browser.js');
+    comunicaEngine = new Comunica.QueryEngine();
+    // TTL 파일의 절대 URL 계산 (ask.html 기준)
+    ttlUrl = new URL('site/data/graph.ttl', window.location.href).href;
+    return comunicaEngine;
   }
 
   async function doSparql() {
@@ -551,9 +536,9 @@ ORDER BY ?year`,
     resultEl.innerHTML = '<div class="sparql-result-placeholder"><span class="spinner"></span> 쿼리 실행 중…</div>';
 
     try {
-      const engine = await getComunica();
+      const engine = await getEngine();
       const bindingsStream = await engine.queryBindings(query, {
-        sources: [{ type: 'rdfjsSource', value: engine._store }],
+        sources: [ttlUrl],
       });
 
       const bindings = await bindingsStream.toArray();
@@ -581,7 +566,7 @@ ORDER BY ?year`,
         `<div class="sparql-count">${bindings.length}개 결과</div>`;
 
     } catch (e) {
-      resultEl.innerHTML = `<div class="sparql-error">오류:\n${e.message}</div>`;
+      resultEl.innerHTML = `<div class="sparql-error">오류:\n${e.message || String(e)}</div>`;
     } finally {
       btn.disabled = false;
       btn.textContent = '실행';
