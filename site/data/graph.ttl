@@ -470,7 +470,7 @@ kc:p-jeong-dongju a foaf:Person ;
 kc:p-jeong-jiyong a foaf:Person ;
   foaf:name "정지용"@ko ;
   rdfs:label "정지용"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q494573> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q488800> ;
   owl:sameAs <http://kcritic.kr/ontology/정지용> ;
   schema:url <https://kcritic.kr/resource/p-jeong-jiyong> .
 
@@ -498,13 +498,6 @@ kc:p-jung-hyunjong a foaf:Person ;
   rdfs:label "정현종（鄭玄宗）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1354064> ;
   schema:url <https://kcritic.kr/resource/p-jung-hyunjong> .
-
-kc:p-jung-jiyong a foaf:Person ;
-  foaf:name "정지용"@ko ;
-  rdfs:label "정지용"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q488800> ;
-  owl:sameAs <http://kcritic.kr/ontology/정지용> ;
-  schema:url <https://kcritic.kr/resource/p-jung-jiyong> .
 
 kc:p-kafka a foaf:Person ;
   foaf:name "카프카"@ko ;
@@ -589,6 +582,12 @@ kc:p-kim-sowol a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494639> ;
   owl:sameAs <http://kcritic.kr/ontology/김소월> ;
   schema:url <https://kcritic.kr/resource/p-kim-sowol> .
+
+kc:p-kim-sunghan a foaf:Person ;
+  foaf:name "김성한"@ko ;
+  rdfs:label "김성한"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494856> ;
+  schema:url <https://kcritic.kr/resource/p-kim-sunghan> .
 
 kc:p-kim-suyoung a foaf:Person ;
   foaf:name "김수영（金洙暎）"@ko ;
@@ -1030,6 +1029,12 @@ kc:p-thomas-more a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q41271> ;
   schema:url <https://kcritic.kr/resource/p-thomas-more> .
 
+kc:p-tolstoy a foaf:Person ;
+  foaf:name "톨스토이"@ko ;
+  rdfs:label "톨스토이"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q7243> ;
+  schema:url <https://kcritic.kr/resource/p-tolstoy> .
+
 kc:p-trilling a foaf:Person ;
   foaf:name "라이오넬 트릴링"@ko ;
   rdfs:label "라이오넬 트릴링"@ko ;
@@ -1155,6 +1160,12 @@ kc:p-yi-hyoseok a foaf:Person ;
   rdfs:label "이효석"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499600> ;
   schema:url <https://kcritic.kr/resource/p-yi-hyoseok> .
+
+kc:p-yi-sang a foaf:Person ;
+  foaf:name "이상"@ko ;
+  rdfs:label "이상"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q500649> ;
+  schema:url <https://kcritic.kr/resource/p-yi-sang> .
 
 kc:p-yoo-jongho a foaf:Person ;
   foaf:name "유종호"@ko ;
@@ -1816,7 +1827,7 @@ kce:kim-uchang_theory-korean-novel_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-choi-inhun ;
   cito:discusses kc:p-hwang-sunwon ;
   cito:discusses kc:p-jang-yonghak ;
-  cito:discusses kc:p-jung-jiyong ;
+  cito:discusses kc:p-jeong-jiyong ;
   cito:discusses kc:p-kim-dongin ;
   cito:discusses kc:p-kim-dongri ;
   cito:discusses kc:p-ko-un ;
@@ -2126,6 +2137,28 @@ kce:yu-jongho_intellectual-freedom_1974 a critic:CriticalEssay ;
   dcterms:subject "반지식인주의"@ko ;
   dcterms:subject "비판과 불평의 동일시"@ko ;
   dcterms:subject "전문가 숭배의 반지성"@ko .
+
+kce:yu-jongho_intellectual-literature_1965 a critic:CriticalEssay ;
+  dcterms:title "지식인과 문학"@ko ;
+  rdfs:label "지식인과 문학"@ko ;
+  dcterms:date "1965"^^xsd:gYear ;
+  schema:isPartOf "지식인과 문학" ;
+  schema:url <https://kcritic.kr/site/essays/yu-jongho_intellectual-literature_1965.html> ;
+  dcterms:creator kc:p-yu-jongho ;
+  cito:discusses kc:p-kim-sunghan ;
+  cito:discusses kc:p-yi-gwangsu ;
+  cito:discusses kc:p-yi-hyoseok ;
+  cito:discusses kc:p-yi-sang ;
+  cito:citesAsAuthority kc:p-dostoevsky ;
+  cito:citesAsAuthority kc:p-tolstoy ;
+  dcterms:subject "지식인의 자기비판"@ko ;
+  dcterms:subject "지식인의 귀환"@ko ;
+  dcterms:subject "복음적 정신주의"@ko ;
+  dcterms:subject "초속주의"@ko ;
+  dcterms:subject "근대주의적 추적망상"@ko ;
+  dcterms:subject "내향적 냉소주의"@ko ;
+  dcterms:subject "이방인적 선량의식"@ko ;
+  dcterms:subject "민족문학의 공허한 구호"@ko .
 
 kce:yu-jongho_jang-yonghak_1960 a critic:CriticalEssay ;
   dcterms:title "현대인의 운명 — 「현대의 야」에 부쳐"@ko ;
@@ -2465,10 +2498,10 @@ kc:p-kim-uchang critic:analyzes kc:p-hwang-dongkyu .
 kc:p-kim-uchang critic:analyzes kc:p-hwang-sunwon .
 kc:p-kim-uchang critic:analyzes kc:p-jang-yonghak .
 kc:p-kim-uchang critic:analyzes kc:p-jeong-dongju .
+kc:p-kim-uchang critic:analyzes kc:p-jeong-jiyong .
 kc:p-kim-uchang critic:analyzes kc:p-jo-sehi .
 kc:p-kim-uchang critic:analyzes kc:p-jung-heesung .
 kc:p-kim-uchang critic:analyzes kc:p-jung-hyunjong .
-kc:p-kim-uchang critic:analyzes kc:p-jung-jiyong .
 kc:p-kim-uchang critic:analyzes kc:p-kim-changwan .
 kc:p-kim-uchang critic:analyzes kc:p-kim-dongin .
 kc:p-kim-uchang critic:analyzes kc:p-kim-dongri .
@@ -2502,6 +2535,7 @@ kc:p-yu-jongho dcterms:creator kce:yu-jongho_freedom-name_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_glance-word_1961 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-freedom_1974 .
+kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-literature_1965 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_jang-yonghak_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
 kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
@@ -2523,5 +2557,9 @@ kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
 kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
 kc:p-yu-jongho critic:analyzes kc:p-kim-guyong .
 kc:p-yu-jongho critic:analyzes kc:p-kim-sowol .
+kc:p-yu-jongho critic:analyzes kc:p-kim-sunghan .
 kc:p-yu-jongho critic:analyzes kc:p-seo-jeongju .
+kc:p-yu-jongho critic:analyzes kc:p-yi-gwangsu .
 kc:p-yu-jongho critic:analyzes kc:p-yi-hocheol .
+kc:p-yu-jongho critic:analyzes kc:p-yi-hyoseok .
+kc:p-yu-jongho critic:analyzes kc:p-yi-sang .
