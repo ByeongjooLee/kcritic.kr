@@ -8,6 +8,33 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* 탭 UI */
+    .ask-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .ask-tab {
+      padding: .6rem 1.4rem;
+      font-size: .92rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
+    }
+    .ask-tab:hover { color: var(--text); }
+    .ask-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+    .ask-panel { display: none; }
+    .ask-panel.active { display: block; }
+
+    /* GraphRAG 패널 */
     .ask-hero { max-width: 720px; margin: 0 auto 2rem; }
     .ask-form { display: flex; gap: .6rem; margin-top: 1.2rem; }
     .ask-input {
@@ -61,6 +88,140 @@
     .api-status { font-size: .78rem; margin-top: .4rem; }
     .api-ok { color: #4caf50; }
     .api-err { color: #e05; }
+
+    /* SPARQL 패널 */
+    .sparql-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .sparql-left h2 {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: .6rem;
+      letter-spacing: .03em;
+    }
+    .sparql-textarea {
+      width: 100%;
+      height: 260px;
+      font-family: monospace;
+      font-size: .82rem;
+      padding: .8rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      resize: vertical;
+      line-height: 1.6;
+    }
+    .sparql-textarea:focus { outline: none; border-color: var(--accent); }
+    .sparql-run-btn {
+      margin-top: .6rem;
+      padding: .6rem 1.4rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: .9rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .sparql-run-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    .sparql-examples-label {
+      font-size: .78rem;
+      color: var(--text-tertiary);
+      margin: 1rem 0 .4rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .sparql-example-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .5rem .8rem;
+      font-size: .82rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      margin-bottom: .4rem;
+      font-family: inherit;
+      line-height: 1.5;
+    }
+    .sparql-example-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .sparql-right h2 {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: .6rem;
+      letter-spacing: .03em;
+    }
+    .sparql-result-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 260px;
+    }
+    .sparql-result-placeholder {
+      padding: 2rem 1.5rem;
+      color: var(--text-tertiary);
+      font-size: .88rem;
+      text-align: center;
+    }
+    .sparql-result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+      overflow-x: auto;
+    }
+    .sparql-result-table th {
+      background: var(--surface-2);
+      padding: .5rem .8rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .sparql-result-table td {
+      padding: .45rem .8rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      word-break: break-all;
+    }
+    .sparql-result-table tr:last-child td { border-bottom: none; }
+    .sparql-result-table tr:hover td { background: var(--surface-2); }
+    .sparql-error {
+      padding: 1rem 1.5rem;
+      color: #c0392b;
+      font-size: .85rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .sparql-count {
+      font-size: .75rem;
+      color: var(--text-tertiary);
+      padding: .4rem .8rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .sparql-notice {
+      font-size: .8rem;
+      color: var(--text-tertiary);
+      margin-top: .5rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .sparql-layout { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -83,41 +244,88 @@
   </header>
 
   <main class="container index-main">
-    <section class="ask-hero">
-      <h1 class="index-heading">질문하기</h1>
-      <p class="index-desc">한국 비평사 온톨로지에 자연어로 질문하세요. Neo4j 그래프 데이터베이스와 Claude AI가 답합니다.</p>
-      <p class="api-status" id="api-status">API 연결 확인 중…</p>
+    <h1 class="index-heading" style="margin-bottom:1.5rem;">질문하기</h1>
 
-      <div class="ask-form">
-        <input class="ask-input" id="ask-input" type="text"
-          placeholder="예: 김우창이 가장 많이 인용한 이론가는 누구인가요?" />
-        <button class="ask-btn" id="ask-btn" onclick="doAsk()">질문</button>
-      </div>
+    <!-- 탭 -->
+    <div class="ask-tabs">
+      <button class="ask-tab active" onclick="switchTab('graphrag', this)">AI 질문 (GraphRAG)</button>
+      <button class="ask-tab" onclick="switchTab('sparql', this)">SPARQL 직접 쿼리</button>
+    </div>
 
-      <div class="ask-examples">
-        <span class="ask-example" onclick="setQ(this)">김우창이 가장 많이 인용한 이론가는?</span>
-        <span class="ask-example" onclick="setQ(this)">김우창과 유종호가 공통으로 인용한 이론가는?</span>
-        <span class="ask-example" onclick="setQ(this)">윤동주를 다룬 에세이 목록은?</span>
-        <span class="ask-example" onclick="setQ(this)">하이데거를 인용한 에세이는 어떤 작가를 비평했나?</span>
-        <span class="ask-example" onclick="setQ(this)">프로이트가 인용된 에세이 목록은?</span>
-        <span class="ask-example" onclick="setQ(this)">유종호가 인용한 이론가 목록은?</span>
-      </div>
-    </section>
+    <!-- GraphRAG 패널 -->
+    <div class="ask-panel active" id="panel-graphrag">
+      <section class="ask-hero">
+        <p class="index-desc">자연어로 질문하세요. Neo4j 그래프 데이터베이스와 Claude AI가 Cypher 쿼리를 생성하고 답합니다.</p>
+        <p class="api-status" id="api-status">API 연결 확인 중…</p>
 
-    <section class="ask-result" id="ask-result" style="display:none;">
-      <div class="result-box">
-        <div class="result-label">답변</div>
-        <div class="result-answer" id="result-answer"></div>
+        <div class="ask-form">
+          <input class="ask-input" id="ask-input" type="text"
+            placeholder="예: 김우창이 가장 많이 인용한 이론가는 누구인가요?" />
+          <button class="ask-btn" id="ask-btn" onclick="doAsk()">질문</button>
+        </div>
+
+        <div class="ask-examples">
+          <span class="ask-example" onclick="setQ(this)">김우창이 가장 많이 인용한 이론가는?</span>
+          <span class="ask-example" onclick="setQ(this)">김우창과 유종호가 공통으로 인용한 이론가는?</span>
+          <span class="ask-example" onclick="setQ(this)">윤동주를 다룬 에세이 목록은?</span>
+          <span class="ask-example" onclick="setQ(this)">하이데거를 인용한 에세이는 어떤 작가를 비평했나?</span>
+          <span class="ask-example" onclick="setQ(this)">프로이트가 인용된 에세이 목록은?</span>
+          <span class="ask-example" onclick="setQ(this)">유종호가 인용한 이론가 목록은?</span>
+        </div>
+      </section>
+
+      <section class="ask-result" id="ask-result" style="display:none;">
+        <div class="result-box">
+          <div class="result-label">답변</div>
+          <div class="result-answer" id="result-answer"></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Cypher 쿼리</div>
+          <pre class="result-cypher" id="result-cypher"></pre>
+        </div>
+        <div class="result-box" id="result-rows-box">
+          <div class="result-label">조회 데이터</div>
+          <div class="result-rows" id="result-rows"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SPARQL 패널 -->
+    <div class="ask-panel" id="panel-sparql">
+      <div class="sparql-layout">
+        <div class="sparql-left">
+          <h2>SPARQL 쿼리</h2>
+          <textarea class="sparql-textarea" id="sparql-input" spellcheck="false">PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito: <http://purl.org/spar/cito/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?essay ?title ?year
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:title ?title ;
+         dcterms:date ?year .
+}
+ORDER BY ?year</textarea>
+          <button class="sparql-run-btn" id="sparql-btn" onclick="doSparql()">실행</button>
+          <p class="sparql-notice">데이터 소스: <code>site/data/graph.ttl</code> (RDF Turtle) — 브라우저 내 Comunica 엔진으로 실행, 서버 불필요</p>
+
+          <p class="sparql-examples-label">예제 쿼리</p>
+          <button class="sparql-example-btn" onclick="setSparql(0)">비평글 전체 목록 (제목·연도)</button>
+          <button class="sparql-example-btn" onclick="setSparql(1)">김우창이 인용한 이론가 목록</button>
+          <button class="sparql-example-btn" onclick="setSparql(2)">두 비평가가 공통으로 인용한 이론가</button>
+          <button class="sparql-example-btn" onclick="setSparql(3)">이론가별 인용 횟수 (내림차순)</button>
+          <button class="sparql-example-btn" onclick="setSparql(4)">특정 이론가(하이데거)를 인용한 에세이</button>
+        </div>
+
+        <div class="sparql-right">
+          <h2>결과</h2>
+          <div class="sparql-result-box" id="sparql-result">
+            <div class="sparql-result-placeholder">쿼리를 실행하면 결과가 여기 표시됩니다.</div>
+          </div>
+        </div>
       </div>
-      <div class="result-box">
-        <div class="result-label">Cypher 쿼리</div>
-        <pre class="result-cypher" id="result-cypher"></pre>
-      </div>
-      <div class="result-box" id="result-rows-box">
-        <div class="result-label">조회 데이터</div>
-        <div class="result-rows" id="result-rows"></div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -127,9 +335,17 @@
   </footer>
 
   <script>
+  // ── 탭 전환 ──────────────────────────────────────────────
+  function switchTab(name, btn) {
+    document.querySelectorAll('.ask-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ask-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + name).classList.add('active');
+  }
+
+  // ── GraphRAG ─────────────────────────────────────────────
   const API = 'https://kcritickr-production.up.railway.app';
 
-  // API 상태 확인
   fetch(API + '/')
     .then(r => r.json())
     .then(() => {
@@ -138,7 +354,7 @@
     })
     .catch(() => {
       document.getElementById('api-status').innerHTML =
-        '<span class="api-err">● API 오프라인 — Render 서버 기동 중 (최대 50초 소요)</span>';
+        '<span class="api-err">● API 오프라인 — 서버 기동 중 (최대 50초 소요)</span>';
     });
 
   function setQ(el) {
@@ -153,7 +369,6 @@
     const btn = document.getElementById('ask-btn');
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span>';
-
     document.getElementById('ask-result').style.display = 'none';
 
     try {
@@ -167,7 +382,6 @@
       document.getElementById('result-answer').textContent = data.answer;
       document.getElementById('result-cypher').textContent = data.cypher;
 
-      // 테이블 렌더링
       const rows = data.rows || [];
       const rowsEl = document.getElementById('result-rows');
       if (rows.length > 0) {
@@ -197,6 +411,174 @@
   document.getElementById('ask-input').addEventListener('keydown', e => {
     if (e.key === 'Enter') doAsk();
   });
+
+  // ── SPARQL ───────────────────────────────────────────────
+  const SPARQL_EXAMPLES = [
+    // 0: 비평글 전체 목록
+    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?essay ?title ?year
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:title ?title ;
+         dcterms:date ?year .
+}
+ORDER BY ?year`,
+
+    // 1: 김우창이 인용한 이론가
+    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito: <http://purl.org/spar/cito/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?name
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:creator <http://kcritic.kr/ontology/김우창> ;
+         cito:citesAsAuthority ?thinker .
+  ?thinker foaf:name ?name .
+  FILTER(LANG(?name) = "ko")
+}
+ORDER BY ?name`,
+
+    // 2: 두 비평가 공통 인용 이론가
+    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito: <http://purl.org/spar/cito/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?name
+WHERE {
+  ?e1 a critic:CriticalEssay ;
+      dcterms:creator <http://kcritic.kr/ontology/김우창> ;
+      cito:citesAsAuthority ?t .
+  ?e2 a critic:CriticalEssay ;
+      dcterms:creator <http://kcritic.kr/ontology/유종호> ;
+      cito:citesAsAuthority ?t .
+  ?t foaf:name ?name .
+  FILTER(LANG(?name) = "ko")
+}
+ORDER BY ?name`,
+
+    // 3: 이론가별 인용 횟수
+    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX cito: <http://purl.org/spar/cito/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?name (COUNT(?essay) AS ?count)
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         cito:citesAsAuthority ?thinker .
+  ?thinker foaf:name ?name .
+  FILTER(LANG(?name) = "ko")
+}
+GROUP BY ?thinker ?name
+ORDER BY DESC(?count)`,
+
+    // 4: 하이데거를 인용한 에세이
+    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito: <http://purl.org/spar/cito/>
+
+SELECT ?title ?year
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:title ?title ;
+         dcterms:date ?year ;
+         cito:citesAsAuthority <http://kcritic.kr/ontology/하이데거> .
+}
+ORDER BY ?year`,
+  ];
+
+  function setSparql(idx) {
+    document.getElementById('sparql-input').value = SPARQL_EXAMPLES[idx];
+  }
+
+  let comunicaEngine = null;
+
+  async function getComunica() {
+    if (comunicaEngine) return comunicaEngine;
+    // Comunica SPARQL browser engine (CDN)
+    await loadScript('https://unpkg.com/@comunica/query-sparql-rdfjs@3/browser/comunica-browser.js');
+    const store = await loadTurtle('site/data/graph.ttl');
+    comunicaEngine = new Comunica.QueryEngine();
+    comunicaEngine._store = store;
+    return comunicaEngine;
+  }
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
+      const s = document.createElement('script');
+      s.src = src; s.onload = resolve; s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  async function loadTurtle(url) {
+    await loadScript('https://unpkg.com/n3@1/browser/n3.min.js');
+    const resp = await fetch(url + '?v=' + Date.now());
+    const text = await resp.text();
+    const store = new N3.Store();
+    await new Promise((resolve, reject) => {
+      const parser = new N3.Parser({ format: 'text/turtle' });
+      parser.parse(text, (err, quad, prefixes) => {
+        if (err) return reject(err);
+        if (quad) store.addQuad(quad);
+        else resolve(prefixes);
+      });
+    });
+    return store;
+  }
+
+  async function doSparql() {
+    const query = document.getElementById('sparql-input').value.trim();
+    if (!query) return;
+
+    const btn = document.getElementById('sparql-btn');
+    const resultEl = document.getElementById('sparql-result');
+    btn.disabled = true;
+    btn.textContent = '실행 중…';
+    resultEl.innerHTML = '<div class="sparql-result-placeholder"><span class="spinner"></span> 쿼리 실행 중…</div>';
+
+    try {
+      const engine = await getComunica();
+      const bindingsStream = await engine.queryBindings(query, {
+        sources: [{ type: 'rdfjsSource', value: engine._store }],
+      });
+
+      const bindings = await bindingsStream.toArray();
+
+      if (bindings.length === 0) {
+        resultEl.innerHTML = '<div class="sparql-result-placeholder">결과가 없습니다.</div>';
+        return;
+      }
+
+      const vars = [...bindings[0].keys()].map(k => k.value);
+      const thead = `<thead><tr>${vars.map(v => `<th>${v}</th>`).join('')}</tr></thead>`;
+      const tbody = `<tbody>${bindings.map(b =>
+        `<tr>${vars.map(v => {
+          const term = b.get(v);
+          if (!term) return '<td>—</td>';
+          const val = term.termType === 'NamedNode'
+            ? `<a href="${term.value}" target="_blank" title="${term.value}">${term.value.split(/[/#]/).pop()}</a>`
+            : term.value;
+          return `<td>${val}</td>`;
+        }).join('')}</tr>`
+      ).join('')}</tbody>`;
+
+      resultEl.innerHTML =
+        `<div style="overflow-x:auto"><table class="sparql-result-table">${thead}${tbody}</table></div>` +
+        `<div class="sparql-count">${bindings.length}개 결과</div>`;
+
+    } catch (e) {
+      resultEl.innerHTML = `<div class="sparql-error">오류:\n${e.message}</div>`;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '실행';
+    }
+  }
   </script>
 </body>
 </html>
