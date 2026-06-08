@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소개 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-hero {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-hero-label {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.8rem;
+    }
+    .about-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .about-hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: var(--reading-width);
+      line-height: 1.8;
+    }
+
+    .about-stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .about-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      min-width: 120px;
+      text-align: center;
+    }
+    .about-stat-num {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .about-stat-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 0.2rem;
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      max-width: var(--reading-width);
+      margin: 3rem 0;
+    }
+    .about-section {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-section:last-child {
+      border-bottom: none;
+    }
+    .about-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .about-section p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 0.8rem;
+    }
+    .about-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .about-tech-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+    }
+    .about-tech-item .tech-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.3rem;
+    }
+    .about-tech-item .tech-value {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-phase-list {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .about-phase-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+    }
+    .phase-badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-top: 0.15rem;
+    }
+    .phase-done {
+      background: #d4edda;
+      color: #2d6a3e;
+    }
+    .phase-next {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+    .phase-future {
+      background: var(--surface-2);
+      color: var(--text-tertiary);
+    }
+
+    .about-contact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+    .about-contact p {
+      margin-bottom: 0.5rem;
+    }
+    .about-contact a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .about-hero h1 { font-size: 1.5rem; }
+      .about-stat-row { gap: 0.75rem; }
+      .about-stat { min-width: 90px; padding: 0.75rem 1rem; }
+      .about-stat-num { font-size: 1.4rem; }
+      .about-tech-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="writers.html">작가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html">2000년대 비평</a>
+        <a href="ask.html">질문하기</a>
+        <a href="about.html" class="active">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="about-hero">
+      <p class="about-hero-label">About</p>
+      <h1>한국 비평사 온톨로지</h1>
+      <p class="about-hero-desc">
+        "김우창이 윤동주를 비평할 때 하버마스를 활용했다" — 이 한 문장이 담긴 관계를
+        구조화된 데이터로 표현하는 디지털 인문학 프로젝트입니다.
+        한국 현대 문학비평의 역사를 비평가·작가·이론가·개념어의 네트워크로 재구성합니다.
+      </p>
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <span class="about-stat-num">2</span>
+          <span class="about-stat-label">수록 비평가</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">48</span>
+          <span class="about-stat-label">수록 비평글</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">143</span>
+          <span class="about-stat-label">등록 이론가</span>
+        </div>
+        <div class="about-stat">
+          <span class="about-stat-num">231</span>
+          <span class="about-stat-label">관계망 노드</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="about-body">
+
+      <section class="about-section">
+        <h2>무엇을 하는 사이트인가</h2>
+        <p>
+          한국 현대 문학비평의 핵심 질문 — "누가, 누구를, 어떤 이론으로 비평했는가" —
+          를 컴퓨터가 처리할 수 있는 형태로 인코딩합니다.
+          각각의 비평글을 TEI XML로 구조화하고, 비평가·작가·이론가 사이의 관계를
+          OWL 온톨로지와 RDF 트리플로 표현합니다.
+        </p>
+        <p>
+          단순한 텍스트 아카이브가 아니라 <strong>관계망 데이터베이스</strong>입니다.
+          어떤 이론가가 어떤 비평가에게 얼마나 자주 인용되었는지,
+          어떤 개념어가 두 비평가에게 공통으로 나타나는지,
+          비평 대상 작가가 시기에 따라 어떻게 달라졌는지를 탐색할 수 있습니다.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>왜 만들었는가</h2>
+        <p>
+          한국 비평사 연구는 개별 비평가 연구나 사조 중심 서술에 집중되어 있습니다.
+          비평가들이 실제로 어떤 이론적 자원을 공유하고 어떻게 서로 대화했는지를
+          가시적으로 보여주는 연구는 드뭅니다.
+        </p>
+        <p>
+          이 프로젝트는 비평 텍스트에 숨어 있는 이론적 계보와 개념어의 흐름을
+          데이터로 끌어내어, 한국 비평사를 새로운 방식으로 읽기 위한 시도입니다.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>현재 수록 범위</h2>
+        <p>
+          현재는 <strong>파일럿 단계</strong>로, 김우창(1979–1992)과 유종호(1957–1974)의
+          비평글 총 48편을 수록하고 있습니다.
+          각 비평글은 비평 대상 작가와 인용 이론가 정보를 포함하며,
+          주요 개념어는 별도로 추출하여 색인화되어 있습니다.
+        </p>
+        <p>
+          선행연구 탭에는 1,528건의 현대문학 박사논문 데이터와
+          2000년대 이후 시 문학 비평 136건이 함께 수록되어 있습니다.
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>기술 구성</h2>
+        <div class="about-tech-grid">
+          <div class="about-tech-item">
+            <div class="tech-label">인코딩</div>
+            <div class="tech-value">TEI XML</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">온톨로지</div>
+            <div class="tech-value">OWL / RDF</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">외부 연결</div>
+            <div class="tech-value">Wikidata · 국립중앙도서관 LOD</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">시각화</div>
+            <div class="tech-value">Cytoscape.js</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">그래프 DB</div>
+            <div class="tech-value">Neo4j</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">AI 질의</div>
+            <div class="tech-value">GraphRAG + Claude API</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">호스팅</div>
+            <div class="tech-value">Cloudflare Workers</div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">OWL 파일</div>
+            <div class="tech-value"><a href="critic_v7_kcritic.rdf" download>다운로드 ↓</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <h2>로드맵</h2>
+        <ul class="about-phase-list">
+          <li class="about-phase-item">
+            <span class="phase-badge phase-done">완료</span>
+            <span>파일럿: 김우창·유종호 비평 48편 TEI 인코딩, OWL 온톨로지 구축, 관계망 시각화</span>
+          </li>
+          <li class="about-phase-item">
+            <span class="phase-badge phase-next">진행 중</span>
+            <span>Phase 1: 비평가 확장 — 김윤식 등 추가, 비평가 간 비교 관계망 구축</span>
+          </li>
+          <li class="about-phase-item">
+            <span class="phase-badge phase-future">예정</span>
+            <span>Phase 2: 개념어 계층화 — SKOS 어휘 기반 개념어 상하위 관계 정의</span>
+          </li>
+          <li class="about-phase-item">
+            <span class="phase-badge phase-future">예정</span>
+            <span>Phase 3: SPARQL 공개 엔드포인트 제공</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="about-section">
+        <h2>만든 사람</h2>
+        <div class="about-contact">
+          <p>이병주 — 문학비평 연구자</p>
+          <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--text-tertiary);">
+            데이터 오류 제보, 수록 제안, 공동 연구 문의는 아래로 연락해주세요.
+          </p>
+          <p style="margin-top:0.5rem;">
+            <a href="mailto:bj3632@gmail.com">bj3632@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>한국 비평사 온톨로지 · TEI XML 기반 디지털 아카이브</p>
+    </div>
+  </footer>
+
+</body>
+</html>
