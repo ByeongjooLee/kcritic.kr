@@ -90,7 +90,6 @@ await build({
   bundle: true,
   minify: true,
   format: 'iife',
-  globalName: 'SparqlBundle',
   outfile: 'site/sparql-bundle.js',
   platform: 'browser',
   define: {
