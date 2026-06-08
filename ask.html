@@ -295,16 +295,16 @@
       <div class="sparql-layout">
         <div class="sparql-left">
           <h2>SPARQL 쿼리</h2>
-          <textarea class="sparql-textarea" id="sparql-input" spellcheck="false">PREFIX critic: <http://kcritic.kr/ontology/critic#>
+          <textarea class="sparql-textarea" id="sparql-input" spellcheck="false">PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX cito: <http://purl.org/spar/cito/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-SELECT ?essay ?title ?year
+SELECT ?title ?year
 WHERE {
   ?essay a critic:CriticalEssay ;
          dcterms:title ?title ;
          dcterms:date ?year .
+  FILTER(LANG(?title) = "ko")
 }
 ORDER BY ?year</textarea>
           <button class="sparql-run-btn" id="sparql-btn" onclick="doSparql()">실행</button>
@@ -415,27 +415,32 @@ ORDER BY ?year</textarea>
   // ── SPARQL ───────────────────────────────────────────────
   const SPARQL_EXAMPLES = [
     // 0: 비평글 전체 목록
-    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX kce:    <https://kcritic.kr/resource/essay/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?essay ?title ?year
+SELECT ?title ?year
 WHERE {
   ?essay a critic:CriticalEssay ;
          dcterms:title ?title ;
          dcterms:date ?year .
+  FILTER(LANG(?title) = "ko")
 }
 ORDER BY ?year`,
 
     // 1: 김우창이 인용한 이론가
-    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX cito: <http://purl.org/spar/cito/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX cito:   <http://purl.org/spar/cito/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
 
 SELECT DISTINCT ?name
 WHERE {
   ?essay a critic:CriticalEssay ;
-         dcterms:creator <http://kcritic.kr/ontology/김우창> ;
+         dcterms:creator kc:p-kim-uchang ;
          cito:citesAsAuthority ?thinker .
   ?thinker foaf:name ?name .
   FILTER(LANG(?name) = "ko")
@@ -443,28 +448,29 @@ WHERE {
 ORDER BY ?name`,
 
     // 2: 두 비평가 공통 인용 이론가
-    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX cito: <http://purl.org/spar/cito/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX cito:   <http://purl.org/spar/cito/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
 
 SELECT DISTINCT ?name
 WHERE {
   ?e1 a critic:CriticalEssay ;
-      dcterms:creator <http://kcritic.kr/ontology/김우창> ;
+      dcterms:creator kc:p-kim-uchang ;
       cito:citesAsAuthority ?t .
   ?e2 a critic:CriticalEssay ;
-      dcterms:creator <http://kcritic.kr/ontology/유종호> ;
+      dcterms:creator kc:p-yu-jongho ;
       cito:citesAsAuthority ?t .
   ?t foaf:name ?name .
   FILTER(LANG(?name) = "ko")
 }
 ORDER BY ?name`,
 
-    // 3: 이론가별 인용 횟수
+    // 3: 이론가별 인용 횟수 (전체)
     `PREFIX critic: <http://kcritic.kr/ontology/critic#>
-PREFIX cito: <http://purl.org/spar/cito/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX cito:   <http://purl.org/spar/cito/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
 
 SELECT ?name (COUNT(?essay) AS ?count)
 WHERE {
@@ -477,16 +483,18 @@ GROUP BY ?thinker ?name
 ORDER BY DESC(?count)`,
 
     // 4: 하이데거를 인용한 에세이
-    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX cito: <http://purl.org/spar/cito/>
+PREFIX cito:   <http://purl.org/spar/cito/>
 
 SELECT ?title ?year
 WHERE {
   ?essay a critic:CriticalEssay ;
          dcterms:title ?title ;
          dcterms:date ?year ;
-         cito:citesAsAuthority <http://kcritic.kr/ontology/하이데거> .
+         cito:citesAsAuthority kc:p-heidegger .
+  FILTER(LANG(?title) = "ko")
 }
 ORDER BY ?year`,
   ];
