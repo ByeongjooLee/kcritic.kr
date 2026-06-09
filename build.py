@@ -149,26 +149,43 @@ def collect_terms(root):
 
 
 def collect_theorist_contexts(root, persons, theorists, stem, essay_title):
-    """이론가별로 해당 인물이 등장하는 <s> 문장 컨텍스트 수집.
+    """이론가별로 해당 인물이 등장하는 문장 컨텍스트 수집.
+    <s> 우선, 없으면 부모 <p> 전체를 fallback으로 사용.
     반환: {pid: [{"essay_stem": ..., "essay_title": ..., "sentence": ...}, ...]}"""
+    parent_map = {child: parent for parent in root.iter() for child in parent}
+
+    def nearest_sentence_elem(elem):
+        """elem 위로 올라가며 가장 가까운 <s> 또는 <p> 반환."""
+        node = parent_map.get(elem)
+        while node is not None:
+            local = node.tag.split("}")[-1] if "}" in node.tag else node.tag
+            if local in ("s", "p"):
+                return node
+            node = parent_map.get(node)
+        return None
+
     ctx = defaultdict(list)
-    for s_elem in root.iter(tns("s")):
-        # 이 <s> 안에 어떤 이론가 persName이 등장하는지 확인
-        mentioned = set()
-        for pn in s_elem.iter(tns("persName")):
-            xml_id = get_attr_id(pn)
-            ref = pn.get("ref", "")
-            pid = xml_id if xml_id else (ref[1:] if ref.startswith("#") else "")
-            if pid and pid in theorists:
-                mentioned.add(pid)
-        if not mentioned:
+    # 이미 처리한 (container_elem, pid) 쌍 — 같은 <s>/<p>에서 같은 이론가 중복 방지
+    seen = set()
+
+    for pn in root.iter(tns("persName")):
+        xml_id = get_attr_id(pn)
+        ref = pn.get("ref", "")
+        pid = xml_id if xml_id else (ref[1:] if ref.startswith("#") else "")
+        if not pid or pid not in theorists:
             continue
-        raw = " ".join("".join(s_elem.itertext()).split()).strip()
+        container = nearest_sentence_elem(pn)
+        if container is None:
+            continue
+        key = (id(container), pid)
+        if key in seen:
+            continue
+        seen.add(key)
+        raw = " ".join("".join(container.itertext()).split()).strip()
         if not raw:
             continue
         sentence = raw[:300] + ("…" if len(raw) > 300 else "")
-        for pid in mentioned:
-            ctx[pid].append({"essay_stem": stem, "essay_title": essay_title, "sentence": sentence})
+        ctx[pid].append({"essay_stem": stem, "essay_title": essay_title, "sentence": sentence})
     return ctx
 
 
