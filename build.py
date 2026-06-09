@@ -151,8 +151,20 @@ def collect_terms(root):
 def collect_theorist_contexts(root, persons, theorists, stem, essay_title):
     """이론가별로 해당 인물이 등장하는 문장 컨텍스트 수집.
     <s> 우선, 없으면 부모 <p> 전체를 fallback으로 사용.
+    ref가 외부 URI(Wikidata 등)인 경우 persons dict에서 역조회.
     반환: {pid: [{"essay_stem": ..., "essay_title": ..., "sentence": ...}, ...]}"""
     parent_map = {child: parent for parent in root.iter() for child in parent}
+
+    # 외부 URI → pid 역방향 인덱스 (persons에 등록된 이론가만)
+    uri_to_pid = {}
+    for pid in theorists:
+        p = persons.get(pid, {})
+        ref_str = p.get("ref", "")
+        # persons.json 권위 소스도 확인
+        reg_ref = _registry_ref(pid)
+        for uri in (ref_str + " " + reg_ref).split():
+            if uri:
+                uri_to_pid[uri] = pid
 
     def nearest_sentence_elem(elem):
         """elem 위로 올라가며 가장 가까운 <s> 또는 <p> 반환."""
@@ -165,14 +177,21 @@ def collect_theorist_contexts(root, persons, theorists, stem, essay_title):
         return None
 
     ctx = defaultdict(list)
-    # 이미 처리한 (container_elem, pid) 쌍 — 같은 <s>/<p>에서 같은 이론가 중복 방지
     seen = set()
 
     for pn in root.iter(tns("persName")):
         xml_id = get_attr_id(pn)
         ref = pn.get("ref", "")
-        pid = xml_id if xml_id else (ref[1:] if ref.startswith("#") else "")
-        if not pid or pid not in theorists:
+        # 1순위: xml:id로 직접 매핑
+        if xml_id and xml_id in theorists:
+            pid = xml_id
+        # 2순위: ref="#p-xxx" 형태
+        elif ref.startswith("#") and ref[1:] in theorists:
+            pid = ref[1:]
+        # 3순위: ref가 외부 URI → 역조회
+        elif ref and not ref.startswith("#") and ref in uri_to_pid:
+            pid = uri_to_pid[ref]
+        else:
             continue
         container = nearest_sentence_elem(pn)
         if container is None:
