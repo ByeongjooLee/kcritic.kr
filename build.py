@@ -1205,10 +1205,9 @@ def main():
 
 BASE_URI = "https://kcritic.kr/resource/"
 ESSAY_PAGE_BASE = "https://kcritic.kr/site/essays/"
-ONTOLOGY_BASE = "http://kcritic.kr/ontology/"
 
-# RDF 온톨로지 인물명 → Wikidata URI 매핑 (critic_v5_kcritic.rdf에서 추출)
-_ONTOLOGY_WIKIDATA = {
+# TEI ref에 Wikidata URI가 없는 인물의 보완 매핑 (이름 → Wikidata URI)
+_WIKIDATA_FALLBACK = {
     "김우창":  "http://www.wikidata.org/entity/Q17129594",
     "김윤식":  "http://www.wikidata.org/entity/Q12594764",
     "김종길":  "http://www.wikidata.org/entity/Q12594791",
@@ -1241,19 +1240,14 @@ def _ttl_str(s):
 def _ttl_uri(s):
     return f"<{s}>"
 
-def _ontology_uri(name):
-    """인물 한국어 이름 → 온톨로지 URI (IRI 인코딩 없이 꺽쇠로 감쌈)."""
-    return f"<{ONTOLOGY_BASE}{name}>"
-
 def build_turtle(all_essays, graph):
     lines = [
         "# 한국 비평사 온톨로지 — RDF Turtle 직렬화",
-        "# 온톨로지 준거: http://kcritic.kr/ontology/ (critic_v5_kcritic.rdf)",
+        "# 온톨로지 준거: http://kcritic.kr/ontology/critic# (critic_v7_kcritic.rdf)",
         "",
         "@prefix kc:      <https://kcritic.kr/resource/> .",
         "@prefix kce:     <https://kcritic.kr/resource/essay/> .",
         "@prefix critic:  <http://kcritic.kr/ontology/critic#> .",
-        "@prefix ko:      <http://kcritic.kr/ontology/> .",
         "@prefix foaf:    <http://xmlns.com/foaf/0.1/> .",
         "@prefix cito:    <http://purl.org/spar/cito/> .",
         "@prefix dcterms: <http://purl.org/dc/terms/> .",
@@ -1262,11 +1256,6 @@ def build_turtle(all_essays, graph):
         "@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .",
         "@prefix schema:  <https://schema.org/> .",
         "@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .",
-        "",
-        "# ── 온톨로지 임포트 선언 ─────────────────────────────────",
-        "<https://kcritic.kr/resource/>",
-        "  a owl:Ontology ;",
-        "  owl:imports <http://kcritic.kr/ontology/> .",
         "",
         "# ── 인물 노드 ────────────────────────────────────────────",
     ]
@@ -1304,20 +1293,16 @@ def build_turtle(all_essays, graph):
         triples.append(f'  foaf:name {_ttl_str(name)}@ko ;')
         triples.append(f'  rdfs:label {_ttl_str(name)}@ko ;')
 
-        # Wikidata sameAs: TEI ref 우선, 없으면 온톨로지 매핑에서 보완
+        # Wikidata sameAs: TEI ref 우선, 없으면 fallback 딕셔너리에서 보완
         wikidata_uri = ""
         for uri in ref.split():
             if "wikidata" in uri:
                 wikidata_uri = uri
                 break
-        if not wikidata_uri and name in _ONTOLOGY_WIKIDATA:
-            wikidata_uri = _ONTOLOGY_WIKIDATA[name]
+        if not wikidata_uri and name in _WIKIDATA_FALLBACK:
+            wikidata_uri = _WIKIDATA_FALLBACK[name]
         if wikidata_uri:
             triples.append(f'  owl:sameAs {_ttl_uri(wikidata_uri)} ;')
-
-        # 온톨로지 named individual과 owl:sameAs 연결 (critic_v5_kcritic.rdf에 존재하는 인물만)
-        if name in _ONTOLOGY_WIKIDATA:
-            triples.append(f'  owl:sameAs {_ontology_uri(name)} ;')
 
         triples.append(f'  schema:url {_ttl_uri(BASE_URI + pid)} .')
         lines.extend(triples)

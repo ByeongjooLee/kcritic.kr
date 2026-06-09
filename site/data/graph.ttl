@@ -1,10 +1,9 @@
 # 한국 비평사 온톨로지 — RDF Turtle 직렬화
-# 온톨로지 준거: http://kcritic.kr/ontology/ (critic_v5_kcritic.rdf)
+# 온톨로지 준거: http://kcritic.kr/ontology/critic# (critic_v7_kcritic.rdf)
 
 @prefix kc:      <https://kcritic.kr/resource/> .
 @prefix kce:     <https://kcritic.kr/resource/essay/> .
 @prefix critic:  <http://kcritic.kr/ontology/critic#> .
-@prefix ko:      <http://kcritic.kr/ontology/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 @prefix cito:    <http://purl.org/spar/cito/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -14,1203 +13,1172 @@
 @prefix schema:  <https://schema.org/> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
-# ── 온톨로지 임포트 선언 ─────────────────────────────────
-<https://kcritic.kr/resource/>
-  a owl:Ontology ;
-  owl:imports <http://kcritic.kr/ontology/> .
-
 # ── 인물 노드 ────────────────────────────────────────────
-kc:p-akutagawa a foaf:Person ;
+kc:p-00001 a foaf:Person ;
   foaf:name "아쿠타가와 류노스케"@ko ;
   rdfs:label "아쿠타가와 류노스케"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q42858> ;
-  schema:url <https://kcritic.kr/resource/p-akutagawa> .
+  schema:url <https://kcritic.kr/resource/p-00001> .
 
-kc:p-alberes a foaf:Person ;
+kc:p-00002 a foaf:Person ;
   foaf:name "알베레스"@ko ;
   rdfs:label "알베레스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q55672180> ;
-  schema:url <https://kcritic.kr/resource/p-alberes> .
+  schema:url <https://kcritic.kr/resource/p-00002> .
 
-kc:p-amiel a foaf:Person ;
+kc:p-00003 a foaf:Person ;
   foaf:name "아미엘"@ko ;
   rdfs:label "아미엘"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q123916> ;
-  schema:url <https://kcritic.kr/resource/p-amiel> .
+  schema:url <https://kcritic.kr/resource/p-00003> .
 
-kc:p-an-sugil a foaf:Person ;
+kc:p-00004 a foaf:Person ;
   foaf:name "안수길"@ko ;
   rdfs:label "안수길"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494813> ;
-  owl:sameAs <http://kcritic.kr/ontology/안수길> ;
-  schema:url <https://kcritic.kr/resource/p-an-sugil> .
+  schema:url <https://kcritic.kr/resource/p-00004> .
 
-kc:p-aristotle a foaf:Person ;
+kc:p-00005 a foaf:Person ;
   foaf:name "아리스토텔레스"@ko ;
   rdfs:label "아리스토텔레스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q868> ;
-  schema:url <https://kcritic.kr/resource/p-aristotle> .
+  schema:url <https://kcritic.kr/resource/p-00005> .
 
-kc:p-arnheim a foaf:Person ;
+kc:p-00006 a foaf:Person ;
   foaf:name "루돌프 아른하임(Rudolf Arnheim)"@ko ;
   rdfs:label "루돌프 아른하임(Rudolf Arnheim)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q213642> ;
-  schema:url <https://kcritic.kr/resource/p-arnheim> .
+  schema:url <https://kcritic.kr/resource/p-00006> .
 
-kc:p-arnold a foaf:Person ;
+kc:p-00007 a foaf:Person ;
   foaf:name "매슈 아널드"@ko ;
   rdfs:label "매슈 아널드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q271032> ;
-  schema:url <https://kcritic.kr/resource/p-arnold> .
+  schema:url <https://kcritic.kr/resource/p-00007> .
 
-kc:p-auden a foaf:Person ;
+kc:p-00008 a foaf:Person ;
   foaf:name "오든"@ko ;
   rdfs:label "오든"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q179678> ;
-  schema:url <https://kcritic.kr/resource/p-auden> .
+  schema:url <https://kcritic.kr/resource/p-00008> .
 
-kc:p-auerbach a foaf:Person ;
+kc:p-00009 a foaf:Person ;
   foaf:name "에리히 아우얼바하"@ko ;
   rdfs:label "에리히 아우얼바하"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q57603> ;
-  schema:url <https://kcritic.kr/resource/p-auerbach> .
+  schema:url <https://kcritic.kr/resource/p-00009> .
 
-kc:p-austin a foaf:Person ;
+kc:p-00010 a foaf:Person ;
   foaf:name "J. L. 오스틴"@ko ;
   rdfs:label "J. L. 오스틴"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q272615> ;
-  schema:url <https://kcritic.kr/resource/p-austin> .
+  schema:url <https://kcritic.kr/resource/p-00010> .
 
-kc:p-babbitt-irving a foaf:Person ;
+kc:p-00011 a foaf:Person ;
   foaf:name "어빙 배빗"@ko ;
   rdfs:label "어빙 배빗"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q457866> ;
-  schema:url <https://kcritic.kr/resource/p-babbitt-irving> .
+  schema:url <https://kcritic.kr/resource/p-00011> .
 
-kc:p-bacon a foaf:Person ;
+kc:p-00012 a foaf:Person ;
   foaf:name "프랜시스 베이컨"@ko ;
   rdfs:label "프랜시스 베이컨"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9204> ;
-  schema:url <https://kcritic.kr/resource/p-bacon> .
+  schema:url <https://kcritic.kr/resource/p-00012> .
 
-kc:p-baek-chul a foaf:Person ;
+kc:p-00013 a foaf:Person ;
   foaf:name "백철"@ko ;
   rdfs:label "백철"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499004> ;
-  schema:url <https://kcritic.kr/resource/p-baek-chul> .
+  schema:url <https://kcritic.kr/resource/p-00013> .
 
-kc:p-baek-nakchung a foaf:Person ;
+kc:p-00014 a foaf:Person ;
   foaf:name "백낙청"@ko ;
   rdfs:label "백낙청"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499046> ;
-  schema:url <https://kcritic.kr/resource/p-baek-nakchung> .
+  schema:url <https://kcritic.kr/resource/p-00014> .
 
-kc:p-balazs a foaf:Person ;
+kc:p-00016 a foaf:Person ;
   foaf:name "에티엔 발라스"@ko ;
   rdfs:label "에티엔 발라스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q437773> ;
-  schema:url <https://kcritic.kr/resource/p-balazs> .
+  schema:url <https://kcritic.kr/resource/p-00016> .
 
-kc:p-balzac a foaf:Person ;
+kc:p-00017 a foaf:Person ;
   foaf:name "발자크"@ko ;
   rdfs:label "발자크"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9711> ;
-  schema:url <https://kcritic.kr/resource/p-balzac> .
+  schema:url <https://kcritic.kr/resource/p-00017> .
 
-kc:p-baudelaire a foaf:Person ;
+kc:p-00018 a foaf:Person ;
   foaf:name "보들레르"@ko ;
   rdfs:label "보들레르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q501> ;
-  schema:url <https://kcritic.kr/resource/p-baudelaire> .
+  schema:url <https://kcritic.kr/resource/p-00018> .
 
-kc:p-beethoven a foaf:Person ;
+kc:p-00019 a foaf:Person ;
   foaf:name "베토벤"@ko ;
   rdfs:label "베토벤"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q255> ;
-  schema:url <https://kcritic.kr/resource/p-beethoven> .
+  schema:url <https://kcritic.kr/resource/p-00019> .
 
-kc:p-benedict-ruth a foaf:Person ;
+kc:p-00021 a foaf:Person ;
   foaf:name "루스 베네딕트"@ko ;
   rdfs:label "루스 베네딕트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q228822> ;
-  schema:url <https://kcritic.kr/resource/p-benedict-ruth> .
+  schema:url <https://kcritic.kr/resource/p-00021> .
 
-kc:p-bergson a foaf:Person ;
+kc:p-00022 a foaf:Person ;
   foaf:name "베르그송"@ko ;
   rdfs:label "베르그송"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q42156> ;
-  schema:url <https://kcritic.kr/resource/p-bergson> .
+  schema:url <https://kcritic.kr/resource/p-00022> .
 
-kc:p-bettelheim a foaf:Person ;
+kc:p-00023 a foaf:Person ;
   foaf:name "브루노 베텔하임"@ko ;
   rdfs:label "브루노 베텔하임"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76433> ;
-  schema:url <https://kcritic.kr/resource/p-bettelheim> .
+  schema:url <https://kcritic.kr/resource/p-00023> .
 
-kc:p-binswanger a foaf:Person ;
+kc:p-00024 a foaf:Person ;
   foaf:name "루드비히 빈스방거（Ludwig Binswanger）"@ko ;
   rdfs:label "루드비히 빈스방거（Ludwig Binswanger）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q116614> ;
-  schema:url <https://kcritic.kr/resource/p-binswanger> .
+  schema:url <https://kcritic.kr/resource/p-00024> .
 
-kc:p-brooks a foaf:Person ;
+kc:p-00025 a foaf:Person ;
   foaf:name "클리언스 브룩스"@ko ;
   rdfs:label "클리언스 브룩스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q382476> ;
-  schema:url <https://kcritic.kr/resource/p-brooks> .
+  schema:url <https://kcritic.kr/resource/p-00025> .
 
-kc:p-byeon-youngro a foaf:Person ;
+kc:p-00026 a foaf:Person ;
   foaf:name "변영로"@ko ;
   rdfs:label "변영로"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q5003023> ;
-  schema:url <https://kcritic.kr/resource/p-byeon-youngro> .
+  schema:url <https://kcritic.kr/resource/p-00026> .
 
-kc:p-campanella a foaf:Person ;
+kc:p-00027 a foaf:Person ;
   foaf:name "캄파넬라"@ko ;
   rdfs:label "캄파넬라"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q46867> ;
-  schema:url <https://kcritic.kr/resource/p-campanella> .
+  schema:url <https://kcritic.kr/resource/p-00027> .
 
-kc:p-camus a foaf:Person ;
+kc:p-00028 a foaf:Person ;
   foaf:name "카뮈"@ko ;
   rdfs:label "카뮈"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34670> ;
-  schema:url <https://kcritic.kr/resource/p-camus> .
+  schema:url <https://kcritic.kr/resource/p-00028> .
 
-kc:p-chekhov a foaf:Person ;
+kc:p-00029 a foaf:Person ;
   foaf:name "체호프"@ko ;
   rdfs:label "체호프"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q36252> ;
-  schema:url <https://kcritic.kr/resource/p-chekhov> .
+  schema:url <https://kcritic.kr/resource/p-00029> .
 
-kc:p-chernyshevsky a foaf:Person ;
+kc:p-00030 a foaf:Person ;
   foaf:name "체르니솁스키"@ko ;
   rdfs:label "체르니솁스키"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q162544> ;
-  schema:url <https://kcritic.kr/resource/p-chernyshevsky> .
+  schema:url <https://kcritic.kr/resource/p-00030> .
 
-kc:p-cho-jihun a foaf:Person ;
+kc:p-00031 a foaf:Person ;
   foaf:name "조지훈"@ko ;
   rdfs:label "조지훈"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q495027> ;
-  owl:sameAs <http://kcritic.kr/ontology/조지훈> ;
-  schema:url <https://kcritic.kr/resource/p-cho-jihun> .
+  schema:url <https://kcritic.kr/resource/p-00031> .
 
-kc:p-cho-taeill a foaf:Person ;
+kc:p-00032 a foaf:Person ;
   foaf:name "조태일"@ko ;
   rdfs:label "조태일"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q16181007> ;
-  schema:url <https://kcritic.kr/resource/p-cho-taeill> .
+  schema:url <https://kcritic.kr/resource/p-00032> .
 
-kc:p-choe-namseon a foaf:Person ;
-  foaf:name "최남선"@ko ;
-  rdfs:label "최남선"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q490672> ;
-  owl:sameAs <http://kcritic.kr/ontology/최남선> ;
-  schema:url <https://kcritic.kr/resource/p-choe-namseon> .
-
-kc:p-choe-seungho a foaf:Person ;
-  foaf:name "최승호"@ko ;
-  rdfs:label "최승호"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q5103956> ;
-  schema:url <https://kcritic.kr/resource/p-choe-seungho> .
-
-kc:p-choi-inhun a foaf:Person ;
+kc:p-00033 a foaf:Person ;
   foaf:name "최인훈"@ko ;
   rdfs:label "최인훈"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499133> ;
-  owl:sameAs <http://kcritic.kr/ontology/최인훈> ;
-  schema:url <https://kcritic.kr/resource/p-choi-inhun> .
+  schema:url <https://kcritic.kr/resource/p-00033> .
 
-kc:p-coleridge a foaf:Person ;
+kc:p-00035 a foaf:Person ;
+  foaf:name "최승호"@ko ;
+  rdfs:label "최승호"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q5103956> ;
+  schema:url <https://kcritic.kr/resource/p-00035> .
+
+kc:p-00036 a foaf:Person ;
   foaf:name "새뮤얼 테일러 콜리지"@ko ;
   rdfs:label "새뮤얼 테일러 콜리지"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q81412> ;
-  schema:url <https://kcritic.kr/resource/p-coleridge> .
+  schema:url <https://kcritic.kr/resource/p-00036> .
 
-kc:p-dahrendorf a foaf:Person ;
+kc:p-00037 a foaf:Person ;
   foaf:name "달렌도르프"@ko ;
   rdfs:label "달렌도르프"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76538> ;
-  schema:url <https://kcritic.kr/resource/p-dahrendorf> .
+  schema:url <https://kcritic.kr/resource/p-00037> .
 
-kc:p-day-lewis a foaf:Person ;
+kc:p-00039 a foaf:Person ;
   foaf:name "C. 데이 루이스"@ko ;
   rdfs:label "C. 데이 루이스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q954383> ;
-  schema:url <https://kcritic.kr/resource/p-day-lewis> .
+  schema:url <https://kcritic.kr/resource/p-00039> .
 
-kc:p-descartes a foaf:Person ;
+kc:p-00040 a foaf:Person ;
   foaf:name "데카르트"@ko ;
   rdfs:label "데카르트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9191> ;
-  schema:url <https://kcritic.kr/resource/p-descartes> .
+  schema:url <https://kcritic.kr/resource/p-00040> .
 
-kc:p-dilthey a foaf:Person ;
+kc:p-00041 a foaf:Person ;
   foaf:name "딜타이(Dilthey)"@ko ;
   rdfs:label "딜타이(Dilthey)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q60080> ;
-  schema:url <https://kcritic.kr/resource/p-dilthey> .
+  schema:url <https://kcritic.kr/resource/p-00041> .
 
-kc:p-dostoevsky a foaf:Person ;
+kc:p-00042 a foaf:Person ;
   foaf:name "도스토옙스키"@ko ;
   rdfs:label "도스토옙스키"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q991> ;
-  schema:url <https://kcritic.kr/resource/p-dostoevsky> .
+  schema:url <https://kcritic.kr/resource/p-00042> .
 
-kc:p-dufrenne a foaf:Person ;
+kc:p-00043 a foaf:Person ;
   foaf:name "미켈 뒤프렌"@ko ;
   rdfs:label "미켈 뒤프렌"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q2548282> ;
-  schema:url <https://kcritic.kr/resource/p-dufrenne> .
+  schema:url <https://kcritic.kr/resource/p-00043> .
 
-kc:p-durkheim a foaf:Person ;
+kc:p-00044 a foaf:Person ;
   foaf:name "뒤르켐"@ko ;
   rdfs:label "뒤르켐"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q15948> ;
-  schema:url <https://kcritic.kr/resource/p-durkheim> .
+  schema:url <https://kcritic.kr/resource/p-00044> .
 
-kc:p-eliot a foaf:Person ;
+kc:p-00045 a foaf:Person ;
   foaf:name "T. S. 엘리엇"@ko ;
   rdfs:label "T. S. 엘리엇"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q37767> ;
-  schema:url <https://kcritic.kr/resource/p-eliot> .
+  schema:url <https://kcritic.kr/resource/p-00045> .
 
-kc:p-empson a foaf:Person ;
+kc:p-00046 a foaf:Person ;
   foaf:name "엠프슨"@ko ;
   rdfs:label "엠프슨"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q333464> ;
-  schema:url <https://kcritic.kr/resource/p-empson> .
+  schema:url <https://kcritic.kr/resource/p-00046> .
 
-kc:p-engels a foaf:Person ;
+kc:p-00047 a foaf:Person ;
   foaf:name "엥겔스"@ko ;
   rdfs:label "엥겔스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34262> ;
-  schema:url <https://kcritic.kr/resource/p-engels> .
+  schema:url <https://kcritic.kr/resource/p-00047> .
 
-kc:p-fiedler-konrad a foaf:Person ;
+kc:p-00048 a foaf:Person ;
   foaf:name "콘라트 피들러"@ko ;
   rdfs:label "콘라트 피들러"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q96384> ;
-  schema:url <https://kcritic.kr/resource/p-fiedler-konrad> .
+  schema:url <https://kcritic.kr/resource/p-00048> .
 
-kc:p-flaubert a foaf:Person ;
+kc:p-00049 a foaf:Person ;
   foaf:name "플로베르"@ko ;
   rdfs:label "플로베르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q43444> ;
-  schema:url <https://kcritic.kr/resource/p-flaubert> .
+  schema:url <https://kcritic.kr/resource/p-00049> .
 
-kc:p-fraser a foaf:Person ;
+kc:p-00050 a foaf:Person ;
   foaf:name "프레이저"@ko ;
   rdfs:label "프레이저"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q5531746> ;
-  schema:url <https://kcritic.kr/resource/p-fraser> .
+  schema:url <https://kcritic.kr/resource/p-00050> .
 
-kc:p-freud a foaf:Person ;
+kc:p-00051 a foaf:Person ;
   foaf:name "프로이트"@ko ;
   rdfs:label "프로이트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9215> ;
-  schema:url <https://kcritic.kr/resource/p-freud> .
+  schema:url <https://kcritic.kr/resource/p-00051> .
 
-kc:p-fromm a foaf:Person ;
+kc:p-00052 a foaf:Person ;
   foaf:name "에리히 프롬"@ko ;
   rdfs:label "에리히 프롬"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76621> ;
-  schema:url <https://kcritic.kr/resource/p-fromm> .
+  schema:url <https://kcritic.kr/resource/p-00052> .
 
-kc:p-fukuzawa a foaf:Person ;
+kc:p-00053 a foaf:Person ;
   foaf:name "후쿠자와 유키치"@ko ;
   rdfs:label "후쿠자와 유키치"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q275118> ;
-  schema:url <https://kcritic.kr/resource/p-fukuzawa> .
+  schema:url <https://kcritic.kr/resource/p-00053> .
 
-kc:p-furtwangler a foaf:Person ;
+kc:p-00054 a foaf:Person ;
   foaf:name "푸르트벵글러"@ko ;
   rdfs:label "푸르트벵글러"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q153758> ;
-  schema:url <https://kcritic.kr/resource/p-furtwangler> .
+  schema:url <https://kcritic.kr/resource/p-00054> .
 
-kc:p-gheorghiu a foaf:Person ;
+kc:p-00057 a foaf:Person ;
   foaf:name "게오르규"@ko ;
   rdfs:label "게오르규"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1127989> ;
-  schema:url <https://kcritic.kr/resource/p-gheorghiu> .
+  schema:url <https://kcritic.kr/resource/p-00057> .
 
-kc:p-gide a foaf:Person ;
+kc:p-00058 a foaf:Person ;
   foaf:name "지드"@ko ;
   rdfs:label "지드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q47484> ;
-  schema:url <https://kcritic.kr/resource/p-gide> .
+  schema:url <https://kcritic.kr/resource/p-00058> .
 
-kc:p-goethe a foaf:Person ;
+kc:p-00059 a foaf:Person ;
   foaf:name "괴테"@ko ;
   rdfs:label "괴테"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q5879> ;
-  schema:url <https://kcritic.kr/resource/p-goethe> .
+  schema:url <https://kcritic.kr/resource/p-00059> .
 
-kc:p-gorky a foaf:Person ;
+kc:p-00060 a foaf:Person ;
   foaf:name "막심 고리키"@ko ;
   rdfs:label "막심 고리키"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12706> ;
-  schema:url <https://kcritic.kr/resource/p-gorky> .
+  schema:url <https://kcritic.kr/resource/p-00060> .
 
-kc:p-gourmont a foaf:Person ;
+kc:p-00061 a foaf:Person ;
   foaf:name "쿠르몽"@ko ;
   rdfs:label "쿠르몽"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q562628> ;
-  schema:url <https://kcritic.kr/resource/p-gourmont> .
+  schema:url <https://kcritic.kr/resource/p-00061> .
 
-kc:p-habermas a foaf:Person ;
+kc:p-00062 a foaf:Person ;
   foaf:name "위르겐 하버마스"@ko ;
   rdfs:label "위르겐 하버마스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76357> ;
-  schema:url <https://kcritic.kr/resource/p-habermas> .
+  schema:url <https://kcritic.kr/resource/p-00062> .
 
-kc:p-hazlitt a foaf:Person ;
+kc:p-00064 a foaf:Person ;
   foaf:name "해즐릿"@ko ;
   rdfs:label "해즐릿"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q314110> ;
-  schema:url <https://kcritic.kr/resource/p-hazlitt> .
+  schema:url <https://kcritic.kr/resource/p-00064> .
 
-kc:p-hegel a foaf:Person ;
+kc:p-00065 a foaf:Person ;
   foaf:name "헤겔"@ko ;
   rdfs:label "헤겔"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9235> ;
-  schema:url <https://kcritic.kr/resource/p-hegel> .
+  schema:url <https://kcritic.kr/resource/p-00065> .
 
-kc:p-heidegger a foaf:Person ;
+kc:p-00066 a foaf:Person ;
   foaf:name "하이데거"@ko ;
   rdfs:label "하이데거"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
-  schema:url <https://kcritic.kr/resource/p-heidegger> .
+  schema:url <https://kcritic.kr/resource/p-00066> .
 
-kc:p-hemingway a foaf:Person ;
+kc:p-00067 a foaf:Person ;
   foaf:name "헤밍웨이（Hemingway）"@ko ;
   rdfs:label "헤밍웨이（Hemingway）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q23434> ;
-  schema:url <https://kcritic.kr/resource/p-hemingway> .
+  schema:url <https://kcritic.kr/resource/p-00067> .
 
-kc:p-henry-james a foaf:Person ;
+kc:p-00068 a foaf:Person ;
   foaf:name "헨리 제임스"@ko ;
   rdfs:label "헨리 제임스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q165517> ;
-  schema:url <https://kcritic.kr/resource/p-henry-james> .
+  schema:url <https://kcritic.kr/resource/p-00068> .
 
-kc:p-henry-miller a foaf:Person ;
+kc:p-00069 a foaf:Person ;
   foaf:name "헨리 밀러"@ko ;
   rdfs:label "헨리 밀러"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q189378> ;
-  schema:url <https://kcritic.kr/resource/p-henry-miller> .
+  schema:url <https://kcritic.kr/resource/p-00069> .
 
-kc:p-herbert-read a foaf:Person ;
+kc:p-00070 a foaf:Person ;
   foaf:name "허버트 리드"@ko ;
   rdfs:label "허버트 리드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1596448> ;
-  schema:url <https://kcritic.kr/resource/p-herbert-read> .
+  schema:url <https://kcritic.kr/resource/p-00070> .
 
-kc:p-hobbes a foaf:Person ;
+kc:p-00071 a foaf:Person ;
   foaf:name "토마스 홉스"@ko ;
   rdfs:label "토마스 홉스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q37562> ;
-  schema:url <https://kcritic.kr/resource/p-hobbes> .
+  schema:url <https://kcritic.kr/resource/p-00071> .
 
-kc:p-homer a foaf:Person ;
+kc:p-00072 a foaf:Person ;
   foaf:name "호메로스"@ko ;
   rdfs:label "호메로스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q6691> ;
-  schema:url <https://kcritic.kr/resource/p-homer> .
+  schema:url <https://kcritic.kr/resource/p-00072> .
 
-kc:p-hulme a foaf:Person ;
+kc:p-00074 a foaf:Person ;
   foaf:name "흄"@ko ;
   rdfs:label "흄"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q364095> ;
-  schema:url <https://kcritic.kr/resource/p-hulme> .
+  schema:url <https://kcritic.kr/resource/p-00074> .
 
-kc:p-huxley a foaf:Person ;
+kc:p-00075 a foaf:Person ;
   foaf:name "올더스 헉슬리"@ko ;
   rdfs:label "올더스 헉슬리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q46792> ;
-  schema:url <https://kcritic.kr/resource/p-huxley> .
+  schema:url <https://kcritic.kr/resource/p-00075> .
 
-kc:p-hwang-dongkyu a foaf:Person ;
+kc:p-00076 a foaf:Person ;
   foaf:name "황동규"@ko ;
   rdfs:label "황동규"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499298> ;
-  schema:url <https://kcritic.kr/resource/p-hwang-dongkyu> .
+  schema:url <https://kcritic.kr/resource/p-00076> .
 
-kc:p-hwang-sunwon a foaf:Person ;
+kc:p-00079 a foaf:Person ;
   foaf:name "황순원"@ko ;
   rdfs:label "황순원"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q18914> ;
-  schema:url <https://kcritic.kr/resource/p-hwang-sunwon> .
+  schema:url <https://kcritic.kr/resource/p-00079> .
 
-kc:p-hyman a foaf:Person ;
+kc:p-00080 a foaf:Person ;
   foaf:name "하이만"@ko ;
   rdfs:label "하이만"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q5470284> ;
-  schema:url <https://kcritic.kr/resource/p-hyman> .
+  schema:url <https://kcritic.kr/resource/p-00080> .
 
-kc:p-ian-watt a foaf:Person ;
+kc:p-00081 a foaf:Person ;
   foaf:name "이안 와트"@ko ;
   rdfs:label "이안 와트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q4040568> ;
-  schema:url <https://kcritic.kr/resource/p-ian-watt> .
+  schema:url <https://kcritic.kr/resource/p-00081> .
 
-kc:p-iser a foaf:Person ;
+kc:p-00082 a foaf:Person ;
   foaf:name "볼프강 이저"@ko ;
   rdfs:label "볼프강 이저"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q60486> ;
-  schema:url <https://kcritic.kr/resource/p-iser> .
+  schema:url <https://kcritic.kr/resource/p-00082> .
 
-kc:p-jang-yonghak a foaf:Person ;
+kc:p-00083 a foaf:Person ;
   foaf:name "장용학"@ko ;
   rdfs:label "장용학"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1753016> ;
-  schema:url <https://kcritic.kr/resource/p-jang-yonghak> .
+  schema:url <https://kcritic.kr/resource/p-00083> .
 
-kc:p-jeong-dongju a foaf:Person ;
+kc:p-00085 a foaf:Person ;
   foaf:name "정동주"@ko ;
   rdfs:label "정동주"@ko ;
-  schema:url <https://kcritic.kr/resource/p-jeong-dongju> .
+  schema:url <https://kcritic.kr/resource/p-00085> .
 
-kc:p-jeong-jiyong a foaf:Person ;
+kc:p-00086 a foaf:Person ;
   foaf:name "정지용"@ko ;
   rdfs:label "정지용"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q488800> ;
-  owl:sameAs <http://kcritic.kr/ontology/정지용> ;
-  schema:url <https://kcritic.kr/resource/p-jeong-jiyong> .
+  schema:url <https://kcritic.kr/resource/p-00086> .
 
-kc:p-jo-sehi a foaf:Person ;
+kc:p-00087 a foaf:Person ;
   foaf:name "조세희"@ko ;
   rdfs:label "조세희"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q495011> ;
-  schema:url <https://kcritic.kr/resource/p-jo-sehi> .
+  schema:url <https://kcritic.kr/resource/p-00087> .
 
-kc:p-ju-yohan a foaf:Person ;
+kc:p-00089 a foaf:Person ;
   foaf:name "주요한"@ko ;
   rdfs:label "주요한"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q12614972> ;
-  owl:sameAs <http://kcritic.kr/ontology/주요한> ;
-  schema:url <https://kcritic.kr/resource/p-ju-yohan> .
+  schema:url <https://kcritic.kr/resource/p-00089> .
 
-kc:p-jung-heesung a foaf:Person ;
+kc:p-00090 a foaf:Person ;
   foaf:name "정희성（鄭喜成）"@ko ;
   rdfs:label "정희성（鄭喜成）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12520476> ;
-  schema:url <https://kcritic.kr/resource/p-jung-heesung> .
+  schema:url <https://kcritic.kr/resource/p-00090> .
 
-kc:p-jung-hyunjong a foaf:Person ;
+kc:p-00091 a foaf:Person ;
   foaf:name "정현종（鄭玄宗）"@ko ;
   rdfs:label "정현종（鄭玄宗）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1354064> ;
-  schema:url <https://kcritic.kr/resource/p-jung-hyunjong> .
+  schema:url <https://kcritic.kr/resource/p-00091> .
 
-kc:p-kafka a foaf:Person ;
+kc:p-00092 a foaf:Person ;
   foaf:name "카프카"@ko ;
   rdfs:label "카프카"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q905> ;
-  schema:url <https://kcritic.kr/resource/p-kafka> .
+  schema:url <https://kcritic.kr/resource/p-00092> .
 
-kc:p-kant a foaf:Person ;
+kc:p-00093 a foaf:Person ;
   foaf:name "칸트"@ko ;
   rdfs:label "칸트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9312> ;
-  schema:url <https://kcritic.kr/resource/p-kant> .
+  schema:url <https://kcritic.kr/resource/p-00093> .
 
-kc:p-kenneth-burke a foaf:Person ;
+kc:p-00094 a foaf:Person ;
   foaf:name "케네스 버크"@ko ;
   rdfs:label "케네스 버크"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q960081> ;
-  schema:url <https://kcritic.kr/resource/p-kenneth-burke> .
+  schema:url <https://kcritic.kr/resource/p-00094> .
 
-kc:p-kim-byungik a foaf:Person ;
+kc:p-00095 a foaf:Person ;
   foaf:name "김병익"@ko ;
   rdfs:label "김병익"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12587483> ;
-  schema:url <https://kcritic.kr/resource/p-kim-byungik> .
+  schema:url <https://kcritic.kr/resource/p-00095> .
 
-kc:p-kim-changwan a foaf:Person ;
+kc:p-00097 a foaf:Person ;
   foaf:name "김창완（金昌完）"@ko ;
   rdfs:label "김창완（金昌完）"@ko ;
-  schema:url <https://kcritic.kr/resource/p-kim-changwan> .
+  schema:url <https://kcritic.kr/resource/p-00097> .
 
-kc:p-kim-dongin a foaf:Person ;
+kc:p-00099 a foaf:Person ;
   foaf:name "김동인"@ko ;
   rdfs:label "김동인"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499479> ;
-  schema:url <https://kcritic.kr/resource/p-kim-dongin> .
+  schema:url <https://kcritic.kr/resource/p-00099> .
 
-kc:p-kim-dongri a foaf:Person ;
+kc:p-00100 a foaf:Person ;
   foaf:name "김동리"@ko ;
   rdfs:label "김동리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499524> ;
-  schema:url <https://kcritic.kr/resource/p-kim-dongri> .
+  schema:url <https://kcritic.kr/resource/p-00100> .
 
-kc:p-kim-guyong a foaf:Person ;
+kc:p-00101 a foaf:Person ;
   foaf:name "김구용"@ko ;
   rdfs:label "김구용"@ko ;
-  schema:url <https://kcritic.kr/resource/p-kim-guyong> .
+  schema:url <https://kcritic.kr/resource/p-00101> .
 
-kc:p-kim-hyunseung a foaf:Person ;
-  foaf:name "김현승"@ko ;
-  rdfs:label "김현승"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12498504> ;
-  owl:sameAs <http://kcritic.kr/ontology/김현승> ;
-  schema:url <https://kcritic.kr/resource/p-kim-hyunseung> .
-
-kc:p-kim-jiha a foaf:Person ;
-  foaf:name "김지하"@ko ;
-  rdfs:label "김지하"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q498610> ;
-  schema:url <https://kcritic.kr/resource/p-kim-jiha> .
-
-kc:p-kim-jonggil a foaf:Person ;
-  foaf:name "김종길"@ko ;
-  rdfs:label "김종길"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12498536> ;
-  owl:sameAs <http://kcritic.kr/ontology/김종길> ;
-  schema:url <https://kcritic.kr/resource/p-kim-jonggil> .
-
-kc:p-kim-kwanggyu a foaf:Person ;
+kc:p-00102 a foaf:Person ;
   foaf:name "김광규"@ko ;
   rdfs:label "김광규"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q13582904> ;
-  schema:url <https://kcritic.kr/resource/p-kim-kwanggyu> .
+  schema:url <https://kcritic.kr/resource/p-00102> .
 
-kc:p-kim-sikwon a foaf:Person ;
+kc:p-00104 a foaf:Person ;
+  foaf:name "김현승"@ko ;
+  rdfs:label "김현승"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12498504> ;
+  schema:url <https://kcritic.kr/resource/p-00104> .
+
+kc:p-00106 a foaf:Person ;
+  foaf:name "김지하"@ko ;
+  rdfs:label "김지하"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q498610> ;
+  schema:url <https://kcritic.kr/resource/p-00106> .
+
+kc:p-00107 a foaf:Person ;
+  foaf:name "김종길"@ko ;
+  rdfs:label "김종길"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12498536> ;
+  schema:url <https://kcritic.kr/resource/p-00107> .
+
+kc:p-00113 a foaf:Person ;
   foaf:name "김시권"@ko ;
   rdfs:label "김시권"@ko ;
-  schema:url <https://kcritic.kr/resource/p-kim-sikwon> .
+  schema:url <https://kcritic.kr/resource/p-00113> .
 
-kc:p-kim-sowol a foaf:Person ;
+kc:p-00114 a foaf:Person ;
   foaf:name "김소월"@ko ;
   rdfs:label "김소월"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494639> ;
-  owl:sameAs <http://kcritic.kr/ontology/김소월> ;
-  schema:url <https://kcritic.kr/resource/p-kim-sowol> .
+  schema:url <https://kcritic.kr/resource/p-00114> .
 
-kc:p-kim-sunghan a foaf:Person ;
+kc:p-00115 a foaf:Person ;
   foaf:name "김성한"@ko ;
   rdfs:label "김성한"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494856> ;
-  schema:url <https://kcritic.kr/resource/p-kim-sunghan> .
+  schema:url <https://kcritic.kr/resource/p-00115> .
 
-kc:p-kim-suyoung a foaf:Person ;
+kc:p-00116 a foaf:Person ;
   foaf:name "김수영（金洙暎）"@ko ;
   rdfs:label "김수영（金洙暎）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q16198424> ;
-  schema:url <https://kcritic.kr/resource/p-kim-suyoung> .
+  schema:url <https://kcritic.kr/resource/p-00116> .
 
-kc:p-kim-uchang a critic:Critic ;
+kc:p-00117 a critic:Critic ;
   foaf:name "김우창"@ko ;
   rdfs:label "김우창"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12498425> ;
-  owl:sameAs <http://kcritic.kr/ontology/김우창> ;
-  schema:url <https://kcritic.kr/resource/p-kim-uchang> .
+  schema:url <https://kcritic.kr/resource/p-00117> .
 
-kc:p-ko-un a foaf:Person ;
+kc:p-00122 a foaf:Person ;
   foaf:name "고은（高銀）"@ko ;
   rdfs:label "고은（高銀）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494036> ;
-  schema:url <https://kcritic.kr/resource/p-ko-un> .
+  schema:url <https://kcritic.kr/resource/p-00122> .
 
-kc:p-korzybski a foaf:Person ;
+kc:p-00123 a foaf:Person ;
   foaf:name "콜지브스키"@ko ;
   rdfs:label "콜지브스키"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q314411> ;
-  schema:url <https://kcritic.kr/resource/p-korzybski> .
+  schema:url <https://kcritic.kr/resource/p-00123> .
 
-kc:p-kristeva a foaf:Person ;
+kc:p-00124 a foaf:Person ;
   foaf:name "줄리아 크리스테바"@ko ;
   rdfs:label "줄리아 크리스테바"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q159876> ;
-  schema:url <https://kcritic.kr/resource/p-kristeva> .
+  schema:url <https://kcritic.kr/resource/p-00124> .
 
-kc:p-lacan a foaf:Person ;
+kc:p-00125 a foaf:Person ;
   foaf:name "자크 라캉(Jacques Lacan)"@ko ;
   rdfs:label "자크 라캉(Jacques Lacan)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q169906> ;
-  schema:url <https://kcritic.kr/resource/p-lacan> .
+  schema:url <https://kcritic.kr/resource/p-00125> .
 
-kc:p-laforge-rene a foaf:Person ;
+kc:p-00126 a foaf:Person ;
   foaf:name "르네 라포르그"@ko ;
   rdfs:label "르네 라포르그"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q366581> ;
-  schema:url <https://kcritic.kr/resource/p-laforge-rene> .
+  schema:url <https://kcritic.kr/resource/p-00126> .
 
-kc:p-lamb-charles a foaf:Person ;
+kc:p-00127 a foaf:Person ;
   foaf:name "램"@ko ;
   rdfs:label "램"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q372984> ;
-  schema:url <https://kcritic.kr/resource/p-lamb-charles> .
+  schema:url <https://kcritic.kr/resource/p-00127> .
 
-kc:p-langer a foaf:Person ;
+kc:p-00128 a foaf:Person ;
   foaf:name "수잔 랭거"@ko ;
   rdfs:label "수잔 랭거"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q252791> ;
-  schema:url <https://kcritic.kr/resource/p-langer> .
+  schema:url <https://kcritic.kr/resource/p-00128> .
 
-kc:p-lautreamont a foaf:Person ;
+kc:p-00129 a foaf:Person ;
   foaf:name "로트레아몽"@ko ;
   rdfs:label "로트레아몽"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q294181> ;
-  schema:url <https://kcritic.kr/resource/p-lautreamont> .
+  schema:url <https://kcritic.kr/resource/p-00129> .
 
-kc:p-lawrence a foaf:Person ;
+kc:p-00130 a foaf:Person ;
   foaf:name "로렌스"@ko ;
   rdfs:label "로렌스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q38459> ;
-  schema:url <https://kcritic.kr/resource/p-lawrence> .
+  schema:url <https://kcritic.kr/resource/p-00130> .
 
-kc:p-lawrence-dh a foaf:Person ;
+kc:p-00131 a foaf:Person ;
   foaf:name "로렌스"@ko ;
   rdfs:label "로렌스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q38459> ;
-  schema:url <https://kcritic.kr/resource/p-lawrence-dh> .
+  schema:url <https://kcritic.kr/resource/p-00131> .
 
-kc:p-leibniz a foaf:Person ;
+kc:p-00137 a foaf:Person ;
   foaf:name "라이프니츠"@ko ;
   rdfs:label "라이프니츠"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9047> ;
-  schema:url <https://kcritic.kr/resource/p-leibniz> .
+  schema:url <https://kcritic.kr/resource/p-00137> .
 
-kc:p-lenin a foaf:Person ;
+kc:p-00138 a foaf:Person ;
   foaf:name "레닌"@ko ;
   rdfs:label "레닌"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1394> ;
-  schema:url <https://kcritic.kr/resource/p-lenin> .
+  schema:url <https://kcritic.kr/resource/p-00138> .
 
-kc:p-levi-strauss a foaf:Person ;
+kc:p-00139 a foaf:Person ;
   foaf:name "레비-스트로스"@ko ;
   rdfs:label "레비-스트로스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q128126> ;
-  schema:url <https://kcritic.kr/resource/p-levi-strauss> .
+  schema:url <https://kcritic.kr/resource/p-00139> .
 
-kc:p-levy-bruhl a foaf:Person ;
+kc:p-00140 a foaf:Person ;
   foaf:name "레비 브률"@ko ;
   rdfs:label "레비 브률"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q324932> ;
-  schema:url <https://kcritic.kr/resource/p-levy-bruhl> .
+  schema:url <https://kcritic.kr/resource/p-00140> .
 
-kc:p-lowes a foaf:Person ;
+kc:p-00143 a foaf:Person ;
   foaf:name "로즈"@ko ;
   rdfs:label "로즈"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q6694476> ;
-  schema:url <https://kcritic.kr/resource/p-lowes> .
+  schema:url <https://kcritic.kr/resource/p-00143> .
 
-kc:p-lubbock a foaf:Person ;
+kc:p-00145 a foaf:Person ;
   foaf:name "퍼시 라보크（Percy Lubbock）"@ko ;
   rdfs:label "퍼시 라보크（Percy Lubbock）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q7167464> ;
-  schema:url <https://kcritic.kr/resource/p-lubbock> .
+  schema:url <https://kcritic.kr/resource/p-00145> .
 
-kc:p-lukacs a foaf:Person ;
+kc:p-00146 a foaf:Person ;
   foaf:name "루카치"@ko ;
   rdfs:label "루카치"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q51585> ;
-  schema:url <https://kcritic.kr/resource/p-lukacs> .
+  schema:url <https://kcritic.kr/resource/p-00146> .
 
-kc:p-madame-roland a foaf:Person ;
+kc:p-00147 a foaf:Person ;
   foaf:name "롤랑 부인"@ko ;
   rdfs:label "롤랑 부인"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q234935> ;
-  schema:url <https://kcritic.kr/resource/p-madame-roland> .
+  schema:url <https://kcritic.kr/resource/p-00147> .
 
-kc:p-malinowski a foaf:Person ;
+kc:p-00148 a foaf:Person ;
   foaf:name "말리노프스키"@ko ;
   rdfs:label "말리노프스키"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q184992> ;
-  schema:url <https://kcritic.kr/resource/p-malinowski> .
+  schema:url <https://kcritic.kr/resource/p-00148> .
 
-kc:p-mallarme a foaf:Person ;
+kc:p-00149 a foaf:Person ;
   foaf:name "말라르메"@ko ;
   rdfs:label "말라르메"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q767> ;
-  schema:url <https://kcritic.kr/resource/p-mallarme> .
+  schema:url <https://kcritic.kr/resource/p-00149> .
 
-kc:p-mannheim a foaf:Person ;
+kc:p-00150 a foaf:Person ;
   foaf:name "만하임"@ko ;
   rdfs:label "만하임"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q75905> ;
-  schema:url <https://kcritic.kr/resource/p-mannheim> .
+  schema:url <https://kcritic.kr/resource/p-00150> .
 
-kc:p-marcuse a foaf:Person ;
+kc:p-00151 a foaf:Person ;
   foaf:name "헤르베르트 마르쿠제"@ko ;
   rdfs:label "헤르베르트 마르쿠제"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q77203> ;
-  schema:url <https://kcritic.kr/resource/p-marcuse> .
+  schema:url <https://kcritic.kr/resource/p-00151> .
 
-kc:p-marx a foaf:Person ;
+kc:p-00152 a foaf:Person ;
   foaf:name "마르크스"@ko ;
   rdfs:label "마르크스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9061> ;
-  schema:url <https://kcritic.kr/resource/p-marx> .
+  schema:url <https://kcritic.kr/resource/p-00152> .
 
-kc:p-massis a foaf:Person ;
+kc:p-00153 a foaf:Person ;
   foaf:name "마시스"@ko ;
   rdfs:label "마시스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q3286424> ;
-  schema:url <https://kcritic.kr/resource/p-massis> .
+  schema:url <https://kcritic.kr/resource/p-00153> .
 
-kc:p-maugham a foaf:Person ;
+kc:p-00154 a foaf:Person ;
   foaf:name "모옴"@ko ;
   rdfs:label "모옴"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q43643> ;
-  schema:url <https://kcritic.kr/resource/p-maugham> .
+  schema:url <https://kcritic.kr/resource/p-00154> .
 
-kc:p-maupassant a foaf:Person ;
+kc:p-00155 a foaf:Person ;
   foaf:name "모파상"@ko ;
   rdfs:label "모파상"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9327> ;
-  schema:url <https://kcritic.kr/resource/p-maupassant> .
+  schema:url <https://kcritic.kr/resource/p-00155> .
 
-kc:p-max-jacob a foaf:Person ;
+kc:p-00156 a foaf:Person ;
   foaf:name "Max Jacob"@ko ;
   rdfs:label "Max Jacob"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q156214> ;
-  schema:url <https://kcritic.kr/resource/p-max-jacob> .
+  schema:url <https://kcritic.kr/resource/p-00156> .
 
-kc:p-merleau-ponty a foaf:Person ;
+kc:p-00157 a foaf:Person ;
   foaf:name "메를로퐁티"@ko ;
   rdfs:label "메를로퐁티"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q212639> ;
-  schema:url <https://kcritic.kr/resource/p-merleau-ponty> .
+  schema:url <https://kcritic.kr/resource/p-00157> .
 
-kc:p-moulton a foaf:Person ;
+kc:p-00158 a foaf:Person ;
   foaf:name "몰튼"@ko ;
   rdfs:label "몰튼"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q7326053> ;
-  schema:url <https://kcritic.kr/resource/p-moulton> .
+  schema:url <https://kcritic.kr/resource/p-00158> .
 
-kc:p-murry a foaf:Person ;
+kc:p-00159 a foaf:Person ;
   foaf:name "머리"@ko ;
   rdfs:label "머리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q336937> ;
-  schema:url <https://kcritic.kr/resource/p-murry> .
+  schema:url <https://kcritic.kr/resource/p-00159> .
 
-kc:p-nietzsche a foaf:Person ;
+kc:p-00161 a foaf:Person ;
   foaf:name "니체"@ko ;
   rdfs:label "니체"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9358> ;
-  schema:url <https://kcritic.kr/resource/p-nietzsche> .
+  schema:url <https://kcritic.kr/resource/p-00161> .
 
-kc:p-oh-kyuwon a foaf:Person ;
+kc:p-00162 a foaf:Person ;
   foaf:name "오규원（吳圭原）"@ko ;
   rdfs:label "오규원（吳圭原）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12614218> ;
-  schema:url <https://kcritic.kr/resource/p-oh-kyuwon> .
+  schema:url <https://kcritic.kr/resource/p-00162> .
 
-kc:p-oscar-wilde a foaf:Person ;
+kc:p-00163 a foaf:Person ;
   foaf:name "오스카 와일드"@ko ;
   rdfs:label "오스카 와일드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q30875> ;
-  schema:url <https://kcritic.kr/resource/p-oscar-wilde> .
+  schema:url <https://kcritic.kr/resource/p-00163> .
 
-kc:p-pak-jiwon a foaf:Person ;
+kc:p-00166 a foaf:Person ;
   foaf:name "박지원"@ko ;
   rdfs:label "박지원"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q495720> ;
-  schema:url <https://kcritic.kr/resource/p-pak-jiwon> .
+  schema:url <https://kcritic.kr/resource/p-00166> .
 
-kc:p-park-mokwol a foaf:Person ;
+kc:p-00169 a foaf:Person ;
   foaf:name "박목월（朴木月）"@ko ;
   rdfs:label "박목월（朴木月）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494989> ;
-  schema:url <https://kcritic.kr/resource/p-park-mokwol> .
+  schema:url <https://kcritic.kr/resource/p-00169> .
 
-kc:p-pascal a foaf:Person ;
+kc:p-00171 a foaf:Person ;
   foaf:name "파스칼"@ko ;
   rdfs:label "파스칼"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1290> ;
-  schema:url <https://kcritic.kr/resource/p-pascal> .
+  schema:url <https://kcritic.kr/resource/p-00171> .
 
-kc:p-paul-hazard a foaf:Person ;
+kc:p-00172 a foaf:Person ;
   foaf:name "폴 아자르（Paul Hazard）"@ko ;
   rdfs:label "폴 아자르（Paul Hazard）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q3381578> ;
-  schema:url <https://kcritic.kr/resource/p-paul-hazard> .
+  schema:url <https://kcritic.kr/resource/p-00172> .
 
-kc:p-paulhan a foaf:Person ;
+kc:p-00173 a foaf:Person ;
   foaf:name "장 폴랑"@ko ;
   rdfs:label "장 폴랑"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q470606> ;
-  schema:url <https://kcritic.kr/resource/p-paulhan> .
+  schema:url <https://kcritic.kr/resource/p-00173> .
 
-kc:p-plato a foaf:Person ;
+kc:p-00174 a foaf:Person ;
   foaf:name "플라톤"@ko ;
   rdfs:label "플라톤"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q859> ;
-  schema:url <https://kcritic.kr/resource/p-plato> .
+  schema:url <https://kcritic.kr/resource/p-00174> .
 
-kc:p-plekhanov a foaf:Person ;
+kc:p-00175 a foaf:Person ;
   foaf:name "플레하노프"@ko ;
   rdfs:label "플레하노프"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q215228> ;
-  schema:url <https://kcritic.kr/resource/p-plekhanov> .
+  schema:url <https://kcritic.kr/resource/p-00175> .
 
-kc:p-poe a foaf:Person ;
+kc:p-00176 a foaf:Person ;
   foaf:name "에드거 앨런 포"@ko ;
   rdfs:label "에드거 앨런 포"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q16867> ;
-  schema:url <https://kcritic.kr/resource/p-poe> .
+  schema:url <https://kcritic.kr/resource/p-00176> .
 
-kc:p-popper a foaf:Person ;
+kc:p-00178 a foaf:Person ;
   foaf:name "칼 포퍼"@ko ;
   rdfs:label "칼 포퍼"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q105082> ;
-  schema:url <https://kcritic.kr/resource/p-popper> .
+  schema:url <https://kcritic.kr/resource/p-00178> .
 
-kc:p-poulet a foaf:Person ;
+kc:p-00179 a foaf:Person ;
   foaf:name "조르주 풀레（Georges Poulet）"@ko ;
   rdfs:label "조르주 풀레（Georges Poulet）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1367032> ;
-  schema:url <https://kcritic.kr/resource/p-poulet> .
+  schema:url <https://kcritic.kr/resource/p-00179> .
 
-kc:p-pound a foaf:Person ;
+kc:p-00180 a foaf:Person ;
   foaf:name "에즈라 파운드"@ko ;
   rdfs:label "에즈라 파운드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q37079> ;
-  schema:url <https://kcritic.kr/resource/p-pound> .
+  schema:url <https://kcritic.kr/resource/p-00180> .
 
-kc:p-proust a foaf:Person ;
+kc:p-00181 a foaf:Person ;
   foaf:name "프루스트（Proust）"@ko ;
   rdfs:label "프루스트（Proust）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q7199> ;
-  schema:url <https://kcritic.kr/resource/p-proust> .
+  schema:url <https://kcritic.kr/resource/p-00181> .
 
-kc:p-radek a foaf:Person ;
+kc:p-00183 a foaf:Person ;
   foaf:name "라데크"@ko ;
   rdfs:label "라데크"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q84266> ;
-  schema:url <https://kcritic.kr/resource/p-radek> .
+  schema:url <https://kcritic.kr/resource/p-00183> .
 
-kc:p-raymond-williams a foaf:Person ;
+kc:p-00184 a foaf:Person ;
   foaf:name "레이먼드 윌리엄스(Raymond Williams)"@ko ;
   rdfs:label "레이먼드 윌리엄스(Raymond Williams)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q394628> ;
-  schema:url <https://kcritic.kr/resource/p-raymond-williams> .
+  schema:url <https://kcritic.kr/resource/p-00184> .
 
-kc:p-richards a foaf:Person ;
+kc:p-00185 a foaf:Person ;
   foaf:name "I. A. 리처즈"@ko ;
   rdfs:label "I. A. 리처즈"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q718585> ;
-  schema:url <https://kcritic.kr/resource/p-richards> .
+  schema:url <https://kcritic.kr/resource/p-00185> .
 
-kc:p-rilke a foaf:Person ;
+kc:p-00186 a foaf:Person ;
   foaf:name "릴케"@ko ;
   rdfs:label "릴케"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34271> ;
-  schema:url <https://kcritic.kr/resource/p-rilke> .
+  schema:url <https://kcritic.kr/resource/p-00186> .
 
-kc:p-roman-rolland a foaf:Person ;
+kc:p-00187 a foaf:Person ;
   foaf:name "로맹 롤랑"@ko ;
   rdfs:label "로맹 롤랑"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q47162> ;
-  schema:url <https://kcritic.kr/resource/p-roman-rolland> .
+  schema:url <https://kcritic.kr/resource/p-00187> .
 
-kc:p-russell a foaf:Person ;
+kc:p-00188 a foaf:Person ;
   foaf:name "버트런드 러셀"@ko ;
   rdfs:label "버트런드 러셀"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q33760> ;
-  schema:url <https://kcritic.kr/resource/p-russell> .
+  schema:url <https://kcritic.kr/resource/p-00188> .
 
-kc:p-sainte-beuve a foaf:Person ;
+kc:p-00190 a foaf:Person ;
   foaf:name "생트-뵈브"@ko ;
   rdfs:label "생트-뵈브"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q162467> ;
-  schema:url <https://kcritic.kr/resource/p-sainte-beuve> .
+  schema:url <https://kcritic.kr/resource/p-00190> .
 
-kc:p-santayana a foaf:Person ;
+kc:p-00191 a foaf:Person ;
   foaf:name "조지 산타야나"@ko ;
   rdfs:label "조지 산타야나"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q216930> ;
-  schema:url <https://kcritic.kr/resource/p-santayana> .
+  schema:url <https://kcritic.kr/resource/p-00191> .
 
-kc:p-sartre a foaf:Person ;
+kc:p-00192 a foaf:Person ;
   foaf:name "사르트르"@ko ;
   rdfs:label "사르트르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9711> ;
-  schema:url <https://kcritic.kr/resource/p-sartre> .
+  schema:url <https://kcritic.kr/resource/p-00192> .
 
-kc:p-schleiermacher a foaf:Person ;
+kc:p-00193 a foaf:Person ;
   foaf:name "슐라이어마허"@ko ;
   rdfs:label "슐라이어마허"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q57286> ;
-  schema:url <https://kcritic.kr/resource/p-schleiermacher> .
+  schema:url <https://kcritic.kr/resource/p-00193> .
 
-kc:p-schopenhauer a foaf:Person ;
+kc:p-00194 a foaf:Person ;
   foaf:name "쇼펜하우어"@ko ;
   rdfs:label "쇼펜하우어"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q38193> ;
-  schema:url <https://kcritic.kr/resource/p-schopenhauer> .
+  schema:url <https://kcritic.kr/resource/p-00194> .
 
-kc:p-seo-jeongju a foaf:Person ;
+kc:p-00195 a foaf:Person ;
   foaf:name "서정주"@ko ;
   rdfs:label "서정주"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q494977> ;
-  owl:sameAs <http://kcritic.kr/ontology/서정주> ;
-  schema:url <https://kcritic.kr/resource/p-seo-jeongju> .
+  owl:sameAs <https://www.wikidata.org/wiki/Q494715> ;
+  schema:url <https://kcritic.kr/resource/p-00195> .
 
-kc:p-shelley a foaf:Person ;
+kc:p-00197 a foaf:Person ;
   foaf:name "퍼시 비시 셸리"@ko ;
   rdfs:label "퍼시 비시 셸리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q93343> ;
-  schema:url <https://kcritic.kr/resource/p-shelley> .
+  schema:url <https://kcritic.kr/resource/p-00197> .
 
-kc:p-shestov a foaf:Person ;
+kc:p-00198 a foaf:Person ;
   foaf:name "셰스토프"@ko ;
   rdfs:label "셰스토프"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q314189> ;
-  schema:url <https://kcritic.kr/resource/p-shestov> .
+  schema:url <https://kcritic.kr/resource/p-00198> .
 
-kc:p-sim-hun a foaf:Person ;
+kc:p-00200 a foaf:Person ;
   foaf:name "심훈"@ko ;
   rdfs:label "심훈"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q497011> ;
-  schema:url <https://kcritic.kr/resource/p-sim-hun> .
+  schema:url <https://kcritic.kr/resource/p-00200> .
 
-kc:p-sombart a foaf:Person ;
+kc:p-00201 a foaf:Person ;
   foaf:name "베르너 좀바르트"@ko ;
   rdfs:label "베르너 좀바르트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q58031> ;
-  schema:url <https://kcritic.kr/resource/p-sombart> .
+  schema:url <https://kcritic.kr/resource/p-00201> .
 
-kc:p-son-changsub a foaf:Person ;
+kc:p-00202 a foaf:Person ;
   foaf:name "손창섭"@ko ;
   rdfs:label "손창섭"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499875> ;
-  schema:url <https://kcritic.kr/resource/p-son-changsub> .
+  schema:url <https://kcritic.kr/resource/p-00202> .
 
-kc:p-spender a foaf:Person ;
+kc:p-00205 a foaf:Person ;
   foaf:name "스티븐 스펜더"@ko ;
   rdfs:label "스티븐 스펜더"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q234896> ;
-  schema:url <https://kcritic.kr/resource/p-spender> .
+  schema:url <https://kcritic.kr/resource/p-00205> .
 
-kc:p-starobinski a foaf:Person ;
+kc:p-00206 a foaf:Person ;
   foaf:name "스타로뱅스키(Starobinski)"@ko ;
   rdfs:label "스타로뱅스키(Starobinski)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q948889> ;
-  schema:url <https://kcritic.kr/resource/p-starobinski> .
+  schema:url <https://kcritic.kr/resource/p-00206> .
 
-kc:p-stendhal-son a foaf:Person ;
+kc:p-00207 a foaf:Person ;
   foaf:name "스탕달"@ko ;
   rdfs:label "스탕달"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q502> ;
-  schema:url <https://kcritic.kr/resource/p-stendhal-son> .
+  schema:url <https://kcritic.kr/resource/p-00207> .
 
-kc:p-stevenson a foaf:Person ;
+kc:p-00209 a foaf:Person ;
   foaf:name "스티븐슨"@ko ;
   rdfs:label "스티븐슨"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q35548> ;
-  schema:url <https://kcritic.kr/resource/p-stevenson> .
+  schema:url <https://kcritic.kr/resource/p-00209> .
 
-kc:p-swift a foaf:Person ;
+kc:p-00210 a foaf:Person ;
   foaf:name "스위프트"@ko ;
   rdfs:label "스위프트"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q82084> ;
-  schema:url <https://kcritic.kr/resource/p-swift> .
+  schema:url <https://kcritic.kr/resource/p-00210> .
 
-kc:p-taine a foaf:Person ;
+kc:p-00211 a foaf:Person ;
   foaf:name "테느"@ko ;
   rdfs:label "테느"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q214085> ;
-  schema:url <https://kcritic.kr/resource/p-taine> .
+  schema:url <https://kcritic.kr/resource/p-00211> .
 
-kc:p-thibaudet a foaf:Person ;
+kc:p-00215 a foaf:Person ;
   foaf:name "알베르 티보데"@ko ;
   rdfs:label "알베르 티보데"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q2539082> ;
-  schema:url <https://kcritic.kr/resource/p-thibaudet> .
+  schema:url <https://kcritic.kr/resource/p-00215> .
 
-kc:p-thomas-mann a foaf:Person ;
+kc:p-00216 a foaf:Person ;
   foaf:name "토마스 만"@ko ;
   rdfs:label "토마스 만"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q37030> ;
-  schema:url <https://kcritic.kr/resource/p-thomas-mann> .
+  schema:url <https://kcritic.kr/resource/p-00216> .
 
-kc:p-thomas-more a foaf:Person ;
+kc:p-00217 a foaf:Person ;
   foaf:name "토머스 모어"@ko ;
   rdfs:label "토머스 모어"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q41271> ;
-  schema:url <https://kcritic.kr/resource/p-thomas-more> .
+  schema:url <https://kcritic.kr/resource/p-00217> .
 
-kc:p-tolstoy a foaf:Person ;
+kc:p-00218 a foaf:Person ;
   foaf:name "톨스토이"@ko ;
   rdfs:label "톨스토이"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q7243> ;
-  schema:url <https://kcritic.kr/resource/p-tolstoy> .
+  schema:url <https://kcritic.kr/resource/p-00218> .
 
-kc:p-trilling a foaf:Person ;
+kc:p-00219 a foaf:Person ;
   foaf:name "라이오넬 트릴링"@ko ;
   rdfs:label "라이오넬 트릴링"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q936288> ;
-  schema:url <https://kcritic.kr/resource/p-trilling> .
+  schema:url <https://kcritic.kr/resource/p-00219> .
 
-kc:p-tyndall-william a foaf:Person ;
+kc:p-00220 a foaf:Person ;
   foaf:name "틴들"@ko ;
   rdfs:label "틴들"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q6167772> ;
-  schema:url <https://kcritic.kr/resource/p-tyndall-william> .
+  schema:url <https://kcritic.kr/resource/p-00220> .
 
-kc:p-valery a foaf:Person ;
+kc:p-00221 a foaf:Person ;
   foaf:name "발레리"@ko ;
   rdfs:label "발레리"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q42387> ;
-  schema:url <https://kcritic.kr/resource/p-valery> .
+  schema:url <https://kcritic.kr/resource/p-00221> .
 
-kc:p-vico a foaf:Person ;
+kc:p-00224 a foaf:Person ;
   foaf:name "비코(Vico)"@ko ;
   rdfs:label "비코(Vico)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q10292> ;
-  schema:url <https://kcritic.kr/resource/p-vico> .
+  schema:url <https://kcritic.kr/resource/p-00224> .
 
-kc:p-virgil a foaf:Person ;
+kc:p-00225 a foaf:Person ;
   foaf:name "베르길리우스"@ko ;
   rdfs:label "베르길리우스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1398> ;
-  schema:url <https://kcritic.kr/resource/p-virgil> .
+  schema:url <https://kcritic.kr/resource/p-00225> .
 
-kc:p-voltaire a foaf:Person ;
+kc:p-00226 a foaf:Person ;
   foaf:name "볼테르"@ko ;
   rdfs:label "볼테르"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9068> ;
-  schema:url <https://kcritic.kr/resource/p-voltaire> .
+  schema:url <https://kcritic.kr/resource/p-00226> .
 
-kc:p-walter-benjamin a foaf:Person ;
+kc:p-00227 a foaf:Person ;
   foaf:name "발터 벤야민（Walter Benjamin）"@ko ;
   rdfs:label "발터 벤야민（Walter Benjamin）"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q61078> ;
-  schema:url <https://kcritic.kr/resource/p-walter-benjamin> .
+  schema:url <https://kcritic.kr/resource/p-00227> .
 
-kc:p-walter-pater a foaf:Person ;
+kc:p-00228 a foaf:Person ;
   foaf:name "월터 페이터"@ko ;
   rdfs:label "월터 페이터"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q186211> ;
-  schema:url <https://kcritic.kr/resource/p-walter-pater> .
+  schema:url <https://kcritic.kr/resource/p-00228> .
 
-kc:p-warren a foaf:Person ;
+kc:p-00229 a foaf:Person ;
   foaf:name "로버트 펜 워렌"@ko ;
   rdfs:label "로버트 펜 워렌"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q314001> ;
-  schema:url <https://kcritic.kr/resource/p-warren> .
+  schema:url <https://kcritic.kr/resource/p-00229> .
 
-kc:p-weber a foaf:Person ;
+kc:p-00230 a foaf:Person ;
   foaf:name "막스 베버"@ko ;
   rdfs:label "막스 베버"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q9387> ;
-  schema:url <https://kcritic.kr/resource/p-weber> .
+  schema:url <https://kcritic.kr/resource/p-00230> .
 
-kc:p-wellek a foaf:Person ;
+kc:p-00232 a foaf:Person ;
   foaf:name "웰렉"@ko ;
   rdfs:label "웰렉"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q314959> ;
-  schema:url <https://kcritic.kr/resource/p-wellek> .
+  schema:url <https://kcritic.kr/resource/p-00232> .
 
-kc:p-whitman a foaf:Person ;
+kc:p-00233 a foaf:Person ;
   foaf:name "월트 휘트먼"@ko ;
   rdfs:label "월트 휘트먼"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q81438> ;
-  schema:url <https://kcritic.kr/resource/p-whitman> .
+  schema:url <https://kcritic.kr/resource/p-00233> .
 
-kc:p-whorf a foaf:Person ;
+kc:p-00234 a foaf:Person ;
   foaf:name "벤자민 워프(Benjamin Whorf)"@ko ;
   rdfs:label "벤자민 워프(Benjamin Whorf)"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q331853> ;
-  schema:url <https://kcritic.kr/resource/p-whorf> .
+  schema:url <https://kcritic.kr/resource/p-00234> .
 
-kc:p-william-james a foaf:Person ;
+kc:p-00235 a foaf:Person ;
   foaf:name "윌리엄 제임스"@ko ;
   rdfs:label "윌리엄 제임스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q132908> ;
-  schema:url <https://kcritic.kr/resource/p-william-james> .
+  schema:url <https://kcritic.kr/resource/p-00235> .
 
-kc:p-xunzi a foaf:Person ;
+kc:p-00236 a foaf:Person ;
   foaf:name "순자"@ko ;
   rdfs:label "순자"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q216072> ;
-  schema:url <https://kcritic.kr/resource/p-xunzi> .
+  schema:url <https://kcritic.kr/resource/p-00236> .
 
-kc:p-yeats a foaf:Person ;
+kc:p-00237 a foaf:Person ;
   foaf:name "W.B. 예이츠"@ko ;
   rdfs:label "W.B. 예이츠"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q34474> ;
-  schema:url <https://kcritic.kr/resource/p-yeats> .
+  schema:url <https://kcritic.kr/resource/p-00237> .
 
-kc:p-yeom-sangsub a foaf:Person ;
+kc:p-00239 a foaf:Person ;
   foaf:name "염상섭"@ko ;
   rdfs:label "염상섭"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q8054832> ;
-  schema:url <https://kcritic.kr/resource/p-yeom-sangsub> .
+  schema:url <https://kcritic.kr/resource/p-00239> .
 
-kc:p-yi-chungjun a foaf:Person ;
+kc:p-00240 a foaf:Person ;
   foaf:name "이청준"@ko ;
   rdfs:label "이청준"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q1751918> ;
-  schema:url <https://kcritic.kr/resource/p-yi-chungjun> .
+  schema:url <https://kcritic.kr/resource/p-00240> .
 
-kc:p-yi-gwangsu a foaf:Person ;
+kc:p-00241 a foaf:Person ;
   foaf:name "이광수"@ko ;
   rdfs:label "이광수"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499661> ;
-  schema:url <https://kcritic.kr/resource/p-yi-gwangsu> .
+  schema:url <https://kcritic.kr/resource/p-00241> .
 
-kc:p-yi-hocheol a foaf:Person ;
+kc:p-00242 a foaf:Person ;
   foaf:name "이호철"@ko ;
   rdfs:label "이호철"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494836> ;
-  schema:url <https://kcritic.kr/resource/p-yi-hocheol> .
+  schema:url <https://kcritic.kr/resource/p-00242> .
 
-kc:p-yi-hyoseok a foaf:Person ;
+kc:p-00243 a foaf:Person ;
   foaf:name "이효석"@ko ;
   rdfs:label "이효석"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q499600> ;
-  schema:url <https://kcritic.kr/resource/p-yi-hyoseok> .
+  schema:url <https://kcritic.kr/resource/p-00243> .
 
-kc:p-yi-sang a foaf:Person ;
+kc:p-00244 a foaf:Person ;
   foaf:name "이상"@ko ;
   rdfs:label "이상"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q500649> ;
-  schema:url <https://kcritic.kr/resource/p-yi-sang> .
+  schema:url <https://kcritic.kr/resource/p-00244> .
 
-kc:p-yoo-jongho a foaf:Person ;
+kc:p-00246 a critic:Critic ;
   foaf:name "유종호"@ko ;
   rdfs:label "유종호"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q13564819> ;
-  owl:sameAs <http://kcritic.kr/ontology/유종호> ;
-  schema:url <https://kcritic.kr/resource/p-yoo-jongho> .
+  schema:url <https://kcritic.kr/resource/p-00246> .
 
-kc:p-yu-jongho a critic:Critic ;
-  foaf:name "유종호"@ko ;
-  rdfs:label "유종호"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12610003> ;
-  owl:sameAs <http://kcritic.kr/ontology/유종호> ;
-  schema:url <https://kcritic.kr/resource/p-yu-jongho> .
-
-kc:p-yun-dongju a foaf:Person ;
+kc:p-00247 a foaf:Person ;
   foaf:name "윤동주"@ko ;
   rdfs:label "윤동주"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q488774> ;
-  owl:sameAs <http://kcritic.kr/ontology/윤동주> ;
-  schema:url <https://kcritic.kr/resource/p-yun-dongju> .
+  schema:url <https://kcritic.kr/resource/p-00247> .
 
-kc:p-zhdanov a foaf:Person ;
+kc:p-00248 a foaf:Person ;
   foaf:name "즈다노프"@ko ;
   rdfs:label "즈다노프"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q203980> ;
-  schema:url <https://kcritic.kr/resource/p-zhdanov> .
+  schema:url <https://kcritic.kr/resource/p-00248> .
 
-kc:p-zijderveld a foaf:Person ;
+kc:p-00249 a foaf:Person ;
   foaf:name "안톤 C. 지데어발드"@ko ;
   rdfs:label "안톤 C. 지데어발드"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q383190> ;
-  schema:url <https://kcritic.kr/resource/p-zijderveld> .
+  schema:url <https://kcritic.kr/resource/p-00249> .
 
-kc:p-zola a foaf:Person ;
+kc:p-00250 a foaf:Person ;
   foaf:name "에밀 졸라"@ko ;
   rdfs:label "에밀 졸라"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q504> ;
-  schema:url <https://kcritic.kr/resource/p-zola> .
+  schema:url <https://kcritic.kr/resource/p-00250> .
 
 # ── 비평글 노드 ─────────────────────────────────────────
 kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
@@ -1219,10 +1187,10 @@ kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
   dcterms:date "1984"^^xsd:gYear ;
   schema:isPartOf "아름다움의 거죽과 깊이 — 심미 감각과 사회" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_beauty-surface-depth_1984.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-coleridge ;
-  cito:discusses kc:p-poe ;
-  cito:citesAsAuthority kc:p-sombart ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00036 ;
+  cito:discusses kc:p-00176 ;
+  cito:citesAsAuthority kc:p-00201 ;
   dcterms:subject "심미적 감각"@ko ;
   dcterms:subject "행복의 약속(promesse de bonheur)"@ko ;
   dcterms:subject "심미주의"@ko ;
@@ -1236,9 +1204,9 @@ kce:kim-uchang_cho-taeill_1985 a critic:CriticalEssay ;
   dcterms:date "1985"^^xsd:gYear ;
   schema:isPartOf "참여시와 현실적 낭만주의 — 조태일의 시" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_cho-taeill_1985.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-cho-taeill ;
-  cito:citesAsAuthority kc:p-sartre ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00032 ;
+  cito:citesAsAuthority kc:p-00192 ;
   dcterms:subject "참여시의 낭만주의"@ko ;
   dcterms:subject "낭만적 혁명"@ko ;
   dcterms:subject "시와 산문의 대립"@ko ;
@@ -1267,8 +1235,8 @@ kce:kim-uchang_choe-seungho-observation_1983 a critic:CriticalEssay ;
   dcterms:date "1983"^^xsd:gYear ;
   schema:isPartOf "관찰과 시 — 최승호의 시에 부쳐" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_choe-seungho-observation_1983.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-choe-seungho ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00035 ;
   dcterms:subject "사회의식의 문학"@ko ;
   dcterms:subject "사회의식과 문학적 완성"@ko ;
   dcterms:subject "실감과 형상화"@ko ;
@@ -1295,16 +1263,16 @@ kce:kim-uchang_concrete-universality_1981 a critic:CriticalEssay ;
   dcterms:date "1981"^^xsd:gYear ;
   schema:isPartOf "구체적 보편성에로 — 역사와 문학의 관계에 대한 한 고찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_concrete-universality_1981.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-chernyshevsky ;
-  cito:citesAsAuthority kc:p-dilthey ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
-  cito:citesAsAuthority kc:p-freud ;
-  cito:citesAsAuthority kc:p-merleau-ponty ;
-  cito:citesAsAuthority kc:p-raymond-williams ;
-  cito:citesAsAuthority kc:p-sartre ;
-  cito:citesAsAuthority kc:p-starobinski ;
-  cito:citesAsAuthority kc:p-vico ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00030 ;
+  cito:citesAsAuthority kc:p-00041 ;
+  cito:citesAsAuthority kc:p-00042 ;
+  cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00157 ;
+  cito:citesAsAuthority kc:p-00184 ;
+  cito:citesAsAuthority kc:p-00192 ;
+  cito:citesAsAuthority kc:p-00206 ;
+  cito:citesAsAuthority kc:p-00224 ;
   dcterms:subject "역사의식의 두 계기 — 객체적 한계와 주체적 창조"@ko ;
   dcterms:subject "역사적 사실의 주술적 힘 — 불가역의 시간 뒤에 있는 것"@ko ;
   dcterms:subject "식민지 역사와 객관적 제약으로서의 역사 체험"@ko ;
@@ -1343,15 +1311,15 @@ kce:kim-uchang_conscience-poetry_1979 a critic:CriticalEssay ;
   dcterms:date "1979"^^xsd:gYear ;
   schema:isPartOf "괴로운 양심의 시대의 시" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_conscience-poetry_1979.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-hwang-dongkyu ;
-  cito:discusses kc:p-jung-heesung ;
-  cito:discusses kc:p-jung-hyunjong ;
-  cito:discusses kc:p-kim-changwan ;
-  cito:discusses kc:p-kim-suyoung ;
-  cito:discusses kc:p-ko-un ;
-  cito:discusses kc:p-oh-kyuwon ;
-  cito:citesAsAuthority kc:p-valery .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00076 ;
+  cito:discusses kc:p-00090 ;
+  cito:discusses kc:p-00091 ;
+  cito:discusses kc:p-00097 ;
+  cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-00122 ;
+  cito:discusses kc:p-00162 ;
+  cito:citesAsAuthority kc:p-00221 .
 
 kce:kim-uchang_cultural-subjectivity_1982 a critic:CriticalEssay ;
   dcterms:title "문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰"@ko ;
@@ -1359,13 +1327,13 @@ kce:kim-uchang_cultural-subjectivity_1982 a critic:CriticalEssay ;
   dcterms:date "1982"^^xsd:gYear ;
   schema:isPartOf "문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_cultural-subjectivity_1982.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-kim-jiha ;
-  cito:citesAsAuthority kc:p-durkheim ;
-  cito:citesAsAuthority kc:p-heidegger ;
-  cito:citesAsAuthority kc:p-kant ;
-  cito:citesAsAuthority kc:p-pak-jiwon ;
-  cito:citesAsAuthority kc:p-weber ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00106 ;
+  cito:citesAsAuthority kc:p-00044 ;
+  cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00093 ;
+  cito:citesAsAuthority kc:p-00166 ;
+  cito:citesAsAuthority kc:p-00230 ;
   dcterms:subject "문물과 문화의 구별"@ko ;
   dcterms:subject "칸트의 미학과 문화의 통일성"@ko ;
   dcterms:subject "삶에 의미를 부여하려는 근본 욕구"@ko ;
@@ -1393,8 +1361,8 @@ kce:kim-uchang_culture-meaning_1982 a critic:CriticalEssay ;
   dcterms:date "1982"^^xsd:gYear ;
   schema:isPartOf "우리 문화의 의미" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_culture-meaning_1982.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-weber ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00230 ;
   dcterms:subject "문화적 구조물과 문화의 구별"@ko ;
   dcterms:subject "문화의 본질은 향수의 가능성"@ko ;
   dcterms:subject "기쁨의 능력"@ko ;
@@ -1417,13 +1385,13 @@ kce:kim-uchang_hwang-dongkyu_1982 a critic:CriticalEssay ;
   dcterms:date "1982"^^xsd:gYear ;
   schema:isPartOf "내적 의식과 의식이 지칭하는 것 — 황동규의 시" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_hwang-dongkyu_1982.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-hwang-dongkyu ;
-  cito:discusses kc:p-kim-suyoung ;
-  cito:citesAsAuthority kc:p-arnold ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-kim-byungik ;
-  cito:citesAsAuthority kc:p-leibniz ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00076 ;
+  cito:discusses kc:p-00116 ;
+  cito:citesAsAuthority kc:p-00007 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00095 ;
+  cito:citesAsAuthority kc:p-00137 ;
   dcterms:subject "아널드의 시론: 영웅적 행동·수난의 소재론"@ko ;
   dcterms:subject "아널드의 고대 시 이념과 근대 시의 타락 진단"@ko ;
   dcterms:subject "한국 현대시와 수동적 고뇌의 지속 문제"@ko ;
@@ -1464,7 +1432,7 @@ kce:kim-uchang_hwang-seokyoung-minjung_1982 a critic:CriticalEssay ;
   dcterms:date "1982"^^xsd:gYear ;
   schema:isPartOf "밑바닥의 삶과 장사의 꿈 — 황석영의 민중적 삶에 대한 탐구" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_hwang-seokyoung-minjung_1982.html> ;
-  dcterms:creator kc:p-kim-uchang ;
+  dcterms:creator kc:p-00117 ;
   dcterms:subject "실존적 행동주의"@ko ;
   dcterms:subject "래디컬 엠피리시즘"@ko ;
   dcterms:subject "금욕적인 정결성"@ko ;
@@ -1476,9 +1444,9 @@ kce:kim-uchang_jeong-dongju_1984 a critic:CriticalEssay ;
   dcterms:date "1984"^^xsd:gYear ;
   schema:isPartOf "'위조천국'의 언어와 진실 — 정동주의 「순례자」" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_jeong-dongju_1984.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-jeong-dongju ;
-  cito:citesAsAuthority kc:p-eliot ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00085 ;
+  cito:citesAsAuthority kc:p-00045 ;
   dcterms:subject "명징성"@ko ;
   dcterms:subject "총체적 직관"@ko ;
   dcterms:subject "감동적 언어"@ko ;
@@ -1501,9 +1469,9 @@ kce:kim-uchang_joy-use-literature_1984 a critic:CriticalEssay ;
   dcterms:date "1984"^^xsd:gYear ;
   schema:isPartOf "문학의 즐거움과 쓰임" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_joy-use-literature_1984.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-bettelheim ;
-  cito:citesAsAuthority kc:p-iser ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00023 ;
+  cito:citesAsAuthority kc:p-00082 ;
   dcterms:subject "반복 강박 관념(repetition compulsion)"@ko ;
   dcterms:subject "서스펜스"@ko .
 
@@ -1513,10 +1481,10 @@ kce:kim-uchang_kim-chaesu_1989 a critic:CriticalEssay ;
   dcterms:date "1989"^^xsd:gYear ;
   schema:isPartOf "내면성의 시 — 김채수 씨의 시에 부쳐" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_kim-chaesu_1989.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-dufrenne ;
-  cito:citesAsAuthority kc:p-plato ;
-  cito:citesAsAuthority kc:p-rilke ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00043 ;
+  cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00186 ;
   dcterms:subject "내면적 존재로서의 인간 존중"@ko ;
   dcterms:subject "물질문화 비판"@ko ;
   dcterms:subject "세계의 내면화"@ko ;
@@ -1536,8 +1504,8 @@ kce:kim-uchang_kim-kwanggyu_1983 a critic:CriticalEssay ;
   dcterms:date "1983"^^xsd:gYear ;
   schema:isPartOf "언어적 명징화의 추구 — 김광규의 시" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_kim-kwanggyu_1983.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-kim-kwanggyu ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00102 ;
   dcterms:subject "구획선"@ko ;
   dcterms:subject "감정주의"@ko ;
   dcterms:subject "산문적 문체"@ko ;
@@ -1562,8 +1530,8 @@ kce:kim-uchang_korean-poetry-today_1985 a critic:CriticalEssay ;
   dcterms:date "1985"^^xsd:gYear ;
   schema:isPartOf "오늘의 한국 시 — 서정에서 현실로" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_korean-poetry-today_1985.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-sartre ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00192 ;
   dcterms:subject "참여시"@ko ;
   dcterms:subject "복합적 감수성"@ko .
 
@@ -1573,7 +1541,7 @@ kce:kim-uchang_language-society-style_1983 a critic:CriticalEssay ;
   dcterms:date "1983"^^xsd:gYear ;
   schema:isPartOf "언어, 사회, 문체 — 토착어를 중심으로 한 성찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_language-society-style_1983.html> ;
-  dcterms:creator kc:p-kim-uchang ;
+  dcterms:creator kc:p-00117 ;
   dcterms:subject "한자어"@ko ;
   dcterms:subject "상위 언어 체계"@ko ;
   dcterms:subject "자기 회귀적(再歸的)"@ko ;
@@ -1585,12 +1553,12 @@ kce:kim-uchang_language-things_1981 a critic:CriticalEssay ;
   dcterms:date "1981"^^xsd:gYear ;
   schema:isPartOf "시의 언어와 사물의 의미" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_language-things_1981.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-bergson ;
-  cito:citesAsAuthority kc:p-freud ;
-  cito:citesAsAuthority kc:p-hegel ;
-  cito:citesAsAuthority kc:p-lacan ;
-  cito:citesAsAuthority kc:p-whorf .
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00022 ;
+  cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00065 ;
+  cito:citesAsAuthority kc:p-00125 ;
+  cito:citesAsAuthority kc:p-00234 .
 
 kce:kim-uchang_lee-mungoo-rural_1981 a critic:CriticalEssay ;
   dcterms:title "근대화 속의 농촌 — 이문구의 농촌 소설"@ko ;
@@ -1598,7 +1566,7 @@ kce:kim-uchang_lee-mungoo-rural_1981 a critic:CriticalEssay ;
   dcterms:date "1981"^^xsd:gYear ;
   schema:isPartOf "근대화 속의 농촌 — 이문구의 농촌 소설" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_lee-mungoo-rural_1981.html> ;
-  dcterms:creator kc:p-kim-uchang ;
+  dcterms:creator kc:p-00117 ;
   dcterms:subject "근대화"@ko ;
   dcterms:subject "하향식"@ko ;
   dcterms:subject "소비의 일방적인 항진"@ko ;
@@ -1611,9 +1579,9 @@ kce:kim-uchang_literary-development_1980 a critic:CriticalEssay ;
   dcterms:date "1980"^^xsd:gYear ;
   schema:isPartOf "문학의 발전 — 문학적 지각의 본질에 대한 한 고찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_literary-development_1980.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-heidegger ;
-  cito:citesAsAuthority kc:p-kant ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00093 ;
   dcterms:subject "심미적 감각"@ko ;
   dcterms:subject "심미적 인식"@ko ;
   dcterms:subject "관조(觀照)"@ko ;
@@ -1627,13 +1595,13 @@ kce:kim-uchang_literature-utopia_1985 a critic:CriticalEssay ;
   dcterms:date "1985"^^xsd:gYear ;
   schema:isPartOf "문학과 유토피아 — 문학적 상상력의 정치적 의의에 대한 한 고찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_literature-utopia_1985.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-bacon ;
-  cito:citesAsAuthority kc:p-campanella ;
-  cito:citesAsAuthority kc:p-marcuse ;
-  cito:citesAsAuthority kc:p-popper ;
-  cito:citesAsAuthority kc:p-thomas-more ;
-  cito:citesAsAuthority kc:p-trilling ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00012 ;
+  cito:citesAsAuthority kc:p-00027 ;
+  cito:citesAsAuthority kc:p-00151 ;
+  cito:citesAsAuthority kc:p-00178 ;
+  cito:citesAsAuthority kc:p-00217 ;
+  cito:citesAsAuthority kc:p-00219 ;
   dcterms:subject "소원 성취(wish-fulfillment)"@ko ;
   dcterms:subject "유토피아"@ko ;
   dcterms:subject "유토피아적 사고"@ko ;
@@ -1646,16 +1614,16 @@ kce:kim-uchang_north-korean-criticism_1981 a critic:CriticalEssay ;
   dcterms:date "1981"^^xsd:gYear ;
   schema:isPartOf "이념과 표현 2 — 북한의 문학비평: 문학적 진실과 사회주의적 진실" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_north-korean-criticism_1981.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-dufrenne ;
-  cito:citesAsAuthority kc:p-engels ;
-  cito:citesAsAuthority kc:p-gorky ;
-  cito:citesAsAuthority kc:p-hegel ;
-  cito:citesAsAuthority kc:p-lenin ;
-  cito:citesAsAuthority kc:p-marx ;
-  cito:citesAsAuthority kc:p-merleau-ponty ;
-  cito:citesAsAuthority kc:p-radek ;
-  cito:citesAsAuthority kc:p-zhdanov ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00043 ;
+  cito:citesAsAuthority kc:p-00047 ;
+  cito:citesAsAuthority kc:p-00060 ;
+  cito:citesAsAuthority kc:p-00065 ;
+  cito:citesAsAuthority kc:p-00138 ;
+  cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00157 ;
+  cito:citesAsAuthority kc:p-00183 ;
+  cito:citesAsAuthority kc:p-00248 ;
   dcterms:subject "북한 문학비평 연구의 자료적 한계"@ko ;
   dcterms:subject "조선문학 1950~60년대 평론의 대표성"@ko ;
   dcterms:subject "북한 문학이론과 즈다노비즘의 관계"@ko ;
@@ -1709,18 +1677,18 @@ kce:kim-uchang_north-korean-poetry_1980 a critic:CriticalEssay ;
   dcterms:date "1980"^^xsd:gYear ;
   schema:isPartOf "이념과 표현 1 — 북한의 정치와 문학: 6·25 전쟁 이후의 북한 시의 흐름" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_north-korean-poetry_1980.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-kim-sikwon ;
-  cito:citesAsAuthority kc:p-engels ;
-  cito:citesAsAuthority kc:p-hegel ;
-  cito:citesAsAuthority kc:p-homer ;
-  cito:citesAsAuthority kc:p-lenin ;
-  cito:citesAsAuthority kc:p-lukacs ;
-  cito:citesAsAuthority kc:p-marx ;
-  cito:citesAsAuthority kc:p-plato ;
-  cito:citesAsAuthority kc:p-plekhanov ;
-  cito:citesAsAuthority kc:p-virgil ;
-  cito:citesAsAuthority kc:p-whitman ;
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00113 ;
+  cito:citesAsAuthority kc:p-00047 ;
+  cito:citesAsAuthority kc:p-00065 ;
+  cito:citesAsAuthority kc:p-00072 ;
+  cito:citesAsAuthority kc:p-00138 ;
+  cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00175 ;
+  cito:citesAsAuthority kc:p-00225 ;
+  cito:citesAsAuthority kc:p-00233 ;
   dcterms:subject "의식 활동의 물질에 의한 규제 — 사회적 존재가 의식을 결정한다"@ko ;
   dcterms:subject "마르크시즘 문학이론의 애매성 — 사실 충실과 이념 표현의 긴장"@ko ;
   dcterms:subject "레닌의 당성·이념성·인민성 — 사회주의 문학의 세 원칙"@ko ;
@@ -1753,9 +1721,9 @@ kce:kim-uchang_poetics-society_1982 a critic:CriticalEssay ;
   dcterms:date "1982"^^xsd:gYear ;
   schema:isPartOf "시의 내면과 외면 — 시와 사회에 대한 한 생각" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_poetics-society_1982.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-rilke ;
-  cito:citesAsAuthority kc:p-arnheim .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00186 ;
+  cito:citesAsAuthority kc:p-00006 .
 
 kce:kim-uchang_poets-jewel_1984 a critic:CriticalEssay ;
   dcterms:title "시인의 보석"@ko ;
@@ -1763,11 +1731,11 @@ kce:kim-uchang_poets-jewel_1984 a critic:CriticalEssay ;
   dcterms:date "1984"^^xsd:gYear ;
   schema:isPartOf "시인의 보석" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_poets-jewel_1984.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-cho-jihun ;
-  cito:discusses kc:p-kim-hyunseung ;
-  cito:discusses kc:p-park-mokwol ;
-  cito:citesAsAuthority kc:p-xunzi .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00031 ;
+  cito:discusses kc:p-00104 ;
+  cito:discusses kc:p-00169 ;
+  cito:citesAsAuthority kc:p-00236 .
 
 kce:kim-uchang_politics-poetry_1979 a critic:CriticalEssay ;
   dcterms:title "시와 정치 — 한국 현대 시의 한 측면에 대한 고찰"@ko ;
@@ -1775,9 +1743,9 @@ kce:kim-uchang_politics-poetry_1979 a critic:CriticalEssay ;
   dcterms:date "1979"^^xsd:gYear ;
   schema:isPartOf "시와 정치 — 한국 현대 시의 한 측면에 대한 고찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_politics-poetry_1979.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-kim-jonggil ;
-  cito:citesAsAuthority kc:p-levi-strauss .
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00107 ;
+  cito:citesAsAuthority kc:p-00139 .
 
 kce:kim-uchang_preface_1992 a critic:CriticalEssay ;
   dcterms:title "어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여"@ko ;
@@ -1785,13 +1753,13 @@ kce:kim-uchang_preface_1992 a critic:CriticalEssay ;
   dcterms:date "1992"^^xsd:gYear ;
   schema:isPartOf "어둠으로부터 시작하여 — 시의 근원: 서문에 대신하여" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_preface_1992.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-byeon-youngro ;
-  cito:discusses kc:p-lawrence-dh ;
-  cito:citesAsAuthority kc:p-arnheim ;
-  cito:citesAsAuthority kc:p-kristeva ;
-  cito:citesAsAuthority kc:p-plato ;
-  cito:citesAsAuthority kc:p-zijderveld .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00026 ;
+  cito:discusses kc:p-00131 ;
+  cito:citesAsAuthority kc:p-00006 ;
+  cito:citesAsAuthority kc:p-00124 ;
+  cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00249 .
 
 kce:kim-uchang_quotation-cultural-memory_1985 a critic:CriticalEssay ;
   dcterms:title "인용에 대하여 — 문화전통의 이어짐에 대한 명상"@ko ;
@@ -1799,9 +1767,9 @@ kce:kim-uchang_quotation-cultural-memory_1985 a critic:CriticalEssay ;
   dcterms:date "1985"^^xsd:gYear ;
   schema:isPartOf "인용에 대하여 — 문화전통의 이어짐에 대한 명상" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_quotation-cultural-memory_1985.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-austin ;
-  cito:citesAsAuthority kc:p-balazs ;
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00010 ;
+  cito:citesAsAuthority kc:p-00016 ;
   dcterms:subject "언어의 역사적 자의식"@ko ;
   dcterms:subject "인용"@ko ;
   dcterms:subject "사실 문장(constative)"@ko ;
@@ -1816,12 +1784,12 @@ kce:kim-uchang_realism-yeom-sangsub_1984 a critic:CriticalEssay ;
   dcterms:date "1984"^^xsd:gYear ;
   schema:isPartOf "리얼리즘에의 길 — 염상섭의 초기 단편" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_realism-yeom-sangsub_1984.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:citesAsAuthority kc:p-baek-chul ;
-  cito:citesAsAuthority kc:p-binswanger ;
-  cito:citesAsAuthority kc:p-descartes ;
-  cito:citesAsAuthority kc:p-paul-hazard ;
-  cito:citesAsAuthority kc:p-yoo-jongho .
+  dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00013 ;
+  cito:citesAsAuthority kc:p-00024 ;
+  cito:citesAsAuthority kc:p-00040 ;
+  cito:citesAsAuthority kc:p-00172 ;
+  cito:citesAsAuthority kc:p-00246 .
 
 kce:kim-uchang_theory-korean-novel_1984 a critic:CriticalEssay ;
   dcterms:title "한국 현대 소설의 이론을 위한 서설"@ko ;
@@ -1829,19 +1797,19 @@ kce:kim-uchang_theory-korean-novel_1984 a critic:CriticalEssay ;
   dcterms:date "1984"^^xsd:gYear ;
   schema:isPartOf "한국 현대 소설의 이론을 위한 서설" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_theory-korean-novel_1984.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-choi-inhun ;
-  cito:discusses kc:p-hwang-sunwon ;
-  cito:discusses kc:p-jang-yonghak ;
-  cito:discusses kc:p-jeong-jiyong ;
-  cito:discusses kc:p-kim-dongin ;
-  cito:discusses kc:p-kim-dongri ;
-  cito:discusses kc:p-ko-un ;
-  cito:discusses kc:p-son-changsub ;
-  cito:discusses kc:p-yeom-sangsub ;
-  cito:discusses kc:p-yi-chungjun ;
-  cito:discusses kc:p-yi-gwangsu ;
-  cito:citesAsAuthority kc:p-ian-watt .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00033 ;
+  cito:discusses kc:p-00079 ;
+  cito:discusses kc:p-00083 ;
+  cito:discusses kc:p-00086 ;
+  cito:discusses kc:p-00099 ;
+  cito:discusses kc:p-00100 ;
+  cito:discusses kc:p-00122 ;
+  cito:discusses kc:p-00202 ;
+  cito:discusses kc:p-00239 ;
+  cito:discusses kc:p-00240 ;
+  cito:discusses kc:p-00241 ;
+  cito:citesAsAuthority kc:p-00081 .
 
 kce:kim-uchang_time-korean-novel_1981 a critic:CriticalEssay ;
   dcterms:title "한국소설의 시간"@ko ;
@@ -1849,21 +1817,21 @@ kce:kim-uchang_time-korean-novel_1981 a critic:CriticalEssay ;
   dcterms:date "1981"^^xsd:gYear ;
   schema:isPartOf "한국소설의 시간" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_time-korean-novel_1981.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-hwang-sunwon ;
-  cito:discusses kc:p-jo-sehi ;
-  cito:discusses kc:p-kim-dongri ;
-  cito:discusses kc:p-sim-hun ;
-  cito:discusses kc:p-yeom-sangsub ;
-  cito:discusses kc:p-yi-gwangsu ;
-  cito:discusses kc:p-yi-hyoseok ;
-  cito:citesAsAuthority kc:p-auerbach ;
-  cito:citesAsAuthority kc:p-baek-nakchung ;
-  cito:citesAsAuthority kc:p-ian-watt ;
-  cito:citesAsAuthority kc:p-lubbock ;
-  cito:citesAsAuthority kc:p-lukacs ;
-  cito:citesAsAuthority kc:p-poulet ;
-  cito:citesAsAuthority kc:p-walter-benjamin .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00079 ;
+  cito:discusses kc:p-00087 ;
+  cito:discusses kc:p-00100 ;
+  cito:discusses kc:p-00200 ;
+  cito:discusses kc:p-00239 ;
+  cito:discusses kc:p-00241 ;
+  cito:discusses kc:p-00243 ;
+  cito:citesAsAuthority kc:p-00009 ;
+  cito:citesAsAuthority kc:p-00014 ;
+  cito:citesAsAuthority kc:p-00081 ;
+  cito:citesAsAuthority kc:p-00145 ;
+  cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00179 ;
+  cito:citesAsAuthority kc:p-00227 .
 
 kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
   dcterms:title "윤동주의 시와 근대적 자아"@ko ;
@@ -1871,9 +1839,9 @@ kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
   dcterms:date "1985"^^xsd:gYear ;
   schema:isPartOf "윤동주의 시와 근대적 자아" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_yun-dongju_1985.html> ;
-  dcterms:creator kc:p-kim-uchang ;
-  cito:discusses kc:p-yun-dongju ;
-  cito:citesAsAuthority kc:p-habermas .
+  dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00247 ;
+  cito:citesAsAuthority kc:p-00062 .
 
 kce:yu-jongho_aesthetics-vulgarity_1960 a critic:CriticalEssay ;
   dcterms:title "비속의 미학"@ko ;
@@ -1881,13 +1849,13 @@ kce:yu-jongho_aesthetics-vulgarity_1960 a critic:CriticalEssay ;
   dcterms:date "1960"^^xsd:gYear ;
   schema:isPartOf "비속의 미학" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_aesthetics-vulgarity_1960.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-babbitt-irving ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-mallarme ;
-  cito:citesAsAuthority kc:p-maugham ;
-  cito:citesAsAuthority kc:p-sainte-beuve ;
-  cito:citesAsAuthority kc:p-tyndall-william ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00011 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00154 ;
+  cito:citesAsAuthority kc:p-00190 ;
+  cito:citesAsAuthority kc:p-00220 ;
   dcterms:subject "낭만적 실족의 환멸"@ko ;
   dcterms:subject "부르주아 혐오"@ko ;
   dcterms:subject "예술에 대한 신앙"@ko ;
@@ -1904,15 +1872,15 @@ kce:yu-jongho_barren-schema_1957 a critic:CriticalEssay ;
   dcterms:date "1957"^^xsd:gYear ;
   schema:isPartOf "불모의 도식 — 1957년의 시" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_barren-schema_1957.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-kim-guyong ;
-  cito:discusses kc:p-seo-jeongju ;
-  cito:citesAsAuthority kc:p-beethoven ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-furtwangler ;
-  cito:citesAsAuthority kc:p-huxley ;
-  cito:citesAsAuthority kc:p-max-jacob ;
-  cito:citesAsAuthority kc:p-nietzsche ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00101 ;
+  cito:discusses kc:p-00195 ;
+  cito:citesAsAuthority kc:p-00019 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00054 ;
+  cito:citesAsAuthority kc:p-00075 ;
+  cito:citesAsAuthority kc:p-00156 ;
+  cito:citesAsAuthority kc:p-00161 ;
   dcterms:subject "언어의 마술"@ko ;
   dcterms:subject "산문에의 굴종"@ko ;
   dcterms:subject "전면적 진실"@ko ;
@@ -1928,22 +1896,22 @@ kce:yu-jongho_bisunsu-declaration_1960 a critic:CriticalEssay ;
   dcterms:date "1960"^^xsd:gYear ;
   schema:isPartOf "비순수의 선언" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_bisunsu-declaration_1960.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-auden ;
-  cito:citesAsAuthority kc:p-baudelaire ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-flaubert ;
-  cito:citesAsAuthority kc:p-gide ;
-  cito:citesAsAuthority kc:p-herbert-read ;
-  cito:citesAsAuthority kc:p-mallarme ;
-  cito:citesAsAuthority kc:p-maupassant ;
-  cito:citesAsAuthority kc:p-nietzsche ;
-  cito:citesAsAuthority kc:p-proust ;
-  cito:citesAsAuthority kc:p-sartre ;
-  cito:citesAsAuthority kc:p-thibaudet ;
-  cito:citesAsAuthority kc:p-thomas-mann ;
-  cito:citesAsAuthority kc:p-valery ;
-  cito:citesAsAuthority kc:p-yeats ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00008 ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00049 ;
+  cito:citesAsAuthority kc:p-00058 ;
+  cito:citesAsAuthority kc:p-00070 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00155 ;
+  cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00181 ;
+  cito:citesAsAuthority kc:p-00192 ;
+  cito:citesAsAuthority kc:p-00215 ;
+  cito:citesAsAuthority kc:p-00216 ;
+  cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00237 ;
   dcterms:subject "비평적 시"@ko ;
   dcterms:subject "비순수의 선언"@ko ;
   dcterms:subject "시세계의 확장"@ko ;
@@ -1962,9 +1930,9 @@ kce:yu-jongho_confession_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "고백이라는 것" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_confession_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-massis ;
-  cito:citesAsAuthority kc:p-swift ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00153 ;
+  cito:citesAsAuthority kc:p-00210 ;
   dcterms:subject "자기폭로"@ko ;
   dcterms:subject "내적 필연성"@ko ;
   dcterms:subject "통속적 냉소주의"@ko ;
@@ -1982,29 +1950,29 @@ kce:yu-jongho_criticism-problems_1958 a critic:CriticalEssay ;
   dcterms:date "1958"^^xsd:gYear ;
   schema:isPartOf "비평의 문제들" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_criticism-problems_1958.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-balzac ;
-  cito:citesAsAuthority kc:p-baudelaire ;
-  cito:citesAsAuthority kc:p-benedict-ruth ;
-  cito:citesAsAuthority kc:p-chekhov ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-goethe ;
-  cito:citesAsAuthority kc:p-hazlitt ;
-  cito:citesAsAuthority kc:p-huxley ;
-  cito:citesAsAuthority kc:p-korzybski ;
-  cito:citesAsAuthority kc:p-lamb-charles ;
-  cito:citesAsAuthority kc:p-levy-bruhl ;
-  cito:citesAsAuthority kc:p-malinowski ;
-  cito:citesAsAuthority kc:p-maupassant ;
-  cito:citesAsAuthority kc:p-moulton ;
-  cito:citesAsAuthority kc:p-nietzsche ;
-  cito:citesAsAuthority kc:p-pound ;
-  cito:citesAsAuthority kc:p-sainte-beuve ;
-  cito:citesAsAuthority kc:p-sartre ;
-  cito:citesAsAuthority kc:p-taine ;
-  cito:citesAsAuthority kc:p-thibaudet ;
-  cito:citesAsAuthority kc:p-valery ;
-  cito:citesAsAuthority kc:p-william-james ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00017 ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00021 ;
+  cito:citesAsAuthority kc:p-00029 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00059 ;
+  cito:citesAsAuthority kc:p-00064 ;
+  cito:citesAsAuthority kc:p-00075 ;
+  cito:citesAsAuthority kc:p-00123 ;
+  cito:citesAsAuthority kc:p-00127 ;
+  cito:citesAsAuthority kc:p-00140 ;
+  cito:citesAsAuthority kc:p-00148 ;
+  cito:citesAsAuthority kc:p-00155 ;
+  cito:citesAsAuthority kc:p-00158 ;
+  cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00180 ;
+  cito:citesAsAuthority kc:p-00190 ;
+  cito:citesAsAuthority kc:p-00192 ;
+  cito:citesAsAuthority kc:p-00211 ;
+  cito:citesAsAuthority kc:p-00215 ;
+  cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00235 ;
   dcterms:subject "비평적 자유의 남용"@ko ;
   dcterms:subject "창조적 비평의 전제조건"@ko ;
   dcterms:subject "비평부정론의 허구"@ko ;
@@ -2021,17 +1989,17 @@ kce:yu-jongho_criticism-reflection_1958 a critic:CriticalEssay ;
   dcterms:date "1958"^^xsd:gYear ;
   schema:isPartOf "비평의 반성" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_criticism-reflection_1958.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-empson ;
-  cito:citesAsAuthority kc:p-gourmont ;
-  cito:citesAsAuthority kc:p-henry-miller ;
-  cito:citesAsAuthority kc:p-hulme ;
-  cito:citesAsAuthority kc:p-laforge-rene ;
-  cito:citesAsAuthority kc:p-lowes ;
-  cito:citesAsAuthority kc:p-murry ;
-  cito:citesAsAuthority kc:p-sainte-beuve ;
-  cito:citesAsAuthority kc:p-schleiermacher ;
-  cito:citesAsAuthority kc:p-spender ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00046 ;
+  cito:citesAsAuthority kc:p-00061 ;
+  cito:citesAsAuthority kc:p-00069 ;
+  cito:citesAsAuthority kc:p-00074 ;
+  cito:citesAsAuthority kc:p-00126 ;
+  cito:citesAsAuthority kc:p-00143 ;
+  cito:citesAsAuthority kc:p-00159 ;
+  cito:citesAsAuthority kc:p-00190 ;
+  cito:citesAsAuthority kc:p-00193 ;
+  cito:citesAsAuthority kc:p-00205 ;
   dcterms:subject "비평정신과 자의식"@ko ;
   dcterms:subject "창조적 비평"@ko ;
   dcterms:subject "과학적 비평의 한계"@ko ;
@@ -2048,13 +2016,13 @@ kce:yu-jongho_experience-imagination-viewpoint_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "경험 · 상상력 · 관점 — 한국소설의 반성" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_experience-imagination-viewpoint_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-alberes ;
-  cito:citesAsAuthority kc:p-freud ;
-  cito:citesAsAuthority kc:p-lubbock ;
-  cito:citesAsAuthority kc:p-marx ;
-  cito:citesAsAuthority kc:p-nietzsche ;
-  cito:citesAsAuthority kc:p-wellek ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00002 ;
+  cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00145 ;
+  cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00232 ;
   dcterms:subject "소박한 리얼리즘"@ko ;
   dcterms:subject "현실성의 환상"@ko ;
   dcterms:subject "경험의 객관화"@ko ;
@@ -2070,8 +2038,8 @@ kce:yu-jongho_freedom-name_1960 a critic:CriticalEssay ;
   dcterms:date "1960"^^xsd:gYear ;
   schema:isPartOf "자유라는 이름 아래" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_freedom-name_1960.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-madame-roland ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00147 ;
   dcterms:subject "자유의 구호화"@ko ;
   dcterms:subject "추상어의 환멸"@ko ;
   dcterms:subject "자유의 전락"@ko ;
@@ -2087,10 +2055,10 @@ kce:yu-jongho_glance-word_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "일별이언 — 1961년의 소설" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_glance-word_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-an-sugil ;
-  cito:discusses kc:p-yi-hocheol ;
-  cito:citesAsAuthority kc:p-henry-james ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00004 ;
+  cito:discusses kc:p-00242 ;
+  cito:citesAsAuthority kc:p-00068 ;
   dcterms:subject "인물조형의 등한"@ko ;
   dcterms:subject "성격과 사건의 상호결정"@ko ;
   dcterms:subject "평면적 전쟁 리얼리즘"@ko ;
@@ -2106,9 +2074,9 @@ kce:yu-jongho_humanism-absence_1962 a critic:CriticalEssay ;
   dcterms:date "1962"^^xsd:gYear ;
   schema:isPartOf "인간 부재 — 한국 문학에서의 휴머니즘" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_humanism-absence_1962.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-hobbes ;
-  cito:citesAsAuthority kc:p-russell ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00071 ;
+  cito:citesAsAuthority kc:p-00188 ;
   dcterms:subject "휴머니즘의 다의성"@ko ;
   dcterms:subject "동정의 미학"@ko ;
   dcterms:subject "감상주의"@ko ;
@@ -2126,15 +2094,15 @@ kce:yu-jongho_intellectual-freedom_1974 a critic:CriticalEssay ;
   dcterms:date "1974"^^xsd:gYear ;
   schema:isPartOf "지식인과 지적 자유" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_intellectual-freedom_1974.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-dahrendorf ;
-  cito:citesAsAuthority kc:p-fromm ;
-  cito:citesAsAuthority kc:p-mannheim ;
-  cito:citesAsAuthority kc:p-oscar-wilde ;
-  cito:citesAsAuthority kc:p-russell ;
-  cito:citesAsAuthority kc:p-voltaire ;
-  cito:citesAsAuthority kc:p-william-james ;
-  cito:citesAsAuthority kc:p-zola ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00037 ;
+  cito:citesAsAuthority kc:p-00052 ;
+  cito:citesAsAuthority kc:p-00150 ;
+  cito:citesAsAuthority kc:p-00163 ;
+  cito:citesAsAuthority kc:p-00188 ;
+  cito:citesAsAuthority kc:p-00226 ;
+  cito:citesAsAuthority kc:p-00235 ;
+  cito:citesAsAuthority kc:p-00250 ;
   dcterms:subject "사회의 양심으로서의 지식인"@ko ;
   dcterms:subject "자유부동 지식인"@ko ;
   dcterms:subject "어릿광대 은유"@ko ;
@@ -2150,13 +2118,13 @@ kce:yu-jongho_intellectual-literature_1965 a critic:CriticalEssay ;
   dcterms:date "1965"^^xsd:gYear ;
   schema:isPartOf "지식인과 문학" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_intellectual-literature_1965.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-kim-sunghan ;
-  cito:discusses kc:p-yi-gwangsu ;
-  cito:discusses kc:p-yi-hyoseok ;
-  cito:discusses kc:p-yi-sang ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
-  cito:citesAsAuthority kc:p-tolstoy ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00115 ;
+  cito:discusses kc:p-00241 ;
+  cito:discusses kc:p-00243 ;
+  cito:discusses kc:p-00244 ;
+  cito:citesAsAuthority kc:p-00042 ;
+  cito:citesAsAuthority kc:p-00218 ;
   dcterms:subject "지식인의 자기비판"@ko ;
   dcterms:subject "지식인의 귀환"@ko ;
   dcterms:subject "복음적 정신주의"@ko ;
@@ -2172,12 +2140,12 @@ kce:yu-jongho_intelligence-anti_1964 a critic:CriticalEssay ;
   dcterms:date "1964"^^xsd:gYear ;
   schema:isPartOf "지성과 반지성" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_intelligence-anti_1964.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-brooks ;
-  cito:citesAsAuthority kc:p-hemingway ;
-  cito:citesAsAuthority kc:p-huxley ;
-  cito:citesAsAuthority kc:p-thomas-mann ;
-  cito:citesAsAuthority kc:p-warren ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00025 ;
+  cito:citesAsAuthority kc:p-00067 ;
+  cito:citesAsAuthority kc:p-00075 ;
+  cito:citesAsAuthority kc:p-00216 ;
+  cito:citesAsAuthority kc:p-00229 ;
   dcterms:subject "외재적 지성"@ko ;
   dcterms:subject "지적 요소의 도입"@ko ;
   dcterms:subject "복잡하게 말하기"@ko ;
@@ -2193,12 +2161,12 @@ kce:yu-jongho_jang-yonghak_1960 a critic:CriticalEssay ;
   dcterms:date "1960"^^xsd:gYear ;
   schema:isPartOf "현대인의 운명 — 「현대의 야」에 부쳐" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_jang-yonghak_1960.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-jang-yonghak ;
-  cito:citesAsAuthority kc:p-camus ;
-  cito:citesAsAuthority kc:p-gheorghiu ;
-  cito:citesAsAuthority kc:p-kafka ;
-  cito:citesAsAuthority kc:p-valery ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00083 ;
+  cito:citesAsAuthority kc:p-00028 ;
+  cito:citesAsAuthority kc:p-00057 ;
+  cito:citesAsAuthority kc:p-00092 ;
+  cito:citesAsAuthority kc:p-00221 ;
   dcterms:subject "관념의 과잉"@ko ;
   dcterms:subject "관념육화의 부족"@ko ;
   dcterms:subject "현대인의 운명"@ko ;
@@ -2214,11 +2182,11 @@ kce:yu-jongho_kim-sowol_1960 a critic:CriticalEssay ;
   dcterms:date "1960"^^xsd:gYear ;
   schema:isPartOf "한국의 슬픔 — 소월을 위한 노트" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_kim-sowol_1960.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-jeong-jiyong ;
-  cito:discusses kc:p-kim-sowol ;
-  cito:citesAsAuthority kc:p-akutagawa ;
-  cito:citesAsAuthority kc:p-lautreamont ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00086 ;
+  cito:discusses kc:p-00114 ;
+  cito:citesAsAuthority kc:p-00001 ;
+  cito:citesAsAuthority kc:p-00129 ;
   dcterms:subject "국민시인"@ko ;
   dcterms:subject "만인의 시"@ko ;
   dcterms:subject "제재의 보편성"@ko ;
@@ -2236,8 +2204,8 @@ kce:yu-jongho_korean-pessimism_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "한국의 페시미즘 — 운명론의 계보" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_korean-pessimism_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-gide ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00058 ;
   dcterms:subject "운명론"@ko ;
   dcterms:subject "Amor fati"@ko ;
   dcterms:subject "토착적 운명론"@ko ;
@@ -2257,13 +2225,13 @@ kce:yu-jongho_language-valley_1957 a critic:CriticalEssay ;
   dcterms:date "1957"^^xsd:gYear ;
   schema:isPartOf "언어의 유곡" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_language-valley_1957.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-fiedler-konrad ;
-  cito:citesAsAuthority kc:p-langer ;
-  cito:citesAsAuthority kc:p-pascal ;
-  cito:citesAsAuthority kc:p-paulhan ;
-  cito:citesAsAuthority kc:p-richards ;
-  cito:citesAsAuthority kc:p-william-james ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00048 ;
+  cito:citesAsAuthority kc:p-00128 ;
+  cito:citesAsAuthority kc:p-00171 ;
+  cito:citesAsAuthority kc:p-00173 ;
+  cito:citesAsAuthority kc:p-00185 ;
+  cito:citesAsAuthority kc:p-00235 ;
   dcterms:subject "언어의 자의식"@ko ;
   dcterms:subject "언어의 비개성화"@ko ;
   dcterms:subject "순수시의 불모성"@ko ;
@@ -2279,13 +2247,12 @@ kce:yu-jongho_modern-poetry-50years_1962 a critic:CriticalEssay ;
   dcterms:date "1962"^^xsd:gYear ;
   schema:isPartOf "현대시의 50년" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_modern-poetry-50years_1962.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-choe-namseon ;
-  cito:discusses kc:p-jeong-jiyong ;
-  cito:discusses kc:p-ju-yohan ;
-  cito:citesAsAuthority kc:p-brooks ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-mallarme ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00086 ;
+  cito:discusses kc:p-00089 ;
+  cito:citesAsAuthority kc:p-00025 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00149 ;
   dcterms:subject "신시의 기점"@ko ;
   dcterms:subject "전통 단절"@ko ;
   dcterms:subject "살아 있는 전통"@ko ;
@@ -2303,17 +2270,17 @@ kce:yu-jongho_modern-poetry-face_1959 a critic:CriticalEssay ;
   dcterms:date "1959"^^xsd:gYear ;
   schema:isPartOf "현대시의 표정" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_modern-poetry-face_1959.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:discusses kc:p-kim-sowol ;
-  cito:citesAsAuthority kc:p-camus ;
-  cito:citesAsAuthority kc:p-day-lewis ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-fraser ;
-  cito:citesAsAuthority kc:p-fromm ;
-  cito:citesAsAuthority kc:p-mallarme ;
-  cito:citesAsAuthority kc:p-plato ;
-  cito:citesAsAuthority kc:p-shelley ;
-  cito:citesAsAuthority kc:p-stevenson ;
+  dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00114 ;
+  cito:citesAsAuthority kc:p-00028 ;
+  cito:citesAsAuthority kc:p-00039 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00050 ;
+  cito:citesAsAuthority kc:p-00052 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00197 ;
+  cito:citesAsAuthority kc:p-00209 ;
   dcterms:subject "시인론"@ko ;
   dcterms:subject "시단의 정신적 빈곤"@ko ;
   dcterms:subject "인유와 전통"@ko ;
@@ -2333,9 +2300,9 @@ kce:yu-jongho_native-language_1959 a critic:CriticalEssay ;
   dcterms:date "1959"^^xsd:gYear ;
   schema:isPartOf "토착어와 한자어" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_native-language_1959.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-camus ;
-  cito:citesAsAuthority kc:p-fukuzawa ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00028 ;
+  cito:citesAsAuthority kc:p-00053 ;
   dcterms:subject "토착어의 정서적 연상대"@ko ;
   dcterms:subject "전근대적 인간상"@ko ;
   dcterms:subject "한자어의 생경함"@ko ;
@@ -2351,9 +2318,9 @@ kce:yu-jongho_newspaper-novel_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "신문소설고 — 그 생태와 공과" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_newspaper-novel_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-aristotle ;
-  cito:citesAsAuthority kc:p-plato ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00174 ;
   dcterms:subject "신문소설의 통속성"@ko ;
   dcterms:subject "시장성의 의식"@ko ;
   dcterms:subject "계몽문학"@ko ;
@@ -2369,11 +2336,11 @@ kce:yu-jongho_prose-spirit_1958 a critic:CriticalEssay ;
   dcterms:date "1958"^^xsd:gYear ;
   schema:isPartOf "산문정신고" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_prose-spirit_1958.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-kafka ;
-  cito:citesAsAuthority kc:p-santayana ;
-  cito:citesAsAuthority kc:p-schopenhauer ;
-  cito:citesAsAuthority kc:p-walter-pater ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00092 ;
+  cito:citesAsAuthority kc:p-00191 ;
+  cito:citesAsAuthority kc:p-00194 ;
+  cito:citesAsAuthority kc:p-00228 ;
   dcterms:subject "시적 소설"@ko ;
   dcterms:subject "산문정신"@ko ;
   dcterms:subject "시와 산문의 대립"@ko ;
@@ -2391,22 +2358,22 @@ kce:yu-jongho_son-changsub_1959 a critic:CriticalEssay ;
   dcterms:date "1959"^^xsd:gYear ;
   schema:isPartOf "모멸과 연민 — 손창섭론" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_son-changsub_1959.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-amiel ;
-  cito:citesAsAuthority kc:p-aristotle ;
-  cito:citesAsAuthority kc:p-balzac ;
-  cito:citesAsAuthority kc:p-freud ;
-  cito:citesAsAuthority kc:p-huxley ;
-  cito:citesAsAuthority kc:p-kenneth-burke ;
-  cito:citesAsAuthority kc:p-maugham ;
-  cito:citesAsAuthority kc:p-nietzsche ;
-  cito:citesAsAuthority kc:p-roman-rolland ;
-  cito:citesAsAuthority kc:p-shestov ;
-  cito:citesAsAuthority kc:p-stendhal-son ;
-  cito:citesAsAuthority kc:p-taine ;
-  cito:citesAsAuthority kc:p-thomas-mann ;
-  cito:citesAsAuthority kc:p-warren ;
-  cito:citesAsAuthority kc:p-wellek ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00003 ;
+  cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00017 ;
+  cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00075 ;
+  cito:citesAsAuthority kc:p-00094 ;
+  cito:citesAsAuthority kc:p-00154 ;
+  cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00187 ;
+  cito:citesAsAuthority kc:p-00198 ;
+  cito:citesAsAuthority kc:p-00207 ;
+  cito:citesAsAuthority kc:p-00211 ;
+  cito:citesAsAuthority kc:p-00216 ;
+  cito:citesAsAuthority kc:p-00229 ;
+  cito:citesAsAuthority kc:p-00232 ;
   dcterms:subject "독창성"@ko ;
   dcterms:subject "작가의 눈"@ko ;
   dcterms:subject "인간모멸"@ko ;
@@ -2425,7 +2392,7 @@ kce:yu-jongho_thought-revolution_1959 a critic:CriticalEssay ;
   dcterms:date "1959"^^xsd:gYear ;
   schema:isPartOf "사고의 변혁을 위하여 — 하나의 진단" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_thought-revolution_1959.html> ;
-  dcterms:creator kc:p-yu-jongho ;
+  dcterms:creator kc:p-00246 ;
   dcterms:subject "이가치적 사고"@ko ;
   dcterms:subject "경험의 복잡성"@ko ;
   dcterms:subject "감정의 지배"@ko ;
@@ -2441,8 +2408,8 @@ kce:yu-jongho_tradition-establishment_1960 a critic:CriticalEssay ;
   dcterms:date "1960"^^xsd:gYear ;
   schema:isPartOf "전통의 확립을 위하여" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_tradition-establishment_1960.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-lawrence ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00130 ;
   dcterms:subject "패배의 미학"@ko ;
   dcterms:subject "전근대적 인간상"@ko ;
   dcterms:subject "문학의 사회적 고립"@ko ;
@@ -2458,8 +2425,8 @@ kce:yu-jongho_weeping-humanism_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "오열하는 휴머니즘 — 한 상투 문구에의 의혹" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_weeping-humanism_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-valery ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00221 ;
   dcterms:subject "언어의 연상대"@ko ;
   dcterms:subject "성선설적 인물 공식"@ko ;
   dcterms:subject "인간악의 탐구"@ko ;
@@ -2473,9 +2440,9 @@ kce:yu-jongho_writer-reader_1961 a critic:CriticalEssay ;
   dcterms:date "1961"^^xsd:gYear ;
   schema:isPartOf "작가와 독자 — 그 생리" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_writer-reader_1961.html> ;
-  dcterms:creator kc:p-yu-jongho ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-hyman ;
+  dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00080 ;
   dcterms:subject "창조적 욕망"@ko ;
   dcterms:subject "제작의식의 개인차"@ko ;
   dcterms:subject "작품의 자율성"@ko ;
@@ -2485,109 +2452,108 @@ kce:yu-jongho_writer-reader_1961 a critic:CriticalEssay ;
   dcterms:subject "보편성의 친화력"@ko .
 
 # ── 비평가 관계 (wrote / critic:analyzes) ───────────────
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_cho-taeill_1985 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_choe-seungho-observation_1983 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_concrete-universality_1981 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_cultural-subjectivity_1982 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_culture-meaning_1982 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-dongkyu_1982 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_hwang-seokyoung-minjung_1982 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_jeong-dongju_1984 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_joy-use-literature_1984 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_kim-chaesu_1989 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_kim-kwanggyu_1983 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_korean-poetry-today_1985 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_language-society-style_1983 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_language-things_1981 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_lee-mungoo-rural_1981 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_literary-development_1980 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_literature-utopia_1985 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_north-korean-criticism_1981 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_north-korean-poetry_1980 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_poetics-society_1982 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_poets-jewel_1984 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_politics-poetry_1979 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_preface_1992 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_quotation-cultural-memory_1985 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_realism-yeom-sangsub_1984 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_theory-korean-novel_1984 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_time-korean-novel_1981 .
-kc:p-kim-uchang dcterms:creator kce:kim-uchang_yun-dongju_1985 .
-kc:p-kim-uchang critic:analyzes kc:p-byeon-youngro .
-kc:p-kim-uchang critic:analyzes kc:p-cho-jihun .
-kc:p-kim-uchang critic:analyzes kc:p-cho-taeill .
-kc:p-kim-uchang critic:analyzes kc:p-choe-seungho .
-kc:p-kim-uchang critic:analyzes kc:p-choi-inhun .
-kc:p-kim-uchang critic:analyzes kc:p-coleridge .
-kc:p-kim-uchang critic:analyzes kc:p-hwang-dongkyu .
-kc:p-kim-uchang critic:analyzes kc:p-hwang-sunwon .
-kc:p-kim-uchang critic:analyzes kc:p-jang-yonghak .
-kc:p-kim-uchang critic:analyzes kc:p-jeong-dongju .
-kc:p-kim-uchang critic:analyzes kc:p-jeong-jiyong .
-kc:p-kim-uchang critic:analyzes kc:p-jo-sehi .
-kc:p-kim-uchang critic:analyzes kc:p-jung-heesung .
-kc:p-kim-uchang critic:analyzes kc:p-jung-hyunjong .
-kc:p-kim-uchang critic:analyzes kc:p-kim-changwan .
-kc:p-kim-uchang critic:analyzes kc:p-kim-dongin .
-kc:p-kim-uchang critic:analyzes kc:p-kim-dongri .
-kc:p-kim-uchang critic:analyzes kc:p-kim-hyunseung .
-kc:p-kim-uchang critic:analyzes kc:p-kim-jiha .
-kc:p-kim-uchang critic:analyzes kc:p-kim-kwanggyu .
-kc:p-kim-uchang critic:analyzes kc:p-kim-sikwon .
-kc:p-kim-uchang critic:analyzes kc:p-kim-suyoung .
-kc:p-kim-uchang critic:analyzes kc:p-ko-un .
-kc:p-kim-uchang critic:analyzes kc:p-lawrence-dh .
-kc:p-kim-uchang critic:analyzes kc:p-oh-kyuwon .
-kc:p-kim-uchang critic:analyzes kc:p-park-mokwol .
-kc:p-kim-uchang critic:analyzes kc:p-poe .
-kc:p-kim-uchang critic:analyzes kc:p-rilke .
-kc:p-kim-uchang critic:analyzes kc:p-sim-hun .
-kc:p-kim-uchang critic:analyzes kc:p-son-changsub .
-kc:p-kim-uchang critic:analyzes kc:p-yeom-sangsub .
-kc:p-kim-uchang critic:analyzes kc:p-yi-chungjun .
-kc:p-kim-uchang critic:analyzes kc:p-yi-gwangsu .
-kc:p-kim-uchang critic:analyzes kc:p-yi-hyoseok .
-kc:p-kim-uchang critic:analyzes kc:p-yun-dongju .
+kc:p-00117 dcterms:creator kce:kim-uchang_beauty-surface-depth_1984 .
+kc:p-00117 dcterms:creator kce:kim-uchang_cho-taeill_1985 .
+kc:p-00117 dcterms:creator kce:kim-uchang_choe-seungho-observation_1983 .
+kc:p-00117 dcterms:creator kce:kim-uchang_concrete-universality_1981 .
+kc:p-00117 dcterms:creator kce:kim-uchang_conscience-poetry_1979 .
+kc:p-00117 dcterms:creator kce:kim-uchang_cultural-subjectivity_1982 .
+kc:p-00117 dcterms:creator kce:kim-uchang_culture-meaning_1982 .
+kc:p-00117 dcterms:creator kce:kim-uchang_hwang-dongkyu_1982 .
+kc:p-00117 dcterms:creator kce:kim-uchang_hwang-seokyoung-minjung_1982 .
+kc:p-00117 dcterms:creator kce:kim-uchang_jeong-dongju_1984 .
+kc:p-00117 dcterms:creator kce:kim-uchang_joy-use-literature_1984 .
+kc:p-00117 dcterms:creator kce:kim-uchang_kim-chaesu_1989 .
+kc:p-00117 dcterms:creator kce:kim-uchang_kim-kwanggyu_1983 .
+kc:p-00117 dcterms:creator kce:kim-uchang_korean-poetry-today_1985 .
+kc:p-00117 dcterms:creator kce:kim-uchang_language-society-style_1983 .
+kc:p-00117 dcterms:creator kce:kim-uchang_language-things_1981 .
+kc:p-00117 dcterms:creator kce:kim-uchang_lee-mungoo-rural_1981 .
+kc:p-00117 dcterms:creator kce:kim-uchang_literary-development_1980 .
+kc:p-00117 dcterms:creator kce:kim-uchang_literature-utopia_1985 .
+kc:p-00117 dcterms:creator kce:kim-uchang_north-korean-criticism_1981 .
+kc:p-00117 dcterms:creator kce:kim-uchang_north-korean-poetry_1980 .
+kc:p-00117 dcterms:creator kce:kim-uchang_poetics-society_1982 .
+kc:p-00117 dcterms:creator kce:kim-uchang_poets-jewel_1984 .
+kc:p-00117 dcterms:creator kce:kim-uchang_politics-poetry_1979 .
+kc:p-00117 dcterms:creator kce:kim-uchang_preface_1992 .
+kc:p-00117 dcterms:creator kce:kim-uchang_quotation-cultural-memory_1985 .
+kc:p-00117 dcterms:creator kce:kim-uchang_realism-yeom-sangsub_1984 .
+kc:p-00117 dcterms:creator kce:kim-uchang_theory-korean-novel_1984 .
+kc:p-00117 dcterms:creator kce:kim-uchang_time-korean-novel_1981 .
+kc:p-00117 dcterms:creator kce:kim-uchang_yun-dongju_1985 .
+kc:p-00117 critic:analyzes kc:p-00026 .
+kc:p-00117 critic:analyzes kc:p-00031 .
+kc:p-00117 critic:analyzes kc:p-00032 .
+kc:p-00117 critic:analyzes kc:p-00033 .
+kc:p-00117 critic:analyzes kc:p-00035 .
+kc:p-00117 critic:analyzes kc:p-00036 .
+kc:p-00117 critic:analyzes kc:p-00076 .
+kc:p-00117 critic:analyzes kc:p-00079 .
+kc:p-00117 critic:analyzes kc:p-00083 .
+kc:p-00117 critic:analyzes kc:p-00085 .
+kc:p-00117 critic:analyzes kc:p-00086 .
+kc:p-00117 critic:analyzes kc:p-00087 .
+kc:p-00117 critic:analyzes kc:p-00090 .
+kc:p-00117 critic:analyzes kc:p-00091 .
+kc:p-00117 critic:analyzes kc:p-00097 .
+kc:p-00117 critic:analyzes kc:p-00099 .
+kc:p-00117 critic:analyzes kc:p-00100 .
+kc:p-00117 critic:analyzes kc:p-00102 .
+kc:p-00117 critic:analyzes kc:p-00104 .
+kc:p-00117 critic:analyzes kc:p-00106 .
+kc:p-00117 critic:analyzes kc:p-00113 .
+kc:p-00117 critic:analyzes kc:p-00116 .
+kc:p-00117 critic:analyzes kc:p-00122 .
+kc:p-00117 critic:analyzes kc:p-00131 .
+kc:p-00117 critic:analyzes kc:p-00162 .
+kc:p-00117 critic:analyzes kc:p-00169 .
+kc:p-00117 critic:analyzes kc:p-00176 .
+kc:p-00117 critic:analyzes kc:p-00186 .
+kc:p-00117 critic:analyzes kc:p-00200 .
+kc:p-00117 critic:analyzes kc:p-00202 .
+kc:p-00117 critic:analyzes kc:p-00239 .
+kc:p-00117 critic:analyzes kc:p-00240 .
+kc:p-00117 critic:analyzes kc:p-00241 .
+kc:p-00117 critic:analyzes kc:p-00243 .
+kc:p-00117 critic:analyzes kc:p-00247 .
 
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_aesthetics-vulgarity_1960 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_barren-schema_1957 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_confession_1961 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-problems_1958 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_criticism-reflection_1958 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_experience-imagination-viewpoint_1961 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_freedom-name_1960 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_glance-word_1961 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_humanism-absence_1962 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-freedom_1974 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_intellectual-literature_1965 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_intelligence-anti_1964 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_jang-yonghak_1960 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_kim-sowol_1960 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_language-valley_1957 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_native-language_1959 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_newspaper-novel_1961 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_prose-spirit_1958 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_son-changsub_1959 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_thought-revolution_1959 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_weeping-humanism_1961 .
-kc:p-yu-jongho dcterms:creator kce:yu-jongho_writer-reader_1961 .
-kc:p-yu-jongho critic:analyzes kc:p-an-sugil .
-kc:p-yu-jongho critic:analyzes kc:p-choe-namseon .
-kc:p-yu-jongho critic:analyzes kc:p-jang-yonghak .
-kc:p-yu-jongho critic:analyzes kc:p-jeong-jiyong .
-kc:p-yu-jongho critic:analyzes kc:p-ju-yohan .
-kc:p-yu-jongho critic:analyzes kc:p-kim-guyong .
-kc:p-yu-jongho critic:analyzes kc:p-kim-sowol .
-kc:p-yu-jongho critic:analyzes kc:p-kim-sunghan .
-kc:p-yu-jongho critic:analyzes kc:p-seo-jeongju .
-kc:p-yu-jongho critic:analyzes kc:p-yi-gwangsu .
-kc:p-yu-jongho critic:analyzes kc:p-yi-hocheol .
-kc:p-yu-jongho critic:analyzes kc:p-yi-hyoseok .
-kc:p-yu-jongho critic:analyzes kc:p-yi-sang .
+kc:p-00246 dcterms:creator kce:yu-jongho_aesthetics-vulgarity_1960 .
+kc:p-00246 dcterms:creator kce:yu-jongho_barren-schema_1957 .
+kc:p-00246 dcterms:creator kce:yu-jongho_bisunsu-declaration_1960 .
+kc:p-00246 dcterms:creator kce:yu-jongho_confession_1961 .
+kc:p-00246 dcterms:creator kce:yu-jongho_criticism-problems_1958 .
+kc:p-00246 dcterms:creator kce:yu-jongho_criticism-reflection_1958 .
+kc:p-00246 dcterms:creator kce:yu-jongho_experience-imagination-viewpoint_1961 .
+kc:p-00246 dcterms:creator kce:yu-jongho_freedom-name_1960 .
+kc:p-00246 dcterms:creator kce:yu-jongho_glance-word_1961 .
+kc:p-00246 dcterms:creator kce:yu-jongho_humanism-absence_1962 .
+kc:p-00246 dcterms:creator kce:yu-jongho_intellectual-freedom_1974 .
+kc:p-00246 dcterms:creator kce:yu-jongho_intellectual-literature_1965 .
+kc:p-00246 dcterms:creator kce:yu-jongho_intelligence-anti_1964 .
+kc:p-00246 dcterms:creator kce:yu-jongho_jang-yonghak_1960 .
+kc:p-00246 dcterms:creator kce:yu-jongho_kim-sowol_1960 .
+kc:p-00246 dcterms:creator kce:yu-jongho_korean-pessimism_1961 .
+kc:p-00246 dcterms:creator kce:yu-jongho_language-valley_1957 .
+kc:p-00246 dcterms:creator kce:yu-jongho_modern-poetry-50years_1962 .
+kc:p-00246 dcterms:creator kce:yu-jongho_modern-poetry-face_1959 .
+kc:p-00246 dcterms:creator kce:yu-jongho_native-language_1959 .
+kc:p-00246 dcterms:creator kce:yu-jongho_newspaper-novel_1961 .
+kc:p-00246 dcterms:creator kce:yu-jongho_prose-spirit_1958 .
+kc:p-00246 dcterms:creator kce:yu-jongho_son-changsub_1959 .
+kc:p-00246 dcterms:creator kce:yu-jongho_thought-revolution_1959 .
+kc:p-00246 dcterms:creator kce:yu-jongho_tradition-establishment_1960 .
+kc:p-00246 dcterms:creator kce:yu-jongho_weeping-humanism_1961 .
+kc:p-00246 dcterms:creator kce:yu-jongho_writer-reader_1961 .
+kc:p-00246 critic:analyzes kc:p-00004 .
+kc:p-00246 critic:analyzes kc:p-00083 .
+kc:p-00246 critic:analyzes kc:p-00086 .
+kc:p-00246 critic:analyzes kc:p-00089 .
+kc:p-00246 critic:analyzes kc:p-00101 .
+kc:p-00246 critic:analyzes kc:p-00114 .
+kc:p-00246 critic:analyzes kc:p-00115 .
+kc:p-00246 critic:analyzes kc:p-00195 .
+kc:p-00246 critic:analyzes kc:p-00241 .
+kc:p-00246 critic:analyzes kc:p-00242 .
+kc:p-00246 critic:analyzes kc:p-00243 .
+kc:p-00246 critic:analyzes kc:p-00244 .

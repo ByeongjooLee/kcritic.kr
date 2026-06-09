@@ -440,7 +440,7 @@ PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
 SELECT DISTINCT ?name
 WHERE {
   ?essay a critic:CriticalEssay ;
-         dcterms:creator kc:p-kim-uchang ;
+         dcterms:creator kc:p-00117 ;
          cito:citesAsAuthority ?thinker .
   ?thinker foaf:name ?name .
   FILTER(LANG(?name) = "ko")
@@ -457,10 +457,10 @@ PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
 SELECT DISTINCT ?name
 WHERE {
   ?e1 a critic:CriticalEssay ;
-      dcterms:creator kc:p-kim-uchang ;
+      dcterms:creator kc:p-00117 ;
       cito:citesAsAuthority ?t .
   ?e2 a critic:CriticalEssay ;
-      dcterms:creator kc:p-yu-jongho ;
+      dcterms:creator kc:p-00246 ;
       cito:citesAsAuthority ?t .
   ?t foaf:name ?name .
   FILTER(LANG(?name) = "ko")
@@ -493,7 +493,7 @@ WHERE {
   ?essay a critic:CriticalEssay ;
          dcterms:title ?title ;
          dcterms:date ?year ;
-         cito:citesAsAuthority kc:p-heidegger .
+         cito:citesAsAuthority kc:p-00066 .
   FILTER(LANG(?title) = "ko")
 }
 ORDER BY ?year`,
