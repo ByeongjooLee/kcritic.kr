@@ -1089,11 +1089,11 @@ def build_thinker_profile(thinker_id, thinker_info):
         essay_link = f'<a href="../essays/{ctx["essay_stem"]}.html" class="ctx-essay-link">{ctx["essay_title"]}</a>'
         cid = ctx.get("critic_id", "")
         cname = ctx.get("critic_name", "")
-        critic_part = f' · <a href="../critics/{cid}.html" class="ctx-critic-link">{cname}</a>' if cid and cname else ""
+        critic_part = f'<a href="../critics/{cid}.html" class="ctx-critic-link">{cname}</a> · ' if cid and cname else ""
         context_items.append(f"""
         <li class="context-item">
           <div class="context-sentence">"{ctx["sentence"]}"</div>
-          <div class="context-source">— {essay_link}{critic_part}</div>
+          <div class="context-source">— {critic_part}{essay_link}</div>
         </li>""")
     contexts_html = f"""
     <section class="critic-profile-meta">
