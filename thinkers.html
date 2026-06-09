@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이론가 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="writers.html">작가</a>
+        <a href="thinkers.html" class="active">이론가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html">2000년대 비평</a>
+        <a href="ask.html">질문하기</a>
+        <a href="contribute.html">기여하기</a>
+        <a href="about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="index-hero">
+      <h1 class="index-heading">이론가</h1>
+      <p class="index-desc">비평글에서 이론적 근거로 인용된 사상가·학자 목록 — 이름을 클릭하면 인용 문맥과 관련 비평글을 볼 수 있습니다</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num" id="thinker-count">—</span><span class="stat-label">이론가</span></div>
+        <div class="stat"><span class="stat-num" id="essay-count-total">—</span><span class="stat-label">관련 비평글</span></div>
+        <div class="stat"><span class="stat-num" id="context-count-total">—</span><span class="stat-label">인용 문맥</span></div>
+      </div>
+    </section>
+
+    <div class="search-bar-wrap" style="margin-bottom:1.5rem;">
+      <input type="text" id="search-input" placeholder="이론가 이름 검색…"
+             style="width:100%;max-width:320px;padding:8px 14px;border:1px solid var(--border-strong);border-radius:6px;font-family:var(--font-sans);font-size:0.95rem;background:var(--surface);color:var(--text);">
+    </div>
+
+    <section class="critic-grid" id="thinker-grid">
+      <p class="index-desc" style="color:var(--text-tertiary);">불러오는 중…</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+
+  <script>
+  let allThinkers = [];
+
+  fetch('site/data/thinkers.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(thinkers => {
+      allThinkers = thinkers;
+      document.getElementById('thinker-count').textContent = thinkers.length;
+      document.getElementById('essay-count-total').textContent =
+        thinkers.reduce((s, t) => s + t.essay_count, 0);
+      document.getElementById('context-count-total').textContent =
+        thinkers.reduce((s, t) => s + (t.context_count || 0), 0);
+      renderGrid(thinkers);
+    })
+    .catch(() => {
+      document.getElementById('thinker-grid').innerHTML =
+        '<p style="color:var(--text-tertiary);">데이터를 불러올 수 없습니다. build.py를 실행해 주세요.</p>';
+    });
+
+  function renderGrid(thinkers) {
+    const grid = document.getElementById('thinker-grid');
+    if (thinkers.length === 0) {
+      grid.innerHTML = '<p style="color:var(--text-tertiary);">검색 결과가 없습니다.</p>';
+      return;
+    }
+    grid.innerHTML = thinkers.map(t => {
+      const refs = (t.ref || '').split(' ').filter(Boolean);
+      const wikiHref = refs.find(u => u.includes('wikidata')) || null;
+      const wikiBadge = wikiHref
+        ? `<a href="${wikiHref}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">W ↗</a>`
+        : '';
+      const criticCount = (t.critics || []).length;
+      return `
+      <article class="critic-card" onclick="location.href='site/thinkers/${t.id}.html'">
+        <div class="critic-card-header">
+          <h2 class="critic-card-name">${t.name}</h2>
+          <span style="display:flex;gap:4px;">${wikiBadge}</span>
+        </div>
+        <div class="critic-card-stats">
+          <span class="critic-stat"><strong>${t.essay_count}</strong> 인용 비평글</span>
+          <span class="critic-stat"><strong>${criticCount}</strong> 인용한 비평가</span>
+          <span class="critic-stat"><strong>${t.context_count || 0}</strong> 인용 문맥</span>
+        </div>
+        <div class="critic-card-footer">
+          프로필 보기 →
+        </div>
+      </article>`;
+    }).join('');
+  }
+
+  document.getElementById('search-input').addEventListener('input', function() {
+    const q = this.value.trim();
+    if (!q) { renderGrid(allThinkers); return; }
+    renderGrid(allThinkers.filter(t => t.name.includes(q)));
+  });
+  </script>
+</body>
+</html>

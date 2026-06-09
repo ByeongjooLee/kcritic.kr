@@ -1262,3 +1262,41 @@ tei-lb {
     --neutral: #8aa0c9;
   }
 }
+
+/* ── 이론가 인용 문맥 ──────────────────────────────────────── */
+.context-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.context-item {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 0.85rem 1.1rem;
+}
+
+.context-sentence {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--text);
+  font-style: italic;
+  margin-bottom: 0.45rem;
+}
+
+.context-source {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.ctx-essay-link {
+  color: var(--accent);
+  text-decoration: none;
+}
+.ctx-essay-link:hover {
+  text-decoration: underline;
+}

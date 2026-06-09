@@ -16,6 +16,7 @@ ESSAYS_DIR = Path("essays")
 OUTPUT_DIR = Path("site/essays")
 CRITICS_DIR = Path("site/critics")
 WRITERS_DIR = Path("site/writers")
+THINKERS_DIR = Path("site/thinkers")
 DATA_DIR = Path("site/data")
 PERSONS_FILE = Path("persons.json")
 
@@ -145,6 +146,30 @@ def collect_terms(root):
             seen.add(key)
             terms.append({"id": xml_id, "name": name})
     return terms
+
+
+def collect_theorist_contexts(root, persons, theorists, stem, essay_title):
+    """이론가별로 해당 인물이 등장하는 <s> 문장 컨텍스트 수집.
+    반환: {pid: [{"essay_stem": ..., "essay_title": ..., "sentence": ...}, ...]}"""
+    ctx = defaultdict(list)
+    for s_elem in root.iter(tns("s")):
+        # 이 <s> 안에 어떤 이론가 persName이 등장하는지 확인
+        mentioned = set()
+        for pn in s_elem.iter(tns("persName")):
+            xml_id = get_attr_id(pn)
+            ref = pn.get("ref", "")
+            pid = xml_id if xml_id else (ref[1:] if ref.startswith("#") else "")
+            if pid and pid in theorists:
+                mentioned.add(pid)
+        if not mentioned:
+            continue
+        raw = " ".join("".join(s_elem.itertext()).split()).strip()
+        if not raw:
+            continue
+        sentence = raw[:300] + ("…" if len(raw) > 300 else "")
+        for pid in mentioned:
+            ctx[pid].append({"essay_stem": stem, "essay_title": essay_title, "sentence": sentence})
+    return ctx
 
 
 def collect_interp_concepts(root):
@@ -422,6 +447,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
         <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
@@ -807,6 +833,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html" class="active">비평가</a>
         <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
@@ -923,6 +950,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
         <a href="../../writers.html" class="active">작가</a>
+        <a href="../../thinkers.html">이론가</a>
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
@@ -950,6 +978,143 @@ def build_writer_profile(writer_id, writer_info, essays_about):
 
     <section class="essay-grid">
       <h2 class="section-label">관련 비평글 ({essay_count}편)</h2>
+      {"".join(essay_cards)}
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>"""
+
+
+def build_thinker_profile(thinker_id, thinker_info):
+    """이론가 한 명의 프로필 페이지.
+    thinker_info = {name, ref, essay_count, essays:[{stem,title,year,critic_id,critic_name}], contexts:[{essay_stem,essay_title,sentence}]}"""
+    name = thinker_info["name"]
+    reg_ref = _registry_ref(thinker_id)
+    xml_ref = thinker_info.get("ref", "")
+    ref = reg_ref if reg_ref else xml_ref
+    lod_links = _lod_links_html(thinker_id)
+
+    wikidata_uri = ""
+    for uri in ref.split():
+        if "wikidata" in uri:
+            wikidata_uri = uri
+            break
+
+    if wikidata_uri:
+        name_chip = f'<a href="{wikidata_uri}" target="_blank" class="chip role-theorist chip-linked">{name} <span class="chip-ext">↗</span></a>'
+    else:
+        name_chip = f'<span class="chip role-theorist">{name}</span>'
+
+    # 이 이론가를 인용한 비평가 집계
+    critic_count = defaultdict(int)
+    critic_names = {}
+    for e in thinker_info["essays"]:
+        cid = e["critic_id"]
+        if cid:
+            critic_count[cid] += 1
+            critic_names[cid] = e["critic_name"]
+
+    critics_chips_html = " ".join(
+        f'<a href="../critics/{cid}.html" class="chip role-critic chip-linked">{critic_names[cid]} ({cnt}편)<span class="chip-ext"> →</span></a>'
+        for cid, cnt in sorted(critic_count.items(), key=lambda x: -x[1])
+    ) if critic_count else '<span class="muted">—</span>'
+
+    # 인용 비평글 카드 목록 (중복 제거, 연도순)
+    seen_stems = set()
+    essay_cards = []
+    for e in sorted(thinker_info["essays"], key=lambda x: x.get("year") or ""):
+        stem = e["stem"]
+        if stem in seen_stems:
+            continue
+        seen_stems.add(stem)
+        cid = e["critic_id"]
+        cname = e["critic_name"]
+        essay_cards.append(f"""
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">{e.get("year", "")}</span>
+          {f'<a href="../critics/{cid}.html" class="chip role-critic chip-linked" style="font-size:0.8rem;padding:2px 8px;">{cname}</a>' if cid else ''}
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/{stem}.html">{e["title"]}</a>
+        </h3>
+      </article>""")
+
+    # 인용 문맥 섹션
+    contexts = thinker_info.get("contexts", [])
+    context_items = []
+    for ctx in contexts:
+        essay_link = f'<a href="../essays/{ctx["essay_stem"]}.html" class="ctx-essay-link">{ctx["essay_title"]}</a>'
+        context_items.append(f"""
+        <li class="context-item">
+          <div class="context-sentence">"{ctx["sentence"]}"</div>
+          <div class="context-source">— {essay_link}</div>
+        </li>""")
+    contexts_html = f"""
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">인용 문맥 ({len(contexts)}건)</h2>
+        <ul class="context-list">{"".join(context_items)}</ul>
+      </div>
+    </section>""" if context_items else ""
+
+    essay_count = len(seen_stems)
+
+    return f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{name} — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html" class="active">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline">{name_chip}</div>
+      <h1 class="index-heading">{name}</h1>
+      {lod_links}
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">인용 비평글</span></div>
+        <div class="stat"><span class="stat-num">{len(critic_count)}</span><span class="stat-label">인용한 비평가</span></div>
+        <div class="stat"><span class="stat-num">{len(contexts)}</span><span class="stat-label">인용 문맥</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">이 이론가를 인용한 비평가</h2>
+        <div class="chip-group">{critics_chips_html}</div>
+      </div>
+    </section>
+
+    {contexts_html}
+
+    <section class="essay-grid">
+      <h2 class="section-label">인용된 비평글 ({essay_count}편)</h2>
       {"".join(essay_cards)}
     </section>
   </main>
@@ -1039,6 +1204,8 @@ def process(xml_path):
         if ("scholar" in role) and pid not in subjects and pid != author_id:
             theorists.add(pid)
 
+    theorist_contexts = collect_theorist_contexts(root, persons, theorists, xml_path.stem, title)
+
     original_year = get_original_year(sources)
     # display_year: 원발표연도 > note 추출연도 > 파일명 suffix > sources 연도
     stem_year_match = re.search(r"_(\d{4})$", xml_path.stem)
@@ -1060,6 +1227,7 @@ def process(xml_path):
         "concepts": concepts,
         "sources": sources,
         "author_id": author_id,
+        "theorist_contexts": theorist_contexts,
     }
 
 
@@ -1068,6 +1236,7 @@ def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     CRITICS_DIR.mkdir(parents=True, exist_ok=True)
     WRITERS_DIR.mkdir(parents=True, exist_ok=True)
+    THINKERS_DIR.mkdir(parents=True, exist_ok=True)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     xml_files = sorted(ESSAYS_DIR.glob("*.xml"))
@@ -1186,6 +1355,59 @@ def main():
     writers_path = DATA_DIR / "writers.json"
     writers_path.write_text(json.dumps(writers_json, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  OK writers.json -> {writers_path} ({len(writers_json)} writers)")
+
+    # 이론가 프로필 페이지 + 이론가 목록 JSON
+    # thinker_id -> {id, name, ref, essays:[{stem,title,year,critic_id,critic_name}], contexts:[...]}
+    thinkers_map = {}
+    for e in all_essays:
+        cid = e["author_id"]
+        cname = e["persons"].get(cid, {}).get("name", "") if cid else ""
+        eyear = e.get("display_year") or e["year"]
+        for pid in e["theorists"]:
+            p = e["persons"].get(pid, {})
+            if not p:
+                continue
+            if pid not in thinkers_map:
+                reg_ref = _registry_ref(pid)
+                thinkers_map[pid] = {
+                    "id": pid,
+                    "name": p.get("name", pid),
+                    "ref": reg_ref if reg_ref else p.get("ref", ""),
+                    "essays": [],
+                    "contexts": [],
+                }
+            thinkers_map[pid]["essays"].append({
+                "stem": e["stem"],
+                "title": e["title"],
+                "year": eyear,
+                "critic_id": cid,
+                "critic_name": cname,
+            })
+        # 인용 문맥 병합
+        for pid, ctx_list in e.get("theorist_contexts", {}).items():
+            if pid in thinkers_map:
+                thinkers_map[pid]["contexts"].extend(ctx_list)
+
+    for tid, tinfo in thinkers_map.items():
+        html = build_thinker_profile(tid, tinfo)
+        out = THINKERS_DIR / f"{tid}.html"
+        out.write_text(html, encoding="utf-8")
+        print(f"  OK thinker profile -> {out}")
+
+    thinkers_json = [
+        {
+            "id": tid,
+            "name": tinfo["name"],
+            "ref": tinfo["ref"],
+            "essay_count": len({e["stem"] for e in tinfo["essays"]}),
+            "critics": list({e["critic_id"] for e in tinfo["essays"] if e["critic_id"]}),
+            "context_count": len(tinfo["contexts"]),
+        }
+        for tid, tinfo in sorted(thinkers_map.items(), key=lambda x: -len({e["stem"] for e in x[1]["essays"]}))
+    ]
+    thinkers_path = DATA_DIR / "thinkers.json"
+    thinkers_path.write_text(json.dumps(thinkers_json, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"  OK thinkers.json -> {thinkers_path} ({len(thinkers_json)} thinkers)")
 
     # RDF Turtle 발행
     ttl = build_turtle(all_essays, graph)
