@@ -1087,10 +1087,13 @@ def build_thinker_profile(thinker_id, thinker_info):
     context_items = []
     for ctx in contexts:
         essay_link = f'<a href="../essays/{ctx["essay_stem"]}.html" class="ctx-essay-link">{ctx["essay_title"]}</a>'
+        cid = ctx.get("critic_id", "")
+        cname = ctx.get("critic_name", "")
+        critic_part = f' · <a href="../critics/{cid}.html" class="ctx-critic-link">{cname}</a>' if cid and cname else ""
         context_items.append(f"""
         <li class="context-item">
           <div class="context-sentence">"{ctx["sentence"]}"</div>
-          <div class="context-source">— {essay_link}</div>
+          <div class="context-source">— {essay_link}{critic_part}</div>
         </li>""")
     contexts_html = f"""
     <section class="critic-profile-meta">
@@ -1419,10 +1422,15 @@ def main():
                 "critic_id": cid,
                 "critic_name": cname,
             })
-        # 인용 문맥 병합
+        # 인용 문맥 병합 — 비평가 정보도 함께 추가
         for pid, ctx_list in e.get("theorist_contexts", {}).items():
             if pid in thinkers_map:
-                thinkers_map[pid]["contexts"].extend(ctx_list)
+                for ctx in ctx_list:
+                    thinkers_map[pid]["contexts"].append({
+                        **ctx,
+                        "critic_id": cid,
+                        "critic_name": cname,
+                    })
 
     for tid, tinfo in thinkers_map.items():
         html = build_thinker_profile(tid, tinfo)

@@ -1300,3 +1300,11 @@ tei-lb {
 .ctx-essay-link:hover {
   text-decoration: underline;
 }
+
+.ctx-critic-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.ctx-critic-link:hover {
+  text-decoration: underline;
+}
