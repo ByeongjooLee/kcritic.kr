@@ -30,6 +30,11 @@ if PERSONS_FILE.exists():
         if _p.get("wikidata"):
             _WIKIDATA_TO_SLUG[_p["wikidata"]] = _slug
 
+def _strip_parens(name: str) -> str:
+    """이름에서 괄호(전각·반각) 안 한자/영문 표기 제거. 예: 김수영（金洙暎） → 김수영"""
+    import re
+    return re.sub(r'[\s]*[（(][^）)]+[）)]', '', name).strip()
+
 def _persons_record(xml_id: str, fallback_ref: str = "") -> dict:
     """persons.json 레코드 반환. xml_id 직접 조회 → Wikidata Q번호로 역방향 조회 순으로 시도."""
     if xml_id in _PERSONS_REGISTRY:
@@ -1227,7 +1232,7 @@ def build_critics_data(all_essays):
         p = e["persons"].get(aid, {})
         if aid not in critics:
             reg_ref = _registry_ref(aid)
-            critics[aid] = {"id": aid, "name": p.get("name", aid), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
+            critics[aid] = {"id": aid, "name": _strip_parens(p.get("name", aid)), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
         critics[aid]["essays"].append(e)
     return critics
 
@@ -1400,7 +1405,7 @@ def main():
                 continue
             if pid not in writers_map:
                 reg_ref = _registry_ref(pid)
-                writers_map[pid] = {"id": pid, "name": p.get("name", pid), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
+                writers_map[pid] = {"id": pid, "name": _strip_parens(p.get("name", pid)), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
             writers_map[pid]["essays"].append(e)
 
     for wid, winfo in writers_map.items():
@@ -1441,7 +1446,7 @@ def main():
                 reg_ref = _registry_ref(pid)
                 thinkers_map[pid] = {
                     "id": pid,
-                    "name": p.get("name", pid),
+                    "name": _strip_parens(p.get("name", pid)),
                     "ref": reg_ref if reg_ref else p.get("ref", ""),
                     "essays": [],
                     "contexts": [],
