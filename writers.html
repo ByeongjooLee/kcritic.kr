@@ -79,11 +79,15 @@
     }
     grid.innerHTML = writers.map(w => {
       const refs = (w.ref || '').split(' ').filter(Boolean);
-      const encyHref = refs.find(u => u.includes('encykorea')) || null;
-      const nlkHref  = refs.find(u => u.includes('lod.nl.go.kr')) || null;
+      const encyHref = w.encykorea || refs.find(u => u.includes('encykorea')) || null;
+      const encyWorkHref = w.encykorea_work || null;
+      const nlkHref  = w.nlk || refs.find(u => u.includes('lod.nl.go.kr')) || null;
       const wikiHref = refs.find(u => u.includes('wikidata')) || null;
       const encyBadge = encyHref
         ? `<a href="${encyHref}" target="_blank" class="critic-card-wikidata" style="background:#e8f0e8;color:#2a5a2a;" onclick="event.stopPropagation()">한 ↗</a>`
+        : '';
+      const encyWorkBadge = encyWorkHref
+        ? `<a href="${encyWorkHref}" target="_blank" class="critic-card-wikidata" style="background:#f0ede8;color:#5a3a2a;" onclick="event.stopPropagation()">한(작품) ↗</a>`
         : '';
       const nlkBadge = nlkHref
         ? `<a href="${nlkHref}" target="_blank" class="critic-card-wikidata" style="background:#e8eef5;color:#1a3a5a;" onclick="event.stopPropagation()">NLK ↗</a>`
@@ -96,7 +100,7 @@
       <article class="critic-card" onclick="location.href='site/writers/${w.id}.html'">
         <div class="critic-card-header">
           <h2 class="critic-card-name">${w.name}</h2>
-          <span style="display:flex;gap:4px;">${encyBadge}${nlkBadge}${wikiBadge}</span>
+          <span style="display:flex;gap:4px;">${encyBadge}${encyWorkBadge}${nlkBadge}${wikiBadge}</span>
         </div>
         <div class="critic-card-stats">
           <span class="critic-stat"><strong>${w.essay_count}</strong> 관련 비평글</span>

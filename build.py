@@ -22,8 +22,26 @@ PERSONS_FILE = Path("persons.json")
 
 # persons.json 권위 소스 로드 (없으면 빈 dict)
 _PERSONS_REGISTRY: dict = {}
+# Wikidata Q번호 → persons.json 슬러그 역방향 인덱스
+_WIKIDATA_TO_SLUG: dict = {}
 if PERSONS_FILE.exists():
     _PERSONS_REGISTRY = json.loads(PERSONS_FILE.read_text(encoding="utf-8"))
+    for _slug, _p in _PERSONS_REGISTRY.items():
+        if _p.get("wikidata"):
+            _WIKIDATA_TO_SLUG[_p["wikidata"]] = _slug
+
+def _persons_record(xml_id: str, fallback_ref: str = "") -> dict:
+    """persons.json 레코드 반환. xml_id 직접 조회 → Wikidata Q번호로 역방향 조회 순으로 시도."""
+    if xml_id in _PERSONS_REGISTRY:
+        return _PERSONS_REGISTRY[xml_id]
+    # fallback_ref의 Wikidata URI에서 Q번호 추출해 역방향 조회
+    for uri in fallback_ref.split():
+        if "wikidata.org/wiki/" in uri:
+            qid = uri.rstrip("/").split("/")[-1]
+            slug = _WIKIDATA_TO_SLUG.get(qid)
+            if slug:
+                return _PERSONS_REGISTRY[slug]
+    return {}
 
 def _registry_ref(xml_id: str) -> str:
     """persons.json에서 xml_id의 외부 식별자 URI 문자열을 조합해 반환.
@@ -633,7 +651,7 @@ def build_critic_mini_graph(critic_id, graph_data):
 def _lod_links_html(xml_id, fallback_ref=""):
     """persons.json에서 LOD 외부 링크 뱃지 HTML 생성. 순서: encykorea → NLK → Wikidata → ISNI → VIAF
     persons.json에 없으면 fallback_ref(공백 구분 URI 문자열)에서 Wikidata 배지만 생성."""
-    p = _PERSONS_REGISTRY.get(xml_id, {})
+    p = _persons_record(xml_id, fallback_ref)
     badges = []
     if p.get("encykorea"):
         badges.append(f'<a href="{p["encykorea"]}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
@@ -1396,6 +1414,9 @@ def main():
             "id": wid,
             "name": winfo["name"],
             "ref": winfo["ref"],
+            "encykorea": _persons_record(wid, winfo["ref"]).get("encykorea") or "",
+            "encykorea_work": _persons_record(wid, winfo["ref"]).get("encykorea_work") or "",
+            "nlk": _persons_record(wid, winfo["ref"]).get("nlk") or "",
             "essay_count": len(winfo["essays"]),
             "critics": list({e["author_id"] for e in winfo["essays"] if e["author_id"]}),
         }
@@ -1453,6 +1474,9 @@ def main():
             "id": tid,
             "name": tinfo["name"],
             "ref": tinfo["ref"],
+            "encykorea": _persons_record(tid, tinfo["ref"]).get("encykorea") or "",
+            "encykorea_work": _persons_record(tid, tinfo["ref"]).get("encykorea_work") or "",
+            "nlk": _persons_record(tid, tinfo["ref"]).get("nlk") or "",
             "essay_count": len({e["stem"] for e in tinfo["essays"]}),
             "critics": list({e["critic_id"] for e in tinfo["essays"] if e["critic_id"]}),
             "context_count": len(tinfo["contexts"]),
