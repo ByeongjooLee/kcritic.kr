@@ -29,6 +29,9 @@ if PERSONS_FILE.exists():
     for _slug, _p in _PERSONS_REGISTRY.items():
         if _p.get("wikidata"):
             _WIKIDATA_TO_SLUG[_p["wikidata"]] = _slug
+        for _alias in (_p.get("wikidata_aliases") or []):
+            if _alias not in _WIKIDATA_TO_SLUG:
+                _WIKIDATA_TO_SLUG[_alias] = _slug
 
 def _strip_parens(name: str) -> str:
     """이름에서 괄호(전각·반각) 안 한자/영문 표기 제거. 예: 김수영（金洙暎） → 김수영"""

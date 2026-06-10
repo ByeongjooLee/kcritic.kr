@@ -1019,6 +1019,16 @@
     "viaf": "http://viaf.org/viaf/109680433",
     "encykorea_work": null
   },
+  "p-kim-guyong": {
+    "label": "김구용",
+    "role": "poet",
+    "wikidata": "Q12610022",
+    "encykorea": null,
+    "nlk": null,
+    "isni": null,
+    "viaf": null,
+    "encykorea_work": null
+  },
   "p-kim-gwangyu": {
     "label": "김광규",
     "role": "poet",
@@ -1953,7 +1963,8 @@
     "label": "서정주",
     "role": "poet",
     "wikidata": "Q494585",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0028180",
+    "wikidata_aliases": ["Q494715", "Q494977"],
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0071543",
     "nlk": "http://lod.nl.go.kr/resource/KAC200207962",
     "isni": "000000008403163X",
     "viaf": "http://viaf.org/viaf/53008278",
@@ -1963,7 +1974,8 @@
     "label": "서정주",
     "role": "poet",
     "wikidata": "Q494715",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0028180",
+    "wikidata_aliases": ["Q494585", "Q494977"],
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0071543",
     "nlk": "http://lod.nl.go.kr/resource/KAC200207962",
     "isni": "000000008403163X",
     "viaf": "http://viaf.org/viaf/53008278",
@@ -2013,7 +2025,8 @@
     "label": "심훈",
     "role": "poet",
     "wikidata": "Q625225",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0033978",
+    "wikidata_aliases": ["Q497011", "Q499847"],
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0033979",
     "nlk": "http://lod.nl.go.kr/resource/KAC200108734",
     "isni": "0000000083928357",
     "viaf": "http://viaf.org/viaf/71502158",
@@ -2437,6 +2450,16 @@
     "nlk": "http://lod.nl.go.kr/resource/KAC200108735",
     "isni": "0000000110594496",
     "viaf": "http://viaf.org/viaf/42639564",
+    "encykorea_work": null
+  },
+  "p-yi-hohcheol": {
+    "label": "이호철",
+    "role": "novelist",
+    "wikidata": "Q494836",
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0079615",
+    "nlk": null,
+    "isni": null,
+    "viaf": null,
     "encykorea_work": null
   },
   "p-yi-hyoseok": {
