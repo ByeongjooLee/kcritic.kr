@@ -630,8 +630,9 @@ def build_critic_mini_graph(critic_id, graph_data):
     return {"nodes": relevant_nodes, "edges": relevant_edges}
 
 
-def _lod_links_html(xml_id):
-    """persons.json에서 LOD 외부 링크 뱃지 HTML 생성. 순서: encykorea → NLK → Wikidata → ISNI → VIAF"""
+def _lod_links_html(xml_id, fallback_ref=""):
+    """persons.json에서 LOD 외부 링크 뱃지 HTML 생성. 순서: encykorea → NLK → Wikidata → ISNI → VIAF
+    persons.json에 없으면 fallback_ref(공백 구분 URI 문자열)에서 Wikidata 배지만 생성."""
     p = _PERSONS_REGISTRY.get(xml_id, {})
     badges = []
     if p.get("encykorea"):
@@ -646,6 +647,15 @@ def _lod_links_html(xml_id):
         badges.append(f'<a href="https://isni.org/isni/{p["isni"]}" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a>')
     if p.get("viaf"):
         badges.append(f'<a href="{p["viaf"]}" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a>')
+    # persons.json 미스 시 fallback_ref의 Wikidata URI로 배지 생성
+    if not badges and fallback_ref:
+        for uri in fallback_ref.split():
+            if "wikidata" in uri:
+                badges.append(f'<a href="{uri}" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a>')
+            elif "lod.nl.go.kr" in uri:
+                badges.append(f'<a href="{uri}" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a>')
+            elif "encykorea" in uri:
+                badges.append(f'<a href="{uri}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
     if not badges:
         return ""
     return '<div class="lod-links">' + " ".join(badges) + '</div>'
@@ -932,7 +942,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         name_chip = f'<a href="{wikidata_uri}" target="_blank" class="chip role-writer chip-linked">{name} <span class="chip-ext">↗</span></a>'
     else:
         name_chip = f'<span class="chip role-writer">{name}</span>'
-    lod_links = _lod_links_html(writer_id)
+    lod_links = _lod_links_html(writer_id, fallback_ref=ref)
 
     # 비평가 집계 — 이 작가를 다룬 비평가
     critic_count = defaultdict(int)
@@ -1034,7 +1044,7 @@ def build_thinker_profile(thinker_id, thinker_info):
     reg_ref = _registry_ref(thinker_id)
     xml_ref = thinker_info.get("ref", "")
     ref = reg_ref if reg_ref else xml_ref
-    lod_links = _lod_links_html(thinker_id)
+    lod_links = _lod_links_html(thinker_id, fallback_ref=ref)
 
     wikidata_uri = ""
     for uri in ref.split():
