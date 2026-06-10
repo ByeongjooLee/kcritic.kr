@@ -35,9 +35,15 @@ critic-ontology/
 │   │   └── *.html
 │   ├── critics/             ← build.py 출력: 비평가 프로필 HTML (GitHub 포함)
 │   │   └── {critic-id}.html
+│   ├── writers/             ← build.py 출력: 작가 프로필 HTML (GitHub 포함)
+│   │   └── {person-id}.html
+│   ├── thinkers/            ← build.py 출력: 이론가 프로필 HTML (GitHub 포함)
+│   │   └── {person-id}.html
 │   ├── data/
 │   │   ├── graph.json       ← build.py 출력: 관계망 데이터
 │   │   ├── critics.json     ← build.py 출력: 비평가 목록 데이터
+│   │   ├── writers.json     ← build.py 출력: 작가 목록 데이터
+│   │   ├── thinkers.json    ← build.py 출력: 이론가 목록 데이터
 │   │   ├── concepts.json    ← build.py 출력: 개념어 색인
 │   │   ├── graph.ttl        ← build.py 출력: RDF Turtle LOD 직렬화
 │   │   └── bibliography.json ← convert_phd.py 출력: 선행연구 데이터
@@ -45,6 +51,7 @@ critic-ontology/
 ├── index.html               ← 비평글 목록 (메인)
 ├── critics.html             ← 비평가 목록 탭
 ├── writers.html             ← 작가 목록 탭
+├── thinkers.html            ← 이론가 목록 탭
 ├── concepts.html            ← 개념어 탭
 ├── research.html            ← 선행연구 탭
 ├── criticism.html           ← 2000년대 비평 탭
@@ -52,6 +59,7 @@ critic-ontology/
 ├── sparql.html              ← SPARQL 탭 (숨김 상태 — ask.html 내 SPARQL 탭으로 대체)
 ├── style.css                ← 공유 스타일 (반응형 포함)
 ├── build.py                 ← TEI XML → HTML + JSON + Neo4j 동기화 빌드 스크립트
+├── persons.json             ← 인물 권위 소스 (LOD URI, Wikidata 등) — 슬러그 키
 ├── neo4j_api.py             ← FastAPI GraphRAG 서버 (포트 8000)
 ├── neo4j_load.py            ← graph.json → Neo4j 단독 로드 스크립트
 ├── convert_phd.py           ← 박사논문 xlsx → bibliography.json 변환
@@ -63,24 +71,27 @@ critic-ontology/
 
 ---
 
-## 3. 사이트 구조 (탭 8개)
+## 3. 사이트 구조 (탭 9개)
 
 | 탭 | 파일 | 설명 |
 |---|---|---|
 | 비평글 | `index.html` | 수록 비평글 카드 목록 |
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
 | 작가 | `writers.html` | 비평 대상 작가 목록 → 클릭 시 프로필 페이지 |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 (231노드, 288엣지 — 2026-05-26 기준) |
+| 이론가 | `thinkers.html` | 비평에서 인용된 이론가 목록 → 클릭 시 프로필 페이지 (인용 문맥 포함) |
+| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 |
 | 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
 | 질문하기 | `ask.html` | Neo4j GraphRAG — 자연어 질문 → Cypher 자동 생성 → 학술 답변 |
 
 ### 네비게이션 경로 (파일 위치별)
-- 루트 페이지(`index.html`, `critics.html`, `writers.html`, `concepts.html`, `research.html`, `criticism.html`): `site/graph.html`, `concepts.html`, `research.html`, `critics.html`, `criticism.html`, `ask.html`
-- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/graph.html`: `../index.html`, `../critics.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`
+- 루트 페이지(`index.html`, `critics.html`, `writers.html`, `thinkers.html` 등): `비평글`, `비평가`, `작가`, `이론가`, `관계망`, `개념어`, `선행연구`, `2000년대 비평`, `질문하기`
+- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
+- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
+- `site/writers/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
+- `site/thinkers/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
+- `site/graph.html`: `../index.html`, `../critics.html`, `../writers.html`, `../thinkers.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`
 
 ---
 
@@ -96,8 +107,12 @@ py build.py
 build.py 출력:
 - `site/essays/{stem}.html` — 메타데이터 HTML (원문 없음, 저작권 고지 포함)
 - `site/critics/{critic-id}.html` — 비평가 프로필 HTML
+- `site/writers/{person-id}.html` — 작가 프로필 HTML
+- `site/thinkers/{person-id}.html` — 이론가 프로필 HTML (인용 문맥 포함)
 - `site/data/graph.json` — 관계망 노드/엣지 데이터
 - `site/data/critics.json` — 비평가 목록 데이터
+- `site/data/writers.json` — 작가 목록 데이터 (encykorea, nlk, ref 포함)
+- `site/data/thinkers.json` — 이론가 목록 데이터 (context_count 포함)
 
 ### 박사논문 데이터 변환
 
@@ -246,6 +261,29 @@ py -m uvicorn neo4j_api:app --reload
 - `interp[type='concept']` 텍스트가 그대로 `name`. 같은 개념이 여러 에세이에 반복 출현 시 essay_count 증가
 - `excerpt`: build.py가 해당 interp의 부모 `<p>`/`<s>` 텍스트에서 자동 추출 (최대 150자)
 - **concepts.html 표시 기준: `essay_count >= 2`인 개념어만 공개** — 1편만 등장한 개념어는 JSON에는 있지만 UI에서 숨김
+
+## 6-1. writers.json / thinkers.json 형식
+
+```json
+[
+  {
+    "id": "p-00247",
+    "name": "윤동주",
+    "ref": "https://www.wikidata.org/wiki/Q625089",
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0042294",
+    "encykorea_work": null,
+    "nlk": "http://lod.nl.go.kr/resource/KAC201110203",
+    "essay_count": 3,
+    "critics": ["p-00117", "p-00246"]
+  }
+]
+```
+
+thinkers.json 추가 필드:
+- `context_count`: 인용 문맥(sentence) 개수
+- 인용 문맥 출처 표기 순서: `— 비평가 · 에세이 제목`
+
+---
 
 ## 7. bibliography.json 형식
 
@@ -411,11 +449,43 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 
 ---
 
-## 13. 외부 연결 데이터
+## 13. 외부 연결 데이터 (LOD)
 
 - 한국 인물: 국립중앙도서관 LOD (https://lod.nl.go.kr) → Wikidata → ISNI
 - 외국 이론가: Wikidata (https://wikidata.org) 우선
 - `ref` 속성에 전체 URI. 여러 URI는 공백 구분
+
+### persons.json — 인물 권위 소스
+
+`persons.json` 파일이 LOD 링크의 권위 소스. 키는 **슬러그 형식** (`p-yun-dongju`), XML의 숫자 ID(`p-00247`)와 다름.
+
+```json
+"p-yun-dongju": {
+  "label": "윤동주",
+  "role": "poet",
+  "wikidata": "Q625089",
+  "wikidata_aliases": ["Q다른Q번호"],
+  "encykorea": "https://encykorea.aks.ac.kr/Article/E0042294",
+  "nlk": "http://lod.nl.go.kr/resource/KAC201110203",
+  "isni": "0000000081384480",
+  "viaf": "http://viaf.org/viaf/59228311",
+  "encykorea_work": null
+}
+```
+
+**build.py 연결 메커니즘:**
+- `_WIKIDATA_TO_SLUG`: Wikidata Q번호 → 슬러그 역방향 인덱스 (빌드 시 자동 구축)
+- `wikidata_aliases`: 같은 인물이 에세이마다 다른 Q번호로 정의된 경우 별칭 등록
+- `_persons_record(xml_id, fallback_ref)`: xml_id 직접 조회 → XML ref의 Q번호로 역방향 조회 순
+
+**LOD 배지 표시 우선순위:** encykorea → encykorea_work → NLK → Wikidata → ISNI → VIAF
+
+**persons.json 수정 시 주의:**
+- encykorea URL은 반드시 실제 해당 인물 항목인지 확인 (동명이인 오류 빈번)
+  - 서정주: `E0028180`(무형문화재 동명) → 올바른 `E0071543`(시인)
+  - 심훈: `E0033978`(조선 승려 동명) → 올바른 `E0033979`(소설가)
+- 같은 인물이 에세이마다 Q번호가 다르면 `wikidata_aliases`에 추가
+- 인물 이름 표시: `_strip_parens()` 함수가 `（漢字）` `(English)` 괄호 표기 자동 제거 → XML에 한자 병기해도 카드/페이지에는 한글만 표시됨
 
 ---
 
