@@ -504,7 +504,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <a href="../../index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
@@ -513,6 +513,9 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../about.html">소개</a>
       </nav>
     </div>
   </header>
@@ -900,7 +903,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <a href="../../index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html" class="active">비평가</a>
@@ -909,6 +912,9 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../about.html">소개</a>
       </nav>
     </div>
   </header>
@@ -1017,7 +1023,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <a href="../../index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
@@ -1026,6 +1032,9 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../about.html">소개</a>
       </nav>
     </div>
   </header>
@@ -1154,7 +1163,7 @@ def build_thinker_profile(thinker_id, thinker_info):
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <a href="../../index.html" class="site-title">kcritic — 한국 비평사 온톨로지</a>
       <nav class="site-nav">
         <a href="../../index.html">비평글</a>
         <a href="../../critics.html">비평가</a>
@@ -1163,6 +1172,9 @@ def build_thinker_profile(thinker_id, thinker_info):
         <a href="../graph.html">관계망</a>
         <a href="../../concepts.html">개념어</a>
         <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../about.html">소개</a>
       </nav>
     </div>
   </header>
