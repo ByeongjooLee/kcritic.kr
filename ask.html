@@ -7,6 +7,101 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 탭 UI */
+    .ask-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .ask-tab {
+      padding: .6rem 1.4rem;
+      font-size: .92rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
+    }
+    .ask-tab:hover { color: var(--text); }
+    .ask-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+    .ask-panel { display: none; }
+    .ask-panel.active { display: block; }
+
+    /* SPARQL 패널 */
+    .sparql-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .sparql-left h2 {
+      font-size: .88rem; font-weight: 600;
+      color: var(--text-secondary); margin-bottom: .6rem; letter-spacing: .03em;
+    }
+    .sparql-textarea {
+      width: 100%; height: 260px; font-family: monospace; font-size: .82rem;
+      padding: .8rem 1rem; border: 1.5px solid var(--border); border-radius: 8px;
+      background: var(--bg); color: var(--text); resize: vertical; line-height: 1.6;
+    }
+    .sparql-textarea:focus { outline: none; border-color: var(--accent); }
+    .sparql-run-btn {
+      margin-top: .6rem; padding: .6rem 1.4rem; border-radius: 8px; border: none;
+      background: var(--accent); color: #fff; font-size: .9rem;
+      cursor: pointer; font-family: inherit;
+    }
+    .sparql-run-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .sparql-examples-label {
+      font-size: .78rem; color: var(--text-tertiary);
+      margin: 1rem 0 .4rem; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .sparql-example-btn {
+      display: block; width: 100%; text-align: left;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 6px; padding: .5rem .8rem; font-size: .82rem;
+      color: var(--text-secondary); cursor: pointer; margin-bottom: .4rem;
+      font-family: inherit; line-height: 1.5;
+    }
+    .sparql-example-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .sparql-right h2 {
+      font-size: .88rem; font-weight: 600;
+      color: var(--text-secondary); margin-bottom: .6rem; letter-spacing: .03em;
+    }
+    .sparql-result-box {
+      border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; min-height: 260px;
+    }
+    .sparql-result-placeholder {
+      padding: 2rem 1.5rem; color: var(--text-tertiary);
+      font-size: .88rem; text-align: center;
+    }
+    .sparql-result-table { width: 100%; border-collapse: collapse; font-size: .82rem; overflow-x: auto; }
+    .sparql-result-table th {
+      background: var(--surface-2); padding: .5rem .8rem;
+      border-bottom: 1px solid var(--border); text-align: left;
+      color: var(--text-secondary); font-weight: 600; font-size: .78rem;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .sparql-result-table td {
+      padding: .45rem .8rem; border-bottom: 1px solid var(--border);
+      color: var(--text); word-break: break-all;
+    }
+    .sparql-result-table tr:last-child td { border-bottom: none; }
+    .sparql-result-table tr:hover td { background: var(--surface-2); }
+    .sparql-error { padding: 1rem 1.5rem; color: #c0392b; font-size: .85rem; font-family: monospace; white-space: pre-wrap; }
+    .sparql-count { font-size: .75rem; color: var(--text-tertiary); padding: .4rem .8rem; border-top: 1px solid var(--border); background: var(--surface-2); }
+    .sparql-notice { font-size: .8rem; color: var(--text-tertiary); margin-top: .5rem; line-height: 1.6; }
+
+    @media (max-width: 768px) {
+      .sparql-layout { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -28,14 +123,66 @@
     </div>
   </header>
 
-  <main class="container" style="max-width:600px;padding:6rem 1rem;text-align:center;">
-    <p style="font-size:2.5rem;margin-bottom:1.5rem;">🔧</p>
-    <h1 style="font-size:1.4rem;font-weight:600;margin-bottom:1rem;">준비 중입니다</h1>
-    <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem;">
-      그래프 데이터베이스 기반 자연어 질문 기능을 준비하고 있습니다.<br>
-      곧 "김우창이 가장 많이 인용한 이론가는?" 같은 질문에<br>
-      답할 수 있는 GraphRAG 기능이 추가될 예정입니다.
-    </p>
+  <main class="container index-main">
+    <h1 class="index-heading" style="margin-bottom:1.5rem;">질문하기</h1>
+
+    <div class="ask-tabs">
+      <button class="ask-tab active" onclick="switchTab('graphrag', this)">질문하기</button>
+      <button class="ask-tab" onclick="switchTab('sparql', this)">SPARQL</button>
+    </div>
+
+    <!-- GraphRAG 패널 — 준비 중 -->
+    <div class="ask-panel active" id="panel-graphrag">
+      <div style="text-align:center;padding:4rem 1rem;">
+        <p style="font-size:2rem;margin-bottom:1rem;">🔧</p>
+        <h2 style="font-size:1.2rem;font-weight:600;margin-bottom:.8rem;">준비 중입니다</h2>
+        <p style="color:var(--text-secondary);line-height:1.8;font-size:0.93rem;">
+          그래프 데이터베이스 기반 자연어 질문 기능을 준비하고 있습니다.<br>
+          "김우창이 가장 많이 인용한 이론가는?" 같은 질문에<br>
+          답할 수 있는 GraphRAG 기능이 곧 추가될 예정입니다.
+        </p>
+        <p style="margin-top:1.5rem;font-size:.85rem;color:var(--text-tertiary);">
+          지금은 SPARQL 탭에서 직접 쿼리를 실행해보세요.
+        </p>
+      </div>
+    </div>
+
+    <!-- SPARQL 패널 -->
+    <div class="ask-panel" id="panel-sparql">
+      <div class="sparql-layout">
+        <div class="sparql-left">
+          <h2>SPARQL 쿼리</h2>
+          <textarea class="sparql-textarea" id="sparql-input" spellcheck="false">PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?title ?year
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:title ?title ;
+         dcterms:date ?year .
+  FILTER(LANG(?title) = "ko")
+}
+ORDER BY ?year</textarea>
+          <button class="sparql-run-btn" id="sparql-btn" onclick="doSparql()">실행</button>
+          <p class="sparql-notice">데이터 소스: <code>site/data/graph.ttl</code> (RDF Turtle) — 브라우저 내 Comunica 엔진으로 실행, 서버 불필요</p>
+
+          <p class="sparql-examples-label">예제 쿼리</p>
+          <button class="sparql-example-btn" onclick="setSparql(0)">비평글 전체 목록 (제목·연도)</button>
+          <button class="sparql-example-btn" onclick="setSparql(1)">김우창이 인용한 이론가 목록</button>
+          <button class="sparql-example-btn" onclick="setSparql(2)">두 비평가가 공통으로 인용한 이론가</button>
+          <button class="sparql-example-btn" onclick="setSparql(3)">이론가별 인용 횟수 (내림차순)</button>
+          <button class="sparql-example-btn" onclick="setSparql(4)">특정 이론가(하이데거)를 인용한 에세이</button>
+        </div>
+
+        <div class="sparql-right">
+          <h2>결과</h2>
+          <div class="sparql-result-box" id="sparql-result">
+            <div class="sparql-result-placeholder">쿼리를 실행하면 결과가 여기 표시됩니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -43,5 +190,100 @@
       <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
     </div>
   </footer>
+
+  <script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.ask-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ask-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + name).classList.add('active');
+  }
+
+  const SPARQL_EXAMPLES = [
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX kce:    <https://kcritic.kr/resource/essay/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?title ?year
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:title ?title ;
+         dcterms:date ?year .
+  FILTER(LANG(?title) = "ko")
+}
+ORDER BY ?year`,
+
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito:   <http://purl.org/spar/cito/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?name
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:creator kc:p-00117 ;
+         cito:citesAsAuthority ?thinker .
+  ?thinker foaf:name ?name .
+  FILTER(LANG(?name) = "ko")
+}
+ORDER BY ?name`,
+
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito:   <http://purl.org/spar/cito/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?name
+WHERE {
+  ?e1 a critic:CriticalEssay ;
+      dcterms:creator kc:p-00117 ;
+      cito:citesAsAuthority ?t .
+  ?e2 a critic:CriticalEssay ;
+      dcterms:creator kc:p-00246 ;
+      cito:citesAsAuthority ?t .
+  ?t foaf:name ?name .
+  FILTER(LANG(?name) = "ko")
+}
+ORDER BY ?name`,
+
+    `PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX cito:   <http://purl.org/spar/cito/>
+PREFIX foaf:   <http://xmlns.com/foaf/0.1/>
+
+SELECT ?name (COUNT(?essay) AS ?count)
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         cito:citesAsAuthority ?thinker .
+  ?thinker foaf:name ?name .
+  FILTER(LANG(?name) = "ko")
+}
+GROUP BY ?thinker ?name
+ORDER BY DESC(?count)`,
+
+    `PREFIX kc:     <https://kcritic.kr/resource/>
+PREFIX critic: <http://kcritic.kr/ontology/critic#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX cito:   <http://purl.org/spar/cito/>
+
+SELECT ?title ?year
+WHERE {
+  ?essay a critic:CriticalEssay ;
+         dcterms:title ?title ;
+         dcterms:date ?year ;
+         cito:citesAsAuthority kc:p-00066 .
+  FILTER(LANG(?title) = "ko")
+}
+ORDER BY ?year`,
+  ];
+
+  function setSparql(idx) {
+    document.getElementById('sparql-input').value = SPARQL_EXAMPLES[idx];
+  }
+  </script>
+
+  <script src="site/sparql-bundle.js"></script>
 </body>
 </html>
