@@ -127,12 +127,12 @@
     <h1 class="index-heading" style="margin-bottom:1.5rem;">질문하기</h1>
 
     <div class="ask-tabs">
-      <button class="ask-tab active" onclick="switchTab('graphrag', this)">질문하기</button>
-      <button class="ask-tab" onclick="switchTab('sparql', this)">SPARQL</button>
+      <button class="ask-tab active" onclick="switchTab('sparql', this)">SPARQL</button>
+      <button class="ask-tab" onclick="switchTab('graphrag', this)">질문하기</button>
     </div>
 
     <!-- GraphRAG 패널 — 준비 중 -->
-    <div class="ask-panel active" id="panel-graphrag">
+    <div class="ask-panel" id="panel-graphrag">
       <div style="text-align:center;padding:4rem 1rem;">
         <p style="font-size:2rem;margin-bottom:1rem;">🔧</p>
         <h2 style="font-size:1.2rem;font-weight:600;margin-bottom:.8rem;">준비 중입니다</h2>
@@ -148,7 +148,7 @@
     </div>
 
     <!-- SPARQL 패널 -->
-    <div class="ask-panel" id="panel-sparql">
+    <div class="ask-panel active" id="panel-sparql">
       <div class="sparql-layout">
         <div class="sparql-left">
           <h2>SPARQL 쿼리</h2>
