@@ -487,6 +487,54 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 - 같은 인물이 에세이마다 Q번호가 다르면 `wikidata_aliases`에 추가
 - 인물 이름 표시: `_strip_parens()` 함수가 `（漢字）` `(English)` 괄호 표기 자동 제거 → XML에 한자 병기해도 카드/페이지에는 한글만 표시됨
 
+### 신규 인물 추가 시 Wikidata 검증 절차
+
+persons.json에 새 인물을 추가하거나 기존 Q번호가 의심될 때 반드시 검증.
+
+**1. Wikidata API로 후보 확인**
+
+```python
+import urllib.request, urllib.parse, json
+
+def search_wikidata(name, lang='ko'):
+    params = {'action':'wbsearchentities','search':name,'language':lang,
+              'limit':5,'type':'item','format':'json'}
+    url = 'https://www.wikidata.org/w/api.php?' + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={'User-Agent':'kcritic/1.0'})
+    with urllib.request.urlopen(req) as r:
+        return json.loads(r.read())['search']
+
+# 사용: search_wikidata('윤동주') 또는 search_wikidata('Yun Dongju', 'en')
+```
+
+**2. 직업(P106) 우선순위 — 문학·철학 관련 항목 선택**
+
+| 우선순위 | 직업 QID 예시 |
+|---|---|
+| 높음 ✅ | Q4964182(철학자), Q36180(작가), Q49757(시인), Q6625963(소설가), Q4853732(문학비평가) |
+| 중간 | Q201788(역사학자), Q2306091(사회학자), Q2478141(사상가) |
+| 낮음 ❌ | Q937857(축구선수), Q82955(정치인) — 동명이인 오류 |
+
+**3. Q번호 확정 후 검증**
+
+`https://www.wikidata.org/wiki/{Q번호}` 직접 접속해서 한글 레이블·직업·설명 확인.
+
+**4. 일괄 검증 (인물 다수 추가 후)**
+
+`온톨로지/` 디렉터리에서 아래 스크립트 실행 → `persons_wikidata_verify.xlsx` 생성:
+- ✅ 일치(문학·철학) / ⚠ 확인 필요 / ❌ 불일치(무관 직업) 판정
+- 후보 3개 자동 제시 (문학·철학 직업 우선 정렬)
+- 셀 클릭 시 Wikidata 바로 이동
+
+```python
+# verify_persons.py — 온톨로지/ 디렉터리에서 실행
+# (스크립트가 없으면 Claude에게 재생성 요청)
+```
+
+**5. encykorea 동명이인 확인**
+
+`https://encykorea.aks.ac.kr/Article/{E번호}` 접속 → 페이지 상단 인물 설명이 해당 인물인지 직접 확인. 동명이인이 많으므로 생년·직업 반드시 대조.
+
 ---
 
 ## 14. 스택 요약
