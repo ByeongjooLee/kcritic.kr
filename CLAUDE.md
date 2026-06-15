@@ -491,6 +491,39 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 
 persons.json에 새 인물을 추가하거나 기존 Q번호가 의심될 때 반드시 검증.
 
+#### 한국 인물 — NLK Person RDF 우선 (권장)
+
+국립중앙도서관 LOD RDF 파일(`온톨로지/Person_rdf_20260401/*.rdf`, 744,496건)에는
+이미 검증된 `owl:sameAs → Wikidata QID`가 포함되어 있다.
+이 데이터를 먼저 조회하면 동명이인 오류를 크게 줄일 수 있다.
+
+**흐름:**
+1. 이름으로 RDF 인덱스 검색 → 문학 관련 `nlon:fieldOfActivity` / `schema:jobTitle` 항목 필터
+2. 해당 항목의 `owl:sameAs` Wikidata URL에서 QID 추출
+3. QID가 없거나 외국 인물이면 아래 Wikidata API 방식으로 진행
+
+**문학 관련 fieldOfActivity 키워드 (필터 기준):**
+`한국 문학`, `한국 소설`, `한국 시`, `한국 희곡`, `한국 수필`, `문학(예술)`, `아동 문학`,
+`한국 현대 문학`, `비교 문학`, `영미 문학`, `프랑스 문학`, `철학(사상)`, `미학`, `언어학` 등
+
+**문학 관련 jobTitle 키워드 (필터 기준):**
+`시인`, `소설가`, `작가`, `수필가`, `극작가`, `문학비평가`, `평론가`, `철학자`, `번역가` 등
+
+**주의사항:**
+- 동명이인 처리: 같은 이름에 QID가 다른 항목 여러 개 → 필드/직업 기준 수동 선택
+- NLK에 없는 경우(외국 인물 다수): Wikidata API 방식으로 전환
+- 일괄 매칭이 필요하면 Claude에게 `match_from_nlk_rdf.py` 재생성 요청
+
+```python
+# match_from_nlk_rdf.py — 온톨로지/ 디렉터리에서 실행
+# NLK RDF 전체 파싱(약 30초) → persons.json 자동 업데이트
+# (스크립트가 없으면 Claude에게 재생성 요청)
+```
+
+#### 외국 인물 — Wikidata API 검색
+
+NLK RDF에 한글 이름이 없는 외국 인물에 한해 Wikidata API를 사용한다.
+
 **1. Wikidata API로 후보 확인**
 
 ```python
@@ -504,7 +537,7 @@ def search_wikidata(name, lang='ko'):
     with urllib.request.urlopen(req) as r:
         return json.loads(r.read())['search']
 
-# 사용: search_wikidata('윤동주') 또는 search_wikidata('Yun Dongju', 'en')
+# 사용: search_wikidata('하이데거') 또는 search_wikidata('Heidegger', 'en')
 ```
 
 **2. 직업(P106) 우선순위 — 문학·철학 관련 항목 선택**
@@ -515,23 +548,16 @@ def search_wikidata(name, lang='ko'):
 | 중간 | Q201788(역사학자), Q2306091(사회학자), Q2478141(사상가) |
 | 낮음 ❌ | Q937857(축구선수), Q82955(정치인) — 동명이인 오류 |
 
+**판단 기준:**
+- 현재 QID보다 명확히 높은 직업 점수의 후보 있음 → 교체
+- 모든 후보의 직업 불명확(Wikidata에 P106 미등록) → 기존 QID 유지 (변경 근거 없음)
+- 기존 QID 자체가 존재하지 않거나 무관한 항목 → 교체 필수
+
 **3. Q번호 확정 후 검증**
 
 `https://www.wikidata.org/wiki/{Q번호}` 직접 접속해서 한글 레이블·직업·설명 확인.
 
-**4. 일괄 검증 (인물 다수 추가 후)**
-
-`온톨로지/` 디렉터리에서 아래 스크립트 실행 → `persons_wikidata_verify.xlsx` 생성:
-- ✅ 일치(문학·철학) / ⚠ 확인 필요 / ❌ 불일치(무관 직업) 판정
-- 후보 3개 자동 제시 (문학·철학 직업 우선 정렬)
-- 셀 클릭 시 Wikidata 바로 이동
-
-```python
-# verify_persons.py — 온톨로지/ 디렉터리에서 실행
-# (스크립트가 없으면 Claude에게 재생성 요청)
-```
-
-**5. encykorea 동명이인 확인**
+**4. encykorea 동명이인 확인**
 
 `https://encykorea.aks.ac.kr/Article/{E번호}` 접속 → 페이지 상단 인물 설명이 해당 인물인지 직접 확인. 동명이인이 많으므로 생년·직업 반드시 대조.
 
