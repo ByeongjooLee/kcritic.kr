@@ -250,6 +250,8 @@
       display: flex;
       gap: 0.4rem;
       z-index: 10;
+      flex-wrap: wrap;
+      max-width: calc(100vw - 340px);
     }
     .toolbar-btn {
       background: rgba(255,255,255,0.92);
@@ -275,6 +277,24 @@
     }
     .toolbar-btn:hover { background: #f0e8df; color: #6b3e26; border-color: #d9c4b0; }
     .toolbar-btn.active { background: #f0e8df; color: #6b3e26; border-color: #d9c4b0; font-weight: 500; }
+
+    /* 비평가 포커스 선택기 */
+    .toolbar-select-critic {
+      background: rgba(255,255,255,0.92);
+      border: 1.5px solid #d9c4b0;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 12px;
+      color: #6b3e26;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      font-family: inherit;
+      font-weight: 500;
+    }
+    .toolbar-select-critic.focused {
+      background: #f0e8df;
+      border-color: #c9986a;
+    }
 
     /* ── 필터 ── */
     .graph-filters {
@@ -364,7 +384,7 @@
       #mobile-drawer { display: block; }
 
       /* 툴바 위치 조정 */
-      .graph-toolbar { right: 0.75rem; top: 0.75rem; }
+      .graph-toolbar { right: 0.75rem; top: 0.75rem; max-width: calc(100vw - 1.5rem); }
 
       /* 필터 버튼 작게 */
       .graph-filters { top: 0.75rem; left: 0.75rem; max-width: calc(100vw - 160px); }
@@ -415,12 +435,15 @@
 
       <!-- 툴바 -->
       <div class="graph-toolbar">
+        <select class="toolbar-select-critic" id="critic-focus-select" onchange="setCriticFocus(this.value)">
+          <option value="">비평가 선택…</option>
+        </select>
         <select class="toolbar-select" id="layout-select" onchange="changeLayout(this.value)">
           <option value="cose">Force</option>
           <option value="dagre">계층형 (Dagre)</option>
         </select>
-        <button class="toolbar-btn" onclick="cy.fit()">전체 보기</button>
-        <button class="toolbar-btn" onclick="resetLayout()">레이아웃 초기화</button>
+        <button class="toolbar-btn" onclick="focusedCritic ? cy.fit(cy.nodes(':visible'), 40) : cy.fit()">전체 보기</button>
+        <button class="toolbar-btn" onclick="resetFocus()">초기화</button>
       </div>
 
       <!-- 범례 -->
@@ -485,6 +508,8 @@
 
   let cy;
   let activeFilters = new Set(['critic', 'writer', 'theorist', 'essay']);
+  let graphData = null;  // 전체 그래프 데이터 보관
+  let focusedCritic = null;
 
   // 그래프 레이아웃 높이를 헤더 실제 높이 기준으로 설정
   function setLayoutHeight() {
@@ -496,7 +521,7 @@
 
   fetch('data/graph.json')
     .then(r => r.json())
-    .then(data => initGraph(data))
+    .then(data => { graphData = data; initGraph(data); populateCriticSelect(data); })
     .catch(e => console.error('graph.json 로드 실패:', e));
 
   function initGraph(data) {
@@ -698,6 +723,85 @@
 
   function resetLayout() {
     cy.layout(getLayout()).run();
+  }
+
+  // ── 비평가 포커스 ──────────────────────────────────────────
+
+  function populateCriticSelect(data) {
+    const sel = document.getElementById('critic-focus-select');
+    const critics = data.nodes
+      .filter(n => n.type === 'critic')
+      .sort((a, b) => a.label.localeCompare(b.label, 'ko'));
+    critics.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c.id;
+      opt.textContent = c.label;
+      sel.appendChild(opt);
+    });
+  }
+
+  function setCriticFocus(criticId) {
+    const sel = document.getElementById('critic-focus-select');
+    focusedCritic = criticId || null;
+
+    if (!criticId) {
+      resetFocus();
+      return;
+    }
+
+    sel.classList.add('focused');
+
+    // 해당 비평가가 집필한 에세이 ID 목록
+    const essayIds = new Set(
+      graphData.edges
+        .filter(e => e.source === criticId && e.type === 'wrote')
+        .map(e => e.target)
+    );
+
+    // 그 에세이들에서 활용된 이론가 ID 목록
+    const theoristIds = new Set(
+      graphData.edges
+        .filter(e => essayIds.has(e.source) && e.type === 'uses_theory')
+        .map(e => e.target)
+    );
+
+    // 표시할 노드: 선택 비평가 + 에세이들 + 이론가들
+    const visibleIds = new Set([criticId, ...essayIds, ...theoristIds]);
+
+    // 모든 노드 표시/숨김 처리
+    cy.nodes().forEach(n => {
+      n.style('display', visibleIds.has(n.id()) ? 'element' : 'none');
+    });
+
+    // 엣지: 양쪽 노드가 모두 visible일 때만 표시
+    cy.edges().forEach(e => {
+      const both = visibleIds.has(e.source().id()) && visibleIds.has(e.target().id());
+      e.style('display', both ? 'element' : 'none');
+    });
+
+    // 필터 버튼 비활성화 표시 (포커스 중에는 필터와 충돌)
+    document.querySelectorAll('.filter-btn').forEach(b => b.style.opacity = '0.4');
+
+    // 레이아웃 재계산 후 fit
+    const visibleEles = cy.elements('[style="display: element"]');
+    cy.layout({ ...getLayout(), fit: true, padding: 60 }).run();
+    setTimeout(() => {
+      cy.fit(cy.nodes(':visible'), 60);
+    }, 700);
+  }
+
+  function resetFocus() {
+    focusedCritic = null;
+    const sel = document.getElementById('critic-focus-select');
+    sel.value = '';
+    sel.classList.remove('focused');
+
+    // 필터 버튼 복원
+    document.querySelectorAll('.filter-btn').forEach(b => b.style.opacity = '');
+
+    // 필터 상태 기준으로 표시 복원
+    applyFilter();
+    cy.fit(undefined, 40);
   }
 
   // ── 필터 ──────────────────────────────────────────────────
