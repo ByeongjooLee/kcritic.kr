@@ -159,6 +159,32 @@ py -m uvicorn neo4j_api:app --reload
 - `.env` 파일에 `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, `ANTHROPIC_API_KEY` 필요
 - 엔드포인트: `GET /` (헬스체크), `POST /ask` (GraphRAG 질의), `GET /stats`
 
+### 새 비평가 추가 절차
+
+비평집·전집을 새로 인코딩하기 전에 반드시 먼저 수행.
+
+1. **NLK Person RDF 조회** (`온톨로지/Person_rdf_20260401/*.rdf`)
+   - 이름 검색 → `schema:jobTitle` / `nlon:fieldOfActivity` 로 문학 관련 항목 필터
+   - 해당 블록의 `rdf:about` → NLK URI 추출
+   - `owl:sameAs` 에서 Wikidata QID, VIAF, ISNI 추출
+2. **persons.json 등록** — 슬러그 키(`p-{slug}`)로 추가:
+   ```json
+   "p-hwang-hyonsan": {
+     "label": "황현산",
+     "role": "critic",
+     "wikidata": "Q12625944",
+     "encykorea": null,
+     "nlk": "http://lod.nl.go.kr/resource/KAC201208718",
+     "isni": "000000004542828X",
+     "viaf": "http://viaf.org/viaf/12101125",
+     "encykorea_work": null
+   }
+   ```
+3. **Git commit** — persons.json만 단독 커밋 후 push
+4. 이후 TEI XML에서 `ref="#p-{slug}"` 로 참조 → build.py가 자동으로 LOD 링크 연결
+
+> 작가(writer)·이론가(theorist) 신규 등록도 동일한 절차. 외국 인물은 NLK RDF 대신 Wikidata API 사용 (섹션 13 참조).
+
 ### 새 비평글 추가 절차
 
 1. 원문 텍스트를 `essays/{stem}.txt` 저장
@@ -492,6 +518,8 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 persons.json에 새 인물을 추가하거나 기존 Q번호가 의심될 때 반드시 검증.
 
 #### 한국 인물 — NLK Person RDF 우선 (권장)
+
+**비평가(critic)·작가(writer) 구분 없이 한국 인물은 모두 이 절차를 따른다.**
 
 국립중앙도서관 LOD RDF 파일(`온톨로지/Person_rdf_20260401/*.rdf`, 744,496건)에는
 이미 검증된 `owl:sameAs → Wikidata QID`가 포함되어 있다.
