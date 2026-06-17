@@ -1055,8 +1055,8 @@ kc:p-00226 a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00226> .
 
 kc:p-00227 a foaf:Person ;
-  foaf:name "발터 벤야민（Walter Benjamin）"@ko ;
-  rdfs:label "발터 벤야민（Walter Benjamin）"@ko ;
+  foaf:name "발터 벤야민"@ko ;
+  rdfs:label "발터 벤야민"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q61078> ;
   schema:url <https://kcritic.kr/resource/p-00227> .
 
@@ -1180,7 +1180,84 @@ kc:p-00250 a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q504> ;
   schema:url <https://kcritic.kr/resource/p-00250> .
 
+kc:p-bataille a foaf:Person ;
+  foaf:name "조르주 바타유"@ko ;
+  rdfs:label "조르주 바타유"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q170654> ;
+  schema:url <https://kcritic.kr/resource/p-bataille> .
+
+kc:p-breton a foaf:Person ;
+  foaf:name "앙드레 브르통"@ko ;
+  rdfs:label "앙드레 브르통"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q46443> ;
+  schema:url <https://kcritic.kr/resource/p-breton> .
+
+kc:p-chin-eunyoung a foaf:Person ;
+  foaf:name "진은영"@ko ;
+  rdfs:label "진은영"@ko ;
+  schema:url <https://kcritic.kr/resource/p-chin-eunyoung> .
+
+kc:p-choe-seungja a foaf:Person ;
+  foaf:name "최승자"@ko ;
+  rdfs:label "최승자"@ko ;
+  schema:url <https://kcritic.kr/resource/p-choe-seungja> .
+
+kc:p-hwang-hyonsan a critic:Critic ;
+  foaf:name "황현산"@ko ;
+  rdfs:label "황현산"@ko ;
+  schema:url <https://kcritic.kr/resource/p-hwang-hyonsan> .
+
+kc:p-kim-jonghwan a foaf:Person ;
+  foaf:name "김정환"@ko ;
+  rdfs:label "김정환"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-jonghwan> .
+
+kc:p-ranciere a foaf:Person ;
+  foaf:name "자크 랑시에르"@ko ;
+  rdfs:label "자크 랑시에르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q179769> ;
+  schema:url <https://kcritic.kr/resource/p-ranciere> .
+
+kc:p-reverdy a foaf:Person ;
+  foaf:name "피에르 르베르디"@ko ;
+  rdfs:label "피에르 르베르디"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q315264> ;
+  schema:url <https://kcritic.kr/resource/p-reverdy> .
+
+kc:p-rimbaud a foaf:Person ;
+  foaf:name "아르튀르 랭보"@ko ;
+  rdfs:label "아르튀르 랭보"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q14995351> ;
+  schema:url <https://kcritic.kr/resource/p-rimbaud> .
+
 # ── 비평글 노드 ─────────────────────────────────────────
+kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
+  dcterms:title "시 쓰는 몸과 시의 말"@ko ;
+  rdfs:label "시 쓰는 몸과 시의 말"@ko ;
+  dcterms:date "2010"^^xsd:gYear ;
+  schema:isPartOf "시 쓰는 몸과 시의 말" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_poetry-body_2010.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-chin-eunyoung ;
+  cito:discusses kc:p-choe-seungja ;
+  cito:discusses kc:p-kim-jonghwan ;
+  cito:citesAsAuthority kc:p-00227 ;
+  cito:citesAsAuthority kc:p-bataille ;
+  cito:citesAsAuthority kc:p-breton ;
+  cito:citesAsAuthority kc:p-ranciere ;
+  cito:citesAsAuthority kc:p-reverdy ;
+  cito:citesAsAuthority kc:p-rimbaud ;
+  dcterms:subject "몸의 언어"@ko ;
+  dcterms:subject "언어의 탄생"@ko ;
+  dcterms:subject "투시자의 시학"@ko ;
+  dcterms:subject "시적 주체의 소멸"@ko ;
+  dcterms:subject "에로티즘과 시"@ko ;
+  dcterms:subject "불연속과 연속"@ko ;
+  dcterms:subject "육체적 황홀"@ko ;
+  dcterms:subject "번역가의 과제"@ko ;
+  dcterms:subject "문학의 정치"@ko ;
+  dcterms:subject "감각의 재분배"@ko .
+
 kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
   dcterms:title "아름다움의 거죽과 깊이 — 심미 감각과 사회"@ko ;
   rdfs:label "아름다움의 거죽과 깊이 — 심미 감각과 사회"@ko ;
@@ -2557,3 +2634,8 @@ kc:p-00246 critic:analyzes kc:p-00241 .
 kc:p-00246 critic:analyzes kc:p-00242 .
 kc:p-00246 critic:analyzes kc:p-00243 .
 kc:p-00246 critic:analyzes kc:p-00244 .
+
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
+kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
+kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
