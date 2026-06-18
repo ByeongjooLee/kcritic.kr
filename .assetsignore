@@ -1,12 +1,12 @@
 .git
 node_modules
-essays
+/essays
 .env
 *.py
 *.xml
 *.txt
 *.jsonl
-schema
+/schema
 CLAUDE.md
 wrangler.jsonc
 package.json
