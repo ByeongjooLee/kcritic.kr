@@ -1421,6 +1421,7 @@ def main():
             "id": cid,
             "name": cinfo["name"],
             "ref": cinfo["ref"],
+            "naver_munhak": _persons_record(cid, cinfo["ref"]).get("naver_munhak", "") or "",
             "essay_count": len(cinfo["essays"]),
             "subjects": list({pid for e in cinfo["essays"] for pid in e["subjects"]}),
             "theorists": list({pid for e in cinfo["essays"] for pid in e["theorists"]}),
