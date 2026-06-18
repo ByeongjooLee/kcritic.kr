@@ -1,14 +1,14 @@
 [
   {
-    "id": "p-00241",
-    "name": "이광수",
-    "ref": "https://www.wikidata.org/wiki/Q499661",
+    "id": "p-00116",
+    "name": "김수영",
+    "ref": "https://www.wikidata.org/wiki/Q3196153",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
     "essay_count": 3,
     "critics": [
-      "p-00246",
+      "p-hwang-hyonsan",
       "p-00117"
     ]
   },
@@ -21,7 +21,32 @@
     "nlk": "",
     "essay_count": 3,
     "critics": [
-      "p-00246",
+      "p-00117",
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-00241",
+    "name": "이광수",
+    "ref": "https://www.wikidata.org/wiki/Q499661",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 3,
+    "critics": [
+      "p-00117",
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-00122",
+    "name": "고은",
+    "ref": "https://www.wikidata.org/wiki/Q494036",
+    "encykorea": "",
+    "encykorea_work": "https://encykorea.aks.ac.kr/Article/E0071227",
+    "nlk": "http://lod.nl.go.kr/resource/KAC201011569",
+    "essay_count": 2,
+    "critics": [
       "p-00117"
     ]
   },
@@ -38,42 +63,6 @@
     ]
   },
   {
-    "id": "p-00122",
-    "name": "고은",
-    "ref": "https://www.wikidata.org/wiki/Q494036",
-    "encykorea": "",
-    "encykorea_work": "https://encykorea.aks.ac.kr/Article/E0071227",
-    "nlk": "http://lod.nl.go.kr/resource/KAC201011569",
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
-    "id": "p-00116",
-    "name": "김수영",
-    "ref": "https://www.wikidata.org/wiki/Q16198424",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0009567",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
-    "id": "p-00239",
-    "name": "염상섭",
-    "ref": "https://www.wikidata.org/wiki/Q8054832",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0037111",
-    "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC201010743",
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
     "id": "p-00083",
     "name": "장용학",
     "ref": "https://www.wikidata.org/wiki/Q1753016",
@@ -82,8 +71,8 @@
     "nlk": "",
     "essay_count": 2,
     "critics": [
-      "p-00246",
-      "p-00117"
+      "p-00117",
+      "p-00246"
     ]
   },
   {
@@ -111,6 +100,18 @@
     ]
   },
   {
+    "id": "p-00239",
+    "name": "염상섭",
+    "ref": "https://www.wikidata.org/wiki/Q8054832",
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0037111",
+    "encykorea_work": "",
+    "nlk": "http://lod.nl.go.kr/resource/KAC201010743",
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
+    ]
+  },
+  {
     "id": "p-00243",
     "name": "이효석",
     "ref": "https://www.wikidata.org/wiki/Q499600",
@@ -119,8 +120,8 @@
     "nlk": "",
     "essay_count": 2,
     "critics": [
-      "p-00246",
-      "p-00117"
+      "p-00117",
+      "p-00246"
     ]
   },
   {
@@ -136,12 +137,24 @@
     ]
   },
   {
-    "id": "p-kim-jonghwan",
-    "name": "김정환",
-    "ref": "http://lod.nl.go.kr/resource/KAC202101787",
+    "id": "p-kim-kyongju",
+    "name": "김경주",
+    "ref": "",
     "encykorea": "",
     "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC202101787",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ]
+  },
+  {
+    "id": "p-chin-eunyoung",
+    "name": "진은영",
+    "ref": "http://lod.nl.go.kr/resource/KAC201012141",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "http://lod.nl.go.kr/resource/KAC201012141",
     "essay_count": 1,
     "critics": [
       "p-hwang-hyonsan"
@@ -160,12 +173,12 @@
     ]
   },
   {
-    "id": "p-chin-eunyoung",
-    "name": "진은영",
-    "ref": "http://lod.nl.go.kr/resource/KAC201012141",
+    "id": "p-kim-jonghwan",
+    "name": "김정환",
+    "ref": "http://lod.nl.go.kr/resource/KAC202101787",
     "encykorea": "",
     "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC201012141",
+    "nlk": "http://lod.nl.go.kr/resource/KAC202101787",
     "essay_count": 1,
     "critics": [
       "p-hwang-hyonsan"
@@ -256,9 +269,21 @@
     ]
   },
   {
-    "id": "p-00090",
-    "name": "정희성",
-    "ref": "https://www.wikidata.org/wiki/Q12520476",
+    "id": "p-00097",
+    "name": "김창완",
+    "ref": "",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ]
+  },
+  {
+    "id": "p-00091",
+    "name": "정현종",
+    "ref": "https://www.wikidata.org/wiki/Q1354064",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -280,21 +305,9 @@
     ]
   },
   {
-    "id": "p-00091",
-    "name": "정현종",
-    "ref": "https://www.wikidata.org/wiki/Q1354064",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
-    "id": "p-00097",
-    "name": "김창완",
-    "ref": "",
+    "id": "p-00090",
+    "name": "정희성",
+    "ref": "https://www.wikidata.org/wiki/Q12520476",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -364,9 +377,9 @@
     ]
   },
   {
-    "id": "p-00104",
-    "name": "김현승",
-    "ref": "https://www.wikidata.org/wiki/Q12498504",
+    "id": "p-00031",
+    "name": "조지훈",
+    "ref": "https://www.wikidata.org/wiki/Q495027",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -376,9 +389,9 @@
     ]
   },
   {
-    "id": "p-00031",
-    "name": "조지훈",
-    "ref": "https://www.wikidata.org/wiki/Q495027",
+    "id": "p-00104",
+    "name": "김현승",
+    "ref": "https://www.wikidata.org/wiki/Q12498504",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -424,33 +437,9 @@
     ]
   },
   {
-    "id": "p-00033",
-    "name": "최인훈",
-    "ref": "https://www.wikidata.org/wiki/Q499133",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
     "id": "p-00202",
     "name": "손창섭",
     "ref": "https://www.wikidata.org/wiki/Q499875",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
-    "id": "p-00099",
-    "name": "김동인",
-    "ref": "https://www.wikidata.org/wiki/Q499479",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -472,12 +461,24 @@
     ]
   },
   {
-    "id": "p-00200",
-    "name": "심훈",
-    "ref": "https://www.wikidata.org/wiki/Q499847",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0033979",
+    "id": "p-00033",
+    "name": "최인훈",
+    "ref": "https://www.wikidata.org/wiki/Q499133",
+    "encykorea": "",
     "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC200108734",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ]
+  },
+  {
+    "id": "p-00099",
+    "name": "김동인",
+    "ref": "https://www.wikidata.org/wiki/Q499479",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
     "essay_count": 1,
     "critics": [
       "p-00117"
@@ -496,6 +497,18 @@
     ]
   },
   {
+    "id": "p-00200",
+    "name": "심훈",
+    "ref": "https://www.wikidata.org/wiki/Q499847",
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0033979",
+    "encykorea_work": "",
+    "nlk": "http://lod.nl.go.kr/resource/KAC200108734",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ]
+  },
+  {
     "id": "p-00247",
     "name": "윤동주",
     "ref": "https://www.wikidata.org/wiki/Q489582",
@@ -508,24 +521,24 @@
     ]
   },
   {
-    "id": "p-00195",
-    "name": "서정주",
-    "ref": "https://www.wikidata.org/wiki/Q494977",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0071543",
-    "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC200207962",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ]
-  },
-  {
     "id": "p-00101",
     "name": "김구용",
     "ref": "https://encykorea.aks.ac.kr/Article/E0009830",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-00195",
+    "name": "서정주",
+    "ref": "https://www.wikidata.org/wiki/Q494977",
+    "encykorea": "https://encykorea.aks.ac.kr/Article/E0071543",
+    "encykorea_work": "",
+    "nlk": "http://lod.nl.go.kr/resource/KAC200207962",
     "essay_count": 1,
     "critics": [
       "p-00246"
