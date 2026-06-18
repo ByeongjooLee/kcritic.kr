@@ -663,7 +663,7 @@ def build_graph_data(all_essays):
 
     edges = [
         {"source": src, "target": tgt, "type": etype, "weight": cnt}
-        for (src, tgt, etype), cnt in edge_counts.items()
+        for (src, tgt, etype), cnt in sorted(edge_counts.items())
     ]
 
     # 노드 degree (연결된 엣지 수 합산, weight 반영)
@@ -674,7 +674,7 @@ def build_graph_data(all_essays):
 
     _PERSON_TYPES = {"critic", "writer", "theorist"}
     node_list = []
-    for nid, n in nodes.items():
+    for nid, n in sorted(nodes.items()):
         n["degree"] = degree.get(nid, 0)
         if n.get("type") in _PERSON_TYPES:
             n["lod"] = _lod_card_badges(_lod_record(nid, n.get("ref", "")))
@@ -786,7 +786,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         for pid in e["theorists"]:
             theorist_count[pid] += 1
             theorist_names[pid] = essays_persons_name(e, pid)
-    top_theorists = sorted(theorist_count.items(), key=lambda x: -x[1])
+    top_theorists = sorted(theorist_count.items(), key=lambda x: (-x[1], x[0]))
     theorist_chips_html = " ".join(
         f'<span class="chip chip-term">{theorist_names[pid]} ({cnt})</span>'
         for pid, cnt in top_theorists
@@ -799,7 +799,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         for pid in e["subjects"]:
             subject_count[pid] += 1
             subject_names[pid] = essays_persons_name(e, pid)
-    top_subjects = sorted(subject_count.items(), key=lambda x: -x[1])
+    top_subjects = sorted(subject_count.items(), key=lambda x: (-x[1], x[0]))
     subject_chips_html = " ".join(
         f'<span class="chip role-writer">{subject_names[pid]}</span>'
         for pid, _ in top_subjects
@@ -1031,7 +1031,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
 
     critics_chips_html = " ".join(
         f'<a href="../critics/{cid}.html" class="chip role-critic chip-linked">{critic_names[cid]} ({cnt}편)<span class="chip-ext"> →</span></a>'
-        for cid, cnt in sorted(critic_count.items(), key=lambda x: -x[1])
+        for cid, cnt in sorted(critic_count.items(), key=lambda x: (-x[1], x[0]))
     ) if critic_count else '<span class="muted">—</span>'
 
     # 비평글 카드 목록
@@ -1147,7 +1147,7 @@ def build_thinker_profile(thinker_id, thinker_info):
 
     critics_chips_html = " ".join(
         f'<a href="../critics/{cid}.html" class="chip role-critic chip-linked">{critic_names[cid]} ({cnt}편)<span class="chip-ext"> →</span></a>'
-        for cid, cnt in sorted(critic_count.items(), key=lambda x: -x[1])
+        for cid, cnt in sorted(critic_count.items(), key=lambda x: (-x[1], x[0]))
     ) if critic_count else '<span class="muted">—</span>'
 
     # 인용 비평글 카드 목록 (중복 제거, 연도순)
@@ -1446,8 +1446,8 @@ def main():
             "ref": cinfo["ref"],
             "lod": _lod_card_badges(_lod_record(cid, cinfo["ref"])),
             "essay_count": len(cinfo["essays"]),
-            "subjects": list({pid for e in cinfo["essays"] for pid in e["subjects"]}),
-            "theorists": list({pid for e in cinfo["essays"] for pid in e["theorists"]}),
+            "subjects": sorted({pid for e in cinfo["essays"] for pid in e["subjects"]}),
+            "theorists": sorted({pid for e in cinfo["essays"] for pid in e["theorists"]}),
         }
         for cid, cinfo in critics.items()
     ]
@@ -1481,9 +1481,9 @@ def main():
             "ref": winfo["ref"],
             "lod": _lod_card_badges(_lod_record(wid, winfo["ref"])),
             "essay_count": len(winfo["essays"]),
-            "critics": list({e["author_id"] for e in winfo["essays"] if e["author_id"]}),
+            "critics": sorted({e["author_id"] for e in winfo["essays"] if e["author_id"]}),
         }
-        for wid, winfo in sorted(writers_map.items(), key=lambda x: -len(x[1]["essays"]))
+        for wid, winfo in sorted(writers_map.items(), key=lambda x: (-len(x[1]["essays"]), x[0]))
     ]
     writers_path = DATA_DIR / "writers.json"
     writers_path.write_text(json.dumps(writers_json, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -1539,10 +1539,10 @@ def main():
             "ref": tinfo["ref"],
             "lod": _lod_card_badges(_lod_record(tid, tinfo["ref"])),
             "essay_count": len({e["stem"] for e in tinfo["essays"]}),
-            "critics": list({e["critic_id"] for e in tinfo["essays"] if e["critic_id"]}),
+            "critics": sorted({e["critic_id"] for e in tinfo["essays"] if e["critic_id"]}),
             "context_count": len(tinfo["contexts"]),
         }
-        for tid, tinfo in sorted(thinkers_map.items(), key=lambda x: -len({e["stem"] for e in x[1]["essays"]}))
+        for tid, tinfo in sorted(thinkers_map.items(), key=lambda x: (-len({e["stem"] for e in x[1]["essays"]}), x[0]))
     ]
     thinkers_path = DATA_DIR / "thinkers.json"
     thinkers_path.write_text(json.dumps(thinkers_json, ensure_ascii=False, indent=2), encoding="utf-8")

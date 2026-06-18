@@ -34,8 +34,8 @@
     ],
     "essay_count": 9,
     "critics": [
-      "p-00246",
-      "p-00117"
+      "p-00117",
+      "p-00246"
     ],
     "context_count": 12
   },
@@ -80,66 +80,6 @@
     "context_count": 6
   },
   {
-    "id": "p-00192",
-    "name": "사르트르",
-    "ref": "https://www.wikidata.org/wiki/Q9364",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q9364",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 5,
-    "critics": [
-      "p-00246",
-      "p-00117"
-    ],
-    "context_count": 7
-  },
-  {
-    "id": "p-00221",
-    "name": "발레리",
-    "ref": "https://www.wikidata.org/wiki/Q200639",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q200639",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 5,
-    "critics": [
-      "p-00246",
-      "p-00117"
-    ],
-    "context_count": 5
-  },
-  {
-    "id": "p-00174",
-    "name": "플라톤",
-    "ref": "https://www.wikidata.org/wiki/Q859",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q859",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 5,
-    "critics": [
-      "p-00246",
-      "p-00117"
-    ],
-    "context_count": 6
-  },
-  {
     "id": "p-00161",
     "name": "니체",
     "ref": "https://www.wikidata.org/wiki/Q9358",
@@ -159,31 +99,64 @@
     "context_count": 5
   },
   {
-    "id": "p-00216",
-    "name": "토마스 만",
-    "ref": "https://www.wikidata.org/wiki/Q37030 http://lod.nl.go.kr/resource/KAC200104031 https://isni.org/isni/0000000121333953 http://viaf.org/viaf/54151065",
+    "id": "p-00174",
+    "name": "플라톤",
+    "ref": "https://www.wikidata.org/wiki/Q859",
     "lod": [
       {
-        "href": "http://lod.nl.go.kr/resource/KAC200104031",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q37030",
+        "href": "https://www.wikidata.org/wiki/Q859",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
         "fg": ""
       }
     ],
-    "essay_count": 4,
+    "essay_count": 5,
     "critics": [
-      "p-00246",
-      "p-hwang-hyonsan"
+      "p-00117",
+      "p-00246"
     ],
-    "context_count": 4
+    "context_count": 6
+  },
+  {
+    "id": "p-00192",
+    "name": "사르트르",
+    "ref": "https://www.wikidata.org/wiki/Q9364",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q9364",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 5,
+    "critics": [
+      "p-00117",
+      "p-00246"
+    ],
+    "context_count": 7
+  },
+  {
+    "id": "p-00221",
+    "name": "발레리",
+    "ref": "https://www.wikidata.org/wiki/Q200639",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q200639",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 5,
+    "critics": [
+      "p-00117",
+      "p-00246"
+    ],
+    "context_count": 5
   },
   {
     "id": "p-00051",
@@ -200,8 +173,8 @@
     ],
     "essay_count": 4,
     "critics": [
-      "p-00246",
-      "p-00117"
+      "p-00117",
+      "p-00246"
     ],
     "context_count": 8
   },
@@ -232,32 +205,39 @@
     "context_count": 4
   },
   {
-    "id": "p-00155",
-    "name": "모파상",
-    "ref": "https://www.wikidata.org/wiki/Q9327",
+    "id": "p-00216",
+    "name": "토마스 만",
+    "ref": "https://www.wikidata.org/wiki/Q37030 http://lod.nl.go.kr/resource/KAC200104031 https://isni.org/isni/0000000121333953 http://viaf.org/viaf/54151065",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q9327",
+        "href": "http://lod.nl.go.kr/resource/KAC200104031",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q37030",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
         "fg": ""
       }
     ],
-    "essay_count": 3,
+    "essay_count": 4,
     "critics": [
       "p-00246",
       "p-hwang-hyonsan"
     ],
-    "context_count": 3
+    "context_count": 4
   },
   {
-    "id": "p-00066",
-    "name": "하이데거",
-    "ref": "https://www.wikidata.org/wiki/Q48301",
+    "id": "p-00028",
+    "name": "카뮈",
+    "ref": "https://www.wikidata.org/wiki/Q34670",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q48301",
+        "href": "https://www.wikidata.org/wiki/Q34670",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -266,8 +246,7 @@
     ],
     "essay_count": 3,
     "critics": [
-      "p-00117",
-      "p-hwang-hyonsan"
+      "p-00246"
     ],
     "context_count": 3
   },
@@ -291,6 +270,26 @@
     "context_count": 6
   },
   {
+    "id": "p-00066",
+    "name": "하이데거",
+    "ref": "https://www.wikidata.org/wiki/Q48301",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q48301",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "critics": [
+      "p-00117",
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 3
+  },
+  {
     "id": "p-00152",
     "name": "마르크스",
     "ref": "https://www.wikidata.org/wiki/Q9061",
@@ -305,8 +304,28 @@
     ],
     "essay_count": 3,
     "critics": [
+      "p-00117",
+      "p-00246"
+    ],
+    "context_count": 3
+  },
+  {
+    "id": "p-00155",
+    "name": "모파상",
+    "ref": "https://www.wikidata.org/wiki/Q9327",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q9327",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "critics": [
       "p-00246",
-      "p-00117"
+      "p-hwang-hyonsan"
     ],
     "context_count": 3
   },
@@ -349,31 +368,50 @@
     "context_count": 3
   },
   {
-    "id": "p-00028",
-    "name": "카뮈",
-    "ref": "https://www.wikidata.org/wiki/Q34670",
+    "id": "p-00005",
+    "name": "아리스토텔레스",
+    "ref": "https://www.wikidata.org/wiki/Q868",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q34670",
+        "href": "https://www.wikidata.org/wiki/Q868",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
         "fg": ""
       }
     ],
-    "essay_count": 3,
+    "essay_count": 2,
     "critics": [
       "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00006",
+    "name": "루돌프 아른하임",
+    "ref": "https://www.wikidata.org/wiki/Q213642",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q213642",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
     ],
     "context_count": 3
   },
   {
-    "id": "p-00194",
-    "name": "쇼펜하우어",
-    "ref": "https://www.wikidata.org/wiki/Q38193",
+    "id": "p-00017",
+    "name": "발자크",
+    "ref": "https://www.wikidata.org/wiki/Q9711",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q38193",
+        "href": "https://www.wikidata.org/wiki/Q9711",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -382,18 +420,17 @@
     ],
     "essay_count": 2,
     "critics": [
-      "p-00246",
-      "p-hwang-hyonsan"
+      "p-00246"
     ],
     "context_count": 2
   },
   {
-    "id": "p-00049",
-    "name": "플로베르",
-    "ref": "https://www.wikidata.org/wiki/Q43444",
+    "id": "p-00025",
+    "name": "클리언스 브룩스",
+    "ref": "https://www.wikidata.org/wiki/Q2915226",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q43444",
+        "href": "https://www.wikidata.org/wiki/Q2915226",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -402,84 +439,7 @@
     ],
     "essay_count": 2,
     "critics": [
-      "p-00246",
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 4
-  },
-  {
-    "id": "p-ranciere",
-    "name": "자크 랑시에르",
-    "ref": "https://www.wikidata.org/wiki/Q467470 https://isni.org/isni/0000000109349533 http://viaf.org/viaf/36925424",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q467470",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-bourdieu",
-    "name": "피에르 부르디외",
-    "ref": "https://www.wikidata.org/wiki/Q156268",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q156268",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-pascal",
-    "name": "파스칼",
-    "ref": "https://www.wikidata.org/wiki/Q1290",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1290",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-rimbaud",
-    "name": "랭보",
-    "ref": "https://www.wikidata.org/wiki/Q493 https://isni.org/isni/0000000122813474 http://viaf.org/viaf/12311716",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q493",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-hwang-hyonsan"
+      "p-00246"
     ],
     "context_count": 2
   },
@@ -498,65 +458,8 @@
     ],
     "essay_count": 2,
     "critics": [
-      "p-00246",
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00157",
-    "name": "메를로퐁티",
-    "ref": "https://www.wikidata.org/wiki/Q212639",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q212639",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00230",
-    "name": "막스 베버",
-    "ref": "https://www.wikidata.org/wiki/Q9387",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q9387",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00093",
-    "name": "칸트",
-    "ref": "https://www.wikidata.org/wiki/Q9312",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q9312",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
+      "p-00117",
+      "p-00246"
     ],
     "context_count": 2
   },
@@ -599,88 +502,12 @@
     "context_count": 2
   },
   {
-    "id": "p-00138",
-    "name": "레닌",
-    "ref": "https://www.wikidata.org/wiki/Q1394",
+    "id": "p-00049",
+    "name": "플로베르",
+    "ref": "https://www.wikidata.org/wiki/Q43444",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q1394",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00146",
-    "name": "루카치",
-    "ref": "https://www.wikidata.org/wiki/Q151523",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q151523",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00006",
-    "name": "루돌프 아른하임",
-    "ref": "https://www.wikidata.org/wiki/Q213642",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q213642",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 3
-  },
-  {
-    "id": "p-00081",
-    "name": "이안 와트",
-    "ref": "https://www.wikidata.org/wiki/Q112525285",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q112525285",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00145",
-    "name": "퍼시 라보크",
-    "ref": "https://www.wikidata.org/wiki/Q7167464",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q7167464",
+        "href": "https://www.wikidata.org/wiki/Q43444",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -690,36 +517,17 @@
     "essay_count": 2,
     "critics": [
       "p-00246",
-      "p-00117"
+      "p-hwang-hyonsan"
     ],
-    "context_count": 2
+    "context_count": 4
   },
   {
-    "id": "p-00154",
-    "name": "모옴",
-    "ref": "https://www.wikidata.org/wiki/Q134942",
+    "id": "p-00052",
+    "name": "에리히 프롬",
+    "ref": "https://www.wikidata.org/wiki/Q57085",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q134942",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 3
-  },
-  {
-    "id": "p-00215",
-    "name": "알베르 티보데",
-    "ref": "https://www.wikidata.org/wiki/Q1898915",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1898915",
+        "href": "https://www.wikidata.org/wiki/Q57085",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -752,12 +560,12 @@
     "context_count": 2
   },
   {
-    "id": "p-00211",
-    "name": "테느",
-    "ref": "https://www.wikidata.org/wiki/Q297726",
+    "id": "p-00081",
+    "name": "이안 와트",
+    "ref": "https://www.wikidata.org/wiki/Q112525285",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q297726",
+        "href": "https://www.wikidata.org/wiki/Q112525285",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -766,17 +574,17 @@
     ],
     "essay_count": 2,
     "critics": [
-      "p-00246"
+      "p-00117"
     ],
-    "context_count": 3
+    "context_count": 2
   },
   {
-    "id": "p-00017",
-    "name": "발자크",
-    "ref": "https://www.wikidata.org/wiki/Q9711",
+    "id": "p-00092",
+    "name": "카프카",
+    "ref": "https://www.wikidata.org/wiki/Q905",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q9711",
+        "href": "https://www.wikidata.org/wiki/Q905",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -790,12 +598,89 @@
     "context_count": 2
   },
   {
-    "id": "p-00232",
-    "name": "웰렉",
-    "ref": "https://www.wikidata.org/wiki/Q732895",
+    "id": "p-00093",
+    "name": "칸트",
+    "ref": "https://www.wikidata.org/wiki/Q9312",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q732895",
+        "href": "https://www.wikidata.org/wiki/Q9312",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00138",
+    "name": "레닌",
+    "ref": "https://www.wikidata.org/wiki/Q1394",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1394",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00145",
+    "name": "퍼시 라보크",
+    "ref": "https://www.wikidata.org/wiki/Q7167464",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q7167464",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117",
+      "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00146",
+    "name": "루카치",
+    "ref": "https://www.wikidata.org/wiki/Q151523",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q151523",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00154",
+    "name": "모옴",
+    "ref": "https://www.wikidata.org/wiki/Q134942",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q134942",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -805,6 +690,25 @@
     "essay_count": 2,
     "critics": [
       "p-00246"
+    ],
+    "context_count": 3
+  },
+  {
+    "id": "p-00157",
+    "name": "메를로퐁티",
+    "ref": "https://www.wikidata.org/wiki/Q212639",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q212639",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
     ],
     "context_count": 2
   },
@@ -828,12 +732,32 @@
     "context_count": 2
   },
   {
-    "id": "p-00052",
-    "name": "에리히 프롬",
-    "ref": "https://www.wikidata.org/wiki/Q57085",
+    "id": "p-00194",
+    "name": "쇼펜하우어",
+    "ref": "https://www.wikidata.org/wiki/Q38193",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q57085",
+        "href": "https://www.wikidata.org/wiki/Q38193",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00246",
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00211",
+    "name": "테느",
+    "ref": "https://www.wikidata.org/wiki/Q297726",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q297726",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -844,15 +768,15 @@
     "critics": [
       "p-00246"
     ],
-    "context_count": 2
+    "context_count": 3
   },
   {
-    "id": "p-00025",
-    "name": "클리언스 브룩스",
-    "ref": "https://www.wikidata.org/wiki/Q2915226",
+    "id": "p-00215",
+    "name": "알베르 티보데",
+    "ref": "https://www.wikidata.org/wiki/Q1898915",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q2915226",
+        "href": "https://www.wikidata.org/wiki/Q1898915",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -885,12 +809,31 @@
     "context_count": 2
   },
   {
-    "id": "p-00092",
-    "name": "카프카",
-    "ref": "https://www.wikidata.org/wiki/Q905",
+    "id": "p-00230",
+    "name": "막스 베버",
+    "ref": "https://www.wikidata.org/wiki/Q9387",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q905",
+        "href": "https://www.wikidata.org/wiki/Q9387",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00232",
+    "name": "웰렉",
+    "ref": "https://www.wikidata.org/wiki/Q732895",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q732895",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -904,12 +847,12 @@
     "context_count": 2
   },
   {
-    "id": "p-00005",
-    "name": "아리스토텔레스",
-    "ref": "https://www.wikidata.org/wiki/Q868",
+    "id": "p-bourdieu",
+    "name": "피에르 부르디외",
+    "ref": "https://www.wikidata.org/wiki/Q156268",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q868",
+        "href": "https://www.wikidata.org/wiki/Q156268",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -918,74 +861,74 @@
     ],
     "essay_count": 2,
     "critics": [
-      "p-00246"
+      "p-hwang-hyonsan"
     ],
     "context_count": 2
   },
   {
-    "id": "p-tarkovsky",
-    "name": "안드레이 타르코프스키",
-    "ref": "https://www.wikidata.org/wiki/Q853 https://isni.org/isni/0000000121507348 http://viaf.org/viaf/8187022",
+    "id": "p-pascal",
+    "name": "파스칼",
+    "ref": "https://www.wikidata.org/wiki/Q1290",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q853",
+        "href": "https://www.wikidata.org/wiki/Q1290",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
         "fg": ""
       }
     ],
-    "essay_count": 1,
+    "essay_count": 2,
     "critics": [
       "p-hwang-hyonsan"
     ],
-    "context_count": 1
+    "context_count": 2
   },
   {
-    "id": "p-hong-sangsoo",
-    "name": "홍상수",
-    "ref": "https://www.wikidata.org/wiki/Q484572 http://viaf.org/viaf/68018875",
+    "id": "p-ranciere",
+    "name": "자크 랑시에르",
+    "ref": "https://www.wikidata.org/wiki/Q467470 https://isni.org/isni/0000000109349533 http://viaf.org/viaf/36925424",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q484572",
+        "href": "https://www.wikidata.org/wiki/Q467470",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
         "fg": ""
       }
     ],
-    "essay_count": 1,
+    "essay_count": 2,
     "critics": [
       "p-hwang-hyonsan"
     ],
-    "context_count": 1
+    "context_count": 2
   },
   {
-    "id": "p-foucault",
-    "name": "미셸 푸코",
-    "ref": "https://www.wikidata.org/wiki/Q44272",
+    "id": "p-rimbaud",
+    "name": "랭보",
+    "ref": "https://www.wikidata.org/wiki/Q493 https://isni.org/isni/0000000122813474 http://viaf.org/viaf/12311716",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q44272",
+        "href": "https://www.wikidata.org/wiki/Q493",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
         "fg": ""
       }
     ],
-    "essay_count": 1,
+    "essay_count": 2,
     "critics": [
       "p-hwang-hyonsan"
     ],
-    "context_count": 1
+    "context_count": 2
   },
   {
-    "id": "p-blanchot",
-    "name": "모리스 블랑쇼",
-    "ref": "https://www.wikidata.org/wiki/Q315210 https://isni.org/isni/0000000122766190 http://viaf.org/viaf/2474555",
+    "id": "p-00001",
+    "name": "아쿠타가와 류노스케",
+    "ref": "https://www.wikidata.org/wiki/Q186326",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q315210",
+        "href": "https://www.wikidata.org/wiki/Q186326",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -994,17 +937,17 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-hwang-hyonsan"
+      "p-00246"
     ],
     "context_count": 1
   },
   {
-    "id": "p-bayard",
-    "name": "피에르 바야르",
-    "ref": "https://www.wikidata.org/wiki/Q1385909",
+    "id": "p-00002",
+    "name": "알베레스",
+    "ref": "https://www.wikidata.org/wiki/Q55672180",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q1385909",
+        "href": "https://www.wikidata.org/wiki/Q55672180",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1013,17 +956,17 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-hwang-hyonsan"
+      "p-00246"
     ],
-    "context_count": 1
+    "context_count": 0
   },
   {
-    "id": "p-breton",
-    "name": "앙드레 브르통",
-    "ref": "https://www.wikidata.org/wiki/Q161955 https://isni.org/isni/0000000122795001 http://viaf.org/viaf/14768462",
+    "id": "p-00003",
+    "name": "아미엘",
+    "ref": "https://www.wikidata.org/wiki/Q123916",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q161955",
+        "href": "https://www.wikidata.org/wiki/Q123916",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1032,337 +975,7 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-reverdy",
-    "name": "피에르 르베르디",
-    "ref": "https://www.wikidata.org/wiki/Q379931 https://isni.org/isni/0000000120987948 http://viaf.org/viaf/71398416",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q379931",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-bataille",
-    "name": "조르주 바타유",
-    "ref": "https://www.wikidata.org/wiki/Q207359 https://isni.org/isni/0000000122816855 http://viaf.org/viaf/7392066",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q207359",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-valery",
-    "name": "폴 발레리",
-    "ref": "https://www.wikidata.org/wiki/Q200639",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q200639",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-lafontaine",
-    "name": "라퐁텐",
-    "ref": "https://www.wikidata.org/wiki/Q49496",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q49496",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-ovid",
-    "name": "오비디우스",
-    "ref": "https://www.wikidata.org/wiki/Q7198",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q7198",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-houellebecq",
-    "name": "미셸 우엘벡",
-    "ref": "https://www.wikidata.org/wiki/Q103114 http://lod.nl.go.kr/resource/KAC200302518 https://isni.org/isni/0000000121418601 http://viaf.org/viaf/7397654",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC200302518",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q103114",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-apollinaire",
-    "name": "아폴리네르",
-    "ref": "https://www.wikidata.org/wiki/Q133855 https://isni.org/isni/0000000122809781 http://viaf.org/viaf/22161065",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q133855",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-alain",
-    "name": "알랭",
-    "ref": "https://www.wikidata.org/wiki/Q275003",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q275003",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-celan",
-    "name": "파울 첼란",
-    "ref": "https://www.wikidata.org/wiki/Q153905",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q153905",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00201",
-    "name": "베르너 좀바르트",
-    "ref": "https://www.wikidata.org/wiki/Q58031",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q58031",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00206",
-    "name": "스타로뱅스키",
-    "ref": "https://www.wikidata.org/wiki/Q123507",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q123507",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00184",
-    "name": "레이먼드 윌리엄스",
-    "ref": "https://www.wikidata.org/wiki/Q394628",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q394628",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00041",
-    "name": "딜타이",
-    "ref": "https://www.wikidata.org/wiki/Q60080",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q60080",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00224",
-    "name": "비코",
-    "ref": "https://www.wikidata.org/wiki/Q178709",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q178709",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00030",
-    "name": "체르니솁스키",
-    "ref": "https://www.wikidata.org/wiki/Q192331",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q192331",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00044",
-    "name": "뒤르켐",
-    "ref": "https://www.wikidata.org/wiki/Q15948",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q15948",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00166",
-    "name": "박지원",
-    "ref": "https://www.wikidata.org/wiki/Q495720",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q495720",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
+      "p-00246"
     ],
     "context_count": 1
   },
@@ -1386,12 +999,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00137",
-    "name": "라이프니츠",
-    "ref": "https://www.wikidata.org/wiki/Q9047",
+    "id": "p-00008",
+    "name": "오든",
+    "ref": "https://www.wikidata.org/wiki/Q178698",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q9047",
+        "href": "https://www.wikidata.org/wiki/Q178698",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1400,494 +1013,17 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-00117"
+      "p-00246"
     ],
     "context_count": 1
   },
   {
-    "id": "p-00095",
-    "name": "김병익",
-    "ref": "https://encykorea.aks.ac.kr/Article/E0009214 http://lod.nl.go.kr/resource/KAC201311060 https://isni.org/isni/0000000078624084 http://viaf.org/viaf/265738308",
+    "id": "p-00009",
+    "name": "에리히 아우얼바하",
+    "ref": "https://www.wikidata.org/wiki/Q57603",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0009214",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "https://terms.naver.com/entry.naver?docId=333232&cid=41708&categoryId=41737",
-        "label": "문학",
-        "full": "한국현대문학대사전",
-        "bg": "#f3ead6",
-        "fg": "#6a4e16"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201311060",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00082",
-    "name": "볼프강 이저",
-    "ref": "https://www.wikidata.org/wiki/Q60486",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q60486",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00023",
-    "name": "브루노 베텔하임",
-    "ref": "https://www.wikidata.org/wiki/Q84386",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q84386",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00186",
-    "name": "릴케",
-    "ref": "https://www.wikidata.org/wiki/Q76483",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q76483",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00125",
-    "name": "자크 라캉",
-    "ref": "https://www.wikidata.org/wiki/Q169906",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q169906",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00234",
-    "name": "벤자민 워프",
-    "ref": "https://www.wikidata.org/wiki/Q331853",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q331853",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00022",
-    "name": "베르그송",
-    "ref": "https://www.wikidata.org/wiki/Q42156",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q42156",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00178",
-    "name": "칼 포퍼",
-    "ref": "https://www.wikidata.org/wiki/Q81244",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q81244",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00219",
-    "name": "라이오넬 트릴링",
-    "ref": "https://www.wikidata.org/wiki/Q1827287",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1827287",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00012",
-    "name": "프랜시스 베이컨",
-    "ref": "https://www.wikidata.org/wiki/Q37388",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q37388",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00217",
-    "name": "토머스 모어",
-    "ref": "https://www.wikidata.org/wiki/Q42544",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q42544",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00151",
-    "name": "헤르베르트 마르쿠제",
-    "ref": "https://www.wikidata.org/wiki/Q60030",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q60030",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00027",
-    "name": "캄파넬라",
-    "ref": "https://www.wikidata.org/wiki/Q191850",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q191850",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00060",
-    "name": "막심 고리키",
-    "ref": "https://www.wikidata.org/wiki/Q12706",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q12706",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00248",
-    "name": "즈다노프",
-    "ref": "https://www.wikidata.org/wiki/Q207879",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q207879",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00183",
-    "name": "라데크",
-    "ref": "https://www.wikidata.org/wiki/Q84266",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q84266",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00175",
-    "name": "플레하노프",
-    "ref": "https://www.wikidata.org/wiki/Q182905",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q182905",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00072",
-    "name": "호메로스",
-    "ref": "https://www.wikidata.org/wiki/Q6691",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q6691",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00233",
-    "name": "월트 휘트먼",
-    "ref": "https://www.wikidata.org/wiki/Q81438",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q81438",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00225",
-    "name": "베르길리우스",
-    "ref": "https://www.wikidata.org/wiki/Q1398",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1398",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00236",
-    "name": "순자",
-    "ref": "https://www.wikidata.org/wiki/Q216072",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q216072",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00107",
-    "name": "김종길",
-    "ref": "https://www.wikidata.org/wiki/Q12588651 http://lod.nl.go.kr/resource/KAC201107854 https://isni.org/isni/0000000102776222 http://viaf.org/viaf/53002600",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201107854",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q12588651",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00139",
-    "name": "레비-스트로스",
-    "ref": "https://www.wikidata.org/wiki/Q128126",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q128126",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00124",
-    "name": "줄리아 크리스테바",
-    "ref": "https://www.wikidata.org/wiki/Q159876",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q159876",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 10
-  },
-  {
-    "id": "p-00249",
-    "name": "안톤 C. 지데어발드",
-    "ref": "https://www.wikidata.org/wiki/Q383190",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q383190",
+        "href": "https://www.wikidata.org/wiki/Q57603",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1920,12 +1056,31 @@
     "context_count": 1
   },
   {
-    "id": "p-00016",
-    "name": "에티엔 발라스",
-    "ref": "https://www.wikidata.org/wiki/Q289356",
+    "id": "p-00011",
+    "name": "어빙 배빗",
+    "ref": "https://www.wikidata.org/wiki/Q3235380",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q289356",
+        "href": "https://www.wikidata.org/wiki/Q3235380",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00012",
+    "name": "프랜시스 베이컨",
+    "ref": "https://www.wikidata.org/wiki/Q37388",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q37388",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1972,134 +1127,6 @@
     "context_count": 1
   },
   {
-    "id": "p-00040",
-    "name": "데카르트",
-    "ref": "https://www.wikidata.org/wiki/Q9191",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q9191",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00246",
-    "name": "유종호",
-    "ref": "https://www.wikidata.org/wiki/Q12610003 http://lod.nl.go.kr/resource/KAC201106284",
-    "lod": [
-      {
-        "href": "https://terms.naver.com/entry.naver?docId=333667&cid=41708&categoryId=41737",
-        "label": "문학",
-        "full": "한국현대문학대사전",
-        "bg": "#f3ead6",
-        "fg": "#6a4e16"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201106284",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q12610003",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00172",
-    "name": "폴 아자르",
-    "ref": "https://www.wikidata.org/wiki/Q462281",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q462281",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00024",
-    "name": "루드비히 빈스방거",
-    "ref": "https://www.wikidata.org/wiki/Q116614",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q116614",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00179",
-    "name": "조르주 풀레",
-    "ref": "https://www.wikidata.org/wiki/Q1367032",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1367032",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00009",
-    "name": "에리히 아우얼바하",
-    "ref": "https://www.wikidata.org/wiki/Q57603",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q57603",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-00014",
     "name": "백낙청",
     "ref": "https://www.wikidata.org/wiki/Q11244078",
@@ -2133,12 +1160,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00062",
-    "name": "위르겐 하버마스",
-    "ref": "https://www.wikidata.org/wiki/Q76357",
+    "id": "p-00016",
+    "name": "에티엔 발라스",
+    "ref": "https://www.wikidata.org/wiki/Q289356",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q76357",
+        "href": "https://www.wikidata.org/wiki/Q289356",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2149,44 +1176,6 @@
     "critics": [
       "p-00117"
     ],
-    "context_count": 4
-  },
-  {
-    "id": "p-00220",
-    "name": "틴들",
-    "ref": "https://www.wikidata.org/wiki/Q6167772",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q6167772",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00011",
-    "name": "어빙 배빗",
-    "ref": "https://www.wikidata.org/wiki/Q3235380",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q3235380",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
     "context_count": 1
   },
   {
@@ -2196,165 +1185,6 @@
     "lod": [
       {
         "href": "https://www.wikidata.org/wiki/Q255",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00054",
-    "name": "푸르트벵글러",
-    "ref": "https://www.wikidata.org/wiki/Q153758",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q153758",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00156",
-    "name": "Max Jacob",
-    "ref": "https://www.wikidata.org/wiki/Q156214",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q156214",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00070",
-    "name": "허버트 리드",
-    "ref": "https://www.wikidata.org/wiki/Q460061",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q460061",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00237",
-    "name": "예이츠",
-    "ref": "https://www.wikidata.org/wiki/Q40213 https://isni.org/isni/0000000121441946 http://viaf.org/viaf/95215697",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q40213",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00181",
-    "name": "프루스트",
-    "ref": "https://www.wikidata.org/wiki/Q7199 http://lod.nl.go.kr/resource/KAC199622210 https://isni.org/isni/0000000121003911 http://viaf.org/viaf/32001793",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC199622210",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q7199",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00008",
-    "name": "오든",
-    "ref": "https://www.wikidata.org/wiki/Q178698",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q178698",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00210",
-    "name": "스위프트",
-    "ref": "https://www.wikidata.org/wiki/Q41166",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q41166",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00153",
-    "name": "마시스",
-    "ref": "https://www.wikidata.org/wiki/Q3131604",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q3131604",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2387,12 +1217,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00140",
-    "name": "레비 브률",
-    "ref": "https://www.wikidata.org/wiki/Q324932",
+    "id": "p-00022",
+    "name": "베르그송",
+    "ref": "https://www.wikidata.org/wiki/Q42156",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q324932",
+        "href": "https://www.wikidata.org/wiki/Q42156",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2401,24 +1231,17 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-00246"
+      "p-00117"
     ],
     "context_count": 1
   },
   {
-    "id": "p-00148",
-    "name": "말리노프스키",
-    "ref": "https://www.wikidata.org/wiki/Q184992 http://lod.nl.go.kr/resource/KAC199617546",
+    "id": "p-00023",
+    "name": "브루노 베텔하임",
+    "ref": "https://www.wikidata.org/wiki/Q84386",
     "lod": [
       {
-        "href": "http://lod.nl.go.kr/resource/KAC199617546",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q184992",
+        "href": "https://www.wikidata.org/wiki/Q84386",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2427,17 +1250,17 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-00246"
+      "p-00117"
     ],
-    "context_count": 1
+    "context_count": 2
   },
   {
-    "id": "p-00064",
-    "name": "해즐릿",
-    "ref": "https://www.wikidata.org/wiki/Q126596",
+    "id": "p-00024",
+    "name": "루드비히 빈스방거",
+    "ref": "https://www.wikidata.org/wiki/Q116614",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q126596",
+        "href": "https://www.wikidata.org/wiki/Q116614",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2446,7 +1269,26 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-00246"
+      "p-00117"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00027",
+    "name": "캄파넬라",
+    "ref": "https://www.wikidata.org/wiki/Q191850",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q191850",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
     ],
     "context_count": 1
   },
@@ -2477,12 +1319,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00123",
-    "name": "콜지브스키",
-    "ref": "https://www.wikidata.org/wiki/Q333402",
+    "id": "p-00030",
+    "name": "체르니솁스키",
+    "ref": "https://www.wikidata.org/wiki/Q192331",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q333402",
+        "href": "https://www.wikidata.org/wiki/Q192331",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2491,375 +1333,7 @@
     ],
     "essay_count": 1,
     "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00127",
-    "name": "램",
-    "ref": "https://www.wikidata.org/wiki/Q372984",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q372984",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00180",
-    "name": "파운드",
-    "ref": "https://www.wikidata.org/wiki/Q163366",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q163366",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00059",
-    "name": "괴테",
-    "ref": "https://www.wikidata.org/wiki/Q5879",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q5879",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00158",
-    "name": "몰튼",
-    "ref": "https://www.wikidata.org/wiki/Q7326053",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q7326053",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00046",
-    "name": "엠프슨",
-    "ref": "https://www.wikidata.org/wiki/Q966870",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q966870",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00205",
-    "name": "스티븐 스펜더",
-    "ref": "https://www.wikidata.org/wiki/Q448764",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q448764",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00061",
-    "name": "쿠르몽",
-    "ref": "https://www.wikidata.org/wiki/Q353876",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q353876",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 0
-  },
-  {
-    "id": "p-00126",
-    "name": "르네 라포르그",
-    "ref": "https://www.wikidata.org/wiki/Q366581",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q366581",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00143",
-    "name": "로즈",
-    "ref": "https://www.wikidata.org/wiki/Q6245009",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q6245009",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 0
-  },
-  {
-    "id": "p-00074",
-    "name": "흄",
-    "ref": "https://www.wikidata.org/wiki/Q2624836",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q2624836",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00159",
-    "name": "머리",
-    "ref": "https://www.wikidata.org/wiki/Q1090185",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1090185",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00069",
-    "name": "헨리 밀러",
-    "ref": "https://www.wikidata.org/wiki/Q187765",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q187765",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00193",
-    "name": "슐라이어마허",
-    "ref": "https://www.wikidata.org/wiki/Q76576 http://lod.nl.go.kr/resource/KAC199624370",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC199624370",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q76576",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00002",
-    "name": "알베레스",
-    "ref": "https://www.wikidata.org/wiki/Q55672180",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q55672180",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 0
-  },
-  {
-    "id": "p-00147",
-    "name": "롤랑 부인",
-    "ref": "https://www.wikidata.org/wiki/Q234935",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q234935",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00068",
-    "name": "헨리 제임스",
-    "ref": "https://www.wikidata.org/wiki/Q170509",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q170509",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00071",
-    "name": "토마스 홉스",
-    "ref": "https://www.wikidata.org/wiki/Q37621",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q37621",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00250",
-    "name": "졸라",
-    "ref": "https://www.wikidata.org/wiki/Q504",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q504",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00150",
-    "name": "만하임",
-    "ref": "https://www.wikidata.org/wiki/Q75905",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q75905",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
+      "p-00117"
     ],
     "context_count": 1
   },
@@ -2870,241 +1344,6 @@
     "lod": [
       {
         "href": "https://www.wikidata.org/wiki/Q76538",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00226",
-    "name": "볼테르",
-    "ref": "https://www.wikidata.org/wiki/Q9068",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q9068",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00163",
-    "name": "오스카 와일드",
-    "ref": "https://www.wikidata.org/wiki/Q30875",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q30875",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00218",
-    "name": "톨스토이",
-    "ref": "https://www.wikidata.org/wiki/Q7243 http://lod.nl.go.kr/resource/KAC199627672 https://isni.org/isni/0000000122424494 http://viaf.org/viaf/96987389",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC199627672",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q7243",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00067",
-    "name": "헤밍웨이",
-    "ref": "https://www.wikidata.org/wiki/Q23434",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q23434",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00057",
-    "name": "게오르규",
-    "ref": "https://www.wikidata.org/wiki/Q1127989",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1127989",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00001",
-    "name": "아쿠타가와 류노스케",
-    "ref": "https://www.wikidata.org/wiki/Q186326",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q186326",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00129",
-    "name": "로트레아몽",
-    "ref": "https://www.wikidata.org/wiki/Q294181",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q294181",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00185",
-    "name": "I. A. 리처즈",
-    "ref": "https://www.wikidata.org/wiki/Q718585",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q718585",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00173",
-    "name": "장 폴랑",
-    "ref": "https://www.wikidata.org/wiki/Q470557",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q470557",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00048",
-    "name": "콘라트 피들러",
-    "ref": "https://www.wikidata.org/wiki/Q65764",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q65764",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00128",
-    "name": "수잔 랭거",
-    "ref": "https://www.wikidata.org/wiki/Q466026",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q466026",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00171",
-    "name": "파스칼",
-    "ref": "https://www.wikidata.org/wiki/Q1290",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q1290",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3137,19 +1376,69 @@
     "context_count": 1
   },
   {
-    "id": "p-00197",
-    "name": "셸리",
-    "ref": "https://www.wikidata.org/wiki/Q93343 http://lod.nl.go.kr/resource/KAC199636511 https://isni.org/isni/0000000121031840 http://viaf.org/viaf/95159449",
+    "id": "p-00040",
+    "name": "데카르트",
+    "ref": "https://www.wikidata.org/wiki/Q9191",
     "lod": [
       {
-        "href": "http://lod.nl.go.kr/resource/KAC199636511",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
+        "href": "https://www.wikidata.org/wiki/Q9191",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00041",
+    "name": "딜타이",
+    "ref": "https://www.wikidata.org/wiki/Q60080",
+    "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q93343",
+        "href": "https://www.wikidata.org/wiki/Q60080",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00044",
+    "name": "뒤르켐",
+    "ref": "https://www.wikidata.org/wiki/Q15948",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q15948",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00046",
+    "name": "엠프슨",
+    "ref": "https://www.wikidata.org/wiki/Q966870",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q966870",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3163,12 +1452,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00209",
-    "name": "스티븐슨",
-    "ref": "https://www.wikidata.org/wiki/Q1512",
+    "id": "p-00048",
+    "name": "콘라트 피들러",
+    "ref": "https://www.wikidata.org/wiki/Q65764",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q1512",
+        "href": "https://www.wikidata.org/wiki/Q65764",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3220,12 +1509,1061 @@
     "context_count": 1
   },
   {
-    "id": "p-00228",
-    "name": "월터 페이터",
-    "ref": "https://www.wikidata.org/wiki/Q352528",
+    "id": "p-00054",
+    "name": "푸르트벵글러",
+    "ref": "https://www.wikidata.org/wiki/Q153758",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q352528",
+        "href": "https://www.wikidata.org/wiki/Q153758",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00057",
+    "name": "게오르규",
+    "ref": "https://www.wikidata.org/wiki/Q1127989",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1127989",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00059",
+    "name": "괴테",
+    "ref": "https://www.wikidata.org/wiki/Q5879",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q5879",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00060",
+    "name": "막심 고리키",
+    "ref": "https://www.wikidata.org/wiki/Q12706",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q12706",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00061",
+    "name": "쿠르몽",
+    "ref": "https://www.wikidata.org/wiki/Q353876",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q353876",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 0
+  },
+  {
+    "id": "p-00062",
+    "name": "위르겐 하버마스",
+    "ref": "https://www.wikidata.org/wiki/Q76357",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q76357",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 4
+  },
+  {
+    "id": "p-00064",
+    "name": "해즐릿",
+    "ref": "https://www.wikidata.org/wiki/Q126596",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q126596",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00067",
+    "name": "헤밍웨이",
+    "ref": "https://www.wikidata.org/wiki/Q23434",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q23434",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00068",
+    "name": "헨리 제임스",
+    "ref": "https://www.wikidata.org/wiki/Q170509",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q170509",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00069",
+    "name": "헨리 밀러",
+    "ref": "https://www.wikidata.org/wiki/Q187765",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q187765",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00070",
+    "name": "허버트 리드",
+    "ref": "https://www.wikidata.org/wiki/Q460061",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q460061",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00071",
+    "name": "토마스 홉스",
+    "ref": "https://www.wikidata.org/wiki/Q37621",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q37621",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00072",
+    "name": "호메로스",
+    "ref": "https://www.wikidata.org/wiki/Q6691",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q6691",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00074",
+    "name": "흄",
+    "ref": "https://www.wikidata.org/wiki/Q2624836",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q2624836",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00080",
+    "name": "하이만",
+    "ref": "https://www.wikidata.org/wiki/Q5470284",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q5470284",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00082",
+    "name": "볼프강 이저",
+    "ref": "https://www.wikidata.org/wiki/Q60486",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q60486",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00094",
+    "name": "케네스 버크",
+    "ref": "https://www.wikidata.org/wiki/Q960081",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q960081",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00095",
+    "name": "김병익",
+    "ref": "https://encykorea.aks.ac.kr/Article/E0009214 http://lod.nl.go.kr/resource/KAC201311060 https://isni.org/isni/0000000078624084 http://viaf.org/viaf/265738308",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0009214",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "https://terms.naver.com/entry.naver?docId=333232&cid=41708&categoryId=41737",
+        "label": "문학",
+        "full": "한국현대문학대사전",
+        "bg": "#f3ead6",
+        "fg": "#6a4e16"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201311060",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00107",
+    "name": "김종길",
+    "ref": "https://www.wikidata.org/wiki/Q12588651 http://lod.nl.go.kr/resource/KAC201107854 https://isni.org/isni/0000000102776222 http://viaf.org/viaf/53002600",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201107854",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12588651",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00123",
+    "name": "콜지브스키",
+    "ref": "https://www.wikidata.org/wiki/Q333402",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q333402",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00124",
+    "name": "줄리아 크리스테바",
+    "ref": "https://www.wikidata.org/wiki/Q159876",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q159876",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 10
+  },
+  {
+    "id": "p-00125",
+    "name": "자크 라캉",
+    "ref": "https://www.wikidata.org/wiki/Q169906",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q169906",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00126",
+    "name": "르네 라포르그",
+    "ref": "https://www.wikidata.org/wiki/Q366581",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q366581",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00127",
+    "name": "램",
+    "ref": "https://www.wikidata.org/wiki/Q372984",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q372984",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00128",
+    "name": "수잔 랭거",
+    "ref": "https://www.wikidata.org/wiki/Q466026",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q466026",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00129",
+    "name": "로트레아몽",
+    "ref": "https://www.wikidata.org/wiki/Q294181",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q294181",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00130",
+    "name": "로렌스",
+    "ref": "https://www.wikidata.org/wiki/Q34970 http://lod.nl.go.kr/resource/KAC199616058 https://isni.org/isni/000000012144117X http://viaf.org/viaf/95150359",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC199616058",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q34970",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00137",
+    "name": "라이프니츠",
+    "ref": "https://www.wikidata.org/wiki/Q9047",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q9047",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00139",
+    "name": "레비-스트로스",
+    "ref": "https://www.wikidata.org/wiki/Q128126",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q128126",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00140",
+    "name": "레비 브률",
+    "ref": "https://www.wikidata.org/wiki/Q324932",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q324932",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00143",
+    "name": "로즈",
+    "ref": "https://www.wikidata.org/wiki/Q6245009",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q6245009",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 0
+  },
+  {
+    "id": "p-00147",
+    "name": "롤랑 부인",
+    "ref": "https://www.wikidata.org/wiki/Q234935",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q234935",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00148",
+    "name": "말리노프스키",
+    "ref": "https://www.wikidata.org/wiki/Q184992 http://lod.nl.go.kr/resource/KAC199617546",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC199617546",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q184992",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00150",
+    "name": "만하임",
+    "ref": "https://www.wikidata.org/wiki/Q75905",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q75905",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00151",
+    "name": "헤르베르트 마르쿠제",
+    "ref": "https://www.wikidata.org/wiki/Q60030",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q60030",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00153",
+    "name": "마시스",
+    "ref": "https://www.wikidata.org/wiki/Q3131604",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q3131604",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00156",
+    "name": "Max Jacob",
+    "ref": "https://www.wikidata.org/wiki/Q156214",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q156214",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00158",
+    "name": "몰튼",
+    "ref": "https://www.wikidata.org/wiki/Q7326053",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q7326053",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00159",
+    "name": "머리",
+    "ref": "https://www.wikidata.org/wiki/Q1090185",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1090185",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00163",
+    "name": "오스카 와일드",
+    "ref": "https://www.wikidata.org/wiki/Q30875",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q30875",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00166",
+    "name": "박지원",
+    "ref": "https://www.wikidata.org/wiki/Q495720",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q495720",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00171",
+    "name": "파스칼",
+    "ref": "https://www.wikidata.org/wiki/Q1290",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1290",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00172",
+    "name": "폴 아자르",
+    "ref": "https://www.wikidata.org/wiki/Q462281",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q462281",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00173",
+    "name": "장 폴랑",
+    "ref": "https://www.wikidata.org/wiki/Q470557",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q470557",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00175",
+    "name": "플레하노프",
+    "ref": "https://www.wikidata.org/wiki/Q182905",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q182905",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00178",
+    "name": "칼 포퍼",
+    "ref": "https://www.wikidata.org/wiki/Q81244",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q81244",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00179",
+    "name": "조르주 풀레",
+    "ref": "https://www.wikidata.org/wiki/Q1367032",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1367032",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00180",
+    "name": "파운드",
+    "ref": "https://www.wikidata.org/wiki/Q163366",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q163366",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00181",
+    "name": "프루스트",
+    "ref": "https://www.wikidata.org/wiki/Q7199 http://lod.nl.go.kr/resource/KAC199622210 https://isni.org/isni/0000000121003911 http://viaf.org/viaf/32001793",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC199622210",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q7199",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00183",
+    "name": "라데크",
+    "ref": "https://www.wikidata.org/wiki/Q84266",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q84266",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00184",
+    "name": "레이먼드 윌리엄스",
+    "ref": "https://www.wikidata.org/wiki/Q394628",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q394628",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00185",
+    "name": "I. A. 리처즈",
+    "ref": "https://www.wikidata.org/wiki/Q718585",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q718585",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00186",
+    "name": "릴케",
+    "ref": "https://www.wikidata.org/wiki/Q76483",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q76483",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00187",
+    "name": "로맹 롤랑",
+    "ref": "https://www.wikidata.org/wiki/Q47162",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q47162",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3258,12 +2596,19 @@
     "context_count": 1
   },
   {
-    "id": "p-00003",
-    "name": "아미엘",
-    "ref": "https://www.wikidata.org/wiki/Q123916",
+    "id": "p-00193",
+    "name": "슐라이어마허",
+    "ref": "https://www.wikidata.org/wiki/Q76576 http://lod.nl.go.kr/resource/KAC199624370",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q123916",
+        "href": "http://lod.nl.go.kr/resource/KAC199624370",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q76576",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3277,12 +2622,19 @@
     "context_count": 1
   },
   {
-    "id": "p-00094",
-    "name": "케네스 버크",
-    "ref": "https://www.wikidata.org/wiki/Q960081",
+    "id": "p-00197",
+    "name": "셸리",
+    "ref": "https://www.wikidata.org/wiki/Q93343 http://lod.nl.go.kr/resource/KAC199636511 https://isni.org/isni/0000000121031840 http://viaf.org/viaf/95159449",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q960081",
+        "href": "http://lod.nl.go.kr/resource/KAC199636511",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q93343",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3315,12 +2667,31 @@
     "context_count": 1
   },
   {
-    "id": "p-00187",
-    "name": "로맹 롤랑",
-    "ref": "https://www.wikidata.org/wiki/Q47162",
+    "id": "p-00201",
+    "name": "베르너 좀바르트",
+    "ref": "https://www.wikidata.org/wiki/Q58031",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q47162",
+        "href": "https://www.wikidata.org/wiki/Q58031",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00205",
+    "name": "스티븐 스펜더",
+    "ref": "https://www.wikidata.org/wiki/Q448764",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q448764",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3330,6 +2701,25 @@
     "essay_count": 1,
     "critics": [
       "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00206",
+    "name": "스타로뱅스키",
+    "ref": "https://www.wikidata.org/wiki/Q123507",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q123507",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
     ],
     "context_count": 1
   },
@@ -3360,19 +2750,12 @@
     "context_count": 2
   },
   {
-    "id": "p-00130",
-    "name": "로렌스",
-    "ref": "https://www.wikidata.org/wiki/Q34970 http://lod.nl.go.kr/resource/KAC199616058 https://isni.org/isni/000000012144117X http://viaf.org/viaf/95150359",
+    "id": "p-00209",
+    "name": "스티븐슨",
+    "ref": "https://www.wikidata.org/wiki/Q1512",
     "lod": [
       {
-        "href": "http://lod.nl.go.kr/resource/KAC199616058",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q34970",
+        "href": "https://www.wikidata.org/wiki/Q1512",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3386,12 +2769,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00080",
-    "name": "하이만",
-    "ref": "https://www.wikidata.org/wiki/Q5470284",
+    "id": "p-00210",
+    "name": "스위프트",
+    "ref": "https://www.wikidata.org/wiki/Q41166",
     "lod": [
       {
-        "href": "https://www.wikidata.org/wiki/Q5470284",
+        "href": "https://www.wikidata.org/wiki/Q41166",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -3401,6 +2784,623 @@
     "essay_count": 1,
     "critics": [
       "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00217",
+    "name": "토머스 모어",
+    "ref": "https://www.wikidata.org/wiki/Q42544",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q42544",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00218",
+    "name": "톨스토이",
+    "ref": "https://www.wikidata.org/wiki/Q7243 http://lod.nl.go.kr/resource/KAC199627672 https://isni.org/isni/0000000122424494 http://viaf.org/viaf/96987389",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC199627672",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q7243",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00219",
+    "name": "라이오넬 트릴링",
+    "ref": "https://www.wikidata.org/wiki/Q1827287",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1827287",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00220",
+    "name": "틴들",
+    "ref": "https://www.wikidata.org/wiki/Q6167772",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q6167772",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00224",
+    "name": "비코",
+    "ref": "https://www.wikidata.org/wiki/Q178709",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q178709",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00225",
+    "name": "베르길리우스",
+    "ref": "https://www.wikidata.org/wiki/Q1398",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1398",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00226",
+    "name": "볼테르",
+    "ref": "https://www.wikidata.org/wiki/Q9068",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q9068",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00228",
+    "name": "월터 페이터",
+    "ref": "https://www.wikidata.org/wiki/Q352528",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q352528",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00233",
+    "name": "월트 휘트먼",
+    "ref": "https://www.wikidata.org/wiki/Q81438",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q81438",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00234",
+    "name": "벤자민 워프",
+    "ref": "https://www.wikidata.org/wiki/Q331853",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q331853",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00236",
+    "name": "순자",
+    "ref": "https://www.wikidata.org/wiki/Q216072",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q216072",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00237",
+    "name": "예이츠",
+    "ref": "https://www.wikidata.org/wiki/Q40213 https://isni.org/isni/0000000121441946 http://viaf.org/viaf/95215697",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q40213",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00246",
+    "name": "유종호",
+    "ref": "https://www.wikidata.org/wiki/Q12610003 http://lod.nl.go.kr/resource/KAC201106284",
+    "lod": [
+      {
+        "href": "https://terms.naver.com/entry.naver?docId=333667&cid=41708&categoryId=41737",
+        "label": "문학",
+        "full": "한국현대문학대사전",
+        "bg": "#f3ead6",
+        "fg": "#6a4e16"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201106284",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12610003",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00248",
+    "name": "즈다노프",
+    "ref": "https://www.wikidata.org/wiki/Q207879",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q207879",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00249",
+    "name": "안톤 C. 지데어발드",
+    "ref": "https://www.wikidata.org/wiki/Q383190",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q383190",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00250",
+    "name": "졸라",
+    "ref": "https://www.wikidata.org/wiki/Q504",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q504",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-alain",
+    "name": "알랭",
+    "ref": "https://www.wikidata.org/wiki/Q275003",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q275003",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-apollinaire",
+    "name": "아폴리네르",
+    "ref": "https://www.wikidata.org/wiki/Q133855 https://isni.org/isni/0000000122809781 http://viaf.org/viaf/22161065",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q133855",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-bataille",
+    "name": "조르주 바타유",
+    "ref": "https://www.wikidata.org/wiki/Q207359 https://isni.org/isni/0000000122816855 http://viaf.org/viaf/7392066",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q207359",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-bayard",
+    "name": "피에르 바야르",
+    "ref": "https://www.wikidata.org/wiki/Q1385909",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q1385909",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-blanchot",
+    "name": "모리스 블랑쇼",
+    "ref": "https://www.wikidata.org/wiki/Q315210 https://isni.org/isni/0000000122766190 http://viaf.org/viaf/2474555",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q315210",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-breton",
+    "name": "앙드레 브르통",
+    "ref": "https://www.wikidata.org/wiki/Q161955 https://isni.org/isni/0000000122795001 http://viaf.org/viaf/14768462",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q161955",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-celan",
+    "name": "파울 첼란",
+    "ref": "https://www.wikidata.org/wiki/Q153905",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q153905",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-foucault",
+    "name": "미셸 푸코",
+    "ref": "https://www.wikidata.org/wiki/Q44272",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q44272",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-hong-sangsoo",
+    "name": "홍상수",
+    "ref": "https://www.wikidata.org/wiki/Q484572 http://viaf.org/viaf/68018875",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q484572",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-houellebecq",
+    "name": "미셸 우엘벡",
+    "ref": "https://www.wikidata.org/wiki/Q103114 http://lod.nl.go.kr/resource/KAC200302518 https://isni.org/isni/0000000121418601 http://viaf.org/viaf/7397654",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC200302518",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q103114",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-lafontaine",
+    "name": "라퐁텐",
+    "ref": "https://www.wikidata.org/wiki/Q49496",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q49496",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-ovid",
+    "name": "오비디우스",
+    "ref": "https://www.wikidata.org/wiki/Q7198",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q7198",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-reverdy",
+    "name": "피에르 르베르디",
+    "ref": "https://www.wikidata.org/wiki/Q379931 https://isni.org/isni/0000000120987948 http://viaf.org/viaf/71398416",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q379931",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-tarkovsky",
+    "name": "안드레이 타르코프스키",
+    "ref": "https://www.wikidata.org/wiki/Q853 https://isni.org/isni/0000000121507348 http://viaf.org/viaf/8187022",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q853",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-valery",
+    "name": "폴 발레리",
+    "ref": "https://www.wikidata.org/wiki/Q200639",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q200639",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
     ],
     "context_count": 1
   }
