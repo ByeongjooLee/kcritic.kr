@@ -549,6 +549,8 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 
 **`naver_munhak` 필드:** 네이버 지식백과 「한국현대문학대사전」 항목의 전체 URL (terms.naver.com/entry.naver?docId=...&cid=41708&...). 2000년대 이후 활동 비평가(김우창·유종호·백낙청·김병익 등)에 추가. 황현산은 사전범위(1895~1994)상 항목 없음.
 
+**`en` 필드 (외국 인물 영문 병기):** Wikidata 영문 레이블. `enrich_en_names.py`가 P27(국적)로 외국/한국 분류 — 외국 인물에만 `en` 기록(한국 인물 미표시). 카드·프로필 heading·관계망 패널에서 한글 옆 작은 괄호로 표시(`_name_en_html`, `_en_of`, CSS `.name-en`/`.card-name-en`/`.panel-name-en`). 에세이 칩은 한자 병기 충돌로 제외. 재실행: `py enrich_en_names.py --apply`.
+
 **LOD 배지 단일 레지스트리 (build.py `LOD_SOURCES`):** 모든 외부 식별자 배지는 build.py 상단 `LOD_SOURCES` 리스트 한 곳에서 정의(field·url·full/chip/card 라벨·색·title). 표시 위치별 렌더가 모두 이 정의를 따름:
 - 프로필 페이지: `_lod_links_html` 이 `LOD_SOURCES` 순회 → "{full} ↗" 배지
 - 에세이 칩: `person_chip` 이 순회 → chip 라벨(None이면 미표시)
