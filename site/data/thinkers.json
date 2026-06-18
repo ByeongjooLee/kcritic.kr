@@ -1,5 +1,19 @@
 [
   {
+    "id": "p-00149",
+    "name": "말라르메",
+    "ref": "https://www.wikidata.org/wiki/Q183945",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 9,
+    "critics": [
+      "p-hwang-hyonsan",
+      "p-00246"
+    ],
+    "context_count": 10
+  },
+  {
     "id": "p-00045",
     "name": "T. S. 엘리엇",
     "ref": "https://www.wikidata.org/wiki/Q37767",
@@ -14,32 +28,18 @@
     "context_count": 12
   },
   {
-    "id": "p-00149",
-    "name": "말라르메",
-    "ref": "https://www.wikidata.org/wiki/Q183945",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 8,
-    "critics": [
-      "p-hwang-hyonsan",
-      "p-00246"
-    ],
-    "context_count": 9
-  },
-  {
     "id": "p-00018",
     "name": "보들레르",
     "ref": "https://www.wikidata.org/wiki/Q501",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
-    "essay_count": 6,
+    "essay_count": 7,
     "critics": [
       "p-hwang-hyonsan",
       "p-00246"
     ],
-    "context_count": 7
+    "context_count": 9
   },
   {
     "id": "p-00227",
@@ -50,8 +50,8 @@
     "nlk": "",
     "essay_count": 5,
     "critics": [
-      "p-hwang-hyonsan",
-      "p-00117"
+      "p-00117",
+      "p-hwang-hyonsan"
     ],
     "context_count": 5
   },
@@ -166,6 +166,20 @@
     "context_count": 3
   },
   {
+    "id": "p-00066",
+    "name": "하이데거",
+    "ref": "https://www.wikidata.org/wiki/Q48301",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 3,
+    "critics": [
+      "p-00117",
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 3
+  },
+  {
     "id": "p-00065",
     "name": "헤겔",
     "ref": "https://www.wikidata.org/wiki/Q9235",
@@ -232,19 +246,6 @@
     "context_count": 3
   },
   {
-    "id": "p-ranciere",
-    "name": "자크 랑시에르",
-    "ref": "https://www.wikidata.org/wiki/Q179769 https://isni.org/isni/0000000109349533 http://viaf.org/viaf/36925424",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 2,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 2
-  },
-  {
     "id": "p-00049",
     "name": "플로베르",
     "ref": "https://www.wikidata.org/wiki/Q43444",
@@ -273,15 +274,15 @@
     "context_count": 2
   },
   {
-    "id": "p-00157",
-    "name": "메를로퐁티",
-    "ref": "https://www.wikidata.org/wiki/Q212639",
+    "id": "p-ranciere",
+    "name": "자크 랑시에르",
+    "ref": "https://www.wikidata.org/wiki/Q467470 https://isni.org/isni/0000000109349533 http://viaf.org/viaf/36925424",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
     "essay_count": 2,
     "critics": [
-      "p-00117"
+      "p-hwang-hyonsan"
     ],
     "context_count": 2
   },
@@ -296,6 +297,19 @@
     "critics": [
       "p-00117",
       "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00157",
+    "name": "메를로퐁티",
+    "ref": "https://www.wikidata.org/wiki/Q212639",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 2,
+    "critics": [
+      "p-00117"
     ],
     "context_count": 2
   },
@@ -326,19 +340,6 @@
     "context_count": 2
   },
   {
-    "id": "p-00066",
-    "name": "하이데거",
-    "ref": "https://www.wikidata.org/wiki/Q48767",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
     "id": "p-00043",
     "name": "미켈 뒤프렌",
     "ref": "https://www.wikidata.org/wiki/Q2548282",
@@ -352,9 +353,9 @@
     "context_count": 2
   },
   {
-    "id": "p-00138",
-    "name": "레닌",
-    "ref": "https://www.wikidata.org/wiki/Q1394",
+    "id": "p-00047",
+    "name": "엥겔스",
+    "ref": "https://www.wikidata.org/wiki/Q34262",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -365,9 +366,9 @@
     "context_count": 2
   },
   {
-    "id": "p-00047",
-    "name": "엥겔스",
-    "ref": "https://www.wikidata.org/wiki/Q34262",
+    "id": "p-00138",
+    "name": "레닌",
+    "ref": "https://www.wikidata.org/wiki/Q1394",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -444,6 +445,19 @@
     "context_count": 3
   },
   {
+    "id": "p-00058",
+    "name": "지드",
+    "ref": "https://www.wikidata.org/wiki/Q47484",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 2,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
     "id": "p-00215",
     "name": "알베르 티보데",
     "ref": "https://www.wikidata.org/wiki/Q2539082",
@@ -457,9 +471,9 @@
     "context_count": 2
   },
   {
-    "id": "p-00058",
-    "name": "지드",
-    "ref": "https://www.wikidata.org/wiki/Q47484",
+    "id": "p-00017",
+    "name": "발자크",
+    "ref": "https://www.wikidata.org/wiki/Q9711",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -481,19 +495,6 @@
       "p-00246"
     ],
     "context_count": 3
-  },
-  {
-    "id": "p-00017",
-    "name": "발자크",
-    "ref": "https://www.wikidata.org/wiki/Q9711",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 2,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 2
   },
   {
     "id": "p-00232",
@@ -535,9 +536,9 @@
     "context_count": 2
   },
   {
-    "id": "p-00229",
-    "name": "로버트 펜 워렌",
-    "ref": "https://www.wikidata.org/wiki/Q314001",
+    "id": "p-00025",
+    "name": "클리언스 브룩스",
+    "ref": "https://www.wikidata.org/wiki/Q382476",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -548,9 +549,9 @@
     "context_count": 2
   },
   {
-    "id": "p-00025",
-    "name": "클리언스 브룩스",
-    "ref": "https://www.wikidata.org/wiki/Q382476",
+    "id": "p-00229",
+    "name": "로버트 펜 워렌",
+    "ref": "https://www.wikidata.org/wiki/Q314001",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -589,7 +590,7 @@
   {
     "id": "p-hong-sangsoo",
     "name": "홍상수",
-    "ref": "https://www.wikidata.org/wiki/Q484230 http://viaf.org/viaf/68018875",
+    "ref": "https://www.wikidata.org/wiki/Q484572 http://viaf.org/viaf/68018875",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -602,7 +603,7 @@
   {
     "id": "p-tarkovsky",
     "name": "안드레이 타르코프스키",
-    "ref": "https://www.wikidata.org/wiki/Q46327 https://isni.org/isni/0000000121507348 http://viaf.org/viaf/8187022",
+    "ref": "https://www.wikidata.org/wiki/Q853 https://isni.org/isni/0000000121507348 http://viaf.org/viaf/8187022",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -615,20 +616,7 @@
   {
     "id": "p-blanchot",
     "name": "모리스 블랑쇼",
-    "ref": "https://www.wikidata.org/wiki/Q160503 https://isni.org/isni/0000000122766190 http://viaf.org/viaf/2474555",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-bataille",
-    "name": "조르주 바타유",
-    "ref": "https://www.wikidata.org/wiki/Q170654 https://isni.org/isni/0000000122816855 http://viaf.org/viaf/7392066",
+    "ref": "https://www.wikidata.org/wiki/Q315210 https://isni.org/isni/0000000122766190 http://viaf.org/viaf/2474555",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -641,20 +629,7 @@
   {
     "id": "p-breton",
     "name": "앙드레 브르통",
-    "ref": "https://www.wikidata.org/wiki/Q46443 https://isni.org/isni/0000000122795001 http://viaf.org/viaf/14768462",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-reverdy",
-    "name": "피에르 르베르디",
-    "ref": "https://www.wikidata.org/wiki/Q315264 https://isni.org/isni/0000000120987948 http://viaf.org/viaf/71398416",
+    "ref": "https://www.wikidata.org/wiki/Q161955 https://isni.org/isni/0000000122795001 http://viaf.org/viaf/14768462",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -667,7 +642,33 @@
   {
     "id": "p-rimbaud",
     "name": "아르튀르 랭보",
-    "ref": "https://www.wikidata.org/wiki/Q14995351 https://isni.org/isni/0000000122813474 http://viaf.org/viaf/12311716",
+    "ref": "https://www.wikidata.org/wiki/Q493 https://isni.org/isni/0000000122813474 http://viaf.org/viaf/12311716",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-reverdy",
+    "name": "피에르 르베르디",
+    "ref": "https://www.wikidata.org/wiki/Q379931 https://isni.org/isni/0000000120987948 http://viaf.org/viaf/71398416",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-bataille",
+    "name": "조르주 바타유",
+    "ref": "https://www.wikidata.org/wiki/Q207359 https://isni.org/isni/0000000122816855 http://viaf.org/viaf/7392066",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -704,19 +705,6 @@
     "context_count": 1
   },
   {
-    "id": "p-pascal",
-    "name": "파스칼",
-    "ref": "https://www.wikidata.org/wiki/Q1290",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-hwang-hyonsan"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-ovid",
     "name": "오비디우스",
     "ref": "https://www.wikidata.org/wiki/Q7198",
@@ -730,9 +718,22 @@
     "context_count": 1
   },
   {
+    "id": "p-pascal",
+    "name": "파스칼",
+    "ref": "https://www.wikidata.org/wiki/Q1290",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
     "id": "p-apollinaire",
     "name": "아폴리네르",
-    "ref": "https://www.wikidata.org/wiki/Q7164 https://isni.org/isni/0000000122809781 http://viaf.org/viaf/22161065",
+    "ref": "https://www.wikidata.org/wiki/Q133855 https://isni.org/isni/0000000122809781 http://viaf.org/viaf/22161065",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -756,9 +757,61 @@
     "context_count": 1
   },
   {
+    "id": "p-alain",
+    "name": "알랭",
+    "ref": "https://www.wikidata.org/wiki/Q44547",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-celan",
+    "name": "파울 첼란",
+    "ref": "https://www.wikidata.org/wiki/Q42404",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-hwang-hyonsan"
+    ],
+    "context_count": 1
+  },
+  {
     "id": "p-00201",
     "name": "베르너 좀바르트",
     "ref": "https://www.wikidata.org/wiki/Q58031",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00184",
+    "name": "레이먼드 윌리엄스",
+    "ref": "https://www.wikidata.org/wiki/Q394628",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00224",
+    "name": "비코",
+    "ref": "https://www.wikidata.org/wiki/Q10292",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -795,35 +848,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00224",
-    "name": "비코",
-    "ref": "https://www.wikidata.org/wiki/Q10292",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-00041",
     "name": "딜타이",
     "ref": "https://www.wikidata.org/wiki/Q60080",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00184",
-    "name": "레이먼드 윌리엄스",
-    "ref": "https://www.wikidata.org/wiki/Q394628",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -860,6 +887,19 @@
     "context_count": 1
   },
   {
+    "id": "p-00007",
+    "name": "매슈 아널드",
+    "ref": "https://www.wikidata.org/wiki/Q271032",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
     "id": "p-00095",
     "name": "김병익",
     "ref": "https://www.wikidata.org/wiki/Q12587483",
@@ -886,9 +926,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00007",
-    "name": "매슈 아널드",
-    "ref": "https://www.wikidata.org/wiki/Q271032",
+    "id": "p-00023",
+    "name": "브루노 베텔하임",
+    "ref": "https://www.wikidata.org/wiki/Q76433",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -896,7 +936,7 @@
     "critics": [
       "p-00117"
     ],
-    "context_count": 1
+    "context_count": 2
   },
   {
     "id": "p-00082",
@@ -912,19 +952,6 @@
     "context_count": 1
   },
   {
-    "id": "p-00023",
-    "name": "브루노 베텔하임",
-    "ref": "https://www.wikidata.org/wiki/Q76433",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
     "id": "p-00186",
     "name": "릴케",
     "ref": "https://www.wikidata.org/wiki/Q34271",
@@ -938,9 +965,9 @@
     "context_count": 2
   },
   {
-    "id": "p-00125",
-    "name": "자크 라캉",
-    "ref": "https://www.wikidata.org/wiki/Q169906",
+    "id": "p-00022",
+    "name": "베르그송",
+    "ref": "https://www.wikidata.org/wiki/Q42156",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -951,9 +978,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00022",
-    "name": "베르그송",
-    "ref": "https://www.wikidata.org/wiki/Q42156",
+    "id": "p-00125",
+    "name": "자크 라캉",
+    "ref": "https://www.wikidata.org/wiki/Q169906",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -977,9 +1004,22 @@
     "context_count": 1
   },
   {
-    "id": "p-00151",
-    "name": "헤르베르트 마르쿠제",
-    "ref": "https://www.wikidata.org/wiki/Q77203",
+    "id": "p-00178",
+    "name": "칼 포퍼",
+    "ref": "https://www.wikidata.org/wiki/Q105082",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00027",
+    "name": "캄파넬라",
+    "ref": "https://www.wikidata.org/wiki/Q46867",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1016,22 +1056,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00027",
-    "name": "캄파넬라",
-    "ref": "https://www.wikidata.org/wiki/Q46867",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00178",
-    "name": "칼 포퍼",
-    "ref": "https://www.wikidata.org/wiki/Q105082",
+    "id": "p-00151",
+    "name": "헤르베르트 마르쿠제",
+    "ref": "https://www.wikidata.org/wiki/Q77203",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1045,19 +1072,6 @@
     "id": "p-00217",
     "name": "토머스 모어",
     "ref": "https://www.wikidata.org/wiki/Q41271",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00183",
-    "name": "라데크",
-    "ref": "https://www.wikidata.org/wiki/Q84266",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1094,9 +1108,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00225",
-    "name": "베르길리우스",
-    "ref": "https://www.wikidata.org/wiki/Q1398",
+    "id": "p-00183",
+    "name": "라데크",
+    "ref": "https://www.wikidata.org/wiki/Q84266",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1120,9 +1134,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00175",
-    "name": "플레하노프",
-    "ref": "https://www.wikidata.org/wiki/Q215228",
+    "id": "p-00072",
+    "name": "호메로스",
+    "ref": "https://www.wikidata.org/wiki/Q6691",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1133,9 +1147,22 @@
     "context_count": 1
   },
   {
-    "id": "p-00072",
-    "name": "호메로스",
-    "ref": "https://www.wikidata.org/wiki/Q6691",
+    "id": "p-00225",
+    "name": "베르길리우스",
+    "ref": "https://www.wikidata.org/wiki/Q1398",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00117"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00175",
+    "name": "플레하노프",
+    "ref": "https://www.wikidata.org/wiki/Q215228",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1211,9 +1238,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00010",
-    "name": "J. L. 오스틴",
-    "ref": "https://www.wikidata.org/wiki/Q272615",
+    "id": "p-00016",
+    "name": "에티엔 발라스",
+    "ref": "https://www.wikidata.org/wiki/Q437773",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1224,9 +1251,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00016",
-    "name": "에티엔 발라스",
-    "ref": "https://www.wikidata.org/wiki/Q437773",
+    "id": "p-00010",
+    "name": "J. L. 오스틴",
+    "ref": "https://www.wikidata.org/wiki/Q272615",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1250,12 +1277,12 @@
     "context_count": 2
   },
   {
-    "id": "p-00172",
-    "name": "폴 아자르",
-    "ref": "https://www.wikidata.org/wiki/Q3381578",
+    "id": "p-00246",
+    "name": "유종호",
+    "ref": "https://www.wikidata.org/wiki/Q13564819",
     "encykorea": "",
     "encykorea_work": "",
-    "nlk": "",
+    "nlk": "http://lod.nl.go.kr/resource/KAC201106284",
     "essay_count": 1,
     "critics": [
       "p-00117"
@@ -1263,12 +1290,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00246",
-    "name": "유종호",
-    "ref": "https://www.wikidata.org/wiki/Q13564819",
+    "id": "p-00172",
+    "name": "폴 아자르",
+    "ref": "https://www.wikidata.org/wiki/Q3381578",
     "encykorea": "",
     "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC201106284",
+    "nlk": "",
     "essay_count": 1,
     "critics": [
       "p-00117"
@@ -1302,9 +1329,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00014",
-    "name": "백낙청",
-    "ref": "https://www.wikidata.org/wiki/Q499046",
+    "id": "p-00179",
+    "name": "조르주 풀레",
+    "ref": "https://www.wikidata.org/wiki/Q1367032",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1328,9 +1355,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00179",
-    "name": "조르주 풀레",
-    "ref": "https://www.wikidata.org/wiki/Q1367032",
+    "id": "p-00014",
+    "name": "백낙청",
+    "ref": "https://www.wikidata.org/wiki/Q499046",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1354,19 +1381,6 @@
     "context_count": 4
   },
   {
-    "id": "p-00220",
-    "name": "틴들",
-    "ref": "https://www.wikidata.org/wiki/Q6167772",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-00011",
     "name": "어빙 배빗",
     "ref": "https://www.wikidata.org/wiki/Q457866",
@@ -1380,9 +1394,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00054",
-    "name": "푸르트벵글러",
-    "ref": "https://www.wikidata.org/wiki/Q153758",
+    "id": "p-00220",
+    "name": "틴들",
+    "ref": "https://www.wikidata.org/wiki/Q6167772",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1409,6 +1423,19 @@
     "id": "p-00156",
     "name": "Max Jacob",
     "ref": "https://www.wikidata.org/wiki/Q156214",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00054",
+    "name": "푸르트벵글러",
+    "ref": "https://www.wikidata.org/wiki/Q153758",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1471,9 +1498,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00153",
-    "name": "마시스",
-    "ref": "https://www.wikidata.org/wiki/Q3286424",
+    "id": "p-00210",
+    "name": "스위프트",
+    "ref": "https://www.wikidata.org/wiki/Q82084",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1484,9 +1511,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00210",
-    "name": "스위프트",
-    "ref": "https://www.wikidata.org/wiki/Q82084",
+    "id": "p-00153",
+    "name": "마시스",
+    "ref": "https://www.wikidata.org/wiki/Q3286424",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1510,35 +1537,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00059",
-    "name": "괴테",
-    "ref": "https://www.wikidata.org/wiki/Q5879",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00123",
-    "name": "콜지브스키",
-    "ref": "https://www.wikidata.org/wiki/Q314411",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00127",
-    "name": "램",
-    "ref": "https://www.wikidata.org/wiki/Q372984",
+    "id": "p-00021",
+    "name": "루스 베네딕트",
+    "ref": "https://www.wikidata.org/wiki/Q228822",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1562,12 +1563,12 @@
     "context_count": 1
   },
   {
-    "id": "p-00140",
-    "name": "레비 브률",
-    "ref": "https://www.wikidata.org/wiki/Q324932",
+    "id": "p-00148",
+    "name": "말리노프스키",
+    "ref": "https://www.wikidata.org/wiki/Q184992",
     "encykorea": "",
     "encykorea_work": "",
-    "nlk": "",
+    "nlk": "http://lod.nl.go.kr/resource/KAC199617546",
     "essay_count": 1,
     "critics": [
       "p-00246"
@@ -1575,9 +1576,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00158",
-    "name": "몰튼",
-    "ref": "https://www.wikidata.org/wiki/Q7326053",
+    "id": "p-00059",
+    "name": "괴테",
+    "ref": "https://www.wikidata.org/wiki/Q5879",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1601,9 +1602,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00021",
-    "name": "루스 베네딕트",
-    "ref": "https://www.wikidata.org/wiki/Q228822",
+    "id": "p-00127",
+    "name": "램",
+    "ref": "https://www.wikidata.org/wiki/Q372984",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1614,22 +1615,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00148",
-    "name": "말리노프스키",
-    "ref": "https://www.wikidata.org/wiki/Q184992",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "http://lod.nl.go.kr/resource/KAC199617546",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00205",
-    "name": "스티븐 스펜더",
-    "ref": "https://www.wikidata.org/wiki/Q234896",
+    "id": "p-00140",
+    "name": "레비 브률",
+    "ref": "https://www.wikidata.org/wiki/Q324932",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1640,9 +1628,61 @@
     "context_count": 1
   },
   {
-    "id": "p-00126",
-    "name": "르네 라포르그",
-    "ref": "https://www.wikidata.org/wiki/Q366581",
+    "id": "p-00123",
+    "name": "콜지브스키",
+    "ref": "https://www.wikidata.org/wiki/Q314411",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00158",
+    "name": "몰튼",
+    "ref": "https://www.wikidata.org/wiki/Q7326053",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00159",
+    "name": "머리",
+    "ref": "https://www.wikidata.org/wiki/Q336937",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00046",
+    "name": "엠프슨",
+    "ref": "https://www.wikidata.org/wiki/Q333464",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00193",
+    "name": "슐라이어마허",
+    "ref": "https://www.wikidata.org/wiki/Q57286",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1692,9 +1732,22 @@
     "context_count": 0
   },
   {
-    "id": "p-00193",
-    "name": "슐라이어마허",
-    "ref": "https://www.wikidata.org/wiki/Q57286",
+    "id": "p-00205",
+    "name": "스티븐 스펜더",
+    "ref": "https://www.wikidata.org/wiki/Q448764",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00126",
+    "name": "르네 라포르그",
+    "ref": "https://www.wikidata.org/wiki/Q366581",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1716,32 +1769,6 @@
       "p-00246"
     ],
     "context_count": 0
-  },
-  {
-    "id": "p-00159",
-    "name": "머리",
-    "ref": "https://www.wikidata.org/wiki/Q336937",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00046",
-    "name": "엠프슨",
-    "ref": "https://www.wikidata.org/wiki/Q333464",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
   },
   {
     "id": "p-00002",
@@ -1772,7 +1799,7 @@
   {
     "id": "p-00068",
     "name": "헨리 제임스",
-    "ref": "https://www.wikidata.org/wiki/Q169850",
+    "ref": "https://www.wikidata.org/wiki/Q170509",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1796,35 +1823,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00226",
-    "name": "볼테르",
-    "ref": "https://www.wikidata.org/wiki/Q9068",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00250",
-    "name": "졸라",
-    "ref": "https://www.wikidata.org/wiki/Q504",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00150",
-    "name": "만하임",
-    "ref": "https://www.wikidata.org/wiki/Q75905",
+    "id": "p-00037",
+    "name": "달렌도르프",
+    "ref": "https://www.wikidata.org/wiki/Q76538",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1848,9 +1849,35 @@
     "context_count": 1
   },
   {
-    "id": "p-00037",
-    "name": "달렌도르프",
-    "ref": "https://www.wikidata.org/wiki/Q76538",
+    "id": "p-00250",
+    "name": "졸라",
+    "ref": "https://www.wikidata.org/wiki/Q504",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00226",
+    "name": "볼테르",
+    "ref": "https://www.wikidata.org/wiki/Q9068",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00150",
+    "name": "만하임",
+    "ref": "https://www.wikidata.org/wiki/Q75905",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1926,32 +1953,6 @@
     "context_count": 1
   },
   {
-    "id": "p-00048",
-    "name": "콘라트 피들러",
-    "ref": "https://www.wikidata.org/wiki/Q96384",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-00185",
-    "name": "I. A. 리처즈",
-    "ref": "https://www.wikidata.org/wiki/Q718585",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-00171",
     "name": "파스칼",
     "ref": "https://www.wikidata.org/wiki/Q1290",
@@ -1965,9 +1966,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00173",
-    "name": "장 폴랑",
-    "ref": "https://www.wikidata.org/wiki/Q470606",
+    "id": "p-00048",
+    "name": "콘라트 피들러",
+    "ref": "https://www.wikidata.org/wiki/Q96384",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -1989,6 +1990,32 @@
       "p-00246"
     ],
     "context_count": 2
+  },
+  {
+    "id": "p-00185",
+    "name": "I. A. 리처즈",
+    "ref": "https://www.wikidata.org/wiki/Q718585",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
+  },
+  {
+    "id": "p-00173",
+    "name": "장 폴랑",
+    "ref": "https://www.wikidata.org/wiki/Q470606",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 1
   },
   {
     "id": "p-00050",
@@ -2045,7 +2072,7 @@
   {
     "id": "p-00053",
     "name": "후쿠자와 유키치",
-    "ref": "https://www.wikidata.org/wiki/Q275118",
+    "ref": "https://www.wikidata.org/wiki/Q355447",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -2058,7 +2085,7 @@
   {
     "id": "p-00191",
     "name": "조지 산타야나",
-    "ref": "https://www.wikidata.org/wiki/Q216930",
+    "ref": "https://www.wikidata.org/wiki/Q237833",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -2082,22 +2109,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00207",
-    "name": "스탕달",
-    "ref": "https://www.wikidata.org/wiki/Q502",
-    "encykorea": "",
-    "encykorea_work": "",
-    "nlk": "",
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-00094",
-    "name": "케네스 버크",
-    "ref": "https://www.wikidata.org/wiki/Q960081",
+    "id": "p-00198",
+    "name": "셰스토프",
+    "ref": "https://www.wikidata.org/wiki/Q314189",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -2121,9 +2135,9 @@
     "context_count": 1
   },
   {
-    "id": "p-00187",
-    "name": "로맹 롤랑",
-    "ref": "https://www.wikidata.org/wiki/Q47162",
+    "id": "p-00094",
+    "name": "케네스 버크",
+    "ref": "https://www.wikidata.org/wiki/Q960081",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",
@@ -2134,9 +2148,22 @@
     "context_count": 1
   },
   {
-    "id": "p-00198",
-    "name": "셰스토프",
-    "ref": "https://www.wikidata.org/wiki/Q314189",
+    "id": "p-00207",
+    "name": "스탕달",
+    "ref": "https://www.wikidata.org/wiki/Q502",
+    "encykorea": "",
+    "encykorea_work": "",
+    "nlk": "",
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ],
+    "context_count": 2
+  },
+  {
+    "id": "p-00187",
+    "name": "로맹 롤랑",
+    "ref": "https://www.wikidata.org/wiki/Q47162",
     "encykorea": "",
     "encykorea_work": "",
     "nlk": "",

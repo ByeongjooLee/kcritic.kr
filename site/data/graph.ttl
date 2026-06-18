@@ -209,7 +209,7 @@ kc:p-00035 a foaf:Person ;
 kc:p-00036 a foaf:Person ;
   foaf:name "새뮤얼 테일러 콜리지"@ko ;
   rdfs:label "새뮤얼 테일러 콜리지"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q81412> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q82409> ;
   schema:url <https://kcritic.kr/resource/p-00036> .
 
 kc:p-00037 a foaf:Person ;
@@ -305,7 +305,7 @@ kc:p-00052 a foaf:Person ;
 kc:p-00053 a foaf:Person ;
   foaf:name "후쿠자와 유키치"@ko ;
   rdfs:label "후쿠자와 유키치"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q275118> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q355447> ;
   schema:url <https://kcritic.kr/resource/p-00053> .
 
 kc:p-00054 a foaf:Person ;
@@ -365,7 +365,7 @@ kc:p-00065 a foaf:Person ;
 kc:p-00066 a foaf:Person ;
   foaf:name "하이데거"@ko ;
   rdfs:label "하이데거"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q48767> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q48301> ;
   schema:url <https://kcritic.kr/resource/p-00066> .
 
 kc:p-00067 a foaf:Person ;
@@ -377,7 +377,7 @@ kc:p-00067 a foaf:Person ;
 kc:p-00068 a foaf:Person ;
   foaf:name "헨리 제임스"@ko ;
   rdfs:label "헨리 제임스"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q165517> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q170509> ;
   schema:url <https://kcritic.kr/resource/p-00068> .
 
 kc:p-00069 a foaf:Person ;
@@ -478,7 +478,7 @@ kc:p-00089 a foaf:Person ;
 kc:p-00090 a foaf:Person ;
   foaf:name "정희성（鄭喜成）"@ko ;
   rdfs:label "정희성（鄭喜成）"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12520476> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12616210> ;
   schema:url <https://kcritic.kr/resource/p-00090> .
 
 kc:p-00091 a foaf:Person ;
@@ -577,7 +577,7 @@ kc:p-00115 a foaf:Person ;
 kc:p-00116 a foaf:Person ;
   foaf:name "김수영"@ko ;
   rdfs:label "김수영"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q3196153> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q4556301> ;
   schema:url <https://kcritic.kr/resource/p-00116> .
 
 kc:p-00117 a critic:Critic ;
@@ -775,7 +775,7 @@ kc:p-00161 a foaf:Person ;
 kc:p-00162 a foaf:Person ;
   foaf:name "오규원（吳圭原）"@ko ;
   rdfs:label "오규원（吳圭原）"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12614218> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12607740> ;
   schema:url <https://kcritic.kr/resource/p-00162> .
 
 kc:p-00163 a foaf:Person ;
@@ -847,7 +847,7 @@ kc:p-00179 a foaf:Person ;
 kc:p-00180 a foaf:Person ;
   foaf:name "에즈라 파운드"@ko ;
   rdfs:label "에즈라 파운드"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q37079> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q163366> ;
   schema:url <https://kcritic.kr/resource/p-00180> .
 
 kc:p-00181 a foaf:Person ;
@@ -901,7 +901,7 @@ kc:p-00190 a foaf:Person ;
 kc:p-00191 a foaf:Person ;
   foaf:name "조지 산타야나"@ko ;
   rdfs:label "조지 산타야나"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q216930> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q237833> ;
   schema:url <https://kcritic.kr/resource/p-00191> .
 
 kc:p-00192 a foaf:Person ;
@@ -961,7 +961,7 @@ kc:p-00202 a foaf:Person ;
 kc:p-00205 a foaf:Person ;
   foaf:name "스티븐 스펜더"@ko ;
   rdfs:label "스티븐 스펜더"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q234896> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q448764> ;
   schema:url <https://kcritic.kr/resource/p-00205> .
 
 kc:p-00206 a foaf:Person ;
@@ -1147,7 +1147,6 @@ kc:p-00243 a foaf:Person ;
 kc:p-00244 a foaf:Person ;
   foaf:name "이상"@ko ;
   rdfs:label "이상"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q500649> ;
   schema:url <https://kcritic.kr/resource/p-00244> .
 
 kc:p-00246 a critic:Critic ;
@@ -1180,29 +1179,41 @@ kc:p-00250 a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q504> ;
   schema:url <https://kcritic.kr/resource/p-00250> .
 
+kc:p-alain a foaf:Person ;
+  foaf:name "알랭"@ko ;
+  rdfs:label "알랭"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q44547> ;
+  schema:url <https://kcritic.kr/resource/p-alain> .
+
 kc:p-apollinaire a foaf:Person ;
   foaf:name "아폴리네르"@ko ;
   rdfs:label "아폴리네르"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q7164> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q133855> ;
   schema:url <https://kcritic.kr/resource/p-apollinaire> .
 
 kc:p-bataille a foaf:Person ;
   foaf:name "조르주 바타유"@ko ;
   rdfs:label "조르주 바타유"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q170654> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q207359> ;
   schema:url <https://kcritic.kr/resource/p-bataille> .
 
 kc:p-blanchot a foaf:Person ;
   foaf:name "모리스 블랑쇼"@ko ;
   rdfs:label "모리스 블랑쇼"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q160503> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q315210> ;
   schema:url <https://kcritic.kr/resource/p-blanchot> .
 
 kc:p-breton a foaf:Person ;
   foaf:name "앙드레 브르통"@ko ;
   rdfs:label "앙드레 브르통"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q46443> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q161955> ;
   schema:url <https://kcritic.kr/resource/p-breton> .
+
+kc:p-celan a foaf:Person ;
+  foaf:name "파울 첼란"@ko ;
+  rdfs:label "파울 첼란"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q42404> ;
+  schema:url <https://kcritic.kr/resource/p-celan> .
 
 kc:p-chin-eunyoung a foaf:Person ;
   foaf:name "진은영"@ko ;
@@ -1222,7 +1233,7 @@ kc:p-chong-jaehak a foaf:Person ;
 kc:p-hong-sangsoo a foaf:Person ;
   foaf:name "홍상수"@ko ;
   rdfs:label "홍상수"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q484230> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q484572> ;
   schema:url <https://kcritic.kr/resource/p-hong-sangsoo> .
 
 kc:p-houellebecq a foaf:Person ;
@@ -1239,13 +1250,13 @@ kc:p-hwang-hyonsan a critic:Critic ;
 kc:p-hwang-jiu a foaf:Person ;
   foaf:name "황지우"@ko ;
   rdfs:label "황지우"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12614219> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q3143549> ;
   schema:url <https://kcritic.kr/resource/p-hwang-jiu> .
 
 kc:p-ki-hyongdo a foaf:Person ;
   foaf:name "기형도"@ko ;
   rdfs:label "기형도"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q494464> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q5557767> ;
   schema:url <https://kcritic.kr/resource/p-ki-hyongdo> .
 
 kc:p-kim-chunsu a foaf:Person ;
@@ -1263,10 +1274,20 @@ kc:p-kim-jonghwan a foaf:Person ;
   rdfs:label "김정환"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-jonghwan> .
 
+kc:p-kim-jungil a foaf:Person ;
+  foaf:name "김중일"@ko ;
+  rdfs:label "김중일"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-jungil> .
+
 kc:p-kim-kyongju a foaf:Person ;
   foaf:name "김경주"@ko ;
   rdfs:label "김경주"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-kyongju> .
+
+kc:p-kim-rok a foaf:Person ;
+  foaf:name "김록"@ko ;
+  rdfs:label "김록"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-rok> .
 
 kc:p-kim-seonggyu a foaf:Person ;
   foaf:name "김성규"@ko ;
@@ -1314,25 +1335,25 @@ kc:p-pascal a foaf:Person ;
 kc:p-ranciere a foaf:Person ;
   foaf:name "자크 랑시에르"@ko ;
   rdfs:label "자크 랑시에르"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q179769> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q467470> ;
   schema:url <https://kcritic.kr/resource/p-ranciere> .
 
 kc:p-reverdy a foaf:Person ;
   foaf:name "피에르 르베르디"@ko ;
   rdfs:label "피에르 르베르디"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q315264> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q379931> ;
   schema:url <https://kcritic.kr/resource/p-reverdy> .
 
 kc:p-rimbaud a foaf:Person ;
   foaf:name "아르튀르 랭보"@ko ;
   rdfs:label "아르튀르 랭보"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q14995351> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q493> ;
   schema:url <https://kcritic.kr/resource/p-rimbaud> .
 
 kc:p-tarkovsky a foaf:Person ;
   foaf:name "안드레이 타르코프스키"@ko ;
   rdfs:label "안드레이 타르코프스키"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q46327> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q853> ;
   schema:url <https://kcritic.kr/resource/p-tarkovsky> .
 
 kc:p-valery a foaf:Person ;
@@ -1517,6 +1538,36 @@ kce:hwang-hyonsan_well-expressed-unhappiness_2012 a critic:CriticalEssay ;
   dcterms:subject "진정성 비판"@ko ;
   dcterms:subject "잘 표현된 불행"@ko ;
   dcterms:subject "뒷공론의 위험"@ko .
+
+kce:hwang-hyonsan_who-speaks_2012 a critic:CriticalEssay ;
+  dcterms:title "누가 말을 하는가"@ko ;
+  rdfs:label "누가 말을 하는가"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "누가 말을 하는가" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_who-speaks_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00244 ;
+  cito:discusses kc:p-kim-jonghwan ;
+  cito:discusses kc:p-kim-jungil ;
+  cito:discusses kc:p-kim-rok ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-alain ;
+  cito:citesAsAuthority kc:p-celan ;
+  dcterms:subject "하이퍼텍스트적 번역"@ko ;
+  dcterms:subject "타자의 말 억압"@ko ;
+  dcterms:subject "체험과 앎"@ko ;
+  dcterms:subject "타자로서의 주체"@ko ;
+  dcterms:subject "수사학과 이데올로기"@ko ;
+  dcterms:subject "미래의 말"@ko ;
+  dcterms:subject "구체성과 추상성"@ko ;
+  dcterms:subject "근원 언어"@ko ;
+  dcterms:subject "언어의 순결"@ko ;
+  dcterms:subject "하이퍼텍스트적-글쓰기-비판"@ko ;
+  dcterms:subject "언어의-순결"@ko ;
+  dcterms:subject "미래의-말"@ko ;
+  dcterms:subject "하이퍼텍스트적 글쓰기 비판"@ko .
 
 kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
   dcterms:title "아름다움의 거죽과 깊이 — 심미 감각과 사회"@ko ;
@@ -2902,8 +2953,10 @@ kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_symbol-allegory_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_translation-poetry_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_well-expressed-unhappiness_2012 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_who-speaks_2012 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00104 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00116 .
+kc:p-hwang-hyonsan critic:analyzes kc:p-00244 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chong-jaehak .
@@ -2912,7 +2965,9 @@ kc:p-hwang-hyonsan critic:analyzes kc:p-ki-hyongdo .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-chunsu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jungil .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-kyongju .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-rok .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-seonggyu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-ko-youngmin .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-munjae .
