@@ -80,7 +80,7 @@ def _lod_card_badges(rec):
             continue
         v = rec.get(s["field"])
         if v:
-            out.append({"href": s["url"](v), "label": s["card"],
+            out.append({"href": s["url"](v), "label": s["card"], "full": s["full"],
                         "bg": s["bg"] or "", "fg": s["fg"] or ""})
     return out
 
@@ -670,9 +670,12 @@ def build_graph_data(all_essays):
         degree[src] += cnt
         degree[tgt] += cnt
 
+    _PERSON_TYPES = {"critic", "writer", "theorist"}
     node_list = []
     for nid, n in nodes.items():
         n["degree"] = degree.get(nid, 0)
+        if n.get("type") in _PERSON_TYPES:
+            n["lod"] = _lod_card_badges(_lod_record(nid, n.get("ref", "")))
         node_list.append(n)
 
     return {"nodes": node_list, "edges": edges}
