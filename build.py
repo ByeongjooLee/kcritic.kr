@@ -82,6 +82,13 @@ def _name_en_html(name, en):
     return f'{name} <span class="name-en">({en})</span>' if en else name
 
 
+def _canonical_label(xml_id, fallback_ref, xml_name):
+    """표시용 정식 이름: persons.json 라벨 우선(없으면 XML 이름), 괄호(한자/영문) 제거.
+    카드·그래프 노드·프로필 heading 등 '대표 이름'에 사용 (소월→김소월, 정희성（鄭喜成）→정희성)."""
+    rec = _persons_record(xml_id, fallback_ref)
+    return _strip_parens(rec.get("label") or xml_name)
+
+
 def _lod_card_badges(rec):
     """카드용 LOD 배지 데이터 리스트 (JSON에 담아 JS가 그대로 렌더)."""
     out = []
@@ -640,7 +647,7 @@ def build_graph_data(all_essays):
             xml_ref = p.get("ref", "")
             nodes[author_id] = {
                 "id": author_id,
-                "label": p["name"],
+                "label": _canonical_label(author_id, reg_ref if reg_ref else xml_ref, p["name"]),
                 "type": "critic",
                 "ref": reg_ref if reg_ref else xml_ref,
             }
@@ -652,7 +659,9 @@ def build_graph_data(all_essays):
                 p = persons[pid]
                 if pid not in nodes:
                     reg_ref = _registry_ref(pid)
-                    nodes[pid] = {"id": pid, "label": p["name"], "type": "writer",
+                    nodes[pid] = {"id": pid,
+                                  "label": _canonical_label(pid, reg_ref if reg_ref else p.get("ref", ""), p["name"]),
+                                  "type": "writer",
                                   "ref": reg_ref if reg_ref else p.get("ref", "")}
                 raw_edges.append((stem, pid, "subject_of"))
 
@@ -662,7 +671,9 @@ def build_graph_data(all_essays):
                 p = persons[pid]
                 if pid not in nodes:
                     reg_ref = _registry_ref(pid)
-                    nodes[pid] = {"id": pid, "label": p["name"], "type": "theorist",
+                    nodes[pid] = {"id": pid,
+                                  "label": _canonical_label(pid, reg_ref if reg_ref else p.get("ref", ""), p["name"]),
+                                  "type": "theorist",
                                   "ref": reg_ref if reg_ref else p.get("ref", "")}
                 raw_edges.append((stem, pid, "uses_theory"))
 
@@ -1480,7 +1491,7 @@ def main():
                 continue
             if pid not in writers_map:
                 reg_ref = _registry_ref(pid)
-                writers_map[pid] = {"id": pid, "name": _strip_parens(p.get("name", pid)), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
+                writers_map[pid] = {"id": pid, "name": _canonical_label(pid, reg_ref if reg_ref else p.get("ref", ""), p.get("name", pid)), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
             writers_map[pid]["essays"].append(e)
 
     for wid, winfo in writers_map.items():
@@ -1520,7 +1531,7 @@ def main():
                 reg_ref = _registry_ref(pid)
                 thinkers_map[pid] = {
                     "id": pid,
-                    "name": _strip_parens(p.get("name", pid)),
+                    "name": _canonical_label(pid, reg_ref if reg_ref else p.get("ref", ""), p.get("name", pid)),
                     "ref": reg_ref if reg_ref else p.get("ref", ""),
                     "essays": [],
                     "contexts": [],
