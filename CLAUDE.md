@@ -654,6 +654,12 @@ persons.json의 잘못된 Wikidata QID를 찾아 고치는 4단계 도구 (criti
 
 **검증 도구 사각지대:** 한글 레이블 없는 외국인(NO_KO_LABEL)은 이름 대조를 못 해 직업만 맞으면 통과 → 엉뚱한 인물(흄→화학자 등)을 놓침. NO_KO_LABEL은 자동 정상 아니라 **en_label 수동 확인 필요**.
 
+### encykorea(한국민족문화대백과) 검증 — Wikidata P9475 (중요)
+
+**encykorea E번호는 절대 이름 검색·추측으로 채우지 말 것.** 동명이인 오류가 빈발(김우창→의병, 이상→이상희, 영랑→동명이인). **검증된 QID의 Wikidata P9475("Encyclopedia of Korean Culture ID")가 권위 소스** — 그 인물의 정확한 E번호를 줌(동명이인 불가).
+- `py verify_encykorea.py [--apply]` — 저장 encykorea ↔ Wikidata P9475 교차검증·교정.
+- **한계:** Wikidata에 P9475가 없는 인물(생존 비평가·일부 작가 등)은 교차검증 불가 → encykorea 페이지(`encykorea.aks.ac.kr/Article/{E}`, fetch 가능)에서 생년·직업을 직접 대조해야 함. encykorea 신규 추가 시에도 이 절차로 검증.
+
 ### multi-URI href 주의
 
 persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 붙인 문자열**이다. `href="{ref}"` 처럼 통째로 넣으면 링크가 깨진다. 반드시 wikidata 등 **단일 URI만 추출**해서 href에 사용 (`next((u for u in ref.split() if "wikidata" in u), "")`). 카드/패널은 `lod` 배열의 개별 `href`를 쓰므로 안전.
