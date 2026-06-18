@@ -542,7 +542,7 @@ kc:p-00102 a foaf:Person ;
 kc:p-00104 a foaf:Person ;
   foaf:name "김현승"@ko ;
   rdfs:label "김현승"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q12498504> ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12594919> ;
   schema:url <https://kcritic.kr/resource/p-00104> .
 
 kc:p-00106 a foaf:Person ;
@@ -1192,6 +1192,12 @@ kc:p-bataille a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q170654> ;
   schema:url <https://kcritic.kr/resource/p-bataille> .
 
+kc:p-blanchot a foaf:Person ;
+  foaf:name "모리스 블랑쇼"@ko ;
+  rdfs:label "모리스 블랑쇼"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q160503> ;
+  schema:url <https://kcritic.kr/resource/p-blanchot> .
+
 kc:p-breton a foaf:Person ;
   foaf:name "앙드레 브르통"@ko ;
   rdfs:label "앙드레 브르통"@ko ;
@@ -1207,6 +1213,11 @@ kc:p-choe-seungja a foaf:Person ;
   foaf:name "최승자"@ko ;
   rdfs:label "최승자"@ko ;
   schema:url <https://kcritic.kr/resource/p-choe-seungja> .
+
+kc:p-chong-jaehak a foaf:Person ;
+  foaf:name "정재학"@ko ;
+  rdfs:label "정재학"@ko ;
+  schema:url <https://kcritic.kr/resource/p-chong-jaehak> .
 
 kc:p-hong-sangsoo a foaf:Person ;
   foaf:name "홍상수"@ko ;
@@ -1239,6 +1250,11 @@ kc:p-kim-kyongju a foaf:Person ;
   foaf:name "김경주"@ko ;
   rdfs:label "김경주"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-kyongju> .
+
+kc:p-kim-seonggyu a foaf:Person ;
+  foaf:name "김성규"@ko ;
+  rdfs:label "김성규"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-seonggyu> .
 
 kc:p-ko-youngmin a foaf:Person ;
   foaf:name "고영민"@ko ;
@@ -1321,6 +1337,30 @@ kce:hwang-hyonsan_barren-reality_2012 a critic:CriticalEssay ;
   dcterms:subject "부정의 언어"@ko ;
   dcterms:subject "불모의 현실"@ko ;
   dcterms:subject "너그러운 말"@ko .
+
+kce:hwang-hyonsan_no-surrender_2012 a critic:CriticalEssay ;
+  dcterms:title "시는 포기하지 않는다"@ko ;
+  rdfs:label "시는 포기하지 않는다"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "시는 포기하지 않는다" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_no-surrender_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00104 ;
+  cito:discusses kc:p-chong-jaehak ;
+  cito:discusses kc:p-kim-seonggyu ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-blanchot ;
+  dcterms:subject "이중청원(신과 사탄)"@ko ;
+  dcterms:subject "상승의지와 분석의식"@ko ;
+  dcterms:subject "현실초극의 힘"@ko ;
+  dcterms:subject "순수시의 이상"@ko ;
+  dcterms:subject "침묵과 문학언어"@ko ;
+  dcterms:subject "포기하지 않음의 윤리"@ko ;
+  dcterms:subject "불확실한 탐구의 연출"@ko ;
+  dcterms:subject "알레고리적 탐구"@ko ;
+  dcterms:subject "시적 진보주의"@ko ;
+  dcterms:subject "뿌리의 창"@ko .
 
 kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
   dcterms:title "시 쓰는 몸과 시의 말"@ko ;
@@ -2754,13 +2794,17 @@ kc:p-00246 critic:analyzes kc:p-00244 .
 
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_barren-reality_2012 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_no-surrender_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_well-expressed-unhappiness_2012 .
+kc:p-hwang-hyonsan critic:analyzes kc:p-00104 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00116 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
+kc:p-hwang-hyonsan critic:analyzes kc:p-chong-jaehak .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-kyongju .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-seonggyu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-ko-youngmin .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-younggwang .
