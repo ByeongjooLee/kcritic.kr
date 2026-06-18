@@ -12,3 +12,13 @@ wrangler.jsonc
 package.json
 package-lock.json
 .wrangler
+
+# 검증·교정 작업 산출물 (배포 제외)
+*.bak
+*.csv
+verify_lod_result.json
+essays_backup_qidfix
+.gitignore
+.assetsignore
+.vscode
+.dev.vars*
