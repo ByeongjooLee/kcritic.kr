@@ -36,3 +36,10 @@ node_modules/
 # 원문 보호 — 저작권, 로컬 전용
 essays/*.xml
 essays/*.txt
+essays_backup*/
+
+# 검증·교정 작업 산출물 (로컬 전용)
+persons.json.bak
+verify_lod_result.csv
+verify_lod_result.json
+qid_fix_proposals.csv
