@@ -1242,6 +1242,12 @@ kc:p-hwang-jiu a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12614219> ;
   schema:url <https://kcritic.kr/resource/p-hwang-jiu> .
 
+kc:p-ki-hyongdo a foaf:Person ;
+  foaf:name "기형도"@ko ;
+  rdfs:label "기형도"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q494464> ;
+  schema:url <https://kcritic.kr/resource/p-ki-hyongdo> .
+
 kc:p-kim-chunsu a foaf:Person ;
   foaf:name "김춘수"@ko ;
   rdfs:label "김춘수"@ko ;
@@ -1278,10 +1284,32 @@ kc:p-lafontaine a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q43629> ;
   schema:url <https://kcritic.kr/resource/p-lafontaine> .
 
+kc:p-lee-munjae a foaf:Person ;
+  foaf:name "이문재"@ko ;
+  rdfs:label "이문재"@ko ;
+  schema:url <https://kcritic.kr/resource/p-lee-munjae> .
+
 kc:p-lee-younggwang a foaf:Person ;
   foaf:name "이영광"@ko ;
   rdfs:label "이영광"@ko ;
   schema:url <https://kcritic.kr/resource/p-lee-younggwang> .
+
+kc:p-ovid a foaf:Person ;
+  foaf:name "오비디우스"@ko ;
+  rdfs:label "오비디우스"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q7198> ;
+  schema:url <https://kcritic.kr/resource/p-ovid> .
+
+kc:p-park-namsu a foaf:Person ;
+  foaf:name "박남수"@ko ;
+  rdfs:label "박남수"@ko ;
+  schema:url <https://kcritic.kr/resource/p-park-namsu> .
+
+kc:p-pascal a foaf:Person ;
+  foaf:name "파스칼"@ko ;
+  rdfs:label "파스칼"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1290> ;
+  schema:url <https://kcritic.kr/resource/p-pascal> .
 
 kc:p-ranciere a foaf:Person ;
   foaf:name "자크 랑시에르"@ko ;
@@ -1437,6 +1465,32 @@ kce:hwang-hyonsan_symbol-allegory_2012 a critic:CriticalEssay ;
   dcterms:subject "무의미 시론"@ko ;
   dcterms:subject "이미지 뭉개기"@ko ;
   dcterms:subject "규정과 의도를 넘어섬"@ko .
+
+kce:hwang-hyonsan_translation-poetry_2012 a critic:CriticalEssay ;
+  dcterms:title "번역과 시"@ko ;
+  rdfs:label "번역과 시"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "번역과 시" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_translation-poetry_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-ki-hyongdo ;
+  cito:discusses kc:p-lee-munjae ;
+  cito:discusses kc:p-park-namsu ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00227 ;
+  cito:citesAsAuthority kc:p-ovid ;
+  cito:citesAsAuthority kc:p-pascal ;
+  dcterms:subject "번역가의 과제"@ko ;
+  dcterms:subject "종족 언어의 방언성"@ko ;
+  dcterms:subject "순수언어"@ko ;
+  dcterms:subject "하나의 의미로 환원되지 않음"@ko ;
+  dcterms:subject "시어의 물질감과 존재감"@ko ;
+  dcterms:subject "모국어 속의 외국어성"@ko ;
+  dcterms:subject "리베르탱"@ko ;
+  dcterms:subject "조응관계의 파괴"@ko ;
+  dcterms:subject "낯설게 하기"@ko ;
+  dcterms:subject "번역과 현대시의 상통"@ko .
 
 kce:hwang-hyonsan_well-expressed-unhappiness_2012 a critic:CriticalEssay ;
   dcterms:title "잘 표현된 불행"@ko ;
@@ -2846,6 +2900,7 @@ kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_barren-reality_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_no-surrender_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_symbol-allegory_2012 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_translation-poetry_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_well-expressed-unhappiness_2012 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00104 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00116 .
@@ -2853,10 +2908,13 @@ kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chong-jaehak .
 kc:p-hwang-hyonsan critic:analyzes kc:p-hwang-jiu .
+kc:p-hwang-hyonsan critic:analyzes kc:p-ki-hyongdo .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-chunsu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-kyongju .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-seonggyu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-ko-youngmin .
+kc:p-hwang-hyonsan critic:analyzes kc:p-lee-munjae .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-younggwang .
+kc:p-hwang-hyonsan critic:analyzes kc:p-park-namsu .
