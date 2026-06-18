@@ -1482,6 +1482,25 @@ kce:hwang-hyonsan_no-surrender_2012 a critic:CriticalEssay ;
   dcterms:subject "시적 진보주의"@ko ;
   dcterms:subject "뿌리의 창"@ko .
 
+kce:hwang-hyonsan_poetry-as-failure_2012 a critic:CriticalEssay ;
+  dcterms:title "실패담으로서의 시"@ko ;
+  rdfs:label "실패담으로서의 시"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "실패담으로서의 시" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_poetry-as-failure_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  dcterms:subject "기계와 생명의 역설"@ko ;
+  dcterms:subject "매듭과 추상"@ko ;
+  dcterms:subject "노래의 매듭"@ko ;
+  dcterms:subject "자연과-매듭의-어긋남"@ko ;
+  dcterms:subject "문명의 매듭"@ko ;
+  dcterms:subject "자연과 매듭의 어긋남"@ko ;
+  dcterms:subject "매듭의 자기반성 불가능성"@ko ;
+  dcterms:subject "매듭 밖의 지혜"@ko ;
+  dcterms:subject "시의 실패담"@ko ;
+  dcterms:subject "천의무봉"@ko ;
+  dcterms:subject "시인의 실패 선언"@ko .
+
 kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
   dcterms:title "시 쓰는 몸과 시의 말"@ko ;
   rdfs:label "시 쓰는 몸과 시의 말"@ko ;
@@ -2998,6 +3017,7 @@ kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_barren-reality_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_never-ending-story_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_no-surrender_2012 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-as-failure_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_symbol-allegory_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_translation-poetry_2012 .
