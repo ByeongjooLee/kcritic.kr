@@ -44,6 +44,46 @@ if _ID_MAP_FILE.exists():
     except Exception:
         pass
 
+# ── LOD 외부 식별자 단일 레지스트리 ───────────────────────────────
+# 새 LOD 소스 추가 = 여기 한 줄 + persons.json 필드. 모든 표시 위치(프로필/칩/카드)가 이 정의를 따른다.
+#   field : persons.json 키
+#   url   : 값 → 전체 URL
+#   full  : 프로필 배지 라벨 / chip : 에세이 칩 짧은 라벨(None이면 칩 미표시) / card : 카드 라벨(None이면 카드 미표시)
+#   bg/fg : 카드 배지 색(None이면 기본) / work : 작품 배지 여부(추가 클래스) / title : 툴팁
+LOD_SOURCES = [
+    {"field": "encykorea",      "url": lambda v: v, "full": "한국민족문화대백과",        "chip": "한",   "card": "한",       "bg": "#e8f0e8", "fg": "#2a5a2a", "work": False, "title": "한국민족문화대백과"},
+    {"field": "encykorea_work", "url": lambda v: v, "full": "한국민족문화대백과 (작품)", "chip": "한*",  "card": "한(작품)", "bg": "#f0ede8", "fg": "#5a3a2a", "work": True,  "title": "한국민족문화대백과 (작품)"},
+    {"field": "naver_munhak",   "url": lambda v: v, "full": "한국현대문학대사전",        "chip": "문",   "card": "문학",     "bg": "#f3ead6", "fg": "#6a4e16", "work": False, "title": "네이버 지식백과 · 한국현대문학대사전"},
+    {"field": "nlk",            "url": lambda v: v, "full": "NLK LOD",                 "chip": "NLK",  "card": "NLK",      "bg": "#e8eef5", "fg": "#1a3a5a", "work": False, "title": "국립중앙도서관 LOD"},
+    {"field": "wikidata",       "url": lambda v: f"https://www.wikidata.org/wiki/{v}", "full": "Wikidata", "chip": "W",  "card": "W",        "bg": None,      "fg": None,      "work": False, "title": "Wikidata"},
+    {"field": "isni",           "url": lambda v: f"https://isni.org/isni/{v}",         "full": "ISNI",     "chip": None, "card": None,       "bg": None,      "fg": None,      "work": False, "title": "ISNI"},
+    {"field": "viaf",           "url": lambda v: v, "full": "VIAF",                    "chip": None,   "card": None,       "bg": None,      "fg": None,      "work": False, "title": "VIAF"},
+]
+
+
+def _lod_record(xml_id, fallback_ref=""):
+    """persons.json 권위 레코드 + (wikidata 누락 시) fallback_ref에서 Q번호 보완."""
+    rec = dict(_persons_record(xml_id, fallback_ref))
+    if not rec.get("wikidata"):
+        for uri in fallback_ref.split():
+            if "wikidata.org/wiki/" in uri:
+                rec["wikidata"] = uri.rstrip("/").split("/")[-1]
+                break
+    return rec
+
+
+def _lod_card_badges(rec):
+    """카드용 LOD 배지 데이터 리스트 (JSON에 담아 JS가 그대로 렌더)."""
+    out = []
+    for s in LOD_SOURCES:
+        if s["card"] is None:
+            continue
+        v = rec.get(s["field"])
+        if v:
+            out.append({"href": s["url"](v), "label": s["card"],
+                        "bg": s["bg"] or "", "fg": s["fg"] or ""})
+    return out
+
 def _strip_parens(name: str) -> str:
     """이름에서 괄호(전각·반각) 안 한자/영문 표기 제거. 예: 김수영（金洙暎） → 김수영"""
     import re
@@ -388,31 +428,17 @@ def person_chip(p, role_type=None):
     xml_ref = p.get("ref", "")
     combined_ref = reg_ref if reg_ref else xml_ref
 
-    wikidata = ""
-    for uri in combined_ref.split():
-        if "wikidata" in uri:
-            wikidata = uri
-            break
-
-    # persons.json 조회 (숫자 xml:id도 id_map/wikidata로 슬러그 해석)
-    preg = _persons_record(pid, combined_ref) if pid else {}
-    encykorea = preg.get("encykorea", "") or ""
-    encykorea_work = preg.get("encykorea_work", "") or ""
-    nlk = preg.get("nlk", "") or ""
-    naver_munhak = preg.get("naver_munhak", "") or ""
-
-    # 카드 chip: 한(민족문화대백과) → 문(한국현대문학대사전) → NLK → W(Wikidata)
+    # 칩 LOD 배지 — 레지스트리 순회 (숫자 xml:id도 id_map/wikidata로 슬러그 해석)
+    rec = _lod_record(pid, combined_ref) if pid else {}
     badges = ""
-    if encykorea:
-        badges += f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
-    if encykorea_work:
-        badges += f' <a href="{encykorea_work}" target="_blank" class="chip-ext-link chip-ext-work" title="한국민족문화대백과(작품)">한*</a>'
-    if naver_munhak:
-        badges += f' <a href="{naver_munhak}" target="_blank" class="chip-ext-link" title="한국현대문학대사전">문</a>'
-    if nlk:
-        badges += f' <a href="{nlk}" target="_blank" class="chip-ext-link" title="국립중앙도서관 LOD">NLK</a>'
-    if wikidata:
-        badges += f' <a href="{wikidata}" target="_blank" class="chip-ext-link" title="Wikidata">W</a>'
+    for s in LOD_SOURCES:
+        if s["chip"] is None:
+            continue
+        v = rec.get(s["field"])
+        if v:
+            extra = " chip-ext-work" if s["work"] else ""
+            badges += (f' <a href="{s["url"](v)}" target="_blank" '
+                       f'class="chip-ext-link{extra}" title="{s["title"]}">{s["chip"]}</a>')
 
     if badges:
         chip = f'<span class="chip {cls}" data-id="{pid}">{name}{badges}</span>'
@@ -681,22 +707,14 @@ def build_critic_mini_graph(critic_id, graph_data):
 def _lod_links_html(xml_id, fallback_ref=""):
     """persons.json에서 LOD 외부 링크 뱃지 HTML 생성. 순서: encykorea → NLK → Wikidata → ISNI → VIAF
     persons.json에 없으면 fallback_ref(공백 구분 URI 문자열)에서 Wikidata 배지만 생성."""
-    p = _persons_record(xml_id, fallback_ref)
+    p = _lod_record(xml_id, fallback_ref)
     badges = []
-    if p.get("encykorea"):
-        badges.append(f'<a href="{p["encykorea"]}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
-    if p.get("encykorea_work"):
-        badges.append(f'<a href="{p["encykorea_work"]}" target="_blank" class="lod-badge lod-badge-work" title="한국민족문화대백과 (작품)">한국민족문화대백과 (작품) ↗</a>')
-    if p.get("naver_munhak"):
-        badges.append(f'<a href="{p["naver_munhak"]}" target="_blank" class="lod-badge" title="네이버 지식백과 · 한국현대문학대사전">한국현대문학대사전 ↗</a>')
-    if p.get("nlk"):
-        badges.append(f'<a href="{p["nlk"]}" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a>')
-    if p.get("wikidata"):
-        badges.append(f'<a href="https://www.wikidata.org/wiki/{p["wikidata"]}" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a>')
-    if p.get("isni"):
-        badges.append(f'<a href="https://isni.org/isni/{p["isni"]}" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a>')
-    if p.get("viaf"):
-        badges.append(f'<a href="{p["viaf"]}" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a>')
+    for s in LOD_SOURCES:
+        v = p.get(s["field"])
+        if v:
+            cls = "lod-badge lod-badge-work" if s["work"] else "lod-badge"
+            badges.append(f'<a href="{s["url"](v)}" target="_blank" class="{cls}" '
+                          f'title="{s["title"]}">{s["full"]} ↗</a>')
     # persons.json 미스 시 fallback_ref의 Wikidata URI로 배지 생성
     if not badges and fallback_ref:
         for uri in fallback_ref.split():
@@ -1421,7 +1439,7 @@ def main():
             "id": cid,
             "name": cinfo["name"],
             "ref": cinfo["ref"],
-            "naver_munhak": _persons_record(cid, cinfo["ref"]).get("naver_munhak", "") or "",
+            "lod": _lod_card_badges(_lod_record(cid, cinfo["ref"])),
             "essay_count": len(cinfo["essays"]),
             "subjects": list({pid for e in cinfo["essays"] for pid in e["subjects"]}),
             "theorists": list({pid for e in cinfo["essays"] for pid in e["theorists"]}),
@@ -1456,9 +1474,7 @@ def main():
             "id": wid,
             "name": winfo["name"],
             "ref": winfo["ref"],
-            "encykorea": _persons_record(wid, winfo["ref"]).get("encykorea") or "",
-            "encykorea_work": _persons_record(wid, winfo["ref"]).get("encykorea_work") or "",
-            "nlk": _persons_record(wid, winfo["ref"]).get("nlk") or "",
+            "lod": _lod_card_badges(_lod_record(wid, winfo["ref"])),
             "essay_count": len(winfo["essays"]),
             "critics": list({e["author_id"] for e in winfo["essays"] if e["author_id"]}),
         }
@@ -1516,9 +1532,7 @@ def main():
             "id": tid,
             "name": tinfo["name"],
             "ref": tinfo["ref"],
-            "encykorea": _persons_record(tid, tinfo["ref"]).get("encykorea") or "",
-            "encykorea_work": _persons_record(tid, tinfo["ref"]).get("encykorea_work") or "",
-            "nlk": _persons_record(tid, tinfo["ref"]).get("nlk") or "",
+            "lod": _lod_card_badges(_lod_record(tid, tinfo["ref"])),
             "essay_count": len({e["stem"] for e in tinfo["essays"]}),
             "critics": list({e["critic_id"] for e in tinfo["essays"] if e["critic_id"]}),
             "context_count": len(tinfo["contexts"]),

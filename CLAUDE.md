@@ -506,7 +506,13 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 
 **LOD 배지 표시 우선순위:** encykorea → encykorea_work → 한국현대문학대사전(naver_munhak) → NLK → Wikidata → ISNI → VIAF
 
-**`naver_munhak` 필드:** 네이버 지식백과 「한국현대문학대사전」 항목의 전체 URL (terms.naver.com/entry.naver?docId=...&cid=41708&...). 2000년대 이후 활동 비평가(김우창·유종호·황현산 등)에 추가. 프로필 페이지 배지("한국현대문학대사전 ↗") + essay 칩 배지("문")로 렌더링.
+**`naver_munhak` 필드:** 네이버 지식백과 「한국현대문학대사전」 항목의 전체 URL (terms.naver.com/entry.naver?docId=...&cid=41708&...). 2000년대 이후 활동 비평가(김우창·유종호·백낙청·김병익 등)에 추가. 황현산은 사전범위(1895~1994)상 항목 없음.
+
+**LOD 배지 단일 레지스트리 (build.py `LOD_SOURCES`):** 모든 외부 식별자 배지는 build.py 상단 `LOD_SOURCES` 리스트 한 곳에서 정의(field·url·full/chip/card 라벨·색·title). 표시 위치별 렌더가 모두 이 정의를 따름:
+- 프로필 페이지: `_lod_links_html` 이 `LOD_SOURCES` 순회 → "{full} ↗" 배지
+- 에세이 칩: `person_chip` 이 순회 → chip 라벨(None이면 미표시)
+- 카드(critics/writers/thinkers): build.py가 `_lod_card_badges`로 **`lod` 배열**(href·label·bg·fg)을 각 JSON에 넣고, HTML의 JS는 `c.lod`를 그대로 렌더(ref 문자열 파싱 제거)
+- **새 LOD 소스 추가 = `LOD_SOURCES`에 1줄 + persons.json 필드.** 5곳(프로필·칩·카드3개)이 자동 반영. 개별 카드 JS 수정 불필요.
 
 **숫자 xml:id → persons.json 연결 (id_map):** build.py는 `../id_map.json`(슬러그→숫자)을 역인덱스(`_NUM_TO_SLUG`)로 로드. 에세이가 숫자 xml:id(p-00117 등)로 인물을 참조해도 `_persons_record`/`_registry_ref`가 슬러그로 해석해 persons.json 권위 레코드(올바른 wikidata·encykorea·naver_munhak 등)를 사용. author_ref·TTL 노드 ref도 이 경로로 persons.json 우선. → XML ref가 낡아도 persons.json만 고치면 사이트 전체에 반영됨.
 

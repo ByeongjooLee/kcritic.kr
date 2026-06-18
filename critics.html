@@ -59,20 +59,15 @@
 
       const grid = document.getElementById('critic-grid');
       grid.innerHTML = critics.map(c => {
-        const wikiHref = (c.ref && c.ref.includes('wikidata'))
-          ? c.ref.split(' ').find(u => u.includes('wikidata'))
-          : null;
-        const wikiBadge = wikiHref
-          ? `<a href="${wikiHref}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">Wikidata ↗</a>`
-          : '';
-        const munhakBadge = c.naver_munhak
-          ? `<a href="${c.naver_munhak}" target="_blank" class="critic-card-wikidata" onclick="event.stopPropagation()">한국현대문학대사전 ↗</a>`
-          : '';
+        // LOD 배지는 build.py가 만든 c.lod 배열을 그대로 렌더 (단일 소스: build.py LOD_SOURCES)
+        const lodBadges = (c.lod || []).map(b =>
+          `<a href="${b.href}" target="_blank" class="critic-card-wikidata"${b.bg ? ` style="background:${b.bg};color:${b.fg};"` : ''} onclick="event.stopPropagation()">${b.label} ↗</a>`
+        ).join('');
         return `
         <article class="critic-card" onclick="location.href='site/critics/${c.id}.html'">
           <div class="critic-card-header">
             <h2 class="critic-card-name">${c.name}</h2>
-            ${wikiBadge}${munhakBadge}
+            <span style="display:flex;gap:4px;flex-wrap:wrap;">${lodBadges}</span>
           </div>
           <div class="critic-card-stats">
             <span class="critic-stat"><strong>${c.essay_count}</strong> 비평글</span>
