@@ -575,9 +575,9 @@ kc:p-00115 a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00115> .
 
 kc:p-00116 a foaf:Person ;
-  foaf:name "김수영（金洙暎）"@ko ;
-  rdfs:label "김수영（金洙暎）"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q16198424> ;
+  foaf:name "김수영"@ko ;
+  rdfs:label "김수영"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q3196153> ;
   schema:url <https://kcritic.kr/resource/p-00116> .
 
 kc:p-00117 a critic:Critic ;
@@ -1180,6 +1180,12 @@ kc:p-00250 a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q504> ;
   schema:url <https://kcritic.kr/resource/p-00250> .
 
+kc:p-apollinaire a foaf:Person ;
+  foaf:name "아폴리네르"@ko ;
+  rdfs:label "아폴리네르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q7164> ;
+  schema:url <https://kcritic.kr/resource/p-apollinaire> .
+
 kc:p-bataille a foaf:Person ;
   foaf:name "조르주 바타유"@ko ;
   rdfs:label "조르주 바타유"@ko ;
@@ -1208,15 +1214,36 @@ kc:p-hong-sangsoo a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q484230> ;
   schema:url <https://kcritic.kr/resource/p-hong-sangsoo> .
 
+kc:p-houellebecq a foaf:Person ;
+  foaf:name "미셸 우엘벡"@ko ;
+  rdfs:label "미셸 우엘벡"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q157509> ;
+  schema:url <https://kcritic.kr/resource/p-houellebecq> .
+
 kc:p-hwang-hyonsan a critic:Critic ;
   foaf:name "황현산"@ko ;
   rdfs:label "황현산"@ko ;
   schema:url <https://kcritic.kr/resource/p-hwang-hyonsan> .
 
+kc:p-kim-ideum a foaf:Person ;
+  foaf:name "김이듬"@ko ;
+  rdfs:label "김이듬"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-ideum> .
+
 kc:p-kim-jonghwan a foaf:Person ;
   foaf:name "김정환"@ko ;
   rdfs:label "김정환"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-jonghwan> .
+
+kc:p-ko-youngmin a foaf:Person ;
+  foaf:name "고영민"@ko ;
+  rdfs:label "고영민"@ko ;
+  schema:url <https://kcritic.kr/resource/p-ko-youngmin> .
+
+kc:p-lee-younggwang a foaf:Person ;
+  foaf:name "이영광"@ko ;
+  rdfs:label "이영광"@ko ;
+  schema:url <https://kcritic.kr/resource/p-lee-younggwang> .
 
 kc:p-ranciere a foaf:Person ;
   foaf:name "자크 랑시에르"@ko ;
@@ -1296,6 +1323,32 @@ kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
   dcterms:subject "번역가의 과제"@ko ;
   dcterms:subject "문학의 정치"@ko ;
   dcterms:subject "감각의 재분배"@ko .
+
+kce:hwang-hyonsan_well-expressed-unhappiness_2012 a critic:CriticalEssay ;
+  dcterms:title "잘 표현된 불행"@ko ;
+  rdfs:label "잘 표현된 불행"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "잘 표현된 불행" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_well-expressed-unhappiness_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-kim-ideum ;
+  cito:discusses kc:p-ko-youngmin ;
+  cito:discusses kc:p-lee-younggwang ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00227 ;
+  cito:citesAsAuthority kc:p-apollinaire ;
+  cito:citesAsAuthority kc:p-houellebecq ;
+  dcterms:subject "공감각현상"@ko ;
+  dcterms:subject "감각의 깊이"@ko ;
+  dcterms:subject "엔트로피와 예술"@ko ;
+  dcterms:subject "현실의 깊이"@ko ;
+  dcterms:subject "실패담의 시"@ko ;
+  dcterms:subject "랑그와 파롤"@ko ;
+  dcterms:subject "진정성-비판"@ko ;
+  dcterms:subject "성스러운 폭력"@ko ;
+  dcterms:subject "진정성 비판"@ko ;
+  dcterms:subject "잘 표현된 불행"@ko ;
+  dcterms:subject "뒷공론의 위험"@ko .
 
 kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
   dcterms:title "아름다움의 거죽과 깊이 — 심미 감각과 사회"@ko ;
@@ -2676,6 +2729,10 @@ kc:p-00246 critic:analyzes kc:p-00244 .
 
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_well-expressed-unhappiness_2012 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
+kc:p-hwang-hyonsan critic:analyzes kc:p-ko-youngmin .
+kc:p-hwang-hyonsan critic:analyzes kc:p-lee-younggwang .
