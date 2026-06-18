@@ -534,7 +534,9 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
       <ul class="quote-source-list">{"".join(q_items)}</ul>
     </section>"""
 
-    author_link = f'<a href="{author_ref}" target="_blank">{author_name}</a>' if author_ref and "wikidata" in author_ref else author_name
+    # author_ref는 여러 URI(wikidata/encykorea/...)가 공백으로 이어진 문자열이므로 wikidata URI만 추출
+    _author_wiki = next((u for u in author_ref.split() if "wikidata" in u), "")
+    author_link = f'<a href="{_author_wiki}" target="_blank">{author_name}</a>' if _author_wiki else author_name
 
     return f"""<!DOCTYPE html>
 <html lang="ko">

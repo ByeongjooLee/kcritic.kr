@@ -1198,6 +1198,12 @@ kc:p-bataille a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q207359> ;
   schema:url <https://kcritic.kr/resource/p-bataille> .
 
+kc:p-bayard a foaf:Person ;
+  foaf:name "피에르 바야르"@ko ;
+  rdfs:label "피에르 바야르"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q1385909> ;
+  schema:url <https://kcritic.kr/resource/p-bayard> .
+
 kc:p-blanchot a foaf:Person ;
   foaf:name "모리스 블랑쇼"@ko ;
   rdfs:label "모리스 블랑쇼"@ko ;
@@ -1331,6 +1337,12 @@ kc:p-lee-munjae a foaf:Person ;
   rdfs:label "이문재"@ko ;
   schema:url <https://kcritic.kr/resource/p-lee-munjae> .
 
+kc:p-lee-seongbok a foaf:Person ;
+  foaf:name "이성복"@ko ;
+  rdfs:label "이성복"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q14192416> ;
+  schema:url <https://kcritic.kr/resource/p-lee-seongbok> .
+
 kc:p-lee-younggwang a foaf:Person ;
   foaf:name "이영광"@ko ;
   rdfs:label "이영광"@ko ;
@@ -1366,8 +1378,8 @@ kc:p-reverdy a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-reverdy> .
 
 kc:p-rimbaud a foaf:Person ;
-  foaf:name "아르튀르 랭보"@ko ;
-  rdfs:label "아르튀르 랭보"@ko ;
+  foaf:name "랭보"@ko ;
+  rdfs:label "랭보"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q493> ;
   schema:url <https://kcritic.kr/resource/p-rimbaud> .
 
@@ -1481,6 +1493,30 @@ kce:hwang-hyonsan_no-surrender_2012 a critic:CriticalEssay ;
   dcterms:subject "알레고리적 탐구"@ko ;
   dcterms:subject "시적 진보주의"@ko ;
   dcterms:subject "뿌리의 창"@ko .
+
+kce:hwang-hyonsan_on-criticism_2012 a critic:CriticalEssay ;
+  dcterms:title "비평의 언저리"@ko ;
+  rdfs:label "비평의 언저리"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "비평의 언저리 — 시와 비평에 관한 두 편의 짧은 글" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_on-criticism_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-lee-seongbok ;
+  cito:citesAsAuthority kc:p-bayard ;
+  cito:citesAsAuthority kc:p-bourdieu ;
+  cito:citesAsAuthority kc:p-pascal ;
+  cito:citesAsAuthority kc:p-rimbaud ;
+  dcterms:subject "시인을 발견하는 시인"@ko ;
+  dcterms:subject "현실과 언어의 동일성"@ko ;
+  dcterms:subject "은유와 현실의 구분"@ko ;
+  dcterms:subject "충전된 언어"@ko ;
+  dcterms:subject "시와 비평의 모험"@ko ;
+  dcterms:subject "예상 표절"@ko ;
+  dcterms:subject "정식계약과 이면계약"@ko ;
+  dcterms:subject "형언할 수 없음"@ko ;
+  dcterms:subject "문학의 계약 재조정"@ko ;
+  dcterms:subject "비평의 매개 역할"@ko .
 
 kce:hwang-hyonsan_poetry-as-failure_2012 a critic:CriticalEssay ;
   dcterms:title "실패담으로서의 시"@ko ;
@@ -3017,6 +3053,7 @@ kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_barren-reality_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_never-ending-story_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_no-surrender_2012 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_on-criticism_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-as-failure_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_symbol-allegory_2012 .
@@ -3042,5 +3079,6 @@ kc:p-hwang-hyonsan critic:analyzes kc:p-kim-rok .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-seonggyu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-ko-youngmin .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-munjae .
+kc:p-hwang-hyonsan critic:analyzes kc:p-lee-seongbok .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-younggwang .
 kc:p-hwang-hyonsan critic:analyzes kc:p-park-namsu .
