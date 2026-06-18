@@ -703,7 +703,7 @@ kc:p-00148 a foaf:Person ;
 kc:p-00149 a foaf:Person ;
   foaf:name "말라르메"@ko ;
   rdfs:label "말라르메"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q767> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q183945> ;
   schema:url <https://kcritic.kr/resource/p-00149> .
 
 kc:p-00150 a foaf:Person ;
@@ -739,7 +739,7 @@ kc:p-00154 a foaf:Person ;
 kc:p-00155 a foaf:Person ;
   foaf:name "모파상"@ko ;
   rdfs:label "모파상"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q9327> ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q9242> ;
   schema:url <https://kcritic.kr/resource/p-00155> .
 
 kc:p-00156 a foaf:Person ;
@@ -1202,6 +1202,12 @@ kc:p-choe-seungja a foaf:Person ;
   rdfs:label "최승자"@ko ;
   schema:url <https://kcritic.kr/resource/p-choe-seungja> .
 
+kc:p-hong-sangsoo a foaf:Person ;
+  foaf:name "홍상수"@ko ;
+  rdfs:label "홍상수"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q484230> ;
+  schema:url <https://kcritic.kr/resource/p-hong-sangsoo> .
+
 kc:p-hwang-hyonsan a critic:Critic ;
   foaf:name "황현산"@ko ;
   rdfs:label "황현산"@ko ;
@@ -1230,7 +1236,40 @@ kc:p-rimbaud a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q14995351> ;
   schema:url <https://kcritic.kr/resource/p-rimbaud> .
 
+kc:p-tarkovsky a foaf:Person ;
+  foaf:name "안드레이 타르코프스키"@ko ;
+  rdfs:label "안드레이 타르코프스키"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q46327> ;
+  schema:url <https://kcritic.kr/resource/p-tarkovsky> .
+
 # ── 비평글 노드 ─────────────────────────────────────────
+kce:hwang-hyonsan_autonomy-politics_2010 a critic:CriticalEssay ;
+  dcterms:title "문학의 정치성과 자율성"@ko ;
+  rdfs:label "문학의 정치성과 자율성"@ko ;
+  dcterms:date "2010"^^xsd:gYear ;
+  schema:isPartOf "문학의 정치성과 자율성" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_autonomy-politics_2010.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:citesAsAuthority kc:p-00049 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00155 ;
+  cito:citesAsAuthority kc:p-00194 ;
+  cito:citesAsAuthority kc:p-00216 ;
+  cito:citesAsAuthority kc:p-hong-sangsoo ;
+  cito:citesAsAuthority kc:p-ranciere ;
+  cito:citesAsAuthority kc:p-tarkovsky ;
+  dcterms:subject "감성체계의 개편"@ko ;
+  dcterms:subject "감성계의 분배"@ko ;
+  dcterms:subject "문학의 정치성"@ko ;
+  dcterms:subject "문학의 자율성"@ko ;
+  dcterms:subject "타자성과-진실"@ko ;
+  dcterms:subject "단 하나의 새로운 말"@ko ;
+  dcterms:subject "타자성과 진실"@ko ;
+  dcterms:subject "은유와 환유의 동시기능"@ko ;
+  dcterms:subject "방법으로서의 자율성"@ko ;
+  dcterms:subject "자율성의 폐쇄성"@ko ;
+  dcterms:subject "뒷공론과 인격살인"@ko .
+
 kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
   dcterms:title "시 쓰는 몸과 시의 말"@ko ;
   rdfs:label "시 쓰는 몸과 시의 말"@ko ;
@@ -2635,6 +2674,7 @@ kc:p-00246 critic:analyzes kc:p-00242 .
 kc:p-00246 critic:analyzes kc:p-00243 .
 kc:p-00246 critic:analyzes kc:p-00244 .
 
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
