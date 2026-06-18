@@ -1288,6 +1288,14 @@ tei-lb {
   margin-bottom: 0.45rem;
 }
 
+/* 외국 인물 영문 병기 (한글 옆 작게) */
+.name-en, .card-name-en {
+  font-size: 0.62em;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
 .context-source {
   font-size: 0.8rem;
   color: var(--text-secondary);

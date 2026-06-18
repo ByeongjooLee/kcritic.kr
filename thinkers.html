@@ -89,7 +89,7 @@
       return `
       <article class="critic-card" onclick="location.href='site/thinkers/${t.id}.html'">
         <div class="critic-card-header">
-          <h2 class="critic-card-name">${t.name}</h2>
+          <h2 class="critic-card-name">${t.name}${t.en ? ` <span class="card-name-en">(${t.en})</span>` : ''}</h2>
           <span style="display:flex;gap:4px;flex-wrap:wrap;">${lodBadges}</span>
         </div>
         <div class="critic-card-stats">

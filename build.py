@@ -72,6 +72,16 @@ def _lod_record(xml_id, fallback_ref=""):
     return rec
 
 
+def _en_of(xml_id, fallback_ref=""):
+    """외국 인물의 Wikidata 영문 레이블 (한국 인물은 빈 문자열)."""
+    return (_persons_record(xml_id, fallback_ref) or {}).get("en", "") or ""
+
+
+def _name_en_html(name, en):
+    """이름 + 외국인이면 영문 괄호 병기 HTML. name은 호출부에서 _strip_parens 처리 권장."""
+    return f'{name} <span class="name-en">({en})</span>' if en else name
+
+
 def _lod_card_badges(rec):
     """카드용 LOD 배지 데이터 리스트 (JSON에 담아 JS가 그대로 렌더)."""
     out = []
@@ -678,6 +688,7 @@ def build_graph_data(all_essays):
         n["degree"] = degree.get(nid, 0)
         if n.get("type") in _PERSON_TYPES:
             n["lod"] = _lod_card_badges(_lod_record(nid, n.get("ref", "")))
+            n["en"] = _en_of(nid, n.get("ref", ""))
         node_list.append(n)
 
     return {"nodes": node_list, "edges": edges}
@@ -740,6 +751,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     reg_ref = _registry_ref(critic_id)
     xml_ref = critic_info.get("ref", "")
     ref = reg_ref if reg_ref else xml_ref
+    heading_name = _name_en_html(name, _en_of(critic_id, ref))
     wikidata_link = ""
     if ref and "wikidata" in ref:
         for uri in ref.split():
@@ -966,7 +978,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
   <main class="container index-main">
     <section class="critic-profile-hero">
       <div class="critic-profile-byline">{wikidata_link}</div>
-      <h1 class="index-heading">{name}</h1>
+      <h1 class="index-heading">{heading_name}</h1>
       {lod_links}
       <div class="stat-row">
         <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">수록 비평글</span></div>
@@ -1007,6 +1019,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
     reg_ref = _registry_ref(writer_id)
     xml_ref = writer_info.get("ref", "")
     ref = reg_ref if reg_ref else xml_ref
+    heading_name = _name_en_html(name, _en_of(writer_id, ref))
 
     wikidata_uri = ""
     for uri in ref.split():
@@ -1086,7 +1099,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
   <main class="container index-main">
     <section class="critic-profile-hero">
       <div class="critic-profile-byline">{name_chip}</div>
-      <h1 class="index-heading">{name}</h1>
+      <h1 class="index-heading">{heading_name}</h1>
       {lod_links}
       <div class="stat-row">
         <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">관련 비평글</span></div>
@@ -1123,6 +1136,7 @@ def build_thinker_profile(thinker_id, thinker_info):
     reg_ref = _registry_ref(thinker_id)
     xml_ref = thinker_info.get("ref", "")
     ref = reg_ref if reg_ref else xml_ref
+    heading_name = _name_en_html(name, _en_of(thinker_id, ref))
     lod_links = _lod_links_html(thinker_id, fallback_ref=ref)
 
     wikidata_uri = ""
@@ -1226,7 +1240,7 @@ def build_thinker_profile(thinker_id, thinker_info):
   <main class="container index-main">
     <section class="critic-profile-hero">
       <div class="critic-profile-byline">{name_chip}</div>
-      <h1 class="index-heading">{name}</h1>
+      <h1 class="index-heading">{heading_name}</h1>
       {lod_links}
       <div class="stat-row">
         <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">인용 비평글</span></div>
@@ -1479,6 +1493,7 @@ def main():
         {
             "id": wid,
             "name": winfo["name"],
+            "en": _en_of(wid, winfo["ref"]),
             "ref": winfo["ref"],
             "lod": _lod_card_badges(_lod_record(wid, winfo["ref"])),
             "essay_count": len(winfo["essays"]),
@@ -1537,6 +1552,7 @@ def main():
         {
             "id": tid,
             "name": tinfo["name"],
+            "en": _en_of(tid, tinfo["ref"]),
             "ref": tinfo["ref"],
             "lod": _lod_card_badges(_lod_record(tid, tinfo["ref"])),
             "essay_count": len({e["stem"] for e in tinfo["essays"]}),
