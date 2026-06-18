@@ -1236,6 +1236,17 @@ kc:p-hwang-hyonsan a critic:Critic ;
   rdfs:label "황현산"@ko ;
   schema:url <https://kcritic.kr/resource/p-hwang-hyonsan> .
 
+kc:p-hwang-jiu a foaf:Person ;
+  foaf:name "황지우"@ko ;
+  rdfs:label "황지우"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12614219> ;
+  schema:url <https://kcritic.kr/resource/p-hwang-jiu> .
+
+kc:p-kim-chunsu a foaf:Person ;
+  foaf:name "김춘수"@ko ;
+  rdfs:label "김춘수"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-chunsu> .
+
 kc:p-kim-ideum a foaf:Person ;
   foaf:name "김이듬"@ko ;
   rdfs:label "김이듬"@ko ;
@@ -1260,6 +1271,12 @@ kc:p-ko-youngmin a foaf:Person ;
   foaf:name "고영민"@ko ;
   rdfs:label "고영민"@ko ;
   schema:url <https://kcritic.kr/resource/p-ko-youngmin> .
+
+kc:p-lafontaine a foaf:Person ;
+  foaf:name "라퐁텐"@ko ;
+  rdfs:label "라퐁텐"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q43629> ;
+  schema:url <https://kcritic.kr/resource/p-lafontaine> .
 
 kc:p-lee-younggwang a foaf:Person ;
   foaf:name "이영광"@ko ;
@@ -1289,6 +1306,12 @@ kc:p-tarkovsky a foaf:Person ;
   rdfs:label "안드레이 타르코프스키"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q46327> ;
   schema:url <https://kcritic.kr/resource/p-tarkovsky> .
+
+kc:p-valery a foaf:Person ;
+  foaf:name "폴 발레리"@ko ;
+  rdfs:label "폴 발레리"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q200639> ;
+  schema:url <https://kcritic.kr/resource/p-valery> .
 
 # ── 비평글 노드 ─────────────────────────────────────────
 kce:hwang-hyonsan_autonomy-politics_2010 a critic:CriticalEssay ;
@@ -1388,6 +1411,32 @@ kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
   dcterms:subject "번역가의 과제"@ko ;
   dcterms:subject "문학의 정치"@ko ;
   dcterms:subject "감각의 재분배"@ko .
+
+kce:hwang-hyonsan_symbol-allegory_2012 a critic:CriticalEssay ;
+  dcterms:title "상징과 알레고리"@ko ;
+  rdfs:label "상징과 알레고리"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "상징과 알레고리" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_symbol-allegory_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-chin-eunyoung ;
+  cito:discusses kc:p-hwang-jiu ;
+  cito:discusses kc:p-kim-chunsu ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00227 ;
+  cito:citesAsAuthority kc:p-lafontaine ;
+  cito:citesAsAuthority kc:p-valery ;
+  dcterms:subject "편안한 알레고리 비판"@ko ;
+  dcterms:subject "알레고리와 상징"@ko ;
+  dcterms:subject "상징의 내적 관계 비판"@ko ;
+  dcterms:subject "마술환등"@ko ;
+  dcterms:subject "알레고리의 비평 기능"@ko ;
+  dcterms:subject "역사적 폐허와 해골"@ko ;
+  dcterms:subject "변증법적 이미지"@ko ;
+  dcterms:subject "무의미 시론"@ko ;
+  dcterms:subject "이미지 뭉개기"@ko ;
+  dcterms:subject "규정과 의도를 넘어섬"@ko .
 
 kce:hwang-hyonsan_well-expressed-unhappiness_2012 a critic:CriticalEssay ;
   dcterms:title "잘 표현된 불행"@ko ;
@@ -2796,12 +2845,15 @@ kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_barren-reality_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_no-surrender_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_symbol-allegory_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_well-expressed-unhappiness_2012 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00104 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00116 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chong-jaehak .
+kc:p-hwang-hyonsan critic:analyzes kc:p-hwang-jiu .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-chunsu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-kyongju .
