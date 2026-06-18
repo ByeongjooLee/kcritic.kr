@@ -390,8 +390,23 @@ Cytoscape.js 3.28 기반.
 Cloudflare Workers (무료 티어). `wrangler.jsonc`의 `assets.directory = "."`.
 
 ```
-py build.py → git push → Cloudflare Workers 자동 서빙
+py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가 3단계 모두 수행)
 ```
+
+**⚠️ git push만으로는 라이브 반영 안 됨.** GitHub Actions/자동배포 없음 → 반드시 `npx wrangler deploy` 실행해야 Cloudflare에 반영. `deploy.ps1`이 build+add -A+commit+push+deploy를 한 번에 처리.
+
+**배포 검증:** `curl -s -o /dev/null -w "%{http_code}" https://kcritic.kr/site/essays/{stem}.html` 로 200/307 확인. 보안 재확인: `/.env`·`/essays/*.xml`·`/build.py`·`/CLAUDE.md`가 **404**여야 함(노출 금지).
+
+### `.assetsignore` 주의 (배포 자산 제외)
+
+`assets.directory="."` 라 폴더 전체가 업로드 대상 → `.assetsignore`가 원문·크레덴셜·스크립트를 막는다. **gitignore 문법이라 슬래시 없는 패턴은 모든 깊이에 매칭**된다.
+- ❌ `essays` → 로컬 원문 `essays/` 뿐 아니라 **배포해야 할 `site/essays/`까지 제외**(과거 essay 전부 404 버그의 원인)
+- ✅ `/essays`, `/schema` 처럼 **루트 앵커링**. 원문은 `/essays` + `*.xml` + `*.txt`로 보호, `.env`는 명시.
+- 새 작업 산출물(*.bak·*.csv·결과 json)도 `.assetsignore`에 추가해 공개 배포 방지.
+
+### not_found_handling
+
+`wrangler.jsonc` `not_found_handling: "404-page"` (정적 다중페이지 사이트). 루트 `404.html`은 **자체 완결형**(인라인 CSS + 절대경로 `/style.css`·`/index.html`)이어야 깊은 경로(`/site/essays/...`)에서 404 나도 스타일이 안 깨진다. (`single-page-application`은 모든 404를 깨진 index로 보여줘 부적절.)
 
 ---
 
