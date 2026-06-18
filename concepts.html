@@ -161,7 +161,7 @@
       font-size: 13px;
       color: var(--text-secondary);
       line-height: 1.6;
-      font-style: italic;
+      font-style: normal;
     }
 
     /* ── 모바일 ── */
@@ -286,7 +286,7 @@
     const essayCards = concept.essays.map(e => `
       <div class="concept-essay-card">
         <div class="concept-essay-year">${e.year}</div>
-        <a href="site/essays/${e.stem}.html" class="concept-essay-title">${e.title}</a>
+        <a href="site/essays/${e.stem}.html" class="concept-essay-title">${e.critic ? e.critic + ' - ' : ''}${e.title}</a>
         ${e.excerpt ? `<div class="concept-essay-excerpt">${e.excerpt}</div>` : ''}
       </div>
     `).join('');

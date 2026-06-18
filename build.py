@@ -1422,6 +1422,7 @@ def main():
             concept_map[c["name"]].append({
                 "stem": e["stem"],
                 "title": e["title"],
+                "critic": _strip_parens(e["persons"].get(e.get("author_id"), {}).get("name", "")),
                 "year": e.get("display_year") or e["year"],
                 "excerpt": c.get("excerpt", ""),
             })
