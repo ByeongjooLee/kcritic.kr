@@ -33,6 +33,17 @@ if PERSONS_FILE.exists():
             if _alias not in _WIKIDATA_TO_SLUG:
                 _WIKIDATA_TO_SLUG[_alias] = _slug
 
+# id_map.json (슬러그 → 숫자ID) 로드 → 숫자ID → 슬러그 역인덱스.
+# 에세이 XML이 숫자 xml:id(p-00117 등)로 인물을 참조해도 persons.json 권위 레코드로 연결.
+_NUM_TO_SLUG: dict = {}
+_ID_MAP_FILE = Path("..") / "id_map.json"
+if _ID_MAP_FILE.exists():
+    try:
+        for _slug, _num in json.loads(_ID_MAP_FILE.read_text(encoding="utf-8")).items():
+            _NUM_TO_SLUG.setdefault(_num, _slug)
+    except Exception:
+        pass
+
 def _strip_parens(name: str) -> str:
     """이름에서 괄호(전각·반각) 안 한자/영문 표기 제거. 예: 김수영（金洙暎） → 김수영"""
     import re
@@ -42,6 +53,10 @@ def _persons_record(xml_id: str, fallback_ref: str = "") -> dict:
     """persons.json 레코드 반환. xml_id 직접 조회 → Wikidata Q번호로 역방향 조회 순으로 시도."""
     if xml_id in _PERSONS_REGISTRY:
         return _PERSONS_REGISTRY[xml_id]
+    # 숫자 xml:id → 슬러그 (id_map) 로 persons.json 권위 레코드 조회
+    _slug = _NUM_TO_SLUG.get(xml_id)
+    if _slug and _slug in _PERSONS_REGISTRY:
+        return _PERSONS_REGISTRY[_slug]
     # fallback_ref의 Wikidata URI에서 Q번호 추출해 역방향 조회
     for uri in fallback_ref.split():
         if "wikidata.org/wiki/" in uri:
@@ -54,7 +69,7 @@ def _persons_record(xml_id: str, fallback_ref: str = "") -> dict:
 def _registry_ref(xml_id: str) -> str:
     """persons.json에서 xml_id의 외부 식별자 URI 문자열을 조합해 반환.
     wikidata > encykorea > nlk > isni > viaf 순으로 있는 것만 포함."""
-    p = _PERSONS_REGISTRY.get(xml_id, {})
+    p = _PERSONS_REGISTRY.get(xml_id) or _PERSONS_REGISTRY.get(_NUM_TO_SLUG.get(xml_id, ""), {})
     uris = []
     if p.get("wikidata"):
         uris.append(f"https://www.wikidata.org/wiki/{p['wikidata']}")
@@ -384,13 +399,16 @@ def person_chip(p, role_type=None):
     encykorea = preg.get("encykorea", "") or ""
     encykorea_work = preg.get("encykorea_work", "") or ""
     nlk = preg.get("nlk", "") or ""
+    naver_munhak = preg.get("naver_munhak", "") or ""
 
-    # 카드 chip: 한(민족문화대백과) → NLK → W(Wikidata) 핵심 3개만
+    # 카드 chip: 한(민족문화대백과) → 문(한국현대문학대사전) → NLK → W(Wikidata)
     badges = ""
     if encykorea:
         badges += f' <a href="{encykorea}" target="_blank" class="chip-ext-link" title="한국민족문화대백과">한</a>'
     if encykorea_work:
         badges += f' <a href="{encykorea_work}" target="_blank" class="chip-ext-link chip-ext-work" title="한국민족문화대백과(작품)">한*</a>'
+    if naver_munhak:
+        badges += f' <a href="{naver_munhak}" target="_blank" class="chip-ext-link" title="한국현대문학대사전">문</a>'
     if nlk:
         badges += f' <a href="{nlk}" target="_blank" class="chip-ext-link" title="국립중앙도서관 LOD">NLK</a>'
     if wikidata:
@@ -419,7 +437,8 @@ def source_html(sources):
 def build_essay_html(stem, title, year, display_year, persons, subjects, theorists, quotes, titles, terms, sources, author_id):
     author = persons.get(author_id, {})
     author_name = author.get("name", "")
-    author_ref = author.get("ref", "")
+    # persons.json 권위 ref 우선 (숫자 xml:id도 id_map으로 해석), 없으면 XML ref
+    author_ref = _registry_ref(author_id) or author.get("ref", "")
 
     # 비평 대상 작가
     subjects_html = ""
@@ -668,6 +687,8 @@ def _lod_links_html(xml_id, fallback_ref=""):
         badges.append(f'<a href="{p["encykorea"]}" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a>')
     if p.get("encykorea_work"):
         badges.append(f'<a href="{p["encykorea_work"]}" target="_blank" class="lod-badge lod-badge-work" title="한국민족문화대백과 (작품)">한국민족문화대백과 (작품) ↗</a>')
+    if p.get("naver_munhak"):
+        badges.append(f'<a href="{p["naver_munhak"]}" target="_blank" class="lod-badge" title="네이버 지식백과 · 한국현대문학대사전">한국현대문학대사전 ↗</a>')
     if p.get("nlk"):
         badges.append(f'<a href="{p["nlk"]}" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a>')
     if p.get("wikidata"):
@@ -704,7 +725,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
                 break
     if not wikidata_link:
         wikidata_link = f'<span class="chip role-critic">{name}</span>'
-    lod_links = _lod_links_html(critic_id)
+    lod_links = _lod_links_html(critic_id, ref)
 
     # 비평글 카드 목록
     essay_cards = []
@@ -1607,7 +1628,7 @@ def build_turtle(all_essays, graph):
         if not cls:
             continue
         name = p.get("name", "")
-        ref = p.get("ref", "")
+        ref = _registry_ref(pid) or p.get("ref", "")
 
         triples = [f"kc:{pid} a {cls} ;"]
         triples.append(f'  foaf:name {_ttl_str(name)}@ko ;')

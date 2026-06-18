@@ -504,7 +504,11 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 - `wikidata_aliases`: 같은 인물이 에세이마다 다른 Q번호로 정의된 경우 별칭 등록
 - `_persons_record(xml_id, fallback_ref)`: xml_id 직접 조회 → XML ref의 Q번호로 역방향 조회 순
 
-**LOD 배지 표시 우선순위:** encykorea → encykorea_work → NLK → Wikidata → ISNI → VIAF
+**LOD 배지 표시 우선순위:** encykorea → encykorea_work → 한국현대문학대사전(naver_munhak) → NLK → Wikidata → ISNI → VIAF
+
+**`naver_munhak` 필드:** 네이버 지식백과 「한국현대문학대사전」 항목의 전체 URL (terms.naver.com/entry.naver?docId=...&cid=41708&...). 2000년대 이후 활동 비평가(김우창·유종호·황현산 등)에 추가. 프로필 페이지 배지("한국현대문학대사전 ↗") + essay 칩 배지("문")로 렌더링.
+
+**숫자 xml:id → persons.json 연결 (id_map):** build.py는 `../id_map.json`(슬러그→숫자)을 역인덱스(`_NUM_TO_SLUG`)로 로드. 에세이가 숫자 xml:id(p-00117 등)로 인물을 참조해도 `_persons_record`/`_registry_ref`가 슬러그로 해석해 persons.json 권위 레코드(올바른 wikidata·encykorea·naver_munhak 등)를 사용. author_ref·TTL 노드 ref도 이 경로로 persons.json 우선. → XML ref가 낡아도 persons.json만 고치면 사이트 전체에 반영됨.
 
 **persons.json 수정 시 주의:**
 - encykorea URL은 반드시 실제 해당 인물 항목인지 확인 (동명이인 오류 빈번)
