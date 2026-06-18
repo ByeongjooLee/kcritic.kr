@@ -634,12 +634,6 @@ kc:p-00129 a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q294181> ;
   schema:url <https://kcritic.kr/resource/p-00129> .
 
-kc:p-00130 a foaf:Person ;
-  foaf:name "로렌스"@ko ;
-  rdfs:label "로렌스"@ko ;
-  owl:sameAs <https://www.wikidata.org/wiki/Q34970> ;
-  schema:url <https://kcritic.kr/resource/p-00130> .
-
 kc:p-00131 a foaf:Person ;
   foaf:name "로렌스"@ko ;
   rdfs:label "로렌스"@ko ;
@@ -2900,7 +2894,7 @@ kce:yu-jongho_tradition-establishment_1960 a critic:CriticalEssay ;
   schema:isPartOf "전통의 확립을 위하여" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_tradition-establishment_1960.html> ;
   dcterms:creator kc:p-00246 ;
-  cito:citesAsAuthority kc:p-00130 ;
+  cito:citesAsAuthority kc:p-00131 ;
   dcterms:subject "패배의 미학"@ko ;
   dcterms:subject "전근대적 인간상"@ko ;
   dcterms:subject "문학의 사회적 고립"@ko ;

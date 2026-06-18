@@ -2195,34 +2195,11 @@
       ]
     },
     {
-      "id": "p-00130",
-      "label": "로렌스",
-      "type": "theorist",
-      "ref": "https://www.wikidata.org/wiki/Q34970 http://lod.nl.go.kr/resource/KAC199616058 https://isni.org/isni/000000012144117X http://viaf.org/viaf/95150359",
-      "degree": 1,
-      "lod": [
-        {
-          "href": "http://lod.nl.go.kr/resource/KAC199616058",
-          "label": "NLK",
-          "full": "NLK LOD",
-          "bg": "#e8eef5",
-          "fg": "#1a3a5a"
-        },
-        {
-          "href": "https://www.wikidata.org/wiki/Q34970",
-          "label": "W",
-          "full": "Wikidata",
-          "bg": "",
-          "fg": ""
-        }
-      ]
-    },
-    {
       "id": "p-00131",
       "label": "로렌스",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q34970 http://lod.nl.go.kr/resource/KAC199616058",
-      "degree": 1,
+      "degree": 2,
       "lod": [
         {
           "href": "http://lod.nl.go.kr/resource/KAC199616058",
@@ -7168,7 +7145,7 @@
     },
     {
       "source": "yu-jongho_tradition-establishment_1960",
-      "target": "p-00130",
+      "target": "p-00131",
       "type": "uses_theory",
       "weight": 1
     },

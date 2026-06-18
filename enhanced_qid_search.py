@@ -44,7 +44,7 @@ HINTS = {
     "p-herbert-read":  ("Herbert Read", "en"),
     "p-kim-yeongnang": ("김영랑", "ko"),
     "p-levy-bruhl":    ("Lucien Levy-Bruhl", "en"),
-    "p-lubbock-percy": ("Percy Lubbock", "en"),
+    "p-lubbock": ("Percy Lubbock", "en"),
     "p-maugham":       ("Somerset Maugham", "en"),
     "p-stevens":       ("Wallace Stevens", "en"),
     "p-swift":         ("Jonathan Swift", "en"),
