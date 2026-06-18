@@ -394,8 +394,8 @@ def person_chip(p, role_type=None):
             wikidata = uri
             break
 
-    # persons.json에서 직접 조회
-    preg = _PERSONS_REGISTRY.get(pid, {}) if pid else {}
+    # persons.json 조회 (숫자 xml:id도 id_map/wikidata로 슬러그 해석)
+    preg = _persons_record(pid, combined_ref) if pid else {}
     encykorea = preg.get("encykorea", "") or ""
     encykorea_work = preg.get("encykorea_work", "") or ""
     nlk = preg.get("nlk", "") or ""

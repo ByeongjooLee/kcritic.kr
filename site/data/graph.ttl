@@ -1204,6 +1204,12 @@ kc:p-blanchot a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q315210> ;
   schema:url <https://kcritic.kr/resource/p-blanchot> .
 
+kc:p-bourdieu a foaf:Person ;
+  foaf:name "피에르 부르디외"@ko ;
+  rdfs:label "피에르 부르디외"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q156268> ;
+  schema:url <https://kcritic.kr/resource/p-bourdieu> .
+
 kc:p-breton a foaf:Person ;
   foaf:name "앙드레 브르통"@ko ;
   rdfs:label "앙드레 브르통"@ko ;
@@ -1230,6 +1236,12 @@ kc:p-chong-jaehak a foaf:Person ;
   foaf:name "정재학"@ko ;
   rdfs:label "정재학"@ko ;
   schema:url <https://kcritic.kr/resource/p-chong-jaehak> .
+
+kc:p-foucault a foaf:Person ;
+  foaf:name "미셸 푸코"@ko ;
+  rdfs:label "미셸 푸코"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q44272> ;
+  schema:url <https://kcritic.kr/resource/p-foucault> .
 
 kc:p-hong-sangsoo a foaf:Person ;
   foaf:name "홍상수"@ko ;
@@ -1266,6 +1278,12 @@ kc:p-kim-chunsu a foaf:Person ;
   rdfs:label "김춘수"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q6408442> ;
   schema:url <https://kcritic.kr/resource/p-kim-chunsu> .
+
+kc:p-kim-hyesoon a foaf:Person ;
+  foaf:name "김혜순"@ko ;
+  rdfs:label "김혜순"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q16908601> ;
+  schema:url <https://kcritic.kr/resource/p-kim-hyesoon> .
 
 kc:p-kim-ideum a foaf:Person ;
   foaf:name "김이듬"@ko ;
@@ -1412,6 +1430,33 @@ kce:hwang-hyonsan_barren-reality_2012 a critic:CriticalEssay ;
   dcterms:subject "부정의 언어"@ko ;
   dcterms:subject "불모의 현실"@ko ;
   dcterms:subject "너그러운 말"@ko .
+
+kce:hwang-hyonsan_never-ending-story_2012 a critic:CriticalEssay ;
+  dcterms:title "끝나지 않는 이야기"@ko ;
+  rdfs:label "끝나지 않는 이야기"@ko ;
+  dcterms:date "2012"^^xsd:gYear ;
+  schema:isPartOf "끝나지 않는 이야기" ;
+  schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_never-ending-story_2012.html> ;
+  dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-00195 ;
+  cito:discusses kc:p-kim-chunsu ;
+  cito:discusses kc:p-kim-hyesoon ;
+  cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00227 ;
+  cito:citesAsAuthority kc:p-bourdieu ;
+  cito:citesAsAuthority kc:p-foucault ;
+  dcterms:subject "아날로지와 조응"@ko ;
+  dcterms:subject "아날로지의 위기"@ko ;
+  dcterms:subject "마술환등과 변증법적 이미지"@ko ;
+  dcterms:subject "주체와 타자의 역전"@ko ;
+  dcterms:subject "끝없는 글쓰기"@ko ;
+  dcterms:subject "농경사회의 모더니즘"@ko ;
+  dcterms:subject "시적 시간"@ko ;
+  dcterms:subject "전위"@ko ;
+  dcterms:subject "타자의 미래"@ko ;
+  dcterms:subject "끝나지 않는 이야기"@ko .
 
 kce:hwang-hyonsan_no-surrender_2012 a critic:CriticalEssay ;
   dcterms:title "시는 포기하지 않는다"@ko ;
@@ -2951,6 +2996,7 @@ kc:p-00246 critic:analyzes kc:p-00244 .
 
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_barren-reality_2012 .
+kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_never-ending-story_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_no-surrender_2012 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_poetry-body_2010 .
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_symbol-allegory_2012 .
@@ -2959,6 +3005,7 @@ kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_well-expressed-unhappiness_
 kc:p-hwang-hyonsan dcterms:creator kce:hwang-hyonsan_who-speaks_2012 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00104 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00116 .
+kc:p-hwang-hyonsan critic:analyzes kc:p-00195 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00244 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
@@ -2966,6 +3013,7 @@ kc:p-hwang-hyonsan critic:analyzes kc:p-chong-jaehak .
 kc:p-hwang-hyonsan critic:analyzes kc:p-hwang-jiu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-ki-hyongdo .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-chunsu .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-hyesoon .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jungil .
