@@ -27,7 +27,9 @@ ESSAYS = "essays"
 BACKUP = "essays_backup_qidfix"
 ID_MAP = os.path.join("..", "id_map.json")
 PERSONS = "persons.json"
-PROPOSALS = "qid_fix_proposals.csv"
+# argv[1] 가 .csv 면 그 파일 사용 (기본: qid_fix_proposals.csv)
+PROPOSALS = next((a for a in sys.argv[1:] if a.endswith(".csv")),
+                 "qid_fix_proposals.csv")
 
 # 1) 매핑 로드
 idmap = json.load(open(ID_MAP, encoding="utf-8"))         # slug -> numeric

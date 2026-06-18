@@ -18,11 +18,14 @@ import shutil
 sys.stdout.reconfigure(encoding="utf-8")
 
 PERSONS_JSON = "persons.json"
-PROPOSALS_CSV = "qid_fix_proposals.csv"
 BACKUP = "persons.json.bak"
 
-levels = set(sys.argv[1:]) or {"높음"}
-print(f"적용 등급: {', '.join(sorted(levels))}")
+# argv: .csv 로 끝나는 인자는 CSV 경로, 나머지는 적용 등급
+args = sys.argv[1:]
+csv_args = [a for a in args if a.endswith(".csv")]
+PROPOSALS_CSV = csv_args[0] if csv_args else "qid_fix_proposals.csv"
+levels = set(a for a in args if not a.endswith(".csv")) or {"높음"}
+print(f"CSV: {PROPOSALS_CSV} | 적용 등급: {', '.join(sorted(levels))}")
 
 # 1) 제안 읽기
 fixes = []  # (slug, old, new, label, conf)
