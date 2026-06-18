@@ -470,8 +470,11 @@ py build.py → git push → Cloudflare Workers 자동 서빙
 - Wikidata ref 추측 채우기 금지 — 모르면 빈값
 - build.py 수정 후 반드시 `py build.py` 테스트
 - convert_phd.py 수정 후 반드시 `py convert_phd.py` 테스트
-- PowerShell에서 한글 포함 git commit 메시지는 here-string 파싱 오류 발생 → ASCII 메시지 사용
+- PowerShell에서 한글 포함 git commit 메시지는 here-string 파싱 오류 발생 → ASCII 메시지 사용 (Bash 툴도 안전하게 ASCII 권장)
 - Neo4j URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
+- **빌드 결정성 유지**: set을 출력/직렬화할 땐 항상 `sorted()`, count 기준 정렬엔 `key=lambda x: (-x[1], x[0])` 같은 안정적 tiebreaker 사용. (검증: `py build.py` 2회 연속 실행 후 `git diff`가 비어야 함.) 위반 시 빌드마다 칩·노드 순서가 바뀌어 무의미한 diff가 쏟아짐
+- **LOD 외부링크 추가는 build.py `LOD_SOURCES` 한 곳만**: 새 식별자(예: 새 사전) 추가 = 레지스트리 1줄 + persons.json 필드. 프로필·칩·카드3종·관계망 패널 6곳이 자동 반영. 개별 HTML/JS를 손대지 말 것 (§13 참조)
+- 커밋 전 `git status`로 변경 파일 확인 — site/* 빌드 산출물은 커밋 OK, `essays/*.xml`·`.env`·`*.bak`·`essays_backup*/`·`qid_fix_*.csv`는 절대 staging 금지(.gitignore 등록됨)
 
 ---
 
@@ -598,6 +601,32 @@ def search_wikidata(name, lang='ko'):
 **4. encykorea 동명이인 확인**
 
 `https://encykorea.aks.ac.kr/Article/{E번호}` 접속 → 페이지 상단 인물 설명이 해당 인물인지 직접 확인. 동명이인이 많으므로 생년·직업 반드시 대조.
+
+### LOD QID 일괄 검증·교정 워크플로우 (스크립트)
+
+persons.json의 잘못된 Wikidata QID를 찾아 고치는 4단계 도구 (critic-ontology/). **검색(wbsearchentities)이 아니라 저장된 QID 직접 역조회(wbgetentities)로 검증** — 동명이인·미발견 오류를 피하는 핵심 원칙.
+
+1. `py verify_lod.py` — 저장 QID 역조회 → 이름·직업(P106)·인간(Q5)·NLK교차 검증. 결과 verify_lod_result.{csv,json}
+2. `py suggest_qid_fixes.py` — 깨진 QID에 올바른 후보 제안. 엄격필터: Q5 + 문학/학술직업 + 이름유사도 + **role대조(동명이인 차단)** + 언어판수(유명도). 결과 qid_fix_proposals.csv
+3. `py enhanced_qid_search.py` — 1차에서 못 찾은 외국 인물을 영문명으로 재검색 (HINTS 딕셔너리에 영문명 제공, QID는 라이브 검증)
+4. `py apply_qid_fixes.py <csv> [등급]` — 지정 CSV의 해당 등급만 persons.json 반영(persons.json.bak 백업)
+5. `py sync_xml_refs.py <csv>` — essays XML의 persName ref QID를 교정값에 동기화(essays_backup_qidfix/ 백업). xml:id→슬러그(id_map) 해석으로 한 인물의 여러 잘못 QID 통합
+
+**검증 도구 사각지대:** 한글 레이블 없는 외국인(NO_KO_LABEL)은 이름 대조를 못 해 직업만 맞으면 통과 → 엉뚱한 인물(흄→화학자 등)을 놓침. NO_KO_LABEL은 자동 정상 아니라 **en_label 수동 확인 필요**.
+
+### multi-URI href 주의
+
+persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 붙인 문자열**이다. `href="{ref}"` 처럼 통째로 넣으면 링크가 깨진다. 반드시 wikidata 등 **단일 URI만 추출**해서 href에 사용 (`next((u for u in ref.split() if "wikidata" in u), "")`). 카드/패널은 `lod` 배열의 개별 `href`를 쓰므로 안전.
+
+### 중복 슬러그 처리
+
+같은 인물이 persons.json에 두 슬러그로 존재할 수 있다(예: 음역 차이). 병합 절차: ① essay에서 실제 쓰이는 숫자 xml:id 확인(`id_map.json`) ② 한쪽이 다른 숫자면 그래프 노드가 분리되므로 essay에서 숫자 id를 통일(리네임) ③ 중복 슬러그를 persons.json·id_map에서 삭제 ④ 데이터(필드) 손실 없는지 확인 후 재빌드. (essays·id_map은 git 미추적/parent라 로컬 변경)
+
+### 환경 제약 (외부 접근)
+
+- **terms.naver.com** (네이버 지식백과): WebFetch 차단 + 미국기반 WebSearch 미인덱싱 → 개별 항목 URL(docId)은 **사용자가 직접 복사 제공**해야 함
+- **lod.nl.go.kr** (NLK LOD): 직접 연결 차단 → NLK URI 라이브 검증 불가. 로컬 RDF 스냅샷(`온톨로지/Person_rdf_20260401/`)으로만 조회
+- **wikidata.org API**: 정상. 단 429(rate limit) 주의 — 호출 사이 sleep + 재시도 백오프
 
 ---
 
