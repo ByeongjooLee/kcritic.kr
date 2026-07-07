@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김현 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q12589210" target="_blank" class="chip role-critic chip-linked">김현 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">김현</h1>
+      <div class="lod-links"><a href="https://encykorea.aks.ac.kr/Article/E0011035" target="_blank" class="lod-badge" title="한국민족문화대백과">한국민족문화대백과 ↗</a> <a href="http://lod.nl.go.kr/resource/KAC201219114" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q12589210" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000080591939" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/122125962" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">16</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김수영</span> <span class="chip role-writer">전봉건</span> <span class="chip role-writer">김춘수</span> <span class="chip role-writer">서정주</span> <span class="chip role-writer">한용운</span> <span class="chip role-writer">정현종</span> <span class="chip role-writer">박성룡</span> <span class="chip role-writer">황동규</span> <span class="chip role-writer">황순원</span> <span class="chip role-writer">정지용</span> <span class="chip role-writer">고은</span> <span class="chip role-writer">말라르메</span> <span class="chip role-writer">김관식</span> <span class="chip role-writer">마종기</span> <span class="chip role-writer">박인환</span> <span class="chip role-writer">박용철</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-hyon_hwang-dongkyu_1975", "label": "황동규를 찾아서", "type": "essay", "year": "1975", "degree": 4}, {"id": "kim-hyon_jeon-bonggeon_1975", "label": "전봉건을 찾아서", "type": "essay", "year": "1975", "degree": 3}, {"id": "kim-hyon_jung-hyunjong_1975", "label": "정현종을 찾아서", "type": "essay", "year": "1975", "degree": 3}, {"id": "kim-hyon_kim-chunsu_1975", "label": "김춘수를 찾아서", "type": "essay", "year": "1975", "degree": 5}, {"id": "kim-hyon_kim-jongsam_1975", "label": "김종삼을 찾아서", "type": "essay", "year": "1975", "degree": 6}, {"id": "kim-hyon_kim-suyoung_1975", "label": "김수영을 찾아서", "type": "essay", "year": "1975", "degree": 4}, {"id": "kim-hyon_kim-suyoung_1980", "label": "자유와 꿈 — 김수영의 시세계", "type": "essay", "year": "1980", "degree": 3}, {"id": "kim-hyon_ko-un_1975", "label": "고은을 찾아서", "type": "essay", "year": "1975", "degree": 6}, {"id": "kim-hyon_pak-jaesam_1975", "label": "박재삼을 찾아서", "type": "essay", "year": "1975", "degree": 3}, {"id": "kim-hyon_park-sungryong_1975", "label": "박성룡을 찾아서", "type": "essay", "year": "1975", "degree": 2}, {"id": "p-00063", "label": "한용운", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q487161 https://encykorea.aks.ac.kr/Article/E0061853 http://lod.nl.go.kr/resource/KAC201113540", "degree": 2, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0061853", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201113540", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q487161", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00076", "label": "황동규", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12625798 http://lod.nl.go.kr/resource/KAC201200312 https://isni.org/isni/0000000078377888 http://viaf.org/viaf/84479211", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201200312", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12625798", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00079", "label": "황순원", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071297", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201102511", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q18914", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00084", "label": "전봉건", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12615152 https://isni.org/isni/0000000114608154 http://viaf.org/viaf/43016143", "degree": 3, "lod": [{"href": "https://www.wikidata.org/wiki/Q12615152", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00086", "label": "정지용", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q4707772 https://encykorea.aks.ac.kr/Article/E0050953", "degree": 4, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0050953", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "https://encykorea.aks.ac.kr/Article/E0062938", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "https://www.wikidata.org/wiki/Q4707772", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00091", "label": "정현종", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12616152 http://lod.nl.go.kr/resource/KAC201207472", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201207472", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12616152", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00098", "label": "김춘수", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q6408442 https://encykorea.aks.ac.kr/Article/E0071327 http://lod.nl.go.kr/resource/KAC201109681", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071327", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201109681", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6408442", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00116", "label": "김수영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q4556301 https://encykorea.aks.ac.kr/Article/E0009567", "degree": 10, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0009567", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "https://www.wikidata.org/wiki/Q4556301", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00122", "label": "고은", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071227", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201011569", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q494036", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00149", "label": "말라르메", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q767 https://isni.org/isni/0000000121441874 http://viaf.org/viaf/95207079", "degree": 11, "lod": [{"href": "https://www.wikidata.org/wiki/Q767", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Stéphane Mallarmé"}, {"id": "p-00170", "label": "박성룡", "type": "writer", "ref": "https://encykorea.aks.ac.kr/Article/E0071542", "degree": 2, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071542", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}], "en": ""}, {"id": "p-00195", "label": "서정주", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q624277 https://encykorea.aks.ac.kr/Article/E0071543 http://lod.nl.go.kr/resource/KAC200207962 https://isni.org/isni/000000008403163X http://viaf.org/viaf/53008278", "degree": 5, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071543", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200207962", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624277", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-hyon", "label": "김현", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12589210 https://encykorea.aks.ac.kr/Article/E0011035 http://lod.nl.go.kr/resource/KAC201219114 https://isni.org/isni/0000000080591939 http://viaf.org/viaf/122125962", "degree": 10, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0011035", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201219114", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12589210", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-kwansik", "label": "김관식", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ma-jonggi", "label": "마종기", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-park-inhwan", "label": "박인환", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-park-yongchul", "label": "박용철", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-kim-hyon", "target": "kim-hyon_hwang-dongkyu_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_jeon-bonggeon_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_jung-hyunjong_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_kim-chunsu_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_kim-jongsam_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_kim-suyoung_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_kim-suyoung_1980", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_ko-un_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_pak-jaesam_1975", "type": "wrote", "weight": 1}, {"source": "p-kim-hyon", "target": "kim-hyon_park-sungryong_1975", "type": "wrote", "weight": 1}, {"source": "kim-hyon_hwang-dongkyu_1975", "target": "p-00063", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_hwang-dongkyu_1975", "target": "p-00076", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_hwang-dongkyu_1975", "target": "p-00079", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jeon-bonggeon_1975", "target": "p-00084", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jeon-bonggeon_1975", "target": "p-00116", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jung-hyunjong_1975", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jung-hyunjong_1975", "target": "p-00149", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-chunsu_1975", "target": "p-00084", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-chunsu_1975", "target": "p-00086", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-chunsu_1975", "target": "p-00098", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-chunsu_1975", "target": "p-00116", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jongsam_1975", "target": "p-00084", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jongsam_1975", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jongsam_1975", "target": "p-00170", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jongsam_1975", "target": "p-00195", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jongsam_1975", "target": "p-ma-jonggi", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-suyoung_1975", "target": "p-00098", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-suyoung_1975", "target": "p-00116", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-suyoung_1975", "target": "p-park-inhwan", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-suyoung_1980", "target": "p-00098", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-suyoung_1980", "target": "p-00116", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ko-un_1975", "target": "p-00063", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ko-un_1975", "target": "p-00116", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ko-un_1975", "target": "p-00122", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ko-un_1975", "target": "p-00195", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ko-un_1975", "target": "p-kim-kwansik", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_pak-jaesam_1975", "target": "p-00195", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_pak-jaesam_1975", "target": "p-park-yongchul", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_park-sungryong_1975", "target": "p-00170", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (10편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_hwang-dongkyu_1975.html">황동규를 찾아서</a>
+        </h3>
+        <p class="essay-card-source">황동규를 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">한용운</span> <span class="tag">황동규</span> <span class="tag">황순원</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_jeon-bonggeon_1975.html">전봉건을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">전봉건을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">전봉건</span> <span class="tag">김수영</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_jung-hyunjong_1975.html">정현종을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">정현종을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">정현종</span> <span class="tag">말라르메</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_kim-chunsu_1975.html">김춘수를 찾아서</a>
+        </h3>
+        <p class="essay-card-source">김춘수를 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">전봉건</span> <span class="tag">정지용</span> <span class="tag">김춘수</span> <span class="tag">김수영</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_kim-jongsam_1975.html">김종삼을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">김종삼을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">전봉건</span> <span class="tag">정현종</span> <span class="tag">박성룡</span> <span class="tag">서정주</span> <span class="tag">마종기</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_kim-suyoung_1975.html">김수영을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">김수영을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">김춘수</span> <span class="tag">김수영</span> <span class="tag">박인환</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_ko-un_1975.html">고은을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">고은을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">한용운</span> <span class="tag">김수영</span> <span class="tag">고은</span> <span class="tag">서정주</span> <span class="tag">김관식</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_pak-jaesam_1975.html">박재삼을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">박재삼을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">서정주</span> <span class="tag">박용철</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1975</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_park-sungryong_1975.html">박성룡을 찾아서</a>
+        </h3>
+        <p class="essay-card-source">박성룡을 찾아서, 1975</p>
+        <div class="essay-card-tags"><span class="tag">박성룡</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1980</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-hyon_kim-suyoung_1980.html">자유와 꿈 — 김수영의 시세계</a>
+        </h3>
+        <p class="essay-card-source">자유와 꿈, 1980</p>
+        <div class="essay-card-tags"><span class="tag">김춘수</span> <span class="tag">김수영</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -78,6 +78,76 @@
       "degree": 10
     },
     {
+      "id": "kim-hyon_hwang-dongkyu_1975",
+      "label": "황동규를 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 4
+    },
+    {
+      "id": "kim-hyon_jeon-bonggeon_1975",
+      "label": "전봉건을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 3
+    },
+    {
+      "id": "kim-hyon_jung-hyunjong_1975",
+      "label": "정현종을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 3
+    },
+    {
+      "id": "kim-hyon_kim-chunsu_1975",
+      "label": "김춘수를 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 5
+    },
+    {
+      "id": "kim-hyon_kim-jongsam_1975",
+      "label": "김종삼을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 6
+    },
+    {
+      "id": "kim-hyon_kim-suyoung_1975",
+      "label": "김수영을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 4
+    },
+    {
+      "id": "kim-hyon_kim-suyoung_1980",
+      "label": "자유와 꿈 — 김수영의 시세계",
+      "type": "essay",
+      "year": "1980",
+      "degree": 3
+    },
+    {
+      "id": "kim-hyon_ko-un_1975",
+      "label": "고은을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 6
+    },
+    {
+      "id": "kim-hyon_pak-jaesam_1975",
+      "label": "박재삼을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 3
+    },
+    {
+      "id": "kim-hyon_park-sungryong_1975",
+      "label": "박성룡을 찾아서",
+      "type": "essay",
+      "year": "1975",
+      "degree": 2
+    },
+    {
       "id": "kim-uchang_beauty-surface-depth_1984",
       "label": "아름다움의 거죽과 깊이 — 심미 감각과 사회",
       "type": "essay",
@@ -1310,6 +1380,37 @@
       "en": "Jürgen Habermas"
     },
     {
+      "id": "p-00063",
+      "label": "한용운",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q487161 https://encykorea.aks.ac.kr/Article/E0061853 http://lod.nl.go.kr/resource/KAC201113540",
+      "degree": 2,
+      "lod": [
+        {
+          "href": "https://encykorea.aks.ac.kr/Article/E0061853",
+          "label": "한",
+          "full": "한국민족문화대백과",
+          "bg": "#e8f0e8",
+          "fg": "#2a5a2a"
+        },
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201113540",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q487161",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
+      "en": ""
+    },
+    {
       "id": "p-00064",
       "label": "해즐릿",
       "type": "theorist",
@@ -1508,7 +1609,7 @@
       "label": "황동규",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q12625798 http://lod.nl.go.kr/resource/KAC201200312 https://isni.org/isni/0000000078377888 http://viaf.org/viaf/84479211",
-      "degree": 2,
+      "degree": 3,
       "lod": [
         {
           "href": "http://lod.nl.go.kr/resource/KAC201200312",
@@ -1532,7 +1633,7 @@
       "label": "황순원",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095",
-      "degree": 2,
+      "degree": 3,
       "lod": [
         {
           "href": "https://encykorea.aks.ac.kr/Article/E0071297",
@@ -1634,6 +1735,23 @@
       "en": ""
     },
     {
+      "id": "p-00084",
+      "label": "전봉건",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q12615152 https://isni.org/isni/0000000114608154 http://viaf.org/viaf/43016143",
+      "degree": 3,
+      "lod": [
+        {
+          "href": "https://www.wikidata.org/wiki/Q12615152",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
+      "en": ""
+    },
+    {
       "id": "p-00085",
       "label": "정동주",
       "type": "writer",
@@ -1647,7 +1765,7 @@
       "label": "정지용",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q4707772 https://encykorea.aks.ac.kr/Article/E0050953",
-      "degree": 3,
+      "degree": 4,
       "lod": [
         {
           "href": "https://encykorea.aks.ac.kr/Article/E0050953",
@@ -1750,7 +1868,7 @@
       "label": "정현종",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q12616152 http://lod.nl.go.kr/resource/KAC201207472",
-      "degree": 1,
+      "degree": 3,
       "lod": [
         {
           "href": "http://lod.nl.go.kr/resource/KAC201207472",
@@ -1858,6 +1976,37 @@
       "ref": "",
       "degree": 1,
       "lod": [],
+      "en": ""
+    },
+    {
+      "id": "p-00098",
+      "label": "김춘수",
+      "type": "writer",
+      "ref": "https://www.wikidata.org/wiki/Q6408442 https://encykorea.aks.ac.kr/Article/E0071327 http://lod.nl.go.kr/resource/KAC201109681",
+      "degree": 3,
+      "lod": [
+        {
+          "href": "https://encykorea.aks.ac.kr/Article/E0071327",
+          "label": "한",
+          "full": "한국민족문화대백과",
+          "bg": "#e8f0e8",
+          "fg": "#2a5a2a"
+        },
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201109681",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q6408442",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -2098,7 +2247,7 @@
       "label": "김수영",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q4556301 https://encykorea.aks.ac.kr/Article/E0009567",
-      "degree": 5,
+      "degree": 10,
       "lod": [
         {
           "href": "https://encykorea.aks.ac.kr/Article/E0009567",
@@ -2146,7 +2295,7 @@
       "label": "고은",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788",
-      "degree": 2,
+      "degree": 3,
       "lod": [
         {
           "href": "https://encykorea.aks.ac.kr/Article/E0071227",
@@ -2480,7 +2629,7 @@
       "label": "말라르메",
       "type": "theorist",
       "ref": "https://www.wikidata.org/wiki/Q767 https://isni.org/isni/0000000121441874 http://viaf.org/viaf/95207079",
-      "degree": 10,
+      "degree": 11,
       "lod": [
         {
           "href": "https://www.wikidata.org/wiki/Q767",
@@ -2757,6 +2906,23 @@
           "full": "Wikidata",
           "bg": "",
           "fg": ""
+        }
+      ],
+      "en": ""
+    },
+    {
+      "id": "p-00170",
+      "label": "박성룡",
+      "type": "writer",
+      "ref": "https://encykorea.aks.ac.kr/Article/E0071542",
+      "degree": 2,
+      "lod": [
+        {
+          "href": "https://encykorea.aks.ac.kr/Article/E0071542",
+          "label": "한",
+          "full": "한국민족문화대백과",
+          "bg": "#e8f0e8",
+          "fg": "#2a5a2a"
         }
       ],
       "en": ""
@@ -3144,7 +3310,7 @@
       "label": "서정주",
       "type": "writer",
       "ref": "https://www.wikidata.org/wiki/Q624277 https://encykorea.aks.ac.kr/Article/E0071543 http://lod.nl.go.kr/resource/KAC200207962 https://isni.org/isni/000000008403163X http://viaf.org/viaf/53008278",
-      "degree": 2,
+      "degree": 5,
       "lod": [
         {
           "href": "https://encykorea.aks.ac.kr/Article/E0071543",
@@ -4397,6 +4563,37 @@
       "en": ""
     },
     {
+      "id": "p-kim-hyon",
+      "label": "김현",
+      "type": "critic",
+      "ref": "https://www.wikidata.org/wiki/Q12589210 https://encykorea.aks.ac.kr/Article/E0011035 http://lod.nl.go.kr/resource/KAC201219114 https://isni.org/isni/0000000080591939 http://viaf.org/viaf/122125962",
+      "degree": 10,
+      "lod": [
+        {
+          "href": "https://encykorea.aks.ac.kr/Article/E0011035",
+          "label": "한",
+          "full": "한국민족문화대백과",
+          "bg": "#e8f0e8",
+          "fg": "#2a5a2a"
+        },
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201219114",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12589210",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
+      "en": ""
+    },
+    {
       "id": "p-kim-ideum",
       "label": "김이듬",
       "type": "writer",
@@ -4437,6 +4634,15 @@
           "fg": "#1a3a5a"
         }
       ],
+      "en": ""
+    },
+    {
+      "id": "p-kim-kwansik",
+      "label": "김관식",
+      "type": "writer",
+      "ref": "",
+      "degree": 1,
+      "lod": [],
       "en": ""
     },
     {
@@ -4552,6 +4758,15 @@
       "en": ""
     },
     {
+      "id": "p-ma-jonggi",
+      "label": "마종기",
+      "type": "writer",
+      "ref": "",
+      "degree": 1,
+      "lod": [],
+      "en": ""
+    },
+    {
       "id": "p-ovid",
       "label": "오비디우스",
       "type": "theorist",
@@ -4569,6 +4784,15 @@
       "en": "Ovid"
     },
     {
+      "id": "p-park-inhwan",
+      "label": "박인환",
+      "type": "writer",
+      "ref": "",
+      "degree": 1,
+      "lod": [],
+      "en": ""
+    },
+    {
       "id": "p-park-namsu",
       "label": "박남수",
       "type": "writer",
@@ -4583,6 +4807,15 @@
           "fg": "#1a3a5a"
         }
       ],
+      "en": ""
+    },
+    {
+      "id": "p-park-yongchul",
+      "label": "박용철",
+      "type": "writer",
+      "ref": "",
+      "degree": 1,
+      "lod": [],
       "en": ""
     },
     {
@@ -5307,6 +5540,180 @@
     {
       "source": "hwang-hyonsan_who-speaks_2012",
       "target": "p-kim-rok",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_hwang-dongkyu_1975",
+      "target": "p-00063",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_hwang-dongkyu_1975",
+      "target": "p-00076",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_hwang-dongkyu_1975",
+      "target": "p-00079",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_jeon-bonggeon_1975",
+      "target": "p-00084",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_jeon-bonggeon_1975",
+      "target": "p-00116",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_jung-hyunjong_1975",
+      "target": "p-00091",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_jung-hyunjong_1975",
+      "target": "p-00149",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-chunsu_1975",
+      "target": "p-00084",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-chunsu_1975",
+      "target": "p-00086",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-chunsu_1975",
+      "target": "p-00098",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-chunsu_1975",
+      "target": "p-00116",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-jongsam_1975",
+      "target": "p-00084",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-jongsam_1975",
+      "target": "p-00091",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-jongsam_1975",
+      "target": "p-00170",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-jongsam_1975",
+      "target": "p-00195",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-jongsam_1975",
+      "target": "p-ma-jonggi",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-suyoung_1975",
+      "target": "p-00098",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-suyoung_1975",
+      "target": "p-00116",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-suyoung_1975",
+      "target": "p-park-inhwan",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-suyoung_1980",
+      "target": "p-00098",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_kim-suyoung_1980",
+      "target": "p-00116",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_ko-un_1975",
+      "target": "p-00063",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_ko-un_1975",
+      "target": "p-00116",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_ko-un_1975",
+      "target": "p-00122",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_ko-un_1975",
+      "target": "p-00195",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_ko-un_1975",
+      "target": "p-kim-kwansik",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_pak-jaesam_1975",
+      "target": "p-00195",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_pak-jaesam_1975",
+      "target": "p-park-yongchul",
+      "type": "subject_of",
+      "weight": 1
+    },
+    {
+      "source": "kim-hyon_park-sungryong_1975",
+      "target": "p-00170",
       "type": "subject_of",
       "weight": 1
     },
@@ -6477,6 +6884,66 @@
     {
       "source": "p-hwang-hyonsan",
       "target": "hwang-hyonsan_who-speaks_2012",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_hwang-dongkyu_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_jeon-bonggeon_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_jung-hyunjong_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_kim-chunsu_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_kim-jongsam_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_kim-suyoung_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_kim-suyoung_1980",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_ko-un_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_pak-jaesam_1975",
+      "type": "wrote",
+      "weight": 1
+    },
+    {
+      "source": "p-kim-hyon",
+      "target": "kim-hyon_park-sungryong_1975",
       "type": "wrote",
       "weight": 1
     },

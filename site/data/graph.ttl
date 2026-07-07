@@ -350,6 +350,12 @@ kc:p-00062 a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q76357> ;
   schema:url <https://kcritic.kr/resource/p-00062> .
 
+kc:p-00063 a foaf:Person ;
+  foaf:name "한용운"@ko ;
+  rdfs:label "한용운"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q487161> ;
+  schema:url <https://kcritic.kr/resource/p-00063> .
+
 kc:p-00064 a foaf:Person ;
   foaf:name "해즐릿"@ko ;
   rdfs:label "해즐릿"@ko ;
@@ -452,6 +458,12 @@ kc:p-00083 a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12614625> ;
   schema:url <https://kcritic.kr/resource/p-00083> .
 
+kc:p-00084 a foaf:Person ;
+  foaf:name "전봉건"@ko ;
+  rdfs:label "전봉건"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12615152> ;
+  schema:url <https://kcritic.kr/resource/p-00084> .
+
 kc:p-00085 a foaf:Person ;
   foaf:name "정동주"@ko ;
   rdfs:label "정동주"@ko ;
@@ -482,8 +494,8 @@ kc:p-00090 a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00090> .
 
 kc:p-00091 a foaf:Person ;
-  foaf:name "정현종（鄭玄宗）"@ko ;
-  rdfs:label "정현종（鄭玄宗）"@ko ;
+  foaf:name "정현종"@ko ;
+  rdfs:label "정현종"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q12616152> ;
   schema:url <https://kcritic.kr/resource/p-00091> .
 
@@ -514,6 +526,12 @@ kc:p-00097 a foaf:Person ;
   foaf:name "김창완（金昌完）"@ko ;
   rdfs:label "김창완（金昌完）"@ko ;
   schema:url <https://kcritic.kr/resource/p-00097> .
+
+kc:p-00098 a foaf:Person ;
+  foaf:name "김춘수"@ko ;
+  rdfs:label "김춘수"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q6408442> ;
+  schema:url <https://kcritic.kr/resource/p-00098> .
 
 kc:p-00099 a foaf:Person ;
   foaf:name "김동인"@ko ;
@@ -587,8 +605,8 @@ kc:p-00117 a critic:Critic ;
   schema:url <https://kcritic.kr/resource/p-00117> .
 
 kc:p-00122 a foaf:Person ;
-  foaf:name "고은（高銀）"@ko ;
-  rdfs:label "고은（高銀）"@ko ;
+  foaf:name "고은"@ko ;
+  rdfs:label "고은"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q494036> ;
   schema:url <https://kcritic.kr/resource/p-00122> .
 
@@ -785,10 +803,15 @@ kc:p-00166 a foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00166> .
 
 kc:p-00169 a foaf:Person ;
-  foaf:name "박목월（朴木月）"@ko ;
-  rdfs:label "박목월（朴木月）"@ko ;
+  foaf:name "박목월"@ko ;
+  rdfs:label "박목월"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q7137910> ;
   schema:url <https://kcritic.kr/resource/p-00169> .
+
+kc:p-00170 a foaf:Person ;
+  foaf:name "박성룡"@ko ;
+  rdfs:label "박성룡"@ko ;
+  schema:url <https://kcritic.kr/resource/p-00170> .
 
 kc:p-00171 a foaf:Person ;
   foaf:name "파스칼"@ko ;
@@ -1285,6 +1308,12 @@ kc:p-kim-hyesoon a foaf:Person ;
   owl:sameAs <https://www.wikidata.org/wiki/Q16908601> ;
   schema:url <https://kcritic.kr/resource/p-kim-hyesoon> .
 
+kc:p-kim-hyon a critic:Critic ;
+  foaf:name "김현"@ko ;
+  rdfs:label "김현"@ko ;
+  owl:sameAs <https://www.wikidata.org/wiki/Q12589210> ;
+  schema:url <https://kcritic.kr/resource/p-kim-hyon> .
+
 kc:p-kim-ideum a foaf:Person ;
   foaf:name "김이듬"@ko ;
   rdfs:label "김이듬"@ko ;
@@ -1299,6 +1328,11 @@ kc:p-kim-jungil a foaf:Person ;
   foaf:name "김중일"@ko ;
   rdfs:label "김중일"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-jungil> .
+
+kc:p-kim-kwansik a foaf:Person ;
+  foaf:name "김관식"@ko ;
+  rdfs:label "김관식"@ko ;
+  schema:url <https://kcritic.kr/resource/p-kim-kwansik> .
 
 kc:p-kim-kyongju a foaf:Person ;
   foaf:name "김경주"@ko ;
@@ -1342,16 +1376,31 @@ kc:p-lee-younggwang a foaf:Person ;
   rdfs:label "이영광"@ko ;
   schema:url <https://kcritic.kr/resource/p-lee-younggwang> .
 
+kc:p-ma-jonggi a foaf:Person ;
+  foaf:name "마종기"@ko ;
+  rdfs:label "마종기"@ko ;
+  schema:url <https://kcritic.kr/resource/p-ma-jonggi> .
+
 kc:p-ovid a foaf:Person ;
   foaf:name "오비디우스"@ko ;
   rdfs:label "오비디우스"@ko ;
   owl:sameAs <https://www.wikidata.org/wiki/Q7198> ;
   schema:url <https://kcritic.kr/resource/p-ovid> .
 
+kc:p-park-inhwan a foaf:Person ;
+  foaf:name "박인환"@ko ;
+  rdfs:label "박인환"@ko ;
+  schema:url <https://kcritic.kr/resource/p-park-inhwan> .
+
 kc:p-park-namsu a foaf:Person ;
   foaf:name "박남수"@ko ;
   rdfs:label "박남수"@ko ;
   schema:url <https://kcritic.kr/resource/p-park-namsu> .
+
+kc:p-park-yongchul a foaf:Person ;
+  foaf:name "박용철"@ko ;
+  rdfs:label "박용철"@ko ;
+  schema:url <https://kcritic.kr/resource/p-park-yongchul> .
 
 kc:p-pascal a foaf:Person ;
   foaf:name "파스칼"@ko ;
@@ -1665,6 +1714,225 @@ kce:hwang-hyonsan_who-speaks_2012 a critic:CriticalEssay ;
   dcterms:subject "언어의-순결"@ko ;
   dcterms:subject "미래의-말"@ko ;
   dcterms:subject "하이퍼텍스트적 글쓰기 비판"@ko .
+
+kce:kim-hyon_hwang-dongkyu_1975 a critic:CriticalEssay ;
+  dcterms:title "황동규를 찾아서"@ko ;
+  rdfs:label "황동규를 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "황동규를 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_hwang-dongkyu_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00063 ;
+  cito:discusses kc:p-00076 ;
+  cito:discusses kc:p-00079 ;
+  dcterms:subject "한"@ko ;
+  dcterms:subject "감동"@ko ;
+  dcterms:subject "고뇌의 시론"@ko ;
+  dcterms:subject "성서적 이미지"@ko ;
+  dcterms:subject "잠과 꿈"@ko ;
+  dcterms:subject "여성주의"@ko ;
+  dcterms:subject "센티멘털리즘"@ko ;
+  dcterms:subject "경쟁심"@ko ;
+  dcterms:subject "상처받은 인간"@ko ;
+  dcterms:subject "체험"@ko ;
+  dcterms:subject "지식인의 한계"@ko .
+
+kce:kim-hyon_jeon-bonggeon_1975 a critic:CriticalEssay ;
+  dcterms:title "전봉건을 찾아서"@ko ;
+  rdfs:label "전봉건을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "전봉건을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_jeon-bonggeon_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00084 ;
+  cito:discusses kc:p-00116 ;
+  dcterms:subject "전쟁시"@ko ;
+  dcterms:subject "창조"@ko ;
+  dcterms:subject "여성주의"@ko ;
+  dcterms:subject "의미의 시"@ko ;
+  dcterms:subject "고쳐쓰기"@ko ;
+  dcterms:subject "모국어 콤플렉스"@ko ;
+  dcterms:subject "기교"@ko ;
+  dcterms:subject "생명력"@ko ;
+  dcterms:subject "에로스 의식"@ko ;
+  dcterms:subject "상대방의 부재"@ko ;
+  dcterms:subject "지적 제스처"@ko .
+
+kce:kim-hyon_jung-hyunjong_1975 a critic:CriticalEssay ;
+  dcterms:title "정현종을 찾아서"@ko ;
+  rdfs:label "정현종을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "정현종을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_jung-hyunjong_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00091 ;
+  cito:discusses kc:p-00149 ;
+  dcterms:subject "인간"@ko ;
+  dcterms:subject "불가능의 꿈"@ko ;
+  dcterms:subject "통로"@ko ;
+  dcterms:subject "진실"@ko ;
+  dcterms:subject "초월"@ko ;
+  dcterms:subject "의식"@ko ;
+  dcterms:subject "육체"@ko ;
+  dcterms:subject "의식의 깨어남"@ko ;
+  dcterms:subject "상상력"@ko ;
+  dcterms:subject "날렵함과 가벼움"@ko ;
+  dcterms:subject "구원"@ko ;
+  dcterms:subject "치열한 싸움"@ko .
+
+kce:kim-hyon_kim-chunsu_1975 a critic:CriticalEssay ;
+  dcterms:title "김춘수를 찾아서"@ko ;
+  rdfs:label "김춘수를 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "김춘수를 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-chunsu_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00084 ;
+  cito:discusses kc:p-00086 ;
+  cito:discusses kc:p-00098 ;
+  cito:discusses kc:p-00116 ;
+  dcterms:subject "순결 콤플렉스"@ko ;
+  dcterms:subject "식물적 상상력"@ko ;
+  dcterms:subject "순수시"@ko ;
+  dcterms:subject "신화적 인물"@ko ;
+  dcterms:subject "이국 정취"@ko ;
+  dcterms:subject "무의미시론"@ko ;
+  dcterms:subject "존재의 탐구"@ko ;
+  dcterms:subject "불모성의 미"@ko ;
+  dcterms:subject "침묵 지향"@ko ;
+  dcterms:subject "절제"@ko ;
+  dcterms:subject "자기 분석"@ko .
+
+kce:kim-hyon_kim-jongsam_1975 a critic:CriticalEssay ;
+  dcterms:title "김종삼을 찾아서"@ko ;
+  rdfs:label "김종삼을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "김종삼을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-jongsam_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00084 ;
+  cito:discusses kc:p-00091 ;
+  cito:discusses kc:p-00170 ;
+  cito:discusses kc:p-00195 ;
+  cito:discusses kc:p-ma-jonggi ;
+  dcterms:subject "선배 없는 세대"@ko ;
+  dcterms:subject "과거체"@ko ;
+  dcterms:subject "비극적 세계 인식"@ko ;
+  dcterms:subject "소외된 아이들"@ko ;
+  dcterms:subject "방황"@ko ;
+  dcterms:subject "전통 부정"@ko ;
+  dcterms:subject "설화성"@ko ;
+  dcterms:subject "절제"@ko ;
+  dcterms:subject "세계와의 불화"@ko ;
+  dcterms:subject "내용 없는 아름다움"@ko ;
+  dcterms:subject "새로운 언어"@ko .
+
+kce:kim-hyon_kim-suyoung_1975 a critic:CriticalEssay ;
+  dcterms:title "김수영을 찾아서"@ko ;
+  rdfs:label "김수영을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "김수영을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-suyoung_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00098 ;
+  cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-park-inhwan ;
+  dcterms:subject "새로움"@ko ;
+  dcterms:subject "시인의 정직성"@ko ;
+  dcterms:subject "상투적인 것"@ko ;
+  dcterms:subject "직관과 감동"@ko ;
+  dcterms:subject "반시론"@ko ;
+  dcterms:subject "부정의 정신"@ko ;
+  dcterms:subject "자유"@ko ;
+  dcterms:subject "설움"@ko ;
+  dcterms:subject "풍자"@ko ;
+  dcterms:subject "불온성"@ko ;
+  dcterms:subject "자기 학대"@ko .
+
+kce:kim-hyon_kim-suyoung_1980 a critic:CriticalEssay ;
+  dcterms:title "자유와 꿈 — 김수영의 시세계"@ko ;
+  rdfs:label "자유와 꿈 — 김수영의 시세계"@ko ;
+  dcterms:date "1980"^^xsd:gYear ;
+  schema:isPartOf "자유와 꿈 — 김수영의 시세계" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-suyoung_1980.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00098 ;
+  cito:discusses kc:p-00116 ;
+  dcterms:subject "자유"@ko ;
+  dcterms:subject "바로 봄"@ko ;
+  dcterms:subject "반란성"@ko ;
+  dcterms:subject "혁명"@ko ;
+  dcterms:subject "방법론적 자기 부정"@ko ;
+  dcterms:subject "반시론"@ko ;
+  dcterms:subject "꿈과 불가능"@ko ;
+  dcterms:subject "불온성"@ko ;
+  dcterms:subject "설움과 비애"@ko ;
+  dcterms:subject "증오와 연민"@ko .
+
+kce:kim-hyon_ko-un_1975 a critic:CriticalEssay ;
+  dcterms:title "고은을 찾아서"@ko ;
+  rdfs:label "고은을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "고은을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_ko-un_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00063 ;
+  cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-00122 ;
+  cito:discusses kc:p-00195 ;
+  cito:discusses kc:p-kim-kwansik ;
+  dcterms:subject "지적 허무주의"@ko ;
+  dcterms:subject "선적 직관"@ko ;
+  dcterms:subject "흔적"@ko ;
+  dcterms:subject "내적 진실"@ko ;
+  dcterms:subject "병과 어머니"@ko ;
+  dcterms:subject "방랑"@ko ;
+  dcterms:subject "집착하지 않음"@ko ;
+  dcterms:subject "무애"@ko ;
+  dcterms:subject "사실과 진실"@ko ;
+  dcterms:subject "소멸"@ko ;
+  dcterms:subject "모순의 소산"@ko .
+
+kce:kim-hyon_pak-jaesam_1975 a critic:CriticalEssay ;
+  dcterms:title "박재삼을 찾아서"@ko ;
+  rdfs:label "박재삼을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "박재삼을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_pak-jaesam_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00195 ;
+  cito:discusses kc:p-park-yongchul ;
+  dcterms:subject "한"@ko ;
+  dcterms:subject "눈물과 울음"@ko ;
+  dcterms:subject "체념"@ko ;
+  dcterms:subject "자연과의 합일"@ko ;
+  dcterms:subject "처음 봄"@ko ;
+  dcterms:subject "긍정적 인생관"@ko ;
+  dcterms:subject "압축어 리듬"@ko ;
+  dcterms:subject "체험의 육화"@ko ;
+  dcterms:subject "수동적 자연"@ko ;
+  dcterms:subject "능동적 자연"@ko .
+
+kce:kim-hyon_park-sungryong_1975 a critic:CriticalEssay ;
+  dcterms:title "박성룡을 찾아서"@ko ;
+  rdfs:label "박성룡을 찾아서"@ko ;
+  dcterms:date "1975"^^xsd:gYear ;
+  schema:isPartOf "박성룡을 찾아서" ;
+  schema:url <https://kcritic.kr/site/essays/kim-hyon_park-sungryong_1975.html> ;
+  dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:p-00170 ;
+  dcterms:subject "대지의 상상력"@ko ;
+  dcterms:subject "흙"@ko ;
+  dcterms:subject "창조력"@ko ;
+  dcterms:subject "인간의 사소함"@ko ;
+  dcterms:subject "대위법"@ko ;
+  dcterms:subject "풀잎"@ko ;
+  dcterms:subject "말과의 싸움"@ko ;
+  dcterms:subject "소박함"@ko ;
+  dcterms:subject "완전자"@ko ;
+  dcterms:subject "가을"@ko ;
+  dcterms:subject "인간적 체취"@ko ;
+  dcterms:subject "인내의 생존"@ko .
 
 kce:kim-uchang_beauty-surface-depth_1984 a critic:CriticalEssay ;
   dcterms:title "아름다움의 거죽과 깊이 — 심미 감각과 사회"@ko ;
@@ -3076,3 +3344,30 @@ kc:p-hwang-hyonsan critic:analyzes kc:p-lee-munjae .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-seongbok .
 kc:p-hwang-hyonsan critic:analyzes kc:p-lee-younggwang .
 kc:p-hwang-hyonsan critic:analyzes kc:p-park-namsu .
+
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_hwang-dongkyu_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_jeon-bonggeon_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_jung-hyunjong_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_kim-chunsu_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_kim-jongsam_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_kim-suyoung_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_kim-suyoung_1980 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_ko-un_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_pak-jaesam_1975 .
+kc:p-kim-hyon dcterms:creator kce:kim-hyon_park-sungryong_1975 .
+kc:p-kim-hyon critic:analyzes kc:p-00063 .
+kc:p-kim-hyon critic:analyzes kc:p-00076 .
+kc:p-kim-hyon critic:analyzes kc:p-00079 .
+kc:p-kim-hyon critic:analyzes kc:p-00084 .
+kc:p-kim-hyon critic:analyzes kc:p-00086 .
+kc:p-kim-hyon critic:analyzes kc:p-00091 .
+kc:p-kim-hyon critic:analyzes kc:p-00098 .
+kc:p-kim-hyon critic:analyzes kc:p-00116 .
+kc:p-kim-hyon critic:analyzes kc:p-00122 .
+kc:p-kim-hyon critic:analyzes kc:p-00149 .
+kc:p-kim-hyon critic:analyzes kc:p-00170 .
+kc:p-kim-hyon critic:analyzes kc:p-00195 .
+kc:p-kim-hyon critic:analyzes kc:p-kim-kwansik .
+kc:p-kim-hyon critic:analyzes kc:p-ma-jonggi .
+kc:p-kim-hyon critic:analyzes kc:p-park-inhwan .
+kc:p-kim-hyon critic:analyzes kc:p-park-yongchul .

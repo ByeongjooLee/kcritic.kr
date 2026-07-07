@@ -75,6 +75,54 @@
     ]
   },
   {
+    "id": "p-kim-hyon",
+    "name": "김현",
+    "ref": "https://www.wikidata.org/wiki/Q12589210 https://encykorea.aks.ac.kr/Article/E0011035 http://lod.nl.go.kr/resource/KAC201219114 https://isni.org/isni/0000000080591939 http://viaf.org/viaf/122125962",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0011035",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201219114",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12589210",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 10,
+    "subjects": [
+      "p-00063",
+      "p-00076",
+      "p-00079",
+      "p-00084",
+      "p-00086",
+      "p-00091",
+      "p-00098",
+      "p-00116",
+      "p-00122",
+      "p-00149",
+      "p-00170",
+      "p-00195",
+      "p-kim-kwansik",
+      "p-ma-jonggi",
+      "p-park-inhwan",
+      "p-park-yongchul"
+    ],
+    "theorists": []
+  },
+  {
     "id": "p-00117",
     "name": "김우창",
     "ref": "https://www.wikidata.org/wiki/Q17129594",
