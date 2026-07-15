@@ -20,9 +20,10 @@
         "fg": ""
       }
     ],
-    "essay_count": 22,
+    "essay_count": 24,
     "critics": [
       "p-00117",
+      "p-00246",
       "p-hwang-hyonsan",
       "p-kim-hyon"
     ]
@@ -55,7 +56,7 @@
         "fg": ""
       }
     ],
-    "essay_count": 19,
+    "essay_count": 22,
     "critics": [
       "p-00117",
       "p-00246",
@@ -84,9 +85,10 @@
         "fg": ""
       }
     ],
-    "essay_count": 17,
+    "essay_count": 18,
     "critics": [
       "p-00117",
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -118,8 +120,9 @@
         "fg": ""
       }
     ],
-    "essay_count": 16,
+    "essay_count": 17,
     "critics": [
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -171,28 +174,10 @@
         "fg": ""
       }
     ],
-    "essay_count": 10,
+    "essay_count": 12,
     "critics": [
       "p-00117",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00084",
-    "name": "전봉건",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q12615152 https://isni.org/isni/0000000114608154 http://viaf.org/viaf/43016143",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q12615152",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 9,
-    "critics": [
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -224,10 +209,45 @@
         "fg": ""
       }
     ],
-    "essay_count": 9,
+    "essay_count": 12,
     "critics": [
       "p-00246",
       "p-hwang-hyonsan",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00241",
+    "name": "이광수",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0043688",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC200108735",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q495454",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 11,
+    "critics": [
+      "p-00117",
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -252,9 +272,29 @@
         "fg": ""
       }
     ],
-    "essay_count": 8,
+    "essay_count": 10,
     "critics": [
       "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00084",
+    "name": "전봉건",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q12615152 https://isni.org/isni/0000000114608154 http://viaf.org/viaf/43016143",
+    "lod": [
+      {
+        "href": "https://www.wikidata.org/wiki/Q12615152",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 9,
+    "critics": [
       "p-kim-hyon"
     ]
   },
@@ -280,6 +320,76 @@
       },
       {
         "href": "https://www.wikidata.org/wiki/Q4707772",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 9,
+    "critics": [
+      "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00063",
+    "name": "한용운",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q487161 https://encykorea.aks.ac.kr/Article/E0061853 http://lod.nl.go.kr/resource/KAC201113540",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0061853",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201113540",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q487161",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 8,
+    "critics": [
+      "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00114",
+    "name": "김소월",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q496828 https://encykorea.aks.ac.kr/Article/E0009535 http://lod.nl.go.kr/resource/KAC201101982",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0009535",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201101982",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q496828",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -355,62 +465,27 @@
     ]
   },
   {
-    "id": "p-00241",
-    "name": "이광수",
+    "id": "p-00079",
+    "name": "황순원",
     "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564",
+    "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0043688",
+        "href": "https://encykorea.aks.ac.kr/Article/E0071297",
         "label": "한",
         "full": "한국민족문화대백과",
         "bg": "#e8f0e8",
         "fg": "#2a5a2a"
       },
       {
-        "href": "http://lod.nl.go.kr/resource/KAC200108735",
+        "href": "http://lod.nl.go.kr/resource/KAC201102511",
         "label": "NLK",
         "full": "NLK LOD",
         "bg": "#e8eef5",
         "fg": "#1a3a5a"
       },
       {
-        "href": "https://www.wikidata.org/wiki/Q495454",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 8,
-    "critics": [
-      "p-00117",
-      "p-00246",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00063",
-    "name": "한용운",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q487161 https://encykorea.aks.ac.kr/Article/E0061853 http://lod.nl.go.kr/resource/KAC201113540",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0061853",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201113540",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q487161",
+        "href": "https://www.wikidata.org/wiki/Q18914",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -420,6 +495,7 @@
     "essay_count": 7,
     "critics": [
       "p-00117",
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -451,59 +527,6 @@
     ]
   },
   {
-    "id": "p-00031",
-    "name": "조지훈",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q623681 https://encykorea.aks.ac.kr/Article/E0052655",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0052655",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q623681",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 6,
-    "critics": [
-      "p-00117",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00108",
-    "name": "김종삼",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q12588664 https://encykorea.aks.ac.kr/Article/E0010493",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0010493",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q12588664",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 6,
-    "critics": [
-      "p-kim-hyon"
-    ]
-  },
-  {
     "id": "p-00239",
     "name": "염상섭",
     "en": "",
@@ -531,9 +554,126 @@
         "fg": ""
       }
     ],
+    "essay_count": 7,
+    "critics": [
+      "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00031",
+    "name": "조지훈",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q623681 https://encykorea.aks.ac.kr/Article/E0052655",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0052655",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q623681",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
     "essay_count": 6,
     "critics": [
       "p-00117",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00100",
+    "name": "김동리",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0008984",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201010751",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q625849",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 6,
+    "critics": [
+      "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00106",
+    "name": "김지하",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201205697",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q44366",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 6,
+    "critics": [
+      "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00108",
+    "name": "김종삼",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q12588664 https://encykorea.aks.ac.kr/Article/E0010493",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0010493",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12588664",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 6,
+    "critics": [
       "p-kim-hyon"
     ]
   },
@@ -565,88 +705,13 @@
     ]
   },
   {
-    "id": "p-00079",
-    "name": "황순원",
+    "id": "p-00102",
+    "name": "김광규",
     "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095",
+    "ref": "https://www.wikidata.org/wiki/Q13582904",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0071297",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201102511",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q18914",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 5,
-    "critics": [
-      "p-00117",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00106",
-    "name": "김지하",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201205697",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q44366",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 5,
-    "critics": [
-      "p-00117",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00114",
-    "name": "김소월",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q496828 https://encykorea.aks.ac.kr/Article/E0009535 http://lod.nl.go.kr/resource/KAC201101982",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0009535",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201101982",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q496828",
+        "href": "https://www.wikidata.org/wiki/Q13582904",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -683,6 +748,41 @@
     ],
     "essay_count": 5,
     "critics": [
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00243",
+    "name": "이효석",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q483075 https://encykorea.aks.ac.kr/Article/E0046643 http://lod.nl.go.kr/resource/KAC200108736 https://isni.org/isni/0000000083795582 http://viaf.org/viaf/46870729",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0046643",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC200108736",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q483075",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 5,
+    "critics": [
+      "p-00117",
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -752,27 +852,20 @@
     ]
   },
   {
-    "id": "p-00100",
-    "name": "김동리",
+    "id": "p-00099",
+    "name": "김동인",
     "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433",
+    "ref": "https://www.wikidata.org/wiki/Q625815 https://encykorea.aks.ac.kr/Article/E0009003",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0008984",
+        "href": "https://encykorea.aks.ac.kr/Article/E0009003",
         "label": "한",
         "full": "한국민족문화대백과",
         "bg": "#e8f0e8",
         "fg": "#2a5a2a"
       },
       {
-        "href": "http://lod.nl.go.kr/resource/KAC201010751",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q625849",
+        "href": "https://www.wikidata.org/wiki/Q625815",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -782,27 +875,7 @@
     "essay_count": 4,
     "critics": [
       "p-00117",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00102",
-    "name": "김광규",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q13582904",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q13582904",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 4,
-    "critics": [
-      "p-00117",
-      "p-kim-hyon"
+      "p-00246"
     ]
   },
   {
@@ -833,6 +906,46 @@
     ]
   },
   {
+    "id": "p-00199",
+    "name": "신경림",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q3482149",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0013094",
+        "label": "한(작품)",
+        "full": "한국민족문화대백과 (작품)",
+        "bg": "#f0ede8",
+        "fg": "#5a3a2a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q3482149",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 4,
+    "critics": [
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-kim-eok",
+    "name": "안서 김억",
+    "en": "",
+    "ref": "",
+    "lod": [],
+    "essay_count": 4,
+    "critics": [
+      "p-00117",
+      "p-00246",
+      "p-kim-hyon"
+    ]
+  },
+  {
     "id": "p-lee-siyoung",
     "name": "이시영",
     "en": "",
@@ -840,6 +953,18 @@
     "lod": [],
     "essay_count": 4,
     "critics": [
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-park-inhwan",
+    "name": "박인환",
+    "en": "",
+    "ref": "",
+    "lod": [],
+    "essay_count": 4,
+    "critics": [
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -887,6 +1012,33 @@
     "essay_count": 3,
     "critics": [
       "p-00117",
+      "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-00034",
+    "name": "최남선",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q626601 https://encykorea.aks.ac.kr/Article/E0057237",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0057237",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q626601",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "critics": [
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -1086,27 +1238,20 @@
     ]
   },
   {
-    "id": "p-00243",
-    "name": "이효석",
+    "id": "p-00202",
+    "name": "손창섭",
     "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q483075 https://encykorea.aks.ac.kr/Article/E0046643 http://lod.nl.go.kr/resource/KAC200108736 https://isni.org/isni/0000000083795582 http://viaf.org/viaf/46870729",
+    "ref": "https://www.wikidata.org/wiki/Q12602771 https://encykorea.aks.ac.kr/Article/E0079619",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0046643",
+        "href": "https://encykorea.aks.ac.kr/Article/E0079619",
         "label": "한",
         "full": "한국민족문화대백과",
         "bg": "#e8f0e8",
         "fg": "#2a5a2a"
       },
       {
-        "href": "http://lod.nl.go.kr/resource/KAC200108736",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q483075",
+        "href": "https://www.wikidata.org/wiki/Q12602771",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1118,6 +1263,40 @@
       "p-00117",
       "p-00246",
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-han-yongun",
+    "name": "한용운",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q487161 https://encykorea.aks.ac.kr/Article/E0061853 http://lod.nl.go.kr/resource/KAC201113540",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0061853",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201113540",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q487161",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "critics": [
+      "p-00117",
+      "p-00246"
     ]
   },
   {
@@ -1155,14 +1334,14 @@
     ]
   },
   {
-    "id": "p-kim-eok",
-    "name": "안서 김억",
+    "id": "p-kim-gwanggyun",
+    "name": "김광균",
     "en": "",
     "ref": "",
     "lod": [],
     "essay_count": 3,
     "critics": [
-      "p-00117",
+      "p-00246",
       "p-kim-hyon"
     ]
   },
@@ -1211,17 +1390,6 @@
   {
     "id": "p-ma-jonggi",
     "name": "마종기",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 3,
-    "critics": [
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-park-inhwan",
-    "name": "박인환",
     "en": "",
     "ref": "",
     "lod": [],
@@ -1311,20 +1479,20 @@
     ]
   },
   {
-    "id": "p-00034",
-    "name": "최남선",
+    "id": "p-00035",
+    "name": "최승호",
     "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q626601 https://encykorea.aks.ac.kr/Article/E0057237",
+    "ref": "https://www.wikidata.org/wiki/Q5103956 http://lod.nl.go.kr/resource/KAC201102262 https://isni.org/isni/0000000078245412 http://viaf.org/viaf/25752073",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0057237",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
+        "href": "http://lod.nl.go.kr/resource/KAC201102262",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
       },
       {
-        "href": "https://www.wikidata.org/wiki/Q626601",
+        "href": "https://www.wikidata.org/wiki/Q5103956",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1333,7 +1501,8 @@
     ],
     "essay_count": 2,
     "critics": [
-      "p-kim-hyon"
+      "p-00117",
+      "p-00246"
     ]
   },
   {
@@ -1471,32 +1640,6 @@
     ]
   },
   {
-    "id": "p-00199",
-    "name": "신경림",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q3482149",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0013094",
-        "label": "한(작품)",
-        "full": "한국민족문화대백과 (작품)",
-        "bg": "#f0ede8",
-        "fg": "#5a3a2a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q3482149",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-kim-hyon"
-    ]
-  },
-  {
     "id": "p-00200",
     "name": "심훈",
     "en": "",
@@ -1531,20 +1674,27 @@
     ]
   },
   {
-    "id": "p-00202",
-    "name": "손창섭",
+    "id": "p-00247",
+    "name": "윤동주",
     "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q12602771 https://encykorea.aks.ac.kr/Article/E0079619",
+    "ref": "https://www.wikidata.org/wiki/Q625089 https://encykorea.aks.ac.kr/Article/E0042294 http://lod.nl.go.kr/resource/KAC201110203 https://isni.org/isni/0000000081384480 http://viaf.org/viaf/59228311",
     "lod": [
       {
-        "href": "https://encykorea.aks.ac.kr/Article/E0079619",
+        "href": "https://encykorea.aks.ac.kr/Article/E0042294",
         "label": "한",
         "full": "한국민족문화대백과",
         "bg": "#e8f0e8",
         "fg": "#2a5a2a"
       },
       {
-        "href": "https://www.wikidata.org/wiki/Q12602771",
+        "href": "http://lod.nl.go.kr/resource/KAC201110203",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q625089",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1554,7 +1704,7 @@
     "essay_count": 2,
     "critics": [
       "p-00117",
-      "p-kim-hyon"
+      "p-00246"
     ]
   },
   {
@@ -1619,39 +1769,6 @@
     ]
   },
   {
-    "id": "p-han-yongun",
-    "name": "한용운",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q487161 https://encykorea.aks.ac.kr/Article/E0061853 http://lod.nl.go.kr/resource/KAC201113540",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0061853",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201113540",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q487161",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 2,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
     "id": "p-jeong-hoseung",
     "name": "정호승",
     "en": "",
@@ -1701,17 +1818,6 @@
     "essay_count": 2,
     "critics": [
       "p-hwang-hyonsan",
-      "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-kim-gwanggyun",
-    "name": "김광균",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 2,
-    "critics": [
       "p-kim-hyon"
     ]
   },
@@ -1854,6 +1960,50 @@
     ]
   },
   {
+    "id": "p-park-jonghwa",
+    "name": "월탄",
+    "en": "",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "jang-manyeong",
+    "name": "장만영",
+    "en": "",
+    "ref": "#jang-manyeong",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "jo-jeonggwon",
+    "name": "조정권",
+    "en": "",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "kim-gwanggyun",
+    "name": "김광균",
+    "en": "",
+    "ref": "#kim-gwanggyun",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
     "id": "p-00026",
     "name": "변영로",
     "en": "",
@@ -1868,32 +2018,6 @@
       },
       {
         "href": "https://www.wikidata.org/wiki/Q11245147",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
-    "id": "p-00035",
-    "name": "최승호",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q5103956 http://lod.nl.go.kr/resource/KAC201102262 https://isni.org/isni/0000000078245412 http://viaf.org/viaf/25752073",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201102262",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q5103956",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -1922,32 +2046,6 @@
     "en": "",
     "ref": "",
     "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ]
-  },
-  {
-    "id": "p-00099",
-    "name": "김동인",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q625815 https://encykorea.aks.ac.kr/Article/E0009003",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0009003",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q625815",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
     "essay_count": 1,
     "critics": [
       "p-00117"
@@ -2032,6 +2130,91 @@
     ]
   },
   {
+    "id": "p-00120",
+    "name": "김유정",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q624299 https://encykorea.aks.ac.kr/Article/E0010093",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0010093",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q624299",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-00133",
+    "name": "이문구",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q12611406 https://encykorea.aks.ac.kr/Article/E0071241",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0071241",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12611406",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-00134",
+    "name": "이상화",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q11266019 https://encykorea.aks.ac.kr/Article/E0044635 http://lod.nl.go.kr/resource/KAC201111440 https://isni.org/isni/0000000022507583 http://viaf.org/viaf/19859885",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0044635",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201111440",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q11266019",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
     "id": "p-00203",
     "name": "선우휘",
     "en": "",
@@ -2055,58 +2238,6 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
-    ]
-  },
-  {
-    "id": "p-00242",
-    "name": "이호철",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q494836",
-    "lod": [
-      {
-        "href": "https://www.wikidata.org/wiki/Q494836",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00246"
-    ]
-  },
-  {
-    "id": "p-00247",
-    "name": "윤동주",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q625089 https://encykorea.aks.ac.kr/Article/E0042294 http://lod.nl.go.kr/resource/KAC201110203 https://isni.org/isni/0000000081384480 http://viaf.org/viaf/59228311",
-    "lod": [
-      {
-        "href": "https://encykorea.aks.ac.kr/Article/E0042294",
-        "label": "한",
-        "full": "한국민족문화대백과",
-        "bg": "#e8f0e8",
-        "fg": "#2a5a2a"
-      },
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201110203",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q625089",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
     ]
   },
   {
@@ -2140,6 +2271,17 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-chaemansik",
+    "name": "채만식",
+    "en": "",
+    "ref": "#p-chaemansik",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -2206,6 +2348,17 @@
     "essay_count": 1,
     "critics": [
       "p-00117"
+    ]
+  },
+  {
+    "id": "p-choehaksong",
+    "name": "최학송",
+    "en": "",
+    "ref": "#p-choehaksong",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -2470,6 +2623,17 @@
     ]
   },
   {
+    "id": "p-hyeon-jingeon",
+    "name": "현진건",
+    "en": "",
+    "ref": "#p-hyeon-jingeon",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
     "id": "p-i-seunghun",
     "name": "이승훈",
     "en": "",
@@ -2588,6 +2752,17 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-jobyeonghwa",
+    "name": "조병화",
+    "en": "",
+    "ref": "#p-jobyeonghwa",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -3067,6 +3242,28 @@
     ]
   },
   {
+    "id": "p-kim-yunseong",
+    "name": "김윤성",
+    "en": "",
+    "ref": "#p-kim-yunseong",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-kimeok",
+    "name": "김억",
+    "en": "",
+    "ref": "#p-kimeok",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
     "id": "p-ko-youngmin",
     "name": "고영민",
     "en": "",
@@ -3234,6 +3431,17 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-o-yeongsu",
+    "name": "오영수",
+    "en": "",
+    "ref": "#p-o-yeongsu",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -3483,6 +3691,17 @@
     ]
   },
   {
+    "id": "p-seojeongju",
+    "name": "미당 서정주",
+    "en": "",
+    "ref": "#p-seojeongju",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
     "id": "p-seong-changyeong",
     "name": "성찬경",
     "en": "",
@@ -3535,6 +3754,17 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-sowol",
+    "name": "소월",
+    "en": "",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -3601,6 +3831,39 @@
     "essay_count": 1,
     "critics": [
       "p-00117"
+    ]
+  },
+  {
+    "id": "p-yi-hohcheol",
+    "name": "이호철",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q14292022 https://encykorea.aks.ac.kr/Article/E0079615 http://lod.nl.go.kr/resource/KAC200208227",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0079615",
+        "label": "한",
+        "full": "한국민족문화대백과",
+        "bg": "#e8f0e8",
+        "fg": "#2a5a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC200208227",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q14292022",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -3692,6 +3955,28 @@
     ]
   },
   {
+    "id": "p-yijonyeon",
+    "name": "이조년",
+    "en": "",
+    "ref": "#p-yijonyeon",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-yitaejun",
+    "name": "이태준",
+    "en": "",
+    "ref": "#p-yitaejun",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
     "id": "p-yu-ikseo",
     "name": "유익서",
     "en": "",
@@ -3700,6 +3985,17 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-yu-jino",
+    "name": "유진오",
+    "en": "",
+    "ref": "#p-yu-jino",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   },
   {
@@ -3733,6 +4029,61 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
+    ]
+  },
+  {
+    "id": "p-신석정",
+    "name": "신석정",
+    "en": "",
+    "ref": "#p-신석정",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "p-임학수",
+    "name": "임학수",
+    "en": "",
+    "ref": "#p-임학수",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "pak-taewon",
+    "name": "박태원",
+    "en": "",
+    "ref": "#pak-taewon",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "sin-seokjeong",
+    "name": "신석정",
+    "en": "",
+    "ref": "#sin-seokjeong",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
+    ]
+  },
+  {
+    "id": "yi-taejun",
+    "name": "이태준",
+    "en": "",
+    "ref": "#yi-taejun",
+    "lod": [],
+    "essay_count": 1,
+    "critics": [
+      "p-00246"
     ]
   }
 ]
