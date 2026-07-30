@@ -36,7 +36,8 @@ if PERSONS_FILE.exists():
 # id_map.json (슬러그 → 숫자ID) 로드 → 숫자ID → 슬러그 역인덱스.
 # 에세이 XML이 숫자 xml:id(p-00117 등)로 인물을 참조해도 persons.json 권위 레코드로 연결.
 _NUM_TO_SLUG: dict = {}
-_ID_MAP_FILE = Path("..") / "id_map.json"
+# id_map.json: repo 안(이식성) 우선, 없으면 부모 폴더(레거시 위치)
+_ID_MAP_FILE = Path("id_map.json") if Path("id_map.json").exists() else Path("..") / "id_map.json"
 if _ID_MAP_FILE.exists():
     try:
         for _slug, _num in json.loads(_ID_MAP_FILE.read_text(encoding="utf-8")).items():
@@ -184,21 +185,16 @@ def classify_role(role):
     return "other"
 
 def collect_interp_persons(root, persons):
-    """interp 요소 주변 persName ref로 '비평 대상' 추출."""
-    # interp를 포함하는 s 요소 안의 persName ref들
+    """비평 대상(문인) 추출 — 글 전체 기준.
+
+    이론가 수집(= persons 전체에서 role에 'scholar')과 동일한 범위를 쓴다.
+    두 층을 같은 기준으로 세지 않으면 uses_theory와 subject_of를 비교할 수 없다.
+    """
     subjects = set()
-    for s_elem in root.iter(tns("s")):
-        has_interp = s_elem.find(tns("interp")) is not None
-        if not has_interp:
-            continue
-        for pn in s_elem.iter(tns("persName")):
-            ref = pn.get("ref", "")
-            xml_id = get_attr_id(pn)
-            pid = xml_id if xml_id else (ref[1:] if ref.startswith("#") else "")
-            if pid and pid in persons:
-                role = persons[pid].get("role", "")
-                if "poet" in role or "novelist" in role or "writer" in role:
-                    subjects.add(pid)
+    for pid, p in persons.items():
+        role = p.get("role", "")
+        if "poet" in role or "novelist" in role or "writer" in role:
+            subjects.add(pid)
     return subjects
 
 def collect_quotes(root):
@@ -676,6 +672,35 @@ def build_graph_data(all_essays):
                                   "type": "theorist",
                                   "ref": reg_ref if reg_ref else p.get("ref", "")}
                 raw_edges.append((stem, pid, "uses_theory"))
+
+    # ── 동일 라벨 인물 노드 병합 ──────────────────────────────
+    # 인코딩 시 글마다 슬러그가 달라(p-yi-munyol / p-imun-yol …) 같은 인물이
+    # 여러 노드로 쪼개진다. 라벨이 같으면 한 인물로 합친다.
+    _MERGE_TYPES = {"critic", "writer", "theorist"}
+    _by_label = defaultdict(list)
+    for _nid, _n in nodes.items():
+        if _n.get("type") in _MERGE_TYPES and _n.get("label"):
+            _by_label[_n["label"]].append(_nid)
+
+    canon_id = {}
+    for _label, _ids in _by_label.items():
+        if len(_ids) < 2:
+            continue
+        # 정본: id_map 형식(p-00123) 우선, 없으면 사전순 첫 슬러그
+        _numeric = sorted(i for i in _ids if re.fullmatch(r"p-\d{5}", i))
+        _keep = _numeric[0] if _numeric else sorted(_ids)[0]
+        for i in _ids:
+            if i != _keep:
+                canon_id[i] = _keep
+
+    if canon_id:
+        for _old, _new in canon_id.items():
+            _o = nodes.pop(_old, None)
+            if _o and not nodes[_new].get("ref") and _o.get("ref"):
+                nodes[_new]["ref"] = _o["ref"]
+        raw_edges = [(canon_id.get(s, s), canon_id.get(t, t), e)
+                     for s, t, e in raw_edges]
+        print(f"  인물 노드 병합: {len(canon_id)}개 → 정본 {len(set(canon_id.values()))}개로 통합")
 
     # 엣지 weight 집계 (같은 source→target→type 쌍이 여러 비평글에서 반복될 때 가중치 증가)
     edge_counts = defaultdict(int)
