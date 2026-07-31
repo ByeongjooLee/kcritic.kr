@@ -242,16 +242,16 @@ def collect_terms(root):
     return terms
 
 
-def collect_theorist_contexts(root, persons, theorists, stem, essay_title):
-    """이론가별로 해당 인물이 등장하는 문장 컨텍스트 수집.
+def collect_person_contexts(root, persons, target_pids, stem, essay_title):
+    """대상 인물(이론가·작가 등)별로 해당 인물이 등장하는 문장 컨텍스트 수집.
     <s> 우선, 없으면 부모 <p> 전체를 fallback으로 사용.
     ref가 외부 URI(Wikidata 등)인 경우 persons dict에서 역조회.
     반환: {pid: [{"essay_stem": ..., "essay_title": ..., "sentence": ...}, ...]}"""
     parent_map = {child: parent for parent in root.iter() for child in parent}
 
-    # 외부 URI → pid 역방향 인덱스 (persons에 등록된 이론가만)
+    # 외부 URI → pid 역방향 인덱스 (persons에 등록된 대상 인물만)
     uri_to_pid = {}
-    for pid in theorists:
+    for pid in target_pids:
         p = persons.get(pid, {})
         ref_str = p.get("ref", "")
         # persons.json 권위 소스도 확인
@@ -277,10 +277,10 @@ def collect_theorist_contexts(root, persons, theorists, stem, essay_title):
         xml_id = get_attr_id(pn)
         ref = pn.get("ref", "")
         # 1순위: xml:id로 직접 매핑
-        if xml_id and xml_id in theorists:
+        if xml_id and xml_id in target_pids:
             pid = xml_id
         # 2순위: ref="#p-xxx" 형태
-        elif ref.startswith("#") and ref[1:] in theorists:
+        elif ref.startswith("#") and ref[1:] in target_pids:
             pid = ref[1:]
         # 3순위: ref가 외부 URI → 역조회
         elif ref and not ref.startswith("#") and ref in uri_to_pid:
@@ -1103,6 +1103,27 @@ def build_writer_profile(writer_id, writer_info, essays_about):
 
     essay_count = len(essays_about)
 
+    # 비평 문맥 섹션 — 이 작가가 비평문에서 언급·논의된 문장 (이론가 인용 문맥과 동일 방식)
+    contexts = writer_info.get("contexts", [])
+    context_items = []
+    for ctx in contexts:
+        essay_link = f'<a href="../essays/{ctx["essay_stem"]}.html" class="ctx-essay-link">{ctx["essay_title"]}</a>'
+        cid = ctx.get("critic_id", "")
+        cname = _strip_parens(ctx.get("critic_name", ""))
+        critic_part = f'<a href="../critics/{cid}.html" class="ctx-critic-link">{cname}</a> · ' if cid and cname else ""
+        context_items.append(f"""
+        <li class="context-item">
+          <div class="context-sentence">"{ctx["sentence"]}"</div>
+          <div class="context-source">— {critic_part}{essay_link}</div>
+        </li>""")
+    contexts_html = f"""
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">비평 문맥 ({len(contexts)}건)</h2>
+        <ul class="context-list">{"".join(context_items)}</ul>
+      </div>
+    </section>""" if context_items else ""
+
     return f"""<!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -1154,6 +1175,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
       <h2 class="section-label">관련 비평글 ({essay_count}편)</h2>
       {"".join(essay_cards)}
     </section>
+    {contexts_html}
   </main>
 
   <footer class="site-footer">
@@ -1385,7 +1407,8 @@ def process(xml_path):
         if ("scholar" in role) and pid not in subjects and pid != author_id:
             theorists.add(pid)
 
-    theorist_contexts = collect_theorist_contexts(root, persons, theorists, xml_path.stem, title)
+    theorist_contexts = collect_person_contexts(root, persons, theorists, xml_path.stem, title)
+    subject_contexts = collect_person_contexts(root, persons, subjects, xml_path.stem, title)
 
     original_year = get_original_year(sources)
     # display_year: 원발표연도 > note 추출연도 > 파일명 suffix > sources 연도
@@ -1409,6 +1432,7 @@ def process(xml_path):
         "sources": sources,
         "author_id": author_id,
         "theorist_contexts": theorist_contexts,
+        "subject_contexts": subject_contexts,
     }
 
 
@@ -1510,14 +1534,21 @@ def main():
     # writer_id -> {info, essays[]} 수집
     writers_map = {}
     for e in all_essays:
+        cid = e["author_id"]
+        cname = e["persons"].get(cid, {}).get("name", "") if cid else ""
         for pid in e["subjects"]:
             p = e["persons"].get(pid, {})
             if not p:
                 continue
             if pid not in writers_map:
                 reg_ref = _registry_ref(pid)
-                writers_map[pid] = {"id": pid, "name": _canonical_label(pid, reg_ref if reg_ref else p.get("ref", ""), p.get("name", pid)), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": []}
+                writers_map[pid] = {"id": pid, "name": _canonical_label(pid, reg_ref if reg_ref else p.get("ref", ""), p.get("name", pid)), "ref": reg_ref if reg_ref else p.get("ref", ""), "essays": [], "contexts": []}
             writers_map[pid]["essays"].append(e)
+        # 인용 문맥 병합 — 작가가 언급된 문장 + 비평가 정보
+        for pid, ctx_list in e.get("subject_contexts", {}).items():
+            if pid in writers_map:
+                for ctx in ctx_list:
+                    writers_map[pid]["contexts"].append({**ctx, "critic_id": cid, "critic_name": cname})
 
     for wid, winfo in writers_map.items():
         html = build_writer_profile(wid, winfo, winfo["essays"])
