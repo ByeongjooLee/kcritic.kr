@@ -1161,6 +1161,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
       <div class="stat-row">
         <div class="stat"><span class="stat-num">{essay_count}</span><span class="stat-label">관련 비평글</span></div>
         <div class="stat"><span class="stat-num">{len(critic_count)}</span><span class="stat-label">비평한 비평가</span></div>
+        <div class="stat"><span class="stat-num">{len(contexts)}</span><span class="stat-label">비평 문맥</span></div>
       </div>
     </section>
 
@@ -1170,12 +1171,12 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         <div class="chip-group">{critics_chips_html}</div>
       </div>
     </section>
+    {contexts_html}
 
     <section class="essay-grid">
       <h2 class="section-label">관련 비평글 ({essay_count}편)</h2>
       {"".join(essay_cards)}
     </section>
-    {contexts_html}
   </main>
 
   <footer class="site-footer">
