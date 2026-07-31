@@ -1565,6 +1565,7 @@ def main():
             "lod": _lod_card_badges(_lod_record(wid, winfo["ref"])),
             "essay_count": len(winfo["essays"]),
             "critics": sorted({e["author_id"] for e in winfo["essays"] if e["author_id"]}),
+            "context_count": len(winfo["contexts"]),
         }
         for wid, winfo in sorted(writers_map.items(), key=lambda x: (-len(x[1]["essays"]), x[0]))
     ]

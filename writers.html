@@ -35,6 +35,7 @@
       <div class="stat-row">
         <div class="stat"><span class="stat-num" id="writer-count">—</span><span class="stat-label">작가</span></div>
         <div class="stat"><span class="stat-num" id="essay-count-total">—</span><span class="stat-label">관련 비평글</span></div>
+        <div class="stat"><span class="stat-num" id="context-count-total">—</span><span class="stat-label">비평 문맥</span></div>
       </div>
     </section>
 
@@ -64,6 +65,8 @@
       document.getElementById('writer-count').textContent = writers.length;
       document.getElementById('essay-count-total').textContent =
         writers.reduce((s, w) => s + w.essay_count, 0);
+      document.getElementById('context-count-total').textContent =
+        writers.reduce((s, w) => s + (w.context_count || 0), 0);
       renderGrid(writers);
     })
     .catch(() => {
@@ -92,6 +95,7 @@
         <div class="critic-card-stats">
           <span class="critic-stat"><strong>${w.essay_count}</strong> 관련 비평글</span>
           <span class="critic-stat"><strong>${criticCount}</strong> 비평한 비평가</span>
+          <span class="critic-stat"><strong>${w.context_count || 0}</strong> 비평 문맥</span>
         </div>
         <div class="critic-card-footer">
           프로필 보기 →
