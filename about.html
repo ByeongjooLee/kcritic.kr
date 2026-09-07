@@ -206,19 +206,19 @@
       </p>
       <div class="about-stat-row">
         <div class="about-stat">
-          <span class="about-stat-num">2</span>
+          <span class="about-stat-num">4</span>
           <span class="about-stat-label">수록 비평가</span>
         </div>
         <div class="about-stat">
-          <span class="about-stat-num">48</span>
+          <span class="about-stat-num">370</span>
           <span class="about-stat-label">수록 비평글</span>
         </div>
         <div class="about-stat">
-          <span class="about-stat-num">143</span>
+          <span class="about-stat-num">926</span>
           <span class="about-stat-label">등록 이론가</span>
         </div>
         <div class="about-stat">
-          <span class="about-stat-num">231</span>
+          <span class="about-stat-num">1,533</span>
           <span class="about-stat-label">관계망 노드</span>
         </div>
       </div>
@@ -258,8 +258,9 @@
       <section class="about-section">
         <h2>현재 수록 범위</h2>
         <p>
-          현재는 <strong>파일럿 단계</strong>로, 김우창(1979–1992)과 유종호(1957–1974)의
-          비평글 총 48편을 수록하고 있습니다.
+          현재 <strong>비평가 4인</strong>의 비평글 총 370편을 수록하고 있습니다 —
+          김현(136편, 1969–1990), 유종호(114편, 1957–1995),
+          김우창(109편, 1977–1993), 황현산(11편, 2010–2012).
           각 비평글은 비평 대상 작가와 인용 이론가 정보를 포함하며,
           주요 개념어는 별도로 추출하여 색인화되어 있습니다.
         </p>
@@ -301,8 +302,12 @@
             <div class="tech-value">Cloudflare Workers</div>
           </div>
           <div class="about-tech-item">
-            <div class="tech-label">OWL 파일</div>
-            <div class="tech-value"><a href="critic_v7_kcritic.rdf" download>다운로드 ↓</a></div>
+            <div class="tech-label">OWL 온톨로지 (v8)</div>
+            <div class="tech-value"><a href="critic_v8_schema.rdf" download>스키마 ↓</a> · <a href="critic_v8_data.rdf" download>데이터 ↓</a></div>
+          </div>
+          <div class="about-tech-item">
+            <div class="tech-label">RDF 전체 데이터</div>
+            <div class="tech-value"><a href="site/data/graph.ttl" download>graph.ttl ↓</a></div>
           </div>
         </div>
       </section>
@@ -312,15 +317,19 @@
         <ul class="about-phase-list">
           <li class="about-phase-item">
             <span class="phase-badge phase-done">완료</span>
-            <span>파일럿: 김우창·유종호 비평 48편 TEI 인코딩, OWL 온톨로지 구축, 관계망 시각화</span>
+            <span>Phase 0 파일럿: 김우창·유종호 비평 48편 TEI 인코딩, OWL 온톨로지 구축, 관계망 시각화</span>
+          </li>
+          <li class="about-phase-item">
+            <span class="phase-badge phase-done">완료</span>
+            <span>Phase 1 비평가 확장: 김현·황현산 추가 — 4인 370편 비교 관계망 (노드 1,533 · 관계 4,131)</span>
           </li>
           <li class="about-phase-item">
             <span class="phase-badge phase-next">진행 중</span>
-            <span>Phase 1: 비평가 확장 — 김윤식 등 추가, 비평가 간 비교 관계망 구축</span>
+            <span>Phase 2 개념어 계층화: 61편에 taxonomy 선언 완료, SKOS 상하위 관계 반영은 작업 중</span>
           </li>
           <li class="about-phase-item">
             <span class="phase-badge phase-future">예정</span>
-            <span>Phase 2: 개념어 계층화 — SKOS 어휘 기반 개념어 상하위 관계 정의</span>
+            <span>비평문 간 응답 관계(critic:respondsTo) — 논쟁 구조를 관계망에 반영</span>
           </li>
           <li class="about-phase-item">
             <span class="phase-badge phase-future">예정</span>

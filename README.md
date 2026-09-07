@@ -7,17 +7,19 @@
 
 ---
 
-## 현재 수록 규모 (2026-06)
+## 현재 수록 규모 (2026-09)
 
 | 항목 | 수량 |
 |---|---|
-| 비평글 (TEI XML 인코딩) | 49편 |
-| 비평가 | 2명 (김우창 32편, 유종호 17편) |
-| 작가 노드 | 40명 |
-| 이론가 노드 | 143명 |
-| 그래프 엣지 | 288개 |
+| 비평글 (TEI XML 인코딩) | 370편 |
+| 비평가 | 4명 (김현 136 · 유종호 114 · 김우창 109 · 황현산 11) |
+| 작가 노드 | 380명 |
+| 이론가 노드 | 779명 |
+| 그래프 노드 / 엣지 | 1,533개 / 4,131개 |
+| RDF 트리플 (`graph.ttl`) | 17,796개 |
+| 개념어 색인 | 3,780개 (2편 이상 공개: 288개) |
 | 선행연구 (박사논문) | 1,528건 → 복수 작가 분리 후 1,859건 |
-| persons.json 권위 파일 | 255명 (NLK 48명, Wikidata 연결) |
+| persons.json 권위 파일 | 289명 (Wikidata 255, NLK 65) |
 
 ---
 
@@ -161,10 +163,11 @@ py -m uvicorn neo4j_api:app --reload
 | 빌드 | Python (`build.py`) |
 | 관계망 시각화 | Cytoscape.js 3.28 |
 | 그래프 DB | Neo4j (로컬: Desktop, 배포: Aura) |
-| GraphRAG API | FastAPI + Anthropic Claude (`claude-sonnet-4-6`) |
+| GraphRAG API | FastAPI + Anthropic Claude (`claude-haiku-4-5-20251001`) |
 | AI 검증 | Gemini 1.5 Flash (크라우드소싱 서식 정규화) |
 | 호스팅 | Cloudflare Workers (정적) + Render (API) |
 | LOD 연결 | Wikidata · 국립중앙도서관 LOD · ISNI |
+| 공식 온톨로지 | OWL v8 (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
 
 ---
 
@@ -204,11 +207,11 @@ py -m uvicorn neo4j_api:app --reload
 
 ---
 
-## 다음 단계 (Phase 1)
+## 다음 단계
 
-학술적 비교 분석을 위해 비평가를 3명 이상으로 확장하는 것이 목표입니다.
+비평가 확장(Phase 1)은 김현·황현산 추가로 완료되어 4인 370편 비교 관계망을 갖췄습니다. 남은 과제는 다음과 같습니다.
 
-- 김윤식 에세이 인코딩 (반-김우창 입장 — 비교 분석 가능)
-- `critic:respondsTo` 프로퍼티 추가 (에세이 간 논쟁 관계)
+- `critic:respondsTo` 프로퍼티 추가 (에세이 간 논쟁 관계) — 미구현
+- 개념어 계층화: 61편에 들어 있는 `<taxonomy>` 선언을 SKOS(`skos:broader`)로 반영
 - KCI 논문 데이터 통합 (`bibliography.json`에 `type: "kci"` 레코드 추가)
 - GitHub API 연동으로 승인된 기여 자동 PR 생성 (크라우드소싱 2단계)

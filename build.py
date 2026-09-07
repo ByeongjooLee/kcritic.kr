@@ -1638,20 +1638,43 @@ def main():
     ttl = build_turtle(all_essays, graph)
     ttl_path = DATA_DIR / "graph.ttl"
     ttl_path.write_text(ttl, encoding="utf-8")
-    triple_count = ttl.count(" .\n")
-    print(f"  OK graph.ttl -> {ttl_path} (~{triple_count} triples)")
+    triple_count = _count_triples(ttl)
+    print(f"  OK graph.ttl -> {ttl_path} ({triple_count} triples)")
 
     print("\n완료.")
 
 
 # ── RDF Turtle 생성 ──────────────────────────────────────────
-# critic_v5_kcritic.rdf 온톨로지 (http://kcritic.kr/ontology/critic#) 준거:
-#   클래스: critic:Critic, critic:CriticalEssay, foaf:Person
+# critic_v8_schema.rdf 온톨로지 (http://kcritic.kr/ontology/critic#) 준거:
+#   클래스: critic:Critic, critic:Writer, critic:Thinker, critic:CriticalEssay
+#          (인물 3종은 foaf:Person 도 함께 부여 — 하위 클래스 + 하위호환)
 #   프로퍼티: critic:analyzes (비평가→인물), dcterms:creator (에세이→비평가),
-#             cito:discusses (에세이→인물), foaf:name, dcterms:title, dcterms:date
+#             cito:discusses (에세이→작가), cito:citesAsAuthority (에세이→이론가),
+#             foaf:name, dcterms:title, dcterms:date(xsd:gYear)
 
 BASE_URI = "https://kcritic.kr/resource/"
 ESSAY_PAGE_BASE = "https://kcritic.kr/site/essays/"
+
+
+def _count_triples(ttl: str) -> int:
+    """graph.ttl의 실제 트리플 수.
+
+    과거에는 ttl.count(" .\\n") 을 썼으나 이는 '주어 블록 수'(약 2,591)일 뿐
+    트리플 수(약 17,796)가 아니었다. 술어-목적어 줄을 세되,
+    'a critic:Writer, foaf:Person' 처럼 목적어가 나열된 줄은 콤마만큼 더한다.
+    리터럴 안의 콤마를 오산하지 않도록 따옴표가 있는 줄은 콤마를 세지 않는다.
+    """
+    n = 0
+    for raw in ttl.splitlines():
+        s = raw.strip()
+        if not s or s == "." or s.startswith("#") or s.startswith("@"):
+            continue
+        if not (s.endswith(";") or s.endswith(".")):
+            continue
+        n += 1
+        if '"' not in s:
+            n += s.count(",")
+    return n
 
 # TEI ref에 Wikidata URI가 없는 인물의 보완 매핑 (이름 → Wikidata URI)
 _WIKIDATA_FALLBACK = {
@@ -1690,7 +1713,7 @@ def _ttl_uri(s):
 def build_turtle(all_essays, graph):
     lines = [
         "# 한국 비평사 온톨로지 — RDF Turtle 직렬화",
-        "# 온톨로지 준거: http://kcritic.kr/ontology/critic# (critic_v7_kcritic.rdf)",
+        "# 온톨로지 준거: http://kcritic.kr/ontology/critic# (critic_v8_schema.rdf, 8.0-kcritic)",
         "",
         "@prefix kc:      <https://kcritic.kr/resource/> .",
         "@prefix kce:     <https://kcritic.kr/resource/essay/> .",
@@ -1724,11 +1747,14 @@ def build_turtle(all_essays, graph):
 
     for pid, p in sorted(all_persons.items()):
         ntype = node_type_map.get(pid, "")
-        # critic:Critic / foaf:Person 클래스 매핑 (온톨로지 준거)
+        # 클래스 매핑 (critic_v8_schema.rdf 준거)
+        # v8은 critic:Writer / critic:Thinker 를 critic:Person(≡ foaf:Person)의
+        # 하위 클래스로 정의한다. 기존 SPARQL 예제(foaf:Person 기준)를 깨지 않도록
+        # 하위 클래스와 foaf:Person 을 함께 부여한다.
         cls_map = {
-            "critic":   "critic:Critic",
-            "writer":   "foaf:Person",
-            "theorist": "foaf:Person",
+            "critic":   "critic:Critic, foaf:Person",
+            "writer":   "critic:Writer, foaf:Person",
+            "theorist": "critic:Thinker, foaf:Person",
         }
         cls = cls_map.get(ntype)
         if not cls:

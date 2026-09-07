@@ -2,6 +2,18 @@
 
 AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로운 결정이 생기면 즉시 이 파일을 업데이트할 것.
 
+**현재 상태 (2026-09-07 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
+
+| 항목 | 값 |
+|---|---|
+| 수록 비평가 | 4인 — 김현 136편(1969–1990), 유종호 114편(1957–1995), 김우창 109편(1977–1993), 황현산 11편(2010–2012) |
+| 수록 비평글 | 370편 (`essays/*.xml`) |
+| 관계망 | 노드 1,533 / 엣지 4,131 |
+| 노드 구성 | theorist 779 · writer 380 · essay 370 · critic 4 |
+| 엣지 구성 | uses_theory 2,133 · subject_of 1,628 · wrote 370 |
+| 목록 데이터 | writers.json 504 · thinkers.json 926 · concepts.json 3,780(공개 288) |
+| 공식 온톨로지 | **v8** (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
+
 ---
 
 ## 0. 프로젝트 목표
@@ -29,7 +41,7 @@ critic-ontology/
 │   ├── *.xml                ← TEI XML 원문 인코딩
 │   └── *.txt                ← 원문 텍스트 (XML 작업 전 저장)
 ├── schema/
-│   └── korean-critique-schema.xsd
+│   └── korean-critique-schema.xsd   ← v5 활성본 (부모 폴더에 버전 아카이브)
 ├── site/
 │   ├── essays/              ← build.py 출력: 메타데이터 HTML (GitHub 포함)
 │   │   └── *.html
@@ -46,32 +58,52 @@ critic-ontology/
 │   │   ├── thinkers.json    ← build.py 출력: 이론가 목록 데이터
 │   │   ├── concepts.json    ← build.py 출력: 개념어 색인
 │   │   ├── graph.ttl        ← build.py 출력: RDF Turtle LOD 직렬화
+│   │   ├── criticism.json   ← convert_criticism.py 출력: 2000년대 비평 데이터
 │   │   └── bibliography.json ← convert_phd.py 출력: 선행연구 데이터
-│   └── graph.html           ← Cytoscape.js 관계망 시각화
-├── index.html               ← 비평글 목록 (메인)
+│   ├── graph.html           ← Cytoscape.js 관계망 시각화
+│   └── sparql-bundle.js     ← Comunica + N3 로컬 번들 (ask.html SPARQL 탭)
+├── index.html               ← 비평글 목록 (메인, essay-card 수동 관리)
 ├── critics.html             ← 비평가 목록 탭
 ├── writers.html             ← 작가 목록 탭
 ├── thinkers.html            ← 이론가 목록 탭
 ├── concepts.html            ← 개념어 탭
 ├── research.html            ← 선행연구 탭
 ├── criticism.html           ← 2000년대 비평 탭
-├── ask.html                 ← 질문하기 탭 (Neo4j GraphRAG UI)
-├── sparql.html              ← SPARQL 탭 (숨김 상태 — ask.html 내 SPARQL 탭으로 대체)
+├── ask.html                 ← 질문하기 탭 (Neo4j GraphRAG UI + SPARQL 탭)
+├── contribute.html          ← 기여하기 탭
+├── about.html               ← 소개 탭 (수치·로드맵 하드코딩 — 갱신 시 §17과 함께 고칠 것)
+├── admin.html               ← 관리 화면 (네비 미노출)
+├── sparql.html              ← SPARQL 단독 페이지 (네비 미노출 — ask.html 내 탭으로 대체)
+├── 404.html                 ← 자체 완결형 404 (§11 참조)
 ├── style.css                ← 공유 스타일 (반응형 포함)
-├── build.py                 ← TEI XML → HTML + JSON + Neo4j 동기화 빌드 스크립트
+├── build.py                 ← TEI XML → HTML + JSON + TTL + Neo4j 동기화 빌드 스크립트
 ├── persons.json             ← 인물 권위 소스 (LOD URI, Wikidata 등) — 슬러그 키
+├── id_map.json              ← 슬러그 ↔ 숫자 xml:id 매핑 (build.py가 우선 참조)
+├── critic_v8_schema.rdf     ← 공식 OWL 스키마 (배포·다운로드 대상)
+├── critic_v8_data.rdf       ← 공식 OWL 데이터 (파일럿 스냅샷 152 개체)
 ├── neo4j_api.py             ← FastAPI GraphRAG 서버 (포트 8000)
 ├── neo4j_load.py            ← graph.json → Neo4j 단독 로드 스크립트
-├── convert_phd.py           ← 박사논문 xlsx → bibliography.json 변환
+├── verify_lod.py            ← LOD QID 검증 (§14 워크플로우)
+├── suggest_qid_fixes.py     ← QID 교정 후보 제안
+├── enhanced_qid_search.py   ← 외국 인물 영문명 재검색
+├── apply_qid_fixes.py       ← 교정 CSV → persons.json 반영
+├── sync_xml_refs.py         ← 교정값 → essays XML ref 동기화
+├── verify_encykorea.py      ← encykorea ↔ Wikidata P9475 교차검증
+├── enrich_en_names.py       ← 외국 인물 영문 레이블 보강
+├── essays_backup_qidfix/    ← sync_xml_refs.py 백업 (gitignored)
+├── deploy.ps1               ← build + commit + push + wrangler deploy 일괄
 ├── .env                     ← Neo4j/Anthropic 크레덴셜 (gitignored, 절대 커밋 금지)
+├── .assetsignore            ← Cloudflare 배포 제외 목록 (§11 주의사항 필독)
 ├── wrangler.jsonc           ← Cloudflare Workers 배포 설정
 ├── .gitignore
 └── CLAUDE.md                ← 이 파일
 ```
 
+> `convert_phd.py` · `convert_criticism.py` 는 저장소가 아니라 **부모 폴더(`온톨로지/`)** 에 있다. 출력만 `critic-ontology/site/data/` 로 들어온다.
+
 ---
 
-## 3. 사이트 구조 (탭 9개)
+## 3. 사이트 구조 (네비 탭 11개)
 
 | 탭 | 파일 | 설명 |
 |---|---|---|
@@ -83,15 +115,21 @@ critic-ontology/
 | 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
-| 질문하기 | `ask.html` | Neo4j GraphRAG — 자연어 질문 → Cypher 자동 생성 → 학술 답변 |
+| 질문하기 | `ask.html` | Neo4j GraphRAG — 자연어 질문 → Cypher 자동 생성 → 학술 답변 + SPARQL 탭 |
+| 기여하기 | `contribute.html` | 참여·기여 안내 |
+| 소개 | `about.html` | 프로젝트 소개·통계·기술 구성·로드맵 |
+
+네비 미노출 페이지: `admin.html`(관리), `sparql.html`(ask.html 내 탭으로 대체), `404.html`.
 
 ### 네비게이션 경로 (파일 위치별)
-- 루트 페이지(`index.html`, `critics.html`, `writers.html`, `thinkers.html` 등): `비평글`, `비평가`, `작가`, `이론가`, `관계망`, `개념어`, `선행연구`, `2000년대 비평`, `질문하기`
-- `site/essays/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/critics/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/writers/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/thinkers/*.html`: `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`
-- `site/graph.html`: `../index.html`, `../critics.html`, `../writers.html`, `../thinkers.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`
+
+**네비 항목은 build.py 템플릿에 하드코딩**되어 있다. 탭을 추가·삭제하면 루트 HTML 전부 + build.py의 네 군데 템플릿(essay·critics·writers·thinkers 프로필)을 함께 고쳐야 한다.
+
+- 루트 페이지(`index.html`, `critics.html`, `writers.html`, `thinkers.html`, `concepts.html`, `research.html`, `criticism.html`, `ask.html`, `contribute.html`, `about.html`) — **11개 전부**: `비평글`, `비평가`, `작가`, `이론가`, `관계망`(`site/graph.html`), `개념어`, `선행연구`, `2000년대 비평`, `질문하기`, `기여하기`, `소개`
+- `site/essays|critics|writers|thinkers/*.html` (build.py 생성) — **10개** (`기여하기` 제외): `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`, `../../criticism.html`, `../../ask.html`, `../../about.html`
+- `site/graph.html` — `../index.html`, `../critics.html`, `../writers.html`, `../thinkers.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`
+
+> 알려진 불일치: 하위 페이지 네비에만 `기여하기`가 빠져 있다. 의도한 것인지 확인 필요 — 맞추려면 build.py 템플릿 4곳에 `../../contribute.html` 추가.
 
 ---
 
@@ -113,6 +151,12 @@ build.py 출력:
 - `site/data/critics.json` — 비평가 목록 데이터
 - `site/data/writers.json` — 작가 목록 데이터 (encykorea, nlk, ref 포함)
 - `site/data/thinkers.json` — 이론가 목록 데이터 (context_count 포함)
+- `site/data/concepts.json` — 개념어 색인 (concepts.html 전용, 관계망 노드 아님 — §5 참조)
+- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 17,796 트리플 / 주어 블록 2,591)
+
+빌드 끝에 Neo4j 동기화를 시도한다. `neo4j` 모듈이 없거나 Neo4j Desktop이 꺼져 있으면 경고만 남기고 건너뛴다(빌드 실패 아님).
+
+**빌드 후 필수 검증** — `py build.py` 를 2회 연속 실행하고 `site/data/` 산출물이 바이트 단위로 동일한지 확인할 것(§13 결정성 규칙).
 
 ### 박사논문 데이터 변환
 
@@ -244,23 +288,27 @@ py -m uvicorn neo4j_api:app --reload
       "ref": "https://www.wikidata.org/wiki/Q17129594", "degree": 4 },
     { "id": "kim-uchang_yun-dongju_1985", "label": "윤동주의 시와 근대적 자아",
       "type": "essay", "year": "1985", "degree": 3 },
-    { "id": "concept-슬픔차로운-양심", "label": "괴로운 양심", "type": "concept", "degree": 2 }
+    { "id": "p-yun-dongju", "label": "윤동주", "type": "writer", "degree": 3 }
   ],
   "edges": [
     { "source": "p-kim-uchang", "target": "kim-uchang_yun-dongju_1985",
       "type": "wrote", "weight": 1 },
-    { "source": "kim-uchang_yun-dongju_1985", "target": "concept-괴로운-양심",
-      "type": "uses_concept", "weight": 1 }
+    { "source": "kim-uchang_yun-dongju_1985", "target": "p-yun-dongju",
+      "type": "subject_of", "weight": 1 }
   ]
 }
 ```
 
 - `node.degree` — 연결 엣지 수 합산 (weight 반영). 노드 크기에 반영
 - `edge.weight` — 같은 source→target 쌍 반복 횟수. 엣지 굵기에 반영
-- `node.type`: `critic` | `writer` | `theorist` | `essay` | `concept`
-- `edge.type`: `wrote` | `subject_of` | `uses_theory` | `uses_concept`
-- concept 노드: `interp[type='concept']` 텍스트에서 자동 추출. ID = `concept-{slug}` (40자 이내)
-- 같은 개념 텍스트가 여러 에세이에 반복 출현 시 weight 증가 → 에세이 간 공유 개념을 시각적으로 강조
+- `node.type`: `critic` | `writer` | `theorist` | `essay`
+- `edge.type`: `wrote` | `subject_of` | `uses_theory`
+
+> **개념어는 관계망 노드가 아니다.** 과거에는 `concept` 노드와 `uses_concept` 엣지를 만들었으나 현재 build.py는 생성하지 않는다. 개념어가 사는 곳은 두 군데다:
+> - `concepts.json` → `concepts.html` 색인 (UI)
+> - `graph.ttl` 의 에세이별 `dcterms:subject "개념어"@ko` **리터럴** (RDF·SPARQL, 현재 4,258건)
+>
+> 즉 SPARQL로는 개념어를 조회할 수 있지만 Cytoscape 관계망에는 그려지지 않는다. graph.json에 개념어 노드를 되살리려면 build.py 신규 구현 + `site/graph.html` 필터·색상표 수정이 함께 필요하다.
 
 ---
 
@@ -311,7 +359,7 @@ thinkers.json 추가 필드:
 
 ---
 
-## 7. bibliography.json 형식
+## 7. bibliography.json 형식 (선행연구)
 
 ```json
 {
@@ -338,18 +386,17 @@ thinkers.json 추가 필드:
 
 ---
 
-## 7. 시각화 (site/graph.html)
+## 8. 시각화 (site/graph.html)
 
 Cytoscape.js 3.28 기반.
 
-- 노드 크기: `degree` 비례 (56~120px). essay 노드 고정 110×56. concept 노드 다이아몬드 52×52
+- 노드 크기: `degree` 비례 (56~120px). essay 노드 고정 110×56
 - 엣지 굵기: `weight` 비례 (1.5~6px)
 - 노드 클릭: 사이드패널 (데스크탑) / 하단 드로어 슬라이드업 (모바일 768px 이하)
 - 비평가 노드 클릭 시 → "비평가 프로필 보기" 링크 포함
 - 에세이 노드 클릭 시 → "구조화 데이터 페이지 보기" 링크 포함
-- 개념 노드 클릭 시 → "이 개념이 사용된 비평글" 목록
 - 노드 hover: 연결 강조, 나머지 페이드
-- 필터: 비평가/작가/이론가/비평글/개념어 유형별 토글
+- 필터: 비평가/작가/이론가/비평글 유형별 토글 (개념어는 관계망에 없음 — §5 참조)
 - 검색: 왼쪽 상단 검색창 — 한글 포함 노드 이름 실시간 검색, 클릭 시 해당 노드로 줌·포커스
 - URL hash: `site/graph.html#essay-stem` 형태로 진입 시 해당 노드 자동 포커스 (index.html "관계망에서 보기" 버튼 연동)
 
@@ -360,11 +407,10 @@ Cytoscape.js 3.28 기반.
 | 작가 (writer) | #6a9bc9 | 원 |
 | 이론가 (theorist) | #9a7ac9 | 원 |
 | 비평글 (essay) | #c8c8a8 | 둥근 직사각형 |
-| 개념어 (concept) | #7ac9a0 | 다이아몬드 |
 
 ---
 
-## 8. 선행연구 탭 (research.html)
+## 9. 선행연구 탭 (research.html)
 
 - 데이터: `site/data/bibliography.json` fetch
 - 작가 중심 검색: 좌측 목록에서 작가 클릭 → 우측에 논문 목록
@@ -375,7 +421,7 @@ Cytoscape.js 3.28 기반.
 
 ---
 
-## 9. 반응형 (768px 기준)
+## 10. 반응형 (768px 기준)
 
 - 768px 이하: 모바일 레이아웃 자동 전환
 - graph.html: 사이드패널 숨김 → 하단 드로어
@@ -385,7 +431,7 @@ Cytoscape.js 3.28 기반.
 
 ---
 
-## 10. 배포
+## 11. 배포
 
 Cloudflare Workers (무료 티어). `wrangler.jsonc`의 `assets.directory = "."`.
 
@@ -395,7 +441,7 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 
 **⚠️ git push만으로는 라이브 반영 안 됨.** GitHub Actions/자동배포 없음 → 반드시 `npx wrangler deploy` 실행해야 Cloudflare에 반영. `deploy.ps1`이 build+add -A+commit+push+deploy를 한 번에 처리.
 
-**배포 검증:** `curl -s -o /dev/null -w "%{http_code}" https://kcritic.kr/site/essays/{stem}.html` 로 200/307 확인. 보안 재확인: `/.env`·`/essays/*.xml`·`/build.py`·`/CLAUDE.md`가 **404**여야 함(노출 금지).
+**배포 검증:** `curl -s -o /dev/null -w "%{http_code}" https://kcritic.kr/site/essays/{stem}.html` 로 200/307 확인. 보안 재확인: `/.env`·`/essays/*.xml`·`/build.py`·`/CLAUDE.md`가 **404**여야 함(노출 금지). 공개되어야 하는 것: `/critic_v8_schema.rdf`·`/critic_v8_data.rdf`·`/site/data/graph.ttl` 이 **200**.
 
 ### `.assetsignore` 주의 (배포 자산 제외)
 
@@ -404,13 +450,17 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - ✅ `/essays`, `/schema` 처럼 **루트 앵커링**. 원문은 `/essays` + `*.xml` + `*.txt`로 보호, `.env`는 명시.
 - 새 작업 산출물(*.bak·*.csv·결과 json)도 `.assetsignore`에 추가해 공개 배포 방지.
 
+현재 제외 목록: `.git`, `node_modules`, `/essays`, `.env`, `*.py`, `*.xml`, `*.txt`, `*.jsonl`, `/schema`, `CLAUDE.md`, `wrangler.jsonc`, `package.json`, `package-lock.json`, `.wrangler`, `*.bak`, `*.csv`, `verify_lod_result.json`, `essays_backup_qidfix`, `.gitignore`, `.assetsignore`, `.vscode`, `.dev.vars*`, `id_map.json`
+
+> **`.rdf`는 제외 대상이 아니다** — `critic_v8_schema.rdf`·`critic_v8_data.rdf` 는 의도적으로 배포되어 `about.html` 에서 내려받게 되어 있다. `*.xml` 패턴에 걸리지 않으니 확장자를 `.xml`로 바꾸지 말 것.
+
 ### not_found_handling
 
 `wrangler.jsonc` `not_found_handling: "404-page"` (정적 다중페이지 사이트). 루트 `404.html`은 **자체 완결형**(인라인 CSS + 절대경로 `/style.css`·`/index.html`)이어야 깊은 경로(`/site/essays/...`)에서 404 나도 스타일이 안 깨진다. (`single-page-application`은 모든 404를 깨진 index로 보여줘 부적절.)
 
 ---
 
-## 11. TEI XML 인코딩 패턴
+## 12. TEI XML 인코딩 패턴
 
 ### 파일명 규칙
 `비평가-슬러그_대상-슬러그_연도.xml` (동일 이름 `.txt` 병행)
@@ -453,14 +503,14 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 <interp type="concept">핵심어</interp>
 ```
 
-- `interp[type='concept']` **텍스트**가 graph.json의 `concept` 노드로 자동 추출
-- 노드 ID: `concept-{slug}` (slug = 특수문자 제거 후 최대 40자)
-- 에세이 → 개념 엣지 유형: `uses_concept`
-- 같은 개념이 여러 에세이에 반복 출현하면 edge weight 증가 → 비평 언어의 공유·전파 추적 가능
+- `interp[type='concept']` **텍스트**가 `concepts.json` 의 개념어 항목으로 자동 추출
+- slug = 특수문자 제거 후 최대 40자
+- 같은 개념 표기가 여러 에세이에 반복 출현하면 `essay_count` 증가 → 비평 언어의 공유·전파 추적 가능
+- **관계망(graph.json)에는 개념어 노드가 없다** — concepts.html 색인 전용 (§5 참조)
 
 **금지 패턴 — 개념어가 추출되지 않음:**
 - `<interp type="concept" corresp="#c-slug"/>` — 텍스트 없이 corresp 속성만 사용하면 build.py가 빈 문자열을 읽어 무시함
-- `classDecl > taxonomy > category` 구조 — build.py가 처리하지 않음
+- `classDecl > taxonomy > category` 구조 — build.py가 처리하지 않음. 현재 61편의 essay에 `<taxonomy>` 선언이 들어 있으나 빌드는 이를 읽지 않는다(Phase 2 개념어 계층화의 준비 데이터, §17 참조)
 
 **interpGrp type 구분:**
 - `type="concept"` — 개념어용 (build.py가 concept 노드로 추출)
@@ -499,7 +549,7 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 
 ---
 
-## 12. AI 행동 규칙
+## 13. AI 행동 규칙
 
 - **원문 텍스트를 HTML에 포함하는 코드 작성 금지**
 - **essays/*.xml, *.txt 를 git staging에 추가하는 명령 실행 금지**
@@ -511,12 +561,12 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - PowerShell에서 한글 포함 git commit 메시지는 here-string 파싱 오류 발생 → ASCII 메시지 사용 (Bash 툴도 안전하게 ASCII 권장)
 - Neo4j URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
 - **빌드 결정성 유지**: set을 출력/직렬화할 땐 항상 `sorted()`, count 기준 정렬엔 `key=lambda x: (-x[1], x[0])` 같은 안정적 tiebreaker 사용. (검증: `py build.py` 2회 연속 실행 후 `git diff`가 비어야 함.) 위반 시 빌드마다 칩·노드 순서가 바뀌어 무의미한 diff가 쏟아짐
-- **LOD 외부링크 추가는 build.py `LOD_SOURCES` 한 곳만**: 새 식별자(예: 새 사전) 추가 = 레지스트리 1줄 + persons.json 필드. 프로필·칩·카드3종·관계망 패널 6곳이 자동 반영. 개별 HTML/JS를 손대지 말 것 (§13 참조)
+- **LOD 외부링크 추가는 build.py `LOD_SOURCES` 한 곳만**: 새 식별자(예: 새 사전) 추가 = 레지스트리 1줄 + persons.json 필드. 프로필·칩·카드3종·관계망 패널 6곳이 자동 반영. 개별 HTML/JS를 손대지 말 것 (§14 참조)
 - 커밋 전 `git status`로 변경 파일 확인 — site/* 빌드 산출물은 커밋 OK, `essays/*.xml`·`.env`·`*.bak`·`essays_backup*/`·`qid_fix_*.csv`는 절대 staging 금지(.gitignore 등록됨)
 
 ---
 
-## 13. 외부 연결 데이터 (LOD)
+## 14. 외부 연결 데이터 (LOD)
 
 - 한국 인물: 국립중앙도서관 LOD (https://lod.nl.go.kr) → Wikidata → ISNI
 - 외국 이론가: Wikidata (https://wikidata.org) 우선
@@ -557,7 +607,7 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - 카드(critics/writers/thinkers): build.py가 `_lod_card_badges`로 **`lod` 배열**(href·label·bg·fg)을 각 JSON에 넣고, HTML의 JS는 `c.lod`를 그대로 렌더(ref 문자열 파싱 제거)
 - **새 LOD 소스 추가 = `LOD_SOURCES`에 1줄 + persons.json 필드.** 5곳(프로필·칩·카드3개)이 자동 반영. 개별 카드 JS 수정 불필요.
 
-**숫자 xml:id → persons.json 연결 (id_map):** build.py는 `../id_map.json`(슬러그→숫자)을 역인덱스(`_NUM_TO_SLUG`)로 로드. 에세이가 숫자 xml:id(p-00117 등)로 인물을 참조해도 `_persons_record`/`_registry_ref`가 슬러그로 해석해 persons.json 권위 레코드(올바른 wikidata·encykorea·naver_munhak 등)를 사용. author_ref·TTL 노드 ref도 이 경로로 persons.json 우선. → XML ref가 낡아도 persons.json만 고치면 사이트 전체에 반영됨.
+**숫자 xml:id → persons.json 연결 (id_map):** build.py는 id_map(슬러그→숫자)을 역인덱스(`_NUM_TO_SLUG`)로 로드한다. 경로는 **저장소 안 `id_map.json` 우선, 없으면 부모 폴더 `../id_map.json`(레거시)** — 현재는 저장소 사본이 쓰인다. 부모 폴더 사본만 고치면 반영되지 않으니 주의. 에세이가 숫자 xml:id(p-00117 등)로 인물을 참조해도 `_persons_record`/`_registry_ref`가 슬러그로 해석해 persons.json 권위 레코드(올바른 wikidata·encykorea·naver_munhak 등)를 사용. author_ref·TTL 노드 ref도 이 경로로 persons.json 우선. → XML ref가 낡아도 persons.json만 고치면 사이트 전체에 반영됨.
 
 **persons.json 수정 시 주의:**
 - encykorea URL은 반드시 실제 해당 인물 항목인지 확인 (동명이인 오류 빈번)
@@ -676,17 +726,18 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 
 ---
 
-## 14. 스택 요약
+## 15. 스택 요약
 
 | 목적 | 도구 |
 |---|---|
-| 인코딩 | VS Code + Red Hat XML + `korean-critique-schema.xsd` (v5 — 운문 `l`/`lg`·날짜범위 `notBefore`/`notAfter` 지원, §11 참조) |
+| 인코딩 | VS Code + Red Hat XML + `korean-critique-schema.xsd` (v5 — 운문 `l`/`lg`·날짜범위 `notBefore`/`notAfter` 지원, §12 참조) |
 | 빌드 | `build.py` (Python 표준 라이브러리만 + neo4j driver 선택적) |
 | 데이터 변환 | `convert_phd.py` (openpyxl), `convert_criticism.py` (openpyxl) |
 | 관계망 시각화 | Cytoscape.js 3.28 |
 | 그래프 DB | Neo4j Desktop (로컬, bolt://127.0.0.1:7687, APOC 플러그인) |
 | GraphRAG API | FastAPI + uvicorn (`neo4j_api.py`, 포트 8000) |
-| AI 답변 | Anthropic Claude API (`claude-sonnet-4-6`) — Cypher 생성 + 학술 답변 |
+| AI 답변 | Anthropic Claude API (`claude-haiku-4-5-20251001`, `neo4j_api.py` 2곳) — Cypher 생성 + 학술 답변 |
+| 공식 온톨로지 | OWL v8 — `critic_v8_schema.rdf`(스키마) + `critic_v8_data.rdf`(데이터) (§16 참조) |
 | SPARQL | Comunica + N3 로컬 번들 (site/sparql-bundle.js, ask.html SPARQL 탭에 통합) |
 | 호스팅 | Cloudflare Workers (무료) |
 | 비용 | 도메인 갱신비 + Anthropic API 사용료 |
@@ -694,27 +745,41 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 
 ---
 
-## 15. 공식 OWL 온톨로지 (critic_v7_kcritic.rdf)
+## 16. 공식 OWL 온톨로지 (v8 — 현행)
 
-- v5 파일: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v5_kcritic.rdf`
-- v6 파일: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v6_kcritic.rdf`
-  - v5 대비 추가: `critic:Thinker` 클래스, `cito:citesAsAuthority` 프로퍼티, 이론가 68명, 에세이 48편 인용관계
-- **v7 파일 (최신)**: `c:\onedrive\문서\대학원 공부\박사이후 논문 투고\온톨로지\critic_v7_kcritic.rdf`
-  - v6 대비 추가: `critic:Writer` 클래스, 한국 작가 40명 NamedIndividual + owl:sameAs (Wikidata/encykorea/NLK LOD/ISNI/VIAF) 177트리플
-  - 비평가 owl:sameAs: 김우창(encykorea), 유종호(NLK LOD)
+**현행 버전: v8 (`8.0-kcritic`).** 스키마와 데이터가 분리되어 있고, 저장소 사본이 사이트 배포·다운로드 대상이다.
 
-`build.py`의 `build_turtle()`은 이 온톨로지를 준거로 삼아 RDF Turtle을 생성함.
+| 파일 | 저장소 사본 (배포됨) | 원본 |
+|---|---|---|
+| 스키마 | `critic-ontology/critic_v8_schema.rdf` | `온톨로지/critic_v8_schema.rdf` |
+| 데이터 | `critic-ontology/critic_v8_data.rdf` | `온톨로지/critic_v8_data.rdf` |
+
+`about.html` 의 "OWL 온톨로지 (v8)" 항목에서 두 파일을 내려받는다. **원본을 고치면 저장소 사본에도 복사할 것** — 사이트가 배포하는 건 저장소 사본이다.
+
+### 버전 이력 (원본은 모두 `온톨로지/` 폴더)
+- `critic_v5_kcritic.rdf`
+- `critic_v6_kcritic.rdf` — v5 대비 `critic:Thinker` 클래스, `cito:citesAsAuthority` 프로퍼티 추가
+- `critic_v7_kcritic.rdf` — v6 대비 `critic:Writer` 클래스, 한국 작가 40명 NamedIndividual + owl:sameAs 추가
+- `critic_v7_kcritic_archive_20260608_withRole.rdf` — 폐기된 `critic:Role` 개체 11개가 남아 있는 구버전 아카이브. 사용 금지
+- **`critic_v8_schema.rdf` + `critic_v8_data.rdf` (현행)** — v7에서 미사용 `critic:Role` 클래스·`critic:hasRole` 프로퍼티를 제거하고 스키마/데이터로 분리. **NamedIndividual 152개는 v7과 동일**(비평가 2 · 이론가 69 · 작가 40 · 비평문 41)
+
+> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(17,796 트리플)이다. 둘의 역할을 혼동하지 말 것.
+
+`build.py`의 `build_turtle()`은 v8 스키마를 준거로 삼아 `graph.ttl`을 생성한다.
 
 ### 온톨로지 URI
 - Base: `http://kcritic.kr/ontology/`
 - 접두사: `critic: <http://kcritic.kr/ontology/critic#>`
 
-### 클래스 매핑
-| build.py 내부 타입 | TTL 클래스 | 온톨로지 클래스 |
+### 클래스 매핑 (2026-09-07 v8 정합화)
+| build.py 내부 타입 | graph.ttl 클래스 | 비고 |
 |---|---|---|
-| `critic` | `critic:Critic` | `http://kcritic.kr/ontology/critic#Critic` |
-| `writer` / `theorist` | `foaf:Person` | `http://xmlns.com/foaf/0.1/Person` |
-| essay | `critic:CriticalEssay` | `http://kcritic.kr/ontology/critic#CriticalEssay` |
+| `critic` | `critic:Critic, foaf:Person` | |
+| `writer` | `critic:Writer, foaf:Person` | **기존 foaf:Person 단독에서 변경** |
+| `theorist` | `critic:Thinker, foaf:Person` | **기존 foaf:Person 단독에서 변경** |
+| `essay` | `critic:CriticalEssay` | |
+
+v8은 `critic:Writer`/`critic:Thinker`/`critic:Critic` 을 `critic:Person`(≡ `foaf:Person`)의 하위 클래스로 정의한다. `foaf:Person` 을 함께 부여하는 이유는 **기존 SPARQL 예제(`sparql.html` 의 `VALUES ?class { critic:Critic foaf:Person }`)를 깨뜨리지 않기 위해서**다. 이 두 줄은 함께 유지할 것.
 
 ### 핵심 프로퍼티 매핑 (2026-05-22 수정)
 | 관계 | TTL 프로퍼티 | 온톨로지 준거 | 비고 |
@@ -729,7 +794,7 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 | 개념어 | `dcterms:subject` | Dublin Core | |
 
 ### 통제어휘 규칙 (concept interp 정규화)
-같은 개념을 에세이마다 다르게 표기하지 않는다. **표기가 다르면 별개 노드로 분리되어 essay_count가 늘지 않는다.**
+같은 개념을 에세이마다 다르게 표기하지 않는다. **표기가 다르면 concepts.json에서 별개 항목으로 분리되어 essay_count가 늘지 않고, `dcterms:subject` 리터럴도 갈라져 SPARQL 집계가 어긋난다.**
 
 기존 통합 결정:
 - `심미 감각` → `심미적 감각` (기준어)
@@ -744,27 +809,37 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 ```
 
 ### 온톨로지 인물 연결
-- `_ONTOLOGY_WIKIDATA` 딕셔너리에 등록된 인물만 `owl:sameAs <http://kcritic.kr/ontology/한국어이름>` 추가
+
+> **폐지된 규칙 주의** — 예전 지침에 있던 `_ONTOLOGY_WIKIDATA` 딕셔너리는 build.py에서 제거되었다(현재 코드에 존재하지 않음). "새 인물을 이 딕셔너리에 등록하라"는 지시를 따르지 말 것.
+
+현재 인물의 외부 연결은 **`persons.json` 단일 권위 소스**로 처리된다:
+- `graph.ttl` 의 `owl:sameAs` 는 `_registry_ref()`(persons.json 우선, 없으면 TEI ref) → Wikidata URI 순으로 생성
+- TEI ref에 Wikidata URI가 없는 인물은 build.py의 `_WIKIDATA_FALLBACK`(이름 → URI)이 보완
+- 즉 **새 인물 추가 시 손댈 곳은 persons.json 하나** (§14 절차 참조). 코드 내 딕셔너리 등록은 불필요
 - 김우창 Wikidata: `Q17129594` (검증 완료)
-- 새 인물이 온톨로지에 추가되면 `_ONTOLOGY_WIKIDATA` 딕셔너리도 함께 업데이트할 것
 
 ---
 
-## 16. 프로젝트 단계 로드맵
+## 17. 프로젝트 단계 로드맵
 
 ### 완료 (Phase 0 — 파일럿)
-- 김우창 비평 23편 TEI 인코딩
-- RDF Turtle 생성 (169 트리플), Cytoscape.js 관계망, SPARQL 인터페이스
-- 사이트 정체성: "kcritic — 한국 비평사 온톨로지 · 파일럿: 김우창 비평 (1979–1992)"
+- 김우창·유종호 비평 48편 TEI 인코딩
+- RDF Turtle 생성, Cytoscape.js 관계망, SPARQL 인터페이스
+- 공식 OWL 온톨로지 v5 → v8
 
-### 다음 단계 (Phase 1 — 비교 관계망)
-**학술적 의미를 확보하려면 비평가가 2명 이상 필요.**
-우선 추가 대상: 김윤식(반-김우창 입장), 유종호(구체적 비교 가능)
-- 김윤식 에세이 최소 5편 인코딩 → 비평가 간 비교 가능
-- `critic:respondsTo` 프로퍼티 추가 (에세이 → 에세이 응답 관계)
-- 공유 개념어(같은 `dcterms:subject`가 다른 비평가에게 출현)가 진짜 비평사적 신호가 됨
+### 완료 (Phase 1 — 비교 관계망)
+학술적 의미 확보에 필요한 "비평가 복수" 조건 달성. **김윤식 대신 김현·황현산으로 확장**했다.
+- 비평가 4인 370편 — 김현 136 · 유종호 114 · 김우창 109 · 황현산 11
+- 관계망 노드 1,533 / 엣지 4,131, graph.ttl 17,796 트리플
+- 미완: **`critic:respondsTo`(에세이 → 에세이 응답 관계) 미구현** — 스키마·build.py 어디에도 없음. 기교주의 논쟁 같은 논쟁 구조를 표현하려면 이게 필요
 
-### 다음 단계 (Phase 2 — 개념어 계층)
+### 진행 중 (Phase 2 — 개념어 계층)
+- 현황: 370편 중 **61편에 `<taxonomy>` 선언이 이미 들어가 있으나 build.py가 읽지 않는다** (§12 금지 패턴 항목 참조)
 - 개념어 `encodingDesc` 계층 선언: `<taxonomy>` 요소로 상위-하위 개념 관계 명시
 - 예: `명징성` > `언어적 명징화` > `명징한 간결성`
-- SKOS 어휘 활용 (`skos:broader`, `skos:narrower`) → concepts.json에 계층 반영
+- SKOS 어휘 활용 (`skos:broader`, `skos:narrower`) → concepts.json·graph.ttl에 계층 반영. 현재 build.py·v8 스키마 모두 SKOS 미사용
+
+### 예정 (Phase 3)
+- SPARQL 공개 엔드포인트 제공 (현재는 브라우저 내 Comunica로 `graph.ttl` 질의)
+
+> 로드맵을 고칠 땐 `about.html` 의 "로드맵"·통계 섹션도 **함께** 갱신할 것 — 하드코딩되어 있어 자동 반영되지 않는다.

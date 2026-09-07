@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+    ===================================================================================
+    온톨로지 스키마 (Ontology Schema)
+    ===================================================================================
+
+    명칭  : 한국 비평사 온톨로지 스키마
+    약어  : critic
+    기반 URI : http://kcritic.kr/ontology/critic#
+    작성일 : 2026-06-10
+    버전  : 8.0-kcritic
+    작성자 : 이병주
+
+    ── v7 → v8 변경 ─────────────────────────────────────────────────────────────────
+    - critic:Role 클래스 및 critic:hasRole 프로퍼티 제거 (미사용)
+    - 스키마(이 파일)와 데이터(critic_v8_data.rdf)로 분리
+
+    ── 클래스 계층 ───────────────────────────────────────────────────────────────────
+    owl:Thing
+    ├── critic:Agent                           행위주체 (≡ foaf:Agent)
+    │   └── critic:Person                      사람 (≡ foaf:Person)
+    │       ├── critic:Critic                  비평가
+    │       ├── critic:Writer                  작가 (비평 대상)
+    │       └── critic:Thinker                 이론가·사상가 (인용 대상)
+    ├── critic:Document                        문서 (≡ foaf:Document)
+    │   └── critic:CriticalEssay               비평문
+
+    ── 핵심 관계 ─────────────────────────────────────────────────────────────────────
+    critic:analyzes          비평가(Critic) → 사람(Person)     "김우창이 윤동주를 비평했다"
+    cito:discusses           비평문 → 작가(Writer)             "이 비평문이 윤동주를 다룬다"
+    cito:citesAsAuthority    비평문 → 이론가(Thinker)          "이 비평문이 하버마스를 인용했다"
+    dcterms:creator          비평문 → 비평가                   "이 비평문은 김우창이 썼다"
+
+    ── 선행 온톨로지 참조 ──────────────────────────────────────────────────────────
+    CiTO         https://sparontologies.github.io/cito/current/cito.html
+    Dublin Core  https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+    FOAF         http://xmlns.com/foaf/0.1/spec/
+    ===================================================================================
+-->
+
+<rdf:RDF
+  xmlns:cito="http://purl.org/spar/cito/"
+  xmlns:critic="http://kcritic.kr/ontology/critic#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://kcritic.kr/ontology/">
+
+  <owl:Ontology rdf:about="http://kcritic.kr/ontology/">
+    <rdfs:label xml:lang="ko">한국 비평사 온톨로지 스키마</rdfs:label>
+    <rdfs:comment xml:lang="ko">한국 문학비평에서 "누가·누구를·어떻게·어떤 이론으로" 비평했는가를 표현하는 온톨로지 (v8-kcritic)</rdfs:comment>
+    <owl:versionInfo>8.0-kcritic</owl:versionInfo>
+  </owl:Ontology>
+
+  <!-- ============================================================
+       Object Properties
+       ============================================================ -->
+
+  <owl:ObjectProperty rdf:about="http://kcritic.kr/ontology/critic#analyzes">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Critic" />
+    <rdfs:range rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">~을 비평하다</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평가가 특정 인물을 비평 대상으로 삼는 관계. 이 온톨로지의 핵심 관계.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <!-- ──────────────────────────────────────────────────────────────
+       재사용 외부 ObjectProperty (재선언 없이 URI만으로 사용)
+       ──────────────────────────────────────────────────────────────
+       dcterms:creator
+         설명 : 비평문의 저자(작성자)를 가리키는 관계. 비평문 → 비평가.
+         출처 : Dublin Core Metadata Terms
+         URI  : http://purl.org/dc/terms/creator
+
+       cito:discusses
+         설명 : 비평문이 특정 인물(작가·비평 대상)을 논의 대상으로 다루는 관계. 비평문 → Person.
+         출처 : Citation Typing Ontology (CiTO)
+         URI  : http://purl.org/spar/cito/discusses
+
+       cito:citesAsAuthority
+         설명 : 비평문이 특정 이론가·사상가를 이론적 권위로 인용하는 관계. 비평문 → Thinker.
+         출처 : Citation Typing Ontology (CiTO)
+         URI  : http://purl.org/spar/cito/citesAsAuthority
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- ============================================================
+       Datatype Properties
+       ============================================================ -->
+
+  <owl:DatatypeProperty rdf:about="http://kcritic.kr/ontology/critic#name">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <rdfs:label xml:lang="ko">이름</rdfs:label>
+    <rdfs:comment xml:lang="ko">인물의 이름. 언어 태그(xml:lang)로 한국어·영어 병기 가능.</rdfs:comment>
+    <owl:equivalentProperty rdf:resource="http://xmlns.com/foaf/0.1/name" />
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://kcritic.kr/ontology/critic#nationality">
+    <rdfs:domain rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <rdfs:label xml:lang="ko">국적</rdfs:label>
+    <rdfs:comment xml:lang="ko">인물의 문학·사상사적 귀속 국가. 출생국이 아니라 해당 인물이 주로 귀속되는 사상 전통의 국가를 한국어로 기재 (예: T.S. 엘리엇→영국, 줄리아 크리스테바→프랑스). Wikidata에 없는 인물을 위해 온톨로지에 직접 입력.</rdfs:comment>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/title">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+    <rdfs:label xml:lang="ko">제목</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평문의 제목. Dublin Core에서 재사용.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/title" />
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/date">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear" />
+    <rdfs:label xml:lang="ko">발표 연도</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평문의 발표 연도. Dublin Core에서 재사용.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://purl.org/dc/terms/date" />
+  </owl:DatatypeProperty>
+
+  <!-- ============================================================
+       Classes
+       ============================================================ -->
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Agent">
+    <rdfs:label xml:lang="ko">행위주체</rdfs:label>
+    <rdfs:comment xml:lang="ko">행위 능력을 갖는 존재의 최상위 클래스.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Person">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Agent" />
+    <rdfs:label xml:lang="ko">사람</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평 행위와 관련되는 모든 인물의 상위 클래스. critic:Critic, critic:Thinker의 상위.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Document">
+    <rdfs:label xml:lang="ko">문서</rdfs:label>
+    <rdfs:comment xml:lang="ko">텍스트 문서의 상위 클래스. critic:CriticalEssay의 상위.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Document" />
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Critic">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">비평가</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평 행위의 주체. critic:analyzes 관계의 domain.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Thinker">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">이론가·사상가</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평문에서 이론적 권위로 인용되는 철학자·이론가·사상가. cito:citesAsAuthority 관계의 range.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#Writer">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Person" />
+    <rdfs:label xml:lang="ko">작가</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평의 대상이 되는 시인·소설가·문인. cito:discusses 관계의 range.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://kcritic.kr/ontology/critic#CriticalEssay">
+    <rdfs:subClassOf rdf:resource="http://kcritic.kr/ontology/critic#Document" />
+    <rdfs:label xml:lang="ko">비평문</rdfs:label>
+    <rdfs:comment xml:lang="ko">비평가가 집필한 개별 비평 에세이.</rdfs:comment>
+  </owl:Class>
+
+</rdf:RDF>
