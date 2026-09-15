@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>태도 판정 게임 — 한국 비평사 온톨로지</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  .g-wrap { max-width: 860px; margin: 0 auto; padding-bottom: 40px; }
+  .g-lead { color: var(--text-secondary); font-size: .93rem; line-height: 1.7; margin: 4px 0 18px; }
+
+  /* 순위 배너 */
+  .rank { background: var(--accent); color: #fff; border-radius: 14px; padding: 16px 20px; margin-bottom: 18px; }
+  .rank-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .rank-head h2 { margin: 0; font-size: 1rem; letter-spacing: .02em; }
+  .rank-stat { font-size: .8rem; opacity: .85; }
+  .rank-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+  .rank-list li { background: rgba(255,255,255,.12); border-radius: 9px; padding: 8px 11px;
+                  display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+  .rank-list .no { font-weight: 700; font-size: 1.05rem; min-width: 1.4em; }
+  .rank-list .nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .9rem; }
+  .rank-list .nm small { opacity: .6; font-size: .72rem; }
+  .rank-list .ct { font-size: .82rem; opacity: .9; white-space: nowrap; }
+  .rank-list li.me { background: #fff; color: var(--accent); }
+  .rank-me { margin-top: 10px; font-size: .86rem; }
+  .rank-me b { font-size: 1rem; }
+  .rank-off { margin-top: 8px; font-size: .84rem; opacity: .9; }
+
+  /* 참여 이름 */
+  .who { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; font-size: .88rem; color: var(--text-secondary); }
+  .who input { padding: 8px 11px; border: 1px solid var(--border-strong); border-radius: 8px; font: inherit; width: 180px; background: var(--surface); color: var(--text); }
+  .who button, .g-tools button { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border-strong);
+                background: var(--surface); color: var(--text); font: inherit; font-size: .86rem; cursor: pointer; }
+  .who button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+  .g-tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+  .g-tools select { padding: 8px 10px; border: 1px solid var(--border-strong); border-radius: 8px; font: inherit; font-size: .86rem; max-width: 100%; background: var(--surface); color: var(--text); }
+  .g-prog { flex: 1 1 200px; font-size: .82rem; color: var(--text-secondary); text-align: right; }
+
+  /* 카드 */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px;
+          box-shadow: 0 2px 10px rgba(40,30,20,.05); }
+  .card-meta { font-size: .8rem; color: var(--text-tertiary); }
+  .card-meta a { color: var(--accent); }
+  .card-q { font-size: .86rem; color: var(--text-secondary); margin: 14px 0 8px; }
+  .sent { font-family: var(--font-serif); font-size: 1.14rem; line-height: 1.9; color: var(--text);
+          border-left: 3px solid var(--accent-light); padding: 4px 0 4px 16px; margin: 0; word-break: keep-all; }
+  .sent mark { background: #f6e3b4; color: inherit; padding: 1px 2px; border-radius: 3px; }
+  .sent.whole mark { background: none; padding: 0; }
+  .card-src { font-size: .76rem; color: var(--text-tertiary); margin-top: 10px; }
+
+  .choices { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 22px 0 4px; }
+  .choices button { padding: 13px 6px; border-radius: 10px; border: 1.6px solid var(--border-strong); background: var(--surface);
+                    color: var(--text); font: inherit; font-weight: 600; font-size: .95rem; cursor: pointer; transition: .12s; }
+  .choices button small { display: block; font-weight: 400; font-size: .7rem; color: var(--text-tertiary); margin-top: 4px; line-height: 1.3; }
+  .choices button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(40,30,20,.10); }
+  .choices button:disabled { cursor: default; opacity: .55; }
+  .choices button.picked { opacity: 1; border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .v-affirmative { color: var(--affirmative) !important; }
+  .v-critical { color: var(--critical) !important; }
+  .v-neutral { color: var(--neutral) !important; }
+  .v-mixed { color: #a65f12 !important; }
+  .v-unsure { color: var(--text-secondary) !important; }
+
+  .reveal { margin-top: 18px; padding: 16px 18px; background: var(--surface-2); border-radius: 10px; font-size: .88rem; line-height: 1.7; }
+  .reveal p { margin: 0 0 8px; }
+  .dist { display: grid; grid-template-columns: 4.5em 1fr 3.5em; gap: 5px 10px; align-items: center; margin: 8px 0 6px; font-size: .82rem; }
+  .dist i { display: block; height: 9px; border-radius: 5px; background: var(--border-strong); min-width: 2px; }
+  .dist i.affirmative { background: var(--affirmative); } .dist i.critical { background: var(--critical); }
+  .dist i.neutral { background: var(--neutral); } .dist i.mixed { background: #c98a3a; } .dist i.unsure { background: var(--text-tertiary); }
+  .dist .n { text-align: right; color: var(--text-secondary); }
+  .next { margin-top: 10px; padding: 11px 22px; border-radius: 9px; border: 0; background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  .keys { font-size: .74rem; color: var(--text-tertiary); margin-top: 10px; }
+  .done { text-align: center; padding: 30px 10px; }
+
+  .notice { margin-top: 26px; font-size: .8rem; color: var(--text-tertiary); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 14px; }
+  .notice a { color: var(--accent); }
+  .sync { font-size: .76rem; color: var(--text-tertiary); }
+
+  @media (max-width: 640px) {
+    .card { padding: 18px 16px; }
+    .sent { font-size: 1.04rem; padding-left: 12px; }
+    .choices { grid-template-columns: repeat(3, 1fr); }
+    .choices button small { display: none; }
+    .who input { width: 100%; flex: 1 1 100%; }
+    .g-prog { text-align: left; }
+  }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="writers.html">작가</a>
+        <a href="thinkers.html">이론가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html">2000년대 비평</a>
+        <a href="ask.html">질문하기</a>
+        <a href="evaluate.html" class="active">태도 평가</a>
+        <a href="contribute.html">기여하기</a>
+        <a href="about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container g-wrap">
+    <h1 style="margin-bottom:4px">태도 판정 게임</h1>
+    <p class="g-lead">비평가가 이 문장에서 대상을 어떻게 대하는지 골라 주세요. 정답은 없습니다.
+      판정을 마치면 인코딩한 연구자의 표시와 다른 참여자들의 판정 분포가 공개됩니다.
+      서로 다른 판정은 오류가 아니라 해석의 폭을 보여 주는 데이터로 모두 보존됩니다.</p>
+
+    <section class="rank" aria-live="polite">
+      <div class="rank-head">
+        <h2>판정 순위</h2>
+        <span class="rank-stat" id="rank-stat">불러오는 중…</span>
+      </div>
+      <ol class="rank-list" id="rank-list"></ol>
+      <div class="rank-me" id="rank-me"></div>
+    </section>
+
+    <div class="who" id="who"></div>
+
+    <div class="g-tools">
+      <select id="f-essay" aria-label="비평문 선택"><option value="">비평문 전체</option></select>
+      <select id="f-mode" aria-label="보기 방식">
+        <option value="todo">아직 판정하지 않은 문장</option>
+        <option value="all">모든 문장</option>
+      </select>
+      <span class="g-prog" id="prog"></span>
+    </div>
+
+    <div id="card"></div>
+
+    <div class="notice">
+      <p>이 화면의 문장은 연구·비평 목적으로 인용한 것이며, 저작권은 각 필자와 수록 단행본의 권리자에게 있습니다.
+        각 문장 아래에 수록 단행본을 밝혀 두었습니다. 태도 표시가 붙은 문장만 싣고 비평문 전문은 싣지 않습니다.</p>
+      <p>판정은 닉네임과 브라우저마다 만들어지는 임의의 식별번호와 함께 운영자에게 전송됩니다. 이메일 등 개인정보는 받지 않습니다.
+        순위는 판정한 서로 다른 문장 수로 매기며, 같은 문장을 다시 판정하면 마지막 판정만 셉니다.</p>
+      <p>비평문 한 편이 작가 한 명을 어떻게 평가하는지 판단하려면 <a href="evaluate-essay.html">비평문×작가 태도 평가</a>를 이용하세요.
+        <button id="dl" style="margin-left:6px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);border-radius:6px;padding:3px 9px;font:inherit;font-size:.78rem;cursor:pointer">내 판정 내려받기 (JSON)</button>
+        <span class="sync" id="sync"></span></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>한국 비평사 온톨로지 · TEI XML 기반 디지털 아카이브</p></div>
+  </footer>
+
+<script>
+(() => {
+const K = 'kcritic-interp-game-v1';
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const store = {
+  get: (k, d) => { try { const v = localStorage.getItem(K + k); return v == null ? d : JSON.parse(v); } catch (_) { return d; } },
+  set: (k, v) => { try { localStorage.setItem(K + k, JSON.stringify(v)); } catch (_) {} }
+};
+
+let uid = store.get(':uid', '');
+if (!/^[a-z0-9-]{16,40}$/i.test(uid)) {
+  uid = (crypto.randomUUID ? crypto.randomUUID()
+        : Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, '0')).join(''));
+  store.set(':uid', uid);
+}
+let nick = store.get(':nick', '');
+let mine = store.get(':mine', {});          // item id → {value, judged_at}
+let pending = store.get(':pending', []);    // 아직 서버에 보내지 못한 판정
+
+let DATA = null, VALUES = [], ENDPOINT = '', BOARD = null;
+let queue = [], pos = 0, answered = null;
+
+Promise.all([
+  fetch('site/data/interp_game.json').then(r => r.json()),
+  fetch('site/data/game_config.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+]).then(([d, cfg]) => {
+  DATA = d; VALUES = d.values;
+  const ep = cfg.endpoint || '';
+  const local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && /^http:\/\/127\.0\.0\.1:\d+\/exec$/.test(ep);  // 로컬 시험용
+  ENDPOINT = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(ep) || local ? ep : '';
+  init();
+}).catch(() => { $('card').innerHTML = '<div class="card done">판정 문장을 불러오지 못했습니다.</div>'; });
+
+function init() {
+  const essays = new Map();
+  DATA.items.forEach(i => { if (!essays.has(i.essay)) essays.set(i.essay, i); });
+  [...essays.values()].sort((a, b) => (a.year + a.essay_title).localeCompare(b.year + b.essay_title))
+    .forEach(i => $('f-essay').insertAdjacentHTML('beforeend',
+      `<option value="${esc(i.essay)}">${esc(i.year)} 「${esc(i.essay_title)}」</option>`));
+  $('f-essay').onchange = $('f-mode').onchange = () => { build(); render(); };
+  $('dl').onclick = download;
+  renderWho();
+  build(); render();
+  loadBoard();
+  setInterval(loadBoard, 60000);
+  setInterval(flush, 15000);
+  flush();
+}
+
+/* 참여자마다 순서를 달리 섞는다 (같은 앞부분만 판정되는 것을 막기 위해) */
+function seeded(seed) {
+  let h = 2166136261;
+  for (const c of seed) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return () => { h += 0x6D2B79F5; let t = h; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function build() {
+  const e = $('f-essay').value, m = $('f-mode').value;
+  queue = DATA.items.filter(i => (!e || i.essay === e) && (m === 'all' || !mine[i.id]));
+  const rnd = seeded(uid);
+  const order = new Map(DATA.items.map(i => [i.id, rnd()]));
+  queue.sort((a, b) => order.get(a.id) - order.get(b.id));
+  pos = 0; answered = null;
+}
+
+function renderWho() {
+  if (nick) {
+    $('who').innerHTML = `참여 이름 <b>${esc(nick)}</b> <button id="nick-edit">바꾸기</button>`;
+    $('nick-edit').onclick = () => { $('who').innerHTML = nickForm(); bindNick(); };
+  } else {
+    $('who').innerHTML = nickForm();
+    bindNick();
+  }
+}
+const nickForm = () => `<label for="nick">순위에 표시할 닉네임</label>
+  <input id="nick" maxlength="20" placeholder="예: 비평읽는사람" value="${esc(nick)}" autocomplete="nickname">
+  <button class="primary" id="nick-ok">시작</button>`;
+function bindNick() {
+  const ok = () => {
+    const v = $('nick').value.split('').filter(c => c.charCodeAt(0) >= 32 && c !== '<' && c !== '>').join('').trim().replace(/^[=+\-@\s]+/, '').slice(0, 20);
+    if (!v) { $('nick').focus(); return; }
+    nick = v; store.set(':nick', nick);
+    pending.forEach(p => p.nickname = nick); store.set(':pending', pending);
+    renderWho(); render(); flush();
+  };
+  $('nick-ok').onclick = ok;
+  $('nick').onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); ok(); } };
+}
+
+function label(k) { return (VALUES.find(v => v.key === k) || { label: k }).label; }
+
+function sentenceHTML(it) {
+  const s = it.sentence, a = it.span_start;
+  if (it.whole_sentence || a < 0) return `<mark>${esc(s)}</mark>`;
+  return esc(s.slice(0, a)) + `<mark>${esc(s.slice(a, a + it.span.length))}</mark>` + esc(s.slice(a + it.span.length));
+}
+
+function render() {
+  const done = Object.keys(mine).length;
+  $('prog').textContent = `내 판정 ${done} / ${DATA.items.length}문장 · 남은 목록 ${Math.max(queue.length - pos, 0)}`;
+
+  if (!nick) {
+    $('card').innerHTML = '<div class="card done"><p>위에 닉네임을 입력하면 판정을 시작합니다.</p></div>';
+    return;
+  }
+  if (pos >= queue.length) {
+    $('card').innerHTML = `<div class="card done"><h3>이 목록의 문장을 모두 판정했습니다</h3>
+      <p>비평문을 바꾸거나 “모든 문장”을 골라 이전 판정을 다시 볼 수 있습니다.</p></div>`;
+    return;
+  }
+  const it = queue[pos], prev = mine[it.id];
+  const shown = answered !== null;
+  $('card').innerHTML = `
+    <article class="card">
+      <div class="card-meta">${esc(it.critic)} · ${esc(it.year)} · 「<a href="site/essays/${encodeURIComponent(it.essay)}.html" target="_blank" rel="noopener">${esc(it.essay_title)}</a>」</div>
+      <p class="card-q">${it.whole_sentence ? '이 문장에서' : '표시한 부분에서'} 비평가의 태도는?</p>
+      <blockquote class="sent${it.whole_sentence ? ' whole' : ''}">${sentenceHTML(it)}</blockquote>
+      <div class="card-src">출처: ${esc(it.critic)}, 「${esc(it.essay_title)}」, ${esc(it.source)}</div>
+      ${prev && !shown ? `<p class="keys">이전에 «${esc(label(prev.value))}»로 판정한 문장입니다. 다시 고르면 새 판정으로 바뀝니다.</p>` : ''}
+      <div class="choices">
+        ${VALUES.map((v, i) => `<button data-v="${v.key}" class="${shown && answered === v.key ? 'picked v-' + v.key : ''}" ${shown ? 'disabled' : ''}>
+          <span class="v-${v.key}">${esc(v.label)}</span><small>${esc(v.desc)}</small></button>`).join('')}
+      </div>
+      ${shown ? revealHTML(it) : `<p class="keys">키보드: 1 긍정 · 2 중립 · 3 비판 · 4 양가 · 5 판단보류 · → 건너뛰기
+        <button id="skip" style="float:right;border:0;background:none;color:var(--accent);font:inherit;cursor:pointer">건너뛰기 →</button></p>`}
+    </article>`;
+  $('card').querySelectorAll('.choices button').forEach(b => b.onclick = () => pick(b.dataset.v));
+  if ($('skip')) $('skip').onclick = next;
+  if ($('next')) { $('next').onclick = next; $('next').focus({ preventScroll: true }); }
+}
+
+function revealHTML(it) {
+  const d = Object.assign({}, (BOARD && BOARD.dist && BOARD.dist[it.id]) || {});
+  // 서버에 아직 반영되지 않은 내 판정도 분포에 더해 보여 준다
+  if (!BOARD || !BOARD.counted || !BOARD.counted[it.id]) d[answered] = (d[answered] || 0) + 1;
+  const total = Object.values(d).reduce((a, b) => a + b, 0) || 1;
+  const enc = it.encoder_value;
+  const same = enc === answered;
+  return `<div class="reveal">
+    <p>인코딩한 연구자는 <b class="v-${enc}">${esc(label(enc))}</b>으로 표시했습니다.
+      ${same ? '같은 판단입니다.' : '판단이 다릅니다. 어느 쪽도 틀린 것이 아닙니다. 이 차이가 해석의 폭입니다.'}</p>
+    <p>참여자 판정 분포${ENDPOINT ? '' : ' (수집 서버가 아직 연결되지 않아 내 판정만 표시)'}</p>
+    <div class="dist">${VALUES.map(v => `<span class="v-${v.key}">${esc(v.label)}</span>
+      <i class="${v.key}" style="width:${((d[v.key] || 0) / total * 100).toFixed(1)}%"></i>
+      <span class="n">${d[v.key] || 0}명</span>`).join('')}</div>
+    <button class="next" id="next">다음 문장 →</button>
+    <span class="keys" style="margin-left:8px">Enter</span>
+  </div>`;
+}
+
+function pick(value) {
+  if (!nick || answered !== null || pos >= queue.length) return;
+  const it = queue[pos];
+  const at = new Date().toISOString();
+  mine[it.id] = { value, judged_at: at, encoder_value: it.encoder_value, essay: it.essay };
+  store.set(':mine', mine);
+  pending.push({ item: it.id, value, judged_at: at });
+  store.set(':pending', pending);
+  answered = value;
+  render();
+  clearTimeout(pick.t);
+  pick.t = setTimeout(flush, 2500);
+}
+
+function next() {
+  if ($('f-mode').value === 'todo' && answered !== null) queue.splice(pos, 1);
+  else pos++;
+  answered = null;
+  render();
+  window.scrollTo({ top: $('card').offsetTop - 80, behavior: 'smooth' });
+}
+
+document.addEventListener('keydown', e => {
+  if (!DATA || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (answered === null && e.key >= '1' && e.key <= String(VALUES.length)) { pick(VALUES[+e.key - 1].key); e.preventDefault(); }
+  else if (answered !== null && (e.key === 'Enter' || e.key === 'ArrowRight' || e.key === ' ')) { next(); e.preventDefault(); }
+  else if (answered === null && e.key === 'ArrowRight') next();
+});
+
+/* ── 전송 ── */
+let sending = false;
+function body(batch) { return JSON.stringify({ uid, nickname: nick, judgements: batch }); }
+function syncNote(t) { $('sync').textContent = t; }
+
+async function flush() {
+  if (!ENDPOINT) { syncNote(pending.length ? '수집 서버 연결 전: 판정은 이 브라우저에 보관됩니다.' : ''); return; }
+  if (sending || !nick || !pending.length) return;
+  sending = true;
+  const batch = pending.slice(0, 50);
+  try {
+    const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body(batch) });
+    const j = await r.json();
+    if (j.ok) {
+      pending = pending.slice(batch.length);
+      store.set(':pending', pending);
+      syncNote('전송됨');
+      if (pending.length) setTimeout(flush, 500); else loadBoard(true);
+    } else {
+      syncNote(j.error === 'rate-limit' || j.error === 'busy' ? '잠시 뒤 다시 전송합니다.' : '전송 실패: ' + j.error);
+      if (j.error === 'uid-or-nickname') { nick = ''; store.set(':nick', ''); renderWho(); }
+    }
+  } catch (_) {
+    syncNote(`전송 대기 ${pending.length}건 (네트워크 확인 후 자동 재시도)`);
+  } finally { sending = false; }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState !== 'hidden' || !ENDPOINT || !nick || !pending.length || sending) return;
+  const batch = pending.slice(0, 50);
+  if (navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, new Blob([body(batch)], { type: 'text/plain;charset=utf-8' }))) {
+    pending = pending.slice(batch.length);
+    store.set(':pending', pending);
+  }
+});
+
+/* ── 순위 ── */
+async function loadBoard(force) {
+  if (!ENDPOINT) { renderBoard(null); return; }
+  try {
+    const r = await fetch(`${ENDPOINT}?uid=${encodeURIComponent(uid)}${force ? '&t=' + Date.now() : ''}`);
+    BOARD = await r.json();
+    renderBoard(BOARD);
+  } catch (_) {
+    if (!BOARD) $('rank-stat').textContent = '순위를 불러오지 못했습니다';
+  }
+}
+
+function renderBoard(b) {
+  const mineCount = Object.keys(mine).length;
+  if (!b) {
+    $('rank-stat').textContent = '수집 서버 준비 중';
+    $('rank-list').innerHTML = '';
+    $('rank-me').innerHTML = `<div class="rank-off">순위 집계가 곧 열립니다. 지금 한 판정 <b>${mineCount}</b>문장은 이 브라우저에 보관되었다가 서버가 연결되면 자동으로 전송됩니다.</div>`;
+    return;
+  }
+  $('rank-stat').textContent = `참여자 ${(b.participants || 0).toLocaleString()}명 · 판정 ${(b.judgements || 0).toLocaleString()}건`;
+  const meTag = b.me && b.me.tag;
+  const leaders = (b.leaders || []).slice(0, 5);
+  $('rank-list').innerHTML = leaders.length
+    ? leaders.map((r, i) => `<li class="${meTag && r.tag === meTag && r.name === b.me.name ? 'me' : ''}">
+        <span class="no">${i + 1}</span><span class="nm">${esc(r.name)} <small>#${esc(r.tag)}</small></span>
+        <span class="ct">${r.count}문장</span></li>`).join('')
+    : '<li><span class="nm">아직 판정이 없습니다. 첫 번째 참여자가 되어 주세요.</span></li>';
+  $('rank-me').innerHTML = b.me
+    ? `내 순위 <b>${b.me.rank}위</b> · ${b.me.count}문장 판정${pending.length ? ` (전송 대기 ${pending.length}건)` : ''}`
+    : (mineCount ? `내 판정 ${mineCount}문장 · 전송되면 순위에 반영됩니다` : '문장을 판정하면 순위에 오릅니다');
+  // 분포에 내 판정이 이미 포함됐는지 표시 (중복 가산 방지)
+  b.counted = {};
+  if (b.me) Object.keys(mine).forEach(id => { if (!pending.some(p => p.item === id)) b.counted[id] = true; });
+}
+
+function download() {
+  const list = Object.entries(mine).map(([item, j]) => Object.assign({ item }, j));
+  if (!list.length) return alert('아직 판정한 문장이 없습니다.');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify({
+    exported: new Date().toISOString(), unit: 'sentence', nickname: nick, uid,
+    source: 'kcritic evaluate.html (태도 판정 게임)', judgements: list }, null, 1)], { type: 'application/json' }));
+  a.download = `kcritic-태도판정_${new Date().toISOString().slice(0, 10)}.json`;
+  a.click(); URL.revokeObjectURL(a.href);
+}
+})();
+</script>
+</body>
+</html>

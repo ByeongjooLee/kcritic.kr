@@ -61,6 +61,27 @@ LOD_SOURCES = [
     {"field": "viaf",           "url": lambda v: v, "full": "VIAF",                    "chip": None,   "card": None,       "bg": None,      "fg": None,      "work": False, "title": "VIAF"},
 ]
 
+# RDF 발행용 전거 매핑 — 화면 배지(LOD_SOURCES)와 목적이 다르므로 분리한다.
+#
+#   owl:sameAs   그 인물 자체를 가리키는 전거 (Wikidata 엔티티·NLK 저자전거·VIAF·ISNI)
+#   rdfs:seeAlso 인물을 "설명하는 문서" (한국민족문화대백과 항목)
+#                백과 항목은 인물이 아니라 글이므로 owl:sameAs 로 묶으면 의미가 틀린다.
+#
+# Wikidata 는 반드시 엔티티 IRI(.../entity/Q...) 로 낸다. 사람이 읽는 문서 주소
+# (.../wiki/Q...)로는 Wikidata SPARQL 엔드포인트와 조인되지 않아 페더레이션 질의가
+# 한 건도 매칭되지 않는다. sparql.html 의 예제들이 이미 entity 형식을 필터하고 있다.
+RDF_SAMEAS_SOURCES = [
+    ("wikidata", lambda v: f"http://www.wikidata.org/entity/{v}"),
+    ("nlk",      lambda v: v),
+    ("viaf",     lambda v: v),
+    ("isni",     lambda v: f"https://isni.org/isni/{v}"),
+]
+RDF_SEEALSO_SOURCES = [
+    ("encykorea",      lambda v: v),
+    ("encykorea_work", lambda v: v),
+    ("naver_munhak",   lambda v: v),
+]
+
 
 def _lod_record(xml_id, fallback_ref=""):
     """persons.json 권위 레코드 + (wikidata 누락 시) fallback_ref에서 Q번호 보완."""
@@ -575,6 +596,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
         <a href="../../research.html">선행연구</a>
         <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1006,6 +1028,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
         <a href="../../research.html">선행연구</a>
         <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1148,6 +1171,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
         <a href="../../research.html">선행연구</a>
         <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1291,6 +1315,7 @@ def build_thinker_profile(thinker_id, thinker_info):
         <a href="../../research.html">선행연구</a>
         <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1766,16 +1791,30 @@ def build_turtle(all_essays, graph):
         triples.append(f'  foaf:name {_ttl_str(name)}@ko ;')
         triples.append(f'  rdfs:label {_ttl_str(name)}@ko ;')
 
-        # Wikidata sameAs: TEI ref 우선, 없으면 fallback 딕셔너리에서 보완
-        wikidata_uri = ""
-        for uri in ref.split():
-            if "wikidata" in uri:
-                wikidata_uri = uri
-                break
-        if not wikidata_uri and name in _WIKIDATA_FALLBACK:
-            wikidata_uri = _WIKIDATA_FALLBACK[name]
-        if wikidata_uri:
-            triples.append(f'  owl:sameAs {_ttl_uri(wikidata_uri)} ;')
+        # 외부 전거 발행 — persons.json 권위 레코드를 우선한다.
+        rec = _persons_record(pid, ref) or {}
+
+        # (1) owl:sameAs — 인물 자체를 가리키는 전거
+        same = []
+        for field, mk in RDF_SAMEAS_SOURCES:
+            v = rec.get(field)
+            if v:
+                same.append(mk(v))
+        if not rec.get("wikidata"):
+            # persons.json 에 Wikidata 가 없으면 TEI ref / fallback 에서 보완한다.
+            # 다른 전거(NLK 등)를 이미 찾았더라도 건너뛰지 않는다.
+            wd = next((u for u in ref.split() if "wikidata" in u), "")                  or _WIKIDATA_FALLBACK.get(name, "")
+            qid = re.search(r"(Q\d+)", wd)
+            if qid:
+                same.insert(0, f"http://www.wikidata.org/entity/{qid.group(1)}")
+        for uri in same:
+            triples.append(f'  owl:sameAs {_ttl_uri(uri)} ;')
+
+        # (2) rdfs:seeAlso — 인물을 설명하는 문서(백과 항목 등)
+        for field, mk in RDF_SEEALSO_SOURCES:
+            v = rec.get(field)
+            if v:
+                triples.append(f'  rdfs:seeAlso {_ttl_uri(mk(v))} ;')
 
         triples.append(f'  schema:url {_ttl_uri(BASE_URI + pid)} .')
         lines.extend(triples)
@@ -1827,8 +1866,8 @@ def build_turtle(all_essays, graph):
         lines.extend(triples)
         lines.append("")
 
-    # 비평가 → 에세이 wrote + critic:analyzes (온톨로지 핵심 관계)
-    lines.append("# ── 비평가 관계 (wrote / critic:analyzes) ───────────────")
+    # 비평가 → 에세이 foaf:made + critic:analyzes (온톨로지 핵심 관계)
+    lines.append("# ── 비평가 관계 (foaf:made / critic:analyzes) ───────────")
     wrote_by_critic = defaultdict(list)
     for essay in all_essays:
         if essay["author_id"]:
@@ -1836,7 +1875,11 @@ def build_turtle(all_essays, graph):
 
     for cid, stems in sorted(wrote_by_critic.items()):
         for stem in stems:
-            lines.append(f"kc:{cid} dcterms:creator kce:{stem} .")
+            # 역방향은 foaf:made 를 쓴다.
+            # dcterms:creator 는 "이 자원을 만든 주체"라는 뜻이므로
+            # kc:비평가 dcterms:creator kce:비평문 은 "비평가가 비평문에 의해
+            # 만들어졌다"가 되어 의미가 뒤집힌다(정방향은 아래 essay 블록에 있음).
+            lines.append(f"kc:{cid} foaf:made kce:{stem} .")
         # critic:analyzes (비평가 → 비평 대상 직접 관계, 온톨로지 핵심 관계)
         for target_pid in sorted(analyzes_map.get(cid, set())):
             lines.append(f"kc:{cid} critic:analyzes kc:{target_pid} .")

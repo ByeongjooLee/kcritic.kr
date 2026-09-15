@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비평문×작가 태도 평가 — 한국 비평사 온톨로지</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ev-wrap { max-width: 860px; margin: 0 auto; }
+  .ev-intro { background:#f7f8fb; border:1px solid #e3e6ee; border-radius:10px;
+              padding:20px 24px; margin-bottom:22px; line-height:1.7; }
+  .ev-intro h2 { margin:0 0 10px; font-size:1.05rem; color:#1a237e; }
+  .ev-intro p { margin:6px 0; font-size:.92rem; color:#374151; }
+
+  .ev-bar { display:flex; gap:12px; align-items:center; margin:18px 0 10px; flex-wrap:wrap; }
+  .ev-progress { flex:1 1 260px; height:9px; background:#e8eaf0; border-radius:6px; overflow:hidden; }
+  .ev-progress i { display:block; height:100%; background:#3949ab; width:0; transition:width .25s; }
+  .ev-count { font-size:.85rem; color:#5b6270; white-space:nowrap; }
+
+  .ev-filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .ev-filters select, .ev-filters input {
+    padding:7px 10px; border:1px solid #d4d8e3; border-radius:7px; font-size:.86rem; font-family:inherit; }
+
+  .ev-card { border:1px solid #dfe3ec; border-radius:14px; padding:26px 28px;
+             box-shadow:0 2px 10px rgba(20,30,80,.05); background:#fff; }
+  .ev-meta { font-size:.8rem; color:#6b7280; letter-spacing:.02em; }
+  .ev-q { font-size:1.24rem; line-height:1.55; margin:14px 0 6px; color:#111827; }
+  .ev-q b { color:#1a237e; }
+  .ev-q .w { color:#5e35b1; }
+  .ev-essay { font-size:.9rem; color:#374151; margin:10px 0 2px; }
+  .ev-essay a { color:#3949ab; }
+  .ev-hint { font-size:.8rem; color:#8a8f9c; margin-top:6px; }
+  .ev-tei { display:inline-block; margin-top:8px; font-size:.76rem; padding:3px 9px;
+            border-radius:20px; background:#fff3e0; color:#8a5200; border:1px solid #f0c98a; }
+
+  .ev-choices { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+                gap:10px; margin:22px 0 8px; }
+  .ev-choices button { padding:15px 10px; border-radius:11px; border:1.6px solid #d4d8e3;
+        background:#fff; cursor:pointer; font-family:inherit; font-size:.99rem; font-weight:600;
+        color:#374151; transition:.12s; }
+  .ev-choices button:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(20,30,80,.10); }
+  .ev-choices button small { display:block; font-weight:400; font-size:.72rem;
+        color:#8a8f9c; margin-top:5px; line-height:1.35; }
+  .b-aff:hover  { border-color:#2e7d32; color:#2e7d32; }
+  .b-neu:hover  { border-color:#5b6270; color:#5b6270; }
+  .b-cri:hover  { border-color:#c62828; color:#c62828; }
+  .b-mix:hover  { border-color:#ef6c00; color:#ef6c00; }
+  .ev-skip { display:flex; gap:10px; margin-top:12px; }
+  .ev-skip button { flex:1; padding:10px; border-radius:9px; border:1px dashed #ccd1dd;
+        background:#fafbfd; cursor:pointer; font-family:inherit; font-size:.84rem; color:#6b7280; }
+
+  .ev-actions { display:flex; gap:10px; margin-top:26px; flex-wrap:wrap; }
+  .ev-actions button { padding:11px 18px; border-radius:9px; border:1px solid #c9cee0;
+        background:#fff; cursor:pointer; font-family:inherit; font-size:.88rem; }
+  .ev-actions .primary { background:#1a237e; color:#fff; border-color:#1a237e; font-weight:600; }
+  .ev-actions .danger  { color:#b23; border-color:#e6c2c8; }
+
+  .ev-tally { margin-top:20px; font-size:.85rem; color:#4b5563; }
+  .ev-tally span { display:inline-block; margin-right:14px; }
+  .ev-done { text-align:center; padding:46px 20px; color:#374151; }
+  .ev-done h3 { color:#1a237e; }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="index.html">비평글</a>
+        <a href="critics.html">비평가</a>
+        <a href="writers.html">작가</a>
+        <a href="thinkers.html">이론가</a>
+        <a href="site/graph.html">관계망</a>
+        <a href="concepts.html">개념어</a>
+        <a href="research.html">선행연구</a>
+        <a href="criticism.html">2000년대 비평</a>
+        <a href="ask.html">질문하기</a>
+        <a href="evaluate.html" class="active">태도 평가</a>
+        <a href="contribute.html">기여하기</a>
+        <a href="about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container ev-wrap">
+    <h1 style="margin-bottom:6px">비평문×작가 태도 평가</h1>
+    <p class="ev-hint" style="margin:0 0 16px">문장 단위로 판정하는 게임은 <a href="evaluate.html">태도 판정 게임</a>으로 옮겨졌습니다. 이 화면은 비평문 한 편이 작가 한 명을 어떻게 평가하는지 판단하는 연구자용 도구입니다.</p>
+
+    <div class="ev-intro">
+      <h2>이 작업이 왜 연구자의 몫인가</h2>
+      <p>온톨로지의 다른 데이터는 외부 전거로 대조할 수 있습니다. 어떤 이론가의 Wikidata 식별자가 맞는지는 정답이 있습니다.
+         그러나 <b>비평가가 대상을 어떻게 평가했는가</b>는 어디에도 정답이 없습니다. 그 판단은 이미 해석이며, 연구의 결론에 속합니다.</p>
+      <p>그래서 이 평가는 덮어쓰지 않습니다. 같은 항목에 서로 다른 판단이 쌓이면 <b>모두 보존</b>합니다.
+         두 연구자가 같은 비평문을 달리 읽었다면 그것은 오류가 아니라 해석의 폭을 보여주는 데이터입니다.</p>
+      <p class="ev-hint">판단은 비평문을 읽은 상태에서 해주세요. 저작권 때문에 원문은 이 화면에 싣지 않습니다.
+         비평문 제목을 누르면 서지·구조 정보를 볼 수 있습니다. 판단은 브라우저에만 저장되며, 마친 뒤 파일로 내려받아 보내주시면 됩니다.</p>
+    </div>
+
+    <div class="ev-filters">
+      <select id="f-critic"><option value="">비평가 전체</option></select>
+      <select id="f-mode">
+        <option value="todo">아직 판단하지 않은 항목</option>
+        <option value="all">전체 항목</option>
+        <option value="tei">TEI 태도 표시가 있는 비평문</option>
+      </select>
+      <input id="f-writer" placeholder="작가 이름으로 좁히기" style="flex:1;min-width:160px">
+    </div>
+
+    <div class="ev-bar">
+      <div class="ev-progress"><i id="bar"></i></div>
+      <div class="ev-count" id="count">불러오는 중…</div>
+    </div>
+
+    <div id="card"></div>
+
+    <div class="ev-actions">
+      <button class="primary" id="dl">판단 결과 내려받기 (JSON)</button>
+      <button id="dlcsv">CSV로 내려받기</button>
+      <button id="imp">이전 결과 불러오기</button>
+      <input type="file" id="impf" accept=".json" hidden>
+      <button class="danger" id="reset">내 판단 모두 지우기</button>
+    </div>
+
+    <div class="ev-tally" id="tally"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>한국 비평사 온톨로지 · TEI XML 기반 디지털 아카이브</p></div>
+  </footer>
+
+<script>
+const KEY = 'kcritic-evaluations-v1';
+let DATA = null, QUEUE = [], idx = 0;
+let mine = JSON.parse(localStorage.getItem(KEY) || '{}');
+const judge = localStorage.getItem(KEY + '-who') || '';
+
+const $ = id => document.getElementById(id);
+const save = () => localStorage.setItem(KEY, JSON.stringify(mine));
+
+fetch('site/data/evaluations.json')
+  .then(r => r.json())
+  .then(d => { DATA = d; init(); })
+  .catch(() => $('count').textContent = '평가 목록을 불러오지 못했습니다.');
+
+function init() {
+  const crits = [...new Set(DATA.items.map(i => i.critic))].sort();
+  crits.forEach(c => $('f-critic').insertAdjacentHTML('beforeend', `<option>${c}</option>`));
+  ['f-critic','f-mode','f-writer'].forEach(id =>
+    $(id).addEventListener('input', () => { build(); render(); }));
+  $('dl').onclick = downloadJSON;
+  $('dlcsv').onclick = downloadCSV;
+  $('imp').onclick = () => $('impf').click();
+  $('impf').onchange = importFile;
+  $('reset').onclick = () => {
+    if (confirm('이 브라우저에 저장된 판단을 모두 지웁니다. 계속할까요?')) {
+      mine = {}; save(); build(); render();
+    }
+  };
+  build(); render();
+}
+
+function build() {
+  const c = $('f-critic').value, m = $('f-mode').value,
+        w = $('f-writer').value.trim();
+  QUEUE = DATA.items.filter(i =>
+    (!c || i.critic === c) &&
+    (!w || i.writer.includes(w)) &&
+    (m === 'all' || (m === 'tei' ? i.tei_marks > 0 : !mine[i.id])));
+  idx = 0;
+}
+
+function render() {
+  const total = DATA.items.length, done = Object.keys(mine).length;
+  $('bar').style.width = (done / total * 100) + '%';
+  $('count').textContent = `내 판단 ${done.toLocaleString()} / 전체 ${total.toLocaleString()}  ·  현재 목록 ${QUEUE.length.toLocaleString()}건`;
+
+  const t = {};
+  Object.values(mine).forEach(j => t[j.value] = (t[j.value] || 0) + 1);
+  $('tally').innerHTML = DATA.values.map(v =>
+      `<span>${v.label} <b>${t[v.key] || 0}</b></span>`).join('') +
+      `<span>판단보류 <b>${t['unsure'] || 0}</b></span>`;
+
+  if (!QUEUE.length || idx >= QUEUE.length) {
+    $('card').innerHTML = `<div class="ev-card ev-done">
+      <h3>이 목록은 끝났습니다</h3>
+      <p>필터를 바꾸거나, 아래 <b>판단 결과 내려받기</b>로 파일을 받아 운영자에게 보내주세요.</p></div>`;
+    return;
+  }
+  const it = QUEUE[idx];
+  const prev = mine[it.id];
+  $('card').innerHTML = `
+    <div class="ev-card">
+      <div class="ev-meta">${it.critic} · ${it.year || '연도 미상'} · ${idx + 1} / ${QUEUE.length}</div>
+      <div class="ev-q">비평가 <b>${it.critic}</b>은(는) 이 글에서 <span class="w">${it.writer}</span>을(를) 어떻게 평가하는가?</div>
+      <div class="ev-essay">「<a href="${it.essay_url}" target="_blank">${it.essay_title}</a>」</div>
+      ${it.tei_marks ? `<div class="ev-tei">이 비평문에는 TEI 태도 표시가 ${it.tei_marks}곳 있습니다</div>` : ''}
+      ${prev ? `<div class="ev-hint">이미 «${labelOf(prev.value)}»로 판단한 항목입니다. 다시 누르면 갱신됩니다.</div>` : ''}
+      <div class="ev-choices">
+        ${DATA.values.map((v, i) => `<button class="${['b-aff','b-neu','b-cri','b-mix'][i] || ''}"
+            onclick="pick('${v.key}')">${v.label}<small>${v.desc}</small><small style="color:#b9bec9">${i + 1}</small></button>`).join('')}
+      </div>
+      <div class="ev-skip">
+        <button onclick="pick('unsure')">판단보류 — 특정할 수 없음 (0)</button>
+        <button onclick="skip()">건너뛰기 →</button>
+      </div>
+    </div>`;
+}
+
+const labelOf = k => (DATA.values.find(v => v.key === k) || {label: '판단보류'}).label;
+
+function pick(value) {
+  const it = QUEUE[idx];
+  mine[it.id] = {
+    item: it.id, essay: it.essay, writer_id: it.writer_id,
+    critic: it.critic, writer: it.writer,
+    value, judged_at: new Date().toISOString(), judge
+  };
+  save(); idx++; render();
+}
+function skip() { idx++; render(); }
+
+document.addEventListener('keydown', e => {
+  if (!QUEUE.length || idx >= QUEUE.length) return;
+  const n = DATA.values.length;
+  if (e.key >= '1' && e.key <= String(n)) pick(DATA.values[+e.key - 1].key);
+  else if (e.key === '0') pick('unsure');
+  else if (e.key === 'ArrowRight') skip();
+});
+
+function payload() {
+  return {
+    exported: new Date().toISOString(),
+    unit: DATA.unit,
+    source: 'kcritic evaluate.html',
+    note: '같은 항목에 대한 복수 판단은 덮어쓰지 않고 모두 보존한다.',
+    judgements: Object.values(mine)
+  };
+}
+function dl(name, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+function downloadJSON() {
+  if (!Object.keys(mine).length) return alert('아직 판단한 항목이 없습니다.');
+  dl(`kcritic-평가_${new Date().toISOString().slice(0,10)}.json`,
+     JSON.stringify(payload(), null, 1), 'application/json');
+}
+function downloadCSV() {
+  if (!Object.keys(mine).length) return alert('아직 판단한 항목이 없습니다.');
+  const head = '항목ID,비평가,대상작가,판단,판단일시\n';
+  const rows = Object.values(mine).map(j =>
+    [j.item, j.critic, j.writer, labelOf(j.value), j.judged_at]
+      .map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  dl(`kcritic-평가_${new Date().toISOString().slice(0,10)}.csv`,
+     '﻿' + head + rows, 'text/csv');
+}
+function importFile(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try {
+      const d = JSON.parse(r.result);
+      (d.judgements || []).forEach(j => { if (j.item) mine[j.item] = j; });
+      save(); build(); render();
+      alert(`${(d.judgements || []).length}건을 불러왔습니다.`);
+    } catch { alert('JSON 형식을 읽지 못했습니다.'); }
+  };
+  r.readAsText(f);
+}
+</script>
+</body>
+</html>

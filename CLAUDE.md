@@ -30,6 +30,22 @@ AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로
 - 저작권 보호 원문. OneDrive/로컬에만 존재
 - `site/essays/*.html` 은 메타데이터만 담으며 GitHub에 올라감 (원문 텍스트 없음)
 - `build.py` 는 원문 본문을 HTML에 포함시키지 않음. 위반 시 즉시 수정
+- **유일한 예외 (2026-09-15 연구자 결정)**: `build_interp_game.py` 가 TEI 태도 표시(`@ana` 의 affirmative/neutral/critical)가 붙은 **문장만** `site/data/interp_game.json` 으로 공개한다(현재 224문장, 김우창 17편). 각 문장에 비평문 제목·수록 단행본을 출처로 싣는다. 대상 확대(다른 비평가, 표시 없는 문장, 앞뒤 문맥 등)는 연구자의 명시적 결정 없이 하지 말 것
+- 판정 수집기 `../판정수집_AppsScript.gs` 는 운영자 메일 주소를 담고 있어 **저장소 밖(부모 폴더)** 에 둔다. 저장소·사이트 코드에는 웹 앱 URL(`site/data/game_config.json`)만 들어간다
+- `.env.example` 도 배포 제외 (`.assetsignore`) — 실값은 없어도 어떤 키를 쓰는지 스캐너에 알려주는 힌트가 됨
+
+### API 서버(`neo4j_api.py`) 보안 규칙 — 2026-09-07 강화
+
+정적 사이트가 아니라 **`https://kcritic-api.onrender.com` 이 실제 공격면**이다. 아래를 되돌리지 말 것.
+
+- **`/ask` 의 Cypher 는 반드시 `assert_read_only()` 를 통과시킨 뒤 실행**한다. LLM이 만든 쿼리를 그대로 `run_cypher` 에 넘기면 프롬프트 인젝션으로 `MATCH (n) DETACH DELETE n` 이 실행돼 DB가 통째로 지워진다
+- `run_cypher` 는 `default_access_mode=READ_ACCESS` 세션을 쓴다 (검증과 이중 방어)
+- **CORS `allow_origins=["*"]` 금지** — `ALLOWED_ORIGINS` 목록으로만. `*` 이면 아무 사이트나 방문자 브라우저로 `/ask` 를 불러 Anthropic 사용료를 전가할 수 있음
+- 유료 API를 부르는 경로(`/ask`, Gemini 배치)는 **`check_global_budget()` 필수** — IP 위조로 개별 한도를 우회해도 비용이 무한정 늘지 않게
+- `/contribute` 에도 `check_rate` 적용 유지. 없으면 자동 제출로 디스크를 채우고 10건마다 Gemini 배치가 돌아 비용이 증폭됨
+- Pydantic 모델 필드는 전부 `max_length` 를 갖는다
+- `EmailStr` 사용 금지 — `email-validator` 패키지가 `requirements.txt` 에 없어 기동이 실패한다. 정규식 검증으로 대체돼 있음
+- 환경변수는 `_env()` 가 `NEO4J_*` 와 `AURA_*` 를 모두 허용한다 (과거 이름 불일치로 운영 Neo4j 연결이 끊겨 `/stats` 가 500이었음)
 
 ---
 
@@ -59,6 +75,9 @@ critic-ontology/
 │   │   ├── concepts.json    ← build.py 출력: 개념어 색인
 │   │   ├── graph.ttl        ← build.py 출력: RDF Turtle LOD 직렬화
 │   │   ├── criticism.json   ← convert_criticism.py 출력: 2000년대 비평 데이터
+│   │   ├── evaluations.json ← build_evaluations.py 출력: 태도 평가 대기열·판단
+│   │   ├── interp_game.json ← build_interp_game.py 출력: 판정 게임 문장 224개 (§1 예외)
+│   │   ├── game_config.json ← 판정 수집 웹 앱 URL (비어 있으면 브라우저 보관 모드)
 │   │   └── bibliography.json ← convert_phd.py 출력: 선행연구 데이터
 │   ├── graph.html           ← Cytoscape.js 관계망 시각화
 │   └── sparql-bundle.js     ← Comunica + N3 로컬 번들 (ask.html SPARQL 탭)
@@ -76,7 +95,11 @@ critic-ontology/
 ├── sparql.html              ← SPARQL 단독 페이지 (네비 미노출 — ask.html 내 탭으로 대체)
 ├── 404.html                 ← 자체 완결형 404 (§11 참조)
 ├── style.css                ← 공유 스타일 (반응형 포함)
+├── evaluate.html            ← 태도 평가 탭 = 문장 단위 태도 판정 게임 (순위 배너, Apps Script 로 전송)
+├── evaluate-essay.html      ← (비평문×작가) 태도 평가 연구자 도구 (브라우저 저장 + 파일 내보내기, 네비 미노출)
 ├── build.py                 ← TEI XML → HTML + JSON + TTL + Neo4j 동기화 빌드 스크립트
+├── build_evaluations.py     ← 평가 대기열 생성 (build.py 이후 실행)
+├── build_interp_game.py     ← 판정 게임 문장 추출 → site/data/interp_game.json (build.py 이후 실행)
 ├── persons.json             ← 인물 권위 소스 (LOD URI, Wikidata 등) — 슬러그 키
 ├── id_map.json              ← 슬러그 ↔ 숫자 xml:id 매핑 (build.py가 우선 참조)
 ├── critic_v8_schema.rdf     ← 공식 OWL 스키마 (배포·다운로드 대상)
@@ -103,7 +126,7 @@ critic-ontology/
 
 ---
 
-## 3. 사이트 구조 (네비 탭 11개)
+## 3. 사이트 구조 (네비 탭 12개)
 
 | 탭 | 파일 | 설명 |
 |---|---|---|
@@ -116,6 +139,7 @@ critic-ontology/
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
 | 질문하기 | `ask.html` | Neo4j GraphRAG — 자연어 질문 → Cypher 자동 생성 → 학술 답변 + SPARQL 탭 |
+| 태도 평가 | `evaluate.html` | 태도 표시 문장 224개 판정 게임 · 인코더 표시/참여자 분포 공개 · 판정 순위 배너 (비평문×작가 도구 `evaluate-essay.html` 로 연결) |
 | 기여하기 | `contribute.html` | 참여·기여 안내 |
 | 소개 | `about.html` | 프로젝트 소개·통계·기술 구성·로드맵 |
 
@@ -125,9 +149,9 @@ critic-ontology/
 
 **네비 항목은 build.py 템플릿에 하드코딩**되어 있다. 탭을 추가·삭제하면 루트 HTML 전부 + build.py의 네 군데 템플릿(essay·critics·writers·thinkers 프로필)을 함께 고쳐야 한다.
 
-- 루트 페이지(`index.html`, `critics.html`, `writers.html`, `thinkers.html`, `concepts.html`, `research.html`, `criticism.html`, `ask.html`, `contribute.html`, `about.html`) — **11개 전부**: `비평글`, `비평가`, `작가`, `이론가`, `관계망`(`site/graph.html`), `개념어`, `선행연구`, `2000년대 비평`, `질문하기`, `기여하기`, `소개`
-- `site/essays|critics|writers|thinkers/*.html` (build.py 생성) — **10개** (`기여하기` 제외): `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`, `../../criticism.html`, `../../ask.html`, `../../about.html`
-- `site/graph.html` — `../index.html`, `../critics.html`, `../writers.html`, `../thinkers.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`
+- 루트 페이지 — **12개 전부**: `비평글`, `비평가`, `작가`, `이론가`, `관계망`(`site/graph.html`), `개념어`, `선행연구`, `2000년대 비평`, `질문하기`, `기여하기`, `소개`
+- `site/essays|critics|writers|thinkers/*.html` (build.py 생성) — **11개** (`기여하기` 제외): `../../index.html`, `../../critics.html`, `../../writers.html`, `../../thinkers.html`, `../graph.html`, `../../concepts.html`, `../../research.html`, `../../criticism.html`, `../../ask.html`, `../../evaluate.html`, `../../about.html`
+- `site/graph.html` — `../index.html`, `../critics.html`, `../writers.html`, `../thinkers.html`, `graph.html`, `../concepts.html`, `../research.html`, `../criticism.html`, `../ask.html`, `../evaluate.html`
 
 > 알려진 불일치: 하위 페이지 네비에만 `기여하기`가 빠져 있다. 의도한 것인지 확인 필요 — 맞추려면 build.py 템플릿 4곳에 `../../contribute.html` 추가.
 
@@ -157,6 +181,39 @@ build.py 출력:
 빌드 끝에 Neo4j 동기화를 시도한다. `neo4j` 모듈이 없거나 Neo4j Desktop이 꺼져 있으면 경고만 남기고 건너뛴다(빌드 실패 아님).
 
 **빌드 후 필수 검증** — `py build.py` 를 2회 연속 실행하고 `site/data/` 산출물이 바이트 단위로 동일한지 확인할 것(§13 결정성 규칙).
+
+### 평가(태도) 대기열 생성
+
+```powershell
+cd critic-ontology
+py build_evaluations.py      # build.py 실행 후에 돌릴 것 (graph.json 을 읽는다)
+```
+
+- 출력: `site/data/evaluations.json` (웹 UI 적재) · `../평가작업목록.xlsx` (연구자 배포용)
+- 평가 단위는 **(비평문 × 대상작가) 쌍 1,628개** — `cito:discusses` 엣지 하나가 판단 항목 하나
+- 기존 판단은 재생성해도 보존된다(`judgements` 배열을 읽어 되쓴다)
+
+**평가 데이터를 본체 그래프에 병합하지 말 것.** 다른 트리플은 외부 전거로 대조 가능한 사실이라
+불일치가 오류지만, 태도 판정은 외부에 정답이 없는 해석이라 **불일치 자체가 데이터**다.
+같은 항목에 복수의 판단이 쌓이면 덮어쓰지 않고 판단자·일시와 함께 모두 보존한다.
+
+**`evaluate-essay.html` 에는 원문 문장을 넣지 않는다** (§1). 서지 정보와 비평문 페이지 링크만 제공하며,
+비평문을 읽은 연구자를 판단자로 전제한다.
+
+### 태도 판정 게임 (문장 단위)
+
+```powershell
+cd critic-ontology
+py build_interp_game.py      # build.py 실행 후 (graph.json 에서 제목·연도·비평가를 읽는다)
+```
+
+- 출력: `site/data/interp_game.json` — `interp`/`quote` 의 `@ana` 에 태도 값이 있는 문장. 점 표시(텍스트 없는 `<interp/>`)는 문장 전체 판정, 텍스트가 있으면 그 범위를 강조
+- 항목 ID = `{stem}#{sha1(stem|span|sentence)[:10]}` — XML 순서가 바뀌어도 유지되지만 **문장·범위 텍스트를 고치면 ID가 바뀌어 기존 판정과 끊긴다**
+- 줄 단위 개념어 꼬리표(`<interp type="concept">…</interp>` 뒤에 줄바꿈)는 원문이 아니므로 문장에서 뺀다
+- 수집: `evaluate.html` → `game_config.json` 의 Apps Script 웹 앱에 `text/plain` POST → 운영자 Google 시트에 누적 + 매일 요약 메일. 순위는 GET(60초 캐시), 기준은 **uid별 서로 다른 문장 수**(재판정은 마지막 것만)
+- 수집기 코드는 `../판정수집_AppsScript.gs` (배포 순서는 파일 머리 주석). 고친 뒤에는 Apps Script 에서 **새 버전으로 재배포**해야 반영된다
+- 수집기 안전장치를 되돌리지 말 것: 항목 ID는 공개 `interp_game.json` 과 대조, 판정값 화이트리스트, uid·전체 시간당 한도, 닉네임 `= + - @` 시작 거부(시트 수식 주입), uid 비공개(순위에는 해시 태그만)
+- 시트의 판정도 본체 그래프에 병합하지 않는다 — 위 원칙과 같다
 
 ### 박사논문 데이터 변환
 
