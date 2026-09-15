@@ -2254,6 +2254,7 @@ kc:p-capra a critic:Thinker, foaf:Person ;
 kc:p-carlos-castaneda a critic:Thinker, foaf:Person ;
   foaf:name "카를로스 카스타네다(Carlos Castaneda)"@ko ;
   rdfs:label "카를로스 카스타네다(Carlos Castaneda)"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q311378> ;
   schema:url <https://kcritic.kr/resource/p-carlos-castaneda> .
 
 kc:p-carr a critic:Thinker, foaf:Person ;
@@ -4261,6 +4262,7 @@ kc:p-lee-inhae a critic:Writer, foaf:Person ;
 kc:p-lee-inseong a critic:Writer, foaf:Person ;
   foaf:name "이인성"@ko ;
   rdfs:label "이인성"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12599862> ;
   schema:url <https://kcritic.kr/resource/p-lee-inseong> .
 
 kc:p-lee-jaeseon a critic:Thinker, foaf:Person ;
@@ -6398,9 +6400,9 @@ kce:hwang-hyonsan_never-ending-story_2012 a critic:CriticalEssay ;
   schema:isPartOf "끝나지 않는 이야기" ;
   schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_never-ending-story_2012.html> ;
   dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-kim-chunsu ;
   cito:discusses kc:p-kim-hyesoon ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00149 ;
@@ -6451,9 +6453,9 @@ kce:hwang-hyonsan_on-criticism_2012 a critic:CriticalEssay ;
   dcterms:creator kc:p-hwang-hyonsan ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-lee-seongbok ;
+  cito:citesAsAuthority kc:p-00171 ;
   cito:citesAsAuthority kc:p-bayard ;
   cito:citesAsAuthority kc:p-bourdieu ;
-  cito:citesAsAuthority kc:p-pascal ;
   cito:citesAsAuthority kc:p-rimbaud ;
   dcterms:subject "시인을 발견하는 시인"@ko ;
   dcterms:subject "현실과 언어의 동일성"@ko ;
@@ -6494,7 +6496,7 @@ kce:hwang-hyonsan_poetry-body_2010 a critic:CriticalEssay ;
   dcterms:creator kc:p-hwang-hyonsan ;
   cito:discusses kc:p-chin-eunyoung ;
   cito:discusses kc:p-choe-seungja ;
-  cito:discusses kc:p-kim-jonghwan ;
+  cito:discusses kc:p-kim-jeonghwan ;
   cito:citesAsAuthority kc:p-00227 ;
   cito:citesAsAuthority kc:p-bataille ;
   cito:citesAsAuthority kc:p-breton ;
@@ -6519,14 +6521,14 @@ kce:hwang-hyonsan_symbol-allegory_2012 a critic:CriticalEssay ;
   schema:isPartOf "상징과 알레고리" ;
   schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_symbol-allegory_2012.html> ;
   dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00077 ;
+  cito:discusses kc:p-00098 ;
   cito:discusses kc:p-chin-eunyoung ;
-  cito:discusses kc:p-hwang-jiu ;
-  cito:discusses kc:p-kim-chunsu ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-00227 ;
   cito:citesAsAuthority kc:p-lafontaine ;
-  cito:citesAsAuthority kc:p-valery ;
   dcterms:subject "편안한 알레고리 비판"@ko ;
   dcterms:subject "알레고리와 상징"@ko ;
   dcterms:subject "상징의 내적 관계 비판"@ko ;
@@ -6550,9 +6552,9 @@ kce:hwang-hyonsan_translation-poetry_2012 a critic:CriticalEssay ;
   cito:discusses kc:p-park-namsu ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00171 ;
   cito:citesAsAuthority kc:p-00227 ;
   cito:citesAsAuthority kc:p-ovid ;
-  cito:citesAsAuthority kc:p-pascal ;
   dcterms:subject "번역가의 과제"@ko ;
   dcterms:subject "종족 언어의 방언성"@ko ;
   dcterms:subject "순수언어"@ko ;
@@ -6571,8 +6573,8 @@ kce:hwang-hyonsan_well-expressed-unhappiness_2012 a critic:CriticalEssay ;
   schema:isPartOf "잘 표현된 불행" ;
   schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_well-expressed-unhappiness_2012.html> ;
   dcterms:creator kc:p-hwang-hyonsan ;
+  cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00116 ;
-  cito:discusses kc:p-kim-chunsu ;
   cito:discusses kc:p-kim-ideum ;
   cito:discusses kc:p-ko-youngmin ;
   cito:discusses kc:p-lee-younggwang ;
@@ -6600,7 +6602,7 @@ kce:hwang-hyonsan_who-speaks_2012 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/hwang-hyonsan_who-speaks_2012.html> ;
   dcterms:creator kc:p-hwang-hyonsan ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-kim-jonghwan ;
+  cito:discusses kc:p-kim-jeonghwan ;
   cito:discusses kc:p-kim-jungil ;
   cito:discusses kc:p-kim-rok ;
   cito:citesAsAuthority kc:p-00018 ;
@@ -6653,12 +6655,13 @@ kce:kim-hyon_60s-literature_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00240 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-cho-jeongnae ;
   cito:discusses kc:p-choe-harim ;
   cito:discusses kc:p-gwak-haksong ;
   cito:discusses kc:p-hong-seongwon ;
   cito:discusses kc:p-hyeon-giyeong ;
+  cito:discusses kc:p-i-seunghun ;
   cito:discusses kc:p-kang-sinjae ;
   cito:discusses kc:p-kim-junsu ;
   cito:discusses kc:p-kim-seungok ;
@@ -6672,22 +6675,21 @@ kce:kim-hyon_60s-literature_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-seo-jeongin ;
   cito:discusses kc:p-yi-beomseon ;
   cito:discusses kc:p-yi-byeongju ;
-  cito:discusses kc:p-yi-hohcheol ;
+  cito:discusses kc:p-yi-hocheol ;
   cito:discusses kc:p-yi-jeha ;
-  cito:discusses kc:p-yi-seunghun ;
   cito:discusses kc:p-yun-heunggil ;
   cito:citesAsAuthority kc:p-00028 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00065 ;
+  cito:citesAsAuthority kc:p-00067 ;
   cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00189 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-faulkner ;
-  cito:citesAsAuthority kc:p-hemingway ;
   cito:citesAsAuthority kc:p-hesse ;
   cito:citesAsAuthority kc:p-kierkegaard ;
   cito:citesAsAuthority kc:p-malraux ;
-  cito:citesAsAuthority kc:p-saint-exupery ;
   dcterms:subject "사일구"@ko ;
   dcterms:subject "한국어 글쓰기"@ko ;
   dcterms:subject "사일구 세대"@ko ;
@@ -6712,7 +6714,7 @@ kce:kim-hyon_an-jaechan_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00091 ;
   cito:discusses kc:p-00162 ;
   cito:discusses kc:p-an-jaechan ;
-  cito:discusses kc:p-kim-jonghwan ;
+  cito:discusses kc:p-kim-jeonghwan ;
   cito:discusses kc:p-lee-seongbok ;
   dcterms:subject "직관"@ko ;
   dcterms:subject "초현실주의적 이미지"@ko ;
@@ -6734,8 +6736,8 @@ kce:kim-hyon_bedbug-dream_1984 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_bedbug-dream_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00116 ;
-  cito:discusses kc:p-choi-duseok ;
-  cito:discusses kc:p-kim-jonghwan ;
+  cito:discusses kc:p-choe-duseok ;
+  cito:discusses kc:p-kim-jeonghwan ;
   cito:discusses kc:p-kim-satgat ;
   cito:discusses kc:p-yun-jaecheol ;
   dcterms:subject "문화적 울림"@ko ;
@@ -6973,16 +6975,15 @@ kce:kim-hyon_criticism-method_1980 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00241 ;
+  cito:citesAsAuthority kc:im-hwa ;
   cito:citesAsAuthority kc:p-cho-dongil ;
   cito:citesAsAuthority kc:p-cho-yeonhyeon ;
+  cito:citesAsAuthority kc:p-chong-myonghwan ;
   cito:citesAsAuthority kc:p-gu-jungseo ;
   cito:citesAsAuthority kc:p-im-hyeonyoung ;
-  cito:citesAsAuthority kc:p-imhwa ;
-  cito:citesAsAuthority kc:p-jung-myunghwan ;
-  cito:citesAsAuthority kc:p-jung-myunghwan-b ;
   cito:citesAsAuthority kc:p-kim-chisu ;
   cito:citesAsAuthority kc:p-kim-inhwan ;
-  cito:citesAsAuthority kc:p-kim-jongchul ;
+  cito:citesAsAuthority kc:p-kim-jongcheol ;
   cito:citesAsAuthority kc:p-kim-juyeon ;
   cito:citesAsAuthority kc:p-kim-yunsik ;
   cito:citesAsAuthority kc:p-lee-cheolbeom ;
@@ -7015,10 +7016,10 @@ kce:kim-hyon_criticism-typology_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-00244 ;
   cito:citesAsAuthority kc:p-00192 ;
+  cito:citesAsAuthority kc:p-cho-dongil ;
   cito:citesAsAuthority kc:p-cho-yunje ;
+  cito:citesAsAuthority kc:p-chong-myonghwan ;
   cito:citesAsAuthority kc:p-fontenelle ;
-  cito:citesAsAuthority kc:p-jeong-myeonghwan ;
-  cito:citesAsAuthority kc:p-jo-dongil ;
   cito:citesAsAuthority kc:p-kim-bunggu ;
   cito:citesAsAuthority kc:p-kim-yunsik ;
   cito:citesAsAuthority kc:p-lee-byeonggi ;
@@ -7048,23 +7049,23 @@ kce:kim-hyon_feminism-symbolism_1973 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00089 ;
+  cito:discusses kc:p-00114 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00204 ;
+  cito:discusses kc:p-00241 ;
   cito:discusses kc:p-hwang-seokwoo ;
   cito:discusses kc:p-kim-eok ;
-  cito:discusses kc:p-kim-sowol ;
   cito:discusses kc:p-park-jonghwa ;
-  cito:discusses kc:p-yi-gwangsu ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00223 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-kawaji ;
   cito:citesAsAuthority kc:p-kitahara ;
   cito:citesAsAuthority kc:p-miki-rofu ;
   cito:citesAsAuthority kc:p-samain ;
   cito:citesAsAuthority kc:p-tagore ;
   cito:citesAsAuthority kc:p-ueda-bin ;
-  cito:citesAsAuthority kc:p-verlaine ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "영향과 상사"@ko ;
   dcterms:subject "외국 사조의 한국화"@ko ;
   dcterms:subject "새것 콤플렉스"@ko ;
@@ -7088,11 +7089,11 @@ kce:kim-hyon_flower-image_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00084 ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00244 ;
+  cito:discusses kc:p-bak-inhwan ;
   cito:discusses kc:p-gu-jaun ;
   cito:discusses kc:p-kim-gwangnim ;
   cito:discusses kc:p-kim-yunseong ;
   cito:discusses kc:p-lee-dongju ;
-  cito:discusses kc:p-park-inhwan ;
   cito:discusses kc:p-park-yanggyun ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00022 ;
@@ -7130,6 +7131,7 @@ kce:kim-hyon_foreign-lit-student_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-chunwon ;
   cito:discusses kc:p-sin-jaehyo ;
   cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00073 ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00181 ;
   cito:citesAsAuthority kc:p-breton ;
@@ -7137,7 +7139,6 @@ kce:kim-hyon_foreign-lit-student_1973 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-cho-wonsi ;
   cito:citesAsAuthority kc:p-claudel ;
   cito:citesAsAuthority kc:p-green ;
-  cito:citesAsAuthority kc:p-hugo ;
   cito:citesAsAuthority kc:p-ionesco ;
   cito:citesAsAuthority kc:p-kim-bunggu ;
   cito:citesAsAuthority kc:p-malraux ;
@@ -7165,8 +7166,8 @@ kce:kim-hyon_good-dream-poems_1984 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-bae-gyeongran ;
-  cito:discusses kc:p-kang-eungyo ;
-  cito:discusses kc:p-kim-okyoung ;
+  cito:discusses kc:p-gang-eungyo ;
+  cito:discusses kc:p-kim-okyong ;
   cito:discusses kc:p-kim-seunghui ;
   cito:discusses kc:p-ko-jeonghui ;
   cito:discusses kc:p-lee-haseok ;
@@ -7229,10 +7230,10 @@ kce:kim-hyon_han-yongun_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-kim-anseo ;
   cito:discusses kc:p-wolmyong ;
   cito:citesAsAuthority kc:p-00038 ;
+  cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00207 ;
+  cito:citesAsAuthority kc:p-00225 ;
   cito:citesAsAuthority kc:p-duras ;
-  cito:citesAsAuthority kc:p-homer ;
-  cito:citesAsAuthority kc:p-virgil ;
   dcterms:subject "이별"@ko ;
   dcterms:subject "사랑의 조건으로서의 이별"@ko ;
   dcterms:subject "이별의 시학"@ko ;
@@ -7283,7 +7284,7 @@ kce:kim-hyon_hometown-search_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00133 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00240 ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-choe-ilnam ;
   cito:discusses kc:p-choe-seohae ;
   cito:discusses kc:p-kim-wonil ;
@@ -7309,7 +7310,7 @@ kce:kim-hyon_hong-seongwon_1980 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_hong-seongwon_1980.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-hong-seongwon ;
-  cito:citesAsAuthority kc:p-warren ;
+  cito:citesAsAuthority kc:p-00229 ;
   dcterms:subject "19세기 소설 문법"@ko ;
   dcterms:subject "모파상적 단편"@ko ;
   dcterms:subject "작품으로서의 진실"@ko ;
@@ -7381,7 +7382,7 @@ kce:kim-hyon_human-sign_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00083 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00240 ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-kim-eok ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-goldmann ;
@@ -7412,7 +7413,7 @@ kce:kim-hyon_hwang-dongkyu-meaning_1984 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-barthes ;
-  cito:citesAsAuthority kc:p-dufu ;
+  cito:citesAsAuthority kc:p-dubo ;
   dcterms:subject "방법론적 고침"@ko ;
   dcterms:subject "거리 없애기"@ko ;
   dcterms:subject "외로운 기다림"@ko ;
@@ -7441,7 +7442,7 @@ kce:kim-hyon_hwang-dongkyu_1975 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00245 ;
-  cito:discusses kc:p-park-yongchul ;
+  cito:discusses kc:p-pak-yongcheol ;
   dcterms:subject "한"@ko ;
   dcterms:subject "감동"@ko ;
   dcterms:subject "고뇌의 시론"@ko ;
@@ -7484,12 +7485,12 @@ kce:kim-hyon_hwang-insook_1990 a critic:CriticalEssay ;
   schema:isPartOf "이루어지지 않는 바람" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_hwang-insook_1990.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:kim-gwanggyun ;
   cito:discusses kc:p-00091 ;
   cito:discusses kc:p-00098 ;
+  cito:discusses kc:p-00119 ;
   cito:discusses kc:p-00162 ;
   cito:discusses kc:p-hwang-insook ;
-  cito:discusses kc:p-kim-kwanggyun ;
-  cito:discusses kc:p-kim-yeongnang ;
   cito:citesAsAuthority kc:p-00192 ;
   dcterms:subject "감각성"@ko ;
   dcterms:subject "욕망"@ko ;
@@ -7512,7 +7513,7 @@ kce:kim-hyon_hwang-jiu_1984 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_hwang-jiu_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00077 ;
-  cito:discusses kc:p-kim-jongchul ;
+  cito:discusses kc:p-kim-jongcheol ;
   cito:discusses kc:p-ma-jongha ;
   dcterms:subject "과장"@ko ;
   dcterms:subject "야유와 풍자"@ko ;
@@ -7562,7 +7563,7 @@ kce:kim-hyon_hwang-sunwon_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00079 ;
   cito:discusses kc:p-00100 ;
   cito:discusses kc:p-00133 ;
-  cito:discusses kc:p-park-sangryung ;
+  cito:discusses kc:p-park-sangnyung ;
   cito:discusses kc:p-yun-heunggil ;
   dcterms:subject "개작"@ko ;
   dcterms:subject "현재형"@ko ;
@@ -7586,8 +7587,8 @@ kce:kim-hyon_imagination-tendencies_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00091 ;
   cito:discusses kc:p-00135 ;
   cito:discusses kc:p-choe-harim ;
+  cito:discusses kc:p-i-seunghun ;
   cito:discusses kc:p-kang-homu ;
-  cito:discusses kc:p-lee-seunghun ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-hytier ;
   dcterms:subject "시인 심리학"@ko ;
@@ -7651,17 +7652,17 @@ kce:kim-hyon_industrialization-poetry_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00199 ;
-  cito:discusses kc:p-jang-yongsu ;
+  cito:discusses kc:p-gang-eungyo ;
+  cito:discusses kc:p-jang-yeongsu ;
   cito:discusses kc:p-jeong-hoseung ;
   cito:discusses kc:p-kang-changmin ;
-  cito:discusses kc:p-kang-eungyo ;
-  cito:discusses kc:p-kim-hyongyong ;
+  cito:discusses kc:p-kim-gwangseop ;
+  cito:discusses kc:p-kim-hyeongyeong ;
   cito:discusses kc:p-kim-juntae ;
-  cito:discusses kc:p-kim-kwangsop ;
   cito:discusses kc:p-kim-myongin ;
   cito:discusses kc:p-lee-seongbok ;
-  cito:discusses kc:p-lee-siyoung ;
-  cito:discusses kc:p-mun-chungsong ;
+  cito:discusses kc:p-lee-siyeong ;
+  cito:discusses kc:p-mun-chungseong ;
   cito:discusses kc:p-park-jecheon ;
   cito:discusses kc:p-shin-daechol ;
   cito:discusses kc:p-yun-sanggyu ;
@@ -7686,7 +7687,7 @@ kce:kim-hyon_jang-youngsu_1980 a critic:CriticalEssay ;
   schema:isPartOf "미국의 웃음" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_jang-youngsu_1980.html> ;
   dcterms:creator kc:p-kim-hyon ;
-  cito:discusses kc:p-jang-youngsu ;
+  cito:discusses kc:p-jang-yeongsu ;
   cito:citesAsAuthority kc:p-brzezinski ;
   dcterms:subject "시 분석"@ko ;
   dcterms:subject "세계 손질"@ko ;
@@ -7708,8 +7709,8 @@ kce:kim-hyon_jeon-bonggeon-two_1984 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00084 ;
   cito:discusses kc:p-00116 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-bachelard ;
-  cito:citesAsAuthority kc:p-shelley ;
   dcterms:subject "둥그런 불"@ko ;
   dcterms:subject "에로티시즘"@ko ;
   dcterms:subject "내부의 불"@ko ;
@@ -7734,7 +7735,7 @@ kce:kim-hyon_jeon-bonggeon_1975 a critic:CriticalEssay ;
   cito:discusses kc:p-00108 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00122 ;
-  cito:discusses kc:p-kim-kwangnim ;
+  cito:discusses kc:p-kim-gwangnim ;
   dcterms:subject "전쟁시"@ko ;
   dcterms:subject "창조"@ko ;
   dcterms:subject "여성주의"@ko ;
@@ -7755,7 +7756,7 @@ kce:kim-hyon_jung-huiseong_1980 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_jung-huiseong_1980.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00090 ;
-  cito:citesAsAuthority kc:p-pound ;
+  cito:citesAsAuthority kc:p-00180 ;
   dcterms:subject "변주"@ko ;
   dcterms:subject "화자"@ko ;
   dcterms:subject "노동자"@ko ;
@@ -7778,6 +7779,7 @@ kce:kim-hyon_jung-hyunjong-drunk_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00091 ;
   cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-00119 ;
   cito:discusses kc:p-00122 ;
   cito:discusses kc:p-00135 ;
   cito:discusses kc:p-00162 ;
@@ -7786,16 +7788,15 @@ kce:kim-hyon_jung-hyunjong-drunk_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00199 ;
   cito:discusses kc:p-00245 ;
+  cito:discusses kc:p-bak-inhwan ;
   cito:discusses kc:p-kim-gwansik ;
   cito:discusses kc:p-kim-gyeongrin ;
-  cito:discusses kc:p-kim-yeongnang ;
-  cito:discusses kc:p-park-inhwan ;
   cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00223 ;
   cito:citesAsAuthority kc:p-apollinaire ;
   cito:citesAsAuthority kc:p-hwang-hyeon ;
   cito:citesAsAuthority kc:p-laozi ;
   cito:citesAsAuthority kc:p-michaux ;
-  cito:citesAsAuthority kc:p-verlaine ;
   dcterms:subject "남성주의"@ko ;
   dcterms:subject "개인주의"@ko ;
   dcterms:subject "서구식 어법"@ko ;
@@ -7828,8 +7829,8 @@ kce:kim-hyon_jung-hyunjong_1973 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-brice-parain ;
+  cito:citesAsAuthority kc:p-grenier ;
   cito:citesAsAuthority kc:p-hartmann ;
-  cito:citesAsAuthority kc:p-jean-grenier ;
   cito:citesAsAuthority kc:p-victor-hugo ;
   dcterms:subject "이미지의 조소성"@ko ;
   dcterms:subject "바람"@ko ;
@@ -7927,7 +7928,7 @@ kce:kim-hyon_kam-taejun-bird_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00245 ;
   cito:discusses kc:p-kam-taejun ;
   cito:discusses kc:p-park-namsu ;
-  cito:citesAsAuthority kc:p-li-bai ;
+  cito:citesAsAuthority kc:p-00141 ;
   cito:citesAsAuthority kc:p-omar-khayyam ;
   dcterms:subject "도시와 바다의 대립"@ko ;
   dcterms:subject "삭막한 서울"@ko ;
@@ -7971,7 +7972,7 @@ kce:kim-hyon_kang-changmin_1984 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kang-changmin_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-kang-changmin ;
-  cito:citesAsAuthority kc:p-verlaine ;
+  cito:citesAsAuthority kc:p-00223 ;
   dcterms:subject "죽음"@ko ;
   dcterms:subject "빛"@ko ;
   dcterms:subject "잠"@ko ;
@@ -8034,7 +8035,7 @@ kce:kim-hyon_kim-byungik_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00168 ;
-  cito:discusses kc:p-yi-munyol ;
+  cito:discusses kc:p-imun-yol ;
   cito:discusses kc:p-yun-heunggil ;
   cito:citesAsAuthority kc:p-00055 ;
   cito:citesAsAuthority kc:p-frolich ;
@@ -8121,7 +8122,7 @@ kce:kim-hyon_kim-chunsu_1973 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-park-sangryung ;
+  cito:discusses kc:p-park-sangnyung ;
   cito:discusses kc:p-shin-seokcho ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00028 ;
@@ -8269,7 +8270,7 @@ kce:kim-hyon_kim-hyungyoung_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00122 ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-kim-hyungyoung ;
+  cito:discusses kc:p-kim-hyeongyeong ;
   cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-zhaozhou ;
   dcterms:subject "극복"@ko ;
@@ -8293,7 +8294,7 @@ kce:kim-hyon_kim-jiha_1988 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00106 ;
   cito:citesAsAuthority kc:p-00018 ;
-  cito:citesAsAuthority kc:p-richards ;
+  cito:citesAsAuthority kc:p-00185 ;
   dcterms:subject "의미론적 분절"@ko ;
   dcterms:subject "리듬의 길항"@ko ;
   dcterms:subject "내부 초월"@ko ;
@@ -8325,9 +8326,9 @@ kce:kim-hyon_kim-jongsam_1975 a critic:CriticalEssay ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00170 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-kim-yunsung ;
+  cito:discusses kc:p-bak-inhwan ;
+  cito:discusses kc:p-kim-yunseong ;
   cito:discusses kc:p-ma-jonggi ;
-  cito:discusses kc:p-park-inhwan ;
   cito:citesAsAuthority kc:p-00186 ;
   dcterms:subject "선배 없는 세대"@ko ;
   dcterms:subject "과거체"@ko ;
@@ -8348,9 +8349,9 @@ kce:kim-hyon_kim-junghwan_1984 a critic:CriticalEssay ;
   schema:isPartOf "애매성과 시적 환기력" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-junghwan_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
-  cito:discusses kc:p-kim-jonghwan ;
+  cito:discusses kc:p-kim-jeonghwan ;
   cito:discusses kc:p-lee-seongbok ;
-  cito:discusses kc:p-park-namchul ;
+  cito:discusses kc:p-park-namcheol ;
   cito:discusses kc:p-yi-ryung ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-kayser ;
@@ -8377,8 +8378,8 @@ kce:kim-hyon_kim-jungran_1990 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-kim-jungran ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-bachelard ;
-  cito:citesAsAuthority kc:p-marcuse ;
   cito:citesAsAuthority kc:p-zhuangzi ;
   dcterms:subject "삶이라는 질병"@ko ;
   dcterms:subject "꽃과 날개"@ko ;
@@ -8399,7 +8400,7 @@ kce:kim-hyon_kim-jungwoong_1988 a critic:CriticalEssay ;
   schema:isPartOf "방법적 원리로서의 수다" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-jungwoong_1988.html> ;
   dcterms:creator kc:p-kim-hyon ;
-  cito:discusses kc:p-kim-jungwoong ;
+  cito:discusses kc:p-kim-jeongung ;
   cito:citesAsAuthority kc:p-hong-shinseon ;
   dcterms:subject "수다"@ko ;
   dcterms:subject "절제"@ko ;
@@ -8421,7 +8422,7 @@ kce:kim-hyon_kim-kwanggyu_1984 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-kwanggyu_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00102 ;
-  cito:discusses kc:p-yi-sang ;
+  cito:discusses kc:p-00244 ;
   dcterms:subject "이야기"@ko ;
   dcterms:subject "산문의 리듬"@ko ;
   dcterms:subject "시성"@ko ;
@@ -8443,8 +8444,8 @@ kce:kim-hyon_kim-myungin_1984 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-myungin_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00162 ;
-  cito:discusses kc:p-kim-myungin ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
+  cito:discusses kc:p-kim-myongin ;
+  cito:citesAsAuthority kc:p-00042 ;
   dcterms:subject "괴로운 과거"@ko ;
   dcterms:subject "진정성"@ko ;
   dcterms:subject "비극적 세계관"@ko ;
@@ -8476,13 +8477,13 @@ kce:kim-hyon_kim-suyoung-two_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00162 ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
+  cito:discusses kc:p-00244 ;
   cito:discusses kc:p-00245 ;
-  cito:discusses kc:p-choi-harim ;
+  cito:discusses kc:p-choe-harim ;
   cito:discusses kc:p-lee-seongbok ;
+  cito:discusses kc:p-lee-siyeong ;
   cito:discusses kc:p-o-yugwon ;
   cito:discusses kc:p-park-namsu ;
-  cito:discusses kc:p-yi-sang ;
-  cito:discusses kc:p-yi-siyeong ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00190 ;
@@ -8508,14 +8509,14 @@ kce:kim-hyon_kim-suyoung_1975 a critic:CriticalEssay ;
   schema:isPartOf "김수영을 찾아서" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-suyoung_1975.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:im-hwa ;
   cito:discusses kc:p-00084 ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00109 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00122 ;
-  cito:discusses kc:p-imhwa ;
-  cito:discusses kc:p-park-inhwan ;
-  cito:discusses kc:p-park-yongchul ;
+  cito:discusses kc:p-bak-inhwan ;
+  cito:discusses kc:p-pak-yongcheol ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-ionesco ;
@@ -8543,7 +8544,7 @@ kce:kim-hyon_kim-suyoung_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00109 ;
   cito:discusses kc:p-00116 ;
-  cito:discusses kc:p-park-yongchul ;
+  cito:discusses kc:p-pak-yongcheol ;
   cito:citesAsAuthority kc:p-eluard ;
   dcterms:subject "자유"@ko ;
   dcterms:subject "바로 봄"@ko ;
@@ -8568,7 +8569,7 @@ kce:kim-hyon_kim-wonil-a_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-kim-wonil ;
   cito:discusses kc:p-shin-dongyop ;
   cito:citesAsAuthority kc:p-00022 ;
-  cito:citesAsAuthority kc:p-ham-sokhon ;
+  cito:citesAsAuthority kc:p-ham-seokheon ;
   dcterms:subject "서정성"@ko ;
   dcterms:subject "사실성"@ko ;
   dcterms:subject "떠돎과 붙박음"@ko ;
@@ -8588,7 +8589,7 @@ kce:kim-hyon_kim-wonil-b_1988 a critic:CriticalEssay ;
   schema:isPartOf "객관적 현실주의로의 길" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_kim-wonil-b_1988.html> ;
   dcterms:creator kc:p-kim-hyon ;
-  cito:discusses kc:p-jo-jeongrae ;
+  cito:discusses kc:p-cho-jeongnae ;
   cito:discusses kc:p-kim-seungok ;
   cito:discusses kc:p-kim-wonil ;
   cito:discusses kc:p-yun-heunggil ;
@@ -8673,11 +8674,11 @@ kce:kim-hyon_kim-youngrang_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-kim-eok ;
   cito:discusses kc:p-kim-hyeongu ;
   cito:discusses kc:p-kim-youngrang ;
-  cito:discusses kc:p-park-yongchul ;
+  cito:discusses kc:p-pak-yongcheol ;
   cito:discusses kc:p-yun-seondo ;
+  cito:citesAsAuthority kc:p-00223 ;
   cito:citesAsAuthority kc:p-jeong-yagyong ;
   cito:citesAsAuthority kc:p-kim-jeonghui ;
-  cito:citesAsAuthority kc:p-verlaine ;
   dcterms:subject "강진 시파"@ko ;
   dcterms:subject "전라도 말"@ko ;
   dcterms:subject "슬픔과 한"@ko ;
@@ -8726,11 +8727,11 @@ kce:kim-hyon_ko-un_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00122 ;
   cito:citesAsAuthority kc:p-00022 ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00176 ;
+  cito:citesAsAuthority kc:p-00179 ;
   cito:citesAsAuthority kc:p-00192 ;
-  cito:citesAsAuthority kc:p-poe ;
-  cito:citesAsAuthority kc:p-poulet ;
+  cito:citesAsAuthority kc:p-00230 ;
   cito:citesAsAuthority kc:p-pradines ;
-  cito:citesAsAuthority kc:p-weber ;
   dcterms:subject "상상력"@ko ;
   dcterms:subject "기억"@ko ;
   dcterms:subject "상상적인 것"@ko ;
@@ -8757,7 +8758,7 @@ kce:kim-hyon_ko-un_1975 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00122 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-kim-kwansik ;
+  cito:discusses kc:p-kim-gwansik ;
   dcterms:subject "지적 허무주의"@ko ;
   dcterms:subject "선적 직관"@ko ;
   dcterms:subject "흔적"@ko ;
@@ -8779,15 +8780,15 @@ kce:kim-hyon_kwak-jaegu_1990 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00106 ;
   cito:discusses kc:p-00122 ;
-  cito:discusses kc:p-jang-youngsu ;
-  cito:discusses kc:p-jeong-yakyong ;
+  cito:discusses kc:p-jang-yeongsu ;
+  cito:discusses kc:p-jeong-yagyong ;
   cito:discusses kc:p-kim-jinkyung ;
-  cito:discusses kc:p-kim-jongchul ;
-  cito:discusses kc:p-kim-myungin ;
+  cito:discusses kc:p-kim-jongcheol ;
+  cito:discusses kc:p-kim-myongin ;
   cito:discusses kc:p-kwak-jaegu ;
-  cito:discusses kc:p-lee-siyoung ;
+  cito:discusses kc:p-lee-siyeong ;
   cito:discusses kc:p-ma-jongha ;
-  cito:discusses kc:p-yun-jaechul ;
+  cito:discusses kc:p-yun-jaecheol ;
   cito:citesAsAuthority kc:p-kim-gu ;
   cito:citesAsAuthority kc:p-neruda ;
   dcterms:subject "노동시"@ko ;
@@ -8858,8 +8859,8 @@ kce:kim-hyon_lee-inseong_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00244 ;
   cito:discusses kc:p-lee-inseong ;
-  cito:discusses kc:p-park-sangryung ;
-  cito:discusses kc:p-park-taewon ;
+  cito:discusses kc:p-pak-taewon ;
+  cito:discusses kc:p-park-sangnyung ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00146 ;
@@ -8884,8 +8885,8 @@ kce:kim-hyon_lee-munyol_1984 a critic:CriticalEssay ;
   schema:isPartOf "베끼기의 문학적 의미" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_lee-munyol_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
-  cito:discusses kc:p-lee-munyol ;
-  cito:citesAsAuthority kc:p-auerbach ;
+  cito:discusses kc:p-imun-yol ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-bakhtin ;
   cito:citesAsAuthority kc:p-cervantes ;
   cito:citesAsAuthority kc:p-don-quixote ;
@@ -8960,7 +8961,7 @@ kce:kim-hyon_lee-seongbu_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00135 ;
   cito:discusses kc:p-heo-gyun ;
-  cito:citesAsAuthority kc:p-jeong-yakyong ;
+  cito:citesAsAuthority kc:p-jeong-yagyong ;
   dcterms:subject "상처"@ko ;
   dcterms:subject "죽음은 탄생"@ko ;
   dcterms:subject "반성의 성실성"@ko ;
@@ -8982,7 +8983,7 @@ kce:kim-hyon_lee-seunghun_1988 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-lee-seunghun ;
+  cito:discusses kc:p-i-seunghun ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-barthes ;
@@ -9009,7 +9010,7 @@ kce:kim-hyon_lee-siyoung_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00135 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-lee-siyoung ;
+  cito:discusses kc:p-lee-siyeong ;
   cito:discusses kc:p-yungcheon ;
   dcterms:subject "사람 친화력"@ko ;
   dcterms:subject "체험 공간"@ko ;
@@ -9030,20 +9031,22 @@ kce:kim-hyon_literary-history-method_1980 a critic:CriticalEssay ;
   schema:isPartOf "문학사의 방법과 그 반성" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_literary-history-method_1980.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:im-hwa ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00083 ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00110 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-an-guksun ;
-  cito:discusses kc:p-im-hwa ;
+  cito:discusses kc:p-an-gukson ;
+  cito:discusses kc:p-i-injik ;
   cito:discusses kc:p-kim-satgat ;
-  cito:discusses kc:p-yi-injik ;
   cito:discusses kc:p-yi-taejun ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00166 ;
   cito:citesAsAuthority kc:p-00171 ;
+  cito:citesAsAuthority kc:p-00211 ;
+  cito:citesAsAuthority kc:p-00215 ;
   cito:citesAsAuthority kc:p-beaumarchais ;
   cito:citesAsAuthority kc:p-brunetiere ;
   cito:citesAsAuthority kc:p-cho-yunje ;
@@ -9066,8 +9069,6 @@ kce:kim-hyon_literary-history-method_1980 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-ranke ;
   cito:citesAsAuthority kc:p-rousseau ;
   cito:citesAsAuthority kc:p-sevigne ;
-  cito:citesAsAuthority kc:p-taine ;
-  cito:citesAsAuthority kc:p-thibaudet ;
   cito:citesAsAuthority kc:p-todorov ;
   cito:citesAsAuthority kc:p-tomashevsky ;
   cito:citesAsAuthority kc:p-tynyanov ;
@@ -9092,6 +9093,7 @@ kce:kim-hyon_literary-situation-1969a_1969 a critic:CriticalEssay ;
   schema:isPartOf "1969년의 문학적 상황 I" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_literary-situation-1969a_1969.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:kim-gwanggyun ;
   cito:discusses kc:p-00031 ;
   cito:discusses kc:p-00032 ;
   cito:discusses kc:p-00063 ;
@@ -9110,12 +9112,11 @@ kce:kim-hyon_literary-situation-1969a_1969 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00204 ;
   cito:discusses kc:p-choe-harim ;
+  cito:discusses kc:p-gang-eungyo ;
+  cito:discusses kc:p-i-seunghun ;
   cito:discusses kc:p-jeong-hanmo ;
-  cito:discusses kc:p-kang-eungyo ;
   cito:discusses kc:p-kim-eok ;
-  cito:discusses kc:p-kim-gwanggyun ;
   cito:discusses kc:p-kim-hyeongyeong ;
-  cito:discusses kc:p-lee-seunghun ;
   cito:discusses kc:p-park-uisang ;
   cito:discusses kc:p-yu-gyeonghwan ;
   cito:discusses kc:p-yun-sanggyu ;
@@ -9151,10 +9152,10 @@ kce:kim-hyon_literary-situation-1969b_1969 a critic:CriticalEssay ;
   cito:discusses kc:p-00165 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-choi-min ;
+  cito:discusses kc:p-gang-eungyo ;
+  cito:discusses kc:p-i-seunghun ;
   cito:discusses kc:p-jo-namik ;
-  cito:discusses kc:p-kang-eungyo ;
   cito:discusses kc:p-kim-hyeongyeong ;
-  cito:discusses kc:p-lee-seunghun ;
   cito:discusses kc:p-park-ido ;
   cito:discusses kc:p-yun-sanggyu ;
   cito:citesAsAuthority kc:p-00018 ;
@@ -9195,7 +9196,7 @@ kce:kim-hyon_literary-situation-1970_1970 a critic:CriticalEssay ;
   cito:discusses kc:p-kim-jongcheol ;
   cito:discusses kc:p-kim-juntae ;
   cito:discusses kc:p-lee-churim ;
-  cito:discusses kc:p-lee-siyoung ;
+  cito:discusses kc:p-lee-siyeong ;
   cito:discusses kc:p-ma-jongha ;
   cito:discusses kc:p-park-jecheon ;
   cito:discusses kc:p-park-namsu ;
@@ -9248,13 +9249,13 @@ kce:kim-hyon_literary-situation-1971_1971 a critic:CriticalEssay ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00199 ;
-  cito:discusses kc:p-choi-harim ;
+  cito:discusses kc:p-choe-harim ;
   cito:discusses kc:p-gang-eungyo ;
   cito:discusses kc:p-gu-sang ;
   cito:discusses kc:p-gwon-gukmyeong ;
   cito:discusses kc:p-kim-jonghae ;
   cito:discusses kc:p-kim-juntae ;
-  cito:discusses kc:p-noh-hyangrim ;
+  cito:discusses kc:p-no-hyangrim ;
   cito:discusses kc:p-park-ido ;
   cito:discusses kc:p-park-jecheon ;
   cito:discusses kc:p-park-namsu ;
@@ -9285,6 +9286,7 @@ kce:kim-hyon_living-poems-1_1983 a critic:CriticalEssay ;
   schema:isPartOf "살아 있는 시들 (제1권 몽상 속의 작은 길들)" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_living-poems-1_1983.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:jo-jeonggwon ;
   cito:discusses kc:p-00076 ;
   cito:discusses kc:p-00084 ;
   cito:discusses kc:p-00091 ;
@@ -9296,13 +9298,13 @@ kce:kim-hyon_living-poems-1_1983 a critic:CriticalEssay ;
   cito:discusses kc:p-00165 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00199 ;
-  cito:discusses kc:p-cho-jeonggwon ;
   cito:discusses kc:p-choe-harim ;
+  cito:discusses kc:p-gang-eungyo ;
   cito:discusses kc:p-han-gwanggu ;
+  cito:discusses kc:p-i-yugyeong ;
   cito:discusses kc:p-jang-seokju ;
   cito:discusses kc:p-jeong-hoseung ;
   cito:discusses kc:p-kam-taejun ;
-  cito:discusses kc:p-kang-eungyo ;
   cito:discusses kc:p-kang-usik ;
   cito:discusses kc:p-kim-hyeongyeong ;
   cito:discusses kc:p-kim-jonghae ;
@@ -9310,16 +9312,15 @@ kce:kim-hyon_living-poems-1_1983 a critic:CriticalEssay ;
   cito:discusses kc:p-lee-haseok ;
   cito:discusses kc:p-lee-siyeong ;
   cito:discusses kc:p-lee-taesu ;
-  cito:discusses kc:p-lee-yugyeong ;
   cito:discusses kc:p-mun-chungseong ;
   cito:discusses kc:p-park-heejin ;
   cito:discusses kc:p-park-jeongman ;
   cito:discusses kc:p-shin-gyuho ;
+  cito:citesAsAuthority kc:p-00036 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00092 ;
   cito:citesAsAuthority kc:p-00186 ;
   cito:citesAsAuthority kc:p-adorno ;
-  cito:citesAsAuthority kc:p-coleridge ;
   cito:citesAsAuthority kc:p-rimbaud ;
   cito:citesAsAuthority kc:p-rousseau ;
   cito:citesAsAuthority kc:p-tagore ;
@@ -9361,15 +9362,16 @@ kce:kim-hyon_living-poems-2_1983 a critic:CriticalEssay ;
   cito:discusses kc:p-ha-jaebong ;
   cito:discusses kc:p-han-seonggi ;
   cito:discusses kc:p-heo-il ;
-  cito:discusses kc:p-jang-youngsu ;
-  cito:discusses kc:p-kang-woosik ;
+  cito:discusses kc:p-i-yugyeong ;
+  cito:discusses kc:p-jang-yeongsu ;
+  cito:discusses kc:p-kang-usik ;
   cito:discusses kc:p-kim-hyeongyeong ;
   cito:discusses kc:p-kim-nyeongyun ;
   cito:discusses kc:p-kim-seunghui ;
   cito:discusses kc:p-kim-suneil ;
   cito:discusses kc:p-ko-jeonghui ;
   cito:discusses kc:p-lee-haeung ;
-  cito:discusses kc:p-lee-hasuk ;
+  cito:discusses kc:p-lee-haseok ;
   cito:discusses kc:p-lee-hyeonggi ;
   cito:discusses kc:p-lee-ilseung ;
   cito:discusses kc:p-lee-inhae ;
@@ -9378,7 +9380,6 @@ kce:kim-hyon_living-poems-2_1983 a critic:CriticalEssay ;
   cito:discusses kc:p-lee-sara ;
   cito:discusses kc:p-lee-siyeong ;
   cito:discusses kc:p-lee-youngyu ;
-  cito:discusses kc:p-lee-yugyeong ;
   cito:discusses kc:p-min-yeong ;
   cito:discusses kc:p-no-hyangrim ;
   cito:discusses kc:p-park-gyeongseok ;
@@ -9440,6 +9441,7 @@ kce:kim-hyon_madness-study_1973 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00073 ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00192 ;
+  cito:citesAsAuthority kc:p-00223 ;
   cito:citesAsAuthority kc:p-bachelard ;
   cito:citesAsAuthority kc:p-byron ;
   cito:citesAsAuthority kc:p-chateaubriand ;
@@ -9450,7 +9452,6 @@ kce:kim-hyon_madness-study_1973 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-musset ;
   cito:citesAsAuthority kc:p-nerval ;
   cito:citesAsAuthority kc:p-samain ;
-  cito:citesAsAuthority kc:p-verlaine ;
   cito:citesAsAuthority kc:p-vigny ;
   cito:citesAsAuthority kc:p-villon ;
   dcterms:subject "이념과 풍속"@ko ;
@@ -9488,14 +9489,14 @@ kce:kim-hyon_monthly-review_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00204 ;
   cito:discusses kc:p-00245 ;
-  cito:discusses kc:p-choi-harim ;
+  cito:discusses kc:p-choe-harim ;
+  cito:discusses kc:p-gwon-gukmyeong ;
   cito:discusses kc:p-i-seunghun ;
   cito:discusses kc:p-i-tan ;
   cito:discusses kc:p-i-yugyeong ;
   cito:discusses kc:p-kang-homu ;
   cito:discusses kc:p-kang-inseop ;
-  cito:discusses kc:p-kim-kwangseop ;
-  cito:discusses kc:p-kwon-gukmyeong ;
+  cito:discusses kc:p-kim-gwangseop ;
   cito:discusses kc:p-park-heejin ;
   cito:discusses kc:p-park-ido ;
   cito:discusses kc:p-park-namsu ;
@@ -9504,13 +9505,13 @@ kce:kim-hyon_monthly-review_1973 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00022 ;
   cito:citesAsAuthority kc:p-00040 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00177 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00221 ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-malherbe ;
-  cito:citesAsAuthority kc:p-ponge ;
   dcterms:subject "이해와 공감"@ko ;
   dcterms:subject "산문과 시"@ko ;
   dcterms:subject "묘사"@ko ;
@@ -9531,9 +9532,9 @@ kce:kim-hyon_no-hyangrim_1984 a critic:CriticalEssay ;
   schema:isPartOf "고통과 꿈" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_no-hyangrim_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:kim-gwanggyun ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00108 ;
-  cito:discusses kc:p-kim-kwanggyun ;
   cito:discusses kc:p-no-hyangrim ;
   dcterms:subject "암시적 묘사"@ko ;
   dcterms:subject "풍경"@ko ;
@@ -9555,11 +9556,13 @@ kce:kim-hyon_novel-structure_1984 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00240 ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-yi-gyubo ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00145 ;
   cito:citesAsAuthority kc:p-00155 ;
-  cito:citesAsAuthority kc:p-bakhtine ;
+  cito:citesAsAuthority kc:p-00232 ;
+  cito:citesAsAuthority kc:p-bakhtin ;
   cito:citesAsAuthority kc:p-barthes ;
   cito:citesAsAuthority kc:p-booth ;
   cito:citesAsAuthority kc:p-cho-dongil ;
@@ -9567,12 +9570,10 @@ kce:kim-hyon_novel-structure_1984 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-genette ;
   cito:citesAsAuthority kc:p-girard ;
   cito:citesAsAuthority kc:p-goldmann ;
-  cito:citesAsAuthority kc:p-lubbock ;
   cito:citesAsAuthority kc:p-pouillon ;
   cito:citesAsAuthority kc:p-propp ;
   cito:citesAsAuthority kc:p-sophocles ;
   cito:citesAsAuthority kc:p-todorov ;
-  cito:citesAsAuthority kc:p-wellek ;
   dcterms:subject "이야기"@ko ;
   dcterms:subject "일차 이야기"@ko ;
   dcterms:subject "종속 이야기"@ko ;
@@ -9646,8 +9647,8 @@ kce:kim-hyon_oh-kyuwon_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00108 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00162 ;
+  cito:discusses kc:p-don-quixote ;
   cito:discusses kc:p-oh-doil ;
-  cito:discusses kc:p-quixote ;
   cito:citesAsAuthority kc:p-00058 ;
   dcterms:subject "잠 안 옴"@ko ;
   dcterms:subject "깨어 있음"@ko ;
@@ -9694,7 +9695,7 @@ kce:kim-hyon_pak-jaesam_1975 a critic:CriticalEssay ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00165 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-park-yongchul ;
+  cito:discusses kc:p-pak-yongcheol ;
   dcterms:subject "한"@ko ;
   dcterms:subject "눈물과 울음"@ko ;
   dcterms:subject "체념"@ko ;
@@ -9738,7 +9739,7 @@ kce:kim-hyon_park-kidong_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00078 ;
   cito:discusses kc:p-00087 ;
   cito:discusses kc:p-cho-haeil ;
-  cito:discusses kc:p-choi-inho ;
+  cito:discusses kc:p-choe-inho ;
   cito:discusses kc:p-park-kidong ;
   cito:discusses kc:p-yun-heunggil ;
   cito:citesAsAuthority kc:p-00192 ;
@@ -9767,12 +9768,12 @@ kce:kim-hyon_park-namchul_1990 a critic:CriticalEssay ;
   cito:discusses kc:p-00106 ;
   cito:discusses kc:p-00244 ;
   cito:discusses kc:p-ha-changsu ;
-  cito:discusses kc:p-park-namchul ;
+  cito:discusses kc:p-park-namcheol ;
   cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-00192 ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-ham-sokhon ;
+  cito:citesAsAuthority kc:p-ham-seokheon ;
   dcterms:subject "과격성"@ko ;
   dcterms:subject "웃음"@ko ;
   dcterms:subject "근원 정서"@ko ;
@@ -9794,8 +9795,8 @@ kce:kim-hyon_park-sangryung-sick_1988 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00133 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-park-sangryung ;
-  cito:discusses kc:p-park-taewon ;
+  cito:discusses kc:p-pak-taewon ;
+  cito:discusses kc:p-park-sangnyung ;
   cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-00181 ;
   cito:citesAsAuthority kc:p-girard ;
@@ -9826,10 +9827,10 @@ kce:kim-hyon_park-sangryung_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00133 ;
   cito:discusses kc:p-00202 ;
-  cito:discusses kc:p-park-sangryung ;
+  cito:discusses kc:p-park-sangnyung ;
+  cito:citesAsAuthority kc:p-00042 ;
+  cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-bachelard ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
-  cito:citesAsAuthority kc:p-nietzsche ;
   dcterms:subject "가락"@ko ;
   dcterms:subject "통종교성"@ko ;
   dcterms:subject "연금술"@ko ;
@@ -9857,7 +9858,7 @@ kce:kim-hyon_park-sungryong_1975 a critic:CriticalEssay ;
   cito:discusses kc:p-00091 ;
   cito:discusses kc:p-00135 ;
   cito:discusses kc:p-00170 ;
-  cito:discusses kc:p-oh-yugwon ;
+  cito:discusses kc:p-o-yugwon ;
   dcterms:subject "대지의 상상력"@ko ;
   dcterms:subject "흙"@ko ;
   dcterms:subject "창조력"@ko ;
@@ -9878,10 +9879,10 @@ kce:kim-hyon_park-taesun_1988 a critic:CriticalEssay ;
   schema:isPartOf "닫힌 소설 미학을 뛰어넘어" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_park-taesun_1988.html> ;
   dcterms:creator kc:p-kim-hyon ;
-  cito:discusses kc:p-jo-jungrae ;
+  cito:discusses kc:p-cho-jeongnae ;
   cito:discusses kc:p-kim-wonil ;
+  cito:discusses kc:p-pak-taewon ;
   cito:discusses kc:p-park-taesun ;
-  cito:discusses kc:p-park-taewon ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-cervantes ;
   cito:citesAsAuthority kc:p-pirandello ;
@@ -9912,25 +9913,25 @@ kce:kim-hyon_poetry-suggestion_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00101 ;
   cito:discusses kc:p-00108 ;
   cito:discusses kc:p-00204 ;
+  cito:discusses kc:p-bak-inhwan ;
   cito:discusses kc:p-gu-jaun ;
   cito:discusses kc:p-hwang-unheon ;
-  cito:discusses kc:p-kim-gwangrim ;
+  cito:discusses kc:p-kim-gwangnim ;
   cito:discusses kc:p-kim-jongmun ;
   cito:discusses kc:p-kim-yeongtae ;
   cito:discusses kc:p-ma-jonggi ;
   cito:discusses kc:p-park-heejin ;
-  cito:discusses kc:p-park-inhwan ;
   cito:discusses kc:p-park-taejin ;
   cito:discusses kc:p-seong-changyeong ;
   cito:discusses kc:p-shin-dongjip ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00176 ;
+  cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-00192 ;
+  cito:citesAsAuthority kc:p-00215 ;
   cito:citesAsAuthority kc:p-bonnefoy ;
-  cito:citesAsAuthority kc:p-poe ;
-  cito:citesAsAuthority kc:p-richards ;
   cito:citesAsAuthority kc:p-rivarol ;
-  cito:citesAsAuthority kc:p-thibaudet ;
   cito:citesAsAuthority kc:p-villiers ;
   dcterms:subject "전통의 단절"@ko ;
   dcterms:subject "의미와 주장"@ko ;
@@ -9952,6 +9953,7 @@ kce:kim-hyon_prose-poem_1973 a critic:CriticalEssay ;
   schema:isPartOf "산문시 소고" ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_prose-poem_1973.html> ;
   dcterms:creator kc:p-kim-hyon ;
+  cito:discusses kc:kim-gwanggyun ;
   cito:discusses kc:p-00015 ;
   cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00086 ;
@@ -9963,20 +9965,19 @@ kce:kim-hyon_prose-poem_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00204 ;
   cito:discusses kc:p-00244 ;
   cito:discusses kc:p-00247 ;
-  cito:discusses kc:p-kim-gwanggyun ;
-  cito:discusses kc:p-noh-hyangrim ;
-  cito:discusses kc:p-oh-janghwan ;
+  cito:discusses kc:p-no-hyangrim ;
+  cito:discusses kc:p-o-janghwan ;
   cito:citesAsAuthority kc:p-00017 ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00223 ;
   cito:citesAsAuthority kc:p-aragon ;
   cito:citesAsAuthority kc:p-bertrand ;
   cito:citesAsAuthority kc:p-peguy ;
   cito:citesAsAuthority kc:p-racine ;
   cito:citesAsAuthority kc:p-rimbaud ;
   cito:citesAsAuthority kc:p-samain ;
-  cito:citesAsAuthority kc:p-verlaine ;
   dcterms:subject "장시"@ko ;
   dcterms:subject "산문시"@ko ;
   dcterms:subject "음절수 운율"@ko ;
@@ -10007,9 +10008,9 @@ kce:kim-hyon_rhetoric-experience_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-choi-harim ;
+  cito:discusses kc:p-choe-harim ;
   cito:discusses kc:p-choi-min ;
-  cito:discusses kc:p-gwon-darung ;
+  cito:discusses kc:p-gwon-dalung ;
   cito:discusses kc:p-han-gipal ;
   cito:discusses kc:p-han-gwanggu ;
   cito:discusses kc:p-jang-seokju ;
@@ -10018,8 +10019,8 @@ kce:kim-hyon_rhetoric-experience_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-kim-yeongtae ;
   cito:discusses kc:p-lee-myeongsu ;
   cito:discusses kc:p-lee-taesu ;
+  cito:discusses kc:p-pak-yongcheol ;
   cito:discusses kc:p-park-uisang ;
-  cito:discusses kc:p-park-yongchul ;
   cito:discusses kc:p-shin-hyeop ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-bachelard ;
@@ -10047,14 +10048,14 @@ kce:kim-hyon_seo-jeongin_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00079 ;
   cito:discusses kc:p-00100 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-park-taewon ;
+  cito:discusses kc:p-pak-taewon ;
   cito:discusses kc:p-seo-jeongin ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00088 ;
+  cito:citesAsAuthority kc:p-00145 ;
   cito:citesAsAuthority kc:p-00181 ;
   cito:citesAsAuthority kc:p-00192 ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-joyce ;
   cito:citesAsAuthority kc:p-park-imun ;
-  cito:citesAsAuthority kc:p-percy-lubbock ;
   cito:citesAsAuthority kc:p-robbe-grillet ;
   cito:citesAsAuthority kc:p-woolf ;
   dcterms:subject "문체"@ko ;
@@ -10079,7 +10080,7 @@ kce:kim-hyon_shin-daechul_1980 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00076 ;
   cito:discusses kc:p-00169 ;
-  cito:discusses kc:p-shin-daechul ;
+  cito:discusses kc:p-shin-daechol ;
   cito:citesAsAuthority kc:p-brice-parain ;
   cito:citesAsAuthority kc:p-frankfurt-school ;
   dcterms:subject "자연 인식"@ko ;
@@ -10134,9 +10135,9 @@ kce:kim-hyon_song-chanho_1990 a critic:CriticalEssay ;
   cito:discusses kc:p-choe-harim ;
   cito:discusses kc:p-lee-seongbok ;
   cito:discusses kc:p-song-chanho ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-laozi ;
-  cito:citesAsAuthority kc:p-marcuse ;
   dcterms:subject "가난과 죽음"@ko ;
   dcterms:subject "상보적 책 읽기"@ko ;
   dcterms:subject "폐허"@ko ;
@@ -10189,8 +10190,8 @@ kce:kim-hyon_suffering-poetics_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-lee-seongbok ;
   cito:discusses kc:p-pak-nohae ;
   cito:citesAsAuthority kc:p-00018 ;
-  cito:citesAsAuthority kc:p-ham-sokhon ;
-  cito:citesAsAuthority kc:p-li-bai ;
+  cito:citesAsAuthority kc:p-00141 ;
+  cito:citesAsAuthority kc:p-ham-seokheon ;
   cito:citesAsAuthority kc:p-rodin ;
   dcterms:subject "고난"@ko ;
   dcterms:subject "고난의 시학"@ko ;
@@ -10219,7 +10220,7 @@ kce:kim-hyon_three-questions_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-kim-yeongtae ;
   cito:discusses kc:p-ma-jonggi ;
-  cito:discusses kc:p-oh-janghwan ;
+  cito:discusses kc:p-o-janghwan ;
   cito:citesAsAuthority kc:p-00092 ;
   cito:citesAsAuthority kc:p-bachelard ;
   cito:citesAsAuthority kc:p-drieu ;
@@ -10271,8 +10272,8 @@ kce:kim-hyon_tolstoyism_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00098 ;
   cito:discusses kc:p-00101 ;
   cito:discusses kc:p-00204 ;
+  cito:discusses kc:p-00241 ;
   cito:discusses kc:p-shin-dongyeop ;
-  cito:discusses kc:p-yi-kwangsu ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-teilhard ;
   dcterms:subject "톨스토이주의"@ko ;
@@ -10297,8 +10298,8 @@ kce:kim-hyon_translation-reflection_1980 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00120 ;
-  cito:discusses kc:p-choi-seohae ;
-  cito:discusses kc:p-hyun-jingeon ;
+  cito:discusses kc:p-choe-seohae ;
+  cito:discusses kc:p-hyeon-jingeon ;
   cito:discusses kc:p-shin-chaeho ;
   cito:citesAsAuthority kc:p-00139 ;
   cito:citesAsAuthority kc:p-00171 ;
@@ -10343,14 +10344,14 @@ kce:kim-hyon_understanding-korean-poetry_1973 a critic:CriticalEssay ;
   cito:discusses kc:p-00241 ;
   cito:citesAsAuthority kc:p-00008 ;
   cito:citesAsAuthority kc:p-00028 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00075 ;
   cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-bonnefoy ;
   cito:citesAsAuthority kc:p-bultmann ;
-  cito:citesAsAuthority kc:p-eliot ;
+  cito:citesAsAuthority kc:p-cho-dongil ;
+  cito:citesAsAuthority kc:p-cho-yeonhyeon ;
   cito:citesAsAuthority kc:p-friche ;
-  cito:citesAsAuthority kc:p-huxley ;
-  cito:citesAsAuthority kc:p-jo-dongil ;
-  cito:citesAsAuthority kc:p-jo-yeonhyeon ;
   cito:citesAsAuthority kc:p-lee-oyoung ;
   cito:citesAsAuthority kc:p-malraux ;
   cito:citesAsAuthority kc:p-tillich ;
@@ -10410,10 +10411,10 @@ kce:kim-hyon_water-sound-poetics_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-00135 ;
   cito:discusses kc:p-00162 ;
   cito:discusses kc:p-gwon-dalung ;
-  cito:discusses kc:p-hong-sinseon ;
+  cito:discusses kc:p-hong-shinseon ;
   cito:discusses kc:p-kim-jeongung ;
   cito:discusses kc:p-lee-saengjin ;
-  cito:discusses kc:p-lee-siyoung ;
+  cito:discusses kc:p-lee-siyeong ;
   cito:citesAsAuthority kc:p-00221 ;
   cito:citesAsAuthority kc:p-novalis ;
   cito:citesAsAuthority kc:p-piranesi ;
@@ -10438,7 +10439,7 @@ kce:kim-hyon_why-read-novels_1988 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00204 ;
   cito:citesAsAuthority kc:p-00051 ;
-  cito:citesAsAuthority kc:p-levi-strauss ;
+  cito:citesAsAuthority kc:p-00139 ;
   dcterms:subject "호기심"@ko ;
   dcterms:subject "욕망"@ko ;
   dcterms:subject "쾌락 원칙"@ko ;
@@ -10530,8 +10531,8 @@ kce:kim-hyon_yi-chungjun-leave_1988 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_yi-chungjun-leave_1988.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00240 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-00161 ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   dcterms:subject "상징적 연관"@ko ;
   dcterms:subject "현실적 정신주의"@ko ;
   dcterms:subject "비극적 현실주의"@ko ;
@@ -10557,11 +10558,11 @@ kce:kim-hyon_yi-chungjun_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-00243 ;
   cito:discusses kc:p-kim-seungok ;
+  cito:citesAsAuthority kc:p-00055 ;
   cito:citesAsAuthority kc:p-00058 ;
+  cito:citesAsAuthority kc:p-00075 ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-00192 ;
-  cito:citesAsAuthority kc:p-huxley ;
-  cito:citesAsAuthority kc:p-marcuse ;
-  cito:citesAsAuthority kc:p-orwell ;
   cito:citesAsAuthority kc:p-paul ;
   dcterms:subject "복합적 시선"@ko ;
   dcterms:subject "자유와 사랑"@ko ;
@@ -10717,9 +10718,9 @@ kce:kim-uchang_aesthetic-meaning_1993 a critic:CriticalEssay ;
   schema:isPartOf "나아감과 되풀이 — 심미적인 것의 의미" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_aesthetic-meaning_1993.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00088 ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-havel ;
-  cito:citesAsAuthority kc:p-joyce ;
   cito:citesAsAuthority kc:p-sahlins ;
   cito:citesAsAuthority kc:p-schiller ;
   dcterms:subject "되풀이"@ko ;
@@ -10810,7 +10811,7 @@ kce:kim-uchang_all-is-mind_1981 a critic:CriticalEssay ;
   schema:isPartOf "일체 유심" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_all-is-mind_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-han-yongun ;
+  cito:discusses kc:p-00063 ;
   cito:citesAsAuthority kc:p-ricoeur ;
   dcterms:subject "실천의 의지"@ko ;
   dcterms:subject "의지의 단련"@ko ;
@@ -10852,16 +10853,16 @@ kce:kim-uchang_art-and-life_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00017 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-00194 ;
+  cito:citesAsAuthority kc:p-00208 ;
   cito:citesAsAuthority kc:p-00216 ;
+  cito:citesAsAuthority kc:p-00250 ;
   cito:citesAsAuthority kc:p-bachelard ;
-  cito:citesAsAuthority kc:p-marcuse ;
   cito:citesAsAuthority kc:p-ruskin ;
   cito:citesAsAuthority kc:p-schiller ;
-  cito:citesAsAuthority kc:p-stevens ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-zola ;
   dcterms:subject "예술과 우리의 생활은 별개의 세계에 속하는 것이 아니다."@ko ;
   dcterms:subject "인생의 강렬화(intensification)"@ko ;
   dcterms:subject "퇴폐 예술"@ko ;
@@ -10889,27 +10890,27 @@ kce:kim-uchang_art-form-social-meaning_1981 a critic:CriticalEssay ;
   schema:isPartOf "예술 형식의 사회적 의미에 대하여" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_art-form-social-meaning_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-kim-manjung ;
+  cito:discusses kc:p-00110 ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00009 ;
+  cito:citesAsAuthority kc:p-00012 ;
+  cito:citesAsAuthority kc:p-00040 ;
+  cito:citesAsAuthority kc:p-00044 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00088 ;
   cito:citesAsAuthority kc:p-00093 ;
+  cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-althusser ;
-  cito:citesAsAuthority kc:p-auerbach ;
-  cito:citesAsAuthority kc:p-bacon ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-confucius ;
-  cito:citesAsAuthority kc:p-descartes ;
-  cito:citesAsAuthority kc:p-durkheim ;
   cito:citesAsAuthority kc:p-fergusson ;
   cito:citesAsAuthority kc:p-goldmann ;
   cito:citesAsAuthority kc:p-husserl ;
   cito:citesAsAuthority kc:p-locke ;
-  cito:citesAsAuthority kc:p-lukacs ;
   cito:citesAsAuthority kc:p-malraux ;
   cito:citesAsAuthority kc:p-mannheim ;
   cito:citesAsAuthority kc:p-mead ;
@@ -10949,7 +10950,7 @@ kce:kim-uchang_art-transcendence_1981 a critic:CriticalEssay ;
   cito:discusses kc:p-00136 ;
   cito:discusses kc:p-kim-dohwa ;
   cito:discusses kc:p-yi-eunchan ;
-  cito:discusses kc:p-yi-yuksa ;
+  cito:citesAsAuthority kc:humboldt ;
   cito:citesAsAuthority kc:p-00093 ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-00196 ;
@@ -10957,7 +10958,6 @@ kce:kim-uchang_art-transcendence_1981 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-burckhardt ;
   cito:citesAsAuthority kc:p-erikson ;
   cito:citesAsAuthority kc:p-gainsborough ;
-  cito:citesAsAuthority kc:p-humboldt ;
   cito:citesAsAuthority kc:p-panofsky ;
   cito:citesAsAuthority kc:p-piaget ;
   cito:citesAsAuthority kc:p-raffaello ;
@@ -10980,14 +10980,14 @@ kce:kim-uchang_baek-mihye_1993 a critic:CriticalEssay ;
   schema:isPartOf "아파트인의 사랑 — 백미혜의 시에 부쳐" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_baek-mihye_1993.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00077 ;
+  cito:discusses kc:p-00114 ;
+  cito:discusses kc:p-00119 ;
+  cito:discusses kc:p-00169 ;
   cito:discusses kc:p-baek-mihye ;
-  cito:discusses kc:p-hwang-jiwoo ;
   cito:discusses kc:p-kim-jeonghwan ;
-  cito:discusses kc:p-kim-sowol ;
-  cito:discusses kc:p-kim-yeongnang ;
-  cito:discusses kc:p-park-mokwol ;
   cito:discusses kc:p-shin-dongyeop ;
-  cito:discusses kc:p-yang-seongwoo ;
+  cito:discusses kc:p-yang-seongu ;
   cito:citesAsAuthority kc:p-grimm ;
   dcterms:subject "사회 변화"@ko ;
   dcterms:subject "소외 계급"@ko ;
@@ -11074,9 +11074,9 @@ kce:kim-uchang_choe-inhun_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-00033 ;
   cito:citesAsAuthority kc:p-00017 ;
   cito:citesAsAuthority kc:p-00038 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00068 ;
   cito:citesAsAuthority kc:p-chagall ;
-  cito:citesAsAuthority kc:p-eliot ;
   dcterms:subject "제목의 하루는 시계의 하루가 아니라 1년을 하루같이, 3년을 하루같이 비슷한 삶을 산다는 뜻에서의 하루를 의미한다."@ko ;
   dcterms:subject "일상생활의 한정성과 안정은 구보씨의 생활을 하나의 끊임없는 되풀이가 되게 한다."@ko ;
   dcterms:subject "그러나 구극적으로 구보씨의 관념들도 실제 생활의 좁고 따분한 테두리를 넘어서지 못하고, 그 섬세함에도 불구하고 일상적 되풀이의 한 요인이 될 뿐이다."@ko ;
@@ -11142,11 +11142,11 @@ kce:kim-uchang_colonial-writers_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-00244 ;
   cito:discusses kc:p-00247 ;
   cito:discusses kc:p-hyeon-jingeon ;
-  cito:discusses kc:p-yi-kiyeong ;
+  cito:discusses kc:p-yi-giyeong ;
+  cito:citesAsAuthority kc:p-00058 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00221 ;
-  cito:citesAsAuthority kc:p-gide ;
   cito:citesAsAuthority kc:p-jung ;
   cito:citesAsAuthority kc:p-kierkegaard ;
   cito:citesAsAuthority kc:p-kim-yunsik ;
@@ -11454,6 +11454,7 @@ kce:kim-uchang_foreign-lit-reception_1993 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_foreign-lit-reception_1993.html> ;
   dcterms:creator kc:p-00117 ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00028 ;
   cito:citesAsAuthority kc:p-00040 ;
   cito:citesAsAuthority kc:p-00059 ;
@@ -11462,7 +11463,6 @@ kce:kim-uchang_foreign-lit-reception_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00093 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00218 ;
-  cito:citesAsAuthority kc:p-auerbach ;
   cito:citesAsAuthority kc:p-frye ;
   cito:citesAsAuthority kc:p-goodman ;
   cito:citesAsAuthority kc:p-ingarden ;
@@ -11480,20 +11480,20 @@ kce:kim-uchang_habermas_1977 a critic:CriticalEssay ;
   schema:isPartOf "실천적 관심과 이상적 언어 — 하버마스의 비판 이론" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_habermas_1977.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:machiavelli ;
   cito:citesAsAuthority kc:p-00052 ;
   cito:citesAsAuthority kc:p-00062 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00071 ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00217 ;
   cito:citesAsAuthority kc:p-adorno ;
   cito:citesAsAuthority kc:p-arendt ;
   cito:citesAsAuthority kc:p-augustine ;
-  cito:citesAsAuthority kc:p-hobbes ;
   cito:citesAsAuthority kc:p-horkheimer ;
   cito:citesAsAuthority kc:p-lichtheim ;
-  cito:citesAsAuthority kc:p-machiavelli ;
-  cito:citesAsAuthority kc:p-marcuse ;
   cito:citesAsAuthority kc:p-peirce ;
   dcterms:subject "다방면성"@ko ;
   dcterms:subject "이론과 실천"@ko ;
@@ -11528,10 +11528,10 @@ kce:kim-uchang_han-yongun-novel_1977 a critic:CriticalEssay ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00063 ;
   cito:citesAsAuthority kc:p-00040 ;
+  cito:citesAsAuthority kc:p-00081 ;
   cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-00230 ;
-  cito:citesAsAuthority kc:p-ian-watt ;
   cito:citesAsAuthority kc:p-levenson ;
   cito:citesAsAuthority kc:p-schiller ;
   cito:citesAsAuthority kc:p-whitehead ;
@@ -11578,8 +11578,8 @@ kce:kim-uchang_history-civic-education_1993 a critic:CriticalEssay ;
   schema:isPartOf "역사와 공민 교육" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_history-civic-education_1993.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-han-yongun ;
-  cito:citesAsAuthority kc:p-wallace-stevens .
+  cito:discusses kc:p-00063 ;
+  cito:citesAsAuthority kc:p-00068 .
 
 kce:kim-uchang_history-objectivity_1993 a critic:CriticalEssay ;
   dcterms:title "역사의 객관성과 인간적 현실 — 새로운 사회사의 의의"@ko ;
@@ -11724,10 +11724,10 @@ kce:kim-uchang_industrial-desire-aesthetics_1981 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_industrial-desire-aesthetics_1981.html> ;
   dcterms:creator kc:p-00117 ;
   cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00121 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-gombrich ;
-  cito:citesAsAuthority kc:p-klee ;
   cito:citesAsAuthority kc:p-locke ;
   cito:citesAsAuthority kc:p-lorenz ;
   cito:citesAsAuthority kc:p-tinbergen ;
@@ -11757,15 +11757,15 @@ kce:kim-uchang_industrial-literature_1981 a critic:CriticalEssay ;
   schema:isPartOf "산업 시대의 문학" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_industrial-literature_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-cho-sehui ;
+  cito:discusses kc:p-00087 ;
   cito:discusses kc:p-hwang-hyeon ;
   cito:discusses kc:p-kim-gwangseop ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00179 ;
   cito:citesAsAuthority kc:p-00186 ;
   cito:citesAsAuthority kc:p-alfred-schutz ;
-  cito:citesAsAuthority kc:p-georges-poulet ;
-  cito:citesAsAuthority kc:p-hannah-arendt ;
+  cito:citesAsAuthority kc:p-arendt ;
   cito:citesAsAuthority kc:p-rudolf-otto ;
   dcterms:subject "산업 시대"@ko ;
   dcterms:subject "도덕과 생존의 불일치"@ko ;
@@ -11823,11 +11823,11 @@ kce:kim-uchang_jung-hyunjong_1977 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_jung-hyunjong_1977.html> ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00091 ;
+  cito:citesAsAuthority kc:p-00024 ;
   cito:citesAsAuthority kc:p-00040 ;
   cito:citesAsAuthority kc:p-00066 ;
-  cito:citesAsAuthority kc:p-binswanger ;
-  cito:citesAsAuthority kc:p-nietzsche ;
-  cito:citesAsAuthority kc:p-valery ;
+  cito:citesAsAuthority kc:p-00161 ;
+  cito:citesAsAuthority kc:p-00221 ;
   dcterms:subject "죽음"@ko ;
   dcterms:subject "절대적인 자발성의 영역"@ko ;
   dcterms:subject "죽음과 삶의 양면적 긴장"@ko ;
@@ -11872,7 +11872,7 @@ kce:kim-uchang_kim-hyeonseung_1981 a critic:CriticalEssay ;
   schema:isPartOf "김현승의 시" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_kim-hyeonseung_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-kim-hyeonseung ;
+  cito:discusses kc:p-00104 ;
   cito:citesAsAuthority kc:p-kepler ;
   dcterms:subject "김현승 시의 아름다움은 이미지의 선명한 조소성(彫塑性)에 있다."@ko ;
   dcterms:subject "그의 뛰어난 점은 시적 능력을 재치나 멋의 전시가 아니라 중요한 문제의 검토에 사용했다는 것이니, 그는 우리 시에서 드물게 보는 모럴리스트인 것이다."@ko ;
@@ -11899,9 +11899,9 @@ kce:kim-uchang_kim-jonggil-a_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00245 ;
   cito:discusses kc:p-min-jaesik ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00221 ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-longfellow ;
   cito:citesAsAuthority kc:p-macleish ;
   dcterms:subject "의미"@ko ;
@@ -11932,7 +11932,7 @@ kce:kim-uchang_kim-jonggil-b_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-cheongma ;
+  cito:discusses kc:p-00245 ;
   cito:discusses kc:p-dongju ;
   cito:discusses kc:p-hwang-maecheon ;
   cito:discusses kc:p-kim-jeonghan ;
@@ -11941,9 +11941,9 @@ kce:kim-uchang_kim-jonggil-b_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-manhae ;
   cito:discusses kc:p-yi-giyeong ;
   cito:discusses kc:p-yuksa ;
-  cito:citesAsAuthority kc:p-arnold ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-max-weber ;
+  cito:citesAsAuthority kc:p-00007 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00230 ;
   dcterms:subject "경험의 반사·굴절"@ko ;
   dcterms:subject "중후한 감수성"@ko ;
   dcterms:subject "스타일리스트"@ko ;
@@ -12003,9 +12003,9 @@ kce:kim-uchang_kim-suyoung_1977 a critic:CriticalEssay ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00084 ;
   cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-00244 ;
+  cito:discusses kc:p-bak-inhwan ;
   cito:discusses kc:p-park-ilyoung ;
-  cito:discusses kc:p-park-inhwan ;
-  cito:discusses kc:p-yi-sang ;
   cito:citesAsAuthority kc:p-00040 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00176 ;
@@ -12034,18 +12034,18 @@ kce:kim-uchang_kim-yunsik_1977 a critic:CriticalEssay ;
   schema:isPartOf "사고와 현실 — 김윤식론" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_kim-yunsik_1977.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:discusses kc:im-hwa ;
   cito:discusses kc:p-00034 ;
   cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00086 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-anseo ;
-  cito:discusses kc:p-imhwa ;
   cito:discusses kc:p-kim-eok ;
   cito:discusses kc:p-pak-yongcheol ;
   cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00139 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-kluckhohn ;
-  cito:citesAsAuthority kc:p-levi-strauss ;
   cito:citesAsAuthority kc:p-pak-chiu ;
   cito:citesAsAuthority kc:p-seo-insik ;
   cito:citesAsAuthority kc:p-shin-chaeho ;
@@ -12210,15 +12210,15 @@ kce:kim-uchang_literary-research-method_1993 a critic:CriticalEssay ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-hyeon-jingeon ;
+  cito:citesAsAuthority kc:p-00024 ;
+  cito:citesAsAuthority kc:p-00041 ;
   cito:citesAsAuthority kc:p-00093 ;
   cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-00194 ;
-  cito:citesAsAuthority kc:p-binswanger ;
-  cito:citesAsAuthority kc:p-dilthey ;
+  cito:citesAsAuthority kc:p-00230 ;
   cito:citesAsAuthority kc:p-lipps ;
   cito:citesAsAuthority kc:p-marvin-harris ;
-  cito:citesAsAuthority kc:p-max-weber ;
-  cito:citesAsAuthority kc:p-merleau-ponty ;
   cito:citesAsAuthority kc:p-sahlins ;
   dcterms:subject "내면생활"@ko ;
   dcterms:subject "설명(Erklären)과 내적 동기의 이해(Verstehen)"@ko ;
@@ -12310,17 +12310,17 @@ kce:kim-uchang_literature-science_1981 a critic:CriticalEssay ;
   schema:isPartOf "문학과 과학" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_literature-science_1981.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:cp-snow ;
+  cito:citesAsAuthority kc:p-00062 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00230 ;
+  cito:citesAsAuthority kc:p-00250 ;
   cito:citesAsAuthority kc:p-blake ;
-  cito:citesAsAuthority kc:p-cpsnow ;
-  cito:citesAsAuthority kc:p-habermas ;
   cito:citesAsAuthority kc:p-husserl ;
   cito:citesAsAuthority kc:p-keats ;
   cito:citesAsAuthority kc:p-locke ;
   cito:citesAsAuthority kc:p-newton ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-zola ;
   dcterms:subject "두 개의 문화"@ko ;
   dcterms:subject "상상력 대 이성"@ko ;
   dcterms:subject "추상화 조작"@ko ;
@@ -12337,7 +12337,7 @@ kce:kim-uchang_literature-subject-form_1977 a critic:CriticalEssay ;
   schema:isPartOf "주체의 형식으로서의 문학" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_literature-subject-form_1977.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:citesAsAuthority kc:p-dilthey ;
+  cito:citesAsAuthority kc:p-00041 ;
   cito:citesAsAuthority kc:p-kosik ;
   dcterms:subject "부현상적 관계"@ko ;
   dcterms:subject "독서"@ko ;
@@ -12397,8 +12397,10 @@ kce:kim-uchang_logic-of-freedom_1981 a critic:CriticalEssay ;
   cito:discusses kc:p-cleaver ;
   cito:discusses kc:p-ellison ;
   cito:discusses kc:p-rwright ;
+  cito:citesAsAuthority kc:p-00044 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00230 ;
@@ -12406,7 +12408,6 @@ kce:kim-uchang_logic-of-freedom_1981 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-brown ;
   cito:citesAsAuthority kc:p-chomsky ;
   cito:citesAsAuthority kc:p-dewey ;
-  cito:citesAsAuthority kc:p-durkheim ;
   cito:citesAsAuthority kc:p-fanon ;
   cito:citesAsAuthority kc:p-fourier ;
   cito:citesAsAuthority kc:p-friedenberg ;
@@ -12419,7 +12420,6 @@ kce:kim-uchang_logic-of-freedom_1981 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-kohl ;
   cito:citesAsAuthority kc:p-kozol ;
   cito:citesAsAuthority kc:p-lasch ;
-  cito:citesAsAuthority kc:p-marcuse ;
   cito:citesAsAuthority kc:p-memmi ;
   cito:citesAsAuthority kc:p-millett ;
   cito:citesAsAuthority kc:p-mills ;
@@ -12454,12 +12454,12 @@ kce:kim-uchang_lyric-modernism_1981 a critic:CriticalEssay ;
   schema:isPartOf "서정적 모더니즘의 경과" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_lyric-modernism_1981.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:discusses kc:kim-gwanggyun ;
+  cito:discusses kc:p-00104 ;
+  cito:discusses kc:p-00109 ;
+  cito:discusses kc:p-00116 ;
   cito:discusses kc:p-bak-inhwan ;
-  cito:discusses kc:p-kim-girim ;
-  cito:discusses kc:p-kim-gwanggyun ;
   cito:discusses kc:p-kim-gyudong ;
-  cito:discusses kc:p-kim-hyeonseung ;
-  cito:discusses kc:p-kim-suyeong ;
   cito:discusses kc:p-yi-hanjik ;
   cito:citesAsAuthority kc:p-brecht ;
   dcterms:subject "감정에 호소"@ko ;
@@ -12546,34 +12546,34 @@ kce:kim-uchang_national-literature-conscience_1981 a critic:CriticalEssay ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00063 ;
+  cito:discusses kc:p-00078 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-bang-yeongung ;
   cito:discusses kc:p-cho-seonjak ;
-  cito:discusses kc:p-hwang-sokyong ;
   cito:discusses kc:p-park-taesun ;
   cito:discusses kc:p-seo-jeongin ;
   cito:discusses kc:p-yi-hocheol ;
   cito:citesAsAuthority kc:p-00017 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00131 ;
   cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00184 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00207 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-barthes ;
   cito:citesAsAuthority kc:p-eliade ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-hauser ;
   cito:citesAsAuthority kc:p-levenson ;
   cito:citesAsAuthority kc:p-schiller ;
   cito:citesAsAuthority kc:p-sorel ;
   cito:citesAsAuthority kc:p-teilhard ;
   cito:citesAsAuthority kc:p-turgenev ;
-  cito:citesAsAuthority kc:p-williams ;
   dcterms:subject "양심"@ko ;
   dcterms:subject "민족문학"@ko ;
   dcterms:subject "시민 의식"@ko ;
@@ -12698,14 +12698,14 @@ kce:kim-uchang_on-questioning_1977 a critic:CriticalEssay ;
   schema:isPartOf "물음에 대하여 — 방법에 대한 시론" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_on-questioning_1977.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00062 ;
+  cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00151 ;
+  cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-dewey ;
-  cito:citesAsAuthority kc:p-habermas ;
-  cito:citesAsAuthority kc:p-heidegger ;
   cito:citesAsAuthority kc:p-kuhn ;
   cito:citesAsAuthority kc:p-lavoisier ;
-  cito:citesAsAuthority kc:p-marcuse ;
   cito:citesAsAuthority kc:p-priestley ;
-  cito:citesAsAuthority kc:p-sartre ;
   dcterms:subject "참다운 의미에서의 문제가 아니며, 여기에서 참으로 문제적인 것은 아무것도 없다."@ko ;
   dcterms:subject "질문"@ko ;
   dcterms:subject "정해진 문답의 세계는 개인의 주체적인 실천을 봉쇄함으로써 완전한 소외의 세계일 수밖에 없다."@ko ;
@@ -12740,8 +12740,8 @@ kce:kim-uchang_on-stillness_1993 a critic:CriticalEssay ;
   schema:isPartOf "고요함에 대하여" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_on-stillness_1993.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00007 ;
   cito:citesAsAuthority kc:p-00174 ;
-  cito:citesAsAuthority kc:p-matthew-arnold ;
   cito:citesAsAuthority kc:p-swami-ajaya ;
   cito:citesAsAuthority kc:p-toegye ;
   dcterms:subject "소음"@ko ;
@@ -12762,6 +12762,7 @@ kce:kim-uchang_oriental-painting_1993 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_oriental-painting_1993.html> ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-cho-seonggi ;
+  cito:citesAsAuthority kc:p-00121 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-bachelard ;
@@ -12769,14 +12770,13 @@ kce:kim-uchang_oriental-painting_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-cahill ;
   cito:citesAsAuthority kc:p-capra ;
-  cito:citesAsAuthority kc:p-castaneda ;
+  cito:citesAsAuthority kc:p-carlos-castaneda ;
   cito:citesAsAuthority kc:p-dongqichang ;
   cito:citesAsAuthority kc:p-gainsborough ;
   cito:citesAsAuthority kc:p-guoxi ;
   cito:citesAsAuthority kc:p-haga-toru ;
   cito:citesAsAuthority kc:p-hopkins ;
   cito:citesAsAuthority kc:p-kim-youngsik ;
-  cito:citesAsAuthority kc:p-klee ;
   cito:citesAsAuthority kc:p-licheng ;
   cito:citesAsAuthority kc:p-needham ;
   cito:citesAsAuthority kc:p-reynolds ;
@@ -12817,13 +12817,16 @@ kce:kim-uchang_passion-scholarship_1993 a critic:CriticalEssay ;
   schema:isPartOf "학문의 정열 — 과학 기술 시대의 인문과학과 자연과학" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_passion-scholarship_1993.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00006 ;
+  cito:citesAsAuthority kc:p-00012 ;
   cito:citesAsAuthority kc:p-00040 ;
+  cito:citesAsAuthority kc:p-00125 ;
   cito:citesAsAuthority kc:p-00171 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00176 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-00230 ;
-  cito:citesAsAuthority kc:p-arnheim ;
   cito:citesAsAuthority kc:p-bachelard ;
-  cito:citesAsAuthority kc:p-bacon ;
   cito:citesAsAuthority kc:p-bohr ;
   cito:citesAsAuthority kc:p-bronowski ;
   cito:citesAsAuthority kc:p-copernicus ;
@@ -12835,17 +12838,14 @@ kce:kim-uchang_passion-scholarship_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-goodman ;
   cito:citesAsAuthority kc:p-husserl ;
   cito:citesAsAuthority kc:p-kepler ;
-  cito:citesAsAuthority kc:p-lacan ;
   cito:citesAsAuthority kc:p-lloyd ;
   cito:citesAsAuthority kc:p-locke ;
   cito:citesAsAuthority kc:p-malebranche ;
   cito:citesAsAuthority kc:p-mill ;
   cito:citesAsAuthority kc:p-needham ;
   cito:citesAsAuthority kc:p-newton ;
-  cito:citesAsAuthority kc:p-poe ;
   cito:citesAsAuthority kc:p-polanyi ;
   cito:citesAsAuthority kc:p-rutherford ;
-  cito:citesAsAuthority kc:p-shelley ;
   cito:citesAsAuthority kc:p-strasser ;
   cito:citesAsAuthority kc:p-veblen ;
   cito:citesAsAuthority kc:p-wells .
@@ -12858,9 +12858,9 @@ kce:kim-uchang_pi-cheondeuk-1977_1977 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_pi-cheondeuk-1977_1977.html> ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-pi-cheondeuk ;
+  cito:citesAsAuthority kc:p-00212 ;
   cito:citesAsAuthority kc:p-maria-luisa ;
   cito:citesAsAuthority kc:p-napoleon ;
-  cito:citesAsAuthority kc:p-tao-yuanming ;
   cito:citesAsAuthority kc:p-thales ;
   cito:citesAsAuthority kc:p-wordsworth ;
   dcterms:subject "원근법"@ko ;
@@ -12909,8 +12909,8 @@ kce:kim-uchang_poetic-language-material_1981 a critic:CriticalEssay ;
   schema:isPartOf "시의 언어, 시의 소재" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_poetic-language-material_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-kim-myeongsu ;
-  cito:discusses kc:p-park-mokwol ;
+  cito:discusses kc:p-00111 ;
+  cito:discusses kc:p-00169 ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-zhuangzi ;
   dcterms:subject "시적 사실"@ko ;
@@ -12975,13 +12975,13 @@ kce:kim-uchang_poetry-reality-happiness_1981 a critic:CriticalEssay ;
   schema:isPartOf "시·현실·행복" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_poetry-reality-happiness_1981.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00189 ;
   cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-benn ;
   cito:citesAsAuthority kc:p-blake ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "생각은 사물을 조직화하는 방법 — 삶의 필요에 근거한 사고"@ko ;
   dcterms:subject "현실 자체가 사고를 대신하는 조직화 — 안정될수록 근원적 사고가 중단됨"@ko ;
   dcterms:subject "근대화 — 생산에의 전면적 편입과 소비를 행복의 이상으로 삼음"@ko ;
@@ -13016,15 +13016,15 @@ kce:kim-uchang_poetry-situation_1981 a critic:CriticalEssay ;
   schema:isPartOf "시의 상황" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_poetry-situation_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-choe-inhun ;
-  cito:discusses kc:p-kim-sowol ;
+  cito:discusses kc:p-00033 ;
+  cito:discusses kc:p-00114 ;
   cito:discusses kc:p-yun-seondo ;
   cito:citesAsAuthority kc:p-00017 ;
   cito:citesAsAuthority kc:p-00038 ;
   cito:citesAsAuthority kc:p-00088 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-adams ;
   cito:citesAsAuthority kc:p-petrarch ;
-  cito:citesAsAuthority kc:p-shelley ;
   cito:citesAsAuthority kc:p-watt ;
   dcterms:subject "삶에 대한 느낌 자체에 두 가지가 있을 수 있으며, 이 두 가지는 단테의 시와 오늘의 소설가 사이에 존재하는 거리로서 설명되어야 한다."@ko ;
   dcterms:subject "삶에 대한 시적 접근과 산문적 접근의 대조"@ko ;
@@ -13110,16 +13110,16 @@ kce:kim-uchang_purity-engagement-dialectic_1981 a critic:CriticalEssay ;
   schema:isPartOf "순수와 참여의 변증법" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_purity-engagement-dialectic_1981.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-00031 ;
+  cito:discusses kc:p-00116 ;
   cito:discusses kc:p-cheon-sangbyeong ;
   cito:discusses kc:p-choe-gyerak ;
-  cito:discusses kc:p-jo-jihun ;
   cito:discusses kc:p-kim-gwansik ;
-  cito:discusses kc:p-kim-suyeong ;
   cito:discusses kc:p-shin-dongyeop ;
   cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-00171 ;
+  cito:citesAsAuthority kc:p-00223 ;
   cito:citesAsAuthority kc:p-jaspers ;
-  cito:citesAsAuthority kc:p-verlaine ;
   dcterms:subject "순수함"@ko ;
   dcterms:subject "겸허"@ko ;
   dcterms:subject "투명성"@ko ;
@@ -13202,15 +13202,15 @@ kce:kim-uchang_remorse-memory-sensation_1993 a critic:CriticalEssay ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00086 ;
   cito:discusses kc:p-00114 ;
+  cito:citesAsAuthority kc:p-00043 ;
   cito:citesAsAuthority kc:p-00059 ;
+  cito:citesAsAuthority kc:p-00088 ;
+  cito:citesAsAuthority kc:p-00181 ;
+  cito:citesAsAuthority kc:p-00186 ;
+  cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00209 ;
   cito:citesAsAuthority kc:p-benjamin ;
-  cito:citesAsAuthority kc:p-dufrenne ;
-  cito:citesAsAuthority kc:p-joyce ;
   cito:citesAsAuthority kc:p-kierkegaard ;
-  cito:citesAsAuthority kc:p-proust ;
-  cito:citesAsAuthority kc:p-rilke ;
-  cito:citesAsAuthority kc:p-shakespeare ;
   dcterms:subject "할 수도 있었을 작은 일"@ko ;
   dcterms:subject "작은 후회가 마음을 끄는 것은 거기에 행동의 문제 이외에 이해의 문제가 들어 있기 때문이다."@ko ;
   dcterms:subject "수학적 우아미"@ko ;
@@ -13257,27 +13257,27 @@ kce:kim-uchang_science-tech-literature_1993 a critic:CriticalEssay ;
   cito:discusses kc:p-00162 ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
-  cito:discusses kc:p-jang-youngsu ;
+  cito:discusses kc:p-00244 ;
+  cito:discusses kc:p-jang-yeongsu ;
   cito:discusses kc:p-kang-seokgyeong ;
   cito:discusses kc:p-kim-dongmyeong ;
   cito:discusses kc:p-kim-seungok ;
+  cito:discusses kc:p-lee-inseong ;
   cito:discusses kc:p-lee-seongbok ;
   cito:discusses kc:p-mun-byeongran ;
-  cito:discusses kc:p-park-namchul ;
-  cito:discusses kc:p-yi-inseong ;
-  cito:discusses kc:p-yi-sang ;
+  cito:discusses kc:p-park-namcheol ;
+  cito:citesAsAuthority kc:gadamer ;
+  cito:citesAsAuthority kc:machiavelli ;
   cito:citesAsAuthority kc:p-00007 ;
   cito:citesAsAuthority kc:p-00040 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00188 ;
   cito:citesAsAuthority kc:p-carrouges ;
-  cito:citesAsAuthority kc:p-gadamer ;
   cito:citesAsAuthority kc:p-krutch ;
-  cito:citesAsAuthority kc:p-machiavelli ;
   cito:citesAsAuthority kc:p-ransom ;
   cito:citesAsAuthority kc:p-rimbaud ;
-  cito:citesAsAuthority kc:p-russell ;
   cito:citesAsAuthority kc:p-simmel .
 
 kce:kim-uchang_science-tech-problems_1993 a critic:CriticalEssay ;
@@ -13288,6 +13288,8 @@ kce:kim-uchang_science-tech-problems_1993 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_science-tech-problems_1993.html> ;
   dcterms:creator kc:p-00117 ;
   cito:citesAsAuthority kc:p-00065 ;
+  cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00178 ;
   cito:citesAsAuthority kc:p-adorno ;
   cito:citesAsAuthority kc:p-darwin ;
   cito:citesAsAuthority kc:p-davies ;
@@ -13297,14 +13299,12 @@ kce:kim-uchang_science-tech-problems_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-dyson ;
   cito:citesAsAuthority kc:p-feyerabend ;
   cito:citesAsAuthority kc:p-gunder-frank ;
-  cito:citesAsAuthority kc:p-heidegger ;
   cito:citesAsAuthority kc:p-horkheimer ;
   cito:citesAsAuthority kc:p-husserl ;
   cito:citesAsAuthority kc:p-kuhn ;
   cito:citesAsAuthority kc:p-lakatos ;
   cito:citesAsAuthority kc:p-lorenz ;
   cito:citesAsAuthority kc:p-lyotard ;
-  cito:citesAsAuthority kc:p-popper ;
   dcterms:subject "과학과 기술"@ko ;
   dcterms:subject "민주주의는 제도가 아니라 생활 방식"@ko ;
   dcterms:subject "단순 평형의 기구(simple homeostatic mechanisms)"@ko ;
@@ -13345,15 +13345,15 @@ kce:kim-uchang_self-and-we_1977 a critic:CriticalEssay ;
   dcterms:creator kc:p-00117 ;
   cito:citesAsAuthority kc:p-00040 ;
   cito:citesAsAuthority kc:p-00066 ;
+  cito:citesAsAuthority kc:p-00071 ;
+  cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00235 ;
   cito:citesAsAuthority kc:p-arendt ;
   cito:citesAsAuthority kc:p-cezanne ;
   cito:citesAsAuthority kc:p-goldmann ;
-  cito:citesAsAuthority kc:p-hobbes ;
   cito:citesAsAuthority kc:p-kaufmann ;
-  cito:citesAsAuthority kc:p-lukacs ;
   cito:citesAsAuthority kc:p-mead ;
   dcterms:subject "만인전쟁"@ko ;
   dcterms:subject "전체성"@ko ;
@@ -13371,17 +13371,17 @@ kce:kim-uchang_sensation-discipline_1981 a critic:CriticalEssay ;
   schema:isPartOf "감각과 그 기율" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_sensation-discipline_1981.html> ;
   dcterms:creator kc:p-00117 ;
-  cito:discusses kc:p-jeong-jiyong ;
-  cito:discusses kc:p-kim-chunsu ;
+  cito:discusses kc:p-00086 ;
+  cito:discusses kc:p-00098 ;
   cito:discusses kc:p-kim-jonggil ;
+  cito:citesAsAuthority kc:p-00008 ;
   cito:citesAsAuthority kc:p-00051 ;
-  cito:citesAsAuthority kc:p-auden ;
+  cito:citesAsAuthority kc:p-00180 ;
   cito:citesAsAuthority kc:p-borges ;
   cito:citesAsAuthority kc:p-breughel ;
+  cito:citesAsAuthority kc:p-erwin-straus ;
   cito:citesAsAuthority kc:p-foucault ;
   cito:citesAsAuthority kc:p-monet ;
-  cito:citesAsAuthority kc:p-pound ;
-  cito:citesAsAuthority kc:p-straus ;
   cito:citesAsAuthority kc:p-zuckerkandl ;
   dcterms:subject "공간"@ko ;
   dcterms:subject "공간 인식"@ko ;
@@ -13525,9 +13525,9 @@ kce:kim-uchang_total-reflection_1993 a critic:CriticalEssay ;
   schema:isPartOf "전체적 반성 — 인문과학의 방법에 대한 한 관찰" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_total-reflection_1993.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00062 ;
   cito:citesAsAuthority kc:p-00192 ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-habermas ;
   cito:citesAsAuthority kc:p-mannheim ;
   cito:citesAsAuthority kc:p-whitehead ;
   dcterms:subject "가치의 위기"@ko ;
@@ -13564,6 +13564,7 @@ kce:kim-uchang_university-truth_1993 a critic:CriticalEssay ;
   schema:isPartOf "대학과 진리" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_university-truth_1993.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:citesAsAuthority kc:p-00062 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00152 ;
@@ -13572,7 +13573,6 @@ kce:kim-uchang_university-truth_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-althusser ;
   cito:citesAsAuthority kc:p-emerson ;
   cito:citesAsAuthority kc:p-feyerabend ;
-  cito:citesAsAuthority kc:p-habermas ;
   cito:citesAsAuthority kc:p-husserl ;
   cito:citesAsAuthority kc:p-jameson ;
   dcterms:subject "진리 탐구"@ko ;
@@ -13598,13 +13598,13 @@ kce:kim-uchang_western-lit-temptation_1993 a critic:CriticalEssay ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-emma-bovary ;
+  cito:citesAsAuthority kc:gadamer ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00174 ;
-  cito:citesAsAuthority kc:p-auerbach ;
   cito:citesAsAuthority kc:p-auerbach2 ;
-  cito:citesAsAuthority kc:p-gadamer ;
   cito:citesAsAuthority kc:p-gautier ;
   cito:citesAsAuthority kc:p-girard ;
   cito:citesAsAuthority kc:p-montaigne ;
@@ -13634,8 +13634,8 @@ kce:kim-uchang_women-in-male-society_1981 a critic:CriticalEssay ;
   schema:isPartOf "남성적 사회의 여성" ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_women-in-male-society_1981.html> ;
   dcterms:creator kc:p-00117 ;
+  cito:discusses kc:p-bak-wanseo ;
   cito:discusses kc:p-lee-jeonghwan ;
-  cito:discusses kc:p-park-wanseo ;
   dcterms:subject "여성의 문제"@ko ;
   dcterms:subject "우리 사회 전체가 이루고 있는 어떤 생존의 질서"@ko ;
   dcterms:subject "부계의 가족에 대한 충성심"@ko ;
@@ -13653,12 +13653,12 @@ kce:kim-uchang_world-and-literature_1977 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00088 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00207 ;
+  cito:citesAsAuthority kc:p-00222 ;
   cito:citesAsAuthority kc:p-dickens ;
   cito:citesAsAuthority kc:p-emerson ;
   cito:citesAsAuthority kc:p-foucault ;
   cito:citesAsAuthority kc:p-frost ;
-  cito:citesAsAuthority kc:p-stendhal ;
-  cito:citesAsAuthority kc:p-vangogh ;
   dcterms:subject "아름답다는 것의 이러한 본질"@ko ;
   dcterms:subject "아름다움은 어떤 사물의 내재적인 성질이 아니라 사물 간의 일정한 관계에서 발생하는 사건이다"@ko ;
   dcterms:subject "느낌은 사람이 세계에 대하여 있는 한 방식"@ko ;
@@ -13689,7 +13689,7 @@ kce:kim-uchang_yu-jongho-1977_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-00243 ;
-  cito:discusses kc:p-yi-sang ;
+  cito:discusses kc:p-00244 ;
   cito:citesAsAuthority kc:p-john-donne ;
   cito:citesAsAuthority kc:p-okakura ;
   dcterms:subject "공동의 진리"@ko ;
@@ -13729,6 +13729,8 @@ kce:kim-uchang_yu-jongho-1993_1993 a critic:CriticalEssay ;
   cito:discusses kc:p-ha-geunchan ;
   cito:discusses kc:p-hwang-jini ;
   cito:discusses kc:p-kim-seungok ;
+  cito:citesAsAuthority kc:heinrich-heine ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00093 ;
@@ -13736,16 +13738,14 @@ kce:kim-uchang_yu-jongho-1993_1993 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00207 ;
   cito:citesAsAuthority kc:p-00216 ;
-  cito:citesAsAuthority kc:p-auerbach ;
   cito:citesAsAuthority kc:p-brecht ;
   cito:citesAsAuthority kc:p-buchner ;
-  cito:citesAsAuthority kc:p-heine ;
+  cito:citesAsAuthority kc:p-iyeonghui ;
   cito:citesAsAuthority kc:p-jakobson ;
   cito:citesAsAuthority kc:p-lessing ;
   cito:citesAsAuthority kc:p-lowenthal ;
   cito:citesAsAuthority kc:p-schiller ;
   cito:citesAsAuthority kc:p-shklovsky ;
-  cito:citesAsAuthority kc:p-yi-yonghui ;
   dcterms:subject "과정"@ko ;
   dcterms:subject "리얼리스트"@ko ;
   dcterms:subject "현실"@ko ;
@@ -13782,12 +13782,12 @@ kce:kim-uchang_yun-dongju_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-yi-taejun ;
   cito:citesAsAuthority kc:p-00040 ;
   cito:citesAsAuthority kc:p-00042 ;
+  cito:citesAsAuthority kc:p-00058 ;
   cito:citesAsAuthority kc:p-00059 ;
+  cito:citesAsAuthority kc:p-00186 ;
   cito:citesAsAuthority kc:p-00221 ;
-  cito:citesAsAuthority kc:p-gide ;
   cito:citesAsAuthority kc:p-jammes ;
   cito:citesAsAuthority kc:p-kierkegaard ;
-  cito:citesAsAuthority kc:p-rilke ;
   cito:citesAsAuthority kc:p-schiller .
 
 kce:kim-uchang_yun-dongju_1985 a critic:CriticalEssay ;
@@ -14046,7 +14046,7 @@ kce:yu-jongho_glance-word_1961 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_glance-word_1961.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00004 ;
-  cito:discusses kc:p-yi-hohcheol ;
+  cito:discusses kc:p-yi-hocheol ;
   cito:citesAsAuthority kc:p-00068 ;
   dcterms:subject "인물조형의 등한"@ko ;
   dcterms:subject "성격과 사건의 상호결정"@ko ;
@@ -14435,11 +14435,14 @@ kce:yu-jongho_v2-01_1982 a critic:CriticalEssay ;
   schema:isPartOf "시와 토착어 지향 — 한국시의 자기정의" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v2-01_1982.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:kim-gwanggyun ;
+  cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00079 ;
   cito:discusses kc:p-00100 ;
   cito:discusses kc:p-00109 ;
   cito:discusses kc:p-00114 ;
   cito:discusses kc:p-00116 ;
+  cito:discusses kc:p-00119 ;
   cito:discusses kc:p-00120 ;
   cito:discusses kc:p-00134 ;
   cito:discusses kc:p-00195 ;
@@ -14448,21 +14451,18 @@ kce:yu-jongho_v2-01_1982 a critic:CriticalEssay ;
   cito:discusses kc:p-00245 ;
   cito:discusses kc:p-00247 ;
   cito:discusses kc:p-ham-hyeongsu ;
-  cito:discusses kc:p-han-yongun ;
   cito:discusses kc:p-hongrang ;
   cito:discusses kc:p-hwang-jini ;
-  cito:discusses kc:p-kim-gwanggyun ;
   cito:discusses kc:p-kim-gwangseop ;
-  cito:discusses kc:p-kim-yeongnang ;
   cito:discusses kc:p-nam-guman ;
   cito:discusses kc:p-yi-jonyeon ;
   cito:discusses kc:p-yi-saek ;
+  cito:citesAsAuthority kc:george-steiner ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00213 ;
   cito:citesAsAuthority kc:p-00222 ;
   cito:citesAsAuthority kc:p-browning ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-john-donne ;
-  cito:citesAsAuthority kc:p-steiner ;
   cito:citesAsAuthority kc:p-turgenev ;
   cito:citesAsAuthority kc:p-wittgenstein ;
   cito:citesAsAuthority kc:p-wordsworth ;
@@ -14486,6 +14486,7 @@ kce:yu-jongho_v2-02_1982 a critic:CriticalEssay ;
   schema:isPartOf "임과 집과 길 — 소월의 시" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v2-02_1982.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00086 ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00100 ;
@@ -14493,10 +14494,9 @@ kce:yu-jongho_v2-02_1982 a critic:CriticalEssay ;
   cito:discusses kc:p-00134 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-han-yongun ;
   cito:discusses kc:p-kim-eok ;
+  cito:discusses kc:p-kimsowol ;
   cito:discusses kc:p-park-jonghwa ;
-  cito:discusses kc:p-sowol ;
   cito:citesAsAuthority kc:p-reischauer ;
   cito:citesAsAuthority kc:p-simmel ;
   cito:citesAsAuthority kc:p-slater ;
@@ -14522,14 +14522,14 @@ kce:yu-jongho_v2-03_1982 a critic:CriticalEssay ;
   schema:isPartOf "시의 자유와 관습의 굴레 — 김수영의 시" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v2-03_1982.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:kim-gwanggyun ;
   cito:discusses kc:p-00076 ;
   cito:discusses kc:p-00086 ;
   cito:discusses kc:p-00114 ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00136 ;
+  cito:discusses kc:p-00244 ;
   cito:discusses kc:p-00247 ;
-  cito:discusses kc:p-kim-gwanggyun ;
-  cito:discusses kc:p-yi-sang ;
   cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-schumann ;
@@ -14552,7 +14552,7 @@ kce:yu-jongho_v2-04_1982 a critic:CriticalEssay ;
   schema:isPartOf "점잖음의 미학 — 김종길의 시" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v2-04_1982.html> ;
   dcterms:creator kc:p-00246 ;
-  cito:discusses kc:p-cheongma ;
+  cito:discusses kc:p-00245 ;
   cito:discusses kc:p-jihun ;
   cito:citesAsAuthority kc:p-confucius ;
   dcterms:subject "언어경제"@ko ;
@@ -14645,9 +14645,11 @@ kce:yu-jongho_v2-08_1982 a critic:CriticalEssay ;
   schema:isPartOf "소설과 사회 — 영국 소설의 시초를 중심으로" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v2-08_1982.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00009 ;
+  cito:citesAsAuthority kc:p-00081 ;
   cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00184 ;
   cito:citesAsAuthority kc:p-00219 ;
-  cito:citesAsAuthority kc:p-auerbach ;
   cito:citesAsAuthority kc:p-barthes ;
   cito:citesAsAuthority kc:p-daiches ;
   cito:citesAsAuthority kc:p-defoe ;
@@ -14656,9 +14658,7 @@ kce:yu-jongho_v2-08_1982 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-fielding ;
   cito:citesAsAuthority kc:p-goldmann ;
   cito:citesAsAuthority kc:p-harry-levin ;
-  cito:citesAsAuthority kc:p-ian-watt ;
   cito:citesAsAuthority kc:p-milton ;
-  cito:citesAsAuthority kc:p-raymond-williams ;
   cito:citesAsAuthority kc:p-richardson ;
   cito:citesAsAuthority kc:p-richardson-2 ;
   cito:citesAsAuthority kc:p-rousseau ;
@@ -14689,7 +14689,7 @@ kce:yu-jongho_v2-09_1982 a critic:CriticalEssay ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-pak-taewon ;
   cito:citesAsAuthority kc:p-00171 ;
   cito:citesAsAuthority kc:p-turgenev ;
@@ -14749,7 +14749,7 @@ kce:yu-jongho_v2-11_1982 a critic:CriticalEssay ;
   cito:discusses kc:p-00200 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-bak-wanseo ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-ha-geunchan ;
   cito:discusses kc:p-o-yeongsu ;
   cito:discusses kc:p-yi-giyeong ;
@@ -14760,7 +14760,6 @@ kce:yu-jongho_v2-11_1982 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-bremner ;
   cito:citesAsAuthority kc:p-dewey ;
   cito:citesAsAuthority kc:p-dickens ;
-  cito:citesAsAuthority kc:p-dickens2 ;
   cito:citesAsAuthority kc:p-forster ;
   cito:citesAsAuthority kc:p-melville ;
   dcterms:subject "사회정의"@ko ;
@@ -14827,31 +14826,31 @@ kce:yu-jongho_v2-13_1982 a critic:CriticalEssay ;
   cito:discusses kc:p-choe-myeongik ;
   cito:discusses kc:p-heo-jun ;
   cito:discusses kc:p-yi-taejun ;
+  cito:citesAsAuthority kc:p-00007 ;
   cito:citesAsAuthority kc:p-00008 ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00028 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00070 ;
   cito:citesAsAuthority kc:p-00074 ;
   cito:citesAsAuthority kc:p-00075 ;
   cito:citesAsAuthority kc:p-00131 ;
   cito:citesAsAuthority kc:p-00149 ;
+  cito:citesAsAuthority kc:p-00176 ;
+  cito:citesAsAuthority kc:p-00184 ;
+  cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-allen-tate ;
   cito:citesAsAuthority kc:p-andrew-marvell ;
   cito:citesAsAuthority kc:p-arnold-hauser ;
-  cito:citesAsAuthority kc:p-augustinus ;
+  cito:citesAsAuthority kc:p-augustine ;
   cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-cleanth-brooks ;
   cito:citesAsAuthority kc:p-conrad ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-emily-dickinson ;
   cito:citesAsAuthority kc:p-john-donne ;
-  cito:citesAsAuthority kc:p-matthew-arnold ;
   cito:citesAsAuthority kc:p-philip-rahv ;
-  cito:citesAsAuthority kc:p-poe ;
   cito:citesAsAuthority kc:p-ransom ;
-  cito:citesAsAuthority kc:p-raymond-williams ;
-  cito:citesAsAuthority kc:p-richards ;
   cito:citesAsAuthority kc:p-turgenev ;
   cito:citesAsAuthority kc:p-wordsworth ;
   cito:citesAsAuthority kc:p-wyndham-lewis ;
@@ -14904,14 +14903,14 @@ kce:yu-jongho_v2-15_1982 a critic:CriticalEssay ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-chaemansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-choehaksong ;
-  cito:discusses kc:p-hyeonjingeon ;
-  cito:discusses kc:p-yitaejun ;
+  cito:discusses kc:p-hyeon-jingeon ;
+  cito:discusses kc:p-yi-taejun ;
+  cito:citesAsAuthority kc:p-00019 ;
   cito:citesAsAuthority kc:p-00029 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-adorno ;
-  cito:citesAsAuthority kc:p-beethoven ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-goncharov ;
   cito:citesAsAuthority kc:p-lermontov ;
   cito:citesAsAuthority kc:p-mannheim ;
@@ -14961,7 +14960,7 @@ kce:yu-jongho_v2-17_1982 a critic:CriticalEssay ;
   schema:isPartOf "불가능한 행복의 질서 — 박완서의 소설" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v2-17_1982.html> ;
   dcterms:creator kc:p-00246 ;
-  cito:discusses kc:p-park-wanseo ;
+  cito:discusses kc:p-bak-wanseo ;
   dcterms:subject "반속 지향"@ko ;
   dcterms:subject "재난의 분배"@ko ;
   dcterms:subject "자기파멸에의 의지"@ko ;
@@ -15012,19 +15011,19 @@ kce:yu-jongho_v3-01_1987 a critic:CriticalEssay ;
   cito:discusses kc:p-00199 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-jeongyagyong ;
+  cito:citesAsAuthority kc:p-00007 ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00029 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00144 ;
   cito:citesAsAuthority kc:p-00218 ;
-  cito:citesAsAuthority kc:p-arnold ;
-  cito:citesAsAuthority kc:p-auerbach ;
+  cito:citesAsAuthority kc:p-00232 ;
   cito:citesAsAuthority kc:p-barthes ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-iyeonghui ;
   cito:citesAsAuthority kc:p-jameson ;
   cito:citesAsAuthority kc:p-labruyere ;
   cito:citesAsAuthority kc:p-pater ;
   cito:citesAsAuthority kc:p-tagore ;
-  cito:citesAsAuthority kc:p-wellek ;
   dcterms:subject "변두리 형식"@ko ;
   dcterms:subject "하위형식"@ko ;
   dcterms:subject "주류화"@ko ;
@@ -15048,12 +15047,12 @@ kce:yu-jongho_v3-02_1987 a critic:CriticalEssay ;
   cito:discusses kc:p-00239 ;
   cito:citesAsAuthority kc:p-00005 ;
   cito:citesAsAuthority kc:p-00216 ;
-  cito:citesAsAuthority kc:p-hannah-arendt ;
+  cito:citesAsAuthority kc:p-00217 ;
+  cito:citesAsAuthority kc:p-arendt ;
+  cito:citesAsAuthority kc:p-dewey ;
   cito:citesAsAuthority kc:p-hans-memling ;
   cito:citesAsAuthority kc:p-hermann-hesse ;
-  cito:citesAsAuthority kc:p-john-dewey ;
   cito:citesAsAuthority kc:p-rousseau ;
-  cito:citesAsAuthority kc:p-thomas-more ;
   dcterms:subject "자유시간"@ko ;
   dcterms:subject "대중문화"@ko ;
   dcterms:subject "문화산업"@ko ;
@@ -15074,26 +15073,26 @@ kce:yu-jongho_v3-03_1987 a critic:CriticalEssay ;
   schema:isPartOf "급진적 상상력의 비평 — 그 기본개념에 대하여" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-03_1987.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:george-steiner ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00017 ;
+  cito:citesAsAuthority kc:p-00042 ;
+  cito:citesAsAuthority kc:p-00047 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00092 ;
   cito:citesAsAuthority kc:p-00138 ;
   cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00151 ;
   cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00184 ;
+  cito:citesAsAuthority kc:p-00211 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-althusser ;
-  cito:citesAsAuthority kc:p-auerbach ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-eagleton ;
-  cito:citesAsAuthority kc:p-engels ;
   cito:citesAsAuthority kc:p-fischer ;
   cito:citesAsAuthority kc:p-hauser ;
   cito:citesAsAuthority kc:p-jameson ;
   cito:citesAsAuthority kc:p-macherey ;
-  cito:citesAsAuthority kc:p-marcuse ;
-  cito:citesAsAuthority kc:p-steiner ;
-  cito:citesAsAuthority kc:p-taine ;
-  cito:citesAsAuthority kc:p-williams ;
   dcterms:subject "사회역사적 접근법"@ko ;
   dcterms:subject "마르크스주의 비평"@ko ;
   dcterms:subject "토대와 상부구조"@ko ;
@@ -15118,26 +15117,26 @@ kce:yu-jongho_v3-04_1987 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:citesAsAuthority kc:p-00005 ;
   cito:citesAsAuthority kc:p-00023 ;
+  cito:citesAsAuthority kc:p-00036 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00176 ;
   cito:citesAsAuthority kc:p-00194 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-00219 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-bonaparte ;
   cito:citesAsAuthority kc:p-castelvetro ;
-  cito:citesAsAuthority kc:p-coleridge ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-else ;
   cito:citesAsAuthority kc:p-golden ;
   cito:citesAsAuthority kc:p-jung ;
   cito:citesAsAuthority kc:p-lessing ;
-  cito:citesAsAuthority kc:p-shelley ;
   cito:citesAsAuthority kc:p-twain ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "신들린 사람"@ko ;
   dcterms:subject "승화"@ko ;
   dcterms:subject "독립복합"@ko ;
@@ -15159,14 +15158,14 @@ kce:yu-jongho_v3-05_1987 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-05_1987.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00244 ;
+  cito:citesAsAuthority kc:cicero ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00017 ;
   cito:citesAsAuthority kc:p-00038 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00207 ;
-  cito:citesAsAuthority kc:p-auerbach ;
-  cito:citesAsAuthority kc:p-cicero ;
   cito:citesAsAuthority kc:p-horace ;
   cito:citesAsAuthority kc:p-lionel-trilling ;
   cito:citesAsAuthority kc:p-woolf ;
@@ -15213,10 +15212,10 @@ kce:yu-jongho_v3-07_1987 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-07_1987.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00033 ;
+  cito:citesAsAuthority kc:machiavelli ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-bach ;
   cito:citesAsAuthority kc:p-brahms ;
-  cito:citesAsAuthority kc:p-machiavelli ;
   dcterms:subject "차가운 사회"@ko ;
   dcterms:subject "표방가치"@ko ;
   dcterms:subject "자기분열"@ko ;
@@ -15242,11 +15241,11 @@ kce:yu-jongho_v3-08_1987 a critic:CriticalEssay ;
   cito:discusses kc:p-00164 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:p-kimeok ;
+  cito:discusses kc:p-kim-eok ;
   cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00058 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-dryden ;
-  cito:citesAsAuthority kc:p-gide ;
   cito:citesAsAuthority kc:p-kleist ;
   cito:citesAsAuthority kc:p-lessing ;
   cito:citesAsAuthority kc:p-winckelmann ;
@@ -15273,21 +15272,21 @@ kce:yu-jongho_v3-09_1987 a critic:CriticalEssay ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00243 ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00045 ;
+  cito:citesAsAuthority kc:p-00141 ;
+  cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00196 ;
+  cito:citesAsAuthority kc:p-00208 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-bronowski ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-golding ;
+  cito:citesAsAuthority kc:p-graham-hough ;
   cito:citesAsAuthority kc:p-graves ;
-  cito:citesAsAuthority kc:p-hough ;
   cito:citesAsAuthority kc:p-keats ;
-  cito:citesAsAuthority kc:p-li-bai ;
   cito:citesAsAuthority kc:p-nabokov ;
   cito:citesAsAuthority kc:p-pope ;
-  cito:citesAsAuthority kc:p-richards ;
-  cito:citesAsAuthority kc:p-stevens ;
   dcterms:subject "진실 제시 기능"@ko ;
   dcterms:subject "미메시스"@ko ;
   dcterms:subject "사실에의 충실"@ko ;
@@ -15350,7 +15349,7 @@ kce:yu-jongho_v3-11_1987 a critic:CriticalEssay ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00076 ;
   cito:discusses kc:p-00108 ;
-  cito:discusses kc:p-yi-mun-yol ;
+  cito:discusses kc:p-imun-yol ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00192 ;
   dcterms:subject "명료성"@ko ;
@@ -15372,10 +15371,10 @@ kce:yu-jongho_v3-12_1987 a critic:CriticalEssay ;
   schema:isPartOf "난폭시대의 시적 반응 — 최승호의 시" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-12_1987.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:kim-gwanggyun ;
   cito:discusses kc:p-00035 ;
   cito:discusses kc:p-00239 ;
-  cito:discusses kc:p-kim-gwanggyun ;
-  cito:discusses kc:p-park-inhwan ;
+  cito:discusses kc:p-bak-inhwan ;
   dcterms:subject "문학적 반응"@ko ;
   dcterms:subject "난폭시대"@ko ;
   dcterms:subject "어눌함의 진실"@ko ;
@@ -15400,11 +15399,11 @@ kce:yu-jongho_v3-13_1987 a critic:CriticalEssay ;
   cito:discusses kc:p-00168 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-chae-mansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:discusses kc:p-hyeon-jingeon ;
   cito:discusses kc:p-park-jonghwa ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-00088 ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-hauser ;
   cito:citesAsAuthority kc:p-lowenthal ;
   cito:citesAsAuthority kc:p-sima-qian ;
@@ -15448,7 +15447,7 @@ kce:yu-jongho_v3-15_1987 a critic:CriticalEssay ;
   schema:isPartOf "삭막한 삶과 압축의 미학 — 서정인의 단편" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-15_1987.html> ;
   dcterms:creator kc:p-00246 ;
-  cito:discusses kc:p-seojeongin ;
+  cito:discusses kc:p-seo-jeongin ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-anderson ;
   cito:citesAsAuthority kc:p-isherwood ;
@@ -15474,10 +15473,10 @@ kce:yu-jongho_v3-16_1987 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-16_1987.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00099 ;
-  cito:discusses kc:p-yi-munyol ;
+  cito:discusses kc:p-imun-yol ;
+  cito:citesAsAuthority kc:p-00088 ;
   cito:citesAsAuthority kc:p-00154 ;
   cito:citesAsAuthority kc:p-00216 ;
-  cito:citesAsAuthority kc:p-joyce ;
   dcterms:subject "도상의 작가"@ko ;
   dcterms:subject "리얼리스틱한 관심"@ko ;
   dcterms:subject "능란한 이야기 솜씨"@ko ;
@@ -15498,9 +15497,9 @@ kce:yu-jongho_v3-17_1987 a critic:CriticalEssay ;
   schema:isPartOf "마술적 리얼리즘 — 마르케스의 『백 년 동안의 고독』" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v3-17_1987.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-cervantes ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
-  cito:citesAsAuthority kc:p-ehcarr ;
+  cito:citesAsAuthority kc:p-eh-carr ;
   cito:citesAsAuthority kc:p-faulkner ;
   cito:citesAsAuthority kc:p-marquez ;
   cito:citesAsAuthority kc:p-neruda ;
@@ -15597,10 +15596,10 @@ kce:yu-jongho_v4-02_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-chaucer ;
+  cito:citesAsAuthority kc:p-lee-jaeseon ;
   cito:citesAsAuthority kc:p-parry ;
   cito:citesAsAuthority kc:p-prevert ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-yijaeseon ;
   dcterms:subject "텍스트 확정"@ko ;
   dcterms:subject "원본 확정"@ko ;
   dcterms:subject "규격화된 관용구"@ko ;
@@ -15620,25 +15619,25 @@ kce:yu-jongho_v4-03_1989 a critic:CriticalEssay ;
   schema:isPartOf "시와 사상" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-03_1989.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00086 ;
   cito:discusses kc:p-00102 ;
   cito:discusses kc:p-00133 ;
   cito:discusses kc:p-00245 ;
-  cito:discusses kc:p-han-yongun ;
   cito:discusses kc:p-kim-yunseong ;
   cito:discusses kc:p-kwon-taeeung ;
   cito:citesAsAuthority kc:p-00038 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00212 ;
+  cito:citesAsAuthority kc:p-00229 ;
   cito:citesAsAuthority kc:p-00232 ;
   cito:citesAsAuthority kc:p-brecht ;
   cito:citesAsAuthority kc:p-dubo ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-john-donne ;
   cito:citesAsAuthority kc:p-pope ;
   cito:citesAsAuthority kc:p-pushkin ;
-  cito:citesAsAuthority kc:p-warren ;
   dcterms:subject "언어예술"@ko ;
   dcterms:subject "즐거움을 주는 글"@ko ;
   dcterms:subject "문학성"@ko ;
@@ -15659,10 +15658,13 @@ kce:yu-jongho_v4-04_1989 a critic:CriticalEssay ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00243 ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00093 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-00196 ;
+  cito:citesAsAuthority kc:p-00208 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-bronowski ;
@@ -15670,18 +15672,15 @@ kce:yu-jongho_v4-04_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-chaucer ;
   cito:citesAsAuthority kc:p-conrad ;
   cito:citesAsAuthority kc:p-copernicus ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-golding ;
+  cito:citesAsAuthority kc:p-graham-hough ;
   cito:citesAsAuthority kc:p-graves ;
-  cito:citesAsAuthority kc:p-hough ;
   cito:citesAsAuthority kc:p-keats ;
   cito:citesAsAuthority kc:p-libai ;
   cito:citesAsAuthority kc:p-moore ;
   cito:citesAsAuthority kc:p-nabokov ;
   cito:citesAsAuthority kc:p-pope ;
   cito:citesAsAuthority kc:p-ptolemy ;
-  cito:citesAsAuthority kc:p-richards ;
-  cito:citesAsAuthority kc:p-stevens ;
   cito:citesAsAuthority kc:p-sushi ;
   dcterms:subject "미메시스"@ko ;
   dcterms:subject "사실에의 충실"@ko ;
@@ -15705,8 +15704,8 @@ kce:yu-jongho_v4-05_1989 a critic:CriticalEssay ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00114 ;
   cito:discusses kc:p-00169 ;
-  cito:discusses kc:p-hwangjini ;
-  cito:discusses kc:p-kimkwangseop ;
+  cito:discusses kc:p-hwang-jini ;
+  cito:discusses kc:p-kim-gwangseop ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-moliere ;
   cito:citesAsAuthority kc:p-walterong ;
@@ -15772,27 +15771,27 @@ kce:yu-jongho_v4-07_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00102 ;
   cito:discusses kc:p-00114 ;
   cito:discusses kc:p-00134 ;
+  cito:discusses kc:p-jomyeonghui ;
+  cito:discusses kc:p-kim-eok ;
+  cito:discusses kc:p-o-janghwan ;
+  cito:discusses kc:p-yi-yongak ;
   cito:discusses kc:p-김남주 ;
-  cito:discusses kc:p-김억 ;
   cito:discusses kc:p-신석정 ;
-  cito:discusses kc:p-오장환 ;
-  cito:discusses kc:p-이용악 ;
-  cito:discusses kc:p-조명희 ;
+  cito:citesAsAuthority kc:bertolt-brecht ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00180 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00207 ;
+  cito:citesAsAuthority kc:p-benjamin ;
+  cito:citesAsAuthority kc:p-dubo ;
+  cito:citesAsAuthority kc:p-libai ;
+  cito:citesAsAuthority kc:p-luther ;
   cito:citesAsAuthority kc:p-김달진 ;
   cito:citesAsAuthority kc:p-네루다 ;
-  cito:citesAsAuthority kc:p-두보 ;
-  cito:citesAsAuthority kc:p-루터 ;
   cito:citesAsAuthority kc:p-박형규 ;
-  cito:citesAsAuthority kc:p-벤야민 ;
-  cito:citesAsAuthority kc:p-브레히트 ;
   cito:citesAsAuthority kc:p-에세닌 ;
   cito:citesAsAuthority kc:p-예이츠 ;
-  cito:citesAsAuthority kc:p-이백 ;
   cito:citesAsAuthority kc:p-이원섭 ;
   cito:citesAsAuthority kc:p-페놀로싸 ;
   cito:citesAsAuthority kc:p-하이네 ;
@@ -15820,14 +15819,14 @@ kce:yu-jongho_v4-08_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00100 ;
   cito:discusses kc:p-00102 ;
   cito:discusses kc:p-00134 ;
-  cito:discusses kc:p-권태응 ;
-  cito:discusses kc:p-유진오 ;
-  cito:discusses kc:p-이용악 ;
+  cito:discusses kc:p-kwon-taeeung ;
+  cito:discusses kc:p-yi-taejun ;
+  cito:discusses kc:p-yi-yongak ;
+  cito:discusses kc:p-yu-jino ;
   cito:discusses kc:p-이원수 ;
-  cito:discusses kc:p-이태준 ;
   cito:discusses kc:p-임학수 ;
+  cito:citesAsAuthority kc:bertolt-brecht ;
   cito:citesAsAuthority kc:p-리차즈 ;
-  cito:citesAsAuthority kc:p-브레히트 ;
   cito:citesAsAuthority kc:p-존슨 ;
   dcterms:subject "작품해석의 버릇"@ko ;
   dcterms:subject "문학적 문맹"@ko ;
@@ -15881,16 +15880,16 @@ kce:yu-jongho_v4-10_1989 a critic:CriticalEssay ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00243 ;
+  cito:citesAsAuthority kc:p-00036 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00186 ;
   cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-blake ;
-  cito:citesAsAuthority kc:p-coleridge ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-ruthven ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "즉흥시"@ko ;
   dcterms:subject "낭만주의 예술관"@ko ;
   dcterms:subject "천재"@ko ;
@@ -15913,23 +15912,23 @@ kce:yu-jongho_v4-11_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00109 ;
   cito:discusses kc:p-00243 ;
+  cito:citesAsAuthority kc:eliot ;
   cito:citesAsAuthority kc:p-00005 ;
   cito:citesAsAuthority kc:p-00018 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00049 ;
+  cito:citesAsAuthority kc:p-00088 ;
   cito:citesAsAuthority kc:p-00149 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00176 ;
   cito:citesAsAuthority kc:p-00180 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-augustine ;
   cito:citesAsAuthority kc:p-benjamin ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-eliot-2 ;
   cito:citesAsAuthority kc:p-graves ;
-  cito:citesAsAuthority kc:p-joyce ;
-  cito:citesAsAuthority kc:p-poe ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "제작"@ko ;
   dcterms:subject "영감론"@ko ;
   dcterms:subject "기술로서의 문학"@ko ;
@@ -15953,31 +15952,31 @@ kce:yu-jongho_v4-12_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00136 ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-00247 ;
+  cito:citesAsAuthority kc:p-00042 ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00049 ;
   cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00155 ;
+  cito:citesAsAuthority kc:p-00190 ;
   cito:citesAsAuthority kc:p-00196 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-00221 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-andersen ;
   cito:citesAsAuthority kc:p-byron ;
   cito:citesAsAuthority kc:p-dickens ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-edmund-wilson ;
-  cito:citesAsAuthority kc:p-eliot ;
-  cito:citesAsAuthority kc:p-goethe ;
   cito:citesAsAuthority kc:p-hans-mayer ;
   cito:citesAsAuthority kc:p-keats ;
   cito:citesAsAuthority kc:p-kenneth-clark ;
   cito:citesAsAuthority kc:p-milton ;
   cito:citesAsAuthority kc:p-rembrandt ;
   cito:citesAsAuthority kc:p-rimbaud ;
-  cito:citesAsAuthority kc:p-sainte-beuve ;
-  cito:citesAsAuthority kc:p-shelley ;
   cito:citesAsAuthority kc:p-sophocles ;
   cito:citesAsAuthority kc:p-van-wyck-brooks ;
   cito:citesAsAuthority kc:p-villon ;
   cito:citesAsAuthority kc:p-wordsworth ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "상호조명"@ko ;
   dcterms:subject "표현이론"@ko ;
   dcterms:subject "삶과 문학의 연속성"@ko ;
@@ -15998,18 +15997,18 @@ kce:yu-jongho_v4-13_1989 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-13_1989.html> ;
   dcterms:creator kc:p-00246 ;
   cito:citesAsAuthority kc:p-00051 ;
+  cito:citesAsAuthority kc:p-00058 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00219 ;
+  cito:citesAsAuthority kc:p-charles-lamb ;
   cito:citesAsAuthority kc:p-diderot ;
-  cito:citesAsAuthority kc:p-gide ;
+  cito:citesAsAuthority kc:p-edmund-wilson ;
   cito:citesAsAuthority kc:p-hauser ;
   cito:citesAsAuthority kc:p-keats ;
-  cito:citesAsAuthority kc:p-lamb ;
   cito:citesAsAuthority kc:p-sophocles ;
-  cito:citesAsAuthority kc:p-wilson ;
   dcterms:subject "폭로원리"@ko ;
   dcterms:subject "견인주의"@ko ;
   dcterms:subject "대리적 충족"@ko ;
@@ -16034,13 +16033,13 @@ kce:yu-jongho_v4-14_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-jobyeonghwa ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-brecht ;
   cito:citesAsAuthority kc:p-darwin ;
   cito:citesAsAuthority kc:p-jameson ;
   cito:citesAsAuthority kc:p-labruyere ;
   cito:citesAsAuthority kc:p-mayakovsky ;
-  cito:citesAsAuthority kc:p-richards ;
   cito:citesAsAuthority kc:p-shklovsky ;
   cito:citesAsAuthority kc:p-todorov ;
   cito:citesAsAuthority kc:p-trotsky ;
@@ -16066,15 +16065,15 @@ kce:yu-jongho_v4-15_1989 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-15_1989.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00247 ;
+  cito:citesAsAuthority kc:machiavelli ;
   cito:citesAsAuthority kc:p-00018 ;
   cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00163 ;
+  cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-꽁스탕 ;
   cito:citesAsAuthority kc:p-니체 ;
   cito:citesAsAuthority kc:p-러셀 ;
-  cito:citesAsAuthority kc:p-마키아벨리 ;
   cito:citesAsAuthority kc:p-버너드쇼 ;
-  cito:citesAsAuthority kc:p-벤야민 ;
-  cito:citesAsAuthority kc:p-와일드 ;
   cito:citesAsAuthority kc:p-체홉 ;
   cito:citesAsAuthority kc:p-하우저 ;
   dcterms:subject "이데올로기"@ko ;
@@ -16097,16 +16096,16 @@ kce:yu-jongho_v4-16_1989 a critic:CriticalEssay ;
   schema:isPartOf "문학 공격과 문학 옹호" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-16_1989.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:p-00064 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00196 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-brecht ;
   cito:citesAsAuthority kc:p-eagleton ;
-  cito:citesAsAuthority kc:p-hazlitt ;
   cito:citesAsAuthority kc:p-milton ;
-  cito:citesAsAuthority kc:p-shelley ;
   cito:citesAsAuthority kc:p-sidney ;
   dcterms:subject "리얼리즘의 승리"@ko ;
   dcterms:subject "문학 공격"@ko ;
@@ -16130,6 +16129,7 @@ kce:yu-jongho_v4-17_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00171 ;
   cito:citesAsAuthority kc:p-00174 ;
+  cito:citesAsAuthority kc:p-00185 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-00225 ;
   cito:citesAsAuthority kc:p-calvin ;
@@ -16137,7 +16137,6 @@ kce:yu-jongho_v4-17_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-hesiod ;
   cito:citesAsAuthority kc:p-moliere ;
   cito:citesAsAuthority kc:p-racine ;
-  cito:citesAsAuthority kc:p-richards ;
   cito:citesAsAuthority kc:p-socrates ;
   cito:citesAsAuthority kc:p-whitehead ;
   dcterms:subject "예술부정론"@ko ;
@@ -16168,9 +16167,9 @@ kce:yu-jongho_v4-18_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-demokritos ;
   cito:citesAsAuthority kc:p-else ;
   cito:citesAsAuthority kc:p-golden ;
-  cito:citesAsAuthority kc:p-hesiodos ;
+  cito:citesAsAuthority kc:p-hesiod ;
   cito:citesAsAuthority kc:p-lessing ;
-  cito:citesAsAuthority kc:p-sokrates ;
+  cito:citesAsAuthority kc:p-socrates ;
   cito:citesAsAuthority kc:p-whitehead ;
   dcterms:subject "문학의 자율성"@ko ;
   dcterms:subject "미메시스"@ko ;
@@ -16192,19 +16191,19 @@ kce:yu-jongho_v4-19_1989 a critic:CriticalEssay ;
   schema:isPartOf "비극의 세계" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-19_1989.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:george-steiner ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00058 ;
   cito:citesAsAuthority kc:p-00065 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00196 ;
+  cito:citesAsAuthority kc:p-00197 ;
   cito:citesAsAuthority kc:p-00218 ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-euripides ;
   cito:citesAsAuthority kc:p-merleau ;
-  cito:citesAsAuthority kc:p-shelley ;
   cito:citesAsAuthority kc:p-sophocles ;
-  cito:citesAsAuthority kc:p-steiner ;
   dcterms:subject "비극"@ko ;
   dcterms:subject "산양 노래"@ko ;
   dcterms:subject "인과응보"@ko ;
@@ -16226,12 +16225,13 @@ kce:yu-jongho_v4-20_1989 a critic:CriticalEssay ;
   schema:isPartOf "소설의 대두" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-20_1989.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-00195 ;
   cito:discusses kc:p-hwang-jini ;
   cito:discusses kc:p-jeong-cheol ;
-  cito:discusses kc:p-seo-jeongju ;
   cito:citesAsAuthority kc:p-00017 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00146 ;
+  cito:citesAsAuthority kc:p-00163 ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-bakhtin ;
   cito:citesAsAuthority kc:p-defoe ;
@@ -16239,7 +16239,6 @@ kce:yu-jongho_v4-20_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-hawthorne ;
   cito:citesAsAuthority kc:p-richardson ;
   cito:citesAsAuthority kc:p-watt ;
-  cito:citesAsAuthority kc:p-wilde ;
   dcterms:subject "양식화"@ko ;
   dcterms:subject "낭만적 사랑"@ko ;
   dcterms:subject "문학사회학"@ko ;
@@ -16265,8 +16264,11 @@ kce:yu-jongho_v4-21_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00239 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-chaemansik ;
+  cito:discusses kc:p-chae-manshik ;
   cito:citesAsAuthority kc:p-00005 ;
+  cito:citesAsAuthority kc:p-00007 ;
+  cito:citesAsAuthority kc:p-00019 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-00049 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00055 ;
@@ -16275,17 +16277,14 @@ kce:yu-jongho_v4-21_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00174 ;
   cito:citesAsAuthority kc:p-00211 ;
   cito:citesAsAuthority kc:p-00218 ;
+  cito:citesAsAuthority kc:p-00224 ;
   cito:citesAsAuthority kc:p-00225 ;
   cito:citesAsAuthority kc:p-abrams ;
-  cito:citesAsAuthority kc:p-arnold ;
   cito:citesAsAuthority kc:p-beauvoir ;
-  cito:citesAsAuthority kc:p-beethoven ;
   cito:citesAsAuthority kc:p-blake ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-horace ;
   cito:citesAsAuthority kc:p-saintsbury ;
   cito:citesAsAuthority kc:p-toscanini ;
-  cito:citesAsAuthority kc:p-vico ;
   cito:citesAsAuthority kc:p-walter ;
   cito:citesAsAuthority kc:p-wordsworth ;
   dcterms:subject "비허구적인 글"@ko ;
@@ -16320,11 +16319,11 @@ kce:yu-jongho_v4-22_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00245 ;
   cito:discusses kc:p-00247 ;
   cito:discusses kc:p-cheongeum ;
-  cito:discusses kc:p-yijonyeon ;
-  cito:discusses kc:p-yitaejun ;
+  cito:discusses kc:p-yi-jonyeon ;
+  cito:discusses kc:p-yi-taejun ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-berger ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-gifford ;
   cito:citesAsAuthority kc:p-hagiwara ;
   cito:citesAsAuthority kc:p-ishikawa ;
@@ -16360,11 +16359,11 @@ kce:yu-jongho_v4-23_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00114 ;
   cito:discusses kc:p-00204 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:sin-seokjeong ;
+  cito:discusses kc:p-신석정 ;
   cito:citesAsAuthority kc:coleridge ;
   cito:citesAsAuthority kc:eliot ;
   cito:citesAsAuthority kc:gray ;
-  cito:citesAsAuthority kc:keats ;
+  cito:citesAsAuthority kc:john-keats ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00180 ;
   cito:citesAsAuthority kc:schiller ;
@@ -16389,16 +16388,16 @@ kce:yu-jongho_v4-24_1989 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-24_1989.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-kimnamcheon ;
+  cito:citesAsAuthority kc:p-00001 ;
   cito:citesAsAuthority kc:p-00049 ;
   cito:citesAsAuthority kc:p-00068 ;
-  cito:citesAsAuthority kc:p-akutagawa ;
+  cito:citesAsAuthority kc:p-00145 ;
+  cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-booth ;
   cito:citesAsAuthority kc:p-conrad ;
   cito:citesAsAuthority kc:p-kellogg ;
   cito:citesAsAuthority kc:p-kurosawa ;
-  cito:citesAsAuthority kc:p-lubbock ;
   cito:citesAsAuthority kc:p-lubbock2 ;
-  cito:citesAsAuthority kc:p-nietzsche ;
   cito:citesAsAuthority kc:p-scholes ;
   cito:citesAsAuthority kc:p-scholes2 ;
   dcterms:subject "시점"@ko ;
@@ -16421,6 +16420,7 @@ kce:yu-jongho_v4-25_1989 a critic:CriticalEssay ;
   schema:isPartOf "스타일 분리에서 혼합으로" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v4-25_1989.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:citesAsAuthority kc:cicero ;
   cito:citesAsAuthority kc:p-00005 ;
   cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00017 ;
@@ -16429,7 +16429,6 @@ kce:yu-jongho_v4-25_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00207 ;
   cito:citesAsAuthority kc:p-carr ;
-  cito:citesAsAuthority kc:p-cicero ;
   cito:citesAsAuthority kc:p-horace ;
   cito:citesAsAuthority kc:p-wordsworth ;
   dcterms:subject "이성의 확대"@ko ;
@@ -16460,6 +16459,11 @@ kce:yu-jongho_v4-26_1989 a critic:CriticalEssay ;
   cito:discusses kc:p-00244 ;
   cito:discusses kc:p-00247 ;
   cito:discusses kc:p-설정식 ;
+  cito:citesAsAuthority kc:bertolt-brecht ;
+  cito:citesAsAuthority kc:eliot ;
+  cito:citesAsAuthority kc:fyodor-dostoevsky ;
+  cito:citesAsAuthority kc:george-steiner ;
+  cito:citesAsAuthority kc:holderlin ;
   cito:citesAsAuthority kc:p-00038 ;
   cito:citesAsAuthority kc:p-00049 ;
   cito:citesAsAuthority kc:p-00072 ;
@@ -16470,26 +16474,21 @@ kce:yu-jongho_v4-26_1989 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-00218 ;
   cito:citesAsAuthority kc:p-alain ;
+  cito:citesAsAuthority kc:p-berlin ;
+  cito:citesAsAuthority kc:p-confucius ;
+  cito:citesAsAuthority kc:p-gombrich ;
+  cito:citesAsAuthority kc:p-hermann-hesse ;
+  cito:citesAsAuthority kc:p-kierkegaard ;
+  cito:citesAsAuthority kc:p-mayakovsky ;
+  cito:citesAsAuthority kc:p-sophocles ;
+  cito:citesAsAuthority kc:p-turgenev ;
   cito:citesAsAuthority kc:p-가네트 ;
-  cito:citesAsAuthority kc:p-곰브리치 ;
-  cito:citesAsAuthority kc:p-공자 ;
-  cito:citesAsAuthority kc:p-도스토예프스키 ;
   cito:citesAsAuthority kc:p-딜런토마스 ;
   cito:citesAsAuthority kc:p-로자 ;
   cito:citesAsAuthority kc:p-릴케 ;
-  cito:citesAsAuthority kc:p-마야코프스키 ;
   cito:citesAsAuthority kc:p-모로아 ;
-  cito:citesAsAuthority kc:p-벌린 ;
-  cito:citesAsAuthority kc:p-브레히트 ;
-  cito:citesAsAuthority kc:p-소포클레스 ;
-  cito:citesAsAuthority kc:p-슈타이너 ;
-  cito:citesAsAuthority kc:p-엘리엇 ;
   cito:citesAsAuthority kc:p-체홉 ;
-  cito:citesAsAuthority kc:p-키에르케고르 ;
-  cito:citesAsAuthority kc:p-투르게네프 ;
   cito:citesAsAuthority kc:p-푸시킨 ;
-  cito:citesAsAuthority kc:p-헤세 ;
-  cito:citesAsAuthority kc:p-횔덜린 ;
   dcterms:subject "몰입적 독서"@ko ;
   dcterms:subject "비판적 독서"@ko ;
   dcterms:subject "언어예술성"@ko ;
@@ -16518,7 +16517,7 @@ kce:yu-jongho_v5-01_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-00244 ;
   cito:discusses kc:p-kimsowol ;
   cito:discusses kc:p-manhae ;
-  cito:discusses kc:p-ojanghwan ;
+  cito:discusses kc:p-o-janghwan ;
   cito:discusses kc:p-seojeongju ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00060 ;
@@ -16526,7 +16525,6 @@ kce:yu-jongho_v5-01_1995 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-bentham ;
   cito:citesAsAuthority kc:p-chaucer ;
-  cito:citesAsAuthority kc:p-chaucer2 ;
   cito:citesAsAuthority kc:p-edison ;
   cito:citesAsAuthority kc:p-luther ;
   cito:citesAsAuthority kc:p-mozart ;
@@ -16560,7 +16558,7 @@ kce:yu-jongho_v5-02_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-박팔양 ;
   cito:discusses kc:p-여상현 ;
   cito:discusses kc:p-최석두 ;
-  cito:citesAsAuthority kc:p-공자 ;
+  cito:citesAsAuthority kc:p-confucius ;
   dcterms:subject "추문"@ko ;
   dcterms:subject "추문화"@ko ;
   dcterms:subject "시적 현실주의"@ko ;
@@ -16628,9 +16626,9 @@ kce:yu-jongho_v5-05_1995 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-05_1995.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:jo-jeonggwon ;
+  cito:citesAsAuthority kc:claude-levi-strauss ;
   cito:citesAsAuthority kc:hanshan ;
   cito:citesAsAuthority kc:holderlin ;
-  cito:citesAsAuthority kc:levi-strauss ;
   dcterms:subject "양식화"@ko ;
   dcterms:subject "위엄과 품위"@ko ;
   dcterms:subject "비속성의 거부"@ko ;
@@ -16654,7 +16652,7 @@ kce:yu-jongho_v5-06_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-hwang-jini ;
   cito:discusses kc:p-jeong-yagyong ;
   cito:discusses kc:p-park-jonghae ;
-  cito:citesAsAuthority kc:p-dufu ;
+  cito:citesAsAuthority kc:p-dubo ;
   cito:citesAsAuthority kc:p-libai ;
   dcterms:subject "전지자"@ko ;
   dcterms:subject "광대시"@ko ;
@@ -16676,6 +16674,7 @@ kce:yu-jongho_v5-07_1995 a critic:CriticalEssay ;
   schema:isPartOf "시는 언어로 빚는다" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-07_1995.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:im-hwa ;
   cito:discusses kc:p-00026 ;
   cito:discusses kc:p-00031 ;
   cito:discusses kc:p-00063 ;
@@ -16688,12 +16687,11 @@ kce:yu-jongho_v5-07_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00245 ;
   cito:discusses kc:p-00247 ;
-  cito:discusses kc:p-imhwa ;
   cito:discusses kc:p-kim-donghwan ;
   cito:discusses kc:p-yang-judong ;
+  cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00047 ;
   cito:citesAsAuthority kc:p-00210 ;
-  cito:citesAsAuthority kc:p-eliot ;
   cito:citesAsAuthority kc:p-turgenev ;
   dcterms:subject "언어 예술"@ko ;
   dcterms:subject "시적 완성도"@ko ;
@@ -16721,8 +16719,8 @@ kce:yu-jongho_v5-08_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-00120 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00244 ;
-  cito:discusses kc:pak-taewon ;
-  cito:discusses kc:yi-taejun ;
+  cito:discusses kc:p-pak-taewon ;
+  cito:discusses kc:p-yi-taejun ;
   cito:citesAsAuthority kc:marquez ;
   cito:citesAsAuthority kc:p-00152 ;
   dcterms:subject "정평"@ko ;
@@ -16746,7 +16744,7 @@ kce:yu-jongho_v5-09_1995 a critic:CriticalEssay ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00202 ;
   cito:citesAsAuthority kc:p-00065 ;
-  cito:citesAsAuthority kc:p-김성칠 ;
+  cito:citesAsAuthority kc:p-kim-seongchil ;
   dcterms:subject "잉여 인간"@ko ;
   dcterms:subject "역사 단편"@ko ;
   dcterms:subject "모멸과 연민"@ko ;
@@ -16795,8 +16793,8 @@ kce:yu-jongho_v5-11_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-00133 ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00247 ;
+  cito:citesAsAuthority kc:p-blake ;
   cito:citesAsAuthority kc:p-고리키 ;
-  cito:citesAsAuthority kc:p-블레이크 ;
   cito:citesAsAuthority kc:p-예세닌 ;
   dcterms:subject "전경화"@ko ;
   dcterms:subject "농촌 공동체"@ko ;
@@ -16817,19 +16815,19 @@ kce:yu-jongho_v5-12_1995 a critic:CriticalEssay ;
   schema:isPartOf "어느 시인의 초상" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-12_1995.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:p-imun-yol ;
   cito:discusses kc:p-kim-byeongyeon ;
-  cito:discusses kc:p-yi-munyol ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00066 ;
   cito:citesAsAuthority kc:p-00161 ;
   cito:citesAsAuthority kc:p-00176 ;
+  cito:citesAsAuthority kc:p-00237 ;
   cito:citesAsAuthority kc:p-benjamin ;
   cito:citesAsAuthority kc:p-mill ;
   cito:citesAsAuthority kc:p-nabokov ;
   cito:citesAsAuthority kc:p-pope ;
   cito:citesAsAuthority kc:p-turgenev ;
-  cito:citesAsAuthority kc:p-yeats ;
   dcterms:subject "능란한 얘기 솜씨"@ko ;
   dcterms:subject "관념적 경향"@ko ;
   dcterms:subject "얘기꾼"@ko ;
@@ -16891,7 +16889,7 @@ kce:yu-jongho_v5-14_1995 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-00221 ;
-  cito:citesAsAuthority kc:paul-eluard ;
+  cito:citesAsAuthority kc:p-eluard ;
   cito:citesAsAuthority kc:percy-shelley ;
   cito:citesAsAuthority kc:sophocles ;
   cito:citesAsAuthority kc:terry-eagleton ;
@@ -16917,19 +16915,19 @@ kce:yu-jongho_v5-15_1995 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-15_1995.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-00031 ;
+  cito:citesAsAuthority kc:gadamer ;
+  cito:citesAsAuthority kc:herder ;
+  cito:citesAsAuthority kc:p-00007 ;
   cito:citesAsAuthority kc:p-00059 ;
   cito:citesAsAuthority kc:p-00152 ;
+  cito:citesAsAuthority kc:p-00190 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00221 ;
-  cito:citesAsAuthority kc:p-arnold ;
   cito:citesAsAuthority kc:p-aulus-gellius ;
   cito:citesAsAuthority kc:p-berlin ;
   cito:citesAsAuthority kc:p-byron ;
   cito:citesAsAuthority kc:p-confucius ;
   cito:citesAsAuthority kc:p-eckermann ;
-  cito:citesAsAuthority kc:p-gadamer ;
-  cito:citesAsAuthority kc:p-herder ;
-  cito:citesAsAuthority kc:p-sainte-beuve ;
   cito:citesAsAuthority kc:p-sophocles ;
   cito:citesAsAuthority kc:p-turgenev ;
   dcterms:subject "과거성"@ko ;
@@ -16971,7 +16969,7 @@ kce:yu-jongho_v5-16_1995 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00157 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-00230 ;
-  cito:citesAsAuthority kc:petrarca ;
+  cito:citesAsAuthority kc:p-petrarch ;
   cito:citesAsAuthority kc:sakharov ;
   cito:citesAsAuthority kc:wilcox ;
   dcterms:subject "인간 존엄성"@ko ;
@@ -16996,21 +16994,21 @@ kce:yu-jongho_v5-17_1995 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-17_1995.html> ;
   dcterms:creator kc:p-00246 ;
   cito:citesAsAuthority kc:p-00017 ;
+  cito:citesAsAuthority kc:p-00036 ;
+  cito:citesAsAuthority kc:p-00042 ;
   cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-00216 ;
+  cito:citesAsAuthority kc:p-00219 ;
   cito:citesAsAuthority kc:p-00230 ;
   cito:citesAsAuthority kc:p-adorno ;
   cito:citesAsAuthority kc:p-althusser ;
   cito:citesAsAuthority kc:p-arendt ;
   cito:citesAsAuthority kc:p-birnbaum ;
   cito:citesAsAuthority kc:p-brecht ;
-  cito:citesAsAuthority kc:p-coleridge ;
-  cito:citesAsAuthority kc:p-dostoevsky ;
   cito:citesAsAuthority kc:p-guo ;
   cito:citesAsAuthority kc:p-keats ;
-  cito:citesAsAuthority kc:p-trilling ;
   cito:citesAsAuthority kc:p-woolf ;
   dcterms:subject "시적 통찰"@ko ;
   dcterms:subject "리얼리즘의 승리"@ko ;
@@ -17036,18 +17034,19 @@ kce:yu-jongho_v5-18_1995 a critic:CriticalEssay ;
   cito:discusses kc:p-00078 ;
   cito:discusses kc:p-00168 ;
   cito:discusses kc:p-00199 ;
+  cito:discusses kc:p-bak-wanseo ;
   cito:discusses kc:p-ha-geunchan ;
   cito:discusses kc:p-i-tae ;
   cito:discusses kc:p-kim-eunkook ;
   cito:discusses kc:p-kim-wonil ;
   cito:discusses kc:p-o-sangwon ;
-  cito:discusses kc:p-pak-wanso ;
   cito:discusses kc:p-seo-giwon ;
-  cito:discusses kc:p-sin-dongyeop ;
-  cito:discusses kc:p-yi-hohcheol ;
+  cito:discusses kc:p-shin-dongyeop ;
+  cito:discusses kc:p-yi-hocheol ;
   cito:discusses kc:p-yun-heunggil ;
   cito:citesAsAuthority kc:p-00055 ;
   cito:citesAsAuthority kc:p-00059 ;
+  cito:citesAsAuthority kc:p-00067 ;
   cito:citesAsAuthority kc:p-00072 ;
   cito:citesAsAuthority kc:p-00196 ;
   cito:citesAsAuthority kc:p-adorno ;
@@ -17055,7 +17054,6 @@ kce:yu-jongho_v5-18_1995 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-coser ;
   cito:citesAsAuthority kc:p-euripides ;
   cito:citesAsAuthority kc:p-harry-levin ;
-  cito:citesAsAuthority kc:p-hemingway ;
   cito:citesAsAuthority kc:p-john-reed ;
   cito:citesAsAuthority kc:p-lowenthal ;
   cito:citesAsAuthority kc:p-ranke ;
@@ -17079,24 +17077,24 @@ kce:yu-jongho_v5-19_1995 a critic:CriticalEssay ;
   schema:isPartOf "『조선시집』읽기 — 김소운의 번역시" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-19_1995.html> ;
   dcterms:creator kc:p-00246 ;
+  cito:discusses kc:im-hwa ;
+  cito:discusses kc:kim-gwanggyun ;
+  cito:discusses kc:p-00015 ;
   cito:discusses kc:p-00063 ;
   cito:discusses kc:p-00086 ;
+  cito:discusses kc:p-00112 ;
   cito:discusses kc:p-00136 ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-00195 ;
   cito:discusses kc:p-00241 ;
+  cito:discusses kc:p-00244 ;
   cito:discusses kc:p-00245 ;
   cito:discusses kc:p-00247 ;
-  cito:discusses kc:p-baekseok ;
-  cito:discusses kc:p-imhwa ;
   cito:discusses kc:p-kim-eok ;
-  cito:discusses kc:p-kim-gwanggyun ;
   cito:discusses kc:p-kim-gwangseop ;
-  cito:discusses kc:p-kim-sangyong ;
   cito:discusses kc:p-kim-sowun ;
   cito:discusses kc:p-o-janghwan ;
   cito:discusses kc:p-o-sangsun ;
-  cito:discusses kc:p-yi-sang ;
   cito:discusses kc:p-yi-yongak ;
   cito:citesAsAuthority kc:p-00049 ;
   cito:citesAsAuthority kc:p-00051 ;
@@ -17158,9 +17156,9 @@ kce:yu-jongho_v5-21_1995 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-21_1995.html> ;
   dcterms:creator kc:p-00246 ;
   cito:discusses kc:p-jomyeonghui ;
-  cito:discusses kc:p-kimsoun ;
-  cito:discusses kc:p-yitaejun ;
-  cito:citesAsAuthority kc:p-kimseongchil ;
+  cito:discusses kc:p-kim-sowun ;
+  cito:discusses kc:p-yi-taejun ;
+  cito:citesAsAuthority kc:p-kim-seongchil ;
   cito:citesAsAuthority kc:p-nosaka ;
   dcterms:subject "개인사 탐색"@ko ;
   dcterms:subject "친일 행적"@ko ;
@@ -17206,11 +17204,13 @@ kce:yu-jongho_v5-23_1995 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00049 ;
   cito:citesAsAuthority kc:p-00051 ;
   cito:citesAsAuthority kc:p-00070 ;
+  cito:citesAsAuthority kc:p-00088 ;
   cito:citesAsAuthority kc:p-00092 ;
   cito:citesAsAuthority kc:p-00146 ;
   cito:citesAsAuthority kc:p-00152 ;
   cito:citesAsAuthority kc:p-00181 ;
   cito:citesAsAuthority kc:p-00196 ;
+  cito:citesAsAuthority kc:p-00201 ;
   cito:citesAsAuthority kc:p-00216 ;
   cito:citesAsAuthority kc:p-00230 ;
   cito:citesAsAuthority kc:p-adorno ;
@@ -17219,13 +17219,11 @@ kce:yu-jongho_v5-23_1995 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-dvorak ;
   cito:citesAsAuthority kc:p-gombrich ;
   cito:citesAsAuthority kc:p-horkheimer ;
-  cito:citesAsAuthority kc:p-joyce ;
   cito:citesAsAuthority kc:p-lanson ;
   cito:citesAsAuthority kc:p-lowenthal ;
+  cito:citesAsAuthority kc:p-malraux ;
   cito:citesAsAuthority kc:p-mannheim ;
-  cito:citesAsAuthority kc:p-marlowe ;
   cito:citesAsAuthority kc:p-simmel ;
-  cito:citesAsAuthority kc:p-sombart ;
   cito:citesAsAuthority kc:p-troeltsch ;
   cito:citesAsAuthority kc:p-wolfflin ;
   dcterms:subject "사회적 규정성"@ko ;
@@ -17274,11 +17272,11 @@ kce:yu-jongho_v5-25_1995 a critic:CriticalEssay ;
   schema:isPartOf "일본의 한 얼굴" ;
   schema:url <https://kcritic.kr/site/essays/yu-jongho_v5-25_1995.html> ;
   dcterms:creator kc:p-00246 ;
-  cito:citesAsAuthority kc:p-김태준 ;
-  cito:citesAsAuthority kc:p-볼테르 ;
-  cito:citesAsAuthority kc:p-브레진스키 ;
+  cito:citesAsAuthority kc:george-steiner ;
+  cito:citesAsAuthority kc:p-00226 ;
+  cito:citesAsAuthority kc:p-brzezinski ;
+  cito:citesAsAuthority kc:p-kim-taejun ;
   cito:citesAsAuthority kc:p-비트포겔 ;
-  cito:citesAsAuthority kc:p-슈타이너 ;
   dcterms:subject "일본 우월 의식"@ko ;
   dcterms:subject "무책임한 일반론"@ko ;
   dcterms:subject "속죄적 마조히즘"@ko ;
@@ -17437,6 +17435,8 @@ kc:p-00117 foaf:made kce:kim-uchang_yu-jongho-1977_1977 .
 kc:p-00117 foaf:made kce:kim-uchang_yu-jongho-1993_1993 .
 kc:p-00117 foaf:made kce:kim-uchang_yun-dongju_1977 .
 kc:p-00117 foaf:made kce:kim-uchang_yun-dongju_1985 .
+kc:p-00117 critic:analyzes kc:im-hwa .
+kc:p-00117 critic:analyzes kc:kim-gwanggyun .
 kc:p-00117 critic:analyzes kc:p-00004 .
 kc:p-00117 critic:analyzes kc:p-00015 .
 kc:p-00117 critic:analyzes kc:p-00026 .
@@ -17476,6 +17476,7 @@ kc:p-00117 critic:analyzes kc:p-00113 .
 kc:p-00117 critic:analyzes kc:p-00114 .
 kc:p-00117 critic:analyzes kc:p-00115 .
 kc:p-00117 critic:analyzes kc:p-00116 .
+kc:p-00117 critic:analyzes kc:p-00119 .
 kc:p-00117 critic:analyzes kc:p-00122 .
 kc:p-00117 critic:analyzes kc:p-00132 .
 kc:p-00117 critic:analyzes kc:p-00133 .
@@ -17504,15 +17505,13 @@ kc:p-00117 critic:analyzes kc:p-an-gukson .
 kc:p-00117 critic:analyzes kc:p-anseo .
 kc:p-00117 critic:analyzes kc:p-baek-mihye .
 kc:p-00117 critic:analyzes kc:p-bak-inhwan .
+kc:p-00117 critic:analyzes kc:p-bak-wanseo .
 kc:p-00117 critic:analyzes kc:p-bang-yeongung .
 kc:p-00117 critic:analyzes kc:p-bennett .
 kc:p-00117 critic:analyzes kc:p-cheon-sangbyeong .
-kc:p-00117 critic:analyzes kc:p-cheongma .
-kc:p-00117 critic:analyzes kc:p-cho-sehui .
 kc:p-00117 critic:analyzes kc:p-cho-seonggi .
 kc:p-00117 critic:analyzes kc:p-cho-seonjak .
 kc:p-00117 critic:analyzes kc:p-choe-gyerak .
-kc:p-00117 critic:analyzes kc:p-choe-inhun .
 kc:p-00117 critic:analyzes kc:p-choe-seohae .
 kc:p-00117 critic:analyzes kc:p-choe-suun .
 kc:p-00117 critic:analyzes kc:p-cleaver .
@@ -17522,45 +17521,31 @@ kc:p-00117 critic:analyzes kc:p-emma-bovary .
 kc:p-00117 critic:analyzes kc:p-gu-jaun .
 kc:p-00117 critic:analyzes kc:p-ha-geunchan .
 kc:p-00117 critic:analyzes kc:p-haewol .
-kc:p-00117 critic:analyzes kc:p-han-yongun .
 kc:p-00117 critic:analyzes kc:p-hwang-hyeon .
 kc:p-00117 critic:analyzes kc:p-hwang-jini .
-kc:p-00117 critic:analyzes kc:p-hwang-jiwoo .
 kc:p-00117 critic:analyzes kc:p-hwang-maecheon .
-kc:p-00117 critic:analyzes kc:p-hwang-sokyong .
 kc:p-00117 critic:analyzes kc:p-hyeon-jingeon .
 kc:p-00117 critic:analyzes kc:p-i-haejo .
 kc:p-00117 critic:analyzes kc:p-i-injik .
 kc:p-00117 critic:analyzes kc:p-im-hongjae .
-kc:p-00117 critic:analyzes kc:p-imhwa .
-kc:p-00117 critic:analyzes kc:p-jang-youngsu .
+kc:p-00117 critic:analyzes kc:p-jang-yeongsu .
 kc:p-00117 critic:analyzes kc:p-jeon-bongjun .
 kc:p-00117 critic:analyzes kc:p-jeong-cheol .
-kc:p-00117 critic:analyzes kc:p-jeong-jiyong .
-kc:p-00117 critic:analyzes kc:p-jo-jihun .
 kc:p-00117 critic:analyzes kc:p-kang-seokgyeong .
-kc:p-00117 critic:analyzes kc:p-kim-chunsu .
 kc:p-00117 critic:analyzes kc:p-kim-dohwa .
 kc:p-00117 critic:analyzes kc:p-kim-dongmyeong .
 kc:p-00117 critic:analyzes kc:p-kim-eok .
 kc:p-00117 critic:analyzes kc:p-kim-gaenam .
-kc:p-00117 critic:analyzes kc:p-kim-girim .
-kc:p-00117 critic:analyzes kc:p-kim-gwanggyun .
 kc:p-00117 critic:analyzes kc:p-kim-gwangseop .
 kc:p-00117 critic:analyzes kc:p-kim-gwansik .
 kc:p-00117 critic:analyzes kc:p-kim-gyudong .
-kc:p-00117 critic:analyzes kc:p-kim-hyeonseung .
 kc:p-00117 critic:analyzes kc:p-kim-jeonghan .
 kc:p-00117 critic:analyzes kc:p-kim-jeonghwan .
 kc:p-00117 critic:analyzes kc:p-kim-jonggil .
-kc:p-00117 critic:analyzes kc:p-kim-manjung .
-kc:p-00117 critic:analyzes kc:p-kim-myeongsu .
 kc:p-00117 critic:analyzes kc:p-kim-seongsik .
 kc:p-00117 critic:analyzes kc:p-kim-seungok .
-kc:p-00117 critic:analyzes kc:p-kim-sowol .
-kc:p-00117 critic:analyzes kc:p-kim-suyeong .
-kc:p-00117 critic:analyzes kc:p-kim-yeongnang .
 kc:p-00117 critic:analyzes kc:p-kim-yeongtae .
+kc:p-00117 critic:analyzes kc:p-lee-inseong .
 kc:p-00117 critic:analyzes kc:p-lee-jeonghwan .
 kc:p-00117 critic:analyzes kc:p-lee-seongbok .
 kc:p-00117 critic:analyzes kc:p-ma-jonggi .
@@ -17571,27 +17556,20 @@ kc:p-00117 critic:analyzes kc:p-mun-byeongran .
 kc:p-00117 critic:analyzes kc:p-mun-ikhwan .
 kc:p-00117 critic:analyzes kc:p-pak-yongcheol .
 kc:p-00117 critic:analyzes kc:p-park-ilyoung .
-kc:p-00117 critic:analyzes kc:p-park-inhwan .
-kc:p-00117 critic:analyzes kc:p-park-mokwol .
-kc:p-00117 critic:analyzes kc:p-park-namchul .
+kc:p-00117 critic:analyzes kc:p-park-namcheol .
 kc:p-00117 critic:analyzes kc:p-park-taesun .
-kc:p-00117 critic:analyzes kc:p-park-wanseo .
 kc:p-00117 critic:analyzes kc:p-pi-cheondeuk .
 kc:p-00117 critic:analyzes kc:p-rwright .
 kc:p-00117 critic:analyzes kc:p-seo-jeongin .
 kc:p-00117 critic:analyzes kc:p-shin-dongjip .
 kc:p-00117 critic:analyzes kc:p-shin-dongyeop .
 kc:p-00117 critic:analyzes kc:p-shin-hanui .
-kc:p-00117 critic:analyzes kc:p-yang-seongwoo .
+kc:p-00117 critic:analyzes kc:p-yang-seongu .
 kc:p-00117 critic:analyzes kc:p-yi-eunchan .
 kc:p-00117 critic:analyzes kc:p-yi-giyeong .
 kc:p-00117 critic:analyzes kc:p-yi-hanjik .
 kc:p-00117 critic:analyzes kc:p-yi-hocheol .
-kc:p-00117 critic:analyzes kc:p-yi-inseong .
-kc:p-00117 critic:analyzes kc:p-yi-kiyeong .
-kc:p-00117 critic:analyzes kc:p-yi-sang .
 kc:p-00117 critic:analyzes kc:p-yi-taejun .
-kc:p-00117 critic:analyzes kc:p-yi-yuksa .
 kc:p-00117 critic:analyzes kc:p-yuksa .
 kc:p-00117 critic:analyzes kc:p-yun-seondo .
 
@@ -17779,26 +17757,20 @@ kc:p-00246 critic:analyzes kc:p-00244 .
 kc:p-00246 critic:analyzes kc:p-00245 .
 kc:p-00246 critic:analyzes kc:p-00247 .
 kc:p-00246 critic:analyzes kc:p-00250 .
-kc:p-00246 critic:analyzes kc:p-baekseok .
+kc:p-00246 critic:analyzes kc:p-bak-inhwan .
 kc:p-00246 critic:analyzes kc:p-bak-wanseo .
-kc:p-00246 critic:analyzes kc:p-chae-mansik .
-kc:p-00246 critic:analyzes kc:p-chaemansik .
+kc:p-00246 critic:analyzes kc:p-chae-manshik .
 kc:p-00246 critic:analyzes kc:p-cheongeum .
-kc:p-00246 critic:analyzes kc:p-cheongma .
 kc:p-00246 critic:analyzes kc:p-choe-myeongik .
 kc:p-00246 critic:analyzes kc:p-choehaksong .
 kc:p-00246 critic:analyzes kc:p-ha-geunchan .
 kc:p-00246 critic:analyzes kc:p-ha-jongo .
 kc:p-00246 critic:analyzes kc:p-ham-hyeongsu .
-kc:p-00246 critic:analyzes kc:p-han-yongun .
 kc:p-00246 critic:analyzes kc:p-heo-jun .
 kc:p-00246 critic:analyzes kc:p-hongrang .
 kc:p-00246 critic:analyzes kc:p-hwang-jini .
-kc:p-00246 critic:analyzes kc:p-hwangjini .
 kc:p-00246 critic:analyzes kc:p-hyeon-jingeon .
-kc:p-00246 critic:analyzes kc:p-hyeonjingeon .
 kc:p-00246 critic:analyzes kc:p-i-tae .
-kc:p-00246 critic:analyzes kc:p-imhwa .
 kc:p-00246 critic:analyzes kc:p-imun-yol .
 kc:p-00246 critic:analyzes kc:p-jeong-cheol .
 kc:p-00246 critic:analyzes kc:p-jeong-yagyong .
@@ -17810,21 +17782,15 @@ kc:p-00246 critic:analyzes kc:p-kim-byeongyeon .
 kc:p-00246 critic:analyzes kc:p-kim-donghwan .
 kc:p-00246 critic:analyzes kc:p-kim-eok .
 kc:p-00246 critic:analyzes kc:p-kim-eunkook .
-kc:p-00246 critic:analyzes kc:p-kim-gwanggyun .
 kc:p-00246 critic:analyzes kc:p-kim-gwangseop .
 kc:p-00246 critic:analyzes kc:p-kim-huisu .
-kc:p-00246 critic:analyzes kc:p-kim-sangyong .
 kc:p-00246 critic:analyzes kc:p-kim-seungok .
 kc:p-00246 critic:analyzes kc:p-kim-sowun .
 kc:p-00246 critic:analyzes kc:p-kim-wonil .
-kc:p-00246 critic:analyzes kc:p-kim-yeongnang .
 kc:p-00246 critic:analyzes kc:p-kim-yongrak .
 kc:p-00246 critic:analyzes kc:p-kim-yongtaek .
 kc:p-00246 critic:analyzes kc:p-kim-yunseong .
-kc:p-00246 critic:analyzes kc:p-kimeok .
-kc:p-00246 critic:analyzes kc:p-kimkwangseop .
 kc:p-00246 critic:analyzes kc:p-kimnamcheon .
-kc:p-00246 critic:analyzes kc:p-kimsoun .
 kc:p-00246 critic:analyzes kc:p-kimsowol .
 kc:p-00246 critic:analyzes kc:p-kimyeongnang .
 kc:p-00246 critic:analyzes kc:p-kwon-taeeung .
@@ -17835,59 +17801,38 @@ kc:p-00246 critic:analyzes kc:p-o-janghwan .
 kc:p-00246 critic:analyzes kc:p-o-sangsun .
 kc:p-00246 critic:analyzes kc:p-o-sangwon .
 kc:p-00246 critic:analyzes kc:p-o-yeongsu .
-kc:p-00246 critic:analyzes kc:p-ojanghwan .
 kc:p-00246 critic:analyzes kc:p-pak-taewon .
-kc:p-00246 critic:analyzes kc:p-pak-wanso .
-kc:p-00246 critic:analyzes kc:p-park-inhwan .
 kc:p-00246 critic:analyzes kc:p-park-jonghae .
 kc:p-00246 critic:analyzes kc:p-park-jonghwa .
 kc:p-00246 critic:analyzes kc:p-park-namsu .
-kc:p-00246 critic:analyzes kc:p-park-wanseo .
 kc:p-00246 critic:analyzes kc:p-seo-giwon .
-kc:p-00246 critic:analyzes kc:p-seo-jeongju .
-kc:p-00246 critic:analyzes kc:p-seojeongin .
+kc:p-00246 critic:analyzes kc:p-seo-jeongin .
 kc:p-00246 critic:analyzes kc:p-seojeongju .
-kc:p-00246 critic:analyzes kc:p-sin-dongyeop .
+kc:p-00246 critic:analyzes kc:p-shin-dongyeop .
 kc:p-00246 critic:analyzes kc:p-song-kiwon .
-kc:p-00246 critic:analyzes kc:p-sowol .
 kc:p-00246 critic:analyzes kc:p-yang-judong .
 kc:p-00246 critic:analyzes kc:p-yang-seongu .
 kc:p-00246 critic:analyzes kc:p-yi-dongsun .
 kc:p-00246 critic:analyzes kc:p-yi-giyeong .
-kc:p-00246 critic:analyzes kc:p-yi-hohcheol .
+kc:p-00246 critic:analyzes kc:p-yi-hocheol .
 kc:p-00246 critic:analyzes kc:p-yi-jonyeon .
-kc:p-00246 critic:analyzes kc:p-yi-mun-yol .
-kc:p-00246 critic:analyzes kc:p-yi-munyol .
 kc:p-00246 critic:analyzes kc:p-yi-muyeong .
 kc:p-00246 critic:analyzes kc:p-yi-saek .
-kc:p-00246 critic:analyzes kc:p-yi-sang .
 kc:p-00246 critic:analyzes kc:p-yi-taejun .
 kc:p-00246 critic:analyzes kc:p-yi-yongak .
-kc:p-00246 critic:analyzes kc:p-yijonyeon .
-kc:p-00246 critic:analyzes kc:p-yitaejun .
 kc:p-00246 critic:analyzes kc:p-yu-jino .
 kc:p-00246 critic:analyzes kc:p-yun-heunggil .
 kc:p-00246 critic:analyzes kc:p-yunseokjung .
-kc:p-00246 critic:analyzes kc:p-권태응 .
 kc:p-00246 critic:analyzes kc:p-김남주 .
 kc:p-00246 critic:analyzes kc:p-김상훈 .
-kc:p-00246 critic:analyzes kc:p-김억 .
 kc:p-00246 critic:analyzes kc:p-박세영 .
 kc:p-00246 critic:analyzes kc:p-박팔양 .
 kc:p-00246 critic:analyzes kc:p-설정식 .
 kc:p-00246 critic:analyzes kc:p-신석정 .
 kc:p-00246 critic:analyzes kc:p-여상현 .
-kc:p-00246 critic:analyzes kc:p-오장환 .
-kc:p-00246 critic:analyzes kc:p-유진오 .
-kc:p-00246 critic:analyzes kc:p-이용악 .
 kc:p-00246 critic:analyzes kc:p-이원수 .
-kc:p-00246 critic:analyzes kc:p-이태준 .
 kc:p-00246 critic:analyzes kc:p-임학수 .
-kc:p-00246 critic:analyzes kc:p-조명희 .
 kc:p-00246 critic:analyzes kc:p-최석두 .
-kc:p-00246 critic:analyzes kc:pak-taewon .
-kc:p-00246 critic:analyzes kc:sin-seokjeong .
-kc:p-00246 critic:analyzes kc:yi-taejun .
 
 kc:p-hwang-hyonsan foaf:made kce:hwang-hyonsan_autonomy-politics_2010 .
 kc:p-hwang-hyonsan foaf:made kce:hwang-hyonsan_barren-reality_2012 .
@@ -17900,6 +17845,8 @@ kc:p-hwang-hyonsan foaf:made kce:hwang-hyonsan_symbol-allegory_2012 .
 kc:p-hwang-hyonsan foaf:made kce:hwang-hyonsan_translation-poetry_2012 .
 kc:p-hwang-hyonsan foaf:made kce:hwang-hyonsan_well-expressed-unhappiness_2012 .
 kc:p-hwang-hyonsan foaf:made kce:hwang-hyonsan_who-speaks_2012 .
+kc:p-hwang-hyonsan critic:analyzes kc:p-00077 .
+kc:p-hwang-hyonsan critic:analyzes kc:p-00098 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00104 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00116 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-00195 .
@@ -17907,12 +17854,10 @@ kc:p-hwang-hyonsan critic:analyzes kc:p-00244 .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chin-eunyoung .
 kc:p-hwang-hyonsan critic:analyzes kc:p-choe-seungja .
 kc:p-hwang-hyonsan critic:analyzes kc:p-chong-jaehak .
-kc:p-hwang-hyonsan critic:analyzes kc:p-hwang-jiu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-ki-hyongdo .
-kc:p-hwang-hyonsan critic:analyzes kc:p-kim-chunsu .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-hyesoon .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-ideum .
-kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jonghwan .
+kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jeonghwan .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-jungil .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-kyongju .
 kc:p-hwang-hyonsan critic:analyzes kc:p-kim-rok .
@@ -18059,6 +18004,9 @@ kc:p-kim-hyon foaf:made kce:kim-hyon_yoo-chihwan_1984 .
 kc:p-kim-hyon foaf:made kce:kim-hyon_yu-ikseo_1988 .
 kc:p-kim-hyon foaf:made kce:kim-hyon_yuha_1990 .
 kc:p-kim-hyon foaf:made kce:kim-hyon_yun-heunggil_1980 .
+kc:p-kim-hyon critic:analyzes kc:im-hwa .
+kc:p-kim-hyon critic:analyzes kc:jo-jeonggwon .
+kc:p-kim-hyon critic:analyzes kc:kim-gwanggyun .
 kc:p-kim-hyon critic:analyzes kc:p-00004 .
 kc:p-kim-hyon critic:analyzes kc:p-00015 .
 kc:p-kim-hyon critic:analyzes kc:p-00031 .
@@ -18091,6 +18039,7 @@ kc:p-kim-hyon critic:analyzes kc:p-00110 .
 kc:p-kim-hyon critic:analyzes kc:p-00114 .
 kc:p-kim-hyon critic:analyzes kc:p-00115 .
 kc:p-kim-hyon critic:analyzes kc:p-00116 .
+kc:p-kim-hyon critic:analyzes kc:p-00119 .
 kc:p-kim-hyon critic:analyzes kc:p-00120 .
 kc:p-kim-hyon critic:analyzes kc:p-00122 .
 kc:p-kim-hyon critic:analyzes kc:p-00133 .
@@ -18117,17 +18066,16 @@ kc:p-kim-hyon critic:analyzes kc:p-00244 .
 kc:p-kim-hyon critic:analyzes kc:p-00245 .
 kc:p-kim-hyon critic:analyzes kc:p-00247 .
 kc:p-kim-hyon critic:analyzes kc:p-ahn-junghyo .
-kc:p-kim-hyon critic:analyzes kc:p-an-guksun .
+kc:p-kim-hyon critic:analyzes kc:p-an-gukson .
 kc:p-kim-hyon critic:analyzes kc:p-an-gyeongwon .
 kc:p-kim-hyon critic:analyzes kc:p-an-jaechan .
 kc:p-kim-hyon critic:analyzes kc:p-an-suhwan .
 kc:p-kim-hyon critic:analyzes kc:p-bae-gyeongran .
 kc:p-kim-hyon critic:analyzes kc:p-baek-hakgi .
+kc:p-kim-hyon critic:analyzes kc:p-bak-inhwan .
 kc:p-kim-hyon critic:analyzes kc:p-chae-manshik .
-kc:p-kim-hyon critic:analyzes kc:p-chae-mansik .
 kc:p-kim-hyon critic:analyzes kc:p-cheon-yanghee .
 kc:p-kim-hyon critic:analyzes kc:p-cho-haeil .
-kc:p-kim-hyon critic:analyzes kc:p-cho-jeonggwon .
 kc:p-kim-hyon critic:analyzes kc:p-cho-jeongnae .
 kc:p-kim-hyon critic:analyzes kc:p-cho-seonjak .
 kc:p-kim-hyon critic:analyzes kc:p-choe-duseok .
@@ -18137,21 +18085,17 @@ kc:p-kim-hyon critic:analyzes kc:p-choe-inho .
 kc:p-kim-hyon critic:analyzes kc:p-choe-seohae .
 kc:p-kim-hyon critic:analyzes kc:p-choe-seokha .
 kc:p-kim-hyon critic:analyzes kc:p-choe-seungja .
-kc:p-kim-hyon critic:analyzes kc:p-choi-duseok .
-kc:p-kim-hyon critic:analyzes kc:p-choi-harim .
-kc:p-kim-hyon critic:analyzes kc:p-choi-inho .
 kc:p-kim-hyon critic:analyzes kc:p-choi-min .
-kc:p-kim-hyon critic:analyzes kc:p-choi-seohae .
 kc:p-kim-hyon critic:analyzes kc:p-chon-kwangyong .
 kc:p-kim-hyon critic:analyzes kc:p-chu-youngsu .
 kc:p-kim-hyon critic:analyzes kc:p-chungma .
 kc:p-kim-hyon critic:analyzes kc:p-chunwon .
+kc:p-kim-hyon critic:analyzes kc:p-don-quixote .
 kc:p-kim-hyon critic:analyzes kc:p-gang-eungyo .
 kc:p-kim-hyon critic:analyzes kc:p-gu-jaun .
 kc:p-kim-hyon critic:analyzes kc:p-gu-sang .
 kc:p-kim-hyon critic:analyzes kc:p-gwak-haksong .
 kc:p-kim-hyon critic:analyzes kc:p-gwon-dalung .
-kc:p-kim-hyon critic:analyzes kc:p-gwon-darung .
 kc:p-kim-hyon critic:analyzes kc:p-gwon-gukmyeong .
 kc:p-kim-hyon critic:analyzes kc:p-ha-changsu .
 kc:p-kim-hyon critic:analyzes kc:p-ha-jaebong .
@@ -18165,7 +18109,6 @@ kc:p-kim-hyon critic:analyzes kc:p-heo-youngja .
 kc:p-kim-hyon critic:analyzes kc:p-hong-myeonghui .
 kc:p-kim-hyon critic:analyzes kc:p-hong-seongwon .
 kc:p-kim-hyon critic:analyzes kc:p-hong-shinseon .
-kc:p-kim-hyon critic:analyzes kc:p-hong-sinseon .
 kc:p-kim-hyon critic:analyzes kc:p-hong-yeongchul .
 kc:p-kim-hyon critic:analyzes kc:p-hwang-insook .
 kc:p-kim-hyon critic:analyzes kc:p-hwang-jini .
@@ -18173,47 +18116,40 @@ kc:p-kim-hyon critic:analyzes kc:p-hwang-myeonggeol .
 kc:p-kim-hyon critic:analyzes kc:p-hwang-seokwoo .
 kc:p-kim-hyon critic:analyzes kc:p-hwang-unheon .
 kc:p-kim-hyon critic:analyzes kc:p-hyeon-giyeong .
-kc:p-kim-hyon critic:analyzes kc:p-hyun-jingeon .
+kc:p-kim-hyon critic:analyzes kc:p-hyeon-jingeon .
+kc:p-kim-hyon critic:analyzes kc:p-i-injik .
 kc:p-kim-hyon critic:analyzes kc:p-i-seunghun .
 kc:p-kim-hyon critic:analyzes kc:p-i-tan .
 kc:p-kim-hyon critic:analyzes kc:p-i-yugyeong .
 kc:p-kim-hyon critic:analyzes kc:p-im-chun .
 kc:p-kim-hyon critic:analyzes kc:p-im-donghwak .
-kc:p-kim-hyon critic:analyzes kc:p-im-hwa .
-kc:p-kim-hyon critic:analyzes kc:p-imhwa .
+kc:p-kim-hyon critic:analyzes kc:p-imun-yol .
 kc:p-kim-hyon critic:analyzes kc:p-jang-seokju .
 kc:p-kim-hyon critic:analyzes kc:p-jang-yeongsu .
-kc:p-kim-hyon critic:analyzes kc:p-jang-yongsu .
-kc:p-kim-hyon critic:analyzes kc:p-jang-youngsu .
 kc:p-kim-hyon critic:analyzes kc:p-jeon-sangguk .
 kc:p-kim-hyon critic:analyzes kc:p-jeong-cheol .
 kc:p-kim-hyon critic:analyzes kc:p-jeong-dojeon .
 kc:p-kim-hyon critic:analyzes kc:p-jeong-hanmo .
 kc:p-kim-hyon critic:analyzes kc:p-jeong-hoseung .
 kc:p-kim-hyon critic:analyzes kc:p-jeong-uihong .
-kc:p-kim-hyon critic:analyzes kc:p-jeong-yakyong .
+kc:p-kim-hyon critic:analyzes kc:p-jeong-yagyong .
 kc:p-kim-hyon critic:analyzes kc:p-jo-hyang .
-kc:p-kim-hyon critic:analyzes kc:p-jo-jeongrae .
-kc:p-kim-hyon critic:analyzes kc:p-jo-jungrae .
 kc:p-kim-hyon critic:analyzes kc:p-jo-namik .
 kc:p-kim-hyon critic:analyzes kc:p-jung-inseop .
 kc:p-kim-hyon critic:analyzes kc:p-kam-taejun .
 kc:p-kim-hyon critic:analyzes kc:p-kang-changmin .
-kc:p-kim-hyon critic:analyzes kc:p-kang-eungyo .
 kc:p-kim-hyon critic:analyzes kc:p-kang-homu .
 kc:p-kim-hyon critic:analyzes kc:p-kang-inseop .
 kc:p-kim-hyon critic:analyzes kc:p-kang-kyonghwa .
 kc:p-kim-hyon critic:analyzes kc:p-kang-sinjae .
 kc:p-kim-hyon critic:analyzes kc:p-kang-usik .
-kc:p-kim-hyon critic:analyzes kc:p-kang-woosik .
 kc:p-kim-hyon critic:analyzes kc:p-ki-hyongdo .
 kc:p-kim-hyon critic:analyzes kc:p-kim-anseo .
 kc:p-kim-hyon critic:analyzes kc:p-kim-dongnip .
 kc:p-kim-hyon critic:analyzes kc:p-kim-eok .
 kc:p-kim-hyon critic:analyzes kc:p-kim-eunja .
-kc:p-kim-hyon critic:analyzes kc:p-kim-gwanggyun .
 kc:p-kim-hyon critic:analyzes kc:p-kim-gwangnim .
-kc:p-kim-hyon critic:analyzes kc:p-kim-gwangrim .
+kc:p-kim-hyon critic:analyzes kc:p-kim-gwangseop .
 kc:p-kim-hyon critic:analyzes kc:p-kim-gwangsik .
 kc:p-kim-hyon critic:analyzes kc:p-kim-gwansik .
 kc:p-kim-hyon critic:analyzes kc:p-kim-gyeongrin .
@@ -18222,116 +18158,89 @@ kc:p-kim-hyon critic:analyzes kc:p-kim-hyeongu .
 kc:p-kim-hyon critic:analyzes kc:p-kim-hyeongyeong .
 kc:p-kim-hyon critic:analyzes kc:p-kim-hyesoon .
 kc:p-kim-hyon critic:analyzes kc:p-kim-hyesuk .
-kc:p-kim-hyon critic:analyzes kc:p-kim-hyongyong .
-kc:p-kim-hyon critic:analyzes kc:p-kim-hyungyoung .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jeonghan .
+kc:p-kim-hyon critic:analyzes kc:p-kim-jeonghwan .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jeongsuk .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jeongung .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jinkyung .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jongcheol .
-kc:p-kim-hyon critic:analyzes kc:p-kim-jongchul .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jonghae .
-kc:p-kim-hyon critic:analyzes kc:p-kim-jonghwan .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jongmun .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jungran .
-kc:p-kim-hyon critic:analyzes kc:p-kim-jungwoong .
 kc:p-kim-hyon critic:analyzes kc:p-kim-junsu .
 kc:p-kim-hyon critic:analyzes kc:p-kim-juntae .
-kc:p-kim-hyon critic:analyzes kc:p-kim-kwanggyun .
-kc:p-kim-hyon critic:analyzes kc:p-kim-kwangnim .
-kc:p-kim-hyon critic:analyzes kc:p-kim-kwangseop .
-kc:p-kim-hyon critic:analyzes kc:p-kim-kwangsop .
-kc:p-kim-hyon critic:analyzes kc:p-kim-kwansik .
 kc:p-kim-hyon critic:analyzes kc:p-kim-myongin .
-kc:p-kim-hyon critic:analyzes kc:p-kim-myungin .
 kc:p-kim-hyon critic:analyzes kc:p-kim-naeseong .
 kc:p-kim-hyon critic:analyzes kc:p-kim-namjo .
 kc:p-kim-hyon critic:analyzes kc:p-kim-nyeongyun .
 kc:p-kim-hyon critic:analyzes kc:p-kim-okyong .
-kc:p-kim-hyon critic:analyzes kc:p-kim-okyoung .
 kc:p-kim-hyon critic:analyzes kc:p-kim-satgat .
 kc:p-kim-hyon critic:analyzes kc:p-kim-seongchun .
 kc:p-kim-hyon critic:analyzes kc:p-kim-seonyeong .
 kc:p-kim-hyon critic:analyzes kc:p-kim-seunghui .
 kc:p-kim-hyon critic:analyzes kc:p-kim-seungok .
-kc:p-kim-hyon critic:analyzes kc:p-kim-sowol .
 kc:p-kim-hyon critic:analyzes kc:p-kim-suneil .
 kc:p-kim-hyon critic:analyzes kc:p-kim-wonil .
 kc:p-kim-hyon critic:analyzes kc:p-kim-wonwoo .
-kc:p-kim-hyon critic:analyzes kc:p-kim-yeongnang .
 kc:p-kim-hyon critic:analyzes kc:p-kim-yeongtae .
 kc:p-kim-hyon critic:analyzes kc:p-kim-yongseong .
 kc:p-kim-hyon critic:analyzes kc:p-kim-youngrang .
 kc:p-kim-hyon critic:analyzes kc:p-kim-yunseong .
-kc:p-kim-hyon critic:analyzes kc:p-kim-yunsung .
 kc:p-kim-hyon critic:analyzes kc:p-ko-jeonghui .
 kc:p-kim-hyon critic:analyzes kc:p-kwak-jaegu .
-kc:p-kim-hyon critic:analyzes kc:p-kwon-gukmyeong .
 kc:p-kim-hyon critic:analyzes kc:p-lee-bongsun .
 kc:p-kim-hyon critic:analyzes kc:p-lee-churim .
 kc:p-kim-hyon critic:analyzes kc:p-lee-dongha .
 kc:p-kim-hyon critic:analyzes kc:p-lee-dongju .
 kc:p-kim-hyon critic:analyzes kc:p-lee-haeung .
 kc:p-kim-hyon critic:analyzes kc:p-lee-haseok .
-kc:p-kim-hyon critic:analyzes kc:p-lee-hasuk .
 kc:p-kim-hyon critic:analyzes kc:p-lee-hyeonggi .
 kc:p-kim-hyon critic:analyzes kc:p-lee-ilseung .
 kc:p-kim-hyon critic:analyzes kc:p-lee-inhae .
 kc:p-kim-hyon critic:analyzes kc:p-lee-inseong .
-kc:p-kim-hyon critic:analyzes kc:p-lee-munyol .
 kc:p-kim-hyon critic:analyzes kc:p-lee-myeongsu .
 kc:p-kim-hyon critic:analyzes kc:p-lee-saengjin .
 kc:p-kim-hyon critic:analyzes kc:p-lee-sangho .
 kc:p-kim-hyon critic:analyzes kc:p-lee-sara .
 kc:p-kim-hyon critic:analyzes kc:p-lee-seongbok .
-kc:p-kim-hyon critic:analyzes kc:p-lee-seunghun .
 kc:p-kim-hyon critic:analyzes kc:p-lee-siyeong .
-kc:p-kim-hyon critic:analyzes kc:p-lee-siyoung .
 kc:p-kim-hyon critic:analyzes kc:p-lee-taesu .
 kc:p-kim-hyon critic:analyzes kc:p-lee-yeongdo .
 kc:p-kim-hyon critic:analyzes kc:p-lee-youngyu .
-kc:p-kim-hyon critic:analyzes kc:p-lee-yugyeong .
 kc:p-kim-hyon critic:analyzes kc:p-ma-jonggi .
 kc:p-kim-hyon critic:analyzes kc:p-ma-jongha .
 kc:p-kim-hyon critic:analyzes kc:p-min-yeong .
 kc:p-kim-hyon critic:analyzes kc:p-mo-yunsuk .
 kc:p-kim-hyon critic:analyzes kc:p-mun-chungseong .
-kc:p-kim-hyon critic:analyzes kc:p-mun-chungsong .
 kc:p-kim-hyon critic:analyzes kc:p-mun-suntae .
 kc:p-kim-hyon critic:analyzes kc:p-nam-jeonghyeon .
 kc:p-kim-hyon critic:analyzes kc:p-no-cheonmyeong .
 kc:p-kim-hyon critic:analyzes kc:p-no-hyangrim .
-kc:p-kim-hyon critic:analyzes kc:p-noh-hyangrim .
+kc:p-kim-hyon critic:analyzes kc:p-o-janghwan .
 kc:p-kim-hyon critic:analyzes kc:p-o-sangwon .
 kc:p-kim-hyon critic:analyzes kc:p-o-yugwon .
 kc:p-kim-hyon critic:analyzes kc:p-oh-doil .
-kc:p-kim-hyon critic:analyzes kc:p-oh-janghwan .
 kc:p-kim-hyon critic:analyzes kc:p-oh-junghee .
-kc:p-kim-hyon critic:analyzes kc:p-oh-yugwon .
 kc:p-kim-hyon critic:analyzes kc:p-pak-nohae .
+kc:p-kim-hyon critic:analyzes kc:p-pak-taewon .
+kc:p-kim-hyon critic:analyzes kc:p-pak-yongcheol .
 kc:p-kim-hyon critic:analyzes kc:p-park-gyeongseok .
 kc:p-kim-hyon critic:analyzes kc:p-park-haeyeon .
 kc:p-kim-hyon critic:analyzes kc:p-park-heejin .
 kc:p-kim-hyon critic:analyzes kc:p-park-ido .
-kc:p-kim-hyon critic:analyzes kc:p-park-inhwan .
 kc:p-kim-hyon critic:analyzes kc:p-park-jecheon .
 kc:p-kim-hyon critic:analyzes kc:p-park-jeongman .
 kc:p-kim-hyon critic:analyzes kc:p-park-jonghwa .
 kc:p-kim-hyon critic:analyzes kc:p-park-kidong .
 kc:p-kim-hyon critic:analyzes kc:p-park-myeongseong .
 kc:p-kim-hyon critic:analyzes kc:p-park-namcheol .
-kc:p-kim-hyon critic:analyzes kc:p-park-namchul .
 kc:p-kim-hyon critic:analyzes kc:p-park-namsu .
 kc:p-kim-hyon critic:analyzes kc:p-park-sangnyung .
-kc:p-kim-hyon critic:analyzes kc:p-park-sangryung .
 kc:p-kim-hyon critic:analyzes kc:p-park-taejin .
 kc:p-kim-hyon critic:analyzes kc:p-park-taesun .
-kc:p-kim-hyon critic:analyzes kc:p-park-taewon .
 kc:p-kim-hyon critic:analyzes kc:p-park-uisang .
 kc:p-kim-hyon critic:analyzes kc:p-park-yanggyun .
-kc:p-kim-hyon critic:analyzes kc:p-park-yongchul .
 kc:p-kim-hyon critic:analyzes kc:p-park-yongnae .
-kc:p-kim-hyon critic:analyzes kc:p-quixote .
 kc:p-kim-hyon critic:analyzes kc:p-seo-giwon .
 kc:p-kim-hyon critic:analyzes kc:p-seo-imhwan .
 kc:p-kim-hyon critic:analyzes kc:p-seo-jeongin .
@@ -18340,7 +18249,6 @@ kc:p-kim-hyon critic:analyzes kc:p-seo-wondong .
 kc:p-kim-hyon critic:analyzes kc:p-seong-changyeong .
 kc:p-kim-hyon critic:analyzes kc:p-shin-chaeho .
 kc:p-kim-hyon critic:analyzes kc:p-shin-daechol .
-kc:p-kim-hyon critic:analyzes kc:p-shin-daechul .
 kc:p-kim-hyon critic:analyzes kc:p-shin-dongjip .
 kc:p-kim-hyon critic:analyzes kc:p-shin-dongyeop .
 kc:p-kim-hyon critic:analyzes kc:p-shin-dongyop .
@@ -18355,18 +18263,11 @@ kc:p-kim-hyon critic:analyzes kc:p-wolmyong .
 kc:p-kim-hyon critic:analyzes kc:p-yi-beomseon .
 kc:p-kim-hyon critic:analyzes kc:p-yi-byeongju .
 kc:p-kim-hyon critic:analyzes kc:p-yi-giyeong .
-kc:p-kim-hyon critic:analyzes kc:p-yi-gwangsu .
 kc:p-kim-hyon critic:analyzes kc:p-yi-gyubo .
-kc:p-kim-hyon critic:analyzes kc:p-yi-hohcheol .
-kc:p-kim-hyon critic:analyzes kc:p-yi-injik .
+kc:p-kim-hyon critic:analyzes kc:p-yi-hocheol .
 kc:p-kim-hyon critic:analyzes kc:p-yi-jeha .
 kc:p-kim-hyon critic:analyzes kc:p-yi-kiyong .
-kc:p-kim-hyon critic:analyzes kc:p-yi-kwangsu .
-kc:p-kim-hyon critic:analyzes kc:p-yi-munyol .
 kc:p-kim-hyon critic:analyzes kc:p-yi-ryung .
-kc:p-kim-hyon critic:analyzes kc:p-yi-sang .
-kc:p-kim-hyon critic:analyzes kc:p-yi-seunghun .
-kc:p-kim-hyon critic:analyzes kc:p-yi-siyeong .
 kc:p-kim-hyon critic:analyzes kc:p-yi-taejun .
 kc:p-kim-hyon critic:analyzes kc:p-yu-gyeonghwan .
 kc:p-kim-hyon critic:analyzes kc:p-yu-ikseo .
@@ -18374,7 +18275,6 @@ kc:p-kim-hyon critic:analyzes kc:p-yuha .
 kc:p-kim-hyon critic:analyzes kc:p-yun-gongang .
 kc:p-kim-hyon critic:analyzes kc:p-yun-heunggil .
 kc:p-kim-hyon critic:analyzes kc:p-yun-jaecheol .
-kc:p-kim-hyon critic:analyzes kc:p-yun-jaechul .
 kc:p-kim-hyon critic:analyzes kc:p-yun-sanggyu .
 kc:p-kim-hyon critic:analyzes kc:p-yun-seondo .
 kc:p-kim-hyon critic:analyzes kc:p-yungcheon .

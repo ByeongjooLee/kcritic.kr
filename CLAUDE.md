@@ -176,7 +176,7 @@ build.py 출력:
 - `site/data/writers.json` — 작가 목록 데이터 (encykorea, nlk, ref 포함)
 - `site/data/thinkers.json` — 이론가 목록 데이터 (context_count 포함)
 - `site/data/concepts.json` — 개념어 색인 (concepts.html 전용, 관계망 노드 아님 — §5 참조)
-- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 17,796 트리플 / 주어 블록 2,591)
+- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 17,889 트리플, 끊긴 인물 IRI 0)
 
 빌드 끝에 Neo4j 동기화를 시도한다. `neo4j` 모듈이 없거나 Neo4j Desktop이 꺼져 있으면 경고만 남기고 건너뛴다(빌드 실패 아님).
 
@@ -618,6 +618,8 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - PowerShell에서 한글 포함 git commit 메시지는 here-string 파싱 오류 발생 → ASCII 메시지 사용 (Bash 툴도 안전하게 ASCII 권장)
 - Neo4j URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
 - **빌드 결정성 유지**: set을 출력/직렬화할 땐 항상 `sorted()`, count 기준 정렬엔 `key=lambda x: (-x[1], x[0])` 같은 안정적 tiebreaker 사용. (검증: `py build.py` 2회 연속 실행 후 `git diff`가 비어야 함.) 위반 시 빌드마다 칩·노드 순서가 바뀌어 무의미한 diff가 쏟아짐
+- **graph.ttl 의 인물 id 는 반드시 정본 id 로**: `build_graph_data()` 가 같은 라벨의 인물 노드를 병합하며 `_CANON_ID`(병합 id → 정본 id)를 채우고, `build_turtle()` 은 이 표로 비평문의 `dcterms:creator`·`cito:discusses`·`cito:citesAsAuthority` 를 정본에 맞춘다. 이를 빼면 병합돼 사라진 id 를 가리키는 **끊긴 IRI**(이름·클래스·전거 없음)가 생겨 이름으로 조인하는 SPARQL 결과가 줄어든다(2026-09-15 수정 전 252개·622트리플). 빌드 로그에 `[경고] graph.ttl 끊긴 인물 IRI` 가 나오면 원인을 찾을 것
+- 알려진 미해결: `writers.json`(504)·`thinkers.json`(926)과 `site/writers|thinkers/*.html` 은 아직 병합 전 id 기준이라 같은 인물의 프로필이 둘로 나뉜 경우가 있다(예: `p-arnheim` / `p-00006`). 관계망·graph.ttl 의 인물 수는 작가 380·이론가 779
 - **LOD 외부링크 추가는 build.py `LOD_SOURCES` 한 곳만**: 새 식별자(예: 새 사전) 추가 = 레지스트리 1줄 + persons.json 필드. 프로필·칩·카드3종·관계망 패널 6곳이 자동 반영. 개별 HTML/JS를 손대지 말 것 (§14 참조)
 - 커밋 전 `git status`로 변경 파일 확인 — site/* 빌드 산출물은 커밋 OK, `essays/*.xml`·`.env`·`*.bak`·`essays_backup*/`·`qid_fix_*.csv`는 절대 staging 금지(.gitignore 등록됨)
 
@@ -820,7 +822,7 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 - `critic_v7_kcritic_archive_20260608_withRole.rdf` — 폐기된 `critic:Role` 개체 11개가 남아 있는 구버전 아카이브. 사용 금지
 - **`critic_v8_schema.rdf` + `critic_v8_data.rdf` (현행)** — v7에서 미사용 `critic:Role` 클래스·`critic:hasRole` 프로퍼티를 제거하고 스키마/데이터로 분리. **NamedIndividual 152개는 v7과 동일**(비평가 2 · 이론가 69 · 작가 40 · 비평문 41)
 
-> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(17,796 트리플)이다. 둘의 역할을 혼동하지 말 것.
+> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(17,889 트리플)이다. 둘의 역할을 혼동하지 말 것.
 
 `build.py`의 `build_turtle()`은 v8 스키마를 준거로 삼아 `graph.ttl`을 생성한다.
 
@@ -887,7 +889,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 ### 완료 (Phase 1 — 비교 관계망)
 학술적 의미 확보에 필요한 "비평가 복수" 조건 달성. **김윤식 대신 김현·황현산으로 확장**했다.
 - 비평가 4인 370편 — 김현 136 · 유종호 114 · 김우창 109 · 황현산 11
-- 관계망 노드 1,533 / 엣지 4,131, graph.ttl 17,796 트리플
+- 관계망 노드 1,533 / 엣지 4,131, graph.ttl 17,889 트리플
 - 미완: **`critic:respondsTo`(에세이 → 에세이 응답 관계) 미구현** — 스키마·build.py 어디에도 없음. 기교주의 논쟁 같은 논쟁 구조를 표현하려면 이게 필요
 
 ### 진행 중 (Phase 2 — 개념어 계층)

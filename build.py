@@ -45,6 +45,11 @@ if _ID_MAP_FILE.exists():
     except Exception:
         pass
 
+# build_graph_data() 가 같은 라벨의 인물 노드를 병합할 때 채운다 (병합된 id → 정본 id).
+# graph.ttl 도 이 표로 인물 id 를 정본에 맞춰야 한다. 그렇지 않으면 비평문이 병합돼 사라진 id 를
+# 가리키게 되어 이름·클래스·전거가 없는 끊긴 IRI 가 발행된다 (2026-09-15 수정 전 252개).
+_CANON_ID: dict = {}
+
 # ── LOD 외부 식별자 단일 레지스트리 ───────────────────────────────
 # 새 LOD 소스 추가 = 여기 한 줄 + persons.json 필드. 모든 표시 위치(프로필/칩/카드)가 이 정의를 따른다.
 #   field : persons.json 키
@@ -715,6 +720,8 @@ def build_graph_data(all_essays):
             if i != _keep:
                 canon_id[i] = _keep
 
+    _CANON_ID.clear()
+    _CANON_ID.update(canon_id)
     if canon_id:
         for _old, _new in canon_id.items():
             _o = nodes.pop(_old, None)
@@ -1755,17 +1762,26 @@ def build_turtle(all_essays, graph):
         "# ── 인물 노드 ────────────────────────────────────────────",
     ]
 
-    # 인물 노드 수집 (모든 에세이의 persons 병합, 중복 제거)
-    all_persons = {}
-    for essay in all_essays:
-        for pid, p in essay["persons"].items():
-            if pid not in all_persons:
-                all_persons[pid] = p
-            elif not all_persons[pid].get("ref") and p.get("ref"):
-                all_persons[pid]["ref"] = p["ref"]
-
-    # 인물 타입 수집 (graph.json nodes에서)
+    # 인물 타입 수집 (graph.json nodes에서) — 발행 대상 인물은 관계망의 인물 노드와 같다
     node_type_map = {n["id"]: n["type"] for n in graph["nodes"]}
+    person_types = ("critic", "writer", "theorist")
+
+    def canon(pid):
+        return _CANON_ID.get(pid, pid)
+
+    # 인물 노드 수집 (모든 에세이의 persons 병합). 병합된 id 는 정본 id 로 모은다.
+    # 정본 id 자신의 레코드를 우선하고, 없을 때만 별칭 id 의 레코드를 쓴다.
+    all_persons = {}
+    for own_first in (True, False):
+        for essay in all_essays:
+            for pid, p in essay["persons"].items():
+                cid = canon(pid)
+                if (pid == cid) != own_first:
+                    continue
+                if cid not in all_persons:
+                    all_persons[cid] = dict(p)
+                elif not all_persons[cid].get("ref") and p.get("ref"):
+                    all_persons[cid]["ref"] = p["ref"]
 
     # critic:analyzes 집계 (비평가 → 비평 대상 인물 직접 관계)
     analyzes_map = defaultdict(set)  # critic_id -> {writer_id, ...}
@@ -1826,9 +1842,14 @@ def build_turtle(all_essays, graph):
         stem = essay["stem"]
         title = essay["title"]
         display_year = essay.get("display_year") or essay["year"]
-        author_id = essay["author_id"]
+        author_id = canon(essay["author_id"]) if essay["author_id"] else ""
         sources = essay["sources"]
         concepts = essay.get("concepts", [])
+        # 인물 id 를 정본으로 맞추고, 관계망에 인물 노드가 있는 경우만 잇는다 (끊긴 IRI 방지)
+        subjects = sorted({canon(pid) for pid in essay["subjects"]
+                           if node_type_map.get(canon(pid)) in person_types})
+        theorists = sorted({canon(pid) for pid in essay["theorists"]
+                            if node_type_map.get(canon(pid)) in person_types} - set(subjects))
 
         pub_info = ""
         if sources:
@@ -1848,12 +1869,12 @@ def build_turtle(all_essays, graph):
             # dcterms:creator (온톨로지 준거)
             triples.append(f'  dcterms:creator kc:{author_id} ;')
         # cito:discusses — 비평 대상 작가 (비평적 분석의 직접 대상)
-        for pid in sorted(essay["subjects"]):
+        for pid in subjects:
             triples.append(f'  cito:discusses kc:{pid} ;')
             if author_id:
                 analyzes_map[author_id].add(pid)
         # cito:citesAsAuthority — 이론가 (권위로 인용, 비평 대상과 구별)
-        for pid in sorted(essay["theorists"]):
+        for pid in theorists:
             triples.append(f'  cito:citesAsAuthority kc:{pid} ;')
         # 개념어
         for c in concepts:
@@ -1871,7 +1892,7 @@ def build_turtle(all_essays, graph):
     wrote_by_critic = defaultdict(list)
     for essay in all_essays:
         if essay["author_id"]:
-            wrote_by_critic[essay["author_id"]].append(essay["stem"])
+            wrote_by_critic[canon(essay["author_id"])].append(essay["stem"])
 
     for cid, stems in sorted(wrote_by_critic.items()):
         for stem in stems:
@@ -1885,7 +1906,14 @@ def build_turtle(all_essays, graph):
             lines.append(f"kc:{cid} critic:analyzes kc:{target_pid} .")
         lines.append("")
 
-    return "\n".join(lines)
+    # 끊긴 IRI 검사 — 목적어로 쓰였는데 자기 블록(kc:… a …)이 없는 인물
+    ttl = "\n".join(lines)
+    declared = set(re.findall(r"^(kc:\S+) a ", ttl, re.M))
+    used = set(re.findall(r"(?:dcterms:creator|cito:discusses|cito:citesAsAuthority|critic:analyzes) (kc:[^\s;,.]+)", ttl))
+    dangling = sorted(used - declared)
+    if dangling:
+        print(f"  [경고] graph.ttl 끊긴 인물 IRI {len(dangling)}개: {', '.join(dangling[:8])}")
+    return ttl
 
 
 def sync_neo4j(graph: dict):
