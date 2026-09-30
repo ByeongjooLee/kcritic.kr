@@ -24,6 +24,10 @@ PERSONS_FILE = Path("persons.json")
 _PERSONS_REGISTRY: dict = {}
 # Wikidata Q번호 → persons.json 슬러그 역방향 인덱스
 _WIKIDATA_TO_SLUG: dict = {}
+# XML 인물 id(슬러그·숫자 모두) → persons.json 정본 키. 레코드의 "ids" 목록으로 구축.
+# 같은 인물이 비평문마다 다른 id(p-chae-mansik / p-chaemansik …)로 인코딩돼 있어도
+# 여기서 한 정본으로 모인다. 목록·프로필·관계망·graph.ttl 이 모두 이 정본 id 를 쓴다.
+_ID_TO_CANON: dict = {}
 if PERSONS_FILE.exists():
     _PERSONS_REGISTRY = json.loads(PERSONS_FILE.read_text(encoding="utf-8"))
     for _slug, _p in _PERSONS_REGISTRY.items():
@@ -32,6 +36,15 @@ if PERSONS_FILE.exists():
         for _alias in (_p.get("wikidata_aliases") or []):
             if _alias not in _WIKIDATA_TO_SLUG:
                 _WIKIDATA_TO_SLUG[_alias] = _slug
+        _ID_TO_CANON[_slug] = _slug
+    for _slug, _p in _PERSONS_REGISTRY.items():
+        for _xid in (_p.get("ids") or []):
+            _ID_TO_CANON.setdefault(_xid, _slug)
+
+
+def _canon_pid(pid: str) -> str:
+    """XML 인물 id → persons.json 정본 id (등록 안 된 id 는 그대로)."""
+    return _ID_TO_CANON.get(pid, pid)
 
 # id_map.json (슬러그 → 숫자ID) 로드 → 숫자ID → 슬러그 역인덱스.
 # 에세이 XML이 숫자 xml:id(p-00117 등)로 인물을 참조해도 persons.json 권위 레코드로 연결.
@@ -89,9 +102,11 @@ RDF_SEEALSO_SOURCES = [
 
 
 def _lod_record(xml_id, fallback_ref=""):
-    """persons.json 권위 레코드 + (wikidata 누락 시) fallback_ref에서 Q번호 보완."""
+    """persons.json 권위 레코드 + (wikidata 누락 시) fallback_ref에서 Q번호 보완.
+    persons.json 에 등록된 인물은 보완하지 않는다 — wikidata 가 비어 있으면 '확인된 연결 없음'이라는
+    판정이고, XML ref 의 Q번호는 엉뚱한 항목인 경우가 많았다(2026-09-30 전수 판정)."""
     rec = dict(_persons_record(xml_id, fallback_ref))
-    if not rec.get("wikidata"):
+    if not rec.get("wikidata") and _canon_pid(xml_id) not in _PERSONS_REGISTRY:
         for uri in fallback_ref.split():
             if "wikidata.org/wiki/" in uri:
                 rec["wikidata"] = uri.rstrip("/").split("/")[-1]
@@ -135,6 +150,7 @@ def _strip_parens(name: str) -> str:
 
 def _persons_record(xml_id: str, fallback_ref: str = "") -> dict:
     """persons.json 레코드 반환. xml_id 직접 조회 → Wikidata Q번호로 역방향 조회 순으로 시도."""
+    xml_id = _canon_pid(xml_id)
     if xml_id in _PERSONS_REGISTRY:
         return _PERSONS_REGISTRY[xml_id]
     # 숫자 xml:id → 슬러그 (id_map) 로 persons.json 권위 레코드 조회
@@ -153,6 +169,7 @@ def _persons_record(xml_id: str, fallback_ref: str = "") -> dict:
 def _registry_ref(xml_id: str) -> str:
     """persons.json에서 xml_id의 외부 식별자 URI 문자열을 조합해 반환.
     wikidata > encykorea > nlk > isni > viaf 순으로 있는 것만 포함."""
+    xml_id = _canon_pid(xml_id)
     p = _PERSONS_REGISTRY.get(xml_id) or _PERSONS_REGISTRY.get(_NUM_TO_SLUG.get(xml_id, ""), {})
     uris = []
     if p.get("wikidata"):
@@ -166,6 +183,13 @@ def _registry_ref(xml_id: str) -> str:
     if p.get("viaf"):
         uris.append(p["viaf"])
     return " ".join(uris)
+
+def _redirect_html(target: str) -> str:
+    """병합된 옛 인물 id 페이지 → 정본 페이지로 넘기는 최소 HTML."""
+    return (f'<!DOCTYPE html>\n<html lang="ko"><head><meta charset="UTF-8">'
+            f'<meta name="robots" content="noindex"><link rel="canonical" href="{target}">'
+            f'<meta http-equiv="refresh" content="0; url={target}"><title>이동</title></head>'
+            f'<body><p><a href="{target}">정본 페이지로 이동</a></p></body></html>\n')
 
 def tns(tag):
     return f"{{{T}}}{tag}"
@@ -709,13 +733,18 @@ def build_graph_data(all_essays):
         if _n.get("type") in _MERGE_TYPES and _n.get("label"):
             _by_label[_n["label"]].append(_nid)
 
+    # persons.json 에 등록된 인물은 이미 process() 에서 정본으로 모였다. 이름이 같아도 등록 정본이
+    # 둘 이상이면 동명이인이므로 합치지 않는다 — 라벨 병합은 미등록 id 에만 적용되는 안전망이다.
     canon_id = {}
     for _label, _ids in _by_label.items():
         if len(_ids) < 2:
             continue
-        # 정본: id_map 형식(p-00123) 우선, 없으면 사전순 첫 슬러그
+        _reg = sorted(i for i in _ids if i in _PERSONS_REGISTRY)
+        if len(_reg) > 1:
+            continue
+        # 정본: 등록 정본 → id_map 형식(p-00123) → 사전순 첫 슬러그
         _numeric = sorted(i for i in _ids if re.fullmatch(r"p-\d{5}", i))
-        _keep = _numeric[0] if _numeric else sorted(_ids)[0]
+        _keep = _reg[0] if _reg else (_numeric[0] if _numeric else sorted(_ids)[0])
         for i in _ids:
             if i != _keep:
                 canon_id[i] = _keep
@@ -1450,6 +1479,26 @@ def process(xml_path):
     display_year = original_year or stem_year or year
     concepts = collect_interp_concepts(root)
 
+    # 인물 id 를 persons.json 정본으로 모은다 — 한 비평문 안에서 같은 인물이 두 id 로 적혀 있으면 하나로.
+    canon_persons = {}
+    for pid in sorted(persons):
+        cid = _canon_pid(pid)
+        if cid not in canon_persons or pid == cid:
+            canon_persons[cid] = {**persons[pid], "id": cid}
+    persons = canon_persons
+    subjects = {_canon_pid(pid) for pid in subjects}
+    theorists = {_canon_pid(pid) for pid in theorists} - subjects
+    author_id = _canon_pid(author_id) if author_id else author_id
+    theorists.discard(author_id)
+
+    def _canon_ctx(ctx):
+        merged = defaultdict(list)
+        for pid in sorted(ctx):
+            merged[_canon_pid(pid)].extend(ctx[pid])
+        return merged
+    theorist_contexts = _canon_ctx(theorist_contexts)
+    subject_contexts = _canon_ctx(subject_contexts)
+
     return {
         "stem": xml_path.stem,
         "title": title,
@@ -1666,6 +1715,15 @@ def main():
     thinkers_path.write_text(json.dumps(thinkers_json, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"  OK thinkers.json -> {thinkers_path} ({len(thinkers_json)} thinkers)")
 
+    # 정본으로 병합된 옛 id 의 프로필 주소는 정본 페이지로 넘긴다 (외부 링크·옛 관계망 캐시 보존)
+    n_redirect = 0
+    for d, live in ((CRITICS_DIR, critics), (WRITERS_DIR, writers_map), (THINKERS_DIR, thinkers_map)):
+        for old_id, cid in sorted(_ID_TO_CANON.items()):
+            if old_id != cid and cid in live and old_id not in live:
+                (d / f"{old_id}.html").write_text(_redirect_html(f"{cid}.html"), encoding="utf-8")
+                n_redirect += 1
+    print(f"  OK 병합 id 리다이렉트 {n_redirect}개")
+
     # RDF Turtle 발행
     ttl = build_turtle(all_essays, graph)
     ttl_path = DATA_DIR / "graph.ttl"
@@ -1816,8 +1874,8 @@ def build_turtle(all_essays, graph):
             v = rec.get(field)
             if v:
                 same.append(mk(v))
-        if not rec.get("wikidata"):
-            # persons.json 에 Wikidata 가 없으면 TEI ref / fallback 에서 보완한다.
+        if not rec.get("wikidata") and _canon_pid(pid) not in _PERSONS_REGISTRY:
+            # persons.json 에 없는 인물만 TEI ref / fallback 에서 보완한다 (등록 인물의 빈 wikidata 는 판정 결과).
             # 다른 전거(NLK 등)를 이미 찾았더라도 건너뛰지 않는다.
             wd = next((u for u in ref.split() if "wikidata" in u), "")                  or _WIKIDATA_FALLBACK.get(name, "")
             qid = re.search(r"(Q\d+)", wd)

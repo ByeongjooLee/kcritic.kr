@@ -2,16 +2,17 @@
 
 AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로운 결정이 생기면 즉시 이 파일을 업데이트할 것.
 
-**현재 상태 (2026-09-07 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
+**현재 상태 (2026-09-30 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
 
 | 항목 | 값 |
 |---|---|
 | 수록 비평가 | 4인 — 김현 136편(1969–1990), 유종호 114편(1957–1995), 김우창 109편(1977–1993), 황현산 11편(2010–2012) |
 | 수록 비평글 | 370편 (`essays/*.xml`) |
-| 관계망 | 노드 1,533 / 엣지 4,131 |
-| 노드 구성 | theorist 779 · writer 380 · essay 370 · critic 4 |
-| 엣지 구성 | uses_theory 2,133 · subject_of 1,628 · wrote 370 |
-| 목록 데이터 | writers.json 504 · thinkers.json 926 · concepts.json 3,780(공개 288) |
+| 관계망 | 노드 1,463 / 엣지 4,125 |
+| 노드 구성 | theorist 726 · writer 363 · essay 370 · critic 4 |
+| 엣지 구성 | uses_theory 2,128 · subject_of 1,627 · wrote 370 |
+| 목록 데이터 | writers.json 380 · thinkers.json 728 · concepts.json 3,780(공개 288) |
+| 인물 권위 목록 | persons.json 1,142명 — Wikidata 985 · NLK 858 (2026-09-30 전수 판정) |
 | 공식 온톨로지 | **v8** (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
 
 ---
@@ -176,7 +177,7 @@ build.py 출력:
 - `site/data/writers.json` — 작가 목록 데이터 (encykorea, nlk, ref 포함)
 - `site/data/thinkers.json` — 이론가 목록 데이터 (context_count 포함)
 - `site/data/concepts.json` — 개념어 색인 (concepts.html 전용, 관계망 노드 아님 — §5 참조)
-- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 17,889 트리플, 끊긴 인물 IRI 0)
+- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 20,763 트리플, 끊긴 인물 IRI 0)
 
 빌드 끝에 Neo4j 동기화를 시도한다. `neo4j` 모듈이 없거나 Neo4j Desktop이 꺼져 있으면 경고만 남기고 건너뛴다(빌드 실패 아님).
 
@@ -619,7 +620,7 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - Neo4j URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
 - **빌드 결정성 유지**: set을 출력/직렬화할 땐 항상 `sorted()`, count 기준 정렬엔 `key=lambda x: (-x[1], x[0])` 같은 안정적 tiebreaker 사용. (검증: `py build.py` 2회 연속 실행 후 `git diff`가 비어야 함.) 위반 시 빌드마다 칩·노드 순서가 바뀌어 무의미한 diff가 쏟아짐
 - **graph.ttl 의 인물 id 는 반드시 정본 id 로**: `build_graph_data()` 가 같은 라벨의 인물 노드를 병합하며 `_CANON_ID`(병합 id → 정본 id)를 채우고, `build_turtle()` 은 이 표로 비평문의 `dcterms:creator`·`cito:discusses`·`cito:citesAsAuthority` 를 정본에 맞춘다. 이를 빼면 병합돼 사라진 id 를 가리키는 **끊긴 IRI**(이름·클래스·전거 없음)가 생겨 이름으로 조인하는 SPARQL 결과가 줄어든다(2026-09-15 수정 전 252개·622트리플). 빌드 로그에 `[경고] graph.ttl 끊긴 인물 IRI` 가 나오면 원인을 찾을 것
-- 알려진 미해결: `writers.json`(504)·`thinkers.json`(926)과 `site/writers|thinkers/*.html` 은 아직 병합 전 id 기준이라 같은 인물의 프로필이 둘로 나뉜 경우가 있다(예: `p-arnheim` / `p-00006`). 관계망·graph.ttl 의 인물 수는 작가 380·이론가 779
+- **인물 id 정본화 (2026-09-30 해결)**: 비평문 XML 의 모든 인물 id 는 persons.json 레코드의 `ids` 목록으로 정본 키에 묶인다. `process()` 가 `_canon_pid()` 로 persons/subjects/theorists/author/문맥을 정본으로 바꾸므로 목록·프로필·관계망·graph.ttl 이 같은 id 를 쓴다. 병합된 옛 id 의 프로필 주소는 정본 페이지로 넘기는 리다이렉트 HTML 로 남는다(`_redirect_html`). 라벨 병합(`build_graph_data`)은 미등록 id 에만 쓰는 안전망이며, 같은 이름의 등록 정본이 둘 이상이면 동명이인으로 보고 합치지 않는다(예: 김종철 시인/사상가, 유진오)
 - **LOD 외부링크 추가는 build.py `LOD_SOURCES` 한 곳만**: 새 식별자(예: 새 사전) 추가 = 레지스트리 1줄 + persons.json 필드. 프로필·칩·카드3종·관계망 패널 6곳이 자동 반영. 개별 HTML/JS를 손대지 말 것 (§14 참조)
 - 커밋 전 `git status`로 변경 파일 확인 — site/* 빌드 산출물은 커밋 OK, `essays/*.xml`·`.env`·`*.bak`·`essays_backup*/`·`qid_fix_*.csv`는 절대 staging 금지(.gitignore 등록됨)
 
@@ -633,7 +634,13 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 
 ### persons.json — 인물 권위 소스
 
-`persons.json` 파일이 LOD 링크의 권위 소스. 키는 **슬러그 형식** (`p-yun-dongju`), XML의 숫자 ID(`p-00247`)와 다름.
+`persons.json` 파일이 LOD 링크의 권위 소스이자 **비평문에 나오는 모든 인물의 정본 목록**(2026-09-30부터).
+- 키 = 정본 id. 숫자 id(`p-00247`)가 있으면 그것(관계망 정본과 같음), 없으면 기존 슬러그.
+- `ids` = 같은 인물을 가리키는 다른 XML id·옛 슬러그 목록 (예: `p-chae-mansik`·`p-chaemansik`·`p-chae-manshik`). 새 비평문에서 기존 인물을 다른 id 로 인코딩했다면 여기에 추가하면 된다.
+- `wikidata: null` 은 "확인된 연결 없음" 판정이다. build.py 는 등록 인물에 대해 XML ref 의 Q번호로 보완하지 않는다(XML ref 에 엉뚱한 Q번호가 많았음 — 김승옥→노르웨이 지자체, 벤야민→독일 코미디언 등).
+- `not_person: true` = 사람이 아닌 항목(학파·작중인물 등). 관계망에는 남지만 전거는 달지 않는다.
+- 2026-09-30 전수 판정: 근대잡지 열람사이트 인물 전거(`../../../../스캔/인물카드/people_ids/`)·Wikidata 검색·국중 LOD 스냅샷(QID→KAC)을 대조해 판정. 판정 원칙은 "확실할 때만 연결". 변경 내역은 부모 폴더 `인물_갱신결과_20260930.csv`.
+- 국중(nlk)은 국중 LOD 스냅샷의 owl:sameAs(QID→KAC 유일) > Wikidata P5034 > 근대잡지 판정 순으로 채웠다. encykorea 는 Wikidata P9475 가 권위.
 
 ```json
 "p-yun-dongju": {
@@ -822,7 +829,7 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 - `critic_v7_kcritic_archive_20260608_withRole.rdf` — 폐기된 `critic:Role` 개체 11개가 남아 있는 구버전 아카이브. 사용 금지
 - **`critic_v8_schema.rdf` + `critic_v8_data.rdf` (현행)** — v7에서 미사용 `critic:Role` 클래스·`critic:hasRole` 프로퍼티를 제거하고 스키마/데이터로 분리. **NamedIndividual 152개는 v7과 동일**(비평가 2 · 이론가 69 · 작가 40 · 비평문 41)
 
-> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(17,889 트리플)이다. 둘의 역할을 혼동하지 말 것.
+> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(20,763 트리플)이다. 둘의 역할을 혼동하지 말 것.
 
 `build.py`의 `build_turtle()`은 v8 스키마를 준거로 삼아 `graph.ttl`을 생성한다.
 
@@ -889,7 +896,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 ### 완료 (Phase 1 — 비교 관계망)
 학술적 의미 확보에 필요한 "비평가 복수" 조건 달성. **김윤식 대신 김현·황현산으로 확장**했다.
 - 비평가 4인 370편 — 김현 136 · 유종호 114 · 김우창 109 · 황현산 11
-- 관계망 노드 1,533 / 엣지 4,131, graph.ttl 17,889 트리플
+- 관계망 노드 1,463 / 엣지 4,125, graph.ttl 20,763 트리플 (2026-09-30 인물 정본화 후)
 - 미완: **`critic:respondsTo`(에세이 → 에세이 응답 관계) 미구현** — 스키마·build.py 어디에도 없음. 기교주의 논쟁 같은 논쟁 구조를 표현하려면 이게 필요
 
 ### 진행 중 (Phase 2 — 개념어 계층)
