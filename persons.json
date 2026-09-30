@@ -1395,7 +1395,8 @@
     "viaf": "http://viaf.org/viaf/118926996",
     "encykorea_work": "https://encykorea.aks.ac.kr/Article/E0062938",
     "ids": [
-      "p-jeong-jiyong"
+      "p-jeong-jiyong",
+      "p-jung-jiyong"
     ]
   },
   "p-00087": {
@@ -2414,6 +2415,7 @@
     "en": "Friedrich Nietzsche",
     "ids": [
       "p-nietzsche",
+      "p-nietzsche-son",
       "p-니체"
     ]
   },
@@ -2576,7 +2578,8 @@
     "encykorea_work": null,
     "en": "Plato",
     "ids": [
-      "p-plato"
+      "p-plato",
+      "p-platon"
     ]
   },
   "p-00175": {
@@ -7218,16 +7221,6 @@
     "viaf": null,
     "encykorea_work": null
   },
-  "p-jung-jiyong": {
-    "label": "정지용",
-    "role": "poet",
-    "wikidata": "Q4707772",
-    "encykorea": "https://encykorea.aks.ac.kr/Article/E0050953",
-    "nlk": null,
-    "isni": null,
-    "viaf": null,
-    "encykorea_work": "https://encykorea.aks.ac.kr/Article/E0062938"
-  },
   "p-kam-taejun": {
     "label": "감태준",
     "role": "poet",
@@ -9786,17 +9779,6 @@
     "encykorea_work": null,
     "en": "Isaac Newton"
   },
-  "p-nietzsche-son": {
-    "label": "니체",
-    "role": "scholar",
-    "wikidata": "Q9358",
-    "encykorea": null,
-    "nlk": null,
-    "isni": null,
-    "viaf": null,
-    "encykorea_work": null,
-    "en": "Friedrich Nietzsche"
-  },
   "p-nijinsky": {
     "label": "니진스키",
     "role": "foreigner scholar",
@@ -10462,17 +10444,6 @@
     "viaf": "http://viaf.org/viaf/2546239",
     "encykorea_work": null,
     "en": "Giovanni Battista Piranesi"
-  },
-  "p-platon": {
-    "label": "플라톤",
-    "role": "scholar",
-    "wikidata": "Q859",
-    "encykorea": null,
-    "nlk": null,
-    "isni": null,
-    "viaf": null,
-    "encykorea_work": null,
-    "en": "Plato"
   },
   "p-polanyi": {
     "label": "마이클 폴라니",

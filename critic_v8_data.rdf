@@ -43,14 +43,16 @@
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김우창">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Critic" />
     <critic:name xml:lang="ko">김우창</critic:name>
-    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12595024" />
-    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0010002" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q17129594" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201203607" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000107797620" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/36989424" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/유종호">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Critic" />
     <critic:name xml:lang="ko">유종호</critic:name>
-    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q13564819" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12610003" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201106284" />
   </owl:NamedIndividual>
 
@@ -64,6 +66,9 @@
     <critic:name xml:lang="en">T. S. Eliot</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37767" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199608019" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121339888" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/56609282" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/I.A.리처즈">
@@ -72,6 +77,9 @@
     <critic:name xml:lang="en">I. A. Richards</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q718585" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199622950" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121394561" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/73896199" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/J.L.오스틴">
@@ -79,7 +87,10 @@
     <critic:name xml:lang="ko">J. L. 오스틴</critic:name>
     <critic:name xml:lang="en">J. L. Austin</critic:name>
     <critic:nationality>영국</critic:nationality>
-    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q108038" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q272615" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201425240" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120253687" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/49253679" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/괴테">
@@ -88,6 +99,9 @@
     <critic:name xml:lang="en">Johann Wolfgang von Goethe</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q5879" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199610270" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120999104" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/24602065" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/니체">
@@ -96,6 +110,9 @@
     <critic:name xml:lang="en">Friedrich Nietzsche</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9358" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199620237" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122828181" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/89798474" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/데카르트">
@@ -104,6 +121,9 @@
     <critic:name xml:lang="en">René Descartes</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9191" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199606962" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121296144" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/41838958" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/도스토옙스키">
@@ -112,6 +132,9 @@
     <critic:name xml:lang="en">Fyodor Dostoevsky</critic:name>
     <critic:nationality>러시아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q991" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199633592" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121462392" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/104023256" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/뒤르켐">
@@ -120,6 +143,9 @@
     <critic:name xml:lang="en">Émile Durkheim</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q15948" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199607657" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121339861" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/56609141" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/딜타이">
@@ -128,6 +154,9 @@
     <critic:name xml:lang="en">Wilhelm Dilthey</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q60080" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199607151" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000109118986" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/68943563" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/라이오넬트릴링">
@@ -136,6 +165,9 @@
     <critic:name xml:lang="en">Lionel Trilling</critic:name>
     <critic:nationality>미국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1827287" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC202331126" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000108669671" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/7458867" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/라이프니츠">
@@ -144,6 +176,9 @@
     <critic:name xml:lang="en">Gottfried Wilhelm Leibniz</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9047" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199616304" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120990070" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/9849392" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/레닌">
@@ -152,6 +187,9 @@
     <critic:name xml:lang="en">Vladimir Lenin</critic:name>
     <critic:nationality>러시아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1394" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199616356" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120988915" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/7393146" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/레비스트로스">
@@ -160,6 +198,9 @@
     <critic:name xml:lang="en">Claude Lévi-Strauss</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q128126" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200503012" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121035067" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/102346347" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/레이먼드윌리엄스">
@@ -168,6 +209,9 @@
     <critic:name xml:lang="en">Raymond Williams</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q394628" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199639230" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120965617" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/87380498" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/루카치">
@@ -176,6 +220,9 @@
     <critic:name xml:lang="en">György Lukács</critic:name>
     <critic:nationality>헝가리</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q151523" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199617179" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121309398" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/46764285" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/릴케">
@@ -184,6 +231,9 @@
     <critic:name xml:lang="en">Rainer Maria Rilke</critic:name>
     <critic:nationality>오스트리아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q76483" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199623067" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121312247" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/46897170" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/마르크스">
@@ -192,6 +242,9 @@
     <critic:name xml:lang="en">Karl Marx</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9061" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199617910" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122796570" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/49228757" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/막스베버">
@@ -200,6 +253,9 @@
     <critic:name xml:lang="en">Max Weber</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9387" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199629452" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000012145101X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/100180950" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/막심고리키">
@@ -208,6 +264,9 @@
     <critic:name xml:lang="en">Maxim Gorky</critic:name>
     <critic:nationality>러시아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12706" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199610478" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121445808" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/96998392" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/말라르메">
@@ -216,6 +275,9 @@
     <critic:name xml:lang="en">Stéphane Mallarmé</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q767" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201611856" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121326470" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/51692711" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/매슈아널드">
@@ -224,6 +286,9 @@
     <critic:name xml:lang="en">Matthew Arnold</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q271032" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199600987" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000012139385X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/73868557" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/메를로퐁티">
@@ -232,6 +297,9 @@
     <critic:name xml:lang="en">Maurice Merleau-Ponty</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q212639" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199618620" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122779922" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/31991436" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/미켈뒤프렌">
@@ -240,6 +308,9 @@
     <critic:name xml:lang="en">Mikel Dufrenne</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q2548282" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199607540" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000109320877" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/108831547" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/발터벤야민">
@@ -248,6 +319,9 @@
     <critic:name xml:lang="en">Walter Benjamin</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q61078" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199602170" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121010732" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/46757196" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/베르그송">
@@ -256,6 +330,9 @@
     <critic:name xml:lang="en">Henri Bergson</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q42156" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199602305" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121355394" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/61541730" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/베르너좀바르트">
@@ -264,6 +341,9 @@
     <critic:name xml:lang="en">Werner Sombart</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q58031" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC2018J6818" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121222743" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/17239301" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/벤자민워프">
@@ -272,6 +352,9 @@
     <critic:name xml:lang="en">Benjamin Lee Whorf</critic:name>
     <critic:nationality>미국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q331853" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201011027" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000110291540" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/71432789" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/보들레르">
@@ -280,6 +363,9 @@
     <critic:name xml:lang="en">Charles Baudelaire</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q501" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199601837" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121221863" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/17218730" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/볼프강이저">
@@ -288,6 +374,9 @@
     <critic:name xml:lang="en">Wolfgang Iser</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q60486" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199634534" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000110613538" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/49239148" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/비코">
@@ -296,6 +385,9 @@
     <critic:name xml:lang="en">Giambattista Vico</critic:name>
     <critic:nationality>이탈리아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q178709" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199628801" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121016464" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/59090329" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/사르트르">
@@ -304,6 +396,9 @@
     <critic:name xml:lang="en">Jean-Paul Sartre</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9364" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199624126" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000012321080X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/76322562" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/수잔랭거">
@@ -312,6 +407,9 @@
     <critic:name xml:lang="en">Susanne Langer</critic:name>
     <critic:nationality>미국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q466026" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199634925" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000109091912" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/64120378" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/순자">
@@ -320,6 +418,9 @@
     <critic:name xml:lang="en">Xunzi</critic:name>
     <critic:nationality>중국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q216072" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201113588" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000118219842" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/163230770" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/스타로뱅스키">
@@ -328,6 +429,9 @@
     <critic:name xml:lang="en">Jean Starobinski</critic:name>
     <critic:nationality>스위스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q123507" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201231937" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000108893809" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/39384431" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/아리스토텔레스">
@@ -336,6 +440,9 @@
     <critic:name xml:lang="en">Aristotle</critic:name>
     <critic:nationality>그리스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q868" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199632647" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000123748095" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/7524651" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/에리히아우어바흐">
@@ -344,6 +451,9 @@
     <critic:name xml:lang="en">Erich Auerbach</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q57603" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199601178" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000010890917X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/41836053" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/에리히프롬">
@@ -352,6 +462,9 @@
     <critic:name xml:lang="en">Erich Fromm</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q57085" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199609424" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121371685" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/66467430" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/엥겔스">
@@ -360,6 +473,9 @@
     <critic:name xml:lang="en">Friedrich Engels</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q34787" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199608161" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121379599" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/68928644" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/예이츠">
@@ -368,6 +484,9 @@
     <critic:name xml:lang="en">W. B. Yeats</critic:name>
     <critic:nationality>아일랜드</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q40213" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199630758" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120960541" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/46768718" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이안와트">
@@ -375,7 +494,10 @@
     <critic:name xml:lang="ko">이안 와트</critic:name>
     <critic:name xml:lang="en">Ian Watt</critic:name>
     <critic:nationality>영국</critic:nationality>
-    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q112525285" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1351106" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199629384" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121216167" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/14862421" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/자크라캉">
@@ -384,6 +506,9 @@
     <critic:name xml:lang="en">Jacques Lacan</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q169906" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200800551" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121280361" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/36920510" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/장폴랑">
@@ -392,6 +517,8 @@
     <critic:name xml:lang="en">Jean Paulhan</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q470557" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121208298" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/12313345" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조르주풀레">
@@ -400,6 +527,9 @@
     <critic:name xml:lang="en">Georges Poulet</critic:name>
     <critic:nationality>벨기에</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1367032" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199622041" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000109327243" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/109203540" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/줄리아크리스테바">
@@ -408,6 +538,9 @@
     <critic:name xml:lang="en">Julia Kristeva</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q159876" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199615498" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122839200" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/108172648" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/즈다노프">
@@ -416,6 +549,8 @@
     <critic:name xml:lang="en">Andrei Zhdanov</critic:name>
     <critic:nationality>러시아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q207879" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121310516" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/46802767" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/체르니솁스키">
@@ -424,6 +559,9 @@
     <critic:name xml:lang="en">Nikolai Chernyshevsky</critic:name>
     <critic:nationality>러시아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q192331" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199604949" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121296566" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/41847059" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/카뮈">
@@ -432,6 +570,9 @@
     <critic:name xml:lang="en">Albert Camus</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q34670" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200807597" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122832690" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/97000332" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/칸트">
@@ -440,6 +581,9 @@
     <critic:name xml:lang="en">Immanuel Kant</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9312" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199614392" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122824025" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/82088490" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/칼포퍼">
@@ -448,6 +592,9 @@
     <critic:name xml:lang="en">Karl Popper</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q81244" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199621977" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121428792" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/88801921" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/캄파넬라">
@@ -456,6 +603,9 @@
     <critic:name xml:lang="en">Tommaso Campanella</critic:name>
     <critic:nationality>이탈리아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q191850" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199604294" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120988843" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/7387920" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/토머스모어">
@@ -464,6 +614,9 @@
     <critic:name xml:lang="en">Thomas More</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q42544" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199619295" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000031820467" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/29541174" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/파스칼">
@@ -472,6 +625,9 @@
     <critic:name xml:lang="en">Blaise Pascal</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q1290" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199621139" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121258260" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/29538862" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/플라톤">
@@ -480,6 +636,9 @@
     <critic:name xml:lang="en">Plato</critic:name>
     <critic:nationality>그리스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q859" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199621825" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120967858" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/108159964" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/플레하노프">
@@ -488,6 +647,9 @@
     <critic:name xml:lang="en">Georgi Plekhanov</critic:name>
     <critic:nationality>러시아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q182905" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC2020M1530" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121253603" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/27208870" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/하버마스">
@@ -496,6 +658,9 @@
     <critic:name xml:lang="en">Jürgen Habermas</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q76357" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199611157" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121468372" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/108179854" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/하이데거">
@@ -504,6 +669,9 @@
     <critic:name xml:lang="en">Martin Heidegger</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q48301" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199611974" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121244141" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/24602613" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/헤겔">
@@ -512,6 +680,9 @@
     <critic:name xml:lang="en">Georg Wilhelm Friedrich Hegel</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9235" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199611965" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000122828149" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/89774942" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/헤르베르트마르쿠제">
@@ -520,6 +691,9 @@
     <critic:name xml:lang="en">Herbert Marcuse</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q60030" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199617703" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121280417" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/36921579" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/루돌프아른하임">
@@ -528,6 +702,9 @@
     <critic:name xml:lang="en">Rudolf Arnheim</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q213642" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201752457" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000118163404" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/100176509" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/루드비히빈스방거">
@@ -536,6 +713,9 @@
     <critic:name xml:lang="en">Ludwig Binswanger</critic:name>
     <critic:nationality>스위스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q116614" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199602559" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000110645628" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/59079086" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/폴아자르">
@@ -544,6 +724,9 @@
     <critic:name xml:lang="en">Paul Hazard</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q462281" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199611889" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121318200" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/49226787" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/브루노베텔하임">
@@ -552,6 +735,9 @@
     <critic:name xml:lang="en">Bruno Bettelheim</critic:name>
     <critic:nationality>오스트리아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q84386" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200308152" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000109150839" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/73850092" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/발레리">
@@ -560,6 +746,9 @@
     <critic:name xml:lang="en">Paul Valéry</critic:name>
     <critic:nationality>프랑스</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q200639" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199628381" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000120962440" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/61553403" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/프랜시스베이컨">
@@ -568,6 +757,9 @@
     <critic:name xml:lang="en">Francis Bacon</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37388" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199601309" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121265700" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/31992319" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/프로이트">
@@ -576,6 +768,9 @@
     <critic:name xml:lang="en">Sigmund Freud</critic:name>
     <critic:nationality>오스트리아</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q9215" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199609326" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121272193" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/34456780" />
   </owl:NamedIndividual>
 
   <!-- 유종호 전용 이론가 (Wikidata 보유) -->
@@ -587,6 +782,9 @@
     <critic:name xml:lang="en">Arthur Schopenhauer</critic:name>
     <critic:nationality>독일</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q38193" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199624506" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000012122233X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/17229367" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/버트런드러셀">
@@ -595,6 +793,9 @@
     <critic:name xml:lang="en">Bertrand Russell</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q33760" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199623789" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121006514" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/36924137" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/토마스홉스">
@@ -603,6 +804,9 @@
     <critic:name xml:lang="en">Thomas Hobbes</critic:name>
     <critic:nationality>영국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q37621" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC199612493" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121347861" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/59083895" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/윌리엄제임스">
@@ -611,6 +815,9 @@
     <critic:name xml:lang="en">William James</critic:name>
     <critic:nationality>미국</critic:nationality>
     <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q125249" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200804656" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000121340790" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/56625773" />
   </owl:NamedIndividual>
 
   <!-- ============================================================
@@ -622,7 +829,7 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">고은</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494036" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q494036" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201011569" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000110791051" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/98400788" />
@@ -632,21 +839,27 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김광규</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q13582904" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q13582904" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201103658" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081616245" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/87056056" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김구용">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김구용</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009830" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q6408667" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201411242" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000455952519" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/29145376360683720740" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김동리">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김동리</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625849" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q625849" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0008984" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201010751" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000116982203" />
@@ -657,23 +870,33 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김동인</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625815" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q625815" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009003" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201011448" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000368557115" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/73962834" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김성한">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김성한</critic:name>
     <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q16080280" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0079618" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201102632" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083518788" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/3812054" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김수영">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김수영</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q16198424" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q4556301" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009567" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207959" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083779451" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/44471306" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김시권">
@@ -687,46 +910,58 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김지하</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q498610" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q44366" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201205697" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081761311" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/110339675" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김창완">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김창완</critic:name>
     <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12588930" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/김현승">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김현승</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q16080688" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q16080688" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0011043" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201219490" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000368000667" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/177505645" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/박목월">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">박목월</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q7137910" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q7137910" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0020682" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207960" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000008208122X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/25957382" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/변영로">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">변영로</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q11245147" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q11245147" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0022940" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108645" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000024464847" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/21015626" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/서정주">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">서정주</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494585" />
-    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0028180" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q624277" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071543" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207962" />
     <owl:sameAs rdf:resource="https://isni.org/isni/000000008403163X" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/53008278" />
@@ -736,25 +971,30 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">김소월</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494639" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q496828" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0009535" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201101982" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081541255" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/73999604" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/손창섭">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">손창섭</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12602771" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12602771" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0079619" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207854" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081869234" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/117844080" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/심훈">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">심훈</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625225" />
-    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0033978" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q625225" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0033979" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108734" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000083928357" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/71502158" />
@@ -764,14 +1004,18 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">안수길</critic:name>
     <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q623974" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0034835" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201106465" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081411063" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/21149294363180522076" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/염상섭">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">염상섭</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q8054832" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q8054832" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0037111" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201010743" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000109091795" />
@@ -782,15 +1026,18 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">오규원</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12614218" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12607740" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071287" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201200668" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000026815858" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/40709448" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/윤동주">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">윤동주</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q625089" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q625089" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0042294" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201110203" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000081384480" />
@@ -801,7 +1048,7 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">이광수</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q495454" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q495454" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0043688" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108735" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000110594496" />
@@ -812,10 +1059,10 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">이상</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q500649" />
-    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0080798" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q486028" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0044568" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200207958" />
-    <owl:sameAs rdf:resource="https://isni.org/isni/0000000358137117" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083874942" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/61657532" />
   </owl:NamedIndividual>
 
@@ -823,22 +1070,29 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">이청준</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q31737" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q31737" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071310" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201103341" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083640089" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/7437363" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이호철">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">이호철</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q494836" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q14292022" />
+    <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0079615" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200208227" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/000000008101560X" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/250040437" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/이효석">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">이효석</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q483075" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q483075" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0046643" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC200108736" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000083795582" />
@@ -849,8 +1103,11 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">장용학</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12614625" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12614625" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0048708" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201214285" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000078331396" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/64087427" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정동주">
@@ -863,30 +1120,38 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">정지용</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q4707772" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q4707772" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0050953" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201009552" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000084824322" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/118926996" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정현종">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">정현종</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q1354064" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12616152" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201207472" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000083942968" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/74032003" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/정희성">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">정희성</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q12520476" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12616210" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201230790" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000054328344" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/49092005" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조세희">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">조세희</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q5103384" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q5103384" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201110793" />
     <owl:sameAs rdf:resource="https://isni.org/isni/000000007978395X" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/79079950" />
@@ -896,38 +1161,51 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">조지훈</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q623681" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q623681" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0052655" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201111912" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000084304458" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/18561429" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/조태일">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">조태일</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q16181007" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12617126" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0052727" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201219361" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000026217719" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/13699380" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/주요한">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">주요한</critic:name>
     <critic:nationality>한국</critic:nationality>
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q5115173" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0053372" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201422944" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000084368961" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/33314177" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/최남선">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">최남선</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q490672" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q626601" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0057237" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201109675" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000081385686" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/59253949" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/최승호">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">최승호</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q5103956" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q5103956" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201102262" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000078245412" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/25752073" />
@@ -937,14 +1215,17 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">최인훈</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q11274314" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q11274314" />
+    <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201108593" />
+    <owl:sameAs rdf:resource="https://isni.org/isni/0000000116984436" />
+    <owl:sameAs rdf:resource="http://viaf.org/viaf/110167855" />
   </owl:NamedIndividual>
 
   <owl:NamedIndividual rdf:about="http://kcritic.kr/ontology/황동규">
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">황동규</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q499298" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q12625798" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201200312" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000078377888" />
     <owl:sameAs rdf:resource="http://viaf.org/viaf/84479211" />
@@ -954,7 +1235,7 @@
     <rdf:type rdf:resource="http://kcritic.kr/ontology/critic#Writer" />
     <critic:name xml:lang="ko">황순원</critic:name>
     <critic:nationality>한국</critic:nationality>
-    <owl:sameAs rdf:resource="https://www.wikidata.org/entity/Q18914" />
+    <owl:sameAs rdf:resource="http://www.wikidata.org/entity/Q18914" />
     <owl:sameAs rdf:resource="https://encykorea.aks.ac.kr/Article/E0071297" />
     <owl:sameAs rdf:resource="http://lod.nl.go.kr/resource/KAC201102511" />
     <owl:sameAs rdf:resource="https://isni.org/isni/0000000108762577" />
