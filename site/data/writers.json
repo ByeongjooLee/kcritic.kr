@@ -3485,6 +3485,33 @@
     "context_count": 3
   },
   {
+    "id": "p-kim-jongcheol",
+    "name": "김종철",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q6408958 http://lod.nl.go.kr/resource/KAC201110410 https://isni.org/isni/0000000353854053 http://viaf.org/viaf/3351886",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201110410",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q6408958",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "critics": [
+      "p-kim-hyon"
+    ],
+    "context_count": 4
+  },
+  {
     "id": "p-kim-juntae",
     "name": "김준태",
     "en": "",
@@ -4385,18 +4412,6 @@
     "essay_count": 2,
     "critics": [
       "p-00117",
-      "p-kim-hyon"
-    ],
-    "context_count": 2
-  },
-  {
-    "id": "p-kim-jongchul",
-    "name": "김종철",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 2,
-    "critics": [
       "p-kim-hyon"
     ],
     "context_count": 2
@@ -5977,18 +5992,6 @@
     "context_count": 1
   },
   {
-    "id": "p-emma-bovary",
-    "name": "마담 보바리",
-    "en": "",
-    "ref": "#p-emma-bovary",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 2
-  },
-  {
     "id": "p-gu-sang",
     "name": "구상",
     "en": "",
@@ -7172,33 +7175,6 @@
       "p-kim-hyon"
     ],
     "context_count": 1
-  },
-  {
-    "id": "p-kim-jongcheol",
-    "name": "김종철",
-    "en": "",
-    "ref": "https://www.wikidata.org/wiki/Q6408958 http://lod.nl.go.kr/resource/KAC201110410 https://isni.org/isni/0000000353854053 http://viaf.org/viaf/3351886",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201110410",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q6408958",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 2
   },
   {
     "id": "p-kim-jongmun",
@@ -8481,18 +8457,6 @@
     "context_count": 2
   },
   {
-    "id": "p-quixote",
-    "name": "돈 키호테",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-rwright",
     "name": "리처드 라이트",
     "en": "",
@@ -8610,18 +8574,6 @@
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-shin-hanui",
-    "name": "신하늬",
-    "en": "",
-    "ref": "#p-shin-hanui",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
     ],
     "context_count": 1
   },

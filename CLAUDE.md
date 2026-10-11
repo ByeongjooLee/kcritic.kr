@@ -2,16 +2,16 @@
 
 AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로운 결정이 생기면 즉시 이 파일을 업데이트할 것.
 
-**현재 상태 (2026-09-30 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
+**현재 상태 (2026-10-12 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
 
 | 항목 | 값 |
 |---|---|
 | 수록 비평가 | 4인 — 김현 136편(1969–1990), 유종호 114편(1957–1995), 김우창 109편(1977–1993), 황현산 11편(2010–2012) |
 | 수록 비평글 | 370편 (`essays/*.xml`) |
-| 관계망 | 노드 1,463 / 엣지 4,125 |
-| 노드 구성 | theorist 726 · writer 363 · essay 370 · critic 4 |
-| 엣지 구성 | uses_theory 2,128 · subject_of 1,627 · wrote 370 |
-| 목록 데이터 | writers.json 380 · thinkers.json 728 · concepts.json 3,780(공개 288) |
+| 관계망 | 노드 1,451 / 엣지 4,111 |
+| 노드 구성 | theorist 716 · writer 361 · essay 370 · critic 4 |
+| 엣지 구성 | uses_theory 2,117 · subject_of 1,624 · wrote 370 |
+| 목록 데이터 | writers.json 376 · thinkers.json 718 · concepts.json 3,780(공개 288) |
 | 인물 권위 목록 | persons.json 1,142명 — Wikidata 985 · NLK 858 (2026-09-30 전수 판정) |
 | 공식 온톨로지 | **v8** (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
 
@@ -101,6 +101,7 @@ critic-ontology/
 ├── build.py                 ← TEI XML → HTML + JSON + TTL + Neo4j 동기화 빌드 스크립트
 ├── build_evaluations.py     ← 평가 대기열 생성 (build.py 이후 실행)
 ├── build_interp_game.py     ← 판정 게임 문장 추출 → site/data/interp_game.json (build.py 이후 실행)
+├── paper_stats.py           ← 논문 표·질의 수치 재현 (rdflib 필요)
 ├── persons.json             ← 인물 권위 소스 (LOD URI, Wikidata 등) — 슬러그 키
 ├── id_map.json              ← 슬러그 ↔ 숫자 xml:id 매핑 (build.py가 우선 참조)
 ├── critic_v8_schema.rdf     ← 공식 OWL 스키마 (배포·다운로드 대상)
@@ -177,7 +178,7 @@ build.py 출력:
 - `site/data/writers.json` — 작가 목록 데이터 (encykorea, nlk, ref 포함)
 - `site/data/thinkers.json` — 이론가 목록 데이터 (context_count 포함)
 - `site/data/concepts.json` — 개념어 색인 (concepts.html 전용, 관계망 노드 아님 — §5 참조)
-- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 20,763 트리플, 끊긴 인물 IRI 0)
+- `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 20,689 트리플, 끊긴 인물 IRI 0)
 
 빌드 끝에 Neo4j 동기화를 시도한다. `neo4j` 모듈이 없거나 Neo4j Desktop이 꺼져 있으면 경고만 남기고 건너뛴다(빌드 실패 아님).
 
@@ -191,7 +192,7 @@ py build_evaluations.py      # build.py 실행 후에 돌릴 것 (graph.json 을
 ```
 
 - 출력: `site/data/evaluations.json` (웹 UI 적재) · `../평가작업목록.xlsx` (연구자 배포용)
-- 평가 단위는 **(비평문 × 대상작가) 쌍 1,628개** — `cito:discusses` 엣지 하나가 판단 항목 하나
+- 평가 단위는 **(비평문 × 대상작가) 쌍 1,624개** — `cito:discusses` 엣지 하나가 판단 항목 하나
 - 기존 판단은 재생성해도 보존된다(`judgements` 배열을 읽어 되쓴다)
 
 **평가 데이터를 본체 그래프에 병합하지 말 것.** 다른 트리플은 외부 전거로 대조 가능한 사실이라
@@ -612,7 +613,7 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - **원문 텍스트를 HTML에 포함하는 코드 작성 금지**
 - **essays/*.xml, *.txt 를 git staging에 추가하는 명령 실행 금지**
 - **`.env` 파일을 git staging에 추가하는 명령 실행 금지** (크레덴셜 포함)
-- 인물 xml:id 는 한 번 정해지면 변경 금지
+- 인물 xml:id 는 한 번 정해지면 변경 금지 (예외 기록: 2026-10-12 한 id 가 두 사람을 가리키던 `p-kim-jongchul` 을 시인 쪽 비평문 2편(김현 1984 황지우론·1990 곽재구론)에서 기존 시인 id `p-kim-jongcheol` 로 교체. 백업 `essays_backup_review_20261012/`)
 - Wikidata ref 추측 채우기 금지 — 모르면 빈값
 - build.py 수정 후 반드시 `py build.py` 테스트
 - convert_phd.py 수정 후 반드시 `py convert_phd.py` 테스트
@@ -638,7 +639,9 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 - 키 = 정본 id. 숫자 id(`p-00247`)가 있으면 그것(관계망 정본과 같음), 없으면 기존 슬러그.
 - `ids` = 같은 인물을 가리키는 다른 XML id·옛 슬러그 목록 (예: `p-chae-mansik`·`p-chaemansik`·`p-chae-manshik`). 새 비평문에서 기존 인물을 다른 id 로 인코딩했다면 여기에 추가하면 된다.
 - `wikidata: null` 은 "확인된 연결 없음" 판정이다. build.py 는 등록 인물에 대해 XML ref 의 Q번호로 보완하지 않는다(XML ref 에 엉뚱한 Q번호가 많았음 — 김승옥→노르웨이 지자체, 벤야민→독일 코미디언 등).
-- `not_person: true` = 사람이 아닌 항목(학파·작중인물 등). 관계망에는 남지만 전거는 달지 않는다.
+- `not_person: true` = 사람이 아닌 항목(학파·작중인물 등). 2026-10-12부터 `process()` 가 이 항목을 인물 집합에서 빼므로 목록·관계망·graph.ttl 어디에도 인물로 나오지 않는다.
+- graph.ttl 의 `foaf:name`·`rdfs:label` 은 비평문 표기가 아니라 persons.json 정본 표시명이다(질의가 표기 변형으로 갈리지 않게).
+- **논문 수치 재현**: `py paper_stats.py --json` → `site/data/paper_stats.json`. 논문 표·질의 결과는 이 스크립트 출력과 같은 시점이어야 한다.
 - 2026-09-30 전수 판정: 근대잡지 열람사이트 인물 전거(`../../../../스캔/인물카드/people_ids/`)·Wikidata 검색·국중 LOD 스냅샷(QID→KAC)을 대조해 판정. 판정 원칙은 "확실할 때만 연결". 변경 내역은 부모 폴더 `인물_갱신결과_20260930.csv`.
 - 국중(nlk)은 국중 LOD 스냅샷의 owl:sameAs(QID→KAC 유일) > Wikidata P5034 > 근대잡지 판정 순으로 채웠다. encykorea 는 Wikidata P9475 가 권위.
 
@@ -829,7 +832,7 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 - `critic_v7_kcritic_archive_20260608_withRole.rdf` — 폐기된 `critic:Role` 개체 11개가 남아 있는 구버전 아카이브. 사용 금지
 - **`critic_v8_schema.rdf` + `critic_v8_data.rdf` (현행)** — v7에서 미사용 `critic:Role` 클래스·`critic:hasRole` 프로퍼티를 제거하고 스키마/데이터로 분리. **NamedIndividual 152개는 v7과 동일**(비평가 2 · 이론가 69 · 작가 40 · 비평문 41)
 
-> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(20,763 트리플)이다. 둘의 역할을 혼동하지 말 것.
+> v8 데이터는 김우창·유종호 시절의 **파일럿 스냅샷**이며 사이트 전체(370편)와 다르다. 사이트의 전체 RDF는 매 빌드마다 생성되는 `site/data/graph.ttl`(20,689 트리플)이다. 둘의 역할을 혼동하지 말 것.
 
 `build.py`의 `build_turtle()`은 v8 스키마를 준거로 삼아 `graph.ttl`을 생성한다.
 
@@ -896,7 +899,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 ### 완료 (Phase 1 — 비교 관계망)
 학술적 의미 확보에 필요한 "비평가 복수" 조건 달성. **김윤식 대신 김현·황현산으로 확장**했다.
 - 비평가 4인 370편 — 김현 136 · 유종호 114 · 김우창 109 · 황현산 11
-- 관계망 노드 1,463 / 엣지 4,125, graph.ttl 20,763 트리플 (2026-09-30 인물 정본화 후)
+- 관계망 노드 1,451 / 엣지 4,111, graph.ttl 20,689 트리플 (2026-10-12 기준)
 - 미완: **`critic:respondsTo`(에세이 → 에세이 응답 관계) 미구현** — 스키마·build.py 어디에도 없음. 기교주의 논쟁 같은 논쟁 구조를 표현하려면 이게 필요
 
 ### 진행 중 (Phase 2 — 개념어 계층)

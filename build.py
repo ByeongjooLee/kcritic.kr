@@ -1480,6 +1480,15 @@ def process(xml_path):
     concepts = collect_interp_concepts(root)
 
     # 인물 id 를 persons.json 정본으로 모은다 — 한 비평문 안에서 같은 인물이 두 id 로 적혀 있으면 하나로.
+    # persons.json 에서 not_person(학파·작중인물 등)으로 판정된 항목은 인물로 다루지 않는다.
+    def _is_person(pid):
+        return not (_PERSONS_REGISTRY.get(_canon_pid(pid)) or {}).get("not_person")
+    persons = {pid: p for pid, p in persons.items() if _is_person(pid)}
+    subjects = {pid for pid in subjects if _is_person(pid)}
+    theorists = {pid for pid in theorists if _is_person(pid)}
+    theorist_contexts = {pid: v for pid, v in theorist_contexts.items() if _is_person(pid)}
+    subject_contexts = {pid: v for pid, v in subject_contexts.items() if _is_person(pid)}
+
     canon_persons = {}
     for pid in sorted(persons):
         cid = _canon_pid(pid)
@@ -1858,8 +1867,9 @@ def build_turtle(all_essays, graph):
         cls = cls_map.get(ntype)
         if not cls:
             continue
-        name = p.get("name", "")
         ref = _registry_ref(pid) or p.get("ref", "")
+        # 인물 이름은 persons.json 정본 표시명으로 발행한다 (비평문마다 다른 표기 — 엘리어트/엘리엇 — 로 질의가 갈리지 않게)
+        name = _canonical_label(pid, ref, p.get("name", ""))
 
         triples = [f"kc:{pid} a {cls} ;"]
         triples.append(f'  foaf:name {_ttl_str(name)}@ko ;')

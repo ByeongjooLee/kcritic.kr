@@ -34,8 +34,8 @@ kc:choi-hyeonbae a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/choi-hyeonbae> .
 
 kc:cp-snow a critic:Thinker, foaf:Person ;
-  foaf:name "스노(C. P. Snow)"@ko ;
-  rdfs:label "스노(C. P. Snow)"@ko ;
+  foaf:name "스노"@ko ;
+  rdfs:label "스노"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q333575> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201763520> ;
   owl:sameAs <http://viaf.org/viaf/108952346> ;
@@ -112,6 +112,15 @@ kc:johann-gutenberg a critic:Thinker, foaf:Person ;
   owl:sameAs <http://viaf.org/viaf/9815820> ;
   owl:sameAs <https://isni.org/isni/0000000121200528> ;
   schema:url <https://kcritic.kr/resource/johann-gutenberg> .
+
+kc:kim-jongcheol a critic:Thinker, foaf:Person ;
+  foaf:name "김종철"@ko ;
+  rdfs:label "김종철"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q97196483> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201211090> ;
+  owl:sameAs <http://viaf.org/viaf/108158185723920061263> ;
+  owl:sameAs <https://isni.org/isni/0000000480045988> ;
+  schema:url <https://kcritic.kr/resource/kim-jongcheol> .
 
 kc:lauro-martines a critic:Thinker, foaf:Person ;
   foaf:name "마틴즈"@ko ;
@@ -206,8 +215,8 @@ kc:p-00005 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00005> .
 
 kc:p-00006 a critic:Thinker, foaf:Person ;
-  foaf:name "아른하임(Rudolf Arnheim)"@ko ;
-  rdfs:label "아른하임(Rudolf Arnheim)"@ko ;
+  foaf:name "루돌프 아른하임"@ko ;
+  rdfs:label "루돌프 아른하임"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q213642> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201752457> ;
   owl:sameAs <http://viaf.org/viaf/100176509> ;
@@ -233,8 +242,8 @@ kc:p-00008 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00008> .
 
 kc:p-00009 a critic:Thinker, foaf:Person ;
-  foaf:name "아우에르바하"@ko ;
-  rdfs:label "아우에르바하"@ko ;
+  foaf:name "에리히 아우얼바하"@ko ;
+  rdfs:label "에리히 아우얼바하"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q57603> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199601178> ;
   owl:sameAs <http://viaf.org/viaf/41836053> ;
@@ -260,8 +269,8 @@ kc:p-00011 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00011> .
 
 kc:p-00012 a critic:Thinker, foaf:Person ;
-  foaf:name "프랜시스 베이컨(Francis Bacon)"@ko ;
-  rdfs:label "프랜시스 베이컨(Francis Bacon)"@ko ;
+  foaf:name "프랜시스 베이컨"@ko ;
+  rdfs:label "프랜시스 베이컨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q37388> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199601309> ;
   owl:sameAs <http://viaf.org/viaf/31992319> ;
@@ -350,8 +359,8 @@ kc:p-00023 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00023> .
 
 kc:p-00024 a critic:Thinker, foaf:Person ;
-  foaf:name "루트비히 빈스방거(Ludwig Binswanger)"@ko ;
-  rdfs:label "루트비히 빈스방거(Ludwig Binswanger)"@ko ;
+  foaf:name "루드비히 빈스방거"@ko ;
+  rdfs:label "루드비히 빈스방거"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q116614> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199602559> ;
   owl:sameAs <http://viaf.org/viaf/59079086> ;
@@ -359,8 +368,8 @@ kc:p-00024 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00024> .
 
 kc:p-00025 a critic:Thinker, foaf:Person ;
-  foaf:name "클리언스 브룩스"@ko ;
-  rdfs:label "클리언스 브룩스"@ko ;
+  foaf:name "브룩스"@ko ;
+  rdfs:label "브룩스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q2915226> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199603566> ;
   owl:sameAs <http://viaf.org/viaf/68946341> ;
@@ -463,8 +472,8 @@ kc:p-00035 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00035> .
 
 kc:p-00036 a critic:Thinker, foaf:Person ;
-  foaf:name "코울리지"@ko ;
-  rdfs:label "코울리지"@ko ;
+  foaf:name "새뮤얼 테일러 콜리지"@ko ;
+  rdfs:label "새뮤얼 테일러 콜리지"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q82409> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199605427> ;
   owl:sameAs <http://viaf.org/viaf/24599809> ;
@@ -508,8 +517,8 @@ kc:p-00040 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00040> .
 
 kc:p-00041 a critic:Thinker, foaf:Person ;
-  foaf:name "딜타이(Dilthey)"@ko ;
-  rdfs:label "딜타이(Dilthey)"@ko ;
+  foaf:name "딜타이"@ko ;
+  rdfs:label "딜타이"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q60080> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199607151> ;
   owl:sameAs <http://viaf.org/viaf/68943563> ;
@@ -517,8 +526,8 @@ kc:p-00041 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00041> .
 
 kc:p-00042 a critic:Thinker, foaf:Person ;
-  foaf:name "도스토예프스키"@ko ;
-  rdfs:label "도스토예프스키"@ko ;
+  foaf:name "도스토옙스키"@ko ;
+  rdfs:label "도스토옙스키"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q991> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199633592> ;
   owl:sameAs <http://viaf.org/viaf/104023256> ;
@@ -535,8 +544,8 @@ kc:p-00043 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00043> .
 
 kc:p-00044 a critic:Thinker, foaf:Person ;
-  foaf:name "뒤르켐(Durkheim)"@ko ;
-  rdfs:label "뒤르켐(Durkheim)"@ko ;
+  foaf:name "뒤르켐"@ko ;
+  rdfs:label "뒤르켐"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q15948> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199607657> ;
   owl:sameAs <http://viaf.org/viaf/56609141> ;
@@ -544,8 +553,8 @@ kc:p-00044 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00044> .
 
 kc:p-00045 a critic:Thinker, foaf:Person ;
-  foaf:name "엘리어트"@ko ;
-  rdfs:label "엘리어트"@ko ;
+  foaf:name "T. S. 엘리엇"@ko ;
+  rdfs:label "T. S. 엘리엇"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q37767> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199608019> ;
   owl:sameAs <http://viaf.org/viaf/56609282> ;
@@ -776,8 +785,8 @@ kc:p-00070 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00070> .
 
 kc:p-00071 a critic:Thinker, foaf:Person ;
-  foaf:name "홉스"@ko ;
-  rdfs:label "홉스"@ko ;
+  foaf:name "토마스 홉스"@ko ;
+  rdfs:label "토마스 홉스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q37621> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199612493> ;
   owl:sameAs <http://viaf.org/viaf/59083895> ;
@@ -785,8 +794,8 @@ kc:p-00071 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00071> .
 
 kc:p-00072 a critic:Thinker, foaf:Person ;
-  foaf:name "호머"@ko ;
-  rdfs:label "호머"@ko ;
+  foaf:name "호메로스"@ko ;
+  rdfs:label "호메로스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q6691> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199612729> ;
   owl:sameAs <http://viaf.org/viaf/224924963> ;
@@ -794,8 +803,8 @@ kc:p-00072 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00072> .
 
 kc:p-00073 a critic:Thinker, foaf:Person ;
-  foaf:name "빅토르 위고"@ko ;
-  rdfs:label "빅토르 위고"@ko ;
+  foaf:name "위고"@ko ;
+  rdfs:label "위고"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q535> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199613066> ;
   owl:sameAs <http://viaf.org/viaf/9847974> ;
@@ -812,8 +821,8 @@ kc:p-00074 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00074> .
 
 kc:p-00075 a critic:Thinker, foaf:Person ;
-  foaf:name "헉슬리"@ko ;
-  rdfs:label "헉슬리"@ko ;
+  foaf:name "올더스 헉슬리"@ko ;
+  rdfs:label "올더스 헉슬리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q81447> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199613221> ;
   owl:sameAs <http://viaf.org/viaf/71392434> ;
@@ -868,8 +877,8 @@ kc:p-00080 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00080> .
 
 kc:p-00081 a critic:Thinker, foaf:Person ;
-  foaf:name "이언 와트"@ko ;
-  rdfs:label "이언 와트"@ko ;
+  foaf:name "이안 와트"@ko ;
+  rdfs:label "이안 와트"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1351106> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199629384> ;
   owl:sameAs <http://viaf.org/viaf/14862421> ;
@@ -931,8 +940,8 @@ kc:p-00087 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00087> .
 
 kc:p-00088 a critic:Thinker, foaf:Person ;
-  foaf:name "조이스"@ko ;
-  rdfs:label "조이스"@ko ;
+  foaf:name "제임스 조이스"@ko ;
+  rdfs:label "제임스 조이스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q6882> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199614250> ;
   owl:sameAs <http://viaf.org/viaf/44300643> ;
@@ -999,8 +1008,8 @@ kc:p-00096 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00096> .
 
 kc:p-00097 a critic:Writer, foaf:Person ;
-  foaf:name "김창완（金昌完）"@ko ;
-  rdfs:label "김창완（金昌完）"@ko ;
+  foaf:name "김창완"@ko ;
+  rdfs:label "김창완"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q12588930> ;
   schema:url <https://kcritic.kr/resource/p-00097> .
 
@@ -1111,8 +1120,8 @@ kc:p-00110 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00110> .
 
 kc:p-00111 a critic:Writer, foaf:Person ;
-  foaf:name "김명수（金明秀）"@ko ;
-  rdfs:label "김명수（金明秀）"@ko ;
+  foaf:name "김명수"@ko ;
+  rdfs:label "김명수"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q16180977> ;
   schema:url <https://kcritic.kr/resource/p-00111> .
 
@@ -1133,8 +1142,8 @@ kc:p-00113 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00113> .
 
 kc:p-00114 a critic:Writer, foaf:Person ;
-  foaf:name "소월"@ko ;
-  rdfs:label "소월"@ko ;
+  foaf:name "김소월"@ko ;
+  rdfs:label "김소월"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q496828> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201101982> ;
   owl:sameAs <http://viaf.org/viaf/73999604> ;
@@ -1173,8 +1182,8 @@ kc:p-00117 a critic:Critic, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00117> .
 
 kc:p-00119 a critic:Writer, foaf:Person ;
-  foaf:name "김영랑"@ko ;
-  rdfs:label "김영랑"@ko ;
+  foaf:name "영랑"@ko ;
+  rdfs:label "영랑"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q624334> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201103351> ;
   owl:sameAs <http://viaf.org/viaf/67799960> ;
@@ -1193,8 +1202,8 @@ kc:p-00120 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00120> .
 
 kc:p-00121 a critic:Thinker, foaf:Person ;
-  foaf:name "파울 클레(Paul Klee)"@ko ;
-  rdfs:label "파울 클레(Paul Klee)"@ko ;
+  foaf:name "클레"@ko ;
+  rdfs:label "클레"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q44007> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199615049> ;
   owl:sameAs <http://viaf.org/viaf/68931085> ;
@@ -1229,8 +1238,8 @@ kc:p-00124 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00124> .
 
 kc:p-00125 a critic:Thinker, foaf:Person ;
-  foaf:name "자크 라캉(Jacques Lacan)"@ko ;
-  rdfs:label "자크 라캉(Jacques Lacan)"@ko ;
+  foaf:name "자크 라캉"@ko ;
+  rdfs:label "자크 라캉"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q169906> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200800551> ;
   owl:sameAs <http://viaf.org/viaf/36920510> ;
@@ -1246,8 +1255,8 @@ kc:p-00126 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00126> .
 
 kc:p-00127 a critic:Thinker, foaf:Person ;
-  foaf:name "찰스 램"@ko ;
-  rdfs:label "찰스 램"@ko ;
+  foaf:name "램"@ko ;
+  rdfs:label "램"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q372984> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199615801> ;
   owl:sameAs <http://viaf.org/viaf/64007908> ;
@@ -1282,8 +1291,8 @@ kc:p-00131 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00131> .
 
 kc:p-00132 a critic:Writer, foaf:Person ;
-  foaf:name "이재(李在)"@ko ;
-  rdfs:label "이재(李在)"@ko ;
+  foaf:name "이재"@ko ;
+  rdfs:label "이재"@ko ;
   schema:url <https://kcritic.kr/resource/p-00132> .
 
 kc:p-00133 a critic:Writer, foaf:Person ;
@@ -1363,8 +1372,8 @@ kc:p-00140 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00140> .
 
 kc:p-00141 a critic:Thinker, foaf:Person ;
-  foaf:name "이백"@ko ;
-  rdfs:label "이백"@ko ;
+  foaf:name "이태백"@ko ;
+  rdfs:label "이태백"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q7071> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200104018> ;
   owl:sameAs <http://viaf.org/viaf/108726426> ;
@@ -1394,8 +1403,8 @@ kc:p-00144 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00144> .
 
 kc:p-00145 a critic:Thinker, foaf:Person ;
-  foaf:name "퍼시 러보크"@ko ;
-  rdfs:label "퍼시 러보크"@ko ;
+  foaf:name "퍼시 라보크"@ko ;
+  rdfs:label "퍼시 라보크"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q7167464> ;
   owl:sameAs <http://viaf.org/viaf/52583077> ;
   owl:sameAs <https://isni.org/isni/0000000109015792> ;
@@ -1437,8 +1446,8 @@ kc:p-00149 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00149> .
 
 kc:p-00150 a critic:Thinker, foaf:Person ;
-  foaf:name "카를 만하임(Karl Mannheim)"@ko ;
-  rdfs:label "카를 만하임(Karl Mannheim)"@ko ;
+  foaf:name "카를 만하임"@ko ;
+  rdfs:label "카를 만하임"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q76823> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199617632> ;
   owl:sameAs <http://viaf.org/viaf/17291505> ;
@@ -1446,8 +1455,8 @@ kc:p-00150 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00150> .
 
 kc:p-00151 a critic:Thinker, foaf:Person ;
-  foaf:name "마르쿠제"@ko ;
-  rdfs:label "마르쿠제"@ko ;
+  foaf:name "헤르베르트 마르쿠제"@ko ;
+  rdfs:label "헤르베르트 마르쿠제"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q60030> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199617703> ;
   owl:sameAs <http://viaf.org/viaf/36921579> ;
@@ -1521,8 +1530,8 @@ kc:p-00159 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00159> .
 
 kc:p-00160 a critic:Thinker, foaf:Person ;
-  foaf:name "칼로스 네하르(Carlos Nejar)"@ko ;
-  rdfs:label "칼로스 네하르(Carlos Nejar)"@ko ;
+  foaf:name "칼로스 네하르"@ko ;
+  rdfs:label "칼로스 네하르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1043099> ;
   owl:sameAs <http://viaf.org/viaf/79048619> ;
   owl:sameAs <https://isni.org/isni/0000000109187041> ;
@@ -1623,8 +1632,8 @@ kc:p-00171 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00171> .
 
 kc:p-00172 a critic:Thinker, foaf:Person ;
-  foaf:name "폴 아자르（Paul Hazard）"@ko ;
-  rdfs:label "폴 아자르（Paul Hazard）"@ko ;
+  foaf:name "폴 아자르"@ko ;
+  rdfs:label "폴 아자르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q462281> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199611889> ;
   owl:sameAs <http://viaf.org/viaf/49226787> ;
@@ -1658,8 +1667,8 @@ kc:p-00175 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00175> .
 
 kc:p-00176 a critic:Thinker, foaf:Person ;
-  foaf:name "포우"@ko ;
-  rdfs:label "포우"@ko ;
+  foaf:name "에드거 앨런 포"@ko ;
+  rdfs:label "에드거 앨런 포"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q16867> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199621859> ;
   owl:sameAs <http://viaf.org/viaf/60351476> ;
@@ -1667,8 +1676,8 @@ kc:p-00176 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00176> .
 
 kc:p-00177 a critic:Thinker, foaf:Person ;
-  foaf:name "퐁쥬"@ko ;
-  rdfs:label "퐁쥬"@ko ;
+  foaf:name "프랜시스 퐁주"@ko ;
+  rdfs:label "프랜시스 퐁주"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q551749> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018O9548> ;
   owl:sameAs <http://viaf.org/viaf/14775322> ;
@@ -1685,8 +1694,8 @@ kc:p-00178 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00178> .
 
 kc:p-00179 a critic:Thinker, foaf:Person ;
-  foaf:name "죠르쥬 풀레"@ko ;
-  rdfs:label "죠르쥬 풀레"@ko ;
+  foaf:name "조르주 풀레"@ko ;
+  rdfs:label "조르주 풀레"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1367032> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199622041> ;
   owl:sameAs <http://viaf.org/viaf/109203540> ;
@@ -1694,8 +1703,8 @@ kc:p-00179 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00179> .
 
 kc:p-00180 a critic:Thinker, foaf:Person ;
-  foaf:name "파운드"@ko ;
-  rdfs:label "파운드"@ko ;
+  foaf:name "에즈라 파운드"@ko ;
+  rdfs:label "에즈라 파운드"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q163366> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201423913> ;
   owl:sameAs <http://viaf.org/viaf/24606774> ;
@@ -1729,8 +1738,8 @@ kc:p-00183 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00183> .
 
 kc:p-00184 a critic:Thinker, foaf:Person ;
-  foaf:name "레이먼드 윌리엄스(Raymond Williams)"@ko ;
-  rdfs:label "레이먼드 윌리엄스(Raymond Williams)"@ko ;
+  foaf:name "레이먼드 윌리엄스"@ko ;
+  rdfs:label "레이먼드 윌리엄스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q394628> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199639230> ;
   owl:sameAs <http://viaf.org/viaf/87380498> ;
@@ -1738,8 +1747,8 @@ kc:p-00184 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00184> .
 
 kc:p-00185 a critic:Thinker, foaf:Person ;
-  foaf:name "리차즈"@ko ;
-  rdfs:label "리차즈"@ko ;
+  foaf:name "I. A. 리처즈"@ko ;
+  rdfs:label "I. A. 리처즈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q718585> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199622950> ;
   owl:sameAs <http://viaf.org/viaf/73896199> ;
@@ -1765,8 +1774,8 @@ kc:p-00187 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00187> .
 
 kc:p-00188 a critic:Thinker, foaf:Person ;
-  foaf:name "러셀"@ko ;
-  rdfs:label "러셀"@ko ;
+  foaf:name "버트런드 러셀"@ko ;
+  rdfs:label "버트런드 러셀"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q33760> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199623789> ;
   owl:sameAs <http://viaf.org/viaf/36924137> ;
@@ -1774,8 +1783,8 @@ kc:p-00188 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00188> .
 
 kc:p-00189 a critic:Thinker, foaf:Person ;
-  foaf:name "생-텍쥐페리"@ko ;
-  rdfs:label "생-텍쥐페리"@ko ;
+  foaf:name "생텍쥐페리"@ko ;
+  rdfs:label "생텍쥐페리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q2908> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199623935> ;
   owl:sameAs <http://viaf.org/viaf/93810507> ;
@@ -1847,8 +1856,8 @@ kc:p-00196 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00196> .
 
 kc:p-00197 a critic:Thinker, foaf:Person ;
-  foaf:name "셸리"@ko ;
-  rdfs:label "셸리"@ko ;
+  foaf:name "퍼시 비시 셸리"@ko ;
+  rdfs:label "퍼시 비시 셸리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q93343> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199636511> ;
   owl:sameAs <http://viaf.org/viaf/95159449> ;
@@ -1933,8 +1942,8 @@ kc:p-00205 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00205> .
 
 kc:p-00206 a critic:Thinker, foaf:Person ;
-  foaf:name "스타로뱅스키(Starobinski)"@ko ;
-  rdfs:label "스타로뱅스키(Starobinski)"@ko ;
+  foaf:name "스타로뱅스키"@ko ;
+  rdfs:label "스타로뱅스키"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q123507> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201231937> ;
   owl:sameAs <http://viaf.org/viaf/39384431> ;
@@ -1951,8 +1960,8 @@ kc:p-00207 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00207> .
 
 kc:p-00208 a critic:Thinker, foaf:Person ;
-  foaf:name "월리스 스티븐스(Wallace Stevens)"@ko ;
-  rdfs:label "월리스 스티븐스(Wallace Stevens)"@ko ;
+  foaf:name "윌리스 스티븐스"@ko ;
+  rdfs:label "윌리스 스티븐스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q166835> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201423908> ;
   owl:sameAs <http://viaf.org/viaf/61562486> ;
@@ -1978,8 +1987,8 @@ kc:p-00210 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00210> .
 
 kc:p-00211 a critic:Thinker, foaf:Person ;
-  foaf:name "텐느"@ko ;
-  rdfs:label "텐느"@ko ;
+  foaf:name "테느"@ko ;
+  rdfs:label "테느"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q297726> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199627022> ;
   owl:sameAs <http://viaf.org/viaf/2477374> ;
@@ -1987,8 +1996,8 @@ kc:p-00211 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00211> .
 
 kc:p-00212 a critic:Thinker, foaf:Person ;
-  foaf:name "도연명(陶淵明)"@ko ;
-  rdfs:label "도연명(陶淵明)"@ko ;
+  foaf:name "도연명"@ko ;
+  rdfs:label "도연명"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q314210> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200501218> ;
   owl:sameAs <http://viaf.org/viaf/76331639> ;
@@ -2014,8 +2023,8 @@ kc:p-00214 a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00214> .
 
 kc:p-00215 a critic:Thinker, foaf:Person ;
-  foaf:name "티보데"@ko ;
-  rdfs:label "티보데"@ko ;
+  foaf:name "알베르 티보데"@ko ;
+  rdfs:label "알베르 티보데"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1898915> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018O0128> ;
   owl:sameAs <http://viaf.org/viaf/66474063> ;
@@ -2064,8 +2073,8 @@ kc:p-00220 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00220> .
 
 kc:p-00221 a critic:Thinker, foaf:Person ;
-  foaf:name "폴 발레리"@ko ;
-  rdfs:label "폴 발레리"@ko ;
+  foaf:name "발레리"@ko ;
+  rdfs:label "발레리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q200639> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199628381> ;
   owl:sameAs <http://viaf.org/viaf/61553403> ;
@@ -2082,8 +2091,8 @@ kc:p-00222 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00222> .
 
 kc:p-00223 a critic:Thinker, foaf:Person ;
-  foaf:name "베를렌"@ko ;
-  rdfs:label "베를렌"@ko ;
+  foaf:name "베를렌느"@ko ;
+  rdfs:label "베를렌느"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q755> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199628751> ;
   owl:sameAs <http://viaf.org/viaf/4937684> ;
@@ -2091,8 +2100,8 @@ kc:p-00223 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00223> .
 
 kc:p-00224 a critic:Thinker, foaf:Person ;
-  foaf:name "비코(Vico)"@ko ;
-  rdfs:label "비코(Vico)"@ko ;
+  foaf:name "비코"@ko ;
+  rdfs:label "비코"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q178709> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199628801> ;
   owl:sameAs <http://viaf.org/viaf/59090329> ;
@@ -2100,8 +2109,8 @@ kc:p-00224 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00224> .
 
 kc:p-00225 a critic:Thinker, foaf:Person ;
-  foaf:name "버질"@ko ;
-  rdfs:label "버질"@ko ;
+  foaf:name "베르길리우스"@ko ;
+  rdfs:label "베르길리우스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1398> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199628865> ;
   owl:sameAs <http://viaf.org/viaf/8194433> ;
@@ -2154,8 +2163,8 @@ kc:p-00230 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00230> .
 
 kc:p-00231 a critic:Thinker, foaf:Person ;
-  foaf:name "베데킨트(Wedekind)"@ko ;
-  rdfs:label "베데킨트(Wedekind)"@ko ;
+  foaf:name "베데킨트"@ko ;
+  rdfs:label "베데킨트"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q57619> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199629485> ;
   owl:sameAs <http://viaf.org/viaf/27072933> ;
@@ -2163,8 +2172,8 @@ kc:p-00231 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00231> .
 
 kc:p-00232 a critic:Thinker, foaf:Person ;
-  foaf:name "르네 웰렉"@ko ;
-  rdfs:label "르네 웰렉"@ko ;
+  foaf:name "웰렉"@ko ;
+  rdfs:label "웰렉"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q732895> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199629628> ;
   owl:sameAs <http://viaf.org/viaf/90637133> ;
@@ -2181,8 +2190,8 @@ kc:p-00233 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00233> .
 
 kc:p-00234 a critic:Thinker, foaf:Person ;
-  foaf:name "벤자민 워프(Benjamin Whorf)"@ko ;
-  rdfs:label "벤자민 워프(Benjamin Whorf)"@ko ;
+  foaf:name "벤자민 워프"@ko ;
+  rdfs:label "벤자민 워프"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q331853> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201011027> ;
   owl:sameAs <http://viaf.org/viaf/71432789> ;
@@ -2208,8 +2217,8 @@ kc:p-00236 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00236> .
 
 kc:p-00237 a critic:Thinker, foaf:Person ;
-  foaf:name "예이츠"@ko ;
-  rdfs:label "예이츠"@ko ;
+  foaf:name "W.B. 예이츠"@ko ;
+  rdfs:label "W.B. 예이츠"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q40213> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199630758> ;
   owl:sameAs <http://viaf.org/viaf/46768718> ;
@@ -2312,8 +2321,8 @@ kc:p-00249 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-00249> .
 
 kc:p-00250 a critic:Thinker, foaf:Person ;
-  foaf:name "졸라"@ko ;
-  rdfs:label "졸라"@ko ;
+  foaf:name "에밀 졸라"@ko ;
+  rdfs:label "에밀 졸라"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q504> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199630987> ;
   owl:sameAs <http://viaf.org/viaf/32004502> ;
@@ -2339,8 +2348,8 @@ kc:p-achebe a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-achebe> .
 
 kc:p-adams a critic:Thinker, foaf:Person ;
-  foaf:name "헨리 애덤스(Henry Adams)"@ko ;
-  rdfs:label "헨리 애덤스(Henry Adams)"@ko ;
+  foaf:name "헨리 애덤스"@ko ;
+  rdfs:label "헨리 애덤스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q458390> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202317232> ;
   owl:sameAs <http://viaf.org/viaf/73867271> ;
@@ -2384,8 +2393,8 @@ kc:p-alain-fournier a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-alain-fournier> .
 
 kc:p-alfred-schutz a critic:Thinker, foaf:Person ;
-  foaf:name "알프레트 슈츠(Alfred Schütz)"@ko ;
-  rdfs:label "알프레트 슈츠(Alfred Schütz)"@ko ;
+  foaf:name "알프레트 슈츠"@ko ;
+  rdfs:label "알프레트 슈츠"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q94018> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2020N2173> ;
   owl:sameAs <http://viaf.org/viaf/34476467> ;
@@ -2402,8 +2411,8 @@ kc:p-allen-tate a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-allen-tate> .
 
 kc:p-althusser a critic:Thinker, foaf:Person ;
-  foaf:name "알튀세르"@ko ;
-  rdfs:label "알튀세르"@ko ;
+  foaf:name "루이 알튀세르"@ko ;
+  rdfs:label "루이 알튀세르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q184169> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199600493> ;
   owl:sameAs <http://viaf.org/viaf/24596917> ;
@@ -2476,8 +2485,8 @@ kc:p-antonioni a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-antonioni> .
 
 kc:p-apollinaire a critic:Thinker, foaf:Person ;
-  foaf:name "아폴리네르"@ko ;
-  rdfs:label "아폴리네르"@ko ;
+  foaf:name "기욤 아폴리네르"@ko ;
+  rdfs:label "기욤 아폴리네르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q133855> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199600854> ;
   owl:sameAs <http://viaf.org/viaf/66462795> ;
@@ -2546,8 +2555,8 @@ kc:p-bach a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-bach> .
 
 kc:p-bachelard a critic:Thinker, foaf:Person ;
-  foaf:name "바슐라르"@ko ;
-  rdfs:label "바슐라르"@ko ;
+  foaf:name "가스통 바슐라르"@ko ;
+  rdfs:label "가스통 바슐라르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q270800> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199601295> ;
   owl:sameAs <http://viaf.org/viaf/4926151> ;
@@ -2565,8 +2574,8 @@ kc:p-baek-hakgi a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-baek-hakgi> .
 
 kc:p-baek-mihye a critic:Writer, foaf:Person ;
-  foaf:name "백미혜(白美惠)"@ko ;
-  rdfs:label "백미혜(白美惠)"@ko ;
+  foaf:name "백미혜"@ko ;
+  rdfs:label "백미혜"@ko ;
   schema:url <https://kcritic.kr/resource/p-baek-mihye> .
 
 kc:p-bakhtin a critic:Thinker, foaf:Person ;
@@ -2579,8 +2588,8 @@ kc:p-bakhtin a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-bakhtin> .
 
 kc:p-bang-yeongung a critic:Writer, foaf:Person ;
-  foaf:name "방영웅(方榮雄)"@ko ;
-  rdfs:label "방영웅(方榮雄)"@ko ;
+  foaf:name "방영웅"@ko ;
+  rdfs:label "방영웅"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q4854979> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201422244> ;
   owl:sameAs <http://viaf.org/viaf/45615814> ;
@@ -2588,8 +2597,8 @@ kc:p-bang-yeongung a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-bang-yeongung> .
 
 kc:p-barthes a critic:Thinker, foaf:Person ;
-  foaf:name "바르트"@ko ;
-  rdfs:label "바르트"@ko ;
+  foaf:name "롤랑 바르트"@ko ;
+  rdfs:label "롤랑 바르트"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q179109> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199601746> ;
   owl:sameAs <http://viaf.org/viaf/44295060> ;
@@ -2651,8 +2660,8 @@ kc:p-beguin a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-beguin> .
 
 kc:p-benn a critic:Thinker, foaf:Person ;
-  foaf:name "벤"@ko ;
-  rdfs:label "벤"@ko ;
+  foaf:name "고트프리트 벤"@ko ;
+  rdfs:label "고트프리트 벤"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q57277> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201762832> ;
   owl:sameAs <http://viaf.org/viaf/49221461> ;
@@ -2660,8 +2669,8 @@ kc:p-benn a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-benn> .
 
 kc:p-bennett a critic:Writer, foaf:Person ;
-  foaf:name "아널드 베넷(Arnold Bennett)"@ko ;
-  rdfs:label "아널드 베넷(Arnold Bennett)"@ko ;
+  foaf:name "아널드 베넷"@ko ;
+  rdfs:label "아널드 베넷"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q314158> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199602178> ;
   owl:sameAs <http://viaf.org/viaf/49240682> ;
@@ -2678,8 +2687,8 @@ kc:p-bentham a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-bentham> .
 
 kc:p-berenson a critic:Thinker, foaf:Person ;
-  foaf:name "버나드 베런슨(Bernard Berenson)"@ko ;
-  rdfs:label "버나드 베런슨(Bernard Berenson)"@ko ;
+  foaf:name "버나드 베런슨"@ko ;
+  rdfs:label "버나드 베런슨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q359047> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201842157> ;
   owl:sameAs <http://viaf.org/viaf/9878607> ;
@@ -2713,8 +2722,8 @@ kc:p-birnbaum a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-birnbaum> .
 
 kc:p-blake a critic:Thinker, foaf:Person ;
-  foaf:name "윌리엄 블레이크(William Blake)"@ko ;
-  rdfs:label "윌리엄 블레이크(William Blake)"@ko ;
+  foaf:name "윌리엄 블레이크"@ko ;
+  rdfs:label "윌리엄 블레이크"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q41513> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199602679> ;
   owl:sameAs <http://viaf.org/viaf/54144439> ;
@@ -2731,8 +2740,8 @@ kc:p-blanchot a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-blanchot> .
 
 kc:p-bloch a critic:Thinker, foaf:Person ;
-  foaf:name "에른스트 블로흐(Ernst Bloch)"@ko ;
-  rdfs:label "에른스트 블로흐(Ernst Bloch)"@ko ;
+  foaf:name "에른스트 블로흐"@ko ;
+  rdfs:label "에른스트 블로흐"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q57240> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199602753> ;
   owl:sameAs <http://viaf.org/viaf/88956296> ;
@@ -2783,8 +2792,8 @@ kc:p-booth a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-booth> .
 
 kc:p-borges a critic:Thinker, foaf:Person ;
-  foaf:name "보르헤스(Borges)"@ko ;
-  rdfs:label "보르헤스(Borges)"@ko ;
+  foaf:name "보르헤스"@ko ;
+  rdfs:label "보르헤스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q909> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199603014> ;
   owl:sameAs <http://viaf.org/viaf/88919448> ;
@@ -2819,8 +2828,8 @@ kc:p-brahms a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-brahms> .
 
 kc:p-braudel a critic:Thinker, foaf:Person ;
-  foaf:name "페르낭 브로델(Fernand Braudel)"@ko ;
-  rdfs:label "페르낭 브로델(Fernand Braudel)"@ko ;
+  foaf:name "페르낭 브로델"@ko ;
+  rdfs:label "페르낭 브로델"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q185105> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199603312> ;
   owl:sameAs <http://viaf.org/viaf/9843788> ;
@@ -2854,8 +2863,8 @@ kc:p-breton a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-breton> .
 
 kc:p-breughel a critic:Thinker, foaf:Person ;
-  foaf:name "브뤼헐(Breughel)"@ko ;
-  rdfs:label "브뤼헐(Breughel)"@ko ;
+  foaf:name "브뤼헐"@ko ;
+  rdfs:label "브뤼헐"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q43270> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200006145> ;
   owl:sameAs <http://viaf.org/viaf/95761864> ;
@@ -2871,8 +2880,8 @@ kc:p-brice-parain a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-brice-parain> .
 
 kc:p-bronowski a critic:Thinker, foaf:Person ;
-  foaf:name "브로놉스키(Jacob Bronowski)"@ko ;
-  rdfs:label "브로놉스키(Jacob Bronowski)"@ko ;
+  foaf:name "브로노프스키"@ko ;
+  rdfs:label "브로노프스키"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q374117> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199603543> ;
   owl:sameAs <http://viaf.org/viaf/54274208> ;
@@ -2880,16 +2889,16 @@ kc:p-bronowski a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-bronowski> .
 
 kc:p-bronzino a critic:Thinker, foaf:Person ;
-  foaf:name "브론치노(Bronzino)"@ko ;
-  rdfs:label "브론치노(Bronzino)"@ko ;
+  foaf:name "브론치노"@ko ;
+  rdfs:label "브론치노"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q7803> ;
   owl:sameAs <http://viaf.org/viaf/106963584> ;
   owl:sameAs <https://isni.org/isni/0000000119386407> ;
   schema:url <https://kcritic.kr/resource/p-bronzino> .
 
 kc:p-brown a critic:Thinker, foaf:Person ;
-  foaf:name "노먼 브라운(Norman O. Brown)"@ko ;
-  rdfs:label "노먼 브라운(Norman O. Brown)"@ko ;
+  foaf:name "노먼 브라운"@ko ;
+  rdfs:label "노먼 브라운"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q2081872> ;
   owl:sameAs <http://viaf.org/viaf/110840280> ;
   owl:sameAs <https://isni.org/isni/0000000109350662> ;
@@ -2923,8 +2932,8 @@ kc:p-buchner a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-buchner> .
 
 kc:p-buffon a critic:Thinker, foaf:Person ;
-  foaf:name "뷔퐁(Buffon)"@ko ;
-  rdfs:label "뷔퐁(Buffon)"@ko ;
+  foaf:name "뷔퐁"@ko ;
+  rdfs:label "뷔퐁"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q229264> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2023E7770> ;
   owl:sameAs <http://viaf.org/viaf/36915547> ;
@@ -2959,8 +2968,8 @@ kc:p-byron a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-byron> .
 
 kc:p-cahill a critic:Thinker, foaf:Person ;
-  foaf:name "제임스 케이힐(James Cahill)"@ko ;
-  rdfs:label "제임스 케이힐(James Cahill)"@ko ;
+  foaf:name "제임스 케이힐"@ko ;
+  rdfs:label "제임스 케이힐"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q15818064> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199604185> ;
   owl:sameAs <http://viaf.org/viaf/108687284> ;
@@ -2995,8 +3004,8 @@ kc:p-caocao a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-caocao> .
 
 kc:p-capra a critic:Thinker, foaf:Person ;
-  foaf:name "프리초프 카프라(Fritjof Capra)"@ko ;
-  rdfs:label "프리초프 카프라(Fritjof Capra)"@ko ;
+  foaf:name "프리초프 카프라"@ko ;
+  rdfs:label "프리초프 카프라"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q84258> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199604385> ;
   owl:sameAs <http://viaf.org/viaf/46758379> ;
@@ -3004,8 +3013,8 @@ kc:p-capra a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-capra> .
 
 kc:p-carr a critic:Thinker, foaf:Person ;
-  foaf:name "카아"@ko ;
-  rdfs:label "카아"@ko ;
+  foaf:name "E. H. 카"@ko ;
+  rdfs:label "E. H. 카"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q274764> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199604482> ;
   owl:sameAs <http://viaf.org/viaf/24418> ;
@@ -3013,8 +3022,8 @@ kc:p-carr a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-carr> .
 
 kc:p-carrouges a critic:Thinker, foaf:Person ;
-  foaf:name "카루주(Michel Carrouges)"@ko ;
-  rdfs:label "카루주(Michel Carrouges)"@ko ;
+  foaf:name "카루주"@ko ;
+  rdfs:label "카루주"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q27955093> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018H2452> ;
   owl:sameAs <http://viaf.org/viaf/108782367> ;
@@ -3022,8 +3031,8 @@ kc:p-carrouges a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-carrouges> .
 
 kc:p-castaneda a critic:Thinker, foaf:Person ;
-  foaf:name "카를로스 카스타네다(Carlos Castaneda)"@ko ;
-  rdfs:label "카를로스 카스타네다(Carlos Castaneda)"@ko ;
+  foaf:name "카를로스 카스타네다"@ko ;
+  rdfs:label "카를로스 카스타네다"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q158878> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199604605> ;
   owl:sameAs <http://viaf.org/viaf/100254667> ;
@@ -3111,8 +3120,8 @@ kc:p-chaucer a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-chaucer> .
 
 kc:p-cheon-sangbyeong a critic:Writer, foaf:Person ;
-  foaf:name "천상병(千祥炳)"@ko ;
-  rdfs:label "천상병(千祥炳)"@ko ;
+  foaf:name "천상병"@ko ;
+  rdfs:label "천상병"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q5104477> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201332067> ;
   owl:sameAs <http://viaf.org/viaf/74007572> ;
@@ -3185,8 +3194,8 @@ kc:p-cho-seonjak a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-cho-seonjak> .
 
 kc:p-cho-wonsi a critic:Thinker, foaf:Person ;
-  foaf:name "조원시(趙元時)"@ko ;
-  rdfs:label "조원시(趙元時)"@ko ;
+  foaf:name "조원시"@ko ;
+  rdfs:label "조원시"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q5540374> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201405641> ;
   owl:sameAs <http://viaf.org/viaf/53760086> ;
@@ -3212,8 +3221,8 @@ kc:p-cho-yunje a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-cho-yunje> .
 
 kc:p-choe-gyerak a critic:Writer, foaf:Person ;
-  foaf:name "최계락(崔啓洛)"@ko ;
-  rdfs:label "최계락(崔啓洛)"@ko ;
+  foaf:name "최계락"@ko ;
+  rdfs:label "최계락"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q30609460> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201511443> ;
   owl:sameAs <http://viaf.org/viaf/751144928080854341513> ;
@@ -3338,8 +3347,8 @@ kc:p-cicero a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-cicero> .
 
 kc:p-claudel a critic:Thinker, foaf:Person ;
-  foaf:name "클로델"@ko ;
-  rdfs:label "클로델"@ko ;
+  foaf:name "폴 클로델"@ko ;
+  rdfs:label "폴 클로델"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q295830> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201858199> ;
   owl:sameAs <http://viaf.org/viaf/100163516> ;
@@ -3392,8 +3401,8 @@ kc:p-confucius a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-confucius> .
 
 kc:p-conrad a critic:Thinker, foaf:Person ;
-  foaf:name "콘래드"@ko ;
-  rdfs:label "콘래드"@ko ;
+  foaf:name "콘라드"@ko ;
+  rdfs:label "콘라드"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q82925> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200107284> ;
   owl:sameAs <http://viaf.org/viaf/73862853> ;
@@ -3437,8 +3446,8 @@ kc:p-darwin a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-darwin> .
 
 kc:p-davies a critic:Thinker, foaf:Person ;
-  foaf:name "폴 데이비스(Paul Davies)"@ko ;
-  rdfs:label "폴 데이비스(Paul Davies)"@ko ;
+  foaf:name "폴 데이비스"@ko ;
+  rdfs:label "폴 데이비스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q535733> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199606403> ;
   owl:sameAs <http://viaf.org/viaf/108156019> ;
@@ -3446,8 +3455,8 @@ kc:p-davies a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-davies> .
 
 kc:p-dawkins a critic:Thinker, foaf:Person ;
-  foaf:name "리처드 도킨스(Richard Dawkins)"@ko ;
-  rdfs:label "리처드 도킨스(Richard Dawkins)"@ko ;
+  foaf:name "리처드 도킨스"@ko ;
+  rdfs:label "리처드 도킨스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q44461> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199606494> ;
   owl:sameAs <http://viaf.org/viaf/12307054> ;
@@ -3490,8 +3499,8 @@ kc:p-dewey a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-dewey> .
 
 kc:p-diamond a critic:Thinker, foaf:Person ;
-  foaf:name "스탠리 다이아몬드(Stanley Diamond)"@ko ;
-  rdfs:label "스탠리 다이아몬드(Stanley Diamond)"@ko ;
+  foaf:name "스탠리 다이아몬드"@ko ;
+  rdfs:label "스탠리 다이아몬드"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q7599561> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2022B1570> ;
   owl:sameAs <http://viaf.org/viaf/108455568> ;
@@ -3517,8 +3526,8 @@ kc:p-diderot a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-diderot> .
 
 kc:p-dongqichang a critic:Thinker, foaf:Person ;
-  foaf:name "동기창(董其昌)"@ko ;
-  rdfs:label "동기창(董其昌)"@ko ;
+  foaf:name "동기창"@ko ;
+  rdfs:label "동기창"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q537211> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201231194> ;
   owl:sameAs <http://viaf.org/viaf/27864416> ;
@@ -3570,8 +3579,8 @@ kc:p-dvorak a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-dvorak> .
 
 kc:p-dyson a critic:Thinker, foaf:Person ;
-  foaf:name "프리먼 다이슨(Freeman Dyson)"@ko ;
-  rdfs:label "프리먼 다이슨(Freeman Dyson)"@ko ;
+  foaf:name "프리먼 다이슨"@ko ;
+  rdfs:label "프리먼 다이슨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q153717> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199607710> ;
   owl:sameAs <http://viaf.org/viaf/19745011> ;
@@ -3579,8 +3588,8 @@ kc:p-dyson a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-dyson> .
 
 kc:p-eagleton a critic:Thinker, foaf:Person ;
-  foaf:name "이글턴"@ko ;
-  rdfs:label "이글턴"@ko ;
+  foaf:name "테리 이글턴"@ko ;
+  rdfs:label "테리 이글턴"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q315349> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199607728> ;
   owl:sameAs <http://viaf.org/viaf/73874087> ;
@@ -3676,11 +3685,6 @@ kc:p-emily-dickinson a critic:Thinker, foaf:Person ;
   owl:sameAs <https://isni.org/isni/0000000121265882> ;
   schema:url <https://kcritic.kr/resource/p-emily-dickinson> .
 
-kc:p-emma-bovary a critic:Writer, foaf:Person ;
-  foaf:name "마담 보바리"@ko ;
-  rdfs:label "마담 보바리"@ko ;
-  schema:url <https://kcritic.kr/resource/p-emma-bovary> .
-
 kc:p-endo a critic:Thinker, foaf:Person ;
   foaf:name "엔도"@ko ;
   rdfs:label "엔도"@ko ;
@@ -3709,8 +3713,8 @@ kc:p-erikson a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-erikson> .
 
 kc:p-eugene-minkowski a critic:Thinker, foaf:Person ;
-  foaf:name "외젠 민코프스키(Eugene Minkowski)"@ko ;
-  rdfs:label "외젠 민코프스키(Eugene Minkowski)"@ko ;
+  foaf:name "외젠 민코프스키"@ko ;
+  rdfs:label "외젠 민코프스키"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q638775> ;
   owl:sameAs <http://viaf.org/viaf/98060036> ;
   owl:sameAs <https://isni.org/isni/0000000114783729> ;
@@ -3753,8 +3757,8 @@ kc:p-faulkner a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-faulkner> .
 
 kc:p-fergusson a critic:Thinker, foaf:Person ;
-  foaf:name "프랜시스 퍼거슨(Francis Fergusson)"@ko ;
-  rdfs:label "프랜시스 퍼거슨(Francis Fergusson)"@ko ;
+  foaf:name "프랜시스 퍼거슨"@ko ;
+  rdfs:label "프랜시스 퍼거슨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q14918892> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018O2576> ;
   owl:sameAs <http://viaf.org/viaf/32148096> ;
@@ -3762,8 +3766,8 @@ kc:p-fergusson a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-fergusson> .
 
 kc:p-feyerabend a critic:Thinker, foaf:Person ;
-  foaf:name "파울 파이어아벤트(Paul Feyerabend)"@ko ;
-  rdfs:label "파울 파이어아벤트(Paul Feyerabend)"@ko ;
+  foaf:name "파울 파이어아벤트"@ko ;
+  rdfs:label "파울 파이어아벤트"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q78497> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201007111> ;
   owl:sameAs <http://viaf.org/viaf/24601381> ;
@@ -3798,8 +3802,8 @@ kc:p-fischer a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-fischer> .
 
 kc:p-flexner a critic:Thinker, foaf:Person ;
-  foaf:name "에이브러햄 플렉스너(Abraham Flexner)"@ko ;
-  rdfs:label "에이브러햄 플렉스너(Abraham Flexner)"@ko ;
+  foaf:name "에이브러햄 플렉스너"@ko ;
+  rdfs:label "에이브러햄 플렉스너"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q210100> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202015283> ;
   owl:sameAs <http://viaf.org/viaf/24735888> ;
@@ -3833,18 +3837,13 @@ kc:p-foucault a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-foucault> .
 
 kc:p-fourier a critic:Thinker, foaf:Person ;
-  foaf:name "푸리에(Fourier)"@ko ;
-  rdfs:label "푸리에(Fourier)"@ko ;
+  foaf:name "푸리에"@ko ;
+  rdfs:label "푸리에"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q181707> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200704501> ;
   owl:sameAs <http://viaf.org/viaf/9846308> ;
   owl:sameAs <https://isni.org/isni/0000000120955646> ;
   schema:url <https://kcritic.kr/resource/p-fourier> .
-
-kc:p-frankfurt-school a critic:Thinker, foaf:Person ;
-  foaf:name "프랑크푸르트 학파"@ko ;
-  rdfs:label "프랑크푸르트 학파"@ko ;
-  schema:url <https://kcritic.kr/resource/p-frankfurt-school> .
 
 kc:p-freire a critic:Thinker, foaf:Person ;
   foaf:name "파울로 프레이리"@ko ;
@@ -3865,8 +3864,8 @@ kc:p-friche a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-friche> .
 
 kc:p-friedenberg a critic:Thinker, foaf:Person ;
-  foaf:name "에드거 Z. 프리든버그(Edgar Z. Friedenberg)"@ko ;
-  rdfs:label "에드거 Z. 프리든버그(Edgar Z. Friedenberg)"@ko ;
+  foaf:name "에드거 Z. 프리든버그"@ko ;
+  rdfs:label "에드거 Z. 프리든버그"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q37782051> ;
   owl:sameAs <http://viaf.org/viaf/84869715> ;
   owl:sameAs <https://isni.org/isni/0000000109950350> ;
@@ -3882,8 +3881,8 @@ kc:p-frolich a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-frolich> .
 
 kc:p-frost a critic:Thinker, foaf:Person ;
-  foaf:name "프로스트"@ko ;
-  rdfs:label "프로스트"@ko ;
+  foaf:name "로버트 프로스트"@ko ;
+  rdfs:label "로버트 프로스트"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q168728> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199609432> ;
   owl:sameAs <http://viaf.org/viaf/32010055> ;
@@ -3891,8 +3890,8 @@ kc:p-frost a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-frost> .
 
 kc:p-frye a critic:Thinker, foaf:Person ;
-  foaf:name "노스럽 프라이(Northrop Frye)"@ko ;
-  rdfs:label "노스럽 프라이(Northrop Frye)"@ko ;
+  foaf:name "노스럽 프라이"@ko ;
+  rdfs:label "노스럽 프라이"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q354256> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199609447> ;
   owl:sameAs <http://viaf.org/viaf/49236705> ;
@@ -3909,8 +3908,8 @@ kc:p-gabriel-marcel a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-gabriel-marcel> .
 
 kc:p-gadamer a critic:Thinker, foaf:Person ;
-  foaf:name "가다머(Hans-Georg Gadamer)"@ko ;
-  rdfs:label "가다머(Hans-Georg Gadamer)"@ko ;
+  foaf:name "가다머"@ko ;
+  rdfs:label "가다머"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q76356> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199609548> ;
   owl:sameAs <http://viaf.org/viaf/108229357> ;
@@ -3918,8 +3917,8 @@ kc:p-gadamer a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-gadamer> .
 
 kc:p-gainsborough a critic:Thinker, foaf:Person ;
-  foaf:name "토머스 게인즈버러(Thomas Gainsborough)"@ko ;
-  rdfs:label "토머스 게인즈버러(Thomas Gainsborough)"@ko ;
+  foaf:name "토머스 게인즈버러"@ko ;
+  rdfs:label "토머스 게인즈버러"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q192720> ;
   owl:sameAs <http://viaf.org/viaf/29542582> ;
   owl:sameAs <https://isni.org/isni/0000000108830621> ;
@@ -3975,16 +3974,16 @@ kc:p-girard a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-girard> .
 
 kc:p-goddard a critic:Thinker, foaf:Person ;
-  foaf:name "고더드(Robert H. Goddard)"@ko ;
-  rdfs:label "고더드(Robert H. Goddard)"@ko ;
+  foaf:name "고더드"@ko ;
+  rdfs:label "고더드"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q182546> ;
   owl:sameAs <http://viaf.org/viaf/37805238> ;
   owl:sameAs <https://isni.org/isni/0000000081172971> ;
   schema:url <https://kcritic.kr/resource/p-goddard> .
 
 kc:p-godelier a critic:Thinker, foaf:Person ;
-  foaf:name "모리스 고들리에(Maurice Godelier)"@ko ;
-  rdfs:label "모리스 고들리에(Maurice Godelier)"@ko ;
+  foaf:name "모리스 고들리에"@ko ;
+  rdfs:label "모리스 고들리에"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q960473> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200803628> ;
   owl:sameAs <http://viaf.org/viaf/59083212> ;
@@ -4037,8 +4036,8 @@ kc:p-goncharov a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-goncharov> .
 
 kc:p-goodman a critic:Thinker, foaf:Person ;
-  foaf:name "넬슨 굿맨"@ko ;
-  rdfs:label "넬슨 굿맨"@ko ;
+  foaf:name "굿맨"@ko ;
+  rdfs:label "굿맨"@ko ;
   schema:url <https://kcritic.kr/resource/p-goodman> .
 
 kc:p-goodman2 a critic:Thinker, foaf:Person ;
@@ -4076,11 +4075,6 @@ kc:p-grierson a critic:Thinker, foaf:Person ;
   owl:sameAs <https://isni.org/isni/0000000123198265> ;
   schema:url <https://kcritic.kr/resource/p-grierson> .
 
-kc:p-grimm a critic:Thinker, foaf:Person ;
-  foaf:name "그림 형제"@ko ;
-  rdfs:label "그림 형제"@ko ;
-  schema:url <https://kcritic.kr/resource/p-grimm> .
-
 kc:p-gu-jaun a critic:Writer, foaf:Person ;
   foaf:name "구자운"@ko ;
   rdfs:label "구자운"@ko ;
@@ -4111,8 +4105,8 @@ kc:p-gu-sang a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-gu-sang> .
 
 kc:p-gunder-frank a critic:Thinker, foaf:Person ;
-  foaf:name "군더 프랑크(Gunder Frank)"@ko ;
-  rdfs:label "군더 프랑크(Gunder Frank)"@ko ;
+  foaf:name "군더 프랑크"@ko ;
+  rdfs:label "군더 프랑크"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q58040> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199609185> ;
   owl:sameAs <http://viaf.org/viaf/108372516> ;
@@ -4129,8 +4123,8 @@ kc:p-guo a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-guo> .
 
 kc:p-guoxi a critic:Thinker, foaf:Person ;
-  foaf:name "곽희(郭熙)"@ko ;
-  rdfs:label "곽희(郭熙)"@ko ;
+  foaf:name "곽희"@ko ;
+  rdfs:label "곽희"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q536645> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018O1455> ;
   owl:sameAs <http://viaf.org/viaf/310676324> ;
@@ -4189,8 +4183,8 @@ kc:p-haewol a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-haewol> .
 
 kc:p-haga-toru a critic:Thinker, foaf:Person ;
-  foaf:name "하가 도우루(芳賀徹)"@ko ;
-  rdfs:label "하가 도우루(芳賀徹)"@ko ;
+  foaf:name "하가 도우루"@ko ;
+  rdfs:label "하가 도우루"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q11615831> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200005000> ;
   owl:sameAs <http://viaf.org/viaf/56838965> ;
@@ -4249,8 +4243,8 @@ kc:p-han-seungwon a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-han-seungwon> .
 
 kc:p-hannerz a critic:Thinker, foaf:Person ;
-  foaf:name "울프 한네르츠(Ulf Hannerz)"@ko ;
-  rdfs:label "울프 한네르츠(Ulf Hannerz)"@ko ;
+  foaf:name "울프 한네르츠"@ko ;
+  rdfs:label "울프 한네르츠"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q713023> ;
   owl:sameAs <http://viaf.org/viaf/17223879> ;
   owl:sameAs <https://isni.org/isni/0000000110217594> ;
@@ -4287,8 +4281,8 @@ kc:p-hartmann a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-hartmann> .
 
 kc:p-hauser a critic:Thinker, foaf:Person ;
-  foaf:name "하우저"@ko ;
-  rdfs:label "하우저"@ko ;
+  foaf:name "아르놀트 하우저"@ko ;
+  rdfs:label "아르놀트 하우저"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q365852> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199611801> ;
   owl:sameAs <http://viaf.org/viaf/39378414> ;
@@ -4296,8 +4290,8 @@ kc:p-hauser a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-hauser> .
 
 kc:p-havel a critic:Thinker, foaf:Person ;
-  foaf:name "바츨라프 하벨(Václav Havel)"@ko ;
-  rdfs:label "바츨라프 하벨(Václav Havel)"@ko ;
+  foaf:name "바츨라프 하벨"@ko ;
+  rdfs:label "바츨라프 하벨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q36233> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201509208> ;
   owl:sameAs <http://viaf.org/viaf/109312616> ;
@@ -4376,8 +4370,8 @@ kc:p-hesiodos a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-hesiodos> .
 
 kc:p-hesse a critic:Thinker, foaf:Person ;
-  foaf:name "헤세"@ko ;
-  rdfs:label "헤세"@ko ;
+  foaf:name "헤르만 헤세"@ko ;
+  rdfs:label "헤르만 헤세"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q25973> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199612236> ;
   owl:sameAs <http://viaf.org/viaf/41841418> ;
@@ -4385,8 +4379,8 @@ kc:p-hesse a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-hesse> .
 
 kc:p-hobsbawm a critic:Thinker, foaf:Person ;
-  foaf:name "E. J. 홉스봄(E. J. Hobsbawm)"@ko ;
-  rdfs:label "E. J. 홉스봄(E. J. Hobsbawm)"@ko ;
+  foaf:name "E. J. 홉스봄"@ko ;
+  rdfs:label "E. J. 홉스봄"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q34933> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199612499> ;
   owl:sameAs <http://viaf.org/viaf/9847789> ;
@@ -4394,8 +4388,8 @@ kc:p-hobsbawm a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-hobsbawm> .
 
 kc:p-holderlin a critic:Thinker, foaf:Person ;
-  foaf:name "횔더를린"@ko ;
-  rdfs:label "횔더를린"@ko ;
+  foaf:name "횔덜린"@ko ;
+  rdfs:label "횔덜린"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q75889> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199700363> ;
   owl:sameAs <http://viaf.org/viaf/95147974> ;
@@ -4506,8 +4500,8 @@ kc:p-huineng a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-huineng> .
 
 kc:p-humboldt a critic:Thinker, foaf:Person ;
-  foaf:name "훔볼트(Karl Wilhelm von Humboldt)"@ko ;
-  rdfs:label "훔볼트(Karl Wilhelm von Humboldt)"@ko ;
+  foaf:name "훔볼트"@ko ;
+  rdfs:label "훔볼트"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q77888> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199634475> ;
   owl:sameAs <http://viaf.org/viaf/100183995> ;
@@ -4653,8 +4647,8 @@ kc:p-iggers a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-iggers> .
 
 kc:p-illich a critic:Thinker, foaf:Person ;
-  foaf:name "이반 일리치(Ivan Illich)"@ko ;
-  rdfs:label "이반 일리치(Ivan Illich)"@ko ;
+  foaf:name "이반 일리치"@ko ;
+  rdfs:label "이반 일리치"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q84186> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199613314> ;
   owl:sameAs <http://viaf.org/viaf/108129419> ;
@@ -4673,13 +4667,13 @@ kc:p-im-donghwak a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-im-donghwak> .
 
 kc:p-im-hongjae a critic:Writer, foaf:Person ;
-  foaf:name "임홍재(任洪宰)"@ko ;
-  rdfs:label "임홍재(任洪宰)"@ko ;
+  foaf:name "임홍재"@ko ;
+  rdfs:label "임홍재"@ko ;
   schema:url <https://kcritic.kr/resource/p-im-hongjae> .
 
 kc:p-imamichi a critic:Thinker, foaf:Person ;
-  foaf:name "이마미치（今道友信）"@ko ;
-  rdfs:label "이마미치（今道友信）"@ko ;
+  foaf:name "이마미치"@ko ;
+  rdfs:label "이마미치"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q7820202> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199631221> ;
   owl:sameAs <http://viaf.org/viaf/48101277> ;
@@ -4703,8 +4697,8 @@ kc:p-imhwa a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-imhwa> .
 
 kc:p-ingarden a critic:Thinker, foaf:Person ;
-  foaf:name "로만 인가르덴(Roman Ingarden)"@ko ;
-  rdfs:label "로만 인가르덴(Roman Ingarden)"@ko ;
+  foaf:name "로만 인가르덴"@ko ;
+  rdfs:label "로만 인가르덴"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q355355> ;
   owl:sameAs <http://viaf.org/viaf/108241126> ;
   owl:sameAs <https://isni.org/isni/0000000121037185> ;
@@ -4747,8 +4741,8 @@ kc:p-ishikawa a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ishikawa> .
 
 kc:p-jakobson a critic:Thinker, foaf:Person ;
-  foaf:name "로만 야콥슨(Roman Jakobson)"@ko ;
-  rdfs:label "로만 야콥슨(Roman Jakobson)"@ko ;
+  foaf:name "로만 야콥슨"@ko ;
+  rdfs:label "로만 야콥슨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q156201> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199613687> ;
   owl:sameAs <http://viaf.org/viaf/59084146> ;
@@ -4828,8 +4822,8 @@ kc:p-jeon-sangguk a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-jeon-sangguk> .
 
 kc:p-jeong-cheol a critic:Writer, foaf:Person ;
-  foaf:name "송강"@ko ;
-  rdfs:label "송강"@ko ;
+  foaf:name "정송강"@ko ;
+  rdfs:label "정송강"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q484978> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200105565> ;
   owl:sameAs <http://viaf.org/viaf/21987265> ;
@@ -4887,8 +4881,8 @@ kc:p-jeong-yakyong a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-jeong-yakyong> .
 
 kc:p-jhenry a critic:Thinker, foaf:Person ;
-  foaf:name "줄스 헨리(Jules Henry)"@ko ;
-  rdfs:label "줄스 헨리(Jules Henry)"@ko ;
+  foaf:name "줄스 헨리"@ko ;
+  rdfs:label "줄스 헨리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q6305886> ;
   owl:sameAs <http://viaf.org/viaf/71534184> ;
   owl:sameAs <https://isni.org/isni/0000000116690112> ;
@@ -4927,8 +4921,8 @@ kc:p-jobyeonghwa a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-jobyeonghwa> .
 
 kc:p-john-donne a critic:Thinker, foaf:Person ;
-  foaf:name "존 던(John Donne)"@ko ;
-  rdfs:label "존 던(John Donne)"@ko ;
+  foaf:name "존 던"@ko ;
+  rdfs:label "존 던"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q140412> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199607282> ;
   owl:sameAs <http://viaf.org/viaf/73852666> ;
@@ -4952,11 +4946,6 @@ kc:p-jose-rizal a critic:Thinker, foaf:Person ;
   owl:sameAs <http://viaf.org/viaf/41845763> ;
   owl:sameAs <https://isni.org/isni/0000000081201592> ;
   schema:url <https://kcritic.kr/resource/p-jose-rizal> .
-
-kc:p-julien-sorel a critic:Thinker, foaf:Person ;
-  foaf:name "쥘리앵 소렐"@ko ;
-  rdfs:label "쥘리앵 소렐"@ko ;
-  schema:url <https://kcritic.kr/resource/p-julien-sorel> .
 
 kc:p-jung a critic:Thinker, foaf:Person ;
   foaf:name "융"@ko ;
@@ -5052,8 +5041,8 @@ kc:p-kawabata a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kawabata> .
 
 kc:p-kawaji a critic:Thinker, foaf:Person ;
-  foaf:name "가와지 류우코오(川路柳虹)"@ko ;
-  rdfs:label "가와지 류우코오(川路柳虹)"@ko ;
+  foaf:name "가와지 류우코오"@ko ;
+  rdfs:label "가와지 류우코오"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q552402> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201771059> ;
   owl:sameAs <http://viaf.org/viaf/3815725> ;
@@ -5070,8 +5059,8 @@ kc:p-kayser a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kayser> .
 
 kc:p-keats a critic:Thinker, foaf:Person ;
-  foaf:name "키츠"@ko ;
-  rdfs:label "키츠"@ko ;
+  foaf:name "키이츠"@ko ;
+  rdfs:label "키이츠"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q82083> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199614556> ;
   owl:sameAs <http://viaf.org/viaf/66508882> ;
@@ -5088,8 +5077,8 @@ kc:p-kellogg a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kellogg> .
 
 kc:p-kenneth-clark a critic:Thinker, foaf:Person ;
-  foaf:name "케네스 클라크(Kenneth Clark)"@ko ;
-  rdfs:label "케네스 클라크(Kenneth Clark)"@ko ;
+  foaf:name "케네스 클라크"@ko ;
+  rdfs:label "케네스 클라크"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q371258> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199605166> ;
   owl:sameAs <http://viaf.org/viaf/2468310> ;
@@ -5115,8 +5104,8 @@ kc:p-ki-hyongdo a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ki-hyongdo> .
 
 kc:p-kierkegaard a critic:Thinker, foaf:Person ;
-  foaf:name "키에르케고르"@ko ;
-  rdfs:label "키에르케고르"@ko ;
+  foaf:name "쇠렌 키르케고르"@ko ;
+  rdfs:label "쇠렌 키르케고르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q6512> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199614851> ;
   owl:sameAs <http://viaf.org/viaf/7392250> ;
@@ -5143,8 +5132,8 @@ kc:p-kim-chisu a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kim-chisu> .
 
 kc:p-kim-dohwa a critic:Writer, foaf:Person ;
-  foaf:name "송암(松庵) 김도화(金道和)"@ko ;
-  rdfs:label "송암(松庵) 김도화(金道和)"@ko ;
+  foaf:name "송암 김도화"@ko ;
+  rdfs:label "송암 김도화"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-dohwa> .
 
 kc:p-kim-donghwan a critic:Writer, foaf:Person ;
@@ -5265,8 +5254,8 @@ kc:p-kim-gyosin a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kim-gyosin> .
 
 kc:p-kim-gyudong a critic:Writer, foaf:Person ;
-  foaf:name "김규동(金奎東)"@ko ;
-  rdfs:label "김규동(金奎東)"@ko ;
+  foaf:name "김규동"@ko ;
+  rdfs:label "김규동"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q12587014> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201103197> ;
   owl:sameAs <http://viaf.org/viaf/40145375897783680518> ;
@@ -5374,11 +5363,6 @@ kc:p-kim-jongcheol a critic:Writer, foaf:Person ;
   owl:sameAs <http://viaf.org/viaf/3351886> ;
   owl:sameAs <https://isni.org/isni/0000000353854053> ;
   schema:url <https://kcritic.kr/resource/p-kim-jongcheol> .
-
-kc:p-kim-jongchul a critic:Thinker, foaf:Person ;
-  foaf:name "김종철"@ko ;
-  rdfs:label "김종철"@ko ;
-  schema:url <https://kcritic.kr/resource/p-kim-jongchul> .
 
 kc:p-kim-jonghae a critic:Writer, foaf:Person ;
   foaf:name "김종해"@ko ;
@@ -5529,8 +5513,8 @@ kc:p-kim-rok a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kim-rok> .
 
 kc:p-kim-satgat a critic:Writer, foaf:Person ;
-  foaf:name "김삿갓"@ko ;
-  rdfs:label "김삿갓"@ko ;
+  foaf:name "김병연"@ko ;
+  rdfs:label "김병연"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q624422> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201324692> ;
   owl:sameAs <http://viaf.org/viaf/56786187> ;
@@ -5550,13 +5534,13 @@ kc:p-kim-seonggyu a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kim-seonggyu> .
 
 kc:p-kim-seongsik a critic:Writer, foaf:Person ;
-  foaf:name "김성식(金成植)"@ko ;
-  rdfs:label "김성식(金成植)"@ko ;
+  foaf:name "김성식"@ko ;
+  rdfs:label "김성식"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-seongsik> .
 
 kc:p-kim-seongtae a critic:Thinker, foaf:Person ;
-  foaf:name "김성태(金聖泰)"@ko ;
-  rdfs:label "김성태(金聖泰)"@ko ;
+  foaf:name "김성태"@ko ;
+  rdfs:label "김성태"@ko ;
   schema:url <https://kcritic.kr/resource/p-kim-seongtae> .
 
 kc:p-kim-seonyeong a critic:Writer, foaf:Person ;
@@ -5689,8 +5673,8 @@ kc:p-kimnamcheon a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kimnamcheon> .
 
 kc:p-kimsoun a critic:Writer, foaf:Person ;
-  foaf:name "김소운（金素雲）"@ko ;
-  rdfs:label "김소운（金素雲）"@ko ;
+  foaf:name "김소운"@ko ;
+  rdfs:label "김소운"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q10855840> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201405515> ;
   owl:sameAs <http://viaf.org/viaf/69309874> ;
@@ -5699,8 +5683,8 @@ kc:p-kimsoun a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kimsoun> .
 
 kc:p-kitahara a critic:Thinker, foaf:Person ;
-  foaf:name "기타하라 하쿠슈(北原白秋)"@ko ;
-  rdfs:label "기타하라 하쿠슈(北原白秋)"@ko ;
+  foaf:name "기타하라 하쿠슈"@ko ;
+  rdfs:label "기타하라 하쿠슈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1066026> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199640148> ;
   owl:sameAs <http://viaf.org/viaf/17342486> ;
@@ -5717,8 +5701,8 @@ kc:p-kleist a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kleist> .
 
 kc:p-kluckhohn a critic:Thinker, foaf:Person ;
-  foaf:name "클라이드 클럭혼(Clyde Kluckhohn)"@ko ;
-  rdfs:label "클라이드 클럭혼(Clyde Kluckhohn)"@ko ;
+  foaf:name "클라이드 클럭혼"@ko ;
+  rdfs:label "클라이드 클럭혼"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1103678> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202349228> ;
   owl:sameAs <http://viaf.org/viaf/12383108> ;
@@ -5741,16 +5725,16 @@ kc:p-ko-youngmin a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ko-youngmin> .
 
 kc:p-koffka a critic:Thinker, foaf:Person ;
-  foaf:name "코프카(Koffka)"@ko ;
-  rdfs:label "코프카(Koffka)"@ko ;
+  foaf:name "코프카"@ko ;
+  rdfs:label "코프카"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q61323> ;
   owl:sameAs <http://viaf.org/viaf/44381543> ;
   owl:sameAs <https://isni.org/isni/0000000083777245> ;
   schema:url <https://kcritic.kr/resource/p-koffka> .
 
 kc:p-kohl a critic:Thinker, foaf:Person ;
-  foaf:name "허버트 콜(Herbert Kohl)"@ko ;
-  rdfs:label "허버트 콜(Herbert Kohl)"@ko ;
+  foaf:name "허버트 콜"@ko ;
+  rdfs:label "허버트 콜"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q5734829> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199615249> ;
   owl:sameAs <http://viaf.org/viaf/110975831> ;
@@ -5758,8 +5742,8 @@ kc:p-kohl a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kohl> .
 
 kc:p-kosik a critic:Thinker, foaf:Person ;
-  foaf:name "카렐 코지크(Karel Kosík)"@ko ;
-  rdfs:label "카렐 코지크(Karel Kosík)"@ko ;
+  foaf:name "카렐 코지크"@ko ;
+  rdfs:label "카렐 코지크"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q559795> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199615351> ;
   owl:sameAs <http://viaf.org/viaf/99930830> ;
@@ -5767,8 +5751,8 @@ kc:p-kosik a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kosik> .
 
 kc:p-kozol a critic:Thinker, foaf:Person ;
-  foaf:name "조너선 코졸(Jonathan Kozol)"@ko ;
-  rdfs:label "조너선 코졸(Jonathan Kozol)"@ko ;
+  foaf:name "조너선 코졸"@ko ;
+  rdfs:label "조너선 코졸"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1703223> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200807845> ;
   owl:sameAs <http://viaf.org/viaf/108506399> ;
@@ -5776,16 +5760,16 @@ kc:p-kozol a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kozol> .
 
 kc:p-krutch a critic:Thinker, foaf:Person ;
-  foaf:name "크루치(Joseph Wood Krutch)"@ko ;
-  rdfs:label "크루치(Joseph Wood Krutch)"@ko ;
+  foaf:name "크루치"@ko ;
+  rdfs:label "크루치"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q291183> ;
   owl:sameAs <http://viaf.org/viaf/49274843> ;
   owl:sameAs <https://isni.org/isni/0000000108986992> ;
   schema:url <https://kcritic.kr/resource/p-krutch> .
 
 kc:p-kuh a critic:Thinker, foaf:Person ;
-  foaf:name "캐서린 쿠(Katherine Kuh)"@ko ;
-  rdfs:label "캐서린 쿠(Katherine Kuh)"@ko ;
+  foaf:name "캐서린 쿠"@ko ;
+  rdfs:label "캐서린 쿠"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q6376207> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200903222> ;
   owl:sameAs <http://viaf.org/viaf/261874154> ;
@@ -5793,8 +5777,8 @@ kc:p-kuh a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-kuh> .
 
 kc:p-kuhn a critic:Thinker, foaf:Person ;
-  foaf:name "토머스 쿤(Thomas Kuhn)"@ko ;
-  rdfs:label "토머스 쿤(Thomas Kuhn)"@ko ;
+  foaf:name "토머스 쿤"@ko ;
+  rdfs:label "토머스 쿤"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q184980> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199634870> ;
   owl:sameAs <http://viaf.org/viaf/22144060> ;
@@ -5834,8 +5818,8 @@ kc:p-labruyere a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-labruyere> .
 
 kc:p-ladurie a critic:Thinker, foaf:Person ;
-  foaf:name "에마뉘엘 르루아 라뒤리(Emmanuel Le Roy Ladurie)"@ko ;
-  rdfs:label "에마뉘엘 르루아 라뒤리(Emmanuel Le Roy Ladurie)"@ko ;
+  foaf:name "에마뉘엘 르루아 라뒤리"@ko ;
+  rdfs:label "에마뉘엘 르루아 라뒤리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q314148> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199616138> ;
   owl:sameAs <http://viaf.org/viaf/13556> ;
@@ -5843,8 +5827,8 @@ kc:p-ladurie a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ladurie> .
 
 kc:p-lafontaine a critic:Thinker, foaf:Person ;
-  foaf:name "라퐁텐"@ko ;
-  rdfs:label "라퐁텐"@ko ;
+  foaf:name "장 드 라퐁텐"@ko ;
+  rdfs:label "장 드 라퐁텐"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q49496> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199615680> ;
   owl:sameAs <http://viaf.org/viaf/31998552> ;
@@ -5861,8 +5845,8 @@ kc:p-laforgue a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-laforgue> .
 
 kc:p-lakatos a critic:Thinker, foaf:Person ;
-  foaf:name "임레 라카토스(Imre Lakatos)"@ko ;
-  rdfs:label "임레 라카토스(Imre Lakatos)"@ko ;
+  foaf:name "임레 라카토스"@ko ;
+  rdfs:label "임레 라카토스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q296249> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201841493> ;
   owl:sameAs <http://viaf.org/viaf/108401548> ;
@@ -5879,8 +5863,8 @@ kc:p-lamartine a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lamartine> .
 
 kc:p-lanson a critic:Thinker, foaf:Person ;
-  foaf:name "랑송"@ko ;
-  rdfs:label "랑송"@ko ;
+  foaf:name "귀스타브 랑송"@ko ;
+  rdfs:label "귀스타브 랑송"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q733188> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201414637> ;
   owl:sameAs <http://viaf.org/viaf/4991227> ;
@@ -5915,8 +5899,8 @@ kc:p-larochefoucauld a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-larochefoucauld> .
 
 kc:p-lasch a critic:Thinker, foaf:Person ;
-  foaf:name "크리스토퍼 래슈(Christopher Lasch)"@ko ;
-  rdfs:label "크리스토퍼 래슈(Christopher Lasch)"@ko ;
+  foaf:name "크리스토퍼 래슈"@ko ;
+  rdfs:label "크리스토퍼 래슈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q705399> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199615974> ;
   owl:sameAs <http://viaf.org/viaf/73856034> ;
@@ -5924,8 +5908,8 @@ kc:p-lasch a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lasch> .
 
 kc:p-lavoisier a critic:Thinker, foaf:Person ;
-  foaf:name "라부아지에(Antoine Lavoisier)"@ko ;
-  rdfs:label "라부아지에(Antoine Lavoisier)"@ko ;
+  foaf:name "라부아지에"@ko ;
+  rdfs:label "라부아지에"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q39607> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199634957> ;
   owl:sameAs <http://viaf.org/viaf/2495579> ;
@@ -6001,8 +5985,8 @@ kc:p-lee-inhae a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lee-inhae> .
 
 kc:p-lee-jeonghwan a critic:Writer, foaf:Person ;
-  foaf:name "이정환(李貞桓)"@ko ;
-  rdfs:label "이정환(李貞桓)"@ko ;
+  foaf:name "이정환"@ko ;
+  rdfs:label "이정환"@ko ;
   schema:url <https://kcritic.kr/resource/p-lee-jeonghwan> .
 
 kc:p-lee-kibaek a critic:Thinker, foaf:Person ;
@@ -6115,8 +6099,8 @@ kc:p-lee-yugyeong a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lee-yugyeong> .
 
 kc:p-lefebvre a critic:Thinker, foaf:Person ;
-  foaf:name "앙리 르페브르(Henri Lefebvre)"@ko ;
-  rdfs:label "앙리 르페브르(Henri Lefebvre)"@ko ;
+  foaf:name "앙리 르페브르"@ko ;
+  rdfs:label "앙리 르페브르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q162597> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199616270> ;
   owl:sameAs <http://viaf.org/viaf/14808728> ;
@@ -6150,16 +6134,16 @@ kc:p-lessing a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lessing> .
 
 kc:p-levenson a critic:Thinker, foaf:Person ;
-  foaf:name "조지프 레븐슨(Joseph R. Levenson)"@ko ;
-  rdfs:label "조지프 레븐슨(Joseph R. Levenson)"@ko ;
+  foaf:name "조지프 레븐슨"@ko ;
+  rdfs:label "조지프 레븐슨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q4256371> ;
   owl:sameAs <http://viaf.org/viaf/16017014> ;
   owl:sameAs <https://isni.org/isni/0000000108735472> ;
   schema:url <https://kcritic.kr/resource/p-levenson> .
 
 kc:p-levinas a critic:Thinker, foaf:Person ;
-  foaf:name "레비나스(Emmanuel Levinas)"@ko ;
-  rdfs:label "레비나스(Emmanuel Levinas)"@ko ;
+  foaf:name "레비나스"@ko ;
+  rdfs:label "레비나스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q153034> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200306265> ;
   owl:sameAs <http://viaf.org/viaf/108203818> ;
@@ -6176,8 +6160,8 @@ kc:p-lewis a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lewis> .
 
 kc:p-licheng a critic:Thinker, foaf:Person ;
-  foaf:name "이성(李成)"@ko ;
-  rdfs:label "이성(李成)"@ko ;
+  foaf:name "이성"@ko ;
+  rdfs:label "이성"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q716242> ;
   owl:sameAs <http://viaf.org/viaf/20969737> ;
   owl:sameAs <https://isni.org/isni/000000008363106X> ;
@@ -6193,8 +6177,8 @@ kc:p-lichtheim a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lichtheim> .
 
 kc:p-lingis a critic:Thinker, foaf:Person ;
-  foaf:name "알폰소 링기스(Alphonso Lingis)"@ko ;
-  rdfs:label "알폰소 링기스(Alphonso Lingis)"@ko ;
+  foaf:name "알폰소 링기스"@ko ;
+  rdfs:label "알폰소 링기스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q3269189> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200605032> ;
   owl:sameAs <http://viaf.org/viaf/108914103> ;
@@ -6202,16 +6186,16 @@ kc:p-lingis a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lingis> .
 
 kc:p-lipps a critic:Thinker, foaf:Person ;
-  foaf:name "테오도어 립스(Theodor Lipps)"@ko ;
-  rdfs:label "테오도어 립스(Theodor Lipps)"@ko ;
+  foaf:name "테오도어 립스"@ko ;
+  rdfs:label "테오도어 립스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q61970> ;
   owl:sameAs <http://viaf.org/viaf/19725350> ;
   owl:sameAs <https://isni.org/isni/0000000123199786> ;
   schema:url <https://kcritic.kr/resource/p-lipps> .
 
 kc:p-lloyd a critic:Thinker, foaf:Person ;
-  foaf:name "로이드(G.E.R. Lloyd)"@ko ;
-  rdfs:label "로이드(G.E.R. Lloyd)"@ko ;
+  foaf:name "로이드"@ko ;
+  rdfs:label "로이드"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q456444> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201405386> ;
   owl:sameAs <http://viaf.org/viaf/101909258> ;
@@ -6219,8 +6203,8 @@ kc:p-lloyd a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lloyd> .
 
 kc:p-locke a critic:Thinker, foaf:Person ;
-  foaf:name "로크(Locke)"@ko ;
-  rdfs:label "로크(Locke)"@ko ;
+  foaf:name "존 로크"@ko ;
+  rdfs:label "존 로크"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q9353> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199616894> ;
   owl:sameAs <http://viaf.org/viaf/34459614> ;
@@ -6237,8 +6221,8 @@ kc:p-longfellow a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-longfellow> .
 
 kc:p-lorenz a critic:Thinker, foaf:Person ;
-  foaf:name "콘라트 로렌츠(Konrad Lorenz)"@ko ;
-  rdfs:label "콘라트 로렌츠(Konrad Lorenz)"@ko ;
+  foaf:name "콘라트 로렌츠"@ko ;
+  rdfs:label "콘라트 로렌츠"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q78496> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199617026> ;
   owl:sameAs <http://viaf.org/viaf/34459633> ;
@@ -6246,8 +6230,8 @@ kc:p-lorenz a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lorenz> .
 
 kc:p-lowenthal a critic:Thinker, foaf:Person ;
-  foaf:name "리오 로웬달"@ko ;
-  rdfs:label "리오 로웬달"@ko ;
+  foaf:name "리오 로웬탈"@ko ;
+  rdfs:label "리오 로웬탈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q77146> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202348160> ;
   owl:sameAs <http://viaf.org/viaf/76329133> ;
@@ -6255,8 +6239,8 @@ kc:p-lowenthal a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-lowenthal> .
 
 kc:p-ludtke a critic:Thinker, foaf:Person ;
-  foaf:name "알프 뤼트케(Alf Lüdtke)"@ko ;
-  rdfs:label "알프 뤼트케(Alf Lüdtke)"@ko ;
+  foaf:name "알프 뤼트케"@ko ;
+  rdfs:label "알프 뤼트케"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q97125> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200303261> ;
   owl:sameAs <http://viaf.org/viaf/109332071> ;
@@ -6264,8 +6248,8 @@ kc:p-ludtke a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ludtke> .
 
 kc:p-lyotard a critic:Thinker, foaf:Person ;
-  foaf:name "리오타르(Jean-François Lyotard)"@ko ;
-  rdfs:label "리오타르(Jean-François Lyotard)"@ko ;
+  foaf:name "리오타르"@ko ;
+  rdfs:label "리오타르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q193257> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201515338> ;
   owl:sameAs <http://viaf.org/viaf/108393539> ;
@@ -6313,8 +6297,8 @@ kc:p-macleish a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-macleish> .
 
 kc:p-malebranche a critic:Thinker, foaf:Person ;
-  foaf:name "말브랑슈(Nicolas Malebranche)"@ko ;
-  rdfs:label "말브랑슈(Nicolas Malebranche)"@ko ;
+  foaf:name "말브랑슈"@ko ;
+  rdfs:label "말브랑슈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q309818> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202310811> ;
   owl:sameAs <http://viaf.org/viaf/66545180> ;
@@ -6330,8 +6314,8 @@ kc:p-malherbe a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-malherbe> .
 
 kc:p-malraux a critic:Thinker, foaf:Person ;
-  foaf:name "말로"@ko ;
-  rdfs:label "말로"@ko ;
+  foaf:name "앙드레 말로"@ko ;
+  rdfs:label "앙드레 말로"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q151164> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199617567> ;
   owl:sameAs <http://viaf.org/viaf/51692748> ;
@@ -6392,8 +6376,8 @@ kc:p-marvell a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-marvell> .
 
 kc:p-marvin-harris a critic:Thinker, foaf:Person ;
-  foaf:name "마빈 해리스(Marvin Harris)"@ko ;
-  rdfs:label "마빈 해리스(Marvin Harris)"@ko ;
+  foaf:name "마빈 해리스"@ko ;
+  rdfs:label "마빈 해리스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q334842> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199611614> ;
   owl:sameAs <http://viaf.org/viaf/91676401> ;
@@ -6435,18 +6419,13 @@ kc:p-melville a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-melville> .
 
 kc:p-memmi a critic:Thinker, foaf:Person ;
-  foaf:name "알베르 메미(Albert Memmi)"@ko ;
-  rdfs:label "알베르 메미(Albert Memmi)"@ko ;
+  foaf:name "알베르 메미"@ko ;
+  rdfs:label "알베르 메미"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q733225> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201946669> ;
   owl:sameAs <http://viaf.org/viaf/105885902> ;
   owl:sameAs <https://isni.org/isni/0000000121463221> ;
   schema:url <https://kcritic.kr/resource/p-memmi> .
-
-kc:p-meursault a critic:Thinker, foaf:Person ;
-  foaf:name "뫼르소"@ko ;
-  rdfs:label "뫼르소"@ko ;
-  schema:url <https://kcritic.kr/resource/p-meursault> .
 
 kc:p-michaux a critic:Thinker, foaf:Person ;
   foaf:name "앙리 미쇼"@ko ;
@@ -6458,8 +6437,8 @@ kc:p-michaux a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-michaux> .
 
 kc:p-miki-rofu a critic:Thinker, foaf:Person ;
-  foaf:name "미키 로후(三木露風)"@ko ;
-  rdfs:label "미키 로후(三木露風)"@ko ;
+  foaf:name "미키 로후"@ko ;
+  rdfs:label "미키 로후"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1933652> ;
   owl:sameAs <http://viaf.org/viaf/108784321> ;
   owl:sameAs <https://isni.org/isni/0000000080557968> ;
@@ -6475,8 +6454,8 @@ kc:p-mill a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-mill> .
 
 kc:p-millett a critic:Thinker, foaf:Person ;
-  foaf:name "케이트 밀렛(Kate Millett)"@ko ;
-  rdfs:label "케이트 밀렛(Kate Millett)"@ko ;
+  foaf:name "케이트 밀렛"@ko ;
+  rdfs:label "케이트 밀렛"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q292268> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199618926> ;
   owl:sameAs <http://viaf.org/viaf/51693468> ;
@@ -6484,8 +6463,8 @@ kc:p-millett a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-millett> .
 
 kc:p-mills a critic:Thinker, foaf:Person ;
-  foaf:name "C. 라이트 밀스(C. Wright Mills)"@ko ;
-  rdfs:label "C. 라이트 밀스(C. Wright Mills)"@ko ;
+  foaf:name "C. 라이트 밀스"@ko ;
+  rdfs:label "C. 라이트 밀스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q312837> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199618934> ;
   owl:sameAs <http://viaf.org/viaf/100236274> ;
@@ -6632,8 +6611,8 @@ kc:p-mun-suntae a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-mun-suntae> .
 
 kc:p-muro a critic:Thinker, foaf:Person ;
-  foaf:name "무로우（室生犀星）"@ko ;
-  rdfs:label "무로우（室生犀星）"@ko ;
+  foaf:name "무로우"@ko ;
+  rdfs:label "무로우"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q331339> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201004356> ;
   owl:sameAs <http://viaf.org/viaf/51808546> ;
@@ -6668,8 +6647,8 @@ kc:p-nabokov a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-nabokov> .
 
 kc:p-nagai a critic:Thinker, foaf:Person ;
-  foaf:name "나가이（永井荷風）"@ko ;
-  rdfs:label "나가이（永井荷風）"@ko ;
+  foaf:name "나가이"@ko ;
+  rdfs:label "나가이"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q530588> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199631882> ;
   owl:sameAs <http://viaf.org/viaf/68933376> ;
@@ -6686,8 +6665,8 @@ kc:p-nagarjuna a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-nagarjuna> .
 
 kc:p-nakano a critic:Thinker, foaf:Person ;
-  foaf:name "나카노（中野重治）"@ko ;
-  rdfs:label "나카노（中野重治）"@ko ;
+  foaf:name "나카노"@ko ;
+  rdfs:label "나카노"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q554254> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200407800> ;
   owl:sameAs <http://viaf.org/viaf/22296545> ;
@@ -6714,8 +6693,8 @@ kc:p-nam-jeonghyeon a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-nam-jeonghyeon> .
 
 kc:p-nanquan a critic:Thinker, foaf:Person ;
-  foaf:name "남천보원선사(南泉普願禪師)"@ko ;
-  rdfs:label "남천보원선사(南泉普願禪師)"@ko ;
+  foaf:name "남천보원선사"@ko ;
+  rdfs:label "남천보원선사"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1008025> ;
   owl:sameAs <http://viaf.org/viaf/25403601> ;
   owl:sameAs <https://isni.org/isni/0000000117520414> ;
@@ -6740,8 +6719,8 @@ kc:p-naukwanjung a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-naukwanjung> .
 
 kc:p-needham a critic:Thinker, foaf:Person ;
-  foaf:name "조지프 니덤(Joseph Needham)"@ko ;
-  rdfs:label "조지프 니덤(Joseph Needham)"@ko ;
+  foaf:name "조지프 니덤"@ko ;
+  rdfs:label "조지프 니덤"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q318054> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199619970> ;
   owl:sameAs <http://viaf.org/viaf/61550127> ;
@@ -6800,8 +6779,8 @@ kc:p-no-hyangrim a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-no-hyangrim> .
 
 kc:p-nosaka a critic:Thinker, foaf:Person ;
-  foaf:name "노사카(野坂參三)"@ko ;
-  rdfs:label "노사카(野坂參三)"@ko ;
+  foaf:name "노사카"@ko ;
+  rdfs:label "노사카"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q337436> ;
   owl:sameAs <http://viaf.org/viaf/256965424> ;
   owl:sameAs <https://isni.org/isni/0000000082410580> ;
@@ -6901,8 +6880,8 @@ kc:p-oh-yugwon a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-oh-yugwon> .
 
 kc:p-okakura a critic:Thinker, foaf:Person ;
-  foaf:name "오카쿠라 가쿠조(岡倉覺三)"@ko ;
-  rdfs:label "오카쿠라 가쿠조(岡倉覺三)"@ko ;
+  foaf:name "오카쿠라 가쿠조"@ko ;
+  rdfs:label "오카쿠라 가쿠조"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q942995> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200003305> ;
   owl:sameAs <http://viaf.org/viaf/99830297> ;
@@ -6919,8 +6898,8 @@ kc:p-omar-khayyam a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-omar-khayyam> .
 
 kc:p-osmond a critic:Thinker, foaf:Person ;
-  foaf:name "험프리 오스먼드(Humphry Osmond)"@ko ;
-  rdfs:label "험프리 오스먼드(Humphry Osmond)"@ko ;
+  foaf:name "험프리 오스먼드"@ko ;
+  rdfs:label "험프리 오스먼드"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1275370> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202264747> ;
   owl:sameAs <http://viaf.org/viaf/268809510> ;
@@ -6962,8 +6941,8 @@ kc:p-pak-nohae a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-pak-nohae> .
 
 kc:p-panofsky a critic:Thinker, foaf:Person ;
-  foaf:name "에르빈 파노프스키(Erwin Panofsky)"@ko ;
-  rdfs:label "에르빈 파노프스키(Erwin Panofsky)"@ko ;
+  foaf:name "에르빈 파노프스키"@ko ;
+  rdfs:label "에르빈 파노프스키"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q57656> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199621015> ;
   owl:sameAs <http://viaf.org/viaf/76321051> ;
@@ -7119,8 +7098,8 @@ kc:p-park-uisang a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-park-uisang> .
 
 kc:p-park-wanseo a critic:Writer, foaf:Person ;
-  foaf:name "박완서(朴婉緖)"@ko ;
-  rdfs:label "박완서(朴婉緖)"@ko ;
+  foaf:name "박완서"@ko ;
+  rdfs:label "박완서"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q465489> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201007995> ;
   owl:sameAs <http://viaf.org/viaf/9917892> ;
@@ -7203,11 +7182,6 @@ kc:p-philip-rahv a critic:Thinker, foaf:Person ;
   owl:sameAs <https://isni.org/isni/0000000120285494> ;
   schema:url <https://kcritic.kr/resource/p-philip-rahv> .
 
-kc:p-philosopher a critic:Thinker, foaf:Person ;
-  foaf:name "철학자"@ko ;
-  rdfs:label "철학자"@ko ;
-  schema:url <https://kcritic.kr/resource/p-philosopher> .
-
 kc:p-pi-cheondeuk a critic:Writer, foaf:Person ;
   foaf:name "피천득"@ko ;
   rdfs:label "피천득"@ko ;
@@ -7219,8 +7193,8 @@ kc:p-pi-cheondeuk a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-pi-cheondeuk> .
 
 kc:p-piaget a critic:Thinker, foaf:Person ;
-  foaf:name "장 피아제(Jean Piaget)"@ko ;
-  rdfs:label "장 피아제(Jean Piaget)"@ko ;
+  foaf:name "장 피아제"@ko ;
+  rdfs:label "장 피아제"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q123190> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201506222> ;
   owl:sameAs <http://viaf.org/viaf/39382513> ;
@@ -7254,8 +7228,8 @@ kc:p-piranesi a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-piranesi> .
 
 kc:p-polanyi a critic:Thinker, foaf:Person ;
-  foaf:name "마이클 폴라니(Michael Polanyi)"@ko ;
-  rdfs:label "마이클 폴라니(Michael Polanyi)"@ko ;
+  foaf:name "마이클 폴라니"@ko ;
+  rdfs:label "마이클 폴라니"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q163087> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201507015> ;
   owl:sameAs <http://viaf.org/viaf/76329237> ;
@@ -7271,8 +7245,8 @@ kc:p-pontalis a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-pontalis> .
 
 kc:p-pope a critic:Thinker, foaf:Person ;
-  foaf:name "포프"@ko ;
-  rdfs:label "포프"@ko ;
+  foaf:name "알렉산더 포프"@ko ;
+  rdfs:label "알렉산더 포프"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q164047> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199621957> ;
   owl:sameAs <http://viaf.org/viaf/61551003> ;
@@ -7288,8 +7262,8 @@ kc:p-pouillon a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-pouillon> .
 
 kc:p-poulantzas a critic:Thinker, foaf:Person ;
-  foaf:name "니코스 풀란차스(Nicos Poulantzas)"@ko ;
-  rdfs:label "니코스 풀란차스(Nicos Poulantzas)"@ko ;
+  foaf:name "니코스 풀란차스"@ko ;
+  rdfs:label "니코스 풀란차스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q505296> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018J8476> ;
   owl:sameAs <http://viaf.org/viaf/72186482> ;
@@ -7314,8 +7288,8 @@ kc:p-prevert a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-prevert> .
 
 kc:p-priestley a critic:Thinker, foaf:Person ;
-  foaf:name "프리스틀리(Joseph Priestley)"@ko ;
-  rdfs:label "프리스틀리(Joseph Priestley)"@ko ;
+  foaf:name "프리스틀리"@ko ;
+  rdfs:label "프리스틀리"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q159636> ;
   owl:sameAs <http://viaf.org/viaf/120696744> ;
   owl:sameAs <https://isni.org/isni/0000000121041029> ;
@@ -7355,11 +7329,6 @@ kc:p-pythagoras a critic:Thinker, foaf:Person ;
   owl:sameAs <http://viaf.org/viaf/162237897> ;
   owl:sameAs <https://isni.org/isni/0000000374984682> ;
   schema:url <https://kcritic.kr/resource/p-pythagoras> .
-
-kc:p-quixote a critic:Thinker, foaf:Person ;
-  foaf:name "돈 키호테"@ko ;
-  rdfs:label "돈 키호테"@ko ;
-  schema:url <https://kcritic.kr/resource/p-quixote> .
 
 kc:p-rabelais a critic:Thinker, foaf:Person ;
   foaf:name "라블레"@ko ;
@@ -7416,8 +7385,8 @@ kc:p-ranke a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ranke> .
 
 kc:p-ransom a critic:Thinker, foaf:Person ;
-  foaf:name "랜섬(John Crowe Ransom)"@ko ;
-  rdfs:label "랜섬(John Crowe Ransom)"@ko ;
+  foaf:name "랜섬"@ko ;
+  rdfs:label "랜섬"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1337955> ;
   owl:sameAs <http://viaf.org/viaf/7399505> ;
   owl:sameAs <https://isni.org/isni/0000000108665355> ;
@@ -7451,8 +7420,8 @@ kc:p-reverdy a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-reverdy> .
 
 kc:p-reynolds a critic:Thinker, foaf:Person ;
-  foaf:name "조슈아 레이놀즈(Joshua Reynolds)"@ko ;
-  rdfs:label "조슈아 레이놀즈(Joshua Reynolds)"@ko ;
+  foaf:name "조슈아 레이놀즈"@ko ;
+  rdfs:label "조슈아 레이놀즈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q194402> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC202283334> ;
   owl:sameAs <http://viaf.org/viaf/27081216> ;
@@ -7477,8 +7446,8 @@ kc:p-richardson a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-richardson> .
 
 kc:p-ricoeur a critic:Thinker, foaf:Person ;
-  foaf:name "폴 리쾨르(Paul Ricœur)"@ko ;
-  rdfs:label "폴 리쾨르(Paul Ricœur)"@ko ;
+  foaf:name "폴 리쾨르"@ko ;
+  rdfs:label "폴 리쾨르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q192066> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200606668> ;
   owl:sameAs <http://viaf.org/viaf/108266369> ;
@@ -7486,8 +7455,8 @@ kc:p-ricoeur a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ricoeur> .
 
 kc:p-rimbaud a critic:Thinker, foaf:Person ;
-  foaf:name "랭보"@ko ;
-  rdfs:label "랭보"@ko ;
+  foaf:name "아르튀르 랭보"@ko ;
+  rdfs:label "아르튀르 랭보"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q493> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199623070> ;
   owl:sameAs <http://viaf.org/viaf/7396281> ;
@@ -7521,8 +7490,8 @@ kc:p-rodin a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-rodin> .
 
 kc:p-rousseau a critic:Thinker, foaf:Person ;
-  foaf:name "루소"@ko ;
-  rdfs:label "루소"@ko ;
+  foaf:name "장 자크 루소"@ko ;
+  rdfs:label "장 자크 루소"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q6527> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199623614> ;
   owl:sameAs <http://viaf.org/viaf/100184045> ;
@@ -7530,8 +7499,8 @@ kc:p-rousseau a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-rousseau> .
 
 kc:p-rudolf-otto a critic:Thinker, foaf:Person ;
-  foaf:name "루돌프 오토(Rudolf Otto)"@ko ;
-  rdfs:label "루돌프 오토(Rudolf Otto)"@ko ;
+  foaf:name "루돌프 오토"@ko ;
+  rdfs:label "루돌프 오토"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q76748> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199620827> ;
   owl:sameAs <http://viaf.org/viaf/17268770> ;
@@ -7546,11 +7515,6 @@ kc:p-ruskin a critic:Thinker, foaf:Person ;
   owl:sameAs <http://viaf.org/viaf/73859585> ;
   owl:sameAs <https://isni.org/isni/0000000121393446> ;
   schema:url <https://kcritic.kr/resource/p-ruskin> .
-
-kc:p-russian-formalists a critic:Thinker, foaf:Person ;
-  foaf:name "러시아 형태주의자들"@ko ;
-  rdfs:label "러시아 형태주의자들"@ko ;
-  schema:url <https://kcritic.kr/resource/p-russian-formalists> .
 
 kc:p-rutherford a critic:Thinker, foaf:Person ;
   foaf:name "래더포드"@ko ;
@@ -7571,8 +7535,8 @@ kc:p-ruthven a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-ruthven> .
 
 kc:p-ruysdael a critic:Thinker, foaf:Person ;
-  foaf:name "야콥 판 라위스달(Jacob van Ruysdael)"@ko ;
-  rdfs:label "야콥 판 라위스달(Jacob van Ruysdael)"@ko ;
+  foaf:name "야콥 판 라위스달"@ko ;
+  rdfs:label "야콥 판 라위스달"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q213612> ;
   owl:sameAs <http://viaf.org/viaf/89550506> ;
   owl:sameAs <https://isni.org/isni/0000000117740724> ;
@@ -7588,8 +7552,8 @@ kc:p-rwright a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-rwright> .
 
 kc:p-sahlins a critic:Thinker, foaf:Person ;
-  foaf:name "마셜 살린스(Marshall Sahlins)"@ko ;
-  rdfs:label "마셜 살린스(Marshall Sahlins)"@ko ;
+  foaf:name "마셜 살린스"@ko ;
+  rdfs:label "마셜 살린스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q345300> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201428680> ;
   owl:sameAs <http://viaf.org/viaf/108302555> ;
@@ -7621,8 +7585,8 @@ kc:p-samuel a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-samuel> .
 
 kc:p-sato a critic:Thinker, foaf:Person ;
-  foaf:name "사토（佐藤春夫）"@ko ;
-  rdfs:label "사토（佐藤春夫）"@ko ;
+  foaf:name "사토"@ko ;
+  rdfs:label "사토"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q2226953> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199640964> ;
   owl:sameAs <http://viaf.org/viaf/2515972> ;
@@ -7630,8 +7594,8 @@ kc:p-sato a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-sato> .
 
 kc:p-saussure a critic:Thinker, foaf:Person ;
-  foaf:name "소쉬르(Ferdinand de Saussure)"@ko ;
-  rdfs:label "소쉬르(Ferdinand de Saussure)"@ko ;
+  foaf:name "소쉬르"@ko ;
+  rdfs:label "소쉬르"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q13230> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199624171> ;
   owl:sameAs <http://viaf.org/viaf/95158205> ;
@@ -7639,8 +7603,8 @@ kc:p-saussure a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-saussure> .
 
 kc:p-scheler a critic:Thinker, foaf:Person ;
-  foaf:name "셸러(Scheler)"@ko ;
-  rdfs:label "셸러(Scheler)"@ko ;
+  foaf:name "셸러"@ko ;
+  rdfs:label "셸러"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q76521> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199624302> ;
   owl:sameAs <http://viaf.org/viaf/41846336> ;
@@ -7648,8 +7612,8 @@ kc:p-scheler a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-scheler> .
 
 kc:p-schiller a critic:Thinker, foaf:Person ;
-  foaf:name "실러"@ko ;
-  rdfs:label "실러"@ko ;
+  foaf:name "프리드리히 실러"@ko ;
+  rdfs:label "프리드리히 실러"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q22670> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199625160> ;
   owl:sameAs <http://viaf.org/viaf/96994450> ;
@@ -7657,8 +7621,8 @@ kc:p-schiller a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-schiller> .
 
 kc:p-scholes2 a critic:Thinker, foaf:Person ;
-  foaf:name "로버트 스코울즈"@ko ;
-  rdfs:label "로버트 스코울즈"@ko ;
+  foaf:name "로벗 스코울즈"@ko ;
+  rdfs:label "로벗 스코울즈"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1184725> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199624494> ;
   owl:sameAs <http://viaf.org/viaf/73848666> ;
@@ -7799,11 +7763,6 @@ kc:p-shin-gyuho a critic:Writer, foaf:Person ;
   rdfs:label "신규호"@ko ;
   schema:url <https://kcritic.kr/resource/p-shin-gyuho> .
 
-kc:p-shin-hanui a critic:Writer, foaf:Person ;
-  foaf:name "신하늬"@ko ;
-  rdfs:label "신하늬"@ko ;
-  schema:url <https://kcritic.kr/resource/p-shin-hanui> .
-
 kc:p-shin-hyeop a critic:Writer, foaf:Person ;
   foaf:name "신협"@ko ;
   rdfs:label "신협"@ko ;
@@ -7825,8 +7784,8 @@ kc:p-shin-seokcho a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-shin-seokcho> .
 
 kc:p-shklovsky a critic:Thinker, foaf:Person ;
-  foaf:name "시클롭스키(Viktor Shklovsky)"@ko ;
-  rdfs:label "시클롭스키(Viktor Shklovsky)"@ko ;
+  foaf:name "시클롭스키"@ko ;
+  rdfs:label "시클롭스키"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q312467> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200900553> ;
   owl:sameAs <http://viaf.org/viaf/108303033> ;
@@ -7843,8 +7802,8 @@ kc:p-sidney a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-sidney> .
 
 kc:p-sima-qian a critic:Thinker, foaf:Person ;
-  foaf:name "사마천(司馬遷)"@ko ;
-  rdfs:label "사마천(司馬遷)"@ko ;
+  foaf:name "사마천"@ko ;
+  rdfs:label "사마천"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q9372> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200807079> ;
   owl:sameAs <http://viaf.org/viaf/9817411> ;
@@ -7877,11 +7836,6 @@ kc:p-sin-yongha a critic:Thinker, foaf:Person ;
   owl:sameAs <http://viaf.org/viaf/112354145> ;
   owl:sameAs <https://isni.org/isni/0000000084097022> ;
   schema:url <https://kcritic.kr/resource/p-sin-yongha> .
-
-kc:p-sisyphus a critic:Thinker, foaf:Person ;
-  foaf:name "시시포스"@ko ;
-  rdfs:label "시시포스"@ko ;
-  schema:url <https://kcritic.kr/resource/p-sisyphus> .
 
 kc:p-slater a critic:Thinker, foaf:Person ;
   foaf:name "슬레이터"@ko ;
@@ -8012,8 +7966,8 @@ kc:p-steiner a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-steiner> .
 
 kc:p-strasser a critic:Thinker, foaf:Person ;
-  foaf:name "슈테판 슈트라세(Stephan Strasser)"@ko ;
-  rdfs:label "슈테판 슈트라세(Stephan Strasser)"@ko ;
+  foaf:name "슈테판 슈트라세"@ko ;
+  rdfs:label "슈테판 슈트라세"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1654032> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201751912> ;
   owl:sameAs <http://viaf.org/viaf/2545553> ;
@@ -8021,8 +7975,8 @@ kc:p-strasser a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-strasser> .
 
 kc:p-straus a critic:Thinker, foaf:Person ;
-  foaf:name "에르빈 슈트라우스(Erwin Straus)"@ko ;
-  rdfs:label "에르빈 슈트라우스(Erwin Straus)"@ko ;
+  foaf:name "에르빈 슈트라우스"@ko ;
+  rdfs:label "에르빈 슈트라우스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q78075> ;
   owl:sameAs <http://viaf.org/viaf/56640801> ;
   owl:sameAs <https://isni.org/isni/000000010903749X> ;
@@ -8047,8 +8001,8 @@ kc:p-supervielle a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-supervielle> .
 
 kc:p-sushi a critic:Thinker, foaf:Person ;
-  foaf:name "소식(蘇軾)"@ko ;
-  rdfs:label "소식(蘇軾)"@ko ;
+  foaf:name "소식"@ko ;
+  rdfs:label "소식"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q36020> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199631702> ;
   owl:sameAs <http://viaf.org/viaf/96591338> ;
@@ -8056,8 +8010,8 @@ kc:p-sushi a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-sushi> .
 
 kc:p-swami-ajaya a critic:Thinker, foaf:Person ;
-  foaf:name "스와미 아자야(Swami Ajaya)"@ko ;
-  rdfs:label "스와미 아자야(Swami Ajaya)"@ko ;
+  foaf:name "스와미 아자야"@ko ;
+  rdfs:label "스와미 아자야"@ko ;
   schema:url <https://kcritic.kr/resource/p-swami-ajaya> .
 
 kc:p-tagore a critic:Thinker, foaf:Person ;
@@ -8088,8 +8042,8 @@ kc:p-tarkovsky a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-tarkovsky> .
 
 kc:p-ted-benton a critic:Thinker, foaf:Person ;
-  foaf:name "테드 벤턴(Ted Benton)"@ko ;
-  rdfs:label "테드 벤턴(Ted Benton)"@ko ;
+  foaf:name "테드 벤턴"@ko ;
+  rdfs:label "테드 벤턴"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q15430775> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201500427> ;
   owl:sameAs <http://viaf.org/viaf/239289161> ;
@@ -8124,8 +8078,8 @@ kc:p-thomas a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-thomas> .
 
 kc:p-thompson a critic:Thinker, foaf:Person ;
-  foaf:name "E. P. 톰슨(E. P. Thompson)"@ko ;
-  rdfs:label "E. P. 톰슨(E. P. Thompson)"@ko ;
+  foaf:name "E. P. 톰슨"@ko ;
+  rdfs:label "E. P. 톰슨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q434160> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199627416> ;
   owl:sameAs <http://viaf.org/viaf/18196> ;
@@ -8133,8 +8087,8 @@ kc:p-thompson a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-thompson> .
 
 kc:p-thoreau a critic:Thinker, foaf:Person ;
-  foaf:name "소로(Thoreau)"@ko ;
-  rdfs:label "소로(Thoreau)"@ko ;
+  foaf:name "헨리 데이비드 소로"@ko ;
+  rdfs:label "헨리 데이비드 소로"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q131149> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199627496> ;
   owl:sameAs <http://viaf.org/viaf/68936476> ;
@@ -8151,8 +8105,8 @@ kc:p-tillich a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-tillich> .
 
 kc:p-tinbergen a critic:Thinker, foaf:Person ;
-  foaf:name "니콜라스 틴베르헌(Nikolaas Tinbergen)"@ko ;
-  rdfs:label "니콜라스 틴베르헌(Nikolaas Tinbergen)"@ko ;
+  foaf:name "니콜라스 틴베르헌"@ko ;
+  rdfs:label "니콜라스 틴베르헌"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q153890> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018J3627> ;
   owl:sameAs <http://viaf.org/viaf/36979006> ;
@@ -8177,8 +8131,8 @@ kc:p-todorov a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-todorov> .
 
 kc:p-toegye a critic:Thinker, foaf:Person ;
-  foaf:name "퇴계(退溪)"@ko ;
-  rdfs:label "퇴계(退溪)"@ko ;
+  foaf:name "퇴계"@ko ;
+  rdfs:label "퇴계"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q486291> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200207663> ;
   owl:sameAs <http://viaf.org/viaf/17263298> ;
@@ -8195,8 +8149,8 @@ kc:p-tomashevsky a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-tomashevsky> .
 
 kc:p-tonnies a critic:Thinker, foaf:Person ;
-  foaf:name "퇴니스(Tönnies)"@ko ;
-  rdfs:label "퇴니스(Tönnies)"@ko ;
+  foaf:name "퇴니스"@ko ;
+  rdfs:label "퇴니스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q21163> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199627654> ;
   owl:sameAs <http://viaf.org/viaf/18242> ;
@@ -8229,11 +8183,6 @@ kc:p-trotsky a critic:Thinker, foaf:Person ;
   owl:sameAs <https://isni.org/isni/0000000122771584> ;
   schema:url <https://kcritic.kr/resource/p-trotsky> .
 
-kc:p-troubadour a critic:Thinker, foaf:Person ;
-  foaf:name "음유 시인"@ko ;
-  rdfs:label "음유 시인"@ko ;
-  schema:url <https://kcritic.kr/resource/p-troubadour> .
-
 kc:p-turgenev a critic:Thinker, foaf:Person ;
   foaf:name "투르게네프"@ko ;
   rdfs:label "투르게네프"@ko ;
@@ -8261,18 +8210,13 @@ kc:p-tynyanov a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-tynyanov> .
 
 kc:p-ueda-bin a critic:Thinker, foaf:Person ;
-  foaf:name "우에다 빙(上田敏)"@ko ;
-  rdfs:label "우에다 빙(上田敏)"@ko ;
+  foaf:name "우에다 빙"@ko ;
+  rdfs:label "우에다 빙"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q640564> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201753729> ;
   owl:sameAs <http://viaf.org/viaf/42637850> ;
   owl:sameAs <https://isni.org/isni/0000000081218175> ;
   schema:url <https://kcritic.kr/resource/p-ueda-bin> .
-
-kc:p-us-theorists a critic:Thinker, foaf:Person ;
-  foaf:name "미국의 소설 이론가들"@ko ;
-  rdfs:label "미국의 소설 이론가들"@ko ;
-  schema:url <https://kcritic.kr/resource/p-us-theorists> .
 
 kc:p-van-wyck-brooks a critic:Thinker, foaf:Person ;
   foaf:name "반 윅 브룩스"@ko ;
@@ -8283,8 +8227,8 @@ kc:p-van-wyck-brooks a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-van-wyck-brooks> .
 
 kc:p-veblen a critic:Thinker, foaf:Person ;
-  foaf:name "베블런(Thorstein Veblen)"@ko ;
-  rdfs:label "베블런(Thorstein Veblen)"@ko ;
+  foaf:name "베블런"@ko ;
+  rdfs:label "베블런"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q73646> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199628707> ;
   owl:sameAs <http://viaf.org/viaf/71451539> ;
@@ -8346,8 +8290,8 @@ kc:p-vinogradov a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-vinogradov> .
 
 kc:p-vovelle a critic:Thinker, foaf:Person ;
-  foaf:name "미셸 보벨(Michel Vovelle)"@ko ;
-  rdfs:label "미셸 보벨(Michel Vovelle)"@ko ;
+  foaf:name "미셸 보벨"@ko ;
+  rdfs:label "미셸 보벨"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1930973> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018I2871> ;
   owl:sameAs <http://viaf.org/viaf/108579394> ;
@@ -8364,8 +8308,8 @@ kc:p-walesa a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-walesa> .
 
 kc:p-wallerstein a critic:Thinker, foaf:Person ;
-  foaf:name "월러스틴(Immanuel Wallerstein)"@ko ;
-  rdfs:label "월러스틴(Immanuel Wallerstein)"@ko ;
+  foaf:name "월러스틴"@ko ;
+  rdfs:label "월러스틴"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q494287> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199629161> ;
   owl:sameAs <http://viaf.org/viaf/61553720> ;
@@ -8373,8 +8317,8 @@ kc:p-wallerstein a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-wallerstein> .
 
 kc:p-walt-rostow a critic:Thinker, foaf:Person ;
-  foaf:name "월트 로스토(Walt Rostow)"@ko ;
-  rdfs:label "월트 로스토(Walt Rostow)"@ko ;
+  foaf:name "월트 로스토"@ko ;
+  rdfs:label "월트 로스토"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q359560> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199623558> ;
   owl:sameAs <http://viaf.org/viaf/71397171> ;
@@ -8400,8 +8344,8 @@ kc:p-walterong a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-walterong> .
 
 kc:p-warren a critic:Thinker, foaf:Person ;
-  foaf:name "워렌"@ko ;
-  rdfs:label "워렌"@ko ;
+  foaf:name "워런"@ko ;
+  rdfs:label "워런"@ko ;
   schema:url <https://kcritic.kr/resource/p-warren> .
 
 kc:p-weber a critic:Thinker, foaf:Person ;
@@ -8410,8 +8354,8 @@ kc:p-weber a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-weber> .
 
 kc:p-wells a critic:Thinker, foaf:Person ;
-  foaf:name "웰스(H. G. Wells)"@ko ;
-  rdfs:label "웰스(H. G. Wells)"@ko ;
+  foaf:name "웰스"@ko ;
+  rdfs:label "웰스"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q42511> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199629645> ;
   owl:sameAs <http://viaf.org/viaf/97006424> ;
@@ -8419,8 +8363,8 @@ kc:p-wells a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-wells> .
 
 kc:p-wenzhengming a critic:Thinker, foaf:Person ;
-  foaf:name "문징명(文徵明)"@ko ;
-  rdfs:label "문징명(文徵明)"@ko ;
+  foaf:name "문징명"@ko ;
+  rdfs:label "문징명"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q306673> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2020I1243> ;
   owl:sameAs <http://viaf.org/viaf/30634969> ;
@@ -8464,8 +8408,8 @@ kc:p-wittgenstein a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-wittgenstein> .
 
 kc:p-wolfflin a critic:Thinker, foaf:Person ;
-  foaf:name "하인리히 뵐플린(Heinrich Wölfflin)"@ko ;
-  rdfs:label "하인리히 뵐플린(Heinrich Wölfflin)"@ko ;
+  foaf:name "하인리히 뵐플린"@ko ;
+  rdfs:label "하인리히 뵐플린"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q123466> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201813384> ;
   owl:sameAs <http://viaf.org/viaf/44306790> ;
@@ -8483,8 +8427,8 @@ kc:p-wolmyong a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-wolmyong> .
 
 kc:p-woolf a critic:Thinker, foaf:Person ;
-  foaf:name "울프"@ko ;
-  rdfs:label "울프"@ko ;
+  foaf:name "버지니아 울프"@ko ;
+  rdfs:label "버지니아 울프"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q40909> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199630555> ;
   owl:sameAs <http://viaf.org/viaf/39385478> ;
@@ -8510,8 +8454,8 @@ kc:p-wyndham-lewis a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-wyndham-lewis> .
 
 kc:p-xiehe a critic:Thinker, foaf:Person ;
-  foaf:name "사혁(謝赫)"@ko ;
-  rdfs:label "사혁(謝赫)"@ko ;
+  foaf:name "사혁"@ko ;
+  rdfs:label "사혁"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1282784> ;
   owl:sameAs <http://viaf.org/viaf/10153182632526791567> ;
   schema:url <https://kcritic.kr/resource/p-xiehe> .
@@ -8575,14 +8519,14 @@ kc:p-yi-dongsun a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yi-dongsun> .
 
 kc:p-yi-eunchan a critic:Writer, foaf:Person ;
-  foaf:name "이은찬(李殷瓚)"@ko ;
-  rdfs:label "이은찬(李殷瓚)"@ko ;
+  foaf:name "이은찬"@ko ;
+  rdfs:label "이은찬"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q16181114> ;
   schema:url <https://kcritic.kr/resource/p-yi-eunchan> .
 
 kc:p-yi-giyeong a critic:Writer, foaf:Person ;
-  foaf:name "민촌"@ko ;
-  rdfs:label "민촌"@ko ;
+  foaf:name "이기영"@ko ;
+  rdfs:label "이기영"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q485218> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201109622> ;
   owl:sameAs <http://viaf.org/viaf/37083780> ;
@@ -8600,8 +8544,8 @@ kc:p-yi-gyubo a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yi-gyubo> .
 
 kc:p-yi-hangbok a critic:Thinker, foaf:Person ;
-  foaf:name "이항복(李恒福)"@ko ;
-  rdfs:label "이항복(李恒福)"@ko ;
+  foaf:name "이항복"@ko ;
+  rdfs:label "이항복"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q16184512> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201405972> ;
   owl:sameAs <http://viaf.org/viaf/45624609> ;
@@ -8609,8 +8553,8 @@ kc:p-yi-hangbok a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yi-hangbok> .
 
 kc:p-yi-hanjik a critic:Writer, foaf:Person ;
-  foaf:name "이한직(李漢稙)"@ko ;
-  rdfs:label "이한직(李漢稙)"@ko ;
+  foaf:name "이한직"@ko ;
+  rdfs:label "이한직"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q81226675> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201219102> ;
   owl:sameAs <http://viaf.org/viaf/121685891> ;
@@ -8655,8 +8599,8 @@ kc:p-yi-jeha a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yi-jeha> .
 
 kc:p-yi-jiham a critic:Thinker, foaf:Person ;
-  foaf:name "이지함(李之菡)"@ko ;
-  rdfs:label "이지함(李之菡)"@ko ;
+  foaf:name "이지함"@ko ;
+  rdfs:label "이지함"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q3208949> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201232228> ;
   owl:sameAs <http://viaf.org/viaf/1452891> ;
@@ -8665,8 +8609,8 @@ kc:p-yi-jiham a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yi-jiham> .
 
 kc:p-yi-jungyeong a critic:Thinker, foaf:Person ;
-  foaf:name "이준경(李浚慶)"@ko ;
-  rdfs:label "이준경(李浚慶)"@ko ;
+  foaf:name "이준경"@ko ;
+  rdfs:label "이준경"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q22974749> ;
   schema:url <https://kcritic.kr/resource/p-yi-jungyeong> .
 
@@ -8749,8 +8693,8 @@ kc:p-yu-gyeonghwan a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yu-gyeonghwan> .
 
 kc:p-yu-hyeonggi a critic:Thinker, foaf:Person ;
-  foaf:name "유형기(柳瀅基)"@ko ;
-  rdfs:label "유형기(柳瀅基)"@ko ;
+  foaf:name "유형기"@ko ;
+  rdfs:label "유형기"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q12610095> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC2018I0702> ;
   owl:sameAs <http://viaf.org/viaf/267957162> ;
@@ -8850,8 +8794,8 @@ kc:p-yunseokjung a critic:Writer, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-yunseokjung> .
 
 kc:p-zhaozhou a critic:Thinker, foaf:Person ;
-  foaf:name "조주(趙州)"@ko ;
-  rdfs:label "조주(趙州)"@ko ;
+  foaf:name "조주"@ko ;
+  rdfs:label "조주"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q167168> ;
   owl:sameAs <http://viaf.org/viaf/8242417> ;
   owl:sameAs <https://isni.org/isni/0000000117410397> ;
@@ -8867,8 +8811,8 @@ kc:p-zhuangzi a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-zhuangzi> .
 
 kc:p-zhuxi a critic:Thinker, foaf:Person ;
-  foaf:name "주희(朱熹)"@ko ;
-  rdfs:label "주희(朱熹)"@ko ;
+  foaf:name "주희"@ko ;
+  rdfs:label "주희"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q9397> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199632197> ;
   owl:sameAs <http://viaf.org/viaf/46768804> ;
@@ -8876,16 +8820,16 @@ kc:p-zhuxi a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-zhuxi> .
 
 kc:p-zongbing a critic:Thinker, foaf:Person ;
-  foaf:name "종병(宗炳)"@ko ;
-  rdfs:label "종병(宗炳)"@ko ;
+  foaf:name "종병"@ko ;
+  rdfs:label "종병"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q3575977> ;
   owl:sameAs <http://viaf.org/viaf/16127968> ;
   owl:sameAs <https://isni.org/isni/0000000063465228> ;
   schema:url <https://kcritic.kr/resource/p-zongbing> .
 
 kc:p-zuckerkandl a critic:Thinker, foaf:Person ;
-  foaf:name "빅터 추커칸들(Victor Zuckerkandl)"@ko ;
-  rdfs:label "빅터 추커칸들(Victor Zuckerkandl)"@ko ;
+  foaf:name "빅터 추커칸들"@ko ;
+  rdfs:label "빅터 추커칸들"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1276652> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC201103013> ;
   owl:sameAs <http://viaf.org/viaf/121811405> ;
@@ -8893,8 +8837,8 @@ kc:p-zuckerkandl a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-zuckerkandl> .
 
 kc:p-zukav a critic:Thinker, foaf:Person ;
-  foaf:name "게리 주커브(Gary Zukav)"@ko ;
-  rdfs:label "게리 주커브(Gary Zukav)"@ko ;
+  foaf:name "게리 주커브"@ko ;
+  rdfs:label "게리 주커브"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q1494983> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC200801233> ;
   owl:sameAs <http://viaf.org/viaf/85506321> ;
@@ -9167,8 +9111,8 @@ kc:p-페놀로싸 a critic:Thinker, foaf:Person ;
   schema:url <https://kcritic.kr/resource/p-페놀로싸> .
 
 kc:p-하이네 a critic:Thinker, foaf:Person ;
-  foaf:name "하이네"@ko ;
-  rdfs:label "하이네"@ko ;
+  foaf:name "하인리히 하이네"@ko ;
+  rdfs:label "하인리히 하이네"@ko ;
   owl:sameAs <http://www.wikidata.org/entity/Q44403> ;
   owl:sameAs <http://lod.nl.go.kr/resource/KAC199612000> ;
   owl:sameAs <http://viaf.org/viaf/34457918> ;
@@ -9869,6 +9813,7 @@ kce:kim-hyon_criticism-method_1980 a critic:CriticalEssay ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00033 ;
   cito:discusses kc:p-00241 ;
+  cito:citesAsAuthority kc:kim-jongcheol ;
   cito:citesAsAuthority kc:p-cho-dongil ;
   cito:citesAsAuthority kc:p-cho-yeonhyeon ;
   cito:citesAsAuthority kc:p-gu-jungseo ;
@@ -9877,7 +9822,6 @@ kce:kim-hyon_criticism-method_1980 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-jeong-myeonghwan ;
   cito:citesAsAuthority kc:p-kim-chisu ;
   cito:citesAsAuthority kc:p-kim-inhwan ;
-  cito:citesAsAuthority kc:p-kim-jongchul ;
   cito:citesAsAuthority kc:p-kim-juyeon ;
   cito:citesAsAuthority kc:p-kim-yunsik ;
   cito:citesAsAuthority kc:p-lee-kibaek ;
@@ -10359,7 +10303,6 @@ kce:kim-hyon_hwang-dongkyu_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00076 ;
   cito:citesAsAuthority kc:p-adorno ;
   cito:citesAsAuthority kc:p-barthes ;
-  cito:citesAsAuthority kc:p-frankfurt-school ;
   dcterms:subject "방법론적 긴장"@ko ;
   dcterms:subject "절제"@ko ;
   dcterms:subject "동경"@ko ;
@@ -10407,7 +10350,7 @@ kce:kim-hyon_hwang-jiu_1984 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-hyon_hwang-jiu_1984.html> ;
   dcterms:creator kc:p-kim-hyon ;
   cito:discusses kc:p-00077 ;
-  cito:discusses kc:p-kim-jongchul ;
+  cito:discusses kc:p-kim-jongcheol ;
   cito:discusses kc:p-ma-jongha ;
   dcterms:subject "과장"@ko ;
   dcterms:subject "야유와 풍자"@ko ;
@@ -10433,7 +10376,6 @@ kce:kim-hyon_hwang-sunwon-stairs_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-00241 ;
   cito:discusses kc:p-nam-jeonghyeon ;
   cito:discusses kc:p-park-haeyeon ;
-  cito:citesAsAuthority kc:p-philosopher ;
   dcterms:subject "계단만으로 된 집"@ko ;
   dcterms:subject "혼융 상태"@ko ;
   dcterms:subject "아니마와 아니무스"@ko ;
@@ -10507,8 +10449,6 @@ kce:kim-hyon_imkkeokjeong_1988 a critic:CriticalEssay ;
   cito:discusses kc:p-cho-haeil ;
   cito:discusses kc:p-hong-myeonghui ;
   cito:citesAsAuthority kc:p-eliade ;
-  cito:citesAsAuthority kc:p-russian-formalists ;
-  cito:citesAsAuthority kc:p-us-theorists ;
   dcterms:subject "이야기와 소설"@ko ;
   dcterms:subject "사건의 계기적 이음"@ko ;
   dcterms:subject "기능"@ko ;
@@ -11677,7 +11617,7 @@ kce:kim-hyon_kwak-jaegu_1990 a critic:CriticalEssay ;
   cito:discusses kc:p-jang-youngsu ;
   cito:discusses kc:p-jeong-yakyong ;
   cito:discusses kc:p-kim-jinkyung ;
-  cito:discusses kc:p-kim-jongchul ;
+  cito:discusses kc:p-kim-jongcheol ;
   cito:discusses kc:p-kim-myungin ;
   cito:discusses kc:p-kwak-jaegu ;
   cito:discusses kc:p-lee-siyoung ;
@@ -11783,7 +11723,6 @@ kce:kim-hyon_lee-munyol_1984 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-bakhtin ;
   cito:citesAsAuthority kc:p-cervantes ;
-  cito:citesAsAuthority kc:p-quixote ;
   dcterms:subject "전통 회귀와 거부"@ko ;
   dcterms:subject "노장의 무위"@ko ;
   dcterms:subject "제왕의 도"@ko ;
@@ -12056,7 +11995,6 @@ kce:kim-hyon_literary-situation-1969b_1969 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-00192 ;
   cito:citesAsAuthority kc:p-antonioni ;
   cito:citesAsAuthority kc:p-bachelard ;
-  cito:citesAsAuthority kc:p-meursault ;
   dcterms:subject "신인의 대두"@ko ;
   dcterms:subject "가락"@ko ;
   dcterms:subject "원초적 리듬"@ko ;
@@ -12542,7 +12480,6 @@ kce:kim-hyon_oh-kyuwon_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00116 ;
   cito:discusses kc:p-00162 ;
   cito:discusses kc:p-oh-doil ;
-  cito:discusses kc:p-quixote ;
   cito:citesAsAuthority kc:p-00058 ;
   dcterms:subject "잠 안 옴"@ko ;
   dcterms:subject "깨어 있음"@ko ;
@@ -12976,7 +12913,6 @@ kce:kim-hyon_shin-daechul_1980 a critic:CriticalEssay ;
   cito:discusses kc:p-00169 ;
   cito:discusses kc:p-shin-daechul ;
   cito:citesAsAuthority kc:p-brice-parain ;
-  cito:citesAsAuthority kc:p-frankfurt-school ;
   dcterms:subject "자연 인식"@ko ;
   dcterms:subject "감정의 동일시"@ko ;
   dcterms:subject "평화로운 잠"@ko ;
@@ -13141,7 +13077,6 @@ kce:kim-hyon_three-variations_1984 a critic:CriticalEssay ;
   cito:discusses kc:p-choe-seungja ;
   cito:discusses kc:p-kang-kyonghwa ;
   cito:discusses kc:p-kim-okyoung ;
-  cito:citesAsAuthority kc:p-troubadour ;
   dcterms:subject "물소리의 시학"@ko ;
   dcterms:subject "떠남"@ko ;
   dcterms:subject "마을/물소리 대비"@ko ;
@@ -13366,7 +13301,6 @@ kce:kim-hyon_why-write_1973 a critic:CriticalEssay ;
   cito:citesAsAuthority kc:p-blanchot ;
   cito:citesAsAuthority kc:p-giacometti ;
   cito:citesAsAuthority kc:p-hauser ;
-  cito:citesAsAuthority kc:p-julien-sorel ;
   cito:citesAsAuthority kc:p-kim-bunggu ;
   cito:citesAsAuthority kc:p-malraux ;
   dcterms:subject "글을 쓴다는 행위"@ko ;
@@ -13882,7 +13816,6 @@ kce:kim-uchang_baek-mihye_1993 a critic:CriticalEssay ;
   cito:discusses kc:p-kim-jonghwan ;
   cito:discusses kc:p-shin-dongyeop ;
   cito:discusses kc:p-yang-seongwoo ;
-  cito:citesAsAuthority kc:p-grimm ;
   dcterms:subject "사회 변화"@ko ;
   dcterms:subject "소외 계급"@ko ;
   dcterms:subject "보다 넓은 의미에서 우리가 문학에 기대하는 것은 한 시대의 의식을 전체적으로 표현해 주는 일이다."@ko ;
@@ -15173,7 +15106,6 @@ kce:kim-uchang_literature-science-universality_1981 a critic:CriticalEssay ;
   schema:url <https://kcritic.kr/site/essays/kim-uchang_literature-science-universality_1981.html> ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00072 ;
-  cito:citesAsAuthority kc:p-sisyphus ;
   dcterms:subject "과학의 보편성"@ko ;
   dcterms:subject "그러면서도 자연 과학이 보여 주는 엄밀성의 이상은 사회 과학이나 인문 과학, 특히 문학 연구에 종사하는 사람에게는 미치기 어려운 먼 이상일 수밖에 없다."@ko ;
   dcterms:subject "따라서 문학의 노력이 되풀이되어야 한다면, 그것은 명제의 보편타당성의 검증을 위해서가 아니라 보편성에 이르지 못하는 좌절의 불행 때문이다."@ko ;
@@ -16314,7 +16246,6 @@ kce:kim-uchang_shin-dongyeop_1977 a critic:CriticalEssay ;
   cito:discusses kc:p-jeon-bongjun ;
   cito:discusses kc:p-kim-gaenam ;
   cito:discusses kc:p-shin-dongyeop ;
-  cito:discusses kc:p-shin-hanui ;
   dcterms:subject "시에 도입된 역사"@ko ;
   dcterms:subject "그러나 양씨가 시도한 것은 역사를 그 본질적 동태 속에 다룬 것이 아니라, 역사는 장식이거나 비유적 의미를 갖는 신화였다."@ko ;
   dcterms:subject "사실"@ko ;
@@ -16490,7 +16421,6 @@ kce:kim-uchang_western-lit-temptation_1993 a critic:CriticalEssay ;
   dcterms:creator kc:p-00117 ;
   cito:discusses kc:p-00099 ;
   cito:discusses kc:p-00241 ;
-  cito:discusses kc:p-emma-bovary ;
   cito:citesAsAuthority kc:p-00009 ;
   cito:citesAsAuthority kc:p-00045 ;
   cito:citesAsAuthority kc:p-00065 ;
@@ -20400,7 +20330,6 @@ kc:p-00117 critic:analyzes kc:p-choe-seohae .
 kc:p-00117 critic:analyzes kc:p-choe-suun .
 kc:p-00117 critic:analyzes kc:p-cleaver .
 kc:p-00117 critic:analyzes kc:p-ellison .
-kc:p-00117 critic:analyzes kc:p-emma-bovary .
 kc:p-00117 critic:analyzes kc:p-gu-jaun .
 kc:p-00117 critic:analyzes kc:p-ha-geunchan .
 kc:p-00117 critic:analyzes kc:p-haewol .
@@ -20445,7 +20374,6 @@ kc:p-00117 critic:analyzes kc:p-rwright .
 kc:p-00117 critic:analyzes kc:p-seo-jeongin .
 kc:p-00117 critic:analyzes kc:p-shin-dongjip .
 kc:p-00117 critic:analyzes kc:p-shin-dongyeop .
-kc:p-00117 critic:analyzes kc:p-shin-hanui .
 kc:p-00117 critic:analyzes kc:p-yang-seongwoo .
 kc:p-00117 critic:analyzes kc:p-yi-eunchan .
 kc:p-00117 critic:analyzes kc:p-yi-giyeong .
@@ -21029,7 +20957,6 @@ kc:p-kim-hyon critic:analyzes kc:p-kim-jeonghan .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jeongsuk .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jinkyung .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jongcheol .
-kc:p-kim-hyon critic:analyzes kc:p-kim-jongchul .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jonghae .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jonghwan .
 kc:p-kim-hyon critic:analyzes kc:p-kim-jongmun .
@@ -21112,7 +21039,6 @@ kc:p-kim-hyon critic:analyzes kc:p-park-uisang .
 kc:p-kim-hyon critic:analyzes kc:p-park-yanggyun .
 kc:p-kim-hyon critic:analyzes kc:p-park-yongchul .
 kc:p-kim-hyon critic:analyzes kc:p-park-yongnae .
-kc:p-kim-hyon critic:analyzes kc:p-quixote .
 kc:p-kim-hyon critic:analyzes kc:p-seo-giwon .
 kc:p-kim-hyon critic:analyzes kc:p-seo-imhwan .
 kc:p-kim-hyon critic:analyzes kc:p-seo-jeongin .

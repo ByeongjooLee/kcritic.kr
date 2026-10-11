@@ -6364,18 +6364,6 @@
     "context_count": 2
   },
   {
-    "id": "p-frankfurt-school",
-    "name": "프랑크푸르트 학파",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 2,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 2
-  },
-  {
     "id": "p-gainsborough",
     "name": "토머스 게인즈버러",
     "en": "Thomas Gainsborough",
@@ -8571,6 +8559,33 @@
       "p-00246"
     ],
     "context_count": 1
+  },
+  {
+    "id": "kim-jongcheol",
+    "name": "김종철",
+    "en": "",
+    "ref": "https://www.wikidata.org/wiki/Q97196483 http://lod.nl.go.kr/resource/KAC201211090 https://isni.org/isni/0000000480045988 http://viaf.org/viaf/108158185723920061263",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201211090",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q97196483",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "critics": [
+      "p-kim-hyon"
+    ],
+    "context_count": 2
   },
   {
     "id": "lauro-martines",
@@ -12556,18 +12571,6 @@
     "context_count": 1
   },
   {
-    "id": "p-grimm",
-    "name": "그림 형제",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-gu-jungseo",
     "name": "구중서",
     "en": "",
@@ -13407,18 +13410,6 @@
     "context_count": 1
   },
   {
-    "id": "p-julien-sorel",
-    "name": "쥘리앵 소렐",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-kaufmann",
     "name": "피에르 카우프만",
     "en": "Pierre Kaufmann",
@@ -13674,18 +13665,6 @@
       "p-kim-hyon"
     ],
     "context_count": 1
-  },
-  {
-    "id": "p-kim-jongchul",
-    "name": "김종철",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 2
   },
   {
     "id": "p-kim-okgyun",
@@ -14979,18 +14958,6 @@
     "context_count": 1
   },
   {
-    "id": "p-meursault",
-    "name": "뫼르소",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-michaux",
     "name": "앙리 미쇼",
     "en": "Henri Michaux",
@@ -15921,18 +15888,6 @@
     "context_count": 1
   },
   {
-    "id": "p-philosopher",
-    "name": "철학자",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-piaget",
     "name": "장 피아제",
     "en": "Jean Piaget",
@@ -16269,18 +16224,6 @@
     "context_count": 1
   },
   {
-    "id": "p-quixote",
-    "name": "돈 키호테",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-radiguet",
     "name": "레이몽 라디게",
     "en": "Raymond Radiguet",
@@ -16533,18 +16476,6 @@
     "essay_count": 1,
     "critics": [
       "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-russian-formalists",
-    "name": "러시아 형태주의자들",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
     ],
     "context_count": 1
   },
@@ -16949,18 +16880,6 @@
         "fg": ""
       }
     ],
-    "essay_count": 1,
-    "critics": [
-      "p-00117"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-sisyphus",
-    "name": "시시포스",
-    "en": "",
-    "ref": "#p-sisyphus",
-    "lod": [],
     "essay_count": 1,
     "critics": [
       "p-00117"
@@ -17609,18 +17528,6 @@
     "context_count": 1
   },
   {
-    "id": "p-troubadour",
-    "name": "음유 시인",
-    "en": "",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
     "id": "p-twain",
     "name": "마크 트웨인",
     "en": "Mark Twain",
@@ -17661,18 +17568,6 @@
         "fg": ""
       }
     ],
-    "essay_count": 1,
-    "critics": [
-      "p-kim-hyon"
-    ],
-    "context_count": 1
-  },
-  {
-    "id": "p-us-theorists",
-    "name": "미국의 소설 이론가들",
-    "en": "",
-    "ref": "",
-    "lod": [],
     "essay_count": 1,
     "critics": [
       "p-kim-hyon"
