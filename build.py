@@ -526,9 +526,7 @@ def source_html(sources):
     for s in sources:
         role = s.get("role") or s["type"]
         label = _SOURCE_ROLE_LABEL.get(role, role)
-        # 작업용 표시(예: "[합성 텍스트: 통시 분석 제외]")는 XML 에만 두고 화면에는 내지 않는다
-        shown = [re.sub(r"\s*\[합성 텍스트[^\]]*\]", "", n).strip() for n in s.get("notes", [])]
-        notes = "".join(f'<div class="source-note">{esc(n)}</div>' for n in shown if n)
+        notes = "".join(f'<div class="source-note">{esc(n)}</div>' for n in s.get("notes", []))
         items.append(
             f'<li><span class="source-badge">{label}</span> '
             f'<strong>{esc(s["journal_or_book"])}</strong>'
