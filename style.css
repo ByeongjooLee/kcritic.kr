@@ -778,6 +778,14 @@ tei-lb {
   gap: 0.3rem;
 }
 
+/* 서지 비고 (초출·수록 정보) */
+.source-note {
+  margin-top: 0.25rem;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+}
+
 .source-type {
   display: inline-block;
   font-size: 10px;

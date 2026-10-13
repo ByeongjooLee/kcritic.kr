@@ -428,15 +428,19 @@ def extract_sources(root):
         for bibl in root.findall(f".//{tns('sourceDesc')}/{tns('bibl')}"):
             title_el = bibl.find(tns("title"))
             date_el = bibl.find(tns("date"))
-            note_el = bibl.find(tns("note"))
+            pub_el = bibl.find(tns("publisher"))
+            note_els = bibl.findall(tns("note"))
             sources.append({
                 "type": "bibl",
+                "role": bibl.get("type", ""),          # original / collection / reprint (없으면 단일 서지)
                 "journal_or_book": (title_el.text or "").strip() if title_el is not None else "",
-                "publisher": "",
+                "publisher": "".join(pub_el.itertext()).strip() if pub_el is not None else "",
                 "date": (date_el.text or "").strip() if date_el is not None else "",
                 "when": date_el.get("when", "") if date_el is not None else "",
                 "place": "",
-                "note": (note_el.text or "").strip() if note_el is not None else "",
+                # note: 첫 비고만 (원발표 연도 추출 규칙 유지). notes: 모든 비고 (화면 표시·수록 단행본 추출용)
+                "note": (note_els[0].text or "").strip() if note_els else "",
+                "notes": [" ".join("".join(n.itertext()).split()) for n in note_els if "".join(n.itertext()).strip()],
             })
 
     return sources
@@ -509,19 +513,44 @@ def person_chip(p, role_type=None):
         chip = f'<span class="chip {cls}" data-id="{pid}">{name}</span>'
     return chip
 
+_SOURCE_ROLE_LABEL = {"journal": "저널", "publication": "단행본", "original": "원출처",
+                      "collection": "수록", "reprint": "재수록", "bibl": "서지"}
+
 def source_html(sources):
+    """비평문 페이지의 출처 칸. 서지 비고(초출·수록 정보)도 함께 보인다 — 비고는 서지 정보만 담고 원문은 없다."""
+    import html as _h
+    esc = lambda t: _h.escape(t or "", quote=False)
     if not sources:
         return ""
     items = []
     for s in sources:
-        label = {"journal": "저널", "publication": "단행본"}.get(s["type"], s["type"])
+        role = s.get("role") or s["type"]
+        label = _SOURCE_ROLE_LABEL.get(role, role)
+        notes = "".join(f'<div class="source-note">{esc(n)}</div>' for n in s.get("notes", []))
         items.append(
             f'<li><span class="source-badge">{label}</span> '
-            f'<strong>{s["journal_or_book"]}</strong>'
-            f'{", " + s["publisher"] if s["publisher"] else ""}'
-            f'{", " + s["date"] if s["date"] else ""}</li>'
+            f'<strong>{esc(s["journal_or_book"])}</strong>'
+            f'{", " + esc(s["publisher"]) if s["publisher"] else ""}'
+            f'{", " + esc(s["date"]) if s["date"] else ""}{notes}</li>'
         )
     return '<ul class="source-list">' + "\n".join(items) + "</ul>"
+
+
+def collected_in(sources):
+    """비평문이 수록된 단행본 이름 (schema:isPartOf).
+    collection 서지의 제목 → 비고의 「수록: 『…』」 → 비고의 첫 『…』 순. bibl 서지의 title 은 비평문 자기 제목이므로 쓰지 않는다."""
+    for s in sources:
+        if s.get("role") == "collection" and s.get("journal_or_book"):
+            return s["journal_or_book"]
+    notes = [n for s in sources for n in (s.get("notes") or [s.get("note", "")]) if n]
+    for pat in (r"수록:\s*『([^』]+)』", r"『([^』]+)』"):
+        for n in notes:
+            m = re.search(pat, n)
+            if m:
+                return m.group(1).strip()
+    if sources and sources[0].get("type") != "bibl":
+        return sources[0].get("journal_or_book", "")
+    return ""
 
 def build_essay_html(stem, title, year, display_year, persons, subjects, theorists, quotes, titles, terms, sources, author_id):
     author = persons.get(author_id, {})
@@ -1919,10 +1948,8 @@ def build_turtle(all_essays, graph):
         theorists = sorted({canon(pid) for pid in essay["theorists"]
                             if node_type_map.get(canon(pid)) in person_types} - set(subjects))
 
-        pub_info = ""
-        if sources:
-            s = sources[0]
-            pub_info = s.get("journal_or_book", "")
+        # 수록 지면 = 비평문이 실린 단행본 (bibl 서지의 title 은 비평문 자기 제목이라 쓰면 안 된다)
+        pub_info = collected_in(sources)
 
         # critic:CriticalEssay 클래스 사용 (온톨로지 준거)
         triples = [f"kce:{stem} a critic:CriticalEssay ;"]
