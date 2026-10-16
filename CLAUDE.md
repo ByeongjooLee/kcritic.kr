@@ -513,6 +513,10 @@ py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가
 
 > **`.rdf`는 제외 대상이 아니다** — `critic_v8_schema.rdf`·`critic_v8_data.rdf` 는 의도적으로 배포되어 `about.html` 에서 내려받게 되어 있다. `*.xml` 패턴에 걸리지 않으니 확장자를 `.xml`로 바꾸지 말 것.
 
+### 개체 IRI 역참조 (`_redirects`)
+
+graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다(현재 1,451줄). Cloudflare 정적 리다이렉트 한도는 2,000줄 — 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
+
 ### not_found_handling
 
 `wrangler.jsonc` `not_found_handling: "404-page"` (정적 다중페이지 사이트). 루트 `404.html`은 **자체 완결형**(인라인 CSS + 절대경로 `/style.css`·`/index.html`)이어야 깊은 경로(`/site/essays/...`)에서 404 나도 스타일이 안 깨진다. (`single-page-application`은 모든 404를 깨진 index로 보여줘 부적절.)

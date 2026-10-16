@@ -1769,6 +1769,23 @@ def main():
     triple_count = _count_triples(ttl)
     print(f"  OK graph.ttl -> {ttl_path} ({triple_count} triples)")
 
+    # 개체 IRI 역참조 — https://kcritic.kr/resource/{id} 를 사람이 읽는 페이지로 303 리다이렉트한다.
+    # graph.ttl 의 kc:/kce: IRI 와 인물 schema:url 이 브라우저에서 404 가 되지 않게 (Cloudflare _redirects, 정적 2,000줄 한도)
+    page_dir = {"Critic": "critics", "Writer": "writers", "Thinker": "thinkers"}
+    redirects = []
+    for pid, cls in re.findall(r"^kc:(\S+) a critic:(\w+)", ttl, re.M):
+        if cls in page_dir and (Path("site") / page_dir[cls] / f"{pid}.html").exists():
+            redirects.append(f"/resource/{pid} /site/{page_dir[cls]}/{pid} 303")
+    for stem in re.findall(r"^kce:(\S+) a critic:CriticalEssay", ttl, re.M):
+        if (Path("site/essays") / f"{stem}.html").exists():
+            redirects.append(f"/resource/essay/{stem} /site/essays/{stem} 303")
+    redirects.sort()
+    if len(redirects) > 2000:
+        print(f"  [경고] _redirects {len(redirects)}줄 — Cloudflare 정적 리다이렉트 한도(2,000) 초과")
+    Path("_redirects").write_text(
+        "# build.py 자동 생성 — 손으로 고치지 말 것\n" + "\n".join(redirects) + "\n", encoding="utf-8")
+    print(f"  OK _redirects 개체 IRI 리다이렉트 {len(redirects)}개")
+
     print("\n완료.")
 
 
