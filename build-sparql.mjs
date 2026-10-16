@@ -34,9 +34,31 @@ function getEngine() {
   return _engine;
 }
 
+// 발행 RDF 가 쓰는 접두사 — 쿼리에 선언이 없으면 자동으로 붙인다 (논문의 질의를 PREFIX 없이 붙여 넣어도 실행되게)
+const DEFAULT_PREFIXES = {
+  kc: 'https://kcritic.kr/resource/',
+  kce: 'https://kcritic.kr/resource/essay/',
+  critic: 'http://kcritic.kr/ontology/critic#',
+  cito: 'http://purl.org/spar/cito/',
+  dcterms: 'http://purl.org/dc/terms/',
+  foaf: 'http://xmlns.com/foaf/0.1/',
+  schema: 'https://schema.org/',
+  owl: 'http://www.w3.org/2002/07/owl#',
+  rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+  rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
+  xsd: 'http://www.w3.org/2001/XMLSchema#',
+};
+function withDefaultPrefixes(q) {
+  const missing = Object.entries(DEFAULT_PREFIXES)
+    .filter(([p]) => !new RegExp('PREFIX\\\\s+' + p + '\\\\s*:', 'i').test(q))
+    .map(([p, iri]) => 'PREFIX ' + p + ': <' + iri + '>');
+  return missing.length ? missing.join('\\n') + '\\n' + q : q;
+}
+
 window.doSparql = async function() {
-  const query = document.getElementById('sparql-input').value.trim();
-  if (!query) return;
+  const raw = document.getElementById('sparql-input').value.trim();
+  if (!raw) return;
+  const query = withDefaultPrefixes(raw);
 
   const btn = document.getElementById('sparql-btn');
   const resultEl = document.getElementById('sparql-result');
