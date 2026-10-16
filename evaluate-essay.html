@@ -52,6 +52,8 @@
         background:#fafbfd; cursor:pointer; font-family:inherit; font-size:.84rem; color:#6b7280; }
 
   .ev-actions { display:flex; gap:10px; margin-top:26px; flex-wrap:wrap; }
+  .ev-actions a.ev-dl { padding:11px 18px; border-radius:9px; border:1px solid #c9cee0;
+        background:#fff; font-size:.88rem; color:inherit; text-decoration:none; }
   .ev-actions button { padding:11px 18px; border-radius:9px; border:1px solid #c9cee0;
         background:#fff; cursor:pointer; font-family:inherit; font-size:.88rem; }
   .ev-actions .primary { background:#1a237e; color:#fff; border-color:#1a237e; font-weight:600; }
@@ -118,6 +120,8 @@
     <div class="ev-actions">
       <button class="primary" id="dl">판단 결과 내려받기 (JSON)</button>
       <button id="dlcsv">CSV로 내려받기</button>
+      <a class="ev-dl" href="site/data/evaluation_worksheet.xlsx" download="평가작업목록.xlsx"
+         title="1,624개 항목의 빈 작업 양식 — 오프라인에서 판단을 채워 공유할 때">작업 파일 내려받기 (XLSX)</a>
       <button id="imp">이전 결과 불러오기</button>
       <input type="file" id="impf" accept=".json" hidden>
       <button class="danger" id="reset">내 판단 모두 지우기</button>

@@ -9,6 +9,7 @@
 출력
   site/data/evaluations.json   판단 대기열 + 기존 판단 (웹 UI가 적재)
   ../평가작업목록.xlsx          연구자가 내려받아 채우는 작업 파일
+  site/data/evaluation_worksheet.xlsx  위 파일의 사이트 공개용 사본 (판정 열은 빈칸)
 
 주의: 지침 §1에 따라 원문 본문은 어떤 출력에도 포함하지 않는다.
       판단 화면은 서지 정보와 비평문 페이지 링크만 제공한다.
@@ -22,6 +23,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "site", "data")
 OUT_JSON = os.path.join(DATA, "evaluations.json")
 OUT_XLSX = os.path.join(os.path.dirname(HERE), "평가작업목록.xlsx")
+# 사이트 공개용 사본 — 판정 열이 비어 있는 빈 양식이므로 판단자 정보가 들어가지 않는다.
+# evaluate-essay.html 의 「작업 파일 내려받기」가 이 파일을 가리킨다.
+SITE_XLSX = os.path.join(DATA, "evaluation_worksheet.xlsx")
 
 VALUES = [
     ("affirmative", "긍정", "비평가가 대상을 옹호·상찬하는 태도"),
@@ -130,7 +134,15 @@ try:
     for i, w in enumerate([16, 12, 60], 1):
         gd.column_dimensions[get_column_letter(i)].width = w
 
-    wb.save(OUT_XLSX)
+    # 문서 속성의 생성·수정 시각을 생성일로 고정해, 같은 날 다시 만들어도 파일이 바뀌지 않게 한다
+    from datetime import datetime
+    stamp = datetime.combine(date.today(), datetime.min.time())
+    wb.properties.created = wb.properties.modified = stamp
+    wb.save(SITE_XLSX)
+    try:
+        wb.save(OUT_XLSX)
+    except PermissionError:   # 엑셀에서 열어 둔 경우 — 사이트 사본만 갱신
+        print(f"[경고] {OUT_XLSX} 가 열려 있어 갱신하지 못했습니다.")
     xlsx_ok = True
 except ImportError:
     xlsx_ok = False
@@ -143,3 +155,4 @@ print("  비평가별:", " · ".join(f"{k} {v:,}" for k, v in c.most_common()))
 print(f"JSON : {OUT_JSON}")
 if xlsx_ok:
     print(f"XLSX : {OUT_XLSX}")
+    print(f"XLSX : {SITE_XLSX} (사이트 공개용 빈 양식)")
