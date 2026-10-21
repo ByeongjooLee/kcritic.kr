@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김인환 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">김인환</span></div>
+      <h1 class="index-heading">김인환</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">24</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">20</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">안수길</span> <span class="chip role-writer">최인훈</span> <span class="chip role-writer">플로베르</span> <span class="chip role-writer">괴테</span> <span class="chip role-writer">황석영</span> <span class="chip role-writer">황순원</span> <span class="chip role-writer">김동리</span> <span class="chip role-writer">김지하</span> <span class="chip role-writer">D.H. 로렌스</span> <span class="chip role-writer">셰익스피어</span> <span class="chip role-writer">이청준</span> <span class="chip role-writer">이광수</span> <span class="chip role-writer">셀린</span> <span class="chip role-writer">최치원</span> <span class="chip role-writer">최인욱</span> <span class="chip role-writer">데포</span> <span class="chip role-writer">임춘</span> <span class="chip role-writer">김래성</span> <span class="chip role-writer">김삿갓</span> <span class="chip role-writer">네르발</span> <span class="chip role-writer">박태순</span> <span class="chip role-writer">라블레</span> <span class="chip role-writer">서정인</span> <span class="chip role-writer">투르니에</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">아리스토텔레스 (1)</span> <span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">마르쿠제 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">박지원 (1)</span> <span class="chip chip-term">사르트르 (1)</span> <span class="chip chip-term">알튀세르 (1)</span> <span class="chip chip-term">바슐라르 (1)</span> <span class="chip chip-term">보르헤스 (1)</span> <span class="chip chip-term">에드워드 사이드 (1)</span> <span class="chip chip-term">파이어아벤트 (1)</span> <span class="chip chip-term">정약용 (1)</span> <span class="chip chip-term">융 (1)</span> <span class="chip chip-term">노자 (1)</span> <span class="chip chip-term">마시농 (1)</span> <span class="chip chip-term">몽테뉴 (1)</span> <span class="chip chip-term">르낭 (1)</span> <span class="chip chip-term">사시 (1)</span> <span class="chip chip-term">장자 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "jeong-gwari_foundation-of-kim-hyon_1990", "label": "김현 문학의 밑자리", "type": "essay", "year": "1990", "degree": 11}, {"id": "kim-hyon_criticism-method_1980", "label": "비평의 방법", "type": "essay", "year": "1980", "degree": 19}, {"id": "kim-hyon_literary-history-method_1980", "label": "문학사의 방법과 그 반성", "type": "essay", "year": "1980", "degree": 43}, {"id": "kim-inhwan_topography-of-writing_1988", "label": "글쓰기의 지형학 — 김현론", "type": "essay", "year": "1988", "degree": 45}, {"id": "p-00004", "label": "안수길", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q623974 https://encykorea.aks.ac.kr/Article/E0034835 http://lod.nl.go.kr/resource/KAC201106465 https://isni.org/isni/0000000081411063 http://viaf.org/viaf/21149294363180522076", "degree": 7, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0034835", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201106465", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q623974", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00005", "label": "아리스토텔레스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q868 http://lod.nl.go.kr/resource/KAC199632647 https://isni.org/isni/0000000123748095 http://viaf.org/viaf/7524651", "degree": 30, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199632647", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q868", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Aristotle"}, {"id": "p-00033", "label": "최인훈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q11274314 http://lod.nl.go.kr/resource/KAC201108593 https://isni.org/isni/0000000116984436 http://viaf.org/viaf/110167855", "degree": 30, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0005204", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201108593", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11274314", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00049", "label": "플로베르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q43444 http://lod.nl.go.kr/resource/KAC199608889 https://isni.org/isni/0000000122762442 http://viaf.org/viaf/9846192", "degree": 18, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199608889", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q43444", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Gustave Flaubert"}, {"id": "p-00051", "label": "프로이트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9215 http://lod.nl.go.kr/resource/KAC199609326 https://isni.org/isni/0000000121272193 http://viaf.org/viaf/34456780", "degree": 38, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609326", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9215", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sigmund Freud"}, {"id": "p-00059", "label": "괴테", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5879 http://lod.nl.go.kr/resource/KAC199610270 https://isni.org/isni/0000000120999104 http://viaf.org/viaf/24602065", "degree": 27, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610270", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5879", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Johann Wolfgang von Goethe"}, {"id": "p-00078", "label": "황석영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q484947 http://lod.nl.go.kr/resource/KAC201106592 https://isni.org/isni/0000000121322250 http://viaf.org/viaf/49439184", "degree": 17, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0048341", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201106592", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q484947", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00079", "label": "황순원", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q18914 https://encykorea.aks.ac.kr/Article/E0071297 http://lod.nl.go.kr/resource/KAC201102511 https://isni.org/isni/0000000108762577 http://viaf.org/viaf/19699095", "degree": 19, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071297", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201102511", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q18914", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00100", "label": "김동리", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q625849 https://encykorea.aks.ac.kr/Article/E0008984 http://lod.nl.go.kr/resource/KAC201010751 https://isni.org/isni/0000000116982203 http://viaf.org/viaf/109680433", "degree": 23, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0008984", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201010751", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q625849", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00106", "label": "김지하", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697 https://isni.org/isni/0000000081761311 http://viaf.org/viaf/110339675", "degree": 26, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201205697", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44366", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00131", "label": "로렌스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q34970 http://lod.nl.go.kr/resource/KAC199616058 https://isni.org/isni/000000012144117X http://viaf.org/viaf/95150359", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199616058", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34970", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "D. H. Lawrence"}, {"id": "p-00151", "label": "헤르베르트 마르쿠제", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q60030 http://lod.nl.go.kr/resource/KAC199617703 https://isni.org/isni/0000000121280417 http://viaf.org/viaf/36921579", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617703", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q60030", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Herbert Marcuse"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 37, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 31, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00166", "label": "박지원", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q495720 https://encykorea.aks.ac.kr/Article/E0021216 http://lod.nl.go.kr/resource/KAC200105568 https://isni.org/isni/0000000108563092 http://viaf.org/viaf/29682360", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0021216", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200105568", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q495720", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00192", "label": "사르트르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9364 http://lod.nl.go.kr/resource/KAC199624126 https://isni.org/isni/000000012321080X http://viaf.org/viaf/76322562", "degree": 54, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199624126", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9364", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean-Paul Sartre"}, {"id": "p-00196", "label": "셰익스피어", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q692 http://lod.nl.go.kr/resource/KAC200000024 https://isni.org/isni/0000000121032683 http://viaf.org/viaf/96994048", "degree": 27, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200000024", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q692", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Shakespeare"}, {"id": "p-00240", "label": "이청준", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q31737 https://encykorea.aks.ac.kr/Article/E0071310 http://lod.nl.go.kr/resource/KAC201103341 https://isni.org/isni/0000000083640089 http://viaf.org/viaf/7437363", "degree": 17, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071310", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201103341", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q31737", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00241", "label": "이광수", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564", "degree": 44, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0043688", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200108735", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q495454", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-althusser", "label": "루이 알튀세르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q184169 http://lod.nl.go.kr/resource/KAC199600493 https://isni.org/isni/0000000121243798 http://viaf.org/viaf/24596917", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600493", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q184169", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Louis Althusser"}, {"id": "p-bachelard", "label": "가스통 바슐라르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q270800 http://lod.nl.go.kr/resource/KAC199601295 https://isni.org/isni/000000012118437X http://viaf.org/viaf/4926151", "degree": 26, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601295", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q270800", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Gaston Bachelard"}, {"id": "p-borges", "label": "보르헤스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q909 http://lod.nl.go.kr/resource/KAC199603014 https://isni.org/isni/0000000121429031 http://viaf.org/viaf/88919448", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603014", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q909", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jorge Luis Borges"}, {"id": "p-celine", "label": "셀린", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-choe-chiwon", "label": "최치원", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-choe-inuk", "label": "최인욱", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-defoe", "label": "다니엘 디포", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q40946 http://lod.nl.go.kr/resource/KAC199606809 https://isni.org/isni/0000000458753523 http://viaf.org/viaf/2283158188232920260006", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199606809", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q40946", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Daniel Defoe"}, {"id": "p-edward-said", "label": "에드워드 사이드", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-feyerabend", "label": "파울 파이어아벤트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q78497 http://lod.nl.go.kr/resource/KAC201007111 https://isni.org/isni/0000000121244096 http://viaf.org/viaf/24601381", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201007111", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q78497", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Paul Feyerabend"}, {"id": "p-im-chun", "label": "임춘", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12613990", "degree": 2, "lod": [{"href": "https://www.wikidata.org/wiki/Q12613990", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-yakyong", "label": "정약용", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q256246 https://encykorea.aks.ac.kr/Article/E0050549 http://lod.nl.go.kr/resource/KAC200105569 https://isni.org/isni/0000000081227936 http://viaf.org/viaf/44373880", "degree": 7, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0050549", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200105569", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q256246", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jung", "label": "융", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q41532 http://lod.nl.go.kr/resource/KAC199614276 https://isni.org/isni/0000000426604224 http://viaf.org/viaf/88819182", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614276", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q41532", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Carl Jung"}, {"id": "p-kim-inhwan", "label": "김인환", "type": "critic", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-kim-naeseong", "label": "김내성", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q625336 https://encykorea.aks.ac.kr/Article/E0008870 http://lod.nl.go.kr/resource/KAC201109504 https://isni.org/isni/0000000454401918 http://viaf.org/viaf/88402823", "degree": 2, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0008870", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201109504", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q625336", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-satgat", "label": "김병연", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q624422 https://encykorea.aks.ac.kr/Article/E0009211 http://lod.nl.go.kr/resource/KAC201324692 https://isni.org/isni/000000005888222X http://viaf.org/viaf/56786187", "degree": 4, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0009211", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201324692", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624422", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-laozi", "label": "노자", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9333 http://lod.nl.go.kr/resource/KAC199631272 https://isni.org/isni/0000000121017619 http://viaf.org/viaf/101089774", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631272", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9333", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Laozi"}, {"id": "p-massignon", "label": "마시농", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-montaigne", "label": "몽테뉴", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q41568 http://lod.nl.go.kr/resource/KAC199619170 https://isni.org/isni/0000000121441268 http://viaf.org/viaf/95153547", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199619170", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q41568", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel de Montaigne"}, {"id": "p-nerval", "label": "네르발", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q191305 http://lod.nl.go.kr/resource/KAC199620048 https://isni.org/isni/0000000121243763 http://viaf.org/viaf/24596532", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620048", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q191305", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-park-taesun", "label": "박태순", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12597283 http://lod.nl.go.kr/resource/KAC201113073 https://isni.org/isni/0000000063071624 http://viaf.org/viaf/35768418", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113073", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12597283", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-rabelais", "label": "라블레", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q131018 http://lod.nl.go.kr/resource/KAC199622344 https://isni.org/isni/0000000455541648 http://viaf.org/viaf/172635016", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199622344", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q131018", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "François Rabelais"}, {"id": "p-renan", "label": "르낭", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-sacy", "label": "사시", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seo-jeongin", "label": "서정인", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12601454 http://lod.nl.go.kr/resource/KAC201110794 https://isni.org/isni/0000000066504376 http://viaf.org/viaf/93279578", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201110794", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12601454", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-tournier", "label": "투르니에", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-zhuangzi", "label": "장자", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q47739 http://lod.nl.go.kr/resource/KAC200601687 https://isni.org/isni/0000000108862375 http://viaf.org/viaf/100166339", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200601687", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q47739", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Zhuang Zhou"}, {"id": "seong-minyeop_kim-hyon-open-literary-intelligence_1990", "label": "김현 혹은 열린 문학적 지성", "type": "essay", "year": "1990", "degree": 12}], "edges": [{"source": "jeong-gwari_foundation-of-kim-hyon_1990", "target": "p-kim-inhwan", "type": "uses_theory", "weight": 1}, {"source": "kim-hyon_criticism-method_1980", "target": "p-kim-inhwan", "type": "uses_theory", "weight": 1}, {"source": "kim-hyon_literary-history-method_1980", "target": "p-kim-inhwan", "type": "uses_theory", "weight": 1}, {"source": "p-kim-inhwan", "target": "kim-inhwan_topography-of-writing_1988", "type": "wrote", "weight": 1}, {"source": "seong-minyeop_kim-hyon-open-literary-intelligence_1990", "target": "p-kim-inhwan", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00004", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00005", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00049", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00051", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00059", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00078", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00079", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00100", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00131", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00151", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00166", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00192", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00196", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00240", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00241", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-althusser", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-bachelard", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-borges", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-celine", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-choe-chiwon", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-choe-inuk", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-defoe", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-edward-said", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-feyerabend", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-im-chun", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-jeong-yakyong", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-jung", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-kim-naeseong", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-kim-satgat", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-laozi", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-massignon", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-montaigne", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-nerval", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-park-taesun", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-rabelais", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-renan", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-sacy", "type": "uses_theory", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-seo-jeongin", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-tournier", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-zhuangzi", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1988</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-inhwan_topography-of-writing_1988.html">글쓰기의 지형학 — 김현론</a>
+        </h3>
+        <p class="essay-card-source">글쓰기의 지형학, 1988</p>
+        <div class="essay-card-tags"><span class="tag">안수길</span> <span class="tag">최인훈</span> <span class="tag">플로베르</span> <span class="tag">괴테</span> <span class="tag">황석영</span> <span class="tag">황순원</span> <span class="tag">김동리</span> <span class="tag">김지하</span> <span class="tag">D.H. 로렌스</span> <span class="tag">셰익스피어</span> <span class="tag">이청준</span> <span class="tag">이광수</span> <span class="tag">셀린</span> <span class="tag">최치원</span> <span class="tag">최인욱</span> <span class="tag">데포</span> <span class="tag">임춘</span> <span class="tag">김래성</span> <span class="tag">김삿갓</span> <span class="tag">네르발</span> <span class="tag">박태순</span> <span class="tag">라블레</span> <span class="tag">서정인</span> <span class="tag">투르니에</span><span class="tag">아리스토텔레스</span> <span class="tag">프로이트</span> <span class="tag">마르쿠제</span> <span class="tag">마르크스</span> <span class="tag">니체</span> <span class="tag">박지원</span> <span class="tag">사르트르</span> <span class="tag">알튀세르</span> <span class="tag">바슐라르</span> <span class="tag">보르헤스</span> <span class="tag">에드워드 사이드</span> <span class="tag">파이어아벤트</span> <span class="tag">정약용</span> <span class="tag">융</span> <span class="tag">노자</span> <span class="tag">마시농</span> <span class="tag">몽테뉴</span> <span class="tag">르낭</span> <span class="tag">사시</span> <span class="tag">장자</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

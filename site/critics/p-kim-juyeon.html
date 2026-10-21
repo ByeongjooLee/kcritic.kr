@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김주연 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q16179416" target="_blank" class="chip role-critic chip-linked">김주연 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">김주연</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201222306" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q16179416" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000023203450" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/47662940" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">이문열</span> <span class="chip role-writer">황지우</span> <span class="chip role-writer">이상</span> <span class="chip role-writer">방현석</span> <span class="chip role-writer">장경린</span> <span class="chip role-writer">조정래</span> <span class="chip role-writer">김원일</span> <span class="chip role-writer">김용택</span> <span class="chip role-writer">서정윤</span> <span class="chip role-writer">이인성</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">하버마스 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-hyon_criticism-method_1980", "label": "비평의 방법", "type": "essay", "year": "1980", "degree": 19}, {"id": "kim-hyon_literary-history-method_1980", "label": "문학사의 방법과 그 반성", "type": "essay", "year": "1980", "degree": 43}, {"id": "kim-juyeon_beyond-satire-ritual_1988", "label": "풍자의 제의를 넘어서", "type": "essay", "year": "1988", "degree": 4}, {"id": "kim-juyeon_commercial-innovative-culture_1990", "label": "상업 문화와 혁신 문화의 거리 — 90년대의 문학과 사회를 전망하며", "type": "essay", "year": "1990", "degree": 7}, {"id": "kim-juyeon_ideology-motif-literature_1989", "label": "이데올로기 모티프와 문학 — 이문열의 『변경』을 읽으며", "type": "essay", "year": "1989", "degree": 4}, {"id": "p-00062", "label": "위르겐 하버마스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76357 http://lod.nl.go.kr/resource/KAC199611157 https://isni.org/isni/0000000121468372 http://viaf.org/viaf/108179854", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611157", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76357", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jürgen Habermas"}, {"id": "p-00077", "label": "황지우", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q3143549 http://lod.nl.go.kr/resource/KAC201407481 https://isni.org/isni/0000000363867800 http://viaf.org/viaf/226087436", "degree": 22, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0074660", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201407481", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3143549", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00244", "label": "이상", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q486028 https://encykorea.aks.ac.kr/Article/E0044568 http://lod.nl.go.kr/resource/KAC200207958 https://isni.org/isni/0000000083874942 http://viaf.org/viaf/61657532", "degree": 44, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0044568", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200207958", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q486028", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bang-hyeonseok", "label": "방현석", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12597600 http://lod.nl.go.kr/resource/KAC201010904 https://isni.org/isni/0000000382944736 http://viaf.org/viaf/266848280", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201010904", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12597600", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jang-gyeongrin", "label": "장경린", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201207321 https://isni.org/isni/0000000464365949 http://viaf.org/viaf/399144928076554340518", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201207321", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-jo-jungrae", "label": "조정래", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q623737 http://lod.nl.go.kr/resource/KAC201009342 https://isni.org/isni/0000000080867085 http://viaf.org/viaf/7506325", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009342", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q623737", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-juyeon", "label": "김주연", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q16179416 http://lod.nl.go.kr/resource/KAC201222306 https://isni.org/isni/0000000023203450 http://viaf.org/viaf/47662940", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201222306", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16179416", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-wonil", "label": "김원일", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q562774 http://lod.nl.go.kr/resource/KAC201107052 https://isni.org/isni/000000008175885X http://viaf.org/viaf/110167649", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201107052", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q562774", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-yongtaek", "label": "김용택", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q15220518 http://lod.nl.go.kr/resource/KAC201011796 https://isni.org/isni/0000000063809289 http://viaf.org/viaf/68008416", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011796", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q15220518", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-seo-jeongyun", "label": "서정윤", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-yi-inseong", "label": "이인성", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q3572265 http://lod.nl.go.kr/resource/KAC201229400 https://isni.org/isni/0000000120228959 http://viaf.org/viaf/27309529", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229400", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3572265", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-munyol", "label": "이문열", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q116288 http://lod.nl.go.kr/resource/KAC201008289 https://isni.org/isni/0000000081755894 http://viaf.org/viaf/109973700", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008289", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q116288", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "seong-minyeop_layered-life-layered-literature_1990", "label": "겹의 삶, 겹의 문학 — 후기 이청준에 대하여", "type": "essay", "year": "1990", "degree": 6}], "edges": [{"source": "kim-hyon_criticism-method_1980", "target": "p-kim-juyeon", "type": "uses_theory", "weight": 1}, {"source": "kim-hyon_literary-history-method_1980", "target": "p-kim-juyeon", "type": "uses_theory", "weight": 1}, {"source": "p-kim-juyeon", "target": "kim-juyeon_beyond-satire-ritual_1988", "type": "wrote", "weight": 1}, {"source": "p-kim-juyeon", "target": "kim-juyeon_commercial-innovative-culture_1990", "type": "wrote", "weight": 1}, {"source": "p-kim-juyeon", "target": "kim-juyeon_ideology-motif-literature_1989", "type": "wrote", "weight": 1}, {"source": "seong-minyeop_layered-life-layered-literature_1990", "target": "p-kim-juyeon", "type": "uses_theory", "weight": 1}, {"source": "kim-juyeon_beyond-satire-ritual_1988", "target": "p-00062", "type": "uses_theory", "weight": 1}, {"source": "kim-juyeon_beyond-satire-ritual_1988", "target": "p-00077", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_beyond-satire-ritual_1988", "target": "p-00244", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_commercial-innovative-culture_1990", "target": "p-bang-hyeonseok", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_commercial-innovative-culture_1990", "target": "p-jang-gyeongrin", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_commercial-innovative-culture_1990", "target": "p-kim-yongtaek", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_commercial-innovative-culture_1990", "target": "p-seo-jeongyun", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_commercial-innovative-culture_1990", "target": "p-yi-inseong", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_commercial-innovative-culture_1990", "target": "p-yi-munyol", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_ideology-motif-literature_1989", "target": "p-jo-jungrae", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_ideology-motif-literature_1989", "target": "p-kim-wonil", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_ideology-motif-literature_1989", "target": "p-yi-munyol", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (3편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1988</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-juyeon_beyond-satire-ritual_1988.html">풍자의 제의를 넘어서</a>
+        </h3>
+        <p class="essay-card-source">풍자의 제의를 넘어서, 1988</p>
+        <div class="essay-card-tags"><span class="tag">황지우</span> <span class="tag">이상</span><span class="tag">하버마스</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1989</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-juyeon_ideology-motif-literature_1989.html">이데올로기 모티프와 문학 — 이문열의 『변경』을 읽으며</a>
+        </h3>
+        <p class="essay-card-source">이데올로기 모티프와 문학, 1989</p>
+        <div class="essay-card-tags"><span class="tag">조정래</span> <span class="tag">김원일</span> <span class="tag">이문열</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1990</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-juyeon_commercial-innovative-culture_1990.html">상업 문화와 혁신 문화의 거리 — 90년대의 문학과 사회를 전망하며</a>
+        </h3>
+        <p class="essay-card-source">상업 문화와 혁신 문화의 거리, 1990</p>
+        <div class="essay-card-tags"><span class="tag">방현석</span> <span class="tag">장경린</span> <span class="tag">김용택</span> <span class="tag">서정윤</span> <span class="tag">이인성</span> <span class="tag">이문열</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임헌영 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q491139" target="_blank" class="chip role-critic chip-linked">임헌영 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">임헌영</h1>
+      <div class="lod-links"><a href="https://www.wikidata.org/wiki/Q491139" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">23</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">홍희담</span> <span class="chip role-writer">최승호</span> <span class="chip role-writer">황지우</span> <span class="chip role-writer">백무산</span> <span class="chip role-writer">방현석</span> <span class="chip role-writer">최민희</span> <span class="chip role-writer">최승자</span> <span class="chip role-writer">임철우</span> <span class="chip role-writer">정도상</span> <span class="chip role-writer">정화진</span> <span class="chip role-writer">김형수</span> <span class="chip role-writer">김만옥</span> <span class="chip role-writer">김남일</span> <span class="chip role-writer">이창동</span> <span class="chip role-writer">이성복</span> <span class="chip role-writer">오봉옥</span> <span class="chip role-writer">박노해</span> <span class="chip role-writer">박태순</span> <span class="chip role-writer">양귀자</span> <span class="chip role-writer">양헌석</span> <span class="chip role-writer">이인성</span> <span class="chip role-writer">윤후명</span> <span class="chip role-writer">김남주</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "hong-jeongseon_national-literature-concept_1988", "label": "민족문학 개념에 대한 역사적 검토", "type": "essay", "year": "1988", "degree": 17}, {"id": "im-heonyeong_democracy-minjung-aesthetics_1990", "label": "민주주의와 민중미학을 위하여", "type": "essay", "year": "1990", "degree": 19}, {"id": "im-heonyeong_june-uprising-novels_1988", "label": "6월 항쟁 소설의 정치학 — 혁명과 반혁명", "type": "essay", "year": "1988", "degree": 7}, {"id": "jeong-gwari_minjung-literature-theory_1988", "label": "민중문학론의 인식 구조", "type": "essay", "year": "1988", "degree": 16}, {"id": "kim-hyon_criticism-method_1980", "label": "비평의 방법", "type": "essay", "year": "1980", "degree": 19}, {"id": "min-hyeongi_liberation-national-literature_1988", "label": "해방 직후의 민족문학론", "type": "essay", "year": "1988", "degree": 31}, {"id": "p-00035", "label": "최승호", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5103956 http://lod.nl.go.kr/resource/KAC201102262 https://isni.org/isni/0000000078245412 http://viaf.org/viaf/25752073", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201102262", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103956", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00077", "label": "황지우", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q3143549 http://lod.nl.go.kr/resource/KAC201407481 https://isni.org/isni/0000000363867800 http://viaf.org/viaf/226087436", "degree": 22, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0074660", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201407481", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3143549", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-baek-musan", "label": "백무산", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12597765 http://lod.nl.go.kr/resource/KAC201207404 https://isni.org/isni/0000000052401739 http://viaf.org/viaf/14691065", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201207404", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12597765", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bang-hyeonseok", "label": "방현석", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12597600 http://lod.nl.go.kr/resource/KAC201010904 https://isni.org/isni/0000000382944736 http://viaf.org/viaf/266848280", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201010904", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12597600", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-choe-minhui", "label": "최민희", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-choe-seungja", "label": "최승자", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12619648 http://lod.nl.go.kr/resource/KAC201110135 https://isni.org/isni/0000000078791755 http://viaf.org/viaf/1380918", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201110135", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12619648", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-hong-huidam", "label": "홍희담", "type": "writer", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-im-cheolu", "label": "임철우", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q14333165 http://lod.nl.go.kr/resource/KAC201007541 https://isni.org/isni/0000000116234280 http://viaf.org/viaf/38352273", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201007541", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14333165", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-imheonyeong", "label": "임헌영", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q491139", "degree": 7, "lod": [{"href": "https://www.wikidata.org/wiki/Q491139", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-dosang", "label": "정도상", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-jeong-hwajin", "label": "정화진", "type": "writer", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-kim-hyeongsu", "label": "김형수", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201210835 https://isni.org/isni/0000000036763326 http://viaf.org/viaf/70791302", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201210835", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-kim-manok", "label": "김만옥", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-namil", "label": "김남일", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-lee-changdong", "label": "이창동", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q239656 http://lod.nl.go.kr/resource/KAC201229402 https://isni.org/isni/0000000122824674 http://viaf.org/viaf/84408838", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229402", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q239656", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-lee-seongbok", "label": "이성복", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q14192416 http://lod.nl.go.kr/resource/KAC201116691 https://isni.org/isni/0000000078458717 http://viaf.org/viaf/31876473", "degree": 22, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116691", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14192416", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-o-bongok", "label": "오봉옥", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-pak-nohae", "label": "박노해", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q16173752 http://lod.nl.go.kr/resource/KAC201011163 https://isni.org/isni/0000000380879096 http://viaf.org/viaf/260183991", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011163", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16173752", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-park-taesun", "label": "박태순", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12597283 http://lod.nl.go.kr/resource/KAC201113073 https://isni.org/isni/0000000063071624 http://viaf.org/viaf/35768418", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113073", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12597283", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yang-gwija", "label": "양귀자", "type": "writer", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-yang-heonseok", "label": "양헌석", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-yi-inseong", "label": "이인성", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q3572265 http://lod.nl.go.kr/resource/KAC201229400 https://isni.org/isni/0000000120228959 http://viaf.org/viaf/27309529", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229400", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3572265", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yun-humyeong", "label": "윤후명", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-김남주", "label": "김남주", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12587114 https://encykorea.aks.ac.kr/Article/E0008865 http://lod.nl.go.kr/resource/KAC201404410 https://isni.org/isni/000000005067790X http://viaf.org/viaf/14631551", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0008865", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201404410", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12587114", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "yu-munseon_progressive-literary-heritage_1989", "label": "진보적 문학 유산의 비판적 점검", "type": "essay", "year": "1989", "degree": 28}], "edges": [{"source": "hong-jeongseon_national-literature-concept_1988", "target": "p-imheonyeong", "type": "uses_theory", "weight": 1}, {"source": "jeong-gwari_minjung-literature-theory_1988", "target": "p-imheonyeong", "type": "uses_theory", "weight": 1}, {"source": "kim-hyon_criticism-method_1980", "target": "p-imheonyeong", "type": "uses_theory", "weight": 1}, {"source": "min-hyeongi_liberation-national-literature_1988", "target": "p-imheonyeong", "type": "uses_theory", "weight": 1}, {"source": "p-imheonyeong", "target": "im-heonyeong_democracy-minjung-aesthetics_1990", "type": "wrote", "weight": 1}, {"source": "p-imheonyeong", "target": "im-heonyeong_june-uprising-novels_1988", "type": "wrote", "weight": 1}, {"source": "yu-munseon_progressive-literary-heritage_1989", "target": "p-imheonyeong", "type": "uses_theory", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-00035", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-00077", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-baek-musan", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-bang-hyeonseok", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-choe-seungja", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-hong-huidam", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-im-cheolu", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-jeong-dosang", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-jeong-hwajin", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-kim-hyeongsu", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-lee-changdong", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-lee-seongbok", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-o-bongok", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-pak-nohae", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-yang-gwija", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-yi-inseong", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-yun-humyeong", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_democracy-minjung-aesthetics_1990", "target": "p-김남주", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_june-uprising-novels_1988", "target": "p-choe-minhui", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_june-uprising-novels_1988", "target": "p-hong-huidam", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_june-uprising-novels_1988", "target": "p-kim-manok", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_june-uprising-novels_1988", "target": "p-kim-namil", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_june-uprising-novels_1988", "target": "p-park-taesun", "type": "subject_of", "weight": 1}, {"source": "im-heonyeong_june-uprising-novels_1988", "target": "p-yang-heonseok", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1988</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/im-heonyeong_june-uprising-novels_1988.html">6월 항쟁 소설의 정치학 — 혁명과 반혁명</a>
+        </h3>
+        <p class="essay-card-source">6월 항쟁 소설의 정치학, 1988</p>
+        <div class="essay-card-tags"><span class="tag">최민희</span> <span class="tag">홍희담</span> <span class="tag">김만옥</span> <span class="tag">김남일</span> <span class="tag">박태순</span> <span class="tag">양헌석</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1990</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/im-heonyeong_democracy-minjung-aesthetics_1990.html">민주주의와 민중미학을 위하여</a>
+        </h3>
+        <p class="essay-card-source">민주주의와 민중미학을 위하여, 1990</p>
+        <div class="essay-card-tags"><span class="tag">최승호</span> <span class="tag">황지우</span> <span class="tag">백무산</span> <span class="tag">방현석</span> <span class="tag">최승자</span> <span class="tag">홍희담</span> <span class="tag">임철우</span> <span class="tag">정도상</span> <span class="tag">정화진</span> <span class="tag">김형수</span> <span class="tag">이창동</span> <span class="tag">이성복</span> <span class="tag">오봉옥</span> <span class="tag">박노해</span> <span class="tag">양귀자</span> <span class="tag">이인성</span> <span class="tag">윤후명</span> <span class="tag">김남주</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

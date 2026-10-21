@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>권오룡 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q16080117" target="_blank" class="chip role-critic chip-linked">권오룡 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">권오룡</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201221330" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q16080117" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000025552793" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/67913246" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">이인성</span> <span class="chip role-writer">최인훈</span> <span class="chip role-writer">황석영</span> <span class="chip role-writer">복거일</span> <span class="chip role-writer">채영주</span> <span class="chip role-writer">하창수</span> <span class="chip role-writer">홍희담</span> <span class="chip role-writer">문익환</span> <span class="chip role-writer">이문열</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">하버마스 (1)</span> <span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">루카치 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">알튀세르 (1)</span> <span class="chip chip-term">바흐친 (1)</span> <span class="chip chip-term">롤랑 바르트 (1)</span> <span class="chip chip-term">데리다 (1)</span> <span class="chip chip-term">미셀 푸코 (1)</span> <span class="chip chip-term">탈코트 파슨즈 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kwon-oryong_cultural-social-structure_1990", "label": "문화적 사회 구조의 창출을 향하여 — 90년대 사회와 문학에 대한 전망", "type": "essay", "year": "1990", "degree": 3}, {"id": "kwon-oryong_literature-social-change_1989", "label": "문학과 사회 변화 — 사회의 의미 체계 변화를 위한 시론", "type": "essay", "year": "1989", "degree": 8}, {"id": "kwon-oryong_overcoming-time_1988", "label": "시간 이겨내기의 의미 — 복거일론", "type": "essay", "year": "1988", "degree": 10}, {"id": "kwon-oryong_shaping-despair-chaos_1990", "label": "절망과 혼돈의 형태화", "type": "essay", "year": "1990", "degree": 3}, {"id": "p-00033", "label": "최인훈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q11274314 http://lod.nl.go.kr/resource/KAC201108593 https://isni.org/isni/0000000116984436 http://viaf.org/viaf/110167855", "degree": 30, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0005204", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201108593", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11274314", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00062", "label": "위르겐 하버마스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76357 http://lod.nl.go.kr/resource/KAC199611157 https://isni.org/isni/0000000121468372 http://viaf.org/viaf/108179854", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611157", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76357", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jürgen Habermas"}, {"id": "p-00065", "label": "헤겔", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9235 http://lod.nl.go.kr/resource/KAC199611965 https://isni.org/isni/0000000122828149 http://viaf.org/viaf/89774942", "degree": 36, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611965", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9235", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Wilhelm Friedrich Hegel"}, {"id": "p-00078", "label": "황석영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q484947 http://lod.nl.go.kr/resource/KAC201106592 https://isni.org/isni/0000000121322250 http://viaf.org/viaf/49439184", "degree": 17, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0048341", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201106592", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q484947", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00146", "label": "루카치", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q151523 http://lod.nl.go.kr/resource/KAC199617179 https://isni.org/isni/0000000121309398 http://viaf.org/viaf/46764285", "degree": 35, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617179", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q151523", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Lukács"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 37, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-althusser", "label": "루이 알튀세르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q184169 http://lod.nl.go.kr/resource/KAC199600493 https://isni.org/isni/0000000121243798 http://viaf.org/viaf/24596917", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600493", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q184169", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Louis Althusser"}, {"id": "p-bakhtin", "label": "바흐친", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q185375 http://lod.nl.go.kr/resource/KAC199601442 https://isni.org/isni/0000000121029425 http://viaf.org/viaf/88958796", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601442", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q185375", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Mikhail Bakhtin"}, {"id": "p-barthes", "label": "롤랑 바르트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q179109 http://lod.nl.go.kr/resource/KAC199601746 https://isni.org/isni/0000000121009643 http://viaf.org/viaf/44295060", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601746", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q179109", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Roland Barthes"}, {"id": "p-bok-geoil", "label": "복거일", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q626098 http://lod.nl.go.kr/resource/KAC201204280 https://isni.org/isni/0000000048792861 http://viaf.org/viaf/32306053", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201204280", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626098", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-chae-yeongju", "label": "채영주", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-derrida", "label": "데리다", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-ha-changsu", "label": "하창수", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-hong-huidam", "label": "홍희담", "type": "writer", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-kwon-oryong", "label": "권오룡", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q16080117 http://lod.nl.go.kr/resource/KAC201221330 https://isni.org/isni/0000000025552793 http://viaf.org/viaf/67913246", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201221330", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16080117", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-mun-ikhwan", "label": "문익환", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q626438 https://encykorea.aks.ac.kr/Article/E0019632 http://lod.nl.go.kr/resource/KAC201116395 https://isni.org/isni/0000000083002351 http://viaf.org/viaf/110571140", "degree": 2, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0019632", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201116395", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626438", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-talcott-parsons", "label": "탈코트 파슨즈", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yi-inseong", "label": "이인성", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q3572265 http://lod.nl.go.kr/resource/KAC201229400 https://isni.org/isni/0000000120228959 http://viaf.org/viaf/27309529", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229400", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3572265", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-munyol", "label": "이문열", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q116288 http://lod.nl.go.kr/resource/KAC201008289 https://isni.org/isni/0000000081755894 http://viaf.org/viaf/109973700", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008289", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q116288", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-kwon-oryong", "target": "kwon-oryong_cultural-social-structure_1990", "type": "wrote", "weight": 1}, {"source": "p-kwon-oryong", "target": "kwon-oryong_literature-social-change_1989", "type": "wrote", "weight": 1}, {"source": "p-kwon-oryong", "target": "kwon-oryong_overcoming-time_1988", "type": "wrote", "weight": 1}, {"source": "p-kwon-oryong", "target": "kwon-oryong_shaping-despair-chaos_1990", "type": "wrote", "weight": 1}, {"source": "kwon-oryong_cultural-social-structure_1990", "target": "p-00078", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_cultural-social-structure_1990", "target": "p-mun-ikhwan", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-00146", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-althusser", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-barthes", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-derrida", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_literature-social-change_1989", "target": "p-yi-inseong", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-00062", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-00065", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-bakhtin", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-bok-geoil", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-hong-huidam", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-talcott-parsons", "type": "uses_theory", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-yi-inseong", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-yi-munyol", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_shaping-despair-chaos_1990", "target": "p-chae-yeongju", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_shaping-despair-chaos_1990", "target": "p-ha-changsu", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (4편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1988</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kwon-oryong_overcoming-time_1988.html">시간 이겨내기의 의미 — 복거일론</a>
+        </h3>
+        <p class="essay-card-source">시간 이겨내기의 의미, 1988</p>
+        <div class="essay-card-tags"><span class="tag">최인훈</span> <span class="tag">복거일</span> <span class="tag">홍희담</span> <span class="tag">이인성</span> <span class="tag">이문열</span><span class="tag">하버마스</span> <span class="tag">헤겔</span> <span class="tag">바흐친</span> <span class="tag">탈코트 파슨즈</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1989</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kwon-oryong_literature-social-change_1989.html">문학과 사회 변화 — 사회의 의미 체계 변화를 위한 시론</a>
+        </h3>
+        <p class="essay-card-source">문학과 사회 변화, 1989</p>
+        <div class="essay-card-tags"><span class="tag">이인성</span><span class="tag">루카치</span> <span class="tag">마르크스</span> <span class="tag">알튀세르</span> <span class="tag">롤랑 바르트</span> <span class="tag">데리다</span> <span class="tag">미셀 푸코</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1990</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kwon-oryong_cultural-social-structure_1990.html">문화적 사회 구조의 창출을 향하여 — 90년대 사회와 문학에 대한 전망</a>
+        </h3>
+        <p class="essay-card-source">문화적 사회 구조의 창출을 향하여, 1990</p>
+        <div class="essay-card-tags"><span class="tag">황석영</span> <span class="tag">문익환</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1990</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kwon-oryong_shaping-despair-chaos_1990.html">절망과 혼돈의 형태화</a>
+        </h3>
+        <p class="essay-card-source">절망과 혼돈의 형태화, 1990</p>
+        <div class="essay-card-tags"><span class="tag">채영주</span> <span class="tag">하창수</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

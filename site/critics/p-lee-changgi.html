@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이창기 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이창기</span></div>
+      <h1 class="index-heading">이창기</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201424493" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000052303581" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/9757365" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">최승호</span> <span class="chip role-writer">조지 오웰</span> <span class="chip role-writer">황동규</span> <span class="chip role-writer">황지우</span> <span class="chip role-writer">정현종</span> <span class="chip role-writer">오규원</span> <span class="chip role-writer">송욱</span> <span class="chip role-writer">최석하</span> <span class="chip role-writer">강창민</span> <span class="chip role-writer">이창기</span> <span class="chip role-writer">이성복</span> <span class="chip role-writer">박남철</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">칸트 (1)</span> <span class="chip chip-term">카시러 (1)</span> <span class="chip chip-term">하우저 (1)</span> <span class="chip chip-term">호이징하 (1)</span> <span class="chip chip-term">비트겐슈타인 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-hyesoon_between-word-memory-reality_1989", "label": "말과 기억과 현실 사이", "type": "essay", "year": "1989", "degree": 8}, {"id": "lee-changgi_play-two-faces_1990", "label": "놀이, 억압과 해방의 두 얼굴", "type": "essay", "year": "1990", "degree": 18}, {"id": "p-00035", "label": "최승호", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5103956 http://lod.nl.go.kr/resource/KAC201102262 https://isni.org/isni/0000000078245412 http://viaf.org/viaf/25752073", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201102262", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103956", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00055", "label": "조지 오웰", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q3335 http://lod.nl.go.kr/resource/KAC199620760 https://isni.org/isni/0000000121441305 http://viaf.org/viaf/95155403", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620760", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3335", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "George Orwell"}, {"id": "p-00076", "label": "황동규", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12625798 http://lod.nl.go.kr/resource/KAC201200312 https://isni.org/isni/0000000078377888 http://viaf.org/viaf/84479211", "degree": 36, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201200312", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12625798", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00077", "label": "황지우", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q3143549 http://lod.nl.go.kr/resource/KAC201407481 https://isni.org/isni/0000000363867800 http://viaf.org/viaf/226087436", "degree": 22, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0074660", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201407481", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3143549", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00091", "label": "정현종", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12616152 http://lod.nl.go.kr/resource/KAC201207472 https://isni.org/isni/0000000083942968 http://viaf.org/viaf/74032003", "degree": 41, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201207472", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12616152", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00093", "label": "칸트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9312 http://lod.nl.go.kr/resource/KAC199614392 https://isni.org/isni/0000000122824025 http://viaf.org/viaf/82088490", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614392", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9312", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Immanuel Kant"}, {"id": "p-00162", "label": "오규원", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12607740 https://encykorea.aks.ac.kr/Article/E0071287 http://lod.nl.go.kr/resource/KAC201200668 https://isni.org/isni/0000000026815858 http://viaf.org/viaf/40709448", "degree": 26, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071287", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201200668", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12607740", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00204", "label": "송욱", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12602958 https://encykorea.aks.ac.kr/Article/E0030971 http://lod.nl.go.kr/resource/KAC201116775 https://isni.org/isni/0000000082200188 http://viaf.org/viaf/38241807", "degree": 19, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0030971", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201116775", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12602958", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-cassirer", "label": "카시러", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-choe-seokha", "label": "최석하", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-hauser", "label": "아르놀트 하우저", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q365852 http://lod.nl.go.kr/resource/KAC199611801 https://isni.org/isni/0000000121287598 http://viaf.org/viaf/39378414", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611801", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q365852", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Arnold Hauser"}, {"id": "p-huizinga", "label": "호이징하", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kang-changmin", "label": "강창민", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-lee-changgi", "label": "이창기", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201424493 https://isni.org/isni/0000000052303581 http://viaf.org/viaf/9757365", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201424493", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-lee-seongbok", "label": "이성복", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q14192416 http://lod.nl.go.kr/resource/KAC201116691 https://isni.org/isni/0000000078458717 http://viaf.org/viaf/31876473", "degree": 22, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116691", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14192416", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-park-namchul", "label": "박남철", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12596573 http://lod.nl.go.kr/resource/KAC201515490 https://isni.org/isni/0000000023314505 http://viaf.org/viaf/106145375897783680180", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201515490", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12596573", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-wittgenstein", "label": "비트겐슈타인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9391 http://lod.nl.go.kr/resource/KAC199630388 https://isni.org/isni/0000000120999171 http://viaf.org/viaf/24609378", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199630388", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9391", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Ludwig Wittgenstein"}], "edges": [{"source": "kim-hyesoon_between-word-memory-reality_1989", "target": "p-lee-changgi", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-lee-changgi", "type": "subject_of", "weight": 1}, {"source": "p-lee-changgi", "target": "lee-changgi_play-two-faces_1990", "type": "wrote", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00035", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00055", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00076", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00077", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00093", "type": "uses_theory", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00162", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00204", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-cassirer", "type": "uses_theory", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-choe-seokha", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-hauser", "type": "uses_theory", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-huizinga", "type": "uses_theory", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-kang-changmin", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-lee-seongbok", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-park-namchul", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-wittgenstein", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1990</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-changgi_play-two-faces_1990.html">놀이, 억압과 해방의 두 얼굴</a>
+        </h3>
+        <p class="essay-card-source">놀이, 억압과 해방의 두 얼굴, 1990</p>
+        <div class="essay-card-tags"><span class="tag">최승호</span> <span class="tag">조지 오웰</span> <span class="tag">황동규</span> <span class="tag">황지우</span> <span class="tag">정현종</span> <span class="tag">오규원</span> <span class="tag">송욱</span> <span class="tag">최석하</span> <span class="tag">강창민</span> <span class="tag">이창기</span> <span class="tag">이성복</span> <span class="tag">박남철</span><span class="tag">칸트</span> <span class="tag">카시러</span> <span class="tag">하우저</span> <span class="tag">호이징하</span> <span class="tag">비트겐슈타인</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

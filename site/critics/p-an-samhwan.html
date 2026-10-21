@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>안삼환 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">안삼환</span></div>
+      <h1 class="index-heading">안삼환</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201206909" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000464478417" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/113152138631310982497" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">15</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">괴테</span> <span class="chip role-writer">황지우</span> <span class="chip role-writer">안나 제거스</span> <span class="chip role-writer">크리스타 볼프</span> <span class="chip role-writer">귄터 그라스</span> <span class="chip role-writer">하인리히 뵐</span> <span class="chip role-writer">현길언</span> <span class="chip role-writer">미하엘 라인홀트 렌츠</span> <span class="chip role-writer">조정래</span> <span class="chip role-writer">요하네스 R. 베허</span> <span class="chip role-writer">김원일</span> <span class="chip role-writer">니콜라스 보른</span> <span class="chip role-writer">페터 슈나이더</span> <span class="chip role-writer">스테판 하임</span> <span class="chip role-writer">우베 욘존</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">전영애 (1)</span> <span class="chip chip-term">페터 뤼베 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "an-samhwan_german-division-literature_1988", "label": "독일의 분단 문학 — 페터 슈나이더의 『장벽을 뛰어넘는 사람』을 중심으로", "type": "essay", "year": "1988", "degree": 18}, {"id": "p-00059", "label": "괴테", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5879 http://lod.nl.go.kr/resource/KAC199610270 https://isni.org/isni/0000000120999104 http://viaf.org/viaf/24602065", "degree": 27, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610270", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5879", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Johann Wolfgang von Goethe"}, {"id": "p-00077", "label": "황지우", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q3143549 http://lod.nl.go.kr/resource/KAC201407481 https://isni.org/isni/0000000363867800 http://viaf.org/viaf/226087436", "degree": 22, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0074660", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201407481", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3143549", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-an-samhwan", "label": "안삼환", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201206909 https://isni.org/isni/0000000464478417 http://viaf.org/viaf/113152138631310982497", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201206909", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-anna-seghers", "label": "안나 제거스", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-christa-wolf", "label": "크리스타 볼프", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-guenter-grass", "label": "귄터 그라스", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-heinrich-boell", "label": "하인리히 뵐", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-hyeon-gireon", "label": "현길언", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12624992 http://lod.nl.go.kr/resource/KAC201106577 https://isni.org/isni/0000000116432914 http://viaf.org/viaf/52844656", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201106577", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12624992", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jakob-lenz", "label": "미하엘 라인홀트 렌츠", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeon-yeongae", "label": "전영애", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q95208614 http://lod.nl.go.kr/resource/KAC201223209 https://isni.org/isni/0000000114445500 http://viaf.org/viaf/54996457", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201223209", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q95208614", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jo-jungrae", "label": "조정래", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q623737 http://lod.nl.go.kr/resource/KAC201009342 https://isni.org/isni/0000000080867085 http://viaf.org/viaf/7506325", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009342", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q623737", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-johannes-becher", "label": "요하네스 R. 베허", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-wonil", "label": "김원일", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q562774 http://lod.nl.go.kr/resource/KAC201107052 https://isni.org/isni/000000008175885X http://viaf.org/viaf/110167649", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201107052", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q562774", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-nicolas-born", "label": "니콜라스 보른", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-peter-luebbe", "label": "페터 뤼베", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-peter-schneider", "label": "페터 슈나이더", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-stefan-heym", "label": "스테판 하임", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-uwe-johnson", "label": "우베 욘존", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-an-samhwan", "target": "an-samhwan_german-division-literature_1988", "type": "wrote", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-00059", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-00077", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-anna-seghers", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-christa-wolf", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-guenter-grass", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-heinrich-boell", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-hyeon-gireon", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-jakob-lenz", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-jeon-yeongae", "type": "uses_theory", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-jo-jungrae", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-johannes-becher", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-kim-wonil", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-nicolas-born", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-peter-luebbe", "type": "uses_theory", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-peter-schneider", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-stefan-heym", "type": "subject_of", "weight": 1}, {"source": "an-samhwan_german-division-literature_1988", "target": "p-uwe-johnson", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1988</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/an-samhwan_german-division-literature_1988.html">독일의 분단 문학 — 페터 슈나이더의 『장벽을 뛰어넘는 사람』을 중심으로</a>
+        </h3>
+        <p class="essay-card-source">독일의 분단 문학, 1988</p>
+        <div class="essay-card-tags"><span class="tag">괴테</span> <span class="tag">황지우</span> <span class="tag">안나 제거스</span> <span class="tag">크리스타 볼프</span> <span class="tag">귄터 그라스</span> <span class="tag">하인리히 뵐</span> <span class="tag">현길언</span> <span class="tag">미하엘 라인홀트 렌츠</span> <span class="tag">조정래</span> <span class="tag">요하네스 R. 베허</span> <span class="tag">김원일</span> <span class="tag">니콜라스 보른</span> <span class="tag">페터 슈나이더</span> <span class="tag">스테판 하임</span> <span class="tag">우베 욘존</span><span class="tag">전영애</span> <span class="tag">페터 뤼베</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>

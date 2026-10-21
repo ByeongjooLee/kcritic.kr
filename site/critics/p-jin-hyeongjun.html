@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>진형준 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
+      <nav class="site-nav">
+        <a href="../../index.html">비평글</a>
+        <a href="../../critics.html" class="active">비평가</a>
+        <a href="../../writers.html">작가</a>
+        <a href="../../thinkers.html">이론가</a>
+        <a href="../graph.html">관계망</a>
+        <a href="../../concepts.html">개념어</a>
+        <a href="../../research.html">선행연구</a>
+        <a href="../../criticism.html">2000년대 비평</a>
+        <a href="../../ask.html">질문하기</a>
+        <a href="../../evaluate.html">태도 평가</a>
+        <a href="../../about.html">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">진형준</span></div>
+      <h1 class="index-heading">진형준</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">20</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">카뮈</span> <span class="chip role-writer">김향숙</span> <span class="chip role-writer">이성복</span> <span class="chip role-writer">사드</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">데카르트 (1)</span> <span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">파스칼 (1)</span> <span class="chip chip-term">사르트르 (1)</span> <span class="chip chip-term">아우구스티누스 (1)</span> <span class="chip chip-term">바슐라르 (1)</span> <span class="chip chip-term">불트만 (1)</span> <span class="chip chip-term">카시러 (1)</span> <span class="chip chip-term">코페르니쿠스 (1)</span> <span class="chip chip-term">질베르 뒤랑 (1)</span> <span class="chip chip-term">조아생 드 플로르 (1)</span> <span class="chip chip-term">융 (1)</span> <span class="chip chip-term">키에르케고르 (1)</span> <span class="chip chip-term">펠라쥬 (1)</span> <span class="chip chip-term">플로티누스 (1)</span> <span class="chip chip-term">루소 (1)</span> <span class="chip chip-term">루터 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "jin-hyeongjun_imagination-society_1988", "label": "상상력, 그리고 사회", "type": "essay", "year": "1988", "degree": 24}, {"id": "jin-hyeongjun_relation-lost-relation_1989", "label": "관계를 잃은 관계", "type": "essay", "year": "1989", "degree": 2}, {"id": "p-00028", "label": "카뮈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q34670 http://lod.nl.go.kr/resource/KAC200807597 https://isni.org/isni/0000000122832690 http://viaf.org/viaf/97000332", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200807597", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34670", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Albert Camus"}, {"id": "p-00040", "label": "데카르트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9191 http://lod.nl.go.kr/resource/KAC199606962 https://isni.org/isni/0000000121296144 http://viaf.org/viaf/41838958", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199606962", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9191", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "René Descartes"}, {"id": "p-00051", "label": "프로이트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9215 http://lod.nl.go.kr/resource/KAC199609326 https://isni.org/isni/0000000121272193 http://viaf.org/viaf/34456780", "degree": 38, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609326", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9215", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sigmund Freud"}, {"id": "p-00065", "label": "헤겔", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9235 http://lod.nl.go.kr/resource/KAC199611965 https://isni.org/isni/0000000122828149 http://viaf.org/viaf/89774942", "degree": 36, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611965", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9235", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Wilhelm Friedrich Hegel"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 37, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 31, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00171", "label": "파스칼", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q1290 http://lod.nl.go.kr/resource/KAC199621139 https://isni.org/isni/0000000121258260 http://viaf.org/viaf/29538862", "degree": 13, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199621139", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q1290", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Blaise Pascal"}, {"id": "p-00192", "label": "사르트르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9364 http://lod.nl.go.kr/resource/KAC199624126 https://isni.org/isni/000000012321080X http://viaf.org/viaf/76322562", "degree": 54, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199624126", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9364", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean-Paul Sartre"}, {"id": "p-augustine", "label": "아우구스티누스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q8018 http://lod.nl.go.kr/resource/KAC199601187 https://isni.org/isni/0000000121376443 http://viaf.org/viaf/66806872", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601187", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q8018", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Augustine of Hippo"}, {"id": "p-bachelard", "label": "가스통 바슐라르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q270800 http://lod.nl.go.kr/resource/KAC199601295 https://isni.org/isni/000000012118437X http://viaf.org/viaf/4926151", "degree": 26, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601295", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q270800", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Gaston Bachelard"}, {"id": "p-bultmann", "label": "불트만", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76327 http://lod.nl.go.kr/resource/KAC199603897 https://isni.org/isni/0000000110245501 http://viaf.org/viaf/34464958", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603897", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76327", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Rudolf Bultmann"}, {"id": "p-cassirer", "label": "카시러", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-copernicus", "label": "코페르니쿠스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q619 http://lod.nl.go.kr/resource/KAC199633335 https://isni.org/isni/0000000110290900 http://viaf.org/viaf/71389288", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199633335", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q619", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Nicolaus Copernicus"}, {"id": "p-gilbert-durand", "label": "질베르 뒤랑", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-jin-hyeongjun", "label": "진형준", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-joachim-de-flore", "label": "조아생 드 플로르", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jung", "label": "융", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q41532 http://lod.nl.go.kr/resource/KAC199614276 https://isni.org/isni/0000000426604224 http://viaf.org/viaf/88819182", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614276", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q41532", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Carl Jung"}, {"id": "p-kierkegaard", "label": "쇠렌 키르케고르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q6512 http://lod.nl.go.kr/resource/KAC199614851 https://isni.org/isni/0000000458754884 http://viaf.org/viaf/7392250", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614851", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6512", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Søren Kierkegaard"}, {"id": "p-kim-hyangsuk", "label": "김향숙", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-lee-seongbok", "label": "이성복", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q14192416 http://lod.nl.go.kr/resource/KAC201116691 https://isni.org/isni/0000000078458717 http://viaf.org/viaf/31876473", "degree": 22, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116691", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14192416", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-pelagius", "label": "펠라쥬", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-plotinus", "label": "플로티누스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-rousseau", "label": "장 자크 루소", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q6527 http://lod.nl.go.kr/resource/KAC199623614 https://isni.org/isni/0000000121451116 http://viaf.org/viaf/100184045", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199623614", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6527", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean-Jacques Rousseau"}, {"id": "p-sade", "label": "사드", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-루터", "label": "루터", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9554 http://lod.nl.go.kr/resource/KAC199617217 https://isni.org/isni/0000000121214073 http://viaf.org/viaf/14773105", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617217", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9554", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Martin Luther"}], "edges": [{"source": "p-jin-hyeongjun", "target": "jin-hyeongjun_imagination-society_1988", "type": "wrote", "weight": 1}, {"source": "p-jin-hyeongjun", "target": "jin-hyeongjun_relation-lost-relation_1989", "type": "wrote", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00028", "type": "subject_of", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00040", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00051", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00065", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00171", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-00192", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-augustine", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-bachelard", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-bultmann", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-cassirer", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-copernicus", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-gilbert-durand", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-joachim-de-flore", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-jung", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-kierkegaard", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-lee-seongbok", "type": "subject_of", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-pelagius", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-plotinus", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-rousseau", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-sade", "type": "subject_of", "weight": 1}, {"source": "jin-hyeongjun_imagination-society_1988", "target": "p-루터", "type": "uses_theory", "weight": 1}, {"source": "jin-hyeongjun_relation-lost-relation_1989", "target": "p-kim-hyangsuk", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#c9986a',
+        writer: '#6a9bc9',
+        theorist: '#9a7ac9',
+        essay: '#c8c8a8'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#4a2400',
+        writer: '#0e2d4a',
+        theorist: '#2d1050',
+        essay: '#3a3a2a'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#c9c7bf',
+              'target-arrow-color': '#c9c7bf',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#6b3e26' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1988</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/jin-hyeongjun_imagination-society_1988.html">상상력, 그리고 사회</a>
+        </h3>
+        <p class="essay-card-source">상상력, 그리고 사회, 1988</p>
+        <div class="essay-card-tags"><span class="tag">카뮈</span> <span class="tag">이성복</span> <span class="tag">사드</span><span class="tag">데카르트</span> <span class="tag">프로이트</span> <span class="tag">헤겔</span> <span class="tag">마르크스</span> <span class="tag">니체</span> <span class="tag">파스칼</span> <span class="tag">사르트르</span> <span class="tag">아우구스티누스</span> <span class="tag">바슐라르</span> <span class="tag">불트만</span> <span class="tag">카시러</span> <span class="tag">코페르니쿠스</span> <span class="tag">질베르 뒤랑</span> <span class="tag">조아생 드 플로르</span> <span class="tag">융</span> <span class="tag">키에르케고르</span> <span class="tag">펠라쥬</span> <span class="tag">플로티누스</span> <span class="tag">루소</span> <span class="tag">루터</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1989</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/jin-hyeongjun_relation-lost-relation_1989.html">관계를 잃은 관계</a>
+        </h3>
+        <p class="essay-card-source">관계를 잃은 관계, 1989</p>
+        <div class="essay-card-tags"><span class="tag">김향숙</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
+    </div>
+  </footer>
+</body>
+</html>
