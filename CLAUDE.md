@@ -912,6 +912,8 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - 심사평(복수 심사위원)은 build.py 가 titleStmt 첫 저자만 비평가로 잡아 오귀속되므로 **사이트에서 제외**(작업 폴더에만 있음). 복수 저자 지원은 미구현
 - 역할이 `critic` 뿐인 언급 인물(다른 비평가를 논하는 경우)은 build.py 분류상 관계망 엣지가 생기지 않는다. 비평가 간 논쟁 관계는 `critic:respondsTo` 구현과 함께 다룰 것
 - 이 확장으로 사이트 수치는 논문(4인 370편) 시점과 달라졌다. 논문 수치 재현은 그 시점 스냅샷 기준
+- 수록지면(2026-10-22): 『문학과사회』 XML 의 sourceDesc 는 가이드 §2-1 의 `<biblStruct type="journal">` 구조다 — analytic=비평글, monogr=`문학과사회`·문학과지성사·발행 계절 + `biblScope unit="issue"`·`unit="page"`, 비고 note 는 biblStruct 안. 변환은 `../문학과사회/site_prep/convert_sourcedesc.py`(이미 바뀐 파일은 건너뜀). 스키마는 monogr/author 선택화·`biblScope`·biblStruct/`note` 를 추가한 상위호환
+- build.py 수정(2026-10-22): biblStruct 의 호수·쪽·비고를 읽어 비평글 페이지에 표시하고, 프로필 카드 출처 줄(`_source_short`)은 비평글 제목이 아니라 수록지면(수록 단행본 → 비고의 《잡지》)을 쓴다. critics.json 은 글 수 내림차순(동수는 이름순)
 
 ### 진행 중 (Phase 2 — 개념어 계층)
 - 현황: 370편 중 **61편에 `<taxonomy>` 선언이 이미 들어가 있으나 build.py가 읽지 않는다** (§12 금지 패턴 항목 참조)
@@ -923,3 +925,12 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - SPARQL 공개 엔드포인트 제공 (현재는 브라우저 내 Comunica로 `graph.ttl` 질의)
 
 > 로드맵을 고칠 땐 `about.html` 의 "로드맵"·통계 섹션도 **함께** 갱신할 것 — 하드코딩되어 있어 자동 반영되지 않는다.
+
+
+## 수록지면 메타데이터 필수 (2026-10-22)
+- 매 글에 수록지명·통권 호수·발행 연도/계절·난 이름·실제 인쇄쪽 범위를 기록한다. PDF 파일의 면 번호와 인쇄쪽을 혼동하지 않는다. 발행 월/일은 확인된 경우에만 적는다.
+- TXT 2행, XML sourceDesc, encode_ledger.json의 publication_metadata를 대조한다. 기존 대장의 추정 범위보다 실제 기사 끝·각주까지 대조한 범위를 우선한다. 불연속 수록면은 구간을 각각 보존한다.
+- 기존 초출 비고를 보존하고 같은 bibl 안에 별도 note를 반드시 추가한다: `<note>수록: 『문학과사회』 14호, 1991년 여름, 오늘의 한국 문학 1, 522–539면.</note>`.
+- 글 제목과 수록지명은 별개이다. 서평 대상 책을 수록지로 기록하지 않는다. build.py의 extract_sources/collected_in으로 수록지명이 문학과사회로 추출되는지 확인한다.
+- 근거가 충돌하거나 확인되지 않은 항목은 추측하지 않고 대장에 보류 이유와 근거를 남긴다. 서지 보완 완료는 원문 정밀교감·연구자 검토 완료를 뜻하지 않는다.
+- 완료 보고에는 수록지명·호수·발행시기·난·인쇄쪽과 메타데이터 대조 결과를 포함한다.

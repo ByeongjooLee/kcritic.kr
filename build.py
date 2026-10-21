@@ -413,8 +413,13 @@ def extract_sources(root):
         date_el = monogr.find(f"{tns('imprint')}/{tns('date')}")
         place_el = monogr.find(f"{tns('imprint')}/{tns('pubPlace')}")
         note_el = biblstruct.find(tns("note"))
+        note_els = biblstruct.findall(tns("note"))
+        scope = {b.get("unit", ""): "".join(b.itertext()).strip() for b in monogr.findall(tns("biblScope"))}
         sources.append({
             "type": btype,
+            "issue": scope.get("issue", "") or scope.get("volume", ""),
+            "pages": scope.get("page", ""),
+            "notes": [" ".join("".join(n.itertext()).split()) for n in note_els if "".join(n.itertext()).strip()],
             "journal_or_book": (title_el.text or "").strip() if title_el is not None else "",
             "publisher": (pub_el.text or "").strip() if pub_el is not None else "",
             "date": (date_el.text or "").strip() if date_el is not None else "",
@@ -531,7 +536,9 @@ def source_html(sources):
             f'<li><span class="source-badge">{label}</span> '
             f'<strong>{esc(s["journal_or_book"])}</strong>'
             f'{", " + esc(s["publisher"]) if s["publisher"] else ""}'
-            f'{", " + esc(s["date"]) if s["date"] else ""}{notes}</li>'
+            f'{", " + esc(s["date"]) if s["date"] else ""}'
+            f'{", " + esc(s["issue"]) + "호" if s.get("issue") else ""}'
+            f'{", " + esc(s["pages"]) + "면" if s.get("pages") else ""}{notes}</li>'
         )
     return '<ul class="source-list">' + "\n".join(items) + "</ul>"
 
@@ -1428,11 +1435,23 @@ def essays_persons_name(essay_data, pid):
 
 
 def _source_short(sources):
-    """서지 정보 한 줄 요약 — 짧게 (간행처·연도만)."""
+    """서지 정보 한 줄 요약 — 짧게 (수록지면·연도만).
+    단순 bibl 서지의 title 은 비평글 자기 제목이므로 쓰지 않고 수록 단행본(collected_in) → 비고의 《잡지》 순으로 찾는다.
+    잡지 biblStruct 는 잡지명 + 호수."""
     if not sources:
         return ""
     s = sources[0]
+    if s.get("type") == "bibl":
+        venue = collected_in(sources)
+        if not venue:
+            notes = [n for x in sources for n in (x.get("notes") or [x.get("note", "")]) if n]
+            m = next((re.search(r"《([^》]+)》", n) for n in notes if re.search(r"《([^》]+)》", n)), None)
+            venue = m.group(1).strip() if m else ""
+        year = s["when"][:4] if s.get("when") and len(s["when"]) >= 4 else ""
+        return ", ".join(x for x in (venue, year) if x)
     title = s["journal_or_book"]
+    if s.get("issue"):
+        title = f'{title} {s["issue"]}호'
     # 전집/총서 부제 괄호 이전만 사용 (예: "시인의 보석 — 현대 문학..." → "시인의 보석")
     short_title = title.split(" — ")[0].split("（")[0].split("(")[0].strip()
     parts = [short_title]
@@ -1644,7 +1663,7 @@ def main():
             "subjects": sorted({pid for e in cinfo["essays"] for pid in e["subjects"]}),
             "theorists": sorted({pid for e in cinfo["essays"] for pid in e["theorists"]}),
         }
-        for cid, cinfo in critics.items()
+        for cid, cinfo in sorted(critics.items(), key=lambda x: (-len(x[1]["essays"]), _strip_parens(x[1]["name"]), x[0]))
     ]
     critics_path = DATA_DIR / "critics.json"
     critics_path.write_text(json.dumps(critics_json, ensure_ascii=False, indent=2), encoding="utf-8")

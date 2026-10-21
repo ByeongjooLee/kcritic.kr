@@ -680,9 +680,21 @@
 -->
   <xs:complexType name="MonogrType">
     <xs:sequence>
-      <xs:element name="title"  type="xs:string"/>       <!-- 책 제목 -->
-      <xs:element name="author" type="AuthorMixedType"/> <!-- 저자(들) -->
+      <xs:element name="title"  type="xs:string"/>       <!-- 책 제목 (잡지면 잡지명) -->
+      <xs:element name="author" type="AuthorMixedType" minOccurs="0"/> <!-- 저자(들). 잡지는 생략 가능 (2026-10-22) -->
       <xs:element name="imprint" type="ImprintType"/>    <!-- 발행 정보 -->
+      <!-- 호수·쪽 범위 (2026-10-22 추가, 선택). 예: <biblScope unit="issue">1</biblScope> <biblScope unit="page" from="18" to="32">18–32</biblScope> -->
+      <xs:element name="biblScope" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="unit" type="xs:string" use="optional"/>
+              <xs:attribute name="from" type="xs:string" use="optional"/>
+              <xs:attribute name="to"   type="xs:string" use="optional"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -710,6 +722,7 @@
     <xs:sequence>
       <xs:element name="analytic" type="AnalyticType" minOccurs="0"/>
       <xs:element name="monogr"   type="MonogrType"/>
+      <xs:element name="note" type="xs:string" minOccurs="0" maxOccurs="unbounded"/> <!-- 초출·판독 비고 (2026-10-22 추가, 선택) -->
     </xs:sequence>
     <xs:attribute name="type" type="BiblTypeEnum" use="optional"/>
   </xs:complexType>
