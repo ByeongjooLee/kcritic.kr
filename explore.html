@@ -320,7 +320,7 @@ async function runFind() {
 // ── 지면 ───────────────────────────────────────
 function renderVenues() {
   document.getElementById("facets").innerHTML = `<div class="facet"><h5>잡지</h5><label class="opt"><input type="checkbox" checked disabled>『문학과사회』<span class="c">${D.issues.length}호</span></label></div>
-    <div class="facet"><h5>안내</h5><p class="note">잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 쪽수는 연간 통권 쪽수라서 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다. 앞으로 다른 잡지가 추가되면 여기에 함께 놓입니다.</p></div>`;
+    <div class="facet"><h5>안내</h5><p class="note">잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 1988~1991년 호는 한 해 한 권으로 쪽 번호를 이어 매겨서, 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다. 앞으로 다른 잡지가 추가되면 여기에 함께 놓입니다.</p></div>`;
   document.getElementById("active").innerHTML = "";
   const pub = D.issues.reduce((s, i) => s + i.n_public, 0), all = D.issues.reduce((s, i) => s + i.items.length, 0);
   document.getElementById("rhead").innerHTML = `<span class="count">『문학과사회』 <span class="num">${D.issues.length}</span>호 · 공개 <span class="num">${pub}</span> / 목차 <span class="num">${all}</span></span>`;
