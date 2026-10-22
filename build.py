@@ -652,16 +652,13 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
     <div class="container">
       <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
-        <a href="../../index.html">비평글</a>
-        <a href="../../critics.html">비평가</a>
-        <a href="../../writers.html">작가</a>
-        <a href="../../thinkers.html">이론가</a>
+        <a href="../../explore.html?p=find">글 찾기</a>
+        <a href="../../explore.html?p=essays" class="active">글</a>
+        <a href="../../explore.html?p=people">인물</a>
+        <a href="../../explore.html?p=concepts">개념어</a>
+        <a href="../../explore.html?p=venues">지면</a>
         <a href="../graph.html">관계망</a>
-        <a href="../../concepts.html">개념어</a>
-        <a href="../../research.html">선행연구</a>
-        <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
-        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1091,16 +1088,13 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     <div class="container">
       <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
-        <a href="../../index.html">비평글</a>
-        <a href="../../critics.html" class="active">비평가</a>
-        <a href="../../writers.html">작가</a>
-        <a href="../../thinkers.html">이론가</a>
+        <a href="../../explore.html?p=find">글 찾기</a>
+        <a href="../../explore.html?p=essays">글</a>
+        <a href="../../explore.html?p=people" class="active">인물</a>
+        <a href="../../explore.html?p=concepts">개념어</a>
+        <a href="../../explore.html?p=venues">지면</a>
         <a href="../graph.html">관계망</a>
-        <a href="../../concepts.html">개념어</a>
-        <a href="../../research.html">선행연구</a>
-        <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
-        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1234,16 +1228,13 @@ def build_writer_profile(writer_id, writer_info, essays_about):
     <div class="container">
       <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
-        <a href="../../index.html">비평글</a>
-        <a href="../../critics.html">비평가</a>
-        <a href="../../writers.html" class="active">작가</a>
-        <a href="../../thinkers.html">이론가</a>
+        <a href="../../explore.html?p=find">글 찾기</a>
+        <a href="../../explore.html?p=essays">글</a>
+        <a href="../../explore.html?p=people" class="active">인물</a>
+        <a href="../../explore.html?p=concepts">개념어</a>
+        <a href="../../explore.html?p=venues">지면</a>
         <a href="../graph.html">관계망</a>
-        <a href="../../concepts.html">개념어</a>
-        <a href="../../research.html">선행연구</a>
-        <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
-        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>
@@ -1378,16 +1369,13 @@ def build_thinker_profile(thinker_id, thinker_info):
     <div class="container">
       <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
       <nav class="site-nav">
-        <a href="../../index.html">비평글</a>
-        <a href="../../critics.html">비평가</a>
-        <a href="../../writers.html">작가</a>
-        <a href="../../thinkers.html" class="active">이론가</a>
+        <a href="../../explore.html?p=find">글 찾기</a>
+        <a href="../../explore.html?p=essays">글</a>
+        <a href="../../explore.html?p=people" class="active">인물</a>
+        <a href="../../explore.html?p=concepts">개념어</a>
+        <a href="../../explore.html?p=venues">지면</a>
         <a href="../graph.html">관계망</a>
-        <a href="../../concepts.html">개념어</a>
-        <a href="../../research.html">선행연구</a>
-        <a href="../../criticism.html">2000년대 비평</a>
         <a href="../../ask.html">질문하기</a>
-        <a href="../../evaluate.html">태도 평가</a>
         <a href="../../about.html">소개</a>
       </nav>
     </div>

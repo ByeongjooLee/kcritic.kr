@@ -2,12 +2,17 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "kcritic",
   "compatibility_date": "2026-05-19",
+  // /api/* 만 Worker(worker/index.js)가 받고 나머지는 정적 자산. 글 찾기: 질문 임베딩(Workers AI) + 본문 희귀어 조회
+  "main": "worker/index.js",
+  "ai": { "binding": "AI" },
   "observability": {
     "enabled": true
   },
   "assets": {
     "directory": ".",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
   "compatibility_flags": [
     "nodejs_compat"

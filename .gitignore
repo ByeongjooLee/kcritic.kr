@@ -46,3 +46,6 @@ qid_fix_*.csv
 
 # Claude Code 로컬 설정
 .claude/
+
+# 글 찾기 Worker 비공개 색인 (본문 희귀어 — 원문 파생, 공개 금지)
+worker/private/

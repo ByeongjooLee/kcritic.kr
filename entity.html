@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kcritic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="kc.css">
+</head>
+<body>
+<main class="wrap" id="root"></main>
+<script src="kc.js"></script>
+<script>
+const T = qs.get("t"), ID = qs.get("id");
+shell({ essay: "essays", person: "people", concept: "concepts", issue: "venues" }[T]);
+const root = document.getElementById("root");
+const IRI = "https://kcritic.kr/resource/";
+
+db().then(D => {
+  const nm = id => D.P.get(id)?.name || id;
+  const tally = (list, get) => { const m = new Map(); list.forEach(e => new Set(get(e)).forEach(v => m.set(v, (m.get(v) || 0) + 1))); return [...m].sort((a, b) => b[1] - a[1] || ko(a[0], b[0])); };
+  const essayRow = e => `<article class="row"><div class="yr num">${e.year}</div><div>
+      <h4><a href="${href.essay(e.id)}">${esc(e.title)}</a></h4>
+      <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호 · ${esc(e.pages)}면` : esc(e.venue)}</span></div>
+      <div class="tags">${e.concepts.slice(0, 5).map(c => `<a href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div></div><div class="side"></div></article>`;
+  const rows = (list, lim = 12) => {
+    const s = [...list].sort((a, b) => ko(a.year, b.year));
+    return `<div class="rows">${s.slice(0, lim).map(essayRow).join("")}</div>` + (s.length > lim ? `<details><summary class="btn morebtn" style="width:max-content">${s.length - lim}편 더 보기</summary><div class="rows">${s.slice(lim).map(essayRow).join("")}</div></details>` : "");
+  };
+  const chips = (ids, cls, hrefFn, nameFn) => `<div class="chips">${ids.map(([id, n]) => `<a class="chip ${cls}" href="${hrefFn(id)}"><span class="dot ${cls}"></span>${esc(nameFn(id))}${n > 1 ? ` <small class="num">${n}</small>` : ""}</a>`).join("")}</div>`;
+  const tabs = (defs) => {   // [{k,label,n,html}]
+    const on = defs.find(d => d.k === location.hash.slice(1)) || defs[0];
+    return `<div class="tabs" id="etabs">${defs.map(d => `<button data-k="${d.k}" class="${d === on ? "on" : ""}">${d.label}${d.n != null ? ` <small class="num">${fmt(d.n)}</small>` : ""}</button>`).join("")}</div>` +
+      defs.map(d => `<div class="tabpanel" data-k="${d.k}" style="padding-top:22px"${d === on ? "" : " hidden"}>${d.html}</div>`).join("");
+  };
+  const wireTabs = () => document.querySelectorAll("#etabs button").forEach(b => b.onclick = () => {
+    document.querySelectorAll("#etabs button").forEach(x => x.classList.toggle("on", x === b));
+    document.querySelectorAll(".tabpanel").forEach(p => p.hidden = p.dataset.k !== b.dataset.k);
+    history.replaceState(null, "", "#" + b.dataset.k);
+  });
+  const kv = items => `<div class="kv" style="grid-template-columns:repeat(${items.length},1fr)">${items.map(([n, l]) => `<div><b class="num">${n}</b><span>${l}</span></div>`).join("")}</div>`;
+  const lodLinks = p => p?.lod?.length ? `<div class="lod">${p.lod.map(b => `<a href="${b.href}" target="_blank" rel="noopener">${esc(lodName(b))} ↗</a>`).join("")}</div>` : "";
+
+  // ── 인물 ──
+  if (T === "person") {
+    const p = D.P.get(ID);
+    if (!p) return root.innerHTML = `<div class="empty">인물을 찾을 수 없습니다.</div>`;
+    document.title = `${p.name} — kcritic`;
+    const wrote = D.essays.filter(e => e.critic === ID), about = D.essays.filter(e => e.subjects.includes(ID)), cites = D.essays.filter(e => e.theorists.includes(ID));
+    const role = mainRole(p), oldDir = { critic: "critics", writer: "writers", theorist: "thinkers" }[role];
+    const defs = [];
+    if (wrote.length) defs.push({ k: "wrote", label: "쓴 글", n: wrote.length, html: `
+      <div class="panel" style="margin-bottom:22px"><h5>연도별 <span>${wrote.length}편</span></h5>${histSVG(wrote.map(e => +e.year), { h: 80 })}</div>
+      <div class="dash" style="margin-bottom:24px">
+        <div class="panel"><h5>가장 많이 다룬 작가</h5>${hbars(tally(wrote, e => e.subjects).slice(0, 10).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-writer" })))}</div>
+        <div class="panel"><h5>가장 많이 인용한 이론가</h5>${hbars(tally(wrote, e => e.theorists).slice(0, 10).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-theorist" })))}</div>
+        <div class="panel wide"><h5>자주 쓴 개념어</h5>${chips(tally(wrote, e => e.concepts).slice(0, 24), "t-concept", href.concept, x => x)}</div>
+      </div>${rows(wrote)}` });
+    if (about.length) defs.push({ k: "about", label: "이 작가를 다룬 비평", n: about.length, html: `
+      <div class="dash" style="margin-bottom:24px">
+        <div class="panel"><h5>연도별</h5>${histSVG(about.map(e => +e.year), { h: 80 })}</div>
+        <div class="panel"><h5>다룬 비평가</h5>${hbars(tally(about, e => [e.critic]).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
+        <div class="panel wide"><h5>이 작가를 논할 때 쓰인 개념어</h5>${chips(tally(about, e => e.concepts).slice(0, 20), "t-concept", href.concept, x => x)}</div>
+      </div>${rows(about)}` });
+    if (cites.length) defs.push({ k: "cited", label: "이 이론가를 인용한 비평", n: cites.length, html: `
+      <div class="dash" style="margin-bottom:24px">
+        <div class="panel"><h5>연도별</h5>${histSVG(cites.map(e => +e.year), { h: 80 })}</div>
+        <div class="panel"><h5>인용한 비평가</h5>${hbars(tally(cites, e => [e.critic]).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
+        <div class="panel wide"><h5>함께 다뤄진 작가</h5>${chips(tally(cites, e => e.subjects).slice(0, 20), "t-writer", href.person, nm)}</div>
+      </div>${rows(cites)}` });
+    root.innerHTML = `
+      <div class="ent-head">
+        <div class="crumb"><a href="explore.html?p=people">인물</a><span>/</span><span>${esc(p.name)}</span></div>
+        <div class="chips">${p.wrote ? `<span class="pill t-critic"><span class="dot t-critic"></span>비평가</span>` : ""}${p.discussed ? `<span class="pill t-writer"><span class="dot t-writer"></span>비평 대상 작가</span>` : ""}${p.cited ? `<span class="pill t-theorist"><span class="dot t-theorist"></span>인용 이론가</span>` : ""}</div>
+        <h1>${esc(p.name)}${p.en ? `<small>${esc(p.en)}</small>` : ""}</h1>
+        
+        ${lodLinks(p)}
+      </div>
+      <div class="ent"><div>${kv([[p.wrote, "쓴 글"], [p.discussed, "다뤄진 글"], [p.cited, "인용된 글"]].filter(x => x[0]).concat([[p.from ? `${p.from}–${p.to}` : "–", "등장 연도"]]))}${tabs(defs)}</div>
+        <aside class="aside">
+          <div class="panel"><h5>기본 정보</h5><dl><dt>식별자</dt><dd class="num">${esc(p.id)}</dd><dt>대표 역할</dt><dd>${TYPE[role].label}</dd><dt>외부 전거</dt><dd>${p.lod.length ? p.lod.map(b => esc(lodName(b))).join(", ") : "연결 없음"}</dd></dl></div>
+          <div class="panel"><h5>더 보기</h5><dl>
+            <dt>관계망</dt><dd><a href="${KC}site/graph.html#${encodeURIComponent(p.id)}">이 인물 중심으로</a></dd>
+            <dt>기존 페이지</dt><dd><a href="${KC}site/${oldDir}/${encodeURIComponent(p.id)}.html">현행 프로필</a></dd>
+            <dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}${esc(p.id)}</dd></dl></div>
+        </aside></div>`;
+    wireTabs();
+  }
+
+  // ── 글 ──
+  if (T === "essay") {
+    const e = D.E.get(ID);
+    if (!e) return root.innerHTML = `<div class="empty">글을 찾을 수 없습니다.</div>`;
+    document.title = `${e.title} — kcritic`;
+    const share = D.essays.filter(x => x.id !== e.id).map(x => ({ x, s: x.concepts.filter(c => e.concepts.includes(c)) })).filter(o => o.s.length).sort((a, b) => b.s.length - a.s.length || ko(a.x.year, b.x.year)).slice(0, 8);
+    const sameIssue = e.coll === "mhs" ? D.essays.filter(x => x.coll === "mhs" && x.issue === e.issue && x.id !== e.id) : [];
+    const issueId = e.issue ? String(e.issue).padStart(3, "0") : "";
+    root.innerHTML = `
+      <div class="ent-head">
+        <div class="crumb"><a href="explore.html?p=essays">글</a><span>/</span><a href="explore.html?p=essays&coll=${e.coll}">${esc(e.coll_name)}</a>${e.coll === "mhs" ? `<span>/</span><a href="${href.issue(issueId)}">${e.issue}호</a>` : ""}</div>
+        <span class="pill t-essay"><span class="dot t-essay"></span>글</span>
+        <h1>${esc(e.title)}</h1>
+        <div class="ent-sub"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> <b style="color:var(--ink)">${esc(e.critic_name)}</b></a><span class="num">${e.year}</span>
+          <span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호 · ${esc(e.pages)}면${e.section ? " · " + esc(e.section) : ""}` : esc(e.venue)}</span></div>
+      </div>
+      <div class="ent"><div>
+        ${kv([[e.subjects.length, "다룬 작가"], [e.theorists.length, "인용 이론가"], [e.concepts.length, "개념어"]])}
+        <div class="block"><h3><span class="dot t-writer"></span>다룬 작가 <span>${e.subjects.length}</span></h3>${e.subjects.length ? chips(e.subjects.map(i => [i, 1]), "t-writer", href.person, nm) : `<p class="note">특정 작가를 다루지 않은 글입니다.</p>`}</div>
+        <div class="block"><h3><span class="dot t-theorist"></span>인용 이론가 <span>${e.theorists.length}</span></h3>${e.theorists.length ? chips(e.theorists.map(i => [i, 1]), "t-theorist", href.person, nm) : `<p class="note">없음</p>`}</div>
+        <div class="block"><h3><span class="dot t-concept"></span>개념어 <span>${e.concepts.length}</span></h3>${chips(e.concepts.map(c => [c, 1]), "t-concept", href.concept, x => x)}</div>
+        <div class="block"><h3>개념어를 공유하는 글</h3>${share.length ? `<div class="rows">${share.map(o => `<article class="row"><div class="yr num">${o.x.year}</div><div><h4><a href="${href.essay(o.x.id)}">${esc(o.x.title)}</a></h4><div class="meta"><span>${esc(o.x.critic_name)}</span></div><div class="tags">${o.s.map(c => `<a class="hl" href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div></div><div class="side">공유 ${o.s.length}</div></article>`).join("")}</div>` : `<p class="note">공유하는 글이 없습니다.</p>`}</div>
+        ${sameIssue.length ? `<div class="block"><h3>같은 호에 실린 비평 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(essayRow).join("")}</div></div>` : ""}
+      </div>
+      <aside class="aside">
+        <div class="panel"><h5>서지</h5><dl><dt>비평가</dt><dd><a href="${href.person(e.critic)}">${esc(e.critic_name)}</a></dd><dt>연도</dt><dd class="num">${e.year}</dd>
+          <dt>지면</dt><dd>${e.coll === "mhs" ? `<a href="${href.issue(issueId)}">《문학과사회》 ${e.issue}호</a>, ${esc(e.pages)}면` : esc(e.venue)}</dd>${e.section ? `<dt>난</dt><dd>${esc(e.section)}</dd>` : ""}<dt>컬렉션</dt><dd>${esc(e.coll_name)}</dd></dl></div>
+        <div class="panel"><h5>더 보기</h5><dl><dt>관계망</dt><dd><a href="${KC}site/graph.html#${encodeURIComponent(e.id)}">이 글 중심으로</a></dd>
+          <dt>기존 페이지</dt><dd><a href="${KC}site/essays/${encodeURIComponent(e.id)}.html">현행 메타데이터</a></dd><dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(e.id)}</dd></dl>
+          <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.</p></div>
+      </aside></div>`;
+  }
+
+  // ── 개념어 ──
+  if (T === "concept") {
+    const es = D.essays.filter(e => e.concepts.includes(ID));
+    if (!es.length) return root.innerHTML = `<div class="empty">개념어를 찾을 수 없습니다.</div>`;
+    document.title = `${ID} — kcritic`;
+    const ys = es.map(e => +e.year), co = tally(es, e => e.concepts.filter(c => c !== ID)).slice(0, 24);
+    root.innerHTML = `
+      <div class="ent-head"><div class="crumb"><a href="explore.html?p=concepts">개념어</a><span>/</span><span>${esc(ID)}</span></div>
+        <span class="pill t-concept"><span class="dot t-concept"></span>개념어</span><h1>${esc(ID)}</h1>
+        <div class="ent-sub num">${Math.min(...ys)}년에 처음, ${Math.max(...ys)}년에 마지막으로 쓰임</div></div>
+      <div class="ent"><div>
+        ${kv([[es.length, "글"], [new Set(es.map(e => e.critic)).size, "비평가"], [new Set(es.map(e => e.coll)).size, "컬렉션"]])}
+        <div class="panel" style="margin-bottom:24px"><h5>연도별 사용</h5>${histSVG(ys, { h: 90 })}</div>
+        <div class="dash" style="margin-bottom:24px">
+          <div class="panel"><h5>이 개념어를 쓴 비평가</h5>${hbars(tally(es, e => [e.critic]).slice(0, 10).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
+          <div class="panel"><h5>함께 다뤄진 작가</h5>${hbars(tally(es, e => e.subjects).slice(0, 10).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-writer" })))}</div>
+          <div class="panel wide"><h5>함께 쓰인 개념어</h5>${chips(co, "t-concept", href.concept, x => x)}</div>
+        </div>
+        <div class="block"><h3>이 개념어를 쓴 글 <span>${es.length}</span></h3>${rows(es, 20)}</div>
+      </div>
+      <aside class="aside"><div class="panel"><h5>어휘 통제</h5><p class="note">같은 개념을 다르게 적은 표기는 하나로 맞춰 집계합니다(통제어휘). 표기 차이로 갈린 개념이 보이면 알려 주세요.</p></div>
+        <div class="panel"><h5>RDF</h5><p class="note">글의 <code>dcterms:subject</code> 리터럴로 발행됩니다. 질문하기의 SPARQL 탭에서 조회할 수 있습니다.</p></div></aside></div>`;
+  }
+
+  // ── 호 ──
+  if (T === "issue") {
+    const i = D.issues.find(x => x.id === ID);
+    if (!i) return root.innerHTML = `<div class="empty">호를 찾을 수 없습니다.</div>`;
+    document.title = `『문학과사회』 ${i.no}호 — kcritic`;
+    const k = D.issues.indexOf(i), prev = D.issues[k - 1], next = D.issues[k + 1];
+    const es = D.essays.filter(e => e.coll === "mhs" && e.issue === i.no);
+    root.innerHTML = `
+      <div class="ent-head"><div class="crumb"><a href="explore.html?p=venues">지면</a><span>/</span><span>『문학과사회』</span><span>/</span><span>${i.no}호</span></div>
+        <span class="pill t-venue"><span class="dot t-venue"></span>잡지 호</span><h1>『문학과사회』 ${i.no}호 <small>${i.year}년 ${i.season}</small></h1>
+        <div class="ent-sub">문학과지성사 · ${prev ? `<a href="${href.issue(prev.id)}">← ${prev.no}호</a>` : ""} ${next ? `<a href="${href.issue(next.id)}">${next.no}호 →</a>` : ""}</div></div>
+      <div class="ent"><div>
+        ${kv([[i.n_public, "공개한 비평"], [i.items.length, "목차의 비평·좌담·심사평"], [Math.round(100 * i.n_public / Math.max(1, i.items.length)) + "%", "인코딩 공개율"]])}
+        <div class="block"><h3>목차</h3><div class="rows">${i.items.map(x => `<article class="row"${x.stem ? "" : ' style="color:var(--faint)"'}>
+          <div class="yr num">${esc(x.pages)}</div><div><h4 style="font-weight:${x.stem ? 600 : 500}">${x.stem ? `<a href="${href.essay(x.stem)}">${esc(x.title)}</a>` : esc(x.title)}</h4>
+          <div class="meta"><span>${esc(x.author)}</span><span>${esc(x.section)}</span></div></div>
+          <div class="side"><span class="pill${x.stem ? " t-essay" : ""}">${esc(x.state)}</span></div></article>`).join("")}</div></div>
+      </div>
+      <aside class="aside">${es.length ? `<div class="panel t-concept"><h5>이 호의 개념어</h5>${chips(tally(es, e => e.concepts).slice(0, 18), "t-concept", href.concept, x => x)}</div>
+        <div class="panel"><h5>이 호에서 다뤄진 작가</h5>${hbars(tally(es, e => e.subjects).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-writer" })))}</div>` : `<div class="panel"><p class="note">아직 공개한 글이 없습니다.</p></div>`}</aside></div>`;
+  }
+});
+</script>
+</body>
+</html>

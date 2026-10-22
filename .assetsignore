@@ -25,3 +25,7 @@ essays_backup_qidfix
 .dev.vars*
 id_map.json
 .claude
+
+# Worker 코드·비공개 색인은 정적 자산이 아님
+/worker
+/find

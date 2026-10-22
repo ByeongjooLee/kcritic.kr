@@ -1,4 +1,4 @@
-# deploy.ps1 — 빌드 → 커밋·푸시 → Cloudflare 라이브 배포
+﻿# deploy.ps1 — 빌드 → 커밋·푸시 → Cloudflare 라이브 배포
 # 사용법: .\deploy.ps1 "커밋 메시지"
 # 주의: .gitignore가 essays/*.xml·.env·백업·작업CSV를 막으므로 git add -A 안전.
 
@@ -7,6 +7,11 @@ param([string]$msg = "rebuild site")
 Write-Host "1. build.py 실행..." -ForegroundColor Cyan
 py build.py
 if (-not $?) { Write-Host "[오류] build.py 실패" -ForegroundColor Red; exit 1 }
+
+Write-Host "1b. build_site_v2.py (탐색·개체 페이지·글 찾기 데이터)..." -ForegroundColor Cyan
+py build_site_v2.py
+if (-not $?) { Write-Host "[오류] build_site_v2.py 실패" -ForegroundColor Red; exit 1 }
+if (-not (Test-Path "worker\private\shards.js")) { Write-Host "[오류] worker\private 없음 — find/build_find.py(GPU)를 먼저 실행" -ForegroundColor Red; exit 1 }
 
 Write-Host "2. 변경 파일 스테이징 (gitignore가 원문·크레덴셜 차단)..." -ForegroundColor Cyan
 git add -A

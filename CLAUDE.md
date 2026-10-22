@@ -34,6 +34,8 @@ AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로
 - **유일한 예외 (2026-09-15 연구자 결정)**: `build_interp_game.py` 가 TEI 태도 표시(`@ana` 의 affirmative/neutral/critical)가 붙은 **문장만** `site/data/interp_game.json` 으로 공개한다(현재 224문장, 김우창 17편). 각 문장에 비평문 제목·수록 단행본을 출처로 싣는다. 대상 확대(다른 비평가, 표시 없는 문장, 앞뒤 문맥 등)는 연구자의 명시적 결정 없이 하지 말 것
 - 판정 수집기 `../판정수집_AppsScript.gs` 는 운영자 메일 주소를 담고 있어 **저장소 밖(부모 폴더)** 에 둔다. 저장소·사이트 코드에는 웹 앱 URL(`site/data/game_config.json`)만 들어간다
 - `.env.example` 도 배포 제외 (`.assetsignore`) — 실값은 없어도 어떤 키를 쓰는지 스캐너에 알려주는 힌트가 됨
+- **글 찾기 본문 색인 `worker/private/` 은 공개 금지 (2026-10-22)**: 본문 희귀어 역색인(원문에서 만든 낱말→글 번호)은 `.gitignore`·`.assetsignore` 로 막혀 있고 Worker 번들에만 들어간다. GitHub 공개 저장소에 올리거나 정적 파일로 내보내지 말 것. 본문 구간 벡터도 만들어 공개하지 않는다(임베딩 역추적으로 원문 일부 복원 가능). 공개되는 `site/data/find/` 벡터는 메타데이터(제목·개념어·인물)에서만 만든다
+- `/api/find` 응답에는 질문 벡터와 '질문에 있던 낱말 → 글 번호'만 담는다. 원문 문장을 돌려주는 경로를 만들지 말 것
 
 ### API 서버(`neo4j_api.py`) 보안 규칙 — 2026-09-07 강화
 
@@ -127,6 +129,31 @@ critic-ontology/
 > `convert_phd.py` · `convert_criticism.py` 는 저장소가 아니라 **부모 폴더(`온톨로지/`)** 에 있다. 출력만 `critic-ontology/site/data/` 로 들어온다.
 
 ---
+
+## 3-0. 사이트 2판 (2026-10-22 공개)
+
+첫 화면·탐색·개체 페이지를 새 체계로 바꿨다. 해외 DH 포털(프린스턴 Shakespeare and Company Project, 알토대 Sampo 포털)의 '관점 + 패싯 + 결과 보기' 구조를 따랐다.
+
+| 파일 | 역할 |
+|---|---|
+| `index.html` | 첫 화면 — 글 찾기 검색창, 관점 카드 4, 컬렉션, 분석·참여 |
+| `explore.html?p=find\|essays\|people\|concepts\|venues` | 관점별 탐색. 왼쪽 패싯(개수는 다른 조건을 반영), 오른쪽 목록·표·분석, CSV 내려받기 |
+| `entity.html?t=person\|essay\|concept\|issue&id=` | 개체 페이지 — 유형 표시, 외부 전거, 핵심 수, 탭, 오른쪽 기본 정보·IRI |
+| `kc.css` `kc.js` | 디자인 체계(흰 바탕·먹색·강조색 하나·유형별 고정 색)와 공통 머리글·바닥글 |
+| `kc-find.js` | 글 찾기 브라우저 엔진 (아래) |
+| `list.html` | 예전 첫 화면(카드 488개). 바닥글에서만 연결. `../문학과사회/site_prep/make_cards.py` 가 여기에 『문학과사회』 카드를 넣는다 |
+
+- **주 메뉴(모든 페이지 동일)**: 글 찾기 · 글 · 인물 · 개념어 · 지면 · 관계망 · 질문하기 · 소개. 예전 페이지(critics/writers/thinkers/concepts/research/criticism/evaluate/contribute/about/ask/sparql/admin/list, site/graph.html, build.py 템플릿 4곳)의 `<nav class="site-nav">` 도 이 8개로 맞췄다. 태도 평가·선행연구·2000년대 비평·기여하기는 2판 바닥글에서 연결
+- 2판 페이지는 '비평글' 대신 **'글'** 이라고 부른다 (좌담·심사평 등 비평 외 글도 포함하므로)
+- 데이터: `site/data/v2/{essays,people,concepts,issues}.json` ← `py build_site_v2.py` (build.py 다음). 호별 목차는 `../문학과사회/encode_ledger.json` 이 있을 때 다시 만든다
+
+### 글 찾기 (2026-10-22)
+작업도구/추천 「읽을 글 찾기」 2판을 kcritic 글에 옮긴 것. **DeepSeek(질문 해석·재순위)은 쓰지 않는다**(연구자 결정).
+- 점수 = 뜻 0.62 + 낱말 0.23 + 인물 관계 0.15. 뜻 = bge-m3 글 전체 0.55 + 칸별(제목·개념어·인물) 최고 0.45. 낱말 = 개념어·인물 정확 일치(idf)·부분 일치·글자 2-gram BM25·**본문 희귀어**(Worker 조회)·드문 말 가산. 인물 관계 = 질문 속 인물이 쓴/다룬/인용한 글(「~가 쓴」「~를 인용한」「~론」 규칙)
+- 구성: 브라우저(`kc-find.js`)가 공개 벡터 `site/data/find/{vec.bin,vocab.bin,meta.json}`(int8, 약 4MB)로 계산. `/api/find`(Worker `worker/index.js`)는 Workers AI `@cf/baai/bge-m3` 질문 벡터 + 비공개 본문 희귀어 조각(`worker/private/bodylex/*.txt` 256개, FNV-1a)만 돌려준다. Worker CPU 를 거의 쓰지 않아 무료 한도(10ms) 안
+- 색인 다시 만들기(글이 바뀌면): `py build.py` → `py build_site_v2.py` → `<ocr_train venv python> -X utf8 find/build_find.py`(GPU, 1분). 벡터와 essays.json 순서가 어긋나도 id 로 맞추며, 벡터 없는 글은 낱말·관계로만 찾힌다
+- 평가: 정답 정해진 질문 46개(`../site_proto/v2/find/eval_set.json`). 운영 구성 MRR 메타 0.903 / 본문 0.852 (로컬 GPU 서버판은 본문 구간 벡터까지 써서 0.903 / 0.938, 1판 0.933 / 0.293). Node 대조: `node ../site_proto/v2/find/node_parity.js`
+- 시안·로컬 서버판·평가 도구는 저장소 밖 `../site_proto/v2/` 에 있다
 
 ## 3. 사이트 구조 (네비 탭 12개)
 
@@ -495,7 +522,7 @@ Cytoscape.js 3.28 기반.
 Cloudflare Workers (무료 티어). `wrangler.jsonc`의 `assets.directory = "."`.
 
 ```
-py build.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가 3단계 모두 수행)
+py build.py → py build_site_v2.py → git push → npx wrangler deploy   (.\deploy.ps1 "메시지" 가 모두 수행. wrangler deploy 는 worker/private 을 번들에 넣으므로 이 PC 에서만 배포)
 ```
 
 **⚠️ git push만으로는 라이브 반영 안 됨.** GitHub Actions/자동배포 없음 → 반드시 `npx wrangler deploy` 실행해야 Cloudflare에 반영. `deploy.ps1`이 build+add -A+commit+push+deploy를 한 번에 처리.
