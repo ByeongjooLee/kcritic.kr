@@ -117,7 +117,7 @@ db().then(D => {
         <div class="panel"><h5>더 보기</h5><dl><dt>관계망</dt><dd><a href="${KC}site/graph.html#${encodeURIComponent(e.id)}">이 글 중심으로</a></dd>
           <dt>기존 페이지</dt><dd><a href="${KC}site/essays/${encodeURIComponent(e.id)}.html">현행 메타데이터</a></dd><dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(e.id)}</dd></dl>
           <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.${VENUE_LINK[e.coll] ? ` 원문은 발행처에서 확인할 수 있습니다.` : ""}</p>
-          ${VENUE_LINK[e.coll] ? `<a class="btn" style="margin-top:10px;width:100%;justify-content:center" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 · ${esc(VENUE_LINK[e.coll].label)} ↗</a>` : ""}</div>
+          ${VENUE_LINK[e.coll] ? `<a class="btn btn-block" style="margin-top:10px" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 ↗<small>${esc(VENUE_LINK[e.coll].label)}</small></a>` : ""}</div>
       </aside></div>`;
   }
 

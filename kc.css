@@ -44,6 +44,9 @@ button, input, select { font: inherit; color: inherit; }
 .btn { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-2); background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; }
 .btn:hover { border-color: var(--ink); }
 .btn.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+/* 긴 문구용 블록 버튼 (줄바꿈 허용) — 예: 원문 정보 안내 */
+.btn-block { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 100%; height: auto; padding: 10px 14px; border-radius: var(--r-sm); white-space: normal; text-align: center; line-height: 1.4; }
+.btn-block small { font-size: 12px; font-weight: 400; color: var(--muted); }
 .menu-btn { display: none; }
 @media (max-width: 980px) {
   .gsearch input { width: 180px; } .brand span { display: none; }
