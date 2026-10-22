@@ -521,6 +521,20 @@ def person_chip(p, role_type=None):
 _SOURCE_ROLE_LABEL = {"journal": "저널", "publication": "단행본", "original": "원출처",
                       "collection": "수록", "reprint": "재수록", "bibl": "서지"}
 
+# 잡지 원문 안내 — 원문을 제공하지 않는 대신 발행처의 공식 안내 페이지로 연결한다. 잡지가 늘면 여기 한 줄 (kc.js VENUE_LINK 와 같게)
+JOURNAL_LINKS = {
+    "문학과사회": ("https://moonji.com/literatureAndSociety/intro", "문학과지성사 『문학과사회』 소개·구독"),
+}
+
+
+def journal_link(sources):
+    """서지가 등록된 잡지면 (url, 표시문) — 아니면 None."""
+    for s in sources or []:
+        if s.get("journal_or_book") in JOURNAL_LINKS:
+            return JOURNAL_LINKS[s["journal_or_book"]]
+    return None
+
+
 def source_html(sources):
     """비평문 페이지의 출처 칸. 서지 비고(초출·수록 정보)도 함께 보인다 — 비고는 서지 정보만 담고 원문은 없다."""
     import html as _h
@@ -538,7 +552,10 @@ def source_html(sources):
             f'{", " + esc(s["publisher"]) if s["publisher"] else ""}'
             f'{", " + esc(s["date"]) if s["date"] else ""}'
             f'{", " + esc(s["issue"]) + "호" if s.get("issue") else ""}'
-            f'{", " + esc(s["pages"]) + "면" if s.get("pages") else ""}{notes}</li>'
+            f'{", " + esc(s["pages"]) + "면" if s.get("pages") else ""}{notes}'
+            + (f'<div class="source-note">원문 정보: <a href="{JOURNAL_LINKS[s["journal_or_book"]][0]}" target="_blank" rel="noopener">{esc(JOURNAL_LINKS[s["journal_or_book"]][1])} ↗</a></div>'
+               if s.get("journal_or_book") in JOURNAL_LINKS else "")
+            + '</li>'
         )
     return '<ul class="source-list">' + "\n".join(items) + "</ul>"
 
@@ -635,6 +652,8 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
 
     # author_ref는 여러 URI(wikidata/encykorea/...)가 공백으로 이어진 문자열이므로 wikidata URI만 추출
     _author_wiki = next((u for u in author_ref.split() if "wikidata" in u), "")
+    _jl = journal_link(sources)
+    _jl_notice = (f' 원문은 발행처에서 확인할 수 있습니다: <a href="{_jl[0]}" target="_blank" rel="noopener">{_jl[1]} ↗</a>' if _jl else "")
     author_link = f'<a href="{_author_wiki}" target="_blank">{author_name}</a>' if _author_wiki else author_name
 
     return f"""<!DOCTYPE html>
@@ -685,7 +704,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
       </div>
 
       <div class="essay-notice">
-        <p>이 페이지는 비평글의 구조화 데이터(관계망)만 표시합니다. 원문은 저작권 보호에 따라 제공하지 않습니다.</p>
+        <p>이 페이지는 비평글의 구조화 데이터(관계망)만 표시합니다. 원문은 저작권 보호에 따라 제공하지 않습니다.{_jl_notice}</p>
       </div>
 
     </article>

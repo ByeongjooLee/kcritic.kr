@@ -36,6 +36,8 @@ const href = {
   concept: n => `entity.html?t=concept&id=${encodeURIComponent(n)}`,
   issue: id => `entity.html?t=issue&id=${encodeURIComponent(id)}`,
 };
+// 잡지 원문 안내 (build.py JOURNAL_LINKS 와 같게) — 원문 대신 발행처 공식 페이지로 연결
+const VENUE_LINK = { mhs: { url: "https://moonji.com/literatureAndSociety/intro", label: "문학과지성사 『문학과사회』 소개·구독" } };
 const LODN = { "W": "Wikidata", "NLK": "국중 LOD", "한": "민족문화대백과", "한(작품)": "민족문화대백과(작품)", "문학": "현대문학대사전" };
 const lodName = b => LODN[b.label] || b.full || b.label;
 const mainRole = p => p.wrote ? "critic" : (p.discussed >= p.cited ? "writer" : "theorist");

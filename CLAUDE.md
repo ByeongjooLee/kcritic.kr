@@ -145,6 +145,7 @@ critic-ontology/
 
 - **주 메뉴(모든 페이지 동일)**: 글 찾기 · 글 · 인물 · 개념어 · 지면 · 관계망 · 질문하기 · 소개. 예전 페이지(critics/writers/thinkers/concepts/research/criticism/evaluate/contribute/about/ask/sparql/admin/list, site/graph.html, build.py 템플릿 4곳)의 `<nav class="site-nav">` 도 이 8개로 맞췄다. 태도 평가·선행연구·2000년대 비평·기여하기는 2판 바닥글에서 연결
 - 2판 페이지는 '비평글' 대신 **'글'** 이라고 부른다 (좌담·심사평 등 비평 외 글도 포함하므로)
+- **잡지 원문 안내**: 원문을 제공하지 않는 대신 발행처 공식 페이지로 연결한다. 『문학과사회』 → https://moonji.com/literatureAndSociety/intro (문학과지성사 소개·구독, 호별 과월호 목록은 없음). 등록은 build.py `JOURNAL_LINKS`(현행 글 페이지 출처 칸·안내문)와 kc.js `VENUE_LINK`(2판 글·호 페이지) 두 곳을 같게
 - 데이터: `site/data/v2/{essays,people,concepts,issues}.json` ← `py build_site_v2.py` (build.py 다음). 호별 목차는 `../문학과사회/encode_ledger.json` 이 있을 때 다시 만든다
 
 ### 글 찾기 (2026-10-22)

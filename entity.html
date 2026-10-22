@@ -113,10 +113,11 @@ db().then(D => {
       </div>
       <aside class="aside">
         <div class="panel"><h5>서지</h5><dl><dt>비평가</dt><dd><a href="${href.person(e.critic)}">${esc(e.critic_name)}</a></dd><dt>연도</dt><dd class="num">${e.year}</dd>
-          <dt>지면</dt><dd>${e.coll === "mhs" ? `<a href="${href.issue(issueId)}">《문학과사회》 ${e.issue}호</a>, ${esc(e.pages)}면` : esc(e.venue)}</dd>${e.section ? `<dt>난</dt><dd>${esc(e.section)}</dd>` : ""}<dt>컬렉션</dt><dd>${esc(e.coll_name)}</dd></dl></div>
+          <dt>지면</dt><dd>${e.coll === "mhs" ? `<a href="${href.issue(issueId)}">《문학과사회》 ${e.issue}호</a>, ${esc(e.pages)}면` : esc(e.venue)}</dd>${e.section ? `<dt>난</dt><dd>${esc(e.section)}</dd>` : ""}<dt>컬렉션</dt><dd>${esc(e.coll_name)}</dd>${VENUE_LINK[e.coll] ? `<dt>원문 정보</dt><dd><a href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">${esc(VENUE_LINK[e.coll].label)} ↗</a></dd>` : ""}</dl></div>
         <div class="panel"><h5>더 보기</h5><dl><dt>관계망</dt><dd><a href="${KC}site/graph.html#${encodeURIComponent(e.id)}">이 글 중심으로</a></dd>
           <dt>기존 페이지</dt><dd><a href="${KC}site/essays/${encodeURIComponent(e.id)}.html">현행 메타데이터</a></dd><dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(e.id)}</dd></dl>
-          <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.</p></div>
+          <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.${VENUE_LINK[e.coll] ? ` 원문은 발행처에서 확인할 수 있습니다.` : ""}</p>
+          ${VENUE_LINK[e.coll] ? `<a class="btn" style="margin-top:10px;width:100%;justify-content:center" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 · ${esc(VENUE_LINK[e.coll].label)} ↗</a>` : ""}</div>
       </aside></div>`;
   }
 
@@ -154,7 +155,7 @@ db().then(D => {
     root.innerHTML = `
       <div class="ent-head"><div class="crumb"><a href="explore.html?p=venues">지면</a><span>/</span><span>『문학과사회』</span><span>/</span><span>${i.no}호</span></div>
         <span class="pill t-venue"><span class="dot t-venue"></span>잡지 호</span><h1>『문학과사회』 ${i.no}호 <small>${i.year}년 ${i.season}</small></h1>
-        <div class="ent-sub">문학과지성사 · ${prev ? `<a href="${href.issue(prev.id)}">← ${prev.no}호</a>` : ""} ${next ? `<a href="${href.issue(next.id)}">${next.no}호 →</a>` : ""}</div></div>
+        <div class="ent-sub">문학과지성사 · <a href="${VENUE_LINK.mhs.url}" target="_blank" rel="noopener">원문 정보 ↗</a> · ${prev ? `<a href="${href.issue(prev.id)}">← ${prev.no}호</a>` : ""} ${next ? `<a href="${href.issue(next.id)}">${next.no}호 →</a>` : ""}</div></div>
       <div class="ent"><div>
         ${kv([[i.n_public, "공개한 비평"], [i.items.length, "목차의 비평·좌담·심사평"], [Math.round(100 * i.n_public / Math.max(1, i.items.length)) + "%", "인코딩 공개율"]])}
         <div class="block"><h3>목차</h3><div class="rows">${i.items.map(x => `<article class="row"${x.stem ? "" : ' style="color:var(--faint)"'}>
