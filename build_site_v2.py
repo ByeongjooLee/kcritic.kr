@@ -22,6 +22,12 @@ MHS = HERE.parent / "문학과사회"
 WORKS = {"p-kim-hyon": "김현 전집", "p-00246": "유종호 전집", "p-00117": "김우창 전집", "p-hwang-hyonsan": "황현산 비평집"}
 
 
+def fmt_pages(p):
+    """쪽 표기 통일: 1308-1309,1317-1329 → 1308–1309·1317–1329"""
+    p = re.sub(r"\s*[-~–]\s*", "–", str(p or "").strip())
+    return re.sub(r"\s*[,·]\s*", "·", p)
+
+
 def dump(name, obj):
     (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
@@ -46,7 +52,7 @@ def main():
             "coll_name": "『문학과사회』" if is_mhs else WORKS.get(aid, "기타"),
             "venue": build._source_short(d["sources"]),
             "issue": int(src["issue"]) if is_mhs and str(src.get("issue", "")).isdigit() else None,
-            "pages": src.get("pages", "") if is_mhs else "",
+            "pages": fmt_pages(src.get("pages", "")) if is_mhs else "",
             "section": section_of.get(d["stem"], "") if is_mhs else "",
             "concepts": [c["name"] for c in d.get("concepts", [])][:12],
             "subjects": sorted(d["subjects"]), "theorists": sorted(d["theorists"]),
@@ -96,7 +102,7 @@ def main():
                 e = published.get(v.get("stem"))
                 pg = re.match(r"(\d+)", str(v.get("pages", "")))
                 items.append({"author": v.get("author", ""), "title": v.get("title", ""), "section": v.get("section", ""),
-                              "pages": e["pages"] if e else v.get("pages", ""), "first": int(pg.group(1)) if pg else 0,
+                              "pages": e["pages"] if e else fmt_pages(v.get("pages", "")), "first": int(pg.group(1)) if pg else 0,
                               "stem": v["stem"] if e else None, "state": "공개" if e else state.get(v["status"], v["status"])})
             items.sort(key=lambda x: x["first"])
             issues.append({"id": iid, "no": meta.get("no", int(iid[:3])), "year": meta.get("year"), "season": meta.get("season"),
