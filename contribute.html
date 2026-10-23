@@ -3,205 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>기여하기 — 한국 비평사 온톨로지</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <title>참여하기 — kcritic</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="kc.css">
   <style>
-    .contrib-wrap { max-width: 680px; margin: 0 auto; padding: 3rem 0 5rem; }
-
-    .contrib-hero { margin-bottom: 2rem; }
-    .contrib-hero h1 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.6rem; }
-    .contrib-hero p  { font-size: .93rem; color: var(--text-secondary); line-height: 1.8; }
-
-    /* 기여 방식 탭 */
-    .contrib-tabs {
-      display: flex; gap: 0; margin-bottom: 2rem;
-      border: 1.5px solid var(--border); border-radius: 9px; overflow: hidden;
-    }
-    .contrib-tab {
-      flex: 1; padding: .7rem 1rem; text-align: center;
-      font-size: .88rem; font-weight: 500; cursor: pointer;
-      background: var(--bg-card); color: var(--text-secondary);
-      border: none; border-right: 1px solid var(--border);
-      transition: all .15s; font-family: inherit;
-    }
-    .contrib-tab:last-child { border-right: none; }
-    .contrib-tab.active { background: var(--accent); color: #fff; }
-    .contrib-tab:hover:not(.active) { background: var(--bg-hover, #f5f5f5); }
-
-    .contrib-pane { display: none; }
-    .contrib-pane.active { display: block; }
-
-    /* 엑셀 업로드 */
-    .excel-section { margin-bottom: 2rem; }
-    .excel-section h2 {
-      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--text-tertiary);
-      margin-bottom: 1rem; padding-bottom: .4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .template-btns { display: flex; gap: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
-    .template-btn {
-      padding: .45rem .9rem; border: 1.5px solid var(--border);
-      border-radius: 7px; background: var(--bg-card);
-      color: var(--text-secondary); font-size: .82rem;
-      font-family: inherit; cursor: pointer; text-decoration: none;
-      display: inline-flex; align-items: center; gap: .35rem;
-      transition: border-color .15s;
-    }
-    .template-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    .upload-zone {
-      border: 2px dashed var(--border); border-radius: 10px;
-      padding: 2rem; text-align: center; cursor: pointer;
-      transition: border-color .15s; margin-bottom: 1rem;
-      background: var(--bg-card);
-    }
-    .upload-zone:hover, .upload-zone.dragover { border-color: var(--accent); }
-    .upload-zone .upload-icon { font-size: 2rem; margin-bottom: .5rem; }
-    .upload-zone p { font-size: .88rem; color: var(--text-secondary); margin: 0; }
-    .upload-zone .upload-hint { font-size: .78rem; color: var(--text-tertiary); margin-top: .3rem; }
-
-    .preview-table-wrap {
-      overflow-x: auto; margin-bottom: 1rem;
-      border: 1px solid var(--border); border-radius: 8px;
-      display: none;
-    }
-    .preview-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
-    .preview-table th {
-      background: var(--bg-card); padding: .5rem .7rem;
-      text-align: left; font-weight: 600; font-size: .75rem;
-      border-bottom: 1px solid var(--border); white-space: nowrap;
-    }
-    .preview-table td {
-      padding: .45rem .7rem; border-bottom: 1px solid var(--border);
-      white-space: nowrap; max-width: 200px;
-      overflow: hidden; text-overflow: ellipsis;
-    }
-    .preview-table tr:last-child td { border-bottom: none; }
-    .preview-info { font-size: .8rem; color: var(--text-secondary); margin-bottom: .8rem; }
-
-    .process-steps {
-      display: flex; gap: 0; margin: 1.5rem 0 2.5rem;
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-    }
-    .process-step {
-      flex: 1; padding: .75rem .6rem; text-align: center;
-      border-right: 1px solid var(--border); font-size: .78rem;
-      color: var(--text-secondary); line-height: 1.5;
-    }
-    .process-step:last-child { border-right: none; }
-    .process-step .step-num {
-      display: block; font-size: .65rem; font-weight: 700;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: .25rem;
-    }
-
-    /* 폼 */
-    .form-section { margin-bottom: 2rem; }
-    .form-section h2 {
-      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--text-tertiary);
-      margin-bottom: 1rem; padding-bottom: .4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .form-row { margin-bottom: 1rem; }
-    .form-row label {
-      display: block; font-size: .82rem; font-weight: 500;
-      color: var(--text-secondary); margin-bottom: .35rem;
-    }
-    .form-row label .req { color: var(--accent); margin-left: 2px; }
-    .form-row label .hint {
-      font-weight: 400; color: var(--text-tertiary);
-      font-size: .75rem; margin-left: .4rem;
-    }
-    .form-input, .form-select, .form-textarea {
-      width: 100%; padding: .6rem .9rem;
-      border: 1.5px solid var(--border); border-radius: 7px;
-      background: var(--bg-card); color: var(--text-primary);
-      font-size: .9rem; font-family: inherit;
-      transition: border-color .15s;
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      outline: none; border-color: var(--accent);
-    }
-    .form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
-    .form-textarea.mono { font-family: monospace; font-size: .83rem; min-height: 140px; }
-    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-
-    .type-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem;
-      margin-bottom: .25rem;
-    }
-    .type-card {
-      border: 1.5px solid var(--border); border-radius: 8px;
-      padding: .65rem .85rem; cursor: pointer; transition: all .15s;
-      display: flex; align-items: flex-start; gap: .5rem;
-    }
-    .type-card:hover { border-color: var(--accent); }
-    .type-card.selected { border-color: var(--accent); background: var(--accent-light); }
-    .type-card input[type=radio] { margin-top: 2px; accent-color: var(--accent); flex-shrink: 0; }
-    .type-card-text { font-size: .83rem; line-height: 1.4; }
-    .type-card-text strong { display: block; font-size: .88rem; }
-
-    .submit-btn {
-      width: 100%; padding: .85rem; border: none; border-radius: 8px;
-      background: var(--accent); color: #fff; font-size: 1rem;
-      font-family: inherit; font-weight: 600; cursor: pointer;
-      transition: opacity .15s;
-    }
-    .submit-btn:hover { opacity: .88; }
-    .submit-btn:disabled { opacity: .5; cursor: not-allowed; }
-
-    .status-box {
-      display: none; margin-top: 1.5rem; padding: 1.2rem 1.4rem;
-      border-radius: 10px; font-size: .9rem; line-height: 1.7;
-    }
-    .status-box.success { background: #f0faf4; border: 1px solid #a8d8b9; color: #1a5c35; }
-    .status-box.error   { background: #fff0f0; border: 1px solid #f5b8b8; color: #8b1a1a; }
-
-    .guidelines {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 2rem;
-      font-size: .83rem; color: var(--text-secondary); line-height: 1.8;
-    }
-    .guidelines h3 { font-size: .78rem; font-weight: 700; color: var(--text-tertiary);
-      text-transform: uppercase; letter-spacing: .08em; margin-bottom: .6rem; }
-    .guidelines ul { padding-left: 1.2rem; margin: 0; }
-    .guidelines li { margin-bottom: .2rem; }
-
-    @media (max-width: 600px) {
-      .type-grid { grid-template-columns: 1fr; }
-      .form-row-2 { grid-template-columns: 1fr; }
-      .process-steps { flex-direction: column; }
-      .process-step { border-right: none; border-bottom: 1px solid var(--border); }
-      .process-step:last-child { border-bottom: none; }
-    }
+    /* 참여하기 2판 — 양식·스크립트는 예전 contribute.html 그대로, 겉모양만 kc.css 로 */
+    .contrib-wrap { max-width: 860px; padding: 36px 0 60px; }
+    .contrib-hero h1 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -.03em; }
+    .contrib-hero p { color: var(--muted); margin-top: 10px; line-height: 1.75; }
+    .contrib-tabs { display: inline-flex; background: var(--panel-2); border-radius: 999px; padding: 3px; gap: 2px; margin: 24px 0 22px; }
+    .contrib-tab { border: 0; background: none; padding: 8px 18px; border-radius: 999px; font-size: 14px; color: var(--muted); cursor: pointer; }
+    .contrib-tab.active { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(15,17,21,.08); }
+    .contrib-pane { display: none; } .contrib-pane.active { display: block; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-bottom: 20px; }
+    .process-step { background: #fff; padding: 14px 16px; font-size: 13.5px; line-height: 1.55; }
+    .step-num { display: block; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    .guidelines { background: var(--panel); border-radius: var(--r); padding: 16px 20px; margin-bottom: 28px; }
+    .guidelines h3 { font-size: 14px; margin-bottom: 8px; }
+    .guidelines ul { padding-left: 1.2em; font-size: 14px; line-height: 1.8; color: var(--ink); }
+    .form-section { margin-bottom: 28px; }
+    .form-section h2, .excel-section h2 { font-size: 17px; letter-spacing: -.02em; margin-bottom: 12px; }
+    .type-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .type-card { display: flex; align-items: flex-start; gap: 10px; border: 1px solid var(--line-2); border-radius: var(--r); padding: 14px 16px; cursor: pointer; background: #fff; }
+    .type-card:hover { border-color: var(--ink); }
+    .type-card.selected { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+    .type-card input { margin-top: 3px; accent-color: var(--ink); }
+    .type-card-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .type-card-text strong { display: block; font-size: 14.5px; color: var(--ink); margin-bottom: 2px; }
+    .form-row { display: grid; gap: 6px; margin-bottom: 14px; }
+    .form-row label { font-size: 14px; font-weight: 600; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .req { color: var(--accent); } .hint { font-size: 12px; font-weight: 400; color: var(--faint); margin-left: 6px; }
+    .form-input, .form-textarea { width: 100%; border: 1px solid var(--line-2); border-radius: var(--r-sm); padding: 10px 12px; font: inherit; font-size: 14.5px; background: #fff; outline: none; }
+    .form-input:focus, .form-textarea:focus { border-color: var(--ink); }
+    .form-textarea { min-height: 190px; resize: vertical; line-height: 1.6; }
+    .form-textarea.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px; }
+    .submit-btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 26px; border-radius: 999px; border: 0; background: var(--ink); color: #fff; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .submit-btn:disabled { opacity: .45; cursor: not-allowed; }
+    .status-box { display: none; margin-top: 18px; padding: 14px 18px; border-radius: var(--r); font-size: 14px; line-height: 1.7; }
+    .status-box.success { background: #e9f5ef; color: #1f4f38; } .status-box.error { background: #fdecea; color: #8a2d22; }
+    .excel-section { margin-bottom: 28px; }
+    .template-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .template-btn { display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 14px; }
+    .template-btn:hover { border-color: var(--ink); }
+    .upload-zone { border: 1.5px dashed var(--line-2); border-radius: var(--r); padding: 34px 20px; text-align: center; cursor: pointer; background: var(--panel); }
+    .upload-zone:hover, .upload-zone.dragover { border-color: var(--ink); background: #fff; }
+    .upload-icon { font-size: 26px; } .upload-zone p { margin-top: 6px; font-size: 14px; } .upload-hint { color: var(--faint); font-size: 12.5px !important; }
+    .preview-info { font-size: 13px; color: var(--muted); margin: 12px 0 6px; }
+    .preview-table-wrap { display: none; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-sm); }
+    .preview-table { border-collapse: collapse; font-size: 12.5px; width: 100%; }
+    .preview-table th, .preview-table td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+    .preview-table th { background: var(--panel); font-weight: 600; }
+    .hp { position: absolute; left: -9999px; }
+    @media (max-width: 760px) { .process-steps { grid-template-columns: 1fr 1fr; } .type-grid, .form-row-2 { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="explore.html?p=find">글 찾기</a>
-        <a href="explore.html?p=essays">글</a>
-        <a href="explore.html?p=people">인물</a>
-        <a href="explore.html?p=concepts">개념어</a>
-        <a href="explore.html?p=venues">지면</a>
-        <a href="site/graph.html">관계망</a>
-        <a href="ask.html">질문하기</a>
-        <a href="about.html">소개</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container index-main">
-    <div class="contrib-wrap">
+<main class="wrap">
+  <div class="contrib-wrap">
 
       <div class="contrib-hero">
-        <h1>기여하기</h1>
+        <h1>참여하기</h1>
         <p>한국 비평사 온톨로지에 새로운 비평글·인물 정보를 제안하거나 오류를 수정할 수 있습니다.<br>
         제출된 내용은 Gemini AI로 서식 검증 후 관리자가 최종 검토하여 반영합니다.</p>
       </div>
@@ -334,7 +196,7 @@
 
         <div class="excel-section">
           <h2>템플릿 다운로드</h2>
-          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;">
             아래 템플릿을 다운로드해서 작성 후 업로드해주세요.
           </p>
           <div class="template-btns">
@@ -388,14 +250,9 @@
       </div><!-- /pane-excel -->
 
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>비평 온톨로지 프로젝트 · TEI XML · Wikidata · 국립중앙도서관 LOD</p>
-    </div>
-  </footer>
-
+</main>
+<script src="kc.js"></script>
+<script>shell("");</script>
   <script>
   const API = 'https://kcritic-api.onrender.com';
 
@@ -530,9 +387,9 @@
 
     info.textContent = `총 ${data.length}행 · 미리보기 최대 5행 표시`;
     table.innerHTML = `
-      <thead><tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+      <thead><tr>${headers.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
       <tbody>${preview.map(row =>
-        `<tr>${headers.map(h => `<td title="${row[h]}">${row[h]}</td>`).join('')}</tr>`
+        `<tr>${headers.map(h => `<td title="${esc(row[h])}">${esc(row[h])}</td>`).join('')}</tr>`
       ).join('')}</tbody>
     `;
     wrap.style.display = 'block';
