@@ -31,7 +31,10 @@ AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로
 - 저작권 보호 원문. OneDrive/로컬에만 존재
 - `site/essays/*.html` 은 메타데이터만 담으며 GitHub에 올라감 (원문 텍스트 없음)
 - `build.py` 는 원문 본문을 HTML에 포함시키지 않음. 위반 시 즉시 수정
-- **유일한 예외 (2026-09-15 연구자 결정)**: `build_interp_game.py` 가 TEI 태도 표시(`@ana` 의 affirmative/neutral/critical)가 붙은 **문장만** `site/data/interp_game.json` 으로 공개한다(현재 224문장, 김우창 17편). 각 문장에 비평문 제목·수록 단행본을 출처로 싣는다. 대상 확대(다른 비평가, 표시 없는 문장, 앞뒤 문맥 등)는 연구자의 명시적 결정 없이 하지 말 것
+- **첫 번째 예외 (2026-09-15 연구자 결정) — 태도 판정 게임**: `build_interp_game.py` 가 TEI 태도 표시(`@ana` 의 affirmative/neutral/critical)가 붙은 **문장만** `site/data/interp_game.json` 으로 공개한다(현재 224문장, 김우창 17편). 각 문장에 비평문 제목·수록 단행본을 출처로 싣는다. 대상 확대(다른 비평가, 표시 없는 문장, 앞뒤 문맥 등)는 연구자의 명시적 결정 없이 하지 말 것
+- **두 번째 예외 (2026-10-23 연구자 결정) — 개념어 예시 문장**: 개념어 화면에서 그 개념어를 쓴 글마다 **그 개념어가 든 문장 하나**를 연구용 인용으로 보인다. `build.py` `collect_interp_concepts()` 가 개념어마다 한 문장(220자 넘으면 개념어 둘레만)을 고르고, `site/data/v2/examples.json`({글 id: {개념어: 문장}}, 글마다 앞 12개 개념어)·`site/data/concepts.json`(예전 화면)에 싣는다. 문단 전체·앞뒤 문맥·한 개념어에 여러 문장으로 넓히지 말 것
+- **문장째로 붙은 개념어 표시는 개념어로 나눠 쓴다 (2026-10-23)**: 김우창 등 42편에 `<interp type="concept">` 가 문장 전체(또는 문장 앞머리 요약 꼬리표 "머리 — 설명")를 감싼 곳이 579곳 있었다. XML은 그대로 두고 `concept_split.json`("글 stem|원래 표시 글의 sha1 앞 12자" → 개념어 1~3개, 원문 없음)으로 빌드 때 바꾼다. 문장 칸의 개념어는 그 문장 안에 글자 그대로 있어 예시 문장에 반드시 들어간다. **새로 인코딩할 때는 개념어 표시를 문장 전체가 아니라 개념어 낱말에만 붙일 것**. 이 표에 없는 새 문장째 표시가 생기면 개념어 이름이 문장이 되니 빌드 뒤 `site/data/v2/essays.json` 개념어 길이(20자 넘는 것)를 확인
+- **세 번째 예외 (2026-10-23 연구자 결정) — 프로필 인용 문맥**: 작가·이론가 프로필에서 인물이 나온 자리마다 **인물이 나온 문장 하나**(그 문장이 40자보다 짧으면 다음 문장까지, **두 문장을 넘지 않음**, 300자 넘으면 인물 둘레만)를 보인다. build.py `collect_person_contexts` → `_mention_sentence`. 예전처럼 `<p>` 문단 전체를 싣지 말 것. 이번 빌드에서 만들지 않은 옛 프로필(분류 변경·not_person)은 빌드가 리다이렉트로 덮어 옛 문맥을 남기지 않는다
 - 판정 수집기 `../판정수집_AppsScript.gs` 는 운영자 메일 주소를 담고 있어 **저장소 밖(부모 폴더)** 에 둔다. 저장소·사이트 코드에는 웹 앱 URL(`site/data/game_config.json`)만 들어간다
 - `.env.example` 도 배포 제외 (`.assetsignore`) — 실값은 없어도 어떤 키를 쓰는지 스캐너에 알려주는 힌트가 됨
 - **글 찾기 본문 색인 `worker/private/` 은 공개 금지 (2026-10-22)**: 본문 희귀어 역색인(원문에서 만든 낱말→글 번호)은 `.gitignore`·`.assetsignore` 로 막혀 있고 Worker 번들에만 들어간다. GitHub 공개 저장소에 올리거나 정적 파일로 내보내지 말 것. 본문 구간 벡터도 만들어 공개하지 않는다(임베딩 역추적으로 원문 일부 복원 가능). 공개되는 `site/data/find/` 벡터는 메타데이터(제목·개념어·인물)에서만 만든다
@@ -201,7 +204,7 @@ build.py 출력:
 - `site/essays/{stem}.html` — 메타데이터 HTML (원문 없음, 저작권 고지 포함)
 - `site/critics/{critic-id}.html` — 비평가 프로필 HTML
 - `site/writers/{person-id}.html` — 작가 프로필 HTML
-- `site/thinkers/{person-id}.html` — 이론가 프로필 HTML (인용 문맥 포함)
+- `site/thinkers/{person-id}.html` — 이론가 프로필 HTML (인용 문맥: 인물이 나온 문장, 두 문장 이내)
 - `site/data/graph.json` — 관계망 노드/엣지 데이터
 - `site/data/critics.json` — 비평가 목록 데이터
 - `site/data/writers.json` — 작가 목록 데이터 (encykorea, nlk, ref 포함)

@@ -19,13 +19,15 @@ const IRI = "https://kcritic.kr/resource/";
 db().then(D => {
   const nm = id => D.P.get(id)?.name || id;
   const tally = (list, get) => { const m = new Map(); list.forEach(e => new Set(get(e)).forEach(v => m.set(v, (m.get(v) || 0) + 1))); return [...m].sort((a, b) => b[1] - a[1] || ko(a[0], b[0])); };
-  const essayRow = e => `<article class="row"><div class="yr num">${e.year}</div><div>
+  // ex: 개념어 화면에서 이 글의 예시 문장(개념어를 <mark>로 표시)
+  const exLine = (ex, term) => ex ? `<p class="exs">${esc(ex).split(esc(term)).join(`<mark>${esc(term)}</mark>`)}</p>` : "";
+  const essayRow = (e, ex) => `<article class="row"><div class="yr num">${e.year}</div><div>
       <h4><a href="${href.essay(e.id)}">${esc(e.title)}</a></h4>
       <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호 · ${esc(e.pages)}면` : esc(e.venue)}</span></div>
-      <div class="tags">${e.concepts.slice(0, 5).map(c => `<a href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div></div><div class="side"></div></article>`;
-  const rows = (list, lim = 12) => {
-    const s = [...list].sort((a, b) => ko(a.year, b.year));
-    return `<div class="rows">${s.slice(0, lim).map(essayRow).join("")}</div>` + (s.length > lim ? `<details><summary class="btn morebtn" style="width:max-content">${s.length - lim}편 더 보기</summary><div class="rows">${s.slice(lim).map(essayRow).join("")}</div></details>` : "");
+      <div class="tags">${e.concepts.slice(0, 5).map(c => `<a href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div>${ex || ""}</div><div class="side"></div></article>`;
+  const rows = (list, lim = 12, exFn = () => "") => {
+    const s = [...list].sort((a, b) => ko(a.year, b.year)), row = e => essayRow(e, exFn(e));
+    return `<div class="rows">${s.slice(0, lim).map(row).join("")}</div>` + (s.length > lim ? `<details><summary class="btn morebtn" style="width:max-content">${s.length - lim}편 더 보기</summary><div class="rows">${s.slice(lim).map(row).join("")}</div></details>` : "");
   };
   const chips = (ids, cls, hrefFn, nameFn) => `<div class="chips">${ids.map(([id, n]) => `<a class="chip ${cls}" href="${hrefFn(id)}"><span class="dot ${cls}"></span>${esc(nameFn(id))}${n > 1 ? ` <small class="num">${n}</small>` : ""}</a>`).join("")}</div>`;
   const tabs = (defs) => {   // [{k,label,n,html}]
@@ -109,7 +111,7 @@ db().then(D => {
         <div class="block"><h3><span class="dot t-theorist"></span>인용 이론가 <span>${e.theorists.length}</span></h3>${e.theorists.length ? chips(e.theorists.map(i => [i, 1]), "t-theorist", href.person, nm) : `<p class="note">없음</p>`}</div>
         <div class="block"><h3><span class="dot t-concept"></span>개념어 <span>${e.concepts.length}</span></h3>${chips(e.concepts.map(c => [c, 1]), "t-concept", href.concept, x => x)}</div>
         <div class="block"><h3>개념어를 공유하는 글</h3>${share.length ? `<div class="rows">${share.map(o => `<article class="row"><div class="yr num">${o.x.year}</div><div><h4><a href="${href.essay(o.x.id)}">${esc(o.x.title)}</a></h4><div class="meta"><span>${esc(o.x.critic_name)}</span></div><div class="tags">${o.s.map(c => `<a class="hl" href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div></div><div class="side">공유 ${o.s.length}</div></article>`).join("")}</div>` : `<p class="note">공유하는 글이 없습니다.</p>`}</div>
-        ${sameIssue.length ? `<div class="block"><h3>같은 호에 실린 비평 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(essayRow).join("")}</div></div>` : ""}
+        ${sameIssue.length ? `<div class="block"><h3>같은 호에 실린 비평 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(e => essayRow(e)).join("")}</div></div>` : ""}
       </div>
       <aside class="aside">
         <div class="panel"><h5>서지</h5><dl><dt>비평가</dt><dd><a href="${href.person(e.critic)}">${esc(e.critic_name)}</a></dd><dt>연도</dt><dd class="num">${e.year}</dd>
@@ -139,10 +141,14 @@ db().then(D => {
           <div class="panel"><h5>함께 다뤄진 작가</h5>${hbars(tally(es, e => e.subjects).slice(0, 10).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-writer" })))}</div>
           <div class="panel wide"><h5>함께 쓰인 개념어</h5>${chips(co, "t-concept", href.concept, x => x)}</div>
         </div>
-        <div class="block"><h3>이 개념어를 쓴 글 <span>${es.length}</span></h3>${rows(es, 20)}</div>
+        <div class="block" id="cessays"><h3>이 개념어를 쓴 글 <span>${es.length}</span></h3><p class="note" style="margin:-4px 0 6px">글마다 이 개념어가 쓰인 문장 하나를 예시로 보입니다(연구용 인용 · 원문 전체는 제공하지 않습니다).</p><div id="crows">${rows(es, 20)}</div></div>
       </div>
       <aside class="aside"><div class="panel"><h5>어휘 통제</h5><p class="note">같은 개념을 다르게 적은 표기는 하나로 맞춰 집계합니다(통제어휘). 표기 차이로 갈린 개념이 보이면 알려 주세요.</p></div>
         <div class="panel"><h5>RDF</h5><p class="note">글의 <code>dcterms:subject</code> 리터럴로 발행됩니다. 질문하기의 SPARQL 탭에서 조회할 수 있습니다.</p></div></aside></div>`;
+    // 예시 문장은 이 화면에서만 따로 읽는다(목록 화면이 무거워지지 않게)
+    fetch("site/data/v2/examples.json").then(r => r.json()).then(X => {
+      document.getElementById("crows").innerHTML = rows(es, 20, e => exLine(X[e.id]?.[ID], ID));
+    }).catch(() => {});
   }
 
   // ── 호 ──

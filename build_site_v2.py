@@ -4,9 +4,10 @@
   site/data/v2/essays.json    글: 제목·연도·필자·컬렉션·지면(호·쪽·난)·개념어·다룬 작가 id·인용 이론가 id
   site/data/v2/people.json    인물: 이름·영문·LOD 배지·역할별 편수(씀/다룸/인용)·등장 연도
   site/data/v2/concepts.json  개념어(2편 이상): 이름·편수·글 id
+  site/data/v2/examples.json  글마다 개념어 하나에 예시 문장 하나 {글 id: {개념어: 문장}} — 개념어 화면에서만 읽는다
   site/data/v2/issues.json    『문학과사회』 호별 목차 — ../문학과사회/encode_ledger.json 이 있을 때만 다시 만든다(목차 서지만, 본문 없음)
 
-원문은 쓰지 않는다. 글 찾기 벡터(site/data/find/)는 find/build_find.py(GPU)로 따로 만든다.
+원문 본문은 쓰지 않는다. 예외는 examples.json 의 개념어 예시 문장(개념어마다 한 문장, 연구자 결정 2026-10-23). 글 찾기 벡터(site/data/find/)는 find/build_find.py(GPU)로 따로 만든다.
 """
 import json, os, sys, re, collections
 from pathlib import Path
@@ -39,9 +40,11 @@ def main():
         ledger = json.loads(lp.read_text(encoding="utf-8"))
     section_of = {v["stem"]: v.get("section", "") for v in ledger.values() if v.get("stem")}
 
-    essays = []
+    essays, examples = [], {}
     for xml_path in sorted(Path("essays").glob("*.xml")):
         d = build.process(xml_path)
+        # 개념어 화면: 글마다 개념어 하나에 그 개념어가 든 예시 문장 하나 (연구자 결정 2026-10-23)
+        examples[d["stem"]] = {c["name"]: c["excerpt"] for c in d.get("concepts", [])[:12] if c.get("excerpt")}
         src = d["sources"][0] if d["sources"] else {}
         is_mhs = src.get("type") == "journal" and src.get("journal_or_book") == "문학과사회"
         aid = d["author_id"]
@@ -58,6 +61,7 @@ def main():
             "subjects": sorted(d["subjects"]), "theorists": sorted(d["theorists"]),
         })
     dump("essays.json", essays)
+    dump("examples.json", examples)
 
     info = {}
     for f in ("critics", "writers", "thinkers"):

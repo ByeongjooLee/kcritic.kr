@@ -4,6 +4,7 @@ TEI XML -> 메타데이터 HTML 변환 스크립트
 추출 대상: 비평가, 대상 인물, 활용 이론가, 인용 작품, 개념어, 서지정보
 """
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -294,7 +295,8 @@ def collect_terms(root):
 
 def collect_person_contexts(root, persons, target_pids, stem, essay_title):
     """대상 인물(이론가·작가 등)별로 해당 인물이 등장하는 문장 컨텍스트 수집.
-    <s> 우선, 없으면 부모 <p> 전체를 fallback으로 사용.
+    인물이 나온 문장 하나만 싣는다. 그 문장이 아주 짧으면 다음 문장까지 — 두 문장을 넘지 않는다(연구자 결정 2026-10-23).
+    <s> 우선, 없으면 부모 <p> 에서 인물이 나온 문장을 골라낸다. 300자를 넘으면 인물 둘레만 자른다.
     ref가 외부 URI(Wikidata 등)인 경우 persons dict에서 역조회.
     반환: {pid: [{"essay_stem": ..., "essay_title": ..., "sentence": ...}, ...]}"""
     parent_map = {child: parent for parent in root.iter() for child in parent}
@@ -344,58 +346,129 @@ def collect_person_contexts(root, persons, target_pids, stem, essay_title):
         if key in seen:
             continue
         seen.add(key)
-        raw = " ".join("".join(container.itertext()).split()).strip()
-        if not raw:
+        sentence = _mention_sentence(container, pn)
+        if not sentence:
             continue
-        sentence = raw[:300] + ("…" if len(raw) > 300 else "")
         ctx[pid].append({"essay_stem": stem, "essay_title": essay_title, "sentence": sentence})
     return ctx
 
 
-def collect_interp_concepts(root):
-    """interp[type='concept'] 요소에서 핵심 개념어 수집 (중복 제거).
-    본문 <body> 안의 interp를 우선 순회해 excerpt를 추출하고,
-    teiHeader 선언부(interpGrp)는 excerpt 없이 보완용으로만 사용."""
-    parent_map = {child: parent for parent in root.iter() for child in parent}
+# 문장째로 개념어 표시가 붙은 곳을 개념어로 나눈 표 (2026-10-23). "글 stem|원래 표시 글의 sha1 앞 12자" → [개념어, …]
+# XML 원본은 고치지 않고 빌드 때 이 표로 바꾼다. 열쇠를 해시로 두어 표에 원문 문장이 들어가지 않는다.
+# 문장 칸의 개념어는 그 문장 안에 글자 그대로 들어 있다.
+CONCEPT_SPLIT_FILE = Path("concept_split.json")
+_CONCEPT_SPLIT: dict = json.loads(CONCEPT_SPLIT_FILE.read_text(encoding="utf-8")) if CONCEPT_SPLIT_FILE.exists() else {}
+EXAMPLE_MAX = 220   # 예시 문장이 이보다 길면 개념어 둘레만 자른다
 
-    def find_excerpt(el):
+
+def _norm(t):
+    return " ".join((t or "").split())
+
+
+def _prose(el, mark=None):
+    """요소의 원문 텍스트. 줄 단위 개념어 꼬리표(뒤에 줄바꿈)와 문장 앞머리 요약 꼬리표(뒤에 ' — ')는 원문이 아니므로 뺀다.
+    mark 를 주면 그 요소가 시작하는 자리에 \x00 을 넣는다(인용 문맥에서 인물이 나온 문장을 찾을 때)."""
+    out = [el.text or ""]
+    for i, ch in enumerate(el):
+        if ch is mark:
+            out.append("\x00")
+        is_concept = ch.tag == tns("interp") and ch.get("type") == "concept"
+        tail = ch.tail or ""
+        if is_concept and tail.startswith("\n"):
+            out.append(tail); continue
+        if is_concept and i == 0 and not (el.text or "").strip() and re.match(r"\s*[—–]\s", tail):
+            out.append(re.sub(r"^\s*[—–]\s*", "", tail)); continue
+        out.append(_prose(ch, mark))
+        out.append(tail)
+    return "".join(out)
+
+
+def _sentences(text):
+    return [x for x in re.split(r"(?:(?<=[.?!])|(?<=[.?!][\"”’」』)]))\s+", _norm(text)) if x]
+
+
+def _clip(sent, term):
+    """예시 문장 하나. 너무 길면 개념어 둘레만 남긴다."""
+    if len(sent) <= EXAMPLE_MAX:
+        return sent
+    i = max(sent.find(term), 0)
+    a = max(0, i - (EXAMPLE_MAX - len(term)) // 2)
+    b = min(len(sent), a + EXAMPLE_MAX)
+    a = max(0, b - EXAMPLE_MAX)
+    return ("…" if a else "") + sent[a:b].strip() + ("…" if b < len(sent) else "")
+
+
+CONTEXT_MAX = 300   # 인용 문맥 글자 상한
+CONTEXT_SHORT = 40  # 인물이 나온 문장이 이보다 짧으면 다음 문장 하나를 덧붙인다
+
+
+def _mention_sentence(container, pn):
+    """container(<s>/<p>) 안에서 pn(persName)이 나온 문장. 최대 두 문장, CONTEXT_MAX 자."""
+    sents = _sentences(_prose(container, pn))
+    i = next((k for k, x in enumerate(sents) if "\x00" in x), None)
+    if i is None:
+        return ""
+    out = sents[i]
+    if len(out.replace("\x00", "")) < CONTEXT_SHORT and i + 1 < len(sents):
+        out += " " + sents[i + 1]
+    j = out.index("\x00")
+    out = out.replace("\x00", "").strip()
+    if len(out) > CONTEXT_MAX:
+        a = max(0, min(j - CONTEXT_MAX // 3, len(out) - CONTEXT_MAX))
+        out = ("…" if a else "") + out[a:a + CONTEXT_MAX].strip() + ("…" if a + CONTEXT_MAX < len(out) else "")
+    return out
+
+
+def collect_interp_concepts(root, stem=""):
+    """interp[type='concept'] 에서 개념어를 모으고, 개념어마다 그 개념어가 든 예시 문장 하나를 붙인다(연구자 결정 2026-10-23).
+    문장째로 붙은 표시는 concept_split.json 으로 개념어를 나눈다. 예시 문장 고르는 순서:
+    ① 표시가 붙은 문장(또는 문단 속 문장) 가운데 개념어가 글자 그대로 든 것 ② 본문 어디든 개념어가 든 첫 문장 ③ 표시가 붙은 문장."""
+    parent_map = {child: parent for parent in root.iter() for child in parent}
+    body = root.find(f".//{tns('body')}")
+    body_sents = []
+    if body is not None:
+        for el in body.iter():
+            if el.tag in (tns("s"),) or (el.tag == tns("p") and el.find(f".//{tns('s')}") is None):
+                body_sents.extend(_sentences(_prose(el)))
+
+    def home(el):
         node = el
         while node is not None:
             node = parent_map.get(node)
-            if node is None:
-                break
-            local = node.tag.split("}")[-1] if "}" in node.tag else node.tag
-            if local in ("p", "s"):
-                raw = " ".join("".join(node.itertext()).split()).strip()
-                return raw[:150] + ("…" if len(raw) > 150 else "")
-        return ""
+            if node is not None and node.tag in (tns("s"), tns("p")):
+                return _sentences(_prose(node))
+        return []
 
-    # 1단계: 본문 <body> 안의 interp — excerpt 있음
-    seen = set()
-    concepts = []
-    body = root.find(f".//{tns('body')}")
-    if body is not None:
-        for el in body.iter(tns("interp")):
-            if el.get("type") != "concept":
-                continue
-            name = "".join(el.itertext()).strip()
-            if not name or name in seen:
+    def example(term, own):
+        for x in own:
+            if term in x: return _clip(x, term)
+        for x in body_sents:
+            if term in x: return _clip(x, term)
+        return _clip(own[0], term) if own else ""
+
+    seen, concepts = set(), []
+
+    def add(el, own):
+        raw = _norm("".join(el.itertext()))
+        if not raw:
+            return
+        key = f"{stem}|{hashlib.sha1(raw.encode()).hexdigest()[:12]}"
+        for name in _CONCEPT_SPLIT.get(key, [raw]):
+            if name in seen:
                 continue
             seen.add(name)
             slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
-            concepts.append({"name": name, "slug": slug, "excerpt": find_excerpt(el)})
+            concepts.append({"name": name, "slug": slug, "excerpt": example(name, own)})
 
-    # 2단계: teiHeader interpGrp 선언 — 본문에 없는 것만 보완 (excerpt 없음)
+    # 1단계: 본문 <body> 안의 표시 — 표시가 붙은 문장에서 예시를 찾는다
+    if body is not None:
+        for el in body.iter(tns("interp")):
+            if el.get("type") == "concept":
+                add(el, home(el))
+    # 2단계: teiHeader interpGrp 선언 — 본문에 없는 것만 보완(예시는 본문에서 찾는다)
     for el in root.iter(tns("interp")):
-        if el.get("type") != "concept":
-            continue
-        name = "".join(el.itertext()).strip()
-        if not name or name in seen:
-            continue
-        seen.add(name)
-        slug = re.sub(r"[^\w가-힣]", "-", name)[:40].strip("-")
-        concepts.append({"name": name, "slug": slug, "excerpt": ""})
-
+        if el.get("type") == "concept":
+            add(el, [])
     return concepts
 
 def extract_sources(root):
@@ -1460,7 +1533,7 @@ def process(xml_path):
     stem_year_match = re.search(r"_(\d{4})$", xml_path.stem)
     stem_year = stem_year_match.group(1) if stem_year_match else ""
     display_year = original_year or stem_year or year
-    concepts = collect_interp_concepts(root)
+    concepts = collect_interp_concepts(root, xml_path.stem)
 
     # 인물 id 를 persons.json 정본으로 모은다 — 한 비평문 안에서 같은 인물이 두 id 로 적혀 있으면 하나로.
     # persons.json 에서 not_person(학파·작중인물 등)으로 판정된 항목은 인물로 다루지 않는다.
@@ -1715,6 +1788,19 @@ def main():
                 (d / f"{old_id}.html").write_text(_redirect_html(f"{cid}.html"), encoding="utf-8")
                 n_redirect += 1
     print(f"  OK 병합 id 리다이렉트 {n_redirect}개")
+
+    # 이번 빌드에서 만들지 않은 옛 프로필(분류가 바뀌었거나 not_person 이 된 인물)은 옛 인용 문맥을 지운다 —
+    # 다른 분류 화면에 있으면 그리로, 없으면 인물 목록으로 넘긴다 (2026-10-23)
+    n_stale = 0
+    lives = ((CRITICS_DIR, critics), (WRITERS_DIR, writers_map), (THINKERS_DIR, thinkers_map))
+    for d, live in lives[1:]:
+        for f in sorted(d.glob("*.html")):
+            if f.stem in live or 'http-equiv="refresh"' in f.read_text(encoding="utf-8"):
+                continue
+            other = next((od for od, ol in lives if f.stem in ol), None)
+            f.write_text(_redirect_html(f"../{other.name}/{f.stem}.html" if other else "/explore.html?p=people"), encoding="utf-8")
+            n_stale += 1
+    print(f"  OK 옛 프로필 리다이렉트 {n_stale}개")
 
     # RDF Turtle 발행
     ttl = build_turtle(all_essays, graph)
