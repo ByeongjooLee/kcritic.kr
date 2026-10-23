@@ -58,9 +58,10 @@ function shell(current) {
     <div><b style="color:var(--ink);font-size:15px">kcritic.</b><p style="margin-top:6px;max-width:360px">한국 현대 문학비평을 TEI XML로 인코딩해 비평가·작가·이론가·개념어의 관계를 연결 데이터로 공개합니다. 원문은 제공하지 않습니다.</p></div>
     <div><h6>분석</h6><a href="${KC}ask.html">질문하기 · SPARQL</a><a href="${KC}evaluate.html">태도 평가</a><a href="${KC}graph.html">관계망</a></div>
     <div><h6>참고 데이터</h6><a href="${KC}research.html">선행연구 (박사논문)</a><a href="${KC}criticism.html">2000년대 시 비평 목록</a></div>
-    <div><h6>프로젝트</h6><a href="${KC}about.html">소개 · 방법</a><a href="${KC}contribute.html">참여하기</a><a href="${KC}site/data/graph.ttl">데이터 내려받기 (TTL)</a><a href="${KC}critic_v8_schema.rdf">온톨로지 (OWL)</a><a href="${KC}list.html">전체 목록 (예전 화면)</a></div>
+    <div><h6>프로젝트</h6><a href="${KC}about.html">소개 · 방법</a><a href="${KC}maker.html">만든 사람</a><a href="${KC}contribute.html">참여하기</a><a href="${KC}site/data/graph.ttl">데이터 내려받기 (TTL)</a><a href="${KC}critic_v8_schema.rdf">온톨로지 (OWL)</a><a href="${KC}list.html">전체 목록 (예전 화면)</a></div>
   </div></footer>`);
   document.getElementById("menu").onclick = () => document.querySelector(".nav").classList.toggle("show");
+  if (matchMedia("(max-width: 980px)").matches) document.getElementById("gq").placeholder = "이름으로 찾기";   // 좁은 화면: 안내 글이 잘리지 않게
   globalSearch();
 }
 

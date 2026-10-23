@@ -10,7 +10,7 @@
   --w: 1240px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html, body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: anywhere; }   /* 한국어는 낱말 단위로 줄을 바꾸되, 띄어쓰기 없는 긴 말은 칸 안에서 끊는다 */
 a { color: inherit; text-decoration: none; }
 button, input, select { font: inherit; color: inherit; }
 .num { font-variant-numeric: tabular-nums; }
@@ -82,6 +82,7 @@ button, input, select { font: inherit; color: inherit; }
 .examples a { color: var(--muted); border-bottom: 1px dashed var(--line-2); }
 .examples a:hover { color: var(--accent); border-color: var(--accent); }
 .stats { display: flex; gap: 40px; flex-wrap: wrap; padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 48px; }
+@media (max-width: 560px) { .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; } }   /* 휴대폰: 숫자 다섯 개를 3+2 칸으로 고르게 */
 .stats div b { display: block; font-size: 28px; font-weight: 700; letter-spacing: -.02em; }
 .stats div span { font-size: 13px; color: var(--muted); }
 .sec { padding: 56px 0 8px; }

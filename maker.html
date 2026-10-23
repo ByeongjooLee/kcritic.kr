@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>만든 사람 — kcritic</title>
+  <meta name="description" content="한국 비평사 온톨로지(kcritic.kr)를 만든 연구자와 관련 논문, 인용 방법">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="kc.css">
+  <style>
+    /* 만든 사람 — 공개 홈페이지(byeongjoolee.github.io)에 실린 내용만 옮긴다 */
+    .mk { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; padding: 8px 0 56px; align-items: start; }
+    .mk h2 { font-size: 20px; letter-spacing: -.02em; margin: 36px 0 12px; }
+    .mk h2:first-child { margin-top: 0; }
+    .mk p { color: var(--ink); line-height: 1.8; }
+    .mk .muted { color: var(--muted); }
+    .who { display: flex; gap: 18px; align-items: center; padding: 22px 0 26px; border-bottom: 1px solid var(--line); }
+    .who .ini { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--panel-2); display: grid; place-items: center; font-size: 24px; font-weight: 700; color: var(--muted); }
+    .who b { font-size: 22px; letter-spacing: -.02em; display: block; }
+    .who span { color: var(--muted); font-size: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .pubs { list-style: none; border-top: 1px solid var(--line); }
+    .pubs li { padding: 14px 0; border-bottom: 1px solid var(--line); line-height: 1.65; }
+    .pubs li .t { font-weight: 600; }
+    .pubs li .s { color: var(--muted); font-size: 14px; }
+    .pubs li .pill { margin-left: 6px; vertical-align: 1px; }
+    .cite { background: var(--panel); border-radius: var(--r); padding: 16px 18px; font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
+    .cite + .cite { margin-top: 10px; }
+    .cite small { display: block; color: var(--faint); font-size: 12px; margin-bottom: 4px; }
+    .side .panel { padding: 16px 18px; }
+    .side .panel + .panel { margin-top: 12px; }
+    .side a.ln { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .side a.ln:last-child { border-bottom: 0; }
+    .side a.ln:hover { color: var(--accent); }
+    .side a.ln small { color: var(--faint); }
+    @media (max-width: 900px) { .mk { grid-template-columns: 1fr; gap: 24px; } }
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="ent-head">
+    <nav class="crumb"><a href="index.html">처음</a> / <a href="about.html">소개</a> / 만든 사람</nav>
+    <h1>만든 사람</h1>
+  </div>
+
+  <div class="who">
+    <div class="ini" aria-hidden="true">이</div>
+    <div><b>이병주 <small style="font-size:16px;color:var(--faint);font-weight:500">Byeongjoo Lee</small></b>
+      <span>조교수 · 공군사관학교 &nbsp;·&nbsp; Assistant Professor, Korea Air Force Academy</span></div>
+  </div>
+
+  <div class="mk">
+    <div>
+      <h2>연구</h2>
+      <p>현대문학 비평과 시론(詩論)을 중심으로, 텍스트 마이닝·텍스트언어학 등 디지털 인문학 방법론을 접목해 비평 담론의 형성 과정과 수행성을 연구합니다. 대중문화와 문학·리터러시 교육으로도 관심을 넓히고 있습니다.</p>
+      <div class="tags"><span class="pill">문학비평</span><span class="pill">시론</span><span class="pill">디지털 인문학</span><span class="pill">TEI XML</span><span class="pill">온톨로지</span></div>
+      <p class="muted" style="margin-top:14px">문학박사(국어국문학) · 고려대학교 대학원 — 학위논문 「1950~60년대 비평 담론 형성 과정과 수행성 연구」</p>
+
+      <h2>이 사이트를 다룬 논문과 발표</h2>
+      <ul class="pubs">
+        <li><span class="t">디지털 인문학 데이터 기반 한국 현대문학비평 연구의 탐색 — 온톨로지 설계를 중심으로</span><span class="pill t-essay"><span class="dot"></span>게재 예정</span><br>
+          <span class="s">『한국문학의 연구』, 2026. — kcritic.kr의 온톨로지 설계(v8)와 관계망을 다룬 논문</span></li>
+        <li><span class="t">현대문학비평 XML 데이터 구축과 활용 방안 — 디지털 인문학 연구를 위한 방법론 모색</span><span class="pill">KCI</span><br>
+          <span class="s">『한국시학연구』, 2025. — 이 사이트의 비평문 TEI XML 인코딩 스키마</span></li>
+        <li><span class="t">The Topology of Power: A Data-Driven Analysis of Canon Formation and Intellectual Cartels in Korean Literary Criticism (1960–1990)</span><span class="pill">공동 발표</span><br>
+          <span class="s">DH2026 · Digital Humanities Conference (ADHO), 대전, 2026. Long Paper</span></li>
+        <li><span class="t">1930년대 기교주의 논쟁의 텍스트언어학적 분석</span><span class="pill">KCI</span><br>
+          <span class="s">『개념과소통』, 2026.</span></li>
+      </ul>
+
+      <h2>연구 과제</h2>
+      <ul class="pubs">
+        <li><span class="t">대가(大家)의 탄생 — 문학비평장의 지식 전이 양상과 학맥(學脈) 분석</span><br><span class="s">한국연구재단 신진연구자지원사업 · 연구책임자 · 2026–2029</span></li>
+        <li><span class="t">텍스트 마이닝을 활용한 해방 후 시론(詩論)의 텍스트·담화 연구</span><br><span class="s">한국연구재단 신진연구자지원사업 · 연구책임자 · 2023–2026</span></li>
+      </ul>
+
+      <h2>인용하는 법</h2>
+      <div class="cite"><small>사이트</small>이병주, 「한국 비평사 온톨로지」, kcritic.kr, 2026, https://kcritic.kr (접속일: 연-월-일).</div>
+      <div class="cite"><small>논문 (게재 후 권호·쪽수를 더해 주십시오)</small>이병주, 「디지털 인문학 데이터 기반 한국 현대문학비평 연구의 탐색 — 온톨로지 설계를 중심으로」, 『한국문학의 연구』, 2026.</div>
+      <div class="cite"><small>데이터</small>한국 비평사 온톨로지 v8 (OWL 스키마·RDF 데이터·Turtle), https://github.com/ByeongjooLee/kcritic.kr</div>
+      <p class="muted" style="margin-top:12px;font-size:14px">원문은 저작권 보호를 위해 공개하지 않습니다. 공개하는 것은 서지·관계·개념어 같은 메타데이터뿐입니다.</p>
+    </div>
+
+    <aside class="side">
+      <section class="panel"><h5>연결</h5>
+        <a class="ln" href="https://byeongjoolee.github.io/" target="_blank" rel="noopener">홈페이지 <small>byeongjoolee.github.io ↗</small></a>
+        <a class="ln" href="https://github.com/ByeongjooLee" target="_blank" rel="noopener">GitHub <small>ByeongjooLee ↗</small></a>
+        <a class="ln" href="https://modernmag.kr/" target="_blank" rel="noopener">근대 잡지 원문 보기 <small>modernmag.kr ↗</small></a>
+      </section>
+      <section class="panel"><h5>이 프로젝트</h5>
+        <a class="ln" href="about.html">소개 · 방법 <small>→</small></a>
+        <a class="ln" href="graph.html">관계망 <small>→</small></a>
+        <a class="ln" href="contribute.html">참여하기 · 오류 제보 <small>→</small></a>
+        <a class="ln" href="site/data/graph.ttl">데이터 내려받기 <small>TTL</small></a>
+        <a class="ln" href="critic_v8_schema.rdf">온톨로지 <small>OWL</small></a>
+      </section>
+    </aside>
+  </div>
+</main>
+<script src="kc.js"></script>
+<script>shell("");</script>
+</body>
+</html>
