@@ -61,7 +61,9 @@ function shell(current) {
     <div><h6>프로젝트</h6><a href="${KC}about.html">소개 · 방법</a><a href="${KC}maker.html">만든 사람</a><a href="${KC}contribute.html">참여하기</a><a href="${KC}site/data/graph.ttl">데이터 내려받기 (TTL)</a><a href="${KC}critic_v8_schema.rdf">온톨로지 (OWL)</a><a href="${KC}list.html">전체 목록 (예전 화면)</a></div>
   </div></footer>`);
   document.getElementById("menu").onclick = () => document.querySelector(".nav").classList.toggle("show");
-  if (matchMedia("(max-width: 980px)").matches) document.getElementById("gq").placeholder = "이름으로 찾기";   // 좁은 화면: 안내 글이 잘리지 않게
+  const gq = document.getElementById("gq"), narrowQ = matchMedia("(max-width: 980px)");   // 좁은 화면: 안내 글이 잘리지 않게 짧게
+  const ph = () => { gq.placeholder = narrowQ.matches ? "이름으로 찾기" : "글·인물·개념어 이름으로 찾기"; };
+  narrowQ.addEventListener("change", ph); ph();
   globalSearch();
 }
 
