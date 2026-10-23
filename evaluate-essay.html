@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="kc-shell.css">
 <style>
   .ev-wrap { max-width: 860px; margin: 0 auto; }
   .ev-intro { background:#f7f8fb; border:1px solid #e3e6ee; border-radius:10px;
@@ -66,22 +67,6 @@
 </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="explore.html?p=find">글 찾기</a>
-        <a href="explore.html?p=essays">글</a>
-        <a href="explore.html?p=people">인물</a>
-        <a href="explore.html?p=concepts">개념어</a>
-        <a href="explore.html?p=venues">지면</a>
-        <a href="site/graph.html">관계망</a>
-        <a href="ask.html">질문하기</a>
-        <a href="about.html">소개</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="container ev-wrap">
     <h1 style="margin-bottom:6px">비평문×작가 태도 평가</h1>
     <p class="ev-hint" style="margin:0 0 16px">문장 단위로 판정하는 게임은 <a href="evaluate.html">태도 판정 게임</a>으로 옮겨졌습니다. 이 화면은 비평문 한 편이 작가 한 명을 어떻게 평가하는지 판단하는 연구자용 도구입니다.</p>
@@ -126,9 +111,7 @@
     <div class="ev-tally" id="tally"></div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container"><p>한국 비평사 온톨로지 · TEI XML 기반 디지털 아카이브</p></div>
-  </footer>
+
 
 <script>
 const KEY = 'kcritic-evaluations-v1';
@@ -271,5 +254,6 @@ function importFile(e) {
   r.readAsText(f);
 }
 </script>
+<script src="/kc-shell.js"></script>
 </body>
 </html>

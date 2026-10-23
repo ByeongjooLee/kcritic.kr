@@ -665,23 +665,9 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="../../explore.html?p=find">글 찾기</a>
-        <a href="../../explore.html?p=essays" class="active">글</a>
-        <a href="../../explore.html?p=people">인물</a>
-        <a href="../../explore.html?p=concepts">개념어</a>
-        <a href="../../explore.html?p=venues">지면</a>
-        <a href="../graph.html">관계망</a>
-        <a href="../../ask.html">질문하기</a>
-        <a href="../../about.html">소개</a>
-      </nav>
-    </div>
-  </header>
 
   <main class="container essay-main">
     <article class="essay-article">
@@ -710,11 +696,7 @@ def build_essay_html(stem, title, year, display_year, persons, subjects, theoris
     </article>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
-    </div>
-  </footer>
+  <script src="/kc-shell.js"></script>
 </body>
 </html>"""
 
@@ -994,16 +976,16 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
       }});
 
       var TYPE_COLOR = {{
-        critic: '#c9986a',
-        writer: '#6a9bc9',
-        theorist: '#9a7ac9',
-        essay: '#c8c8a8'
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
       }};
       var TYPE_TEXT_COLOR = {{
-        critic: '#4a2400',
-        writer: '#0e2d4a',
-        theorist: '#2d1050',
-        essay: '#3a3a2a'
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
       }};
 
       var cy = cytoscape({{
@@ -1044,8 +1026,8 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
             selector: 'edge',
             style: {{
               'width': function(ele) {{ return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); }},
-              'line-color': '#c9c7bf',
-              'target-arrow-color': '#c9c7bf',
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
               'target-arrow-shape': 'triangle',
               'curve-style': 'bezier',
               'opacity': 0.7,
@@ -1061,7 +1043,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
           }},
           {{
             selector: 'node.highlighted',
-            style: {{ 'border-width': 3, 'border-color': '#6b3e26' }}
+            style: {{ 'border-width': 3, 'border-color': '#0f1115' }}
           }}
         ],
         layout: {{
@@ -1101,23 +1083,9 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="../../explore.html?p=find">글 찾기</a>
-        <a href="../../explore.html?p=essays">글</a>
-        <a href="../../explore.html?p=people" class="active">인물</a>
-        <a href="../../explore.html?p=concepts">개념어</a>
-        <a href="../../explore.html?p=venues">지면</a>
-        <a href="../graph.html">관계망</a>
-        <a href="../../ask.html">질문하기</a>
-        <a href="../../about.html">소개</a>
-      </nav>
-    </div>
-  </header>
 
   <main class="container index-main">
     <section class="critic-profile-hero">
@@ -1148,11 +1116,7 @@ def build_critic_profile(critic_id, critic_info, essays, graph_data=None):
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
-    </div>
-  </footer>
+  <script src="/kc-shell.js"></script>
 </body>
 </html>"""
 
@@ -1241,23 +1205,9 @@ def build_writer_profile(writer_id, writer_info, essays_about):
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="../../explore.html?p=find">글 찾기</a>
-        <a href="../../explore.html?p=essays">글</a>
-        <a href="../../explore.html?p=people" class="active">인물</a>
-        <a href="../../explore.html?p=concepts">개념어</a>
-        <a href="../../explore.html?p=venues">지면</a>
-        <a href="../graph.html">관계망</a>
-        <a href="../../ask.html">질문하기</a>
-        <a href="../../about.html">소개</a>
-      </nav>
-    </div>
-  </header>
 
   <main class="container index-main">
     <section class="critic-profile-hero">
@@ -1285,11 +1235,7 @@ def build_writer_profile(writer_id, writer_info, essays_about):
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
-    </div>
-  </footer>
+  <script src="/kc-shell.js"></script>
 </body>
 </html>"""
 
@@ -1382,23 +1328,9 @@ def build_thinker_profile(thinker_id, thinker_info):
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="../../index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="../../explore.html?p=find">글 찾기</a>
-        <a href="../../explore.html?p=essays">글</a>
-        <a href="../../explore.html?p=people" class="active">인물</a>
-        <a href="../../explore.html?p=concepts">개념어</a>
-        <a href="../../explore.html?p=venues">지면</a>
-        <a href="../graph.html">관계망</a>
-        <a href="../../ask.html">질문하기</a>
-        <a href="../../about.html">소개</a>
-      </nav>
-    </div>
-  </header>
 
   <main class="container index-main">
     <section class="critic-profile-hero">
@@ -1427,11 +1359,7 @@ def build_thinker_profile(thinker_id, thinker_info):
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>kcritic — 한국 비평사 온톨로지 파일럿 · TEI XML 기반 LOD 아카이브</p>
-    </div>
-  </footer>
+  <script src="/kc-shell.js"></script>
 </body>
 </html>"""
 

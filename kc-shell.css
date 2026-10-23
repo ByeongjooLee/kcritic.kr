@@ -1,0 +1,68 @@
+/* kcritic 2판 머리글·바닥글 — 예전 화면(style.css)용. kc-shell.js 와 짝.
+   1) 예전 화면의 색 변수를 2판 색으로 맞춘다(본문 배치는 그대로).
+   2) 머리글·바닥글 규칙은 모두 .hd / .ft 아래에만 둔다 — 예전 화면의 본문을 건드리지 않게. */
+:root {
+  --kc-ink: #0f1115; --kc-muted: #5b6270; --kc-faint: #98a0ad; --kc-line: #e6e8ed; --kc-line-2: #d5d9e0;
+  --kc-panel: #f6f7f9; --kc-panel-2: #eef0f4; --kc-accent: #e8590c;
+  --t-essay: #0f766e; --t-critic: #b45309; --t-writer: #1d4ed8; --t-theorist: #7c3aed; --t-concept: #be185d;
+  /* 예전 style.css 변수 → 2판 색 */
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #f6f7f9;
+  --text: #0f1115; --text-secondary: #5b6270; --text-tertiary: #98a0ad;
+  --border: #e6e8ed; --border-strong: #d5d9e0;
+  --accent: #b8470a; --accent-light: #fff1e8;
+}
+body.kcs { background: #fff; word-break: keep-all; overflow-wrap: anywhere; }
+
+/* 머리글 */
+.hd { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.9); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--kc-line);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif; font-size: 15px; line-height: 1.6; color: var(--kc-ink); }
+.hd *, .ft * { box-sizing: border-box; }
+.hd a, .ft a { color: inherit; text-decoration: none; }
+.hd a:hover, .ft a:hover { text-decoration: none; }
+.hd button, .hd input { font: inherit; color: inherit; margin: 0; }
+.hd .wrap, .ft .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.hd .wrap { display: flex; align-items: center; gap: 28px; height: 60px; }
+.hd .brand { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+.hd .brand b { font-size: 18px; font-weight: 800; letter-spacing: -.02em; }
+.hd .brand b i { font-style: normal; color: var(--kc-accent); }
+.hd .brand span { font-size: 13px; color: var(--kc-muted); }
+.hd .nav { display: flex; gap: 2px; margin: 0; padding: 0; }
+.hd .nav a { padding: 7px 12px; border-radius: 999px; font-size: 14.5px; font-weight: 500; color: var(--kc-muted); }
+.hd .nav a:hover { color: var(--kc-ink); background: var(--kc-panel); }
+.hd .hd-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.hd .gsearch { position: relative; }
+.hd .gsearch input { width: 260px; height: 36px; border: 1px solid var(--kc-line-2); border-radius: 999px; padding: 0 14px 0 34px; outline: none; font-size: 14px;
+  background: var(--kc-panel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2398a0ad' stroke-width='2'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='M11 11l3.5 3.5'/%3E%3C/svg%3E") 12px 50% no-repeat; }
+.hd .gsearch input:focus { background-color: #fff; border-color: var(--kc-ink); }
+.hd .suggest { position: absolute; right: 0; top: 44px; width: 420px; max-height: 70vh; overflow: auto; background: #fff; border: 1px solid var(--kc-line); border-radius: 12px; box-shadow: 0 16px 40px rgba(15,17,21,.12); padding: 8px; display: none; }
+.hd .suggest.show { display: block; }
+.hd .suggest h6 { font-size: 11px; font-weight: 600; color: var(--kc-faint); letter-spacing: .06em; padding: 8px 10px 4px; margin: 0; }
+.hd .suggest a { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; font-size: 14px; }
+.hd .suggest a:hover, .hd .suggest a.sel { background: var(--kc-panel); }
+.hd .suggest a small { margin-left: auto; color: var(--kc-faint); font-size: 12px; white-space: nowrap; }
+.hd .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+.hd .dot.t-essay { background: var(--t-essay); } .hd .dot.t-critic { background: var(--t-critic); } .hd .dot.t-writer { background: var(--t-writer); }
+.hd .dot.t-theorist { background: var(--t-theorist); } .hd .dot.t-concept { background: var(--t-concept); }
+.hd .btn { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--kc-line-2); background: #fff; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.hd .btn:hover { border-color: var(--kc-ink); }
+.hd .btn.dark { background: var(--kc-ink); color: #fff; border-color: var(--kc-ink); }
+.hd .menu-btn { display: none; }
+@media (max-width: 980px) { .hd .gsearch input { width: 180px; } .hd .brand span { display: none; } }
+@media (max-width: 760px) {
+  .hd .wrap { gap: 12px; } .hd .nav, .hd .hd-right .btn.dark { display: none; } .hd .menu-btn { display: inline-flex; }
+  .hd .gsearch input { width: 150px; } .hd .suggest { width: calc(100vw - 32px); right: -60px; }
+  .hd .nav.show { display: flex; position: absolute; top: 60px; left: 0; right: 0; flex-direction: column; background: #fff; border-bottom: 1px solid var(--kc-line); padding: 8px 16px 12px; }
+}
+@media (max-width: 600px) { .hd .wrap, .ft .wrap { padding: 0 16px; } }
+
+/* 바닥글 */
+.ft { border-top: 1px solid var(--kc-line); margin-top: 40px; padding: 36px 0 48px; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif; font-size: 13.5px; line-height: 1.6; color: var(--kc-muted); background: #fff; }
+.ft .cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 24px; }
+.ft h6 { font-size: 12px; color: var(--kc-ink); margin: 0 0 8px; }
+.ft p { margin: 0; }
+.ft a { display: block; padding: 2px 0; } .ft a:hover { color: var(--kc-ink); }
+@media (max-width: 760px) { .ft .cols { grid-template-columns: 1fr 1fr; } }
+
+/* 예전 바닥글에 있던 화면별 출처 문구(선행연구 출처 등) */
+.kcs-note { font-size: 13px; color: var(--kc-muted); margin-top: 32px; line-height: 1.7; }
+.kcs-note a { color: inherit; text-decoration: underline; }

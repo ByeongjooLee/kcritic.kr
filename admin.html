@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="kc-shell.css">
   <style>
     .admin-wrap { max-width: 860px; margin: 0 auto; padding: 2.5rem 0 5rem; }
 
@@ -157,22 +158,6 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="explore.html?p=find">글 찾기</a>
-        <a href="explore.html?p=essays">글</a>
-        <a href="explore.html?p=people">인물</a>
-        <a href="explore.html?p=concepts">개념어</a>
-        <a href="explore.html?p=venues">지면</a>
-        <a href="site/graph.html">관계망</a>
-        <a href="ask.html">질문하기</a>
-        <a href="about.html">소개</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="container index-main">
 
     <!-- 로그인 화면 -->
@@ -222,11 +207,7 @@
 
   <div class="toast" id="toast"></div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>비평 온톨로지 프로젝트 · TEI XML · Wikidata · 국립중앙도서관 LOD</p>
-    </div>
-  </footer>
+
 
   <script>
   const API = 'https://kcritic-api.onrender.com';
@@ -419,5 +400,6 @@
     setTimeout(() => el.classList.remove('show'), 2500);
   }
   </script>
+<script src="/kc-shell.js"></script>
 </body>
 </html>

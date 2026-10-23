@@ -7,24 +7,9 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="kc-shell.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="site-title">한국 비평사 온톨로지</a>
-      <nav class="site-nav">
-        <a href="explore.html?p=find">글 찾기</a>
-        <a href="explore.html?p=essays" class="active">글</a>
-        <a href="explore.html?p=people">인물</a>
-        <a href="explore.html?p=concepts">개념어</a>
-        <a href="explore.html?p=venues">지면</a>
-        <a href="site/graph.html">관계망</a>
-        <a href="ask.html">질문하기</a>
-        <a href="about.html">소개</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="container index-main">
     <section class="index-hero">
       <h1 class="index-heading">전체 글 목록</h1>
@@ -10248,11 +10233,7 @@
     <!-- MHS-END -->
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>비평 온톨로지 프로젝트 · TEI XML · Wikidata · 국립중앙도서관 LOD</p>
-    </div>
-  </footer>
+
   <script>
   // 각 에세이 카드에 "관계망에서 보기" 버튼 동적 삽입
   document.querySelectorAll('.essay-card').forEach(card => {
@@ -10272,5 +10253,6 @@
 
   // graph.html로 넘어갈 때 hash로 노드 포커스
   </script>
+<script src="/kc-shell.js"></script>
 </body>
 </html>
