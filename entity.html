@@ -70,6 +70,9 @@ db().then(D => {
         <div class="panel"><h5>인용한 비평가</h5>${hbars(tally(cites, e => [e.critic]).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
         <div class="panel wide"><h5>함께 다뤄진 작가</h5>${chips(tally(cites, e => e.subjects).slice(0, 20), "t-writer", href.person, nm)}</div>
       </div>${rows(cites)}` });
+    if (about.length || cites.length) defs.push({ k: "ctx", label: "인용 문맥", html: `
+      <p class="note" style="margin:0 0 6px">비평에서 이 인물이 나온 문장을 보입니다(한 자리마다 두 문장 이내 · 연구용 인용, 원문 전체는 제공하지 않습니다).</p>
+      <div id="pctx"><p class="note">불러오는 중…</p></div>` });
     root.innerHTML = `
       <div class="ent-head">
         <div class="crumb"><a href="explore.html?p=people">인물</a><span>/</span><span>${esc(p.name)}</span></div>
@@ -87,6 +90,17 @@ db().then(D => {
             <dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}${esc(p.id)}</dd></dl></div>
         </aside></div>`;
     wireTabs();
+    // 인용 문맥은 이 화면에서만 따로 읽는다(목록 화면이 무거워지지 않게)
+    if (document.getElementById("pctx")) fetch("site/data/v2/contexts.json").then(r => r.json()).then(C => {
+      const list = (C[ID] || []).map(([eid, s]) => ({ e: D.E.get(eid), s })).filter(x => x.e).sort((x, y) => ko(x.e.year, y.e.year));
+      const one = x => `<article class="cx"><p>${esc(x.s).split(esc(p.name)).join(`<mark>${esc(p.name)}</mark>`)}</p>
+        <div class="src"><span class="num">${x.e.year}</span> · <a href="${href.person(x.e.critic)}">${esc(x.e.critic_name)}</a> · <a href="${href.essay(x.e.id)}">「${esc(x.e.title)}」</a></div></article>`;
+      const lim = 30;
+      document.getElementById("pctx").innerHTML = !list.length ? `<p class="note">이 인물이 나온 문장이 아직 표시되어 있지 않습니다.</p>` :
+        list.slice(0, lim).map(one).join("") + (list.length > lim ? `<details><summary class="btn morebtn" style="width:max-content;margin-top:12px">${list.length - lim}건 더 보기</summary>${list.slice(lim).map(one).join("")}</details>` : "");
+      const b = document.querySelector('#etabs button[data-k="ctx"]');
+      if (b) b.insertAdjacentHTML("beforeend", ` <small class="num">${fmt(list.length)}</small>`);
+    }).catch(() => { document.getElementById("pctx").innerHTML = `<p class="note">불러오지 못했습니다.</p>`; });
   }
 
   // ── 글 ──
