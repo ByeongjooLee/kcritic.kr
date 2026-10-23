@@ -21,12 +21,13 @@ db().then(D => {
   const tally = (list, get) => { const m = new Map(); list.forEach(e => new Set(get(e)).forEach(v => m.set(v, (m.get(v) || 0) + 1))); return [...m].sort((a, b) => b[1] - a[1] || ko(a[0], b[0])); };
   // ex: 개념어 화면에서 이 글의 예시 문장(개념어를 <mark>로 표시)
   const exLine = (ex, term) => ex ? `<p class="exs">${esc(ex).split(esc(term)).join(`<mark>${esc(term)}</mark>`)}</p>` : "";
-  const essayRow = (e, ex) => `<article class="row"><div class="yr num">${e.year}</div><div>
+  // pre: 인물 화면에서 이 글에 그 인물이 나온 문장(제목·서지와 개념어 사이)
+  const essayRow = (e, ex, pre) => `<article class="row"><div class="yr num">${e.year}</div><div>
       <h4><a href="${href.essay(e.id)}">${esc(e.title)}</a></h4>
-      <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호 · ${esc(e.pages)}면` : esc(e.venue)}</span></div>
+      <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호 · ${esc(e.pages)}면` : esc(e.venue)}</span></div>${pre || ""}
       <div class="tags">${e.concepts.slice(0, 5).map(c => `<a href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div>${ex || ""}</div><div class="side"></div></article>`;
-  const rows = (list, lim = 12, exFn = () => "") => {
-    const s = [...list].sort((a, b) => ko(a.year, b.year)), row = e => essayRow(e, exFn(e));
+  const rows = (list, lim = 12, exFn = () => "", preFn = () => "") => {
+    const s = [...list].sort((a, b) => ko(a.year, b.year)), row = e => essayRow(e, exFn(e), preFn(e));
     return `<div class="rows">${s.slice(0, lim).map(row).join("")}</div>` + (s.length > lim ? `<details><summary class="btn morebtn" style="width:max-content">${s.length - lim}편 더 보기</summary><div class="rows">${s.slice(lim).map(row).join("")}</div></details>` : "");
   };
   const chips = (ids, cls, hrefFn, nameFn) => `<div class="chips">${ids.map(([id, n]) => `<a class="chip ${cls}" href="${hrefFn(id)}"><span class="dot ${cls}"></span>${esc(nameFn(id))}${n > 1 ? ` <small class="num">${n}</small>` : ""}</a>`).join("")}</div>`;
@@ -63,16 +64,13 @@ db().then(D => {
         <div class="panel"><h5>연도별</h5>${histSVG(about.map(e => +e.year), { h: 80 })}</div>
         <div class="panel"><h5>다룬 비평가</h5>${hbars(tally(about, e => [e.critic]).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
         <div class="panel wide"><h5>이 작가를 논할 때 쓰인 개념어</h5>${chips(tally(about, e => e.concepts).slice(0, 20), "t-concept", href.concept, x => x)}</div>
-      </div>${rows(about)}` });
+      </div><div id="prows-about">${rows(about)}</div>` });
     if (cites.length) defs.push({ k: "cited", label: "이 이론가를 인용한 비평", n: cites.length, html: `
       <div class="dash" style="margin-bottom:24px">
         <div class="panel"><h5>연도별</h5>${histSVG(cites.map(e => +e.year), { h: 80 })}</div>
         <div class="panel"><h5>인용한 비평가</h5>${hbars(tally(cites, e => [e.critic]).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
         <div class="panel wide"><h5>함께 다뤄진 작가</h5>${chips(tally(cites, e => e.subjects).slice(0, 20), "t-writer", href.person, nm)}</div>
-      </div>${rows(cites)}` });
-    if (about.length || cites.length) defs.push({ k: "ctx", label: "인용 문맥", html: `
-      <p class="note" style="margin:0 0 6px">비평에서 이 인물이 나온 문장을 보입니다(한 자리마다 두 문장 이내 · 연구용 인용, 원문 전체는 제공하지 않습니다).</p>
-      <div id="pctx"><p class="note">불러오는 중…</p></div>` });
+      </div><div id="prows-cited">${rows(cites)}</div>` });
     root.innerHTML = `
       <div class="ent-head">
         <div class="crumb"><a href="explore.html?p=people">인물</a><span>/</span><span>${esc(p.name)}</span></div>
@@ -90,17 +88,15 @@ db().then(D => {
             <dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}${esc(p.id)}</dd></dl></div>
         </aside></div>`;
     wireTabs();
-    // 인용 문맥은 이 화면에서만 따로 읽는다(목록 화면이 무거워지지 않게)
-    if (document.getElementById("pctx")) fetch("site/data/v2/contexts.json").then(r => r.json()).then(C => {
-      const list = (C[ID] || []).map(([eid, s]) => ({ e: D.E.get(eid), s })).filter(x => x.e).sort((x, y) => ko(x.e.year, y.e.year));
-      const one = x => `<article class="cx"><p>${esc(x.s).split(esc(p.name)).join(`<mark>${esc(p.name)}</mark>`)}</p>
-        <div class="src"><span class="num">${x.e.year}</span> · <a href="${href.person(x.e.critic)}">${esc(x.e.critic_name)}</a> · <a href="${href.essay(x.e.id)}">「${esc(x.e.title)}」</a></div></article>`;
-      const lim = 30;
-      document.getElementById("pctx").innerHTML = !list.length ? `<p class="note">이 인물이 나온 문장이 아직 표시되어 있지 않습니다.</p>` :
-        list.slice(0, lim).map(one).join("") + (list.length > lim ? `<details><summary class="btn morebtn" style="width:max-content;margin-top:12px">${list.length - lim}건 더 보기</summary>${list.slice(lim).map(one).join("")}</details>` : "");
-      const b = document.querySelector('#etabs button[data-k="ctx"]');
-      if (b) b.insertAdjacentHTML("beforeend", ` <small class="num">${fmt(list.length)}</small>`);
-    }).catch(() => { document.getElementById("pctx").innerHTML = `<p class="note">불러오지 못했습니다.</p>`; });
+    // 인용 문맥: 다룬·인용한 비평 목록의 글마다 이 인물이 나온 문장을 제목·서지와 개념어 사이에 넣는다(이 화면에서만 따로 읽음)
+    if (about.length || cites.length) fetch("site/data/v2/contexts.json").then(r => r.json()).then(C => {
+      const by = {};
+      (C[ID] || []).forEach(([eid, s]) => (by[eid] ||= []).push(s));
+      const mk = s => esc(s).split(esc(p.name)).join(`<mark>${esc(p.name)}</mark>`);
+      const pre = e => { const L = by[e.id]; if (!L) return "";
+        return `<div class="cxs"><p>${mk(L[0])}</p>${L.length > 1 ? `<details><summary>이 글에서 ${L.length - 1}곳 더</summary>${L.slice(1).map(x => `<p>${mk(x)}</p>`).join("")}</details>` : ""}</div>`; };
+      [["prows-about", about], ["prows-cited", cites]].forEach(([id, list]) => { const el = document.getElementById(id); if (el) el.innerHTML = rows(list, 12, () => "", pre); });
+    }).catch(() => {});
   }
 
   // ── 글 ──
@@ -161,7 +157,7 @@ db().then(D => {
         <div class="panel"><h5>RDF</h5><p class="note">글의 <code>dcterms:subject</code> 리터럴로 발행됩니다. 질문하기의 SPARQL 탭에서 조회할 수 있습니다.</p></div></aside></div>`;
     // 예시 문장은 이 화면에서만 따로 읽는다(목록 화면이 무거워지지 않게)
     fetch("site/data/v2/examples.json").then(r => r.json()).then(X => {
-      document.getElementById("crows").innerHTML = rows(es, 20, e => exLine(X[e.id]?.[ID], ID));
+      document.getElementById("crows").innerHTML = rows(es, 20, () => "", e => exLine(X[e.id]?.[ID], ID));
     }).catch(() => {});
   }
 
