@@ -3,3 +3,4 @@ uvicorn[standard]
 neo4j
 anthropic
 python-dotenv
+networkx>=3.2   # build_graph_metrics.py (관계망 중심성·군집)

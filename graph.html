@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관계망 — kcritic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="kc.css">
+  <style>
+    /* 관계망 2판 — 한 사람(또는 한 글)을 가운데 두고 바로 이어진 사람만. 글은 선 안으로 접는다.
+       배색: 톤인톤(tone-in-tone). 색상은 사이트 유형 색(비평가 호박·작가 파랑·이론가 보라·글 청록)을 따르고,
+       명도·채도는 OKLCH에서 한 값으로 맞춘다 — 점 L .80 C .07, 선 L .89 C .04, 가운데 점 L .68 C .10. */
+    :root {
+      --g-critic: #e4b196; --g-writer: #a7beec; --g-theorist: #cab2e1; --g-essay: #89cdc4;
+      --g-critic-c: #ca8560; --g-writer-c: #7997d6; --g-theorist-c: #a987c8; --g-essay-c: #3eaca1;
+      --g-edge-sub: #cddbf6; --g-edge-thy: #e2d4f0; --g-edge-wrote: #f2d4c4; --g-edge-sim: #f1cfbe;
+      --g-co: #dbdee3; --g-x: #e5e8ec; --g-bar: #eac5b2;
+    }
+    .gr-head { padding: 40px 0 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .gr-head h1 { font-size: 30px; letter-spacing: -.03em; }
+    .gr-head p { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 640px; }
+    .gr-ctl { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; padding: 12px 0 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .gr-ctl input[type=search] { width: 230px; height: 36px; border: 1px solid var(--line-2); border-radius: 999px; padding: 0 14px; font-size: 14px; outline: none; background: var(--panel); }
+    .gr-ctl input[type=search]:focus { border-color: var(--ink); background: #fff; }
+    .gr-ctl label.k { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--muted); cursor: pointer; }
+    .gr-ctl label.k i { width: 18px; height: 4px; border-radius: 2px; display: inline-block; }
+    .gr-ctl select { height: 36px; border: 1px solid var(--line-2); border-radius: 999px; padding: 0 12px; font-size: 14px; background: #fff; }
+    .gr-ctl .grow { flex: 1; }
+    .gr-ctl .lab { font-size: 12px; color: var(--faint); margin-right: -6px; }
+    .seg { display: inline-flex; background: var(--panel-2); border-radius: 999px; padding: 3px; gap: 2px; }
+    .seg button { border: 0; background: none; padding: 6px 13px; border-radius: 999px; font-size: 13.5px; color: var(--muted); cursor: pointer; }
+    .seg button.on { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(15,17,21,.08); }
+    .seg button:disabled { opacity: .4; cursor: not-allowed; }
+    .gr { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; padding: 20px 0 40px; align-items: start; }
+    .stage { border: 1px solid var(--line); border-radius: var(--r); background: #fcfcfd; position: relative; overflow: hidden; }
+    .stage svg { display: block; width: 100%; height: auto; }
+    .stage .hint { position: absolute; left: 14px; bottom: 10px; font-size: 12px; color: var(--faint); }
+    .stage .legend { position: absolute; right: 14px; top: 10px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); justify-content: flex-end; max-width: 70%; }
+    .stage .legend span { display: inline-flex; align-items: center; gap: 5px; }
+    .stage .legend i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+    svg .e { fill: none; stroke-linecap: round; transition: opacity .15s; }
+    svg .e.co { stroke-dasharray: 3 4; }
+    svg .n { cursor: pointer; }
+    svg .n circle { stroke: #fff; stroke-width: 2; }
+    svg .n.c circle { stroke: var(--ink); stroke-width: 1.5; stroke-opacity: .25; }
+    svg .n text { font-size: 13px; fill: var(--ink-2, #2a2e36); paint-order: stroke; stroke: #fcfcfd; stroke-width: 4px; stroke-linejoin: round; }
+    svg .n.c text { font-size: 16px; font-weight: 700; fill: var(--ink); }
+    svg.dim .e:not(.on), svg.dim .n:not(.on) { opacity: .15; }
+    .side { display: grid; gap: 12px; }
+    .side .panel { padding: 16px 18px; }
+    .side h2 { font-size: 20px; letter-spacing: -.02em; margin: 6px 0 4px; }
+    .side .meta { font-size: 13px; color: var(--muted); }
+    .side .acts { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .sw { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+    .pos { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 12px; font-size: 13.5px; align-items: baseline; }
+    .pos b { font-weight: 500; color: var(--faint); font-size: 12px; white-space: nowrap; }
+    .pos .bar { height: 5px; border-radius: 3px; background: var(--panel-2); margin-top: 5px; overflow: hidden; }
+    .pos .bar i { display: block; height: 100%; background: var(--g-bar); border-radius: 3px; }
+    .note { font-size: 12px; color: var(--faint); line-height: 1.55; margin-top: 10px; }
+    .rl { list-style: none; }
+    .rl li { padding: 9px 0; border-top: 1px solid var(--line); }
+    .rl li:first-child { border-top: 0; }
+    .rl .who { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; cursor: pointer; background: none; border: 0; padding: 0; text-align: left; width: 100%; }
+    .rl .who:hover { color: var(--accent); }
+    .rl .who small { margin-left: auto; font-weight: 500; color: var(--faint); font-size: 12px; white-space: nowrap; }
+    .rl .es { font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.55; }
+    .rl .es a:hover, .rl .es button:hover { color: var(--ink); text-decoration: underline; }
+    .rl .es button { border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer; }
+    .old { font-size: 13px; color: var(--muted); }
+    .old a { text-decoration: underline; }
+    @media (max-width: 980px) { .gr { grid-template-columns: 1fr; } .gr-ctl input[type=search] { width: 100%; } .stage .legend { position: static; padding: 0 14px 10px; max-width: none; justify-content: flex-start; } }
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="gr-head">
+    <div>
+      <h1>관계망</h1>
+      <p>한 사람(또는 한 글)을 가운데 두고 바로 이어진 사람을, 또는 그 사람과 비슷한 사람을 보여 줍니다. 점을 누르면 그 사람이 가운데로 옵니다.</p>
+    </div>
+    <div class="old">전체 1,944개 점을 한꺼번에 보려면 <a href="site/graph_full.html">예전 관계망</a></div>
+  </div>
+
+  <div class="gr-ctl">
+    <input id="q" type="search" list="names" placeholder="가운데 둘 사람 — 예: 김현, 김수영, 루카치" aria-label="가운데 둘 사람">
+    <datalist id="names"></datalist>
+    <div class="seg" role="group" aria-label="보기"><button data-v="ego" class="on">이어진 사람</button><button data-v="sim">비슷한 사람</button></div>
+    <span class="lab">세기</span><select id="wt" aria-label="선의 세기"><option value="n">글 수</option><option value="s">특이도</option></select>
+    <span class="lab">색</span><select id="col" aria-label="점의 색"><option value="role">역할</option><option value="comm">군집</option></select>
+    <select id="max" aria-label="최대 인원"><option value="15">15명</option><option value="25" selected>25명</option><option value="40">40명</option></select>
+    <span class="grow"></span>
+    <span id="kinds">
+      <label class="k"><input type="checkbox" id="k-sub" checked><i style="background:var(--g-edge-sub)"></i>다룸</label>
+      <label class="k"><input type="checkbox" id="k-thy" checked><i style="background:var(--g-edge-thy)"></i>활용</label>
+      <label class="k"><input type="checkbox" id="k-co"><i style="background:var(--g-co)"></i>같은 글에 나옴</label>
+    </span>
+  </div>
+
+  <div class="gr">
+    <div class="stage" id="stage"><svg id="svg" viewBox="0 0 900 640" role="img" aria-label="관계망 그림"></svg><span class="hint" id="hint"></span><div class="legend" id="legend"></div></div>
+    <aside class="side" id="side"></aside>
+  </div>
+</main>
+<script src="kc.js"></script>
+<script>
+shell("graph");
+const KIND = {
+  sub:   { label: "다룸", col: "var(--g-edge-sub)" },   subby: { label: "다룸", col: "var(--g-edge-sub)" },
+  thy:   { label: "활용", col: "var(--g-edge-thy)" },   thyby: { label: "활용", col: "var(--g-edge-thy)" },
+  wrote: { label: "씀",   col: "var(--g-edge-wrote)" }, co:    { label: "같은 글에 나옴", col: "var(--g-co)" },
+  sim:   { label: "비슷함", col: "var(--g-edge-sim)" },
+};
+const ROLECOL = { critic: "var(--g-critic)", writer: "var(--g-writer)", theorist: "var(--g-theorist)", essay: "var(--g-essay)" };
+const CENTERCOL = { critic: "var(--g-critic-c)", writer: "var(--g-writer-c)", theorist: "var(--g-theorist-c)", essay: "var(--g-essay-c)" };
+// 군집 색: 같은 톤(OKLCH L .83 C .065)에서 색상만 돌린다. 큰 군집(0·1·2)끼리 색상이 멀도록 순서를 섞었다.
+const COMMCOL = ["#b2c8f3", "#ebbca3", "#97d6cd", "#d3bde9", "#c1ce9f", "#ecb6c5", "#9ad1e7", "#dec398", "#aad4b1", "#e5b7d5", "#efb8af"];
+const $ = id => document.getElementById(id);
+let D, M, asCritic, mentioned, inv, NE, view = "ego";
+
+Promise.all([db(), fetch("site/data/v2/graph_metrics.json").then(r => r.json()).catch(() => null)]).then(([d, m]) => {
+  D = d; M = m; NE = D.essays.length;
+  asCritic = new Map(); mentioned = new Map(); inv = new Map();      // 사람 → 쓴 글 / 나온 글 / 관련된 글 전체
+  const push = (mp, k, v) => (mp.get(k) || mp.set(k, []).get(k)).push(v);
+  const touch = (k, e) => (inv.get(k) || inv.set(k, new Set()).get(k)).add(e.id);
+  for (const e of D.essays) {
+    push(asCritic, e.critic, e); touch(e.critic, e);
+    for (const s of e.subjects || []) { push(mentioned, s, { e, k: "sub" }); touch(s, e); }
+    for (const t of e.theorists || []) { push(mentioned, t, { e, k: "thy" }); touch(t, e); }
+  }
+  const deg = p => (asCritic.get(p.id)?.length || 0) * 3 + (mentioned.get(p.id)?.length || 0);
+  const ppl = D.people.filter(p => deg(p) > 0).sort((a, b) => deg(b) - deg(a));
+  const nameIx = new Map();
+  for (const p of ppl) if (!nameIx.has(p.name)) nameIx.set(p.name, p.id);
+  $("names").innerHTML = ppl.slice(0, 1500).map(p => `<option value="${esc(p.name)}">`).join("");
+  for (const id of ["k-sub", "k-thy", "k-co", "max", "wt", "col"]) $(id).onchange = draw;
+  document.querySelectorAll(".seg button").forEach(b => b.onclick = () => { if (b.disabled) return; view = b.dataset.v; draw(); });
+  $("q").onchange = () => { const id = nameIx.get($("q").value.trim()); if (id) go(id); };
+  window.addEventListener("hashchange", draw);
+  if (!location.hash) history.replaceState(null, "", "#p-kim-hyon");
+  draw();
+});
+
+function go(id) { location.hash = encodeURIComponent(id); }
+function center() { return decodeURIComponent(location.hash.slice(1)) || "p-kim-hyon"; }
+const nm = id => D.P.get(id)?.name || D.E.get(id)?.title || id;
+const role = id => D.E.has(id) ? "essay" : (D.P.has(id) ? mainRole(D.P.get(id)) : "writer");
+const isCritic = id => (asCritic.get(id)?.length || 0) > 0;
+const comm = id => M?.nodes[id]?.[4];
+const fill = (id, isC) => $("col").value === "comm" && comm(id) !== undefined ? COMMCOL[comm(id) % COMMCOL.length] : (isC ? CENTERCOL : ROLECOL)[role(id)];
+// 특이도: 같이 나온 글 수 × log2(기대보다 몇 배 자주 같이 나왔나). 드문 쌍 한 번은 낮게, 흔한 사람끼리 많은 것도 낮게.
+const spec = (a, b, n) => { const na = inv.get(a)?.size || 1, nb = inv.get(b)?.size || 1; return Math.max(0, n * Math.log2(n * NE / (na * nb))); };
+
+// 이어진 사람: {id → {k: 관계, es: [글], w: 글 수(같은 글은 1/(이름 수−1) 가중)}}
+function ego(c) {
+  const on = { sub: $("k-sub").checked, thy: $("k-thy").checked, co: $("k-co").checked };
+  const TOG = { sub: "sub", subby: "sub", thy: "thy", thyby: "thy", co: "co" };
+  const N = new Map();
+  const add = (id, k, e, inc = 1) => { if (!id || id === c || (TOG[k] && !on[TOG[k]])) return;
+    const x = N.get(id) || N.set(id, { k, es: [], w: 0 }).get(id); if (!x.es.includes(e)) { x.es.push(e); x.w += inc; } };
+  if (D.E.has(c)) {
+    const e = D.E.get(c);
+    add(e.critic, "wrote", e);
+    for (const s of e.subjects || []) add(s, "sub", e);
+    for (const t of e.theorists || []) add(t, "thy", e);
+    return N;
+  }
+  for (const e of asCritic.get(c) || []) {
+    for (const s of e.subjects || []) add(s, "sub", e);
+    for (const t of e.theorists || []) add(t, "thy", e);
+  }
+  for (const { e, k } of mentioned.get(c) || []) {
+    add(e.critic, k === "sub" ? "subby" : "thyby", e);
+    if (on.co) { const others = [...(e.subjects || []), ...(e.theorists || [])]; const inc = 1 / Math.max(1, others.length - 1);
+      for (const o of others) if (o !== c && (!N.has(o) || N.get(o).k === "co")) add(o, "co", e, inc); }
+  }
+  if ($("wt").value === "s") for (const [id, v] of N) v.w = v.k === "co" ? v.w : spec(c, id, v.es.length);
+  return N;
+}
+
+// 비슷한 사람(비평가끼리): 다룬·활용한 사람이 겹치는 정도(코사인).
+// 특이도를 고르면 여러 비평가가 다 다루는 흔한 사람의 무게를 낮춘다(idf)
+let criticsOf, targetsOf;
+function vec(id, critic) {
+  if (!criticsOf) { criticsOf = new Map(); targetsOf = new Map();
+    for (const e of D.essays) for (const x of [...(e.subjects || []), ...(e.theorists || [])]) {
+      (criticsOf.get(x) || criticsOf.set(x, new Set()).get(x)).add(e.critic);
+      (targetsOf.get(e.critic) || targetsOf.set(e.critic, new Set()).get(e.critic)).add(x); } }
+  const v = new Map(), bump = (k, x) => v.set(k, (v.get(k) || 0) + x);
+  if (critic) for (const e of asCritic.get(id) || []) for (const x of new Set([...(e.subjects || []), ...(e.theorists || [])])) bump(x, 1);
+  else for (const { e } of mentioned.get(id) || []) bump(e.critic, 1);
+  if ($("wt").value === "s") for (const [k, x] of v) {
+    const idf = critic ? Math.log2(1 + targetsOf.size / criticsOf.get(k).size) : Math.log2(1 + criticsOf.size / targetsOf.get(k).size);
+    v.set(k, x * idf); }
+  return v;
+}
+function similar(c) {
+  const critic = isCritic(c), N = new Map();
+  if (critic) {                                                      // 비평가끼리: 다룬·활용한 사람이 겹치는 정도
+    const A = vec(c, true), na = Math.hypot(...A.values());
+    for (const o of asCritic.keys()) {
+      if (o === c) continue;
+      const B = vec(o, true); let dot = 0; const shared = [];
+      for (const [k, x] of A) if (B.has(k)) { dot += x * B.get(k); shared.push([k, Math.min(x, B.get(k))]); }
+      if (dot) N.set(o, { k: "sim", w: dot / (na * Math.hypot(...B.values())) * shared.length / (shared.length + 2), shared: shared.sort((p, q) => q[1] - p[1]).map(x => x[0]), es: [] });
+    }
+    return N;
+  }
+  // 작가·이론가끼리: 같은 글에서 함께 다뤄진 정도 (글 단위 코사인). 특이도면 이름이 많은 글일수록 가볍게(1/(이름 수−1))
+  const sp = $("wt").value === "s";
+  const ew = e => sp ? 1 / Math.max(1, (e.subjects || []).length + (e.theorists || []).length - 1) : 1;
+  const mine = new Map((mentioned.get(c) || []).map(({ e }) => [e.id, ew(e)]));
+  const norm = id => Math.hypot(...(mentioned.get(id) || []).map(({ e }) => ew(e)));
+  const na = Math.hypot(...mine.values()), acc = new Map();
+  for (const { e } of mentioned.get(c) || []) for (const o of new Set([...(e.subjects || []), ...(e.theorists || [])])) {
+    if (o === c) continue;
+    const x = acc.get(o) || acc.set(o, { dot: 0, es: [] }).get(o); x.dot += mine.get(e.id) * ew(e); if (!x.es.includes(e)) x.es.push(e);
+  }
+  for (const [o, x] of acc) N.set(o, { k: "sim", w: x.dot / (na * norm(o)) * x.es.length / (x.es.length + 4), es: x.es, shared: [] });   // 같이 나온 글이 한두 편뿐이면 낮춘다
+  return N;
+}
+
+function draw() {
+  if (!D) return;
+  if (!D.P.has(center()) && !D.E.has(center())) history.replaceState(null, "", "#p-kim-hyon");   // 모르는 주소는 처음 화면으로
+  const c = center(), max = +$("max").value;
+  const simBtn = document.querySelector('.seg [data-v="sim"]');
+  simBtn.disabled = D.E.has(c);
+  if (simBtn.disabled && view === "sim") view = "ego";
+  document.querySelectorAll(".seg button").forEach(b => b.classList.toggle("on", b.dataset.v === view));
+  $("kinds").style.display = view === "ego" ? "" : "none";
+  const G = view === "sim" ? similar(c) : ego(c);
+  const all = [...G].filter(([, v]) => v.w > 0).sort((a, b) => b[1].w - a[1].w);
+  const shown = all.slice(0, max);
+  const order = { wrote: 0, subby: 1, sub: 2, thyby: 3, thy: 4, co: 5, sim: 6 };
+  shown.sort((a, b) => order[a[1].k] - order[b[1].k] || b[1].w - a[1].w);
+  const W = 900, H = 640, cx = W / 2, cy = H / 2, R = Math.min(W, H) / 2 - 70;
+  const wmax = Math.max(1e-9, ...shown.map(s => s[1].w));
+  const pos = new Map([[c, { x: cx, y: cy }]]);
+  shown.forEach(([id, v], i) => {
+    const a = -Math.PI / 2 + (i + .5) * 2 * Math.PI / shown.length;
+    const r = R * (shown.length > 18 && i % 2 ? .78 : 1) * (1 - .22 * v.w / wmax);   // 셀수록 조금 가까이
+    pos.set(id, { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a), a });
+  });
+  const ids = new Set(shown.map(s => s[0])), seen = new Set(), ex = [];
+  if (view === "ego") for (const [a] of shown) for (const e of asCritic.get(a) || [])      // 바깥 사람끼리의 관계(옅게)
+    for (const s of [...(e.subjects || []), ...(e.theorists || [])]) { const k = a + "|" + s; if (ids.has(s) && s !== a && !seen.has(k)) { seen.add(k); ex.push([a, s]); } }
+  const rad = w => 6 + 14 * Math.sqrt(w / wmax);
+  let svg = "";
+  for (const [a, b] of ex) { const p = pos.get(a), q = pos.get(b);
+    svg += `<path class="e x" data-a="${esc(a)}" data-b="${esc(b)}" d="M${p.x},${p.y} Q${(p.x + q.x + cx) / 3},${(p.y + q.y + cy) / 3} ${q.x},${q.y}" stroke="var(--g-x)" stroke-width="1"/>`; }
+  for (const [id, v] of shown) { const p = pos.get(id);
+    svg += `<line class="e ${v.k}" data-a="${esc(c)}" data-b="${esc(id)}" x1="${cx}" y1="${cy}" x2="${p.x}" y2="${p.y}" stroke="${KIND[v.k].col}" stroke-width="${1.2 + 5 * v.w / wmax}"/>`; }
+  for (const [id, v] of shown) { const p = pos.get(id), right = Math.cos(p.a) >= 0, r = rad(v.w);
+    const lab = nm(id).length > 16 ? nm(id).slice(0, 15) + "…" : nm(id);
+    const tip = view === "sim" ? `비슷함 ${v.w.toFixed(2)} · ${v.shared.length ? `겹치는 사람 ${v.shared.length}명` : `같이 나온 글 ${v.es.length}편`}` : `${KIND[v.k].label} ${v.es.length}편${$("wt").value === "s" && v.k !== "co" ? ` · 특이도 ${v.w.toFixed(1)}` : ""}`;
+    svg += `<g class="n" data-id="${esc(id)}"><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="${fill(id)}"/>` +
+      `<text x="${p.x + (right ? r + 6 : -r - 6)}" y="${p.y + 4}" text-anchor="${right ? "start" : "end"}">${esc(lab)}</text><title>${esc(nm(id))} · ${tip}</title></g>`; }
+  const clab = nm(c).length > 22 ? nm(c).slice(0, 21) + "…" : nm(c);
+  svg += `<g class="n c" data-id="${esc(c)}"><circle cx="${cx}" cy="${cy}" r="26" fill="${fill(c, true)}"/><text x="${cx}" y="${cy + 46}" text-anchor="middle">${esc(clab)}</text></g>`;
+  if (!shown.length) svg += `<text x="${cx}" y="${cy + 90}" text-anchor="middle" fill="var(--muted)" font-size="14">${view === "sim" ? "겹치는 사람이 없습니다" : "이어진 사람이 없습니다 — 위의 관계 칸을 켜 보세요"}</text>`;
+  const S = $("svg"); S.innerHTML = svg;
+  S.querySelectorAll(".n").forEach(g => {
+    const id = g.dataset.id;
+    g.onclick = () => go(id);
+    g.onmouseenter = () => { S.classList.add("dim"); g.classList.add("on"); S.querySelector(`.n[data-id="${CSS.escape(c)}"]`)?.classList.add("on");
+      S.querySelectorAll(".e").forEach(l => { if (l.dataset.a === id || l.dataset.b === id) { l.classList.add("on");
+        S.querySelector(`.n[data-id="${CSS.escape(l.dataset.a === id ? l.dataset.b : l.dataset.a)}"]`)?.classList.add("on"); } }); };
+    g.onmouseleave = () => { S.classList.remove("dim"); S.querySelectorAll(".on").forEach(x => x.classList.remove("on")); };
+  });
+  $("hint").textContent = view === "sim" ? ((isCritic(c) ? "선 굵기 = 다룬·활용한 사람이 겹치는 정도" : "선 굵기 = 같은 글에서 함께 다뤄진 정도") + "(코사인, 겹침이 한두 번이면 낮춤)")
+    : ($("wt").value === "s" ? "선 굵기 = 특이도(기대보다 자주 같이 나온 정도 × 글 수)" : "선 굵기 = 그 관계가 나온 글 수");
+  legend(shown, c);
+  side(c, shown, all.length);
+  document.title = nm(c) + " · 관계망 — kcritic";
+  $("q").value = D.P.has(c) ? nm(c) : "";
+}
+
+function legend(shown, c) {
+  if ($("col").value === "comm" && M) {
+    const used = [...new Set([c, ...shown.map(s => s[0])].map(comm).filter(x => x !== undefined))].slice(0, 6);
+    $("legend").innerHTML = used.map(i => `<span><i style="background:${COMMCOL[i % COMMCOL.length]}"></i>${esc(M.comms[i].label)}</span>`).join("");
+  } else $("legend").innerHTML = [["critic", "비평가"], ["writer", "작가"], ["theorist", "이론가"], ["essay", "글"]].map(([k, l]) => `<span><i style="background:${ROLECOL[k]}"></i>${l}</span>`).join("");
+}
+
+function position(c) {
+  const m = M?.nodes[c]; if (!m) return "";
+  const [deg, dr, btw, br, ci, part] = m, total = M.meta.nodes, co = M.comms[ci];
+  const where = part >= .6 ? "여러 군집을 잇는 다리" : part >= .3 ? "주로 한 군집, 다른 군집과도 이어짐" : "한 군집 안에 머묾";
+  const pct = r => Math.max(2, 100 * (1 - (r - 1) / total));
+  return `<section class="panel"><h5>구조 속 위치</h5><div class="pos">
+      <b>연결 중심성</b><div>${fmt(deg)}명과 이어짐 · ${fmt(dr)}위 <span class="faint">/ ${fmt(total)}</span><div class="bar"><i style="width:${pct(dr)}%"></i></div></div>
+      <b>매개 중심성</b><div>${fmt(br)}위 <span class="faint">(${btw.toFixed(3)})</span><div class="bar"><i style="width:${pct(br)}%"></i></div></div>
+      <b>군집</b><div><span class="sw" style="background:${COMMCOL[ci % COMMCOL.length]}"></span> ${esc(co.label)} <span class="faint">· ${fmt(co.size)}명</span></div>
+      <b>다리 역할</b><div>${where} <span class="faint">(참여 계수 ${part.toFixed(2)})</span></div>
+    </div><p class="note">사람끼리의 관계망(비평가 → 다룬 작가·활용한 이론가, 무게 = 글 수)에서 계산했습니다. 글의 74%가 세 비평가(김현·유종호·김우창)의 것이라 군집은 큰 비평가를 중심으로 묶이는 경향이 있습니다. ${esc(M.meta.built)} 기준.</p></section>`;
+}
+
+function side(c, shown, total) {
+  const isE = D.E.has(c), r = role(c), p = D.P.get(c), e = D.E.get(c);
+  const meta = isE ? `${esc(e.critic_name || "")} · ${esc(e.year || "")} · ${esc(e.venue || "")}`
+    : `쓴 글 ${fmt(p?.wrote)} · 다뤄진 글 ${fmt(p?.discussed)} · 인용된 글 ${fmt(p?.cited)}${p?.from ? ` · ${p.from}–${p.to}` : ""}`;
+  const groups = {};
+  for (const [id, v] of shown) (groups[v.k] ||= []).push([id, v]);
+  const glab = { wrote: "쓴 사람", sub: "다룬 작가·인물", subby: "이 사람을 다룬 비평가", thy: "활용한 이론가", thyby: "이 사람을 활용한 비평가", co: "같은 글에 나온 사람",
+                 sim: isCritic(c) ? "다룬·활용한 사람이 비슷한 비평가" : "같은 글에서 함께 다뤄진 사람" };
+  const sp = $("wt").value === "s";
+  const li = ([id, v]) => {
+    const head = `<li><button class="who" data-id="${esc(id)}"><span class="sw" style="background:${fill(id)}"></span>${esc(nm(id))}` +
+      `<small>${v.k === "sim" ? `비슷함 ${v.w.toFixed(2)}` : `${v.es.length}편${sp && v.k !== "co" ? ` · 특이도 ${v.w.toFixed(1)}` : ""}`}</small></button>`;
+    if (v.k === "sim" && !v.shared.length) return head + `<div class="es">같이 나온 글 ${v.es.length}편: ${v.es.slice(0, 2).map(x => `<a href="${href.essay(x.id)}">${esc(x.title)}</a>`).join(", ")}${v.es.length > 2 ? " …" : ""}</div></li>`;
+    if (v.k === "sim") return head + `<div class="es">겹치는 사람 ${v.shared.length}명: ${v.shared.slice(0, 6).map(x => `<button data-id="${esc(x)}">${esc(nm(x))}</button>`).join(", ")}${v.shared.length > 6 ? " …" : ""}</div></li>`;
+    return head + `<div class="es">${v.es.slice(0, 3).map(x => `<a href="${href.essay(x.id)}">${esc(x.title)}</a> <span class="faint">${esc(x.year || "")}</span>`).join("<br>")}${v.es.length > 3 ? `<br><span class="faint">외 ${v.es.length - 3}편</span>` : ""}</div></li>`;
+  };
+  $("side").innerHTML = `<section class="panel"><span class="pill ${TYPE[r]?.cls || ""}"><span class="dot"></span>${TYPE[r]?.label || ""}</span>
+      <h2>${esc(nm(c))}</h2><div class="meta">${meta}</div>
+      <div class="acts"><a class="btn" href="${isE ? href.essay(c) : href.person(c)}">${isE ? "글" : "인물"} 페이지 →</a></div>
+      <p class="meta" style="margin-top:10px">${view === "sim" ? "비슷한" : "이어진"} ${fmt(total)}명 가운데 ${fmt(shown.length)}명</p></section>` +
+    (isE ? "" : position(c)) +
+    ["wrote", "subby", "sub", "thyby", "thy", "co", "sim"].filter(k => groups[k]).map(k => `<section class="panel"><h5>${glab[k]} <span>${groups[k].length}</span></h5><ul class="rl">${groups[k].map(li).join("")}</ul></section>`).join("");
+  $("side").querySelectorAll("[data-id]").forEach(b => b.onclick = () => go(b.dataset.id));
+}
+</script>
+</body>
+</html>

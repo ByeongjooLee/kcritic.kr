@@ -82,7 +82,8 @@ critic-ontology/
 │   │   ├── interp_game.json ← build_interp_game.py 출력: 판정 게임 문장 224개 (§1 예외)
 │   │   ├── game_config.json ← 판정 수집 웹 앱 URL (비어 있으면 브라우저 보관 모드)
 │   │   └── bibliography.json ← convert_phd.py 출력: 선행연구 데이터
-│   ├── graph.html           ← Cytoscape.js 관계망 시각화
+│   ├── graph.html           ← 예전 주소: 루트 `graph.html`(관계망 2판)로 #id 를 넘겨준다
+│   ├── graph_full.html      ← 예전 관계망(Cytoscape.js, 1,944개 점 전체) 그대로 보관
 │   └── sparql-bundle.js     ← Comunica + N3 로컬 번들 (ask.html SPARQL 탭)
 ├── index.html               ← 비평글 목록 (메인, essay-card 수동 관리)
 ├── critics.html             ← 비평가 목록 탭
@@ -164,7 +165,7 @@ critic-ontology/
 | 비평가 | `critics.html` | 비평가 카드 그리드 → 클릭 시 프로필 페이지 |
 | 작가 | `writers.html` | 비평 대상 작가 목록 → 클릭 시 프로필 페이지 |
 | 이론가 | `thinkers.html` | 비평에서 인용된 이론가 목록 → 클릭 시 프로필 페이지 (인용 문맥 포함) |
-| 관계망 | `site/graph.html` | Cytoscape.js 네트워크 시각화 |
+| 관계망 | `graph.html` (루트) | 관계망 2판: 한 사람·글을 가운데 둔 1단계 이웃 SVG, 「비슷한 사람」(코사인), 세기 「글 수 / 특이도」, 구조 속 위치(`site/data/v2/graph_metrics.json`). 예전 화면은 `site/graph_full.html` |
 | 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
@@ -216,6 +217,7 @@ build.py 출력:
 
 ```powershell
 cd critic-ontology
+py build_graph_metrics.py    # build_site_v2.py 다음: site/data/v2/graph_metrics.json (연결·매개 중심성, Louvain 군집 seed 42, 참여 계수). networkx 필요
 py build_evaluations.py      # build.py 실행 후에 돌릴 것 (graph.json 을 읽는다)
 ```
 

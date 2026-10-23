@@ -80,7 +80,7 @@ db().then(D => {
         <aside class="aside">
           <div class="panel"><h5>기본 정보</h5><dl><dt>식별자</dt><dd class="num">${esc(p.id)}</dd><dt>대표 역할</dt><dd>${TYPE[role].label}</dd><dt>외부 전거</dt><dd>${p.lod.length ? p.lod.map(b => esc(lodName(b))).join(", ") : "연결 없음"}</dd></dl></div>
           <div class="panel"><h5>더 보기</h5><dl>
-            <dt>관계망</dt><dd><a href="${KC}site/graph.html#${encodeURIComponent(p.id)}">이 인물 중심으로</a></dd>
+            <dt>관계망</dt><dd><a href="${KC}graph.html#${encodeURIComponent(p.id)}">이 인물 중심으로</a></dd>
             <dt>기존 페이지</dt><dd><a href="${KC}site/${oldDir}/${encodeURIComponent(p.id)}.html">현행 프로필</a></dd>
             <dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}${esc(p.id)}</dd></dl></div>
         </aside></div>`;
@@ -114,7 +114,7 @@ db().then(D => {
       <aside class="aside">
         <div class="panel"><h5>서지</h5><dl><dt>비평가</dt><dd><a href="${href.person(e.critic)}">${esc(e.critic_name)}</a></dd><dt>연도</dt><dd class="num">${e.year}</dd>
           <dt>지면</dt><dd>${e.coll === "mhs" ? `<a href="${href.issue(issueId)}">《문학과사회》 ${e.issue}호</a>, ${esc(e.pages)}면<div class="note">권별 연속 쪽수 (한 해 한 권, 네 호가 쪽을 이어 매김)</div>` : esc(e.venue)}</dd>${e.section ? `<dt>난</dt><dd>${esc(e.section)}</dd>` : ""}<dt>컬렉션</dt><dd>${esc(e.coll_name)}</dd>${VENUE_LINK[e.coll] ? `<dt>원문 정보</dt><dd><a href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">${esc(VENUE_LINK[e.coll].label)} ↗</a></dd>` : ""}</dl></div>
-        <div class="panel"><h5>더 보기</h5><dl><dt>관계망</dt><dd><a href="${KC}site/graph.html#${encodeURIComponent(e.id)}">이 글 중심으로</a></dd>
+        <div class="panel"><h5>더 보기</h5><dl><dt>관계망</dt><dd><a href="${KC}graph.html#${encodeURIComponent(e.id)}">이 글 중심으로</a></dd>
           <dt>기존 페이지</dt><dd><a href="${KC}site/essays/${encodeURIComponent(e.id)}.html">현행 메타데이터</a></dd><dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(e.id)}</dd></dl>
           <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.${VENUE_LINK[e.coll] ? ` 원문은 발행처에서 확인할 수 있습니다.` : ""}</p>
           ${VENUE_LINK[e.coll] ? `<a class="btn btn-block" style="margin-top:10px" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 ↗<small>${esc(VENUE_LINK[e.coll].label)}</small></a>` : ""}</div>
