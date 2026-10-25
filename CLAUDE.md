@@ -43,6 +43,7 @@ AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로
 ### API 서버(`neo4j_api.py`) 보안 규칙 — 2026-09-07 강화
 
 정적 사이트가 아니라 **`https://kcritic-api.onrender.com` 이 실제 공격면**이다. 아래를 되돌리지 말 것.
+> 2026-10-25 현황: 이 서버는 **기여하기·관리 화면용으로만 살아 있다** — `contribute.html` 이 `POST /contribute`, `admin.html` 이 `/admin/*` 를 부른다(제출은 서버 디스크의 JSON 파일, Neo4j 안 씀). `/ask`(GraphRAG)·`/stats` 는 Neo4j 에 기대는데 Neo4j 는 구자료라(§4 「Neo4j — 구자료」) 연결이 끊겨 `/stats` 가 500 이고, `/ask` 를 부르는 페이지는 없다. 아래 규칙은 서버가 떠 있는 동안 그대로 지킨다.
 
 - **`/ask` 의 Cypher 는 반드시 `assert_read_only()` 를 통과시킨 뒤 실행**한다. LLM이 만든 쿼리를 그대로 `run_cypher` 에 넘기면 프롬프트 인젝션으로 `MATCH (n) DETACH DELETE n` 이 실행돼 DB가 통째로 지워진다
 - `run_cypher` 는 `default_access_mode=READ_ACCESS` 세션을 쓴다 (검증과 이중 방어)
@@ -95,7 +96,7 @@ critic-ontology/
 ├── concepts.html            ← 개념어 탭
 ├── research.html            ← 선행연구 탭
 ├── criticism.html           ← 2000년대 비평 탭
-├── ask.html                 ← 질문하기 탭 (Neo4j GraphRAG UI + SPARQL 탭)
+├── ask.html                 ← 질문하기 탭 (SPARQL 탭만 동작 — 브라우저 Comunica 로 graph.ttl 질의. 자연어 GraphRAG 는 「준비 중」 안내만)
 ├── contribute.html          ← 기여하기 탭
 ├── about.html               ← 소개 탭 (수치·로드맵 하드코딩 — 갱신 시 §17과 함께 고칠 것)
 ├── admin.html               ← 관리 화면 (네비 미노출)
@@ -104,7 +105,7 @@ critic-ontology/
 ├── style.css                ← 공유 스타일 (반응형 포함)
 ├── evaluate.html            ← 태도 평가 탭 = 문장 단위 태도 판정 게임 (순위 배너, Apps Script 로 전송)
 ├── evaluate-essay.html      ← (비평문×작가) 태도 평가 연구자 도구 (브라우저 저장 + 파일 내보내기, 네비 미노출)
-├── build.py                 ← TEI XML → HTML + JSON + TTL + Neo4j 동기화 빌드 스크립트
+├── build.py                 ← TEI XML → HTML + JSON + TTL 빌드 스크립트 (Neo4j 동기화는 `--neo4j` 일 때만, 구자료)
 ├── build_evaluations.py     ← 평가 대기열 생성 (build.py 이후 실행)
 ├── build_interp_game.py     ← 판정 게임 문장 추출 → site/data/interp_game.json (build.py 이후 실행)
 ├── paper_stats.py           ← 논문 표·질의 수치 재현 (rdflib 필요)
@@ -112,8 +113,8 @@ critic-ontology/
 ├── id_map.json              ← 슬러그 ↔ 숫자 xml:id 매핑 (build.py가 우선 참조)
 ├── critic_v8_schema.rdf     ← 공식 OWL 스키마 (배포·다운로드 대상)
 ├── critic_v8_data.rdf       ← 공식 OWL 데이터 (파일럿 스냅샷 152 개체)
-├── neo4j_api.py             ← FastAPI GraphRAG 서버 (포트 8000)
-├── neo4j_load.py            ← graph.json → Neo4j 단독 로드 스크립트
+├── neo4j_api.py             ← FastAPI 서버(Render 배포). 사이트가 쓰는 건 /contribute·/admin/* 뿐, /ask·/stats 는 Neo4j 구자료라 미사용
+├── neo4j_load.py            ← graph.json → Neo4j 단독 로드 스크립트 (구자료)
 ├── verify_lod.py            ← LOD QID 검증 (§14 워크플로우)
 ├── suggest_qid_fixes.py     ← QID 교정 후보 제안
 ├── enhanced_qid_search.py   ← 외국 인물 영문명 재검색
@@ -123,7 +124,7 @@ critic-ontology/
 ├── enrich_en_names.py       ← 외국 인물 영문 레이블 보강
 ├── essays_backup_qidfix/    ← sync_xml_refs.py 백업 (gitignored)
 ├── deploy.ps1               ← build + commit + push + wrangler deploy 일괄
-├── .env                     ← Neo4j/Anthropic 크레덴셜 (gitignored, 절대 커밋 금지)
+├── .env                     ← Neo4j(구자료)/Anthropic 크레덴셜 (gitignored, 절대 커밋 금지)
 ├── .assetsignore            ← Cloudflare 배포 제외 목록 (§11 주의사항 필독)
 ├── wrangler.jsonc           ← Cloudflare Workers 배포 설정
 ├── .gitignore
@@ -172,7 +173,7 @@ critic-ontology/
 | 개념어 | `concepts.html` | 개념어 색인 + 사용 에세이 목록 (좌우 분할 UI) |
 | 선행연구 | `research.html` | 박사·KCI 논문 작가 중심 검색 |
 | 2000년대 비평 | `criticism.html` | 2000년대 시 문학 비평 136건, 연대/대상/주제/논쟁 필터 |
-| 질문하기 | `ask.html` | Neo4j GraphRAG — 자연어 질문 → Cypher 자동 생성 → 학술 답변 + SPARQL 탭 |
+| 질문하기 | `ask.html` | SPARQL 탭(브라우저 Comunica, `site/data/graph.ttl` — 서버 불필요). 자연어 GraphRAG 는 「준비 중」(Neo4j 구자료) |
 | 태도 평가 | `evaluate.html` | 태도 표시 문장 224개 판정 게임 · 인코더 표시/참여자 분포 공개 · 판정 순위 배너 (비평문×작가 도구 `evaluate-essay.html` 로 연결) |
 | 기여하기 | `contribute.html` | 참여·기여 안내 |
 | 소개 | `about.html` | 프로젝트 소개·통계·기술 구성·로드맵 |
@@ -212,7 +213,7 @@ build.py 출력:
 - `site/data/concepts.json` — 개념어 색인 (concepts.html 전용, 관계망 노드 아님 — §5 참조)
 - `site/data/graph.ttl` — RDF Turtle 직렬화 (v8 온톨로지 준거, 20,689 트리플, 끊긴 인물 IRI 0)
 
-빌드 끝에 Neo4j 동기화를 시도한다. `neo4j` 모듈이 없거나 Neo4j Desktop이 꺼져 있으면 경고만 남기고 건너뛴다(빌드 실패 아님).
+빌드 끝의 Neo4j 동기화는 기본으로 건너뛴다(2026-10-25, Neo4j 구자료). 로컬 DB 를 일부러 갱신할 때만 `py build.py --neo4j`.
 
 **빌드 후 필수 검증** — `py build.py` 를 2회 연속 실행하고 `site/data/` 산출물이 바이트 단위로 동일한지 확인할 것(§13 결정성 규칙).
 
@@ -273,17 +274,20 @@ py convert_criticism.py
 - 엑셀에 subject(대상), topic(주제), debate(논쟁) 컬럼 추가 후 재실행하면 필터 UI에 자동 반영
 - COL 인덱스: no=0, year=1, title=2, author=3, journal=4, pages=5, note=6, subject=7, topic=8, debate=9
 
-### Neo4j 동기화 (자동)
+### Neo4j — 구자료 (2026-10-25)
 
-`py build.py` 실행 시 끝에 Neo4j 자동 동기화 시도. Neo4j Desktop이 실행 중이면 graph.json을 Neo4j에 반영. 꺼져 있으면 경고 출력 후 건너뜀 (빌드 실패 아님).
+**사이트는 Neo4j 를 쓰지 않는다.** 질문하기 탭은 `graph.ttl` 을 브라우저에서 SPARQL 로 질의하고(서버 불필요), 자연어 GraphRAG 는 「준비 중」 안내만 있다. Render 의 `neo4j_api.py` 는 기여하기(`/contribute`)·관리(`/admin/*`)용으로만 살아 있고 그 경로는 Neo4j 를 쓰지 않는다. Aura·로컬 Neo4j 의 데이터는 예전 빌드의 스냅샷이다.
+- `py build.py` 는 Neo4j 동기화를 하지 않는다. `sync_neo4j()` 는 `MATCH (n) DETACH DELETE n` 후 다시 넣으므로, 로컬 DB 를 일부러 갱신할 때만 `py build.py --neo4j`
+- 비평글을 추가·공개할 때 Neo4j 재적재는 필요 없다(사이트 반영 = build.py → build_site_v2.py → 배포)
+- GraphRAG 를 다시 살리려면 Neo4j(Aura) 재적재, `/stats` 복구, `ask.html` 연결이 함께 필요하다 — 그때 이 절을 고칠 것
 
-수동 로드가 필요할 때:
+수동 로드가 필요할 때(구자료 갱신):
 ```powershell
 cd critic-ontology
 py neo4j_load.py
 ```
 
-### GraphRAG API 서버 실행
+### GraphRAG API 서버 실행 (구자료 — 사이트 미사용)
 
 ```powershell
 cd critic-ontology
@@ -325,7 +329,7 @@ py -m uvicorn neo4j_api:app --reload
 
 1. 원문 텍스트를 `essays/{stem}.txt` 저장
 2. `essays/{stem}.xml` 생성 및 TEI 인코딩
-3. `py build.py` 실행 (사이트 + Neo4j 동시 갱신)
+3. `py build.py` 실행 (사이트 데이터 갱신. Neo4j 는 구자료라 동기화 안 함)
 4. build 결과 확인: graph.json 노드·엣지, concepts.json 개념어·excerpt
 5. `index.html` 에 essay-card 추가
 6. Git diff 확인 (essays/, .env 제외) → push
@@ -548,7 +552,7 @@ py build.py → py build_site_v2.py → git push → npx wrangler deploy   (.\de
 
 ### 개체 IRI 역참조 (`_redirects`)
 
-graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다(현재 1,451줄). Cloudflare 정적 리다이렉트 한도는 2,000줄 — 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
+graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다. 인물은 한 줄씩, 비평글은 `/resource/essay/* /site/essays/:splat 303` 한 줄(2026-10-25, 현재 1,616줄). Cloudflare 정적 리다이렉트 한도는 2,000줄 — 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
 
 ### not_found_handling
 
@@ -655,7 +659,7 @@ graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `�
 - build.py 수정 후 반드시 `py build.py` 테스트
 - convert_phd.py 수정 후 반드시 `py convert_phd.py` 테스트
 - PowerShell에서 한글 포함 git commit 메시지는 here-string 파싱 오류 발생 → ASCII 메시지 사용 (Bash 툴도 안전하게 ASCII 권장)
-- Neo4j URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
+- (구자료) Neo4j 를 다룰 때 URI는 반드시 `bolt://127.0.0.1:7687` 사용 — `neo4j://` 프로토콜은 라우팅 오류 발생
 - **빌드 결정성 유지**: set을 출력/직렬화할 땐 항상 `sorted()`, count 기준 정렬엔 `key=lambda x: (-x[1], x[0])` 같은 안정적 tiebreaker 사용. (검증: `py build.py` 2회 연속 실행 후 `git diff`가 비어야 함.) 위반 시 빌드마다 칩·노드 순서가 바뀌어 무의미한 diff가 쏟아짐
 - **graph.ttl 의 인물 id 는 반드시 정본 id 로**: `build_graph_data()` 가 같은 라벨의 인물 노드를 병합하며 `_CANON_ID`(병합 id → 정본 id)를 채우고, `build_turtle()` 은 이 표로 비평문의 `dcterms:creator`·`cito:discusses`·`cito:citesAsAuthority` 를 정본에 맞춘다. 이를 빼면 병합돼 사라진 id 를 가리키는 **끊긴 IRI**(이름·클래스·전거 없음)가 생겨 이름으로 조인하는 SPARQL 결과가 줄어든다(2026-09-15 수정 전 252개·622트리플). 빌드 로그에 `[경고] graph.ttl 끊긴 인물 IRI` 가 나오면 원인을 찾을 것
 - **인물 id 정본화 (2026-09-30 해결)**: 비평문 XML 의 모든 인물 id 는 persons.json 레코드의 `ids` 목록으로 정본 키에 묶인다. `process()` 가 `_canon_pid()` 로 persons/subjects/theorists/author/문맥을 정본으로 바꾸므로 목록·프로필·관계망·graph.ttl 이 같은 id 를 쓴다. 병합된 옛 id 의 프로필 주소는 정본 페이지로 넘기는 리다이렉트 HTML 로 남는다(`_redirect_html`). 라벨 병합(`build_graph_data`)은 미등록 id 에만 쓰는 안전망이며, 같은 이름의 등록 정본이 둘 이상이면 동명이인으로 보고 합치지 않는다(예: 김종철 시인/사상가, 유진오)
@@ -837,14 +841,14 @@ persons.json의 `ref`/`_registry_ref()`는 여러 URI를 **공백으로 이어 �
 | 목적 | 도구 |
 |---|---|
 | 인코딩 | VS Code + Red Hat XML + `korean-critique-schema.xsd` (v5 — 운문 `l`/`lg`·날짜범위 `notBefore`/`notAfter` 지원, §12 참조) |
-| 빌드 | `build.py` (Python 표준 라이브러리만 + neo4j driver 선택적) |
+| 빌드 | `build.py` (Python 표준 라이브러리만. neo4j driver 는 `--neo4j` 때만) |
 | 데이터 변환 | `convert_phd.py` (openpyxl), `convert_criticism.py` (openpyxl) |
 | 관계망 시각화 | Cytoscape.js 3.28 |
-| 그래프 DB | Neo4j Desktop (로컬, bolt://127.0.0.1:7687, APOC 플러그인) |
-| GraphRAG API | FastAPI + uvicorn (`neo4j_api.py`, 포트 8000) |
-| AI 답변 | Anthropic Claude API (`claude-haiku-4-5-20251001`, `neo4j_api.py` 2곳) — Cypher 생성 + 학술 답변 |
+| 그래프 DB | (구자료, 사이트 미사용) Neo4j Desktop·Aura — §4 「Neo4j — 구자료」 |
+| API 서버 | FastAPI (`neo4j_api.py`, Render) — 사이트는 기여하기·관리 경로만 사용. GraphRAG `/ask` 는 미사용 |
+| AI 답변 | (구자료) Anthropic Claude API (`neo4j_api.py` `/ask`) — Cypher 생성 + 학술 답변, 현재 호출하는 페이지 없음 |
 | 공식 온톨로지 | OWL v8 — `critic_v8_schema.rdf`(스키마) + `critic_v8_data.rdf`(데이터) (§16 참조) |
-| SPARQL | Comunica + N3 로컬 번들 (site/sparql-bundle.js, ask.html SPARQL 탭에 통합) |
+| SPARQL | Comunica + N3 로컬 번들 (site/sparql-bundle.js, ask.html SPARQL 탭에 통합) — 질문하기 탭의 실제 질의 수단 |
 | 호스팅 | Cloudflare Workers (무료) |
 | 비용 | 도메인 갱신비 + Anthropic API 사용료 |
 | LOD | Wikidata + 국립중앙도서관 LOD |
@@ -941,6 +945,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 
 ### 진행 중 (잡지 확장 — 『문학과사회』)
 - 2026-10-22: 1–13호(1988–1991) 비평 118편 공개. 원본 초안·OCR·기사 분할·인코딩 대장은 `../문학과사회/` (README 참조)
+- 2026-10-25: 14–28호(1991–1994) 101편 추가 공개 → 비평글 589 · 비평가 109 · 노드 2,203 · 엣지 6,377. 반영은 `publish_mhs.py --batch 20261025`(README §6-1). 좌담·심사평은 별도 컬렉션(`../문학과사회/site_prep/jwadam_simsa_collection.tsv`), 편집 동인·발행처 명의 글과 번역 글은 제외. 인물 전거 보강 지침 `../문학과사회/site_prep/NLK_ENRICH_GUIDE.md`
 - 반영 절차: `../문학과사회/site_prep/census.py`(점검) → `publish_mhs.py --apply`(개념어 통일·persons.json 등록·XML 복사) → `py build.py` → `make_cards.py`(index.html 카드 섹션 `MHS-START`~`MHS-END` 자동 생성)
 - 심사평(복수 심사위원)은 build.py 가 titleStmt 첫 저자만 비평가로 잡아 오귀속되므로 **사이트에서 제외**(작업 폴더에만 있음). 복수 저자 지원은 미구현
 - 역할이 `critic` 뿐인 언급 인물(다른 비평가를 논하는 경우)은 build.py 분류상 관계망 엣지가 생기지 않는다. 비평가 간 논쟁 관계는 `critic:respondsTo` 구현과 함께 다룰 것

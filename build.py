@@ -2110,7 +2110,12 @@ def sync_neo4j(graph: dict):
 
 if __name__ == "__main__":
     main()
-    # Neo4j 동기화 (Neo4j가 실행 중일 때만 작동, 꺼져있으면 자동 건너뜀)
+    # Neo4j 는 구자료(2026-10-25) — 사이트는 쓰지 않는다(질문하기는 graph.ttl SPARQL). sync_neo4j 는 DB 를 지우고 다시 넣으므로
+    # 기본은 건너뛰고, 로컬 DB 를 일부러 갱신할 때만 `py build.py --neo4j`
+    import sys
+    if "--neo4j" not in sys.argv:
+        print("\nNeo4j 동기화 건너뜀 (구자료 — 필요하면 py build.py --neo4j)")
+        raise SystemExit(0)
     print("\nNeo4j 동기화 시도 중...")
     graph_path = DATA_DIR / "graph.json"
     if graph_path.exists():
