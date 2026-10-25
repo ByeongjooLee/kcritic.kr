@@ -937,6 +937,9 @@ kc:p-00084 a critic:Writer, foaf:Person ;
 kc:p-00085 a critic:Writer, foaf:Person ;
   foaf:name "정동주"@ko ;
   rdfs:label "정동주"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201306023> ;
+  owl:sameAs <http://viaf.org/viaf/33437346> ;
+  owl:sameAs <https://isni.org/isni/0000000116172294> ;
   schema:url <https://kcritic.kr/resource/p-00085> .
 
 kc:p-00086 a critic:Writer, foaf:Person ;
@@ -2524,6 +2527,9 @@ kc:p-an-guksun a critic:Writer, foaf:Person ;
 kc:p-an-gyeongwon a critic:Writer, foaf:Person ;
   foaf:name "안경원"@ko ;
   rdfs:label "안경원"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201108104> ;
+  owl:sameAs <http://viaf.org/viaf/322144928060854340233> ;
+  owl:sameAs <https://isni.org/isni/0000000460423953> ;
   schema:url <https://kcritic.kr/resource/p-an-gyeongwon> .
 
 kc:p-an-hoenam a critic:Writer, foaf:Person ;
@@ -2538,6 +2544,9 @@ kc:p-an-hoenam a critic:Writer, foaf:Person ;
 kc:p-an-hwak a critic:Thinker, foaf:Person ;
   foaf:name "안확"@ko ;
   rdfs:label "안확"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201513527> ;
+  owl:sameAs <http://viaf.org/viaf/16177164> ;
+  owl:sameAs <https://isni.org/isni/0000000063468402> ;
   schema:url <https://kcritic.kr/resource/p-an-hwak> .
 
 kc:p-an-jaechan a critic:Writer, foaf:Person ;
@@ -2565,11 +2574,18 @@ kc:p-an-samhwan a critic:Critic, foaf:Person ;
 kc:p-an-suhwan a critic:Writer, foaf:Person ;
   foaf:name "안수환"@ko ;
   rdfs:label "안수환"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201011767> ;
+  owl:sameAs <http://viaf.org/viaf/13585651> ;
+  owl:sameAs <https://isni.org/isni/000000002423876X> ;
   schema:url <https://kcritic.kr/resource/p-an-suhwan> .
 
 kc:p-anatole-france a critic:Writer, foaf:Person ;
   foaf:name "아나톨 프랑스"@ko ;
   rdfs:label "아나톨 프랑스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q42443> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199609168> ;
+  owl:sameAs <http://viaf.org/viaf/4925052> ;
+  owl:sameAs <https://isni.org/isni/0000000121184329> ;
   schema:url <https://kcritic.kr/resource/p-anatole-france> .
 
 kc:p-andersen a critic:Thinker, foaf:Person ;
@@ -2593,6 +2609,10 @@ kc:p-anderson a critic:Thinker, foaf:Person ;
 kc:p-anna-seghers a critic:Writer, foaf:Person ;
   foaf:name "안나 제거스"@ko ;
   rdfs:label "안나 제거스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q57393> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200507167> ;
+  owl:sameAs <http://viaf.org/viaf/51684390> ;
+  owl:sameAs <https://isni.org/isni/0000000121325945> ;
   schema:url <https://kcritic.kr/resource/p-anna-seghers> .
 
 kc:p-anthony-wall a critic:Thinker, foaf:Person ;
@@ -2603,6 +2623,9 @@ kc:p-anthony-wall a critic:Thinker, foaf:Person ;
 kc:p-antisthenes a critic:Thinker, foaf:Person ;
   foaf:name "안티스테네스"@ko ;
   rdfs:label "안티스테네스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q179149> ;
+  owl:sameAs <http://viaf.org/viaf/79142539> ;
+  owl:sameAs <https://isni.org/isni/000000011030089X> ;
   schema:url <https://kcritic.kr/resource/p-antisthenes> .
 
 kc:p-antonin-artaud a critic:Writer, foaf:Person ;
@@ -2698,6 +2721,10 @@ kc:p-austin-warren a critic:Thinker, foaf:Person ;
 kc:p-ba-jin a critic:Writer, foaf:Person ;
   foaf:name "파금"@ko ;
   rdfs:label "파금"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q13005> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200105165> ;
+  owl:sameAs <http://viaf.org/viaf/19673501> ;
+  owl:sameAs <https://isni.org/isni/0000000121229187> ;
   schema:url <https://kcritic.kr/resource/p-ba-jin> .
 
 kc:p-bach a critic:Thinker, foaf:Person ;
@@ -2721,16 +2748,25 @@ kc:p-bachelard a critic:Thinker, foaf:Person ;
 kc:p-bae-gyeongran a critic:Writer, foaf:Person ;
   foaf:name "배경란"@ko ;
   rdfs:label "배경란"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201823118> ;
+  owl:sameAs <http://viaf.org/viaf/16051680> ;
+  owl:sameAs <https://isni.org/isni/0000000024288089> ;
   schema:url <https://kcritic.kr/resource/p-bae-gyeongran> .
 
 kc:p-bae-jinseong a critic:Writer, foaf:Person ;
   foaf:name "배진성"@ko ;
   rdfs:label "배진성"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201302587> ;
+  owl:sameAs <http://viaf.org/viaf/12164960> ;
+  owl:sameAs <https://isni.org/isni/0000000468546640> ;
   schema:url <https://kcritic.kr/resource/p-bae-jinseong> .
 
 kc:p-baek-hakgi a critic:Writer, foaf:Person ;
   foaf:name "백학기"@ko ;
   rdfs:label "백학기"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201520144> ;
+  owl:sameAs <http://viaf.org/viaf/68152138532910981488> ;
+  owl:sameAs <https://isni.org/isni/0000000464429113> ;
   schema:url <https://kcritic.kr/resource/p-baek-hakgi> .
 
 kc:p-baek-injun a critic:Writer, foaf:Person ;
@@ -2755,11 +2791,18 @@ kc:p-baek-musan a critic:Writer, foaf:Person ;
 kc:p-bak-daeho a critic:Critic, foaf:Person ;
   foaf:name "박대호"@ko ;
   rdfs:label "박대호"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC2018F0972> ;
+  owl:sameAs <http://viaf.org/viaf/143154590166743081793> ;
+  owl:sameAs <https://isni.org/isni/0000000473446425> ;
   schema:url <https://kcritic.kr/resource/p-bak-daeho> .
 
 kc:p-bak-gyeju a critic:Writer, foaf:Person ;
   foaf:name "박계주"@ko ;
   rdfs:label "박계주"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q17964020> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201319331> ;
+  owl:sameAs <http://viaf.org/viaf/61384544> ;
+  owl:sameAs <https://isni.org/isni/0000000047140853> ;
   schema:url <https://kcritic.kr/resource/p-bak-gyeju> .
 
 kc:p-bak-hyeonchae a critic:Thinker, foaf:Person ;
@@ -2788,11 +2831,17 @@ kc:p-bakhtin a critic:Thinker, foaf:Person ;
 kc:p-ban-gyeonghwan a critic:Critic, foaf:Person ;
   foaf:name "반경환"@ko ;
   rdfs:label "반경환"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201210589> ;
+  owl:sameAs <http://viaf.org/viaf/76196527> ;
+  owl:sameAs <https://isni.org/isni/0000000050138981> ;
   schema:url <https://kcritic.kr/resource/p-ban-gyeonghwan> .
 
 kc:p-ban-seongwan a critic:Thinker, foaf:Person ;
   foaf:name "반성완"@ko ;
   rdfs:label "반성완"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201303529> ;
+  owl:sameAs <http://viaf.org/viaf/66093146> ;
+  owl:sameAs <https://isni.org/isni/0000000041916390> ;
   schema:url <https://kcritic.kr/resource/p-ban-seongwan> .
 
 kc:p-banfield a critic:Thinker, foaf:Person ;
@@ -2988,6 +3037,10 @@ kc:p-bloch a critic:Thinker, foaf:Person ;
 kc:p-boal a critic:Thinker, foaf:Person ;
   foaf:name "아우구스토 보알"@ko ;
   rdfs:label "아우구스토 보알"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q434805> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201862877> ;
+  owl:sameAs <http://viaf.org/viaf/73831435> ;
+  owl:sameAs <https://isni.org/isni/0000000121392750> ;
   schema:url <https://kcritic.kr/resource/p-boal> .
 
 kc:p-bogdanov a critic:Thinker, foaf:Person ;
@@ -3172,6 +3225,10 @@ kc:p-browning a critic:Thinker, foaf:Person ;
 kc:p-bruce-cumings a critic:Thinker, foaf:Person ;
   foaf:name "브루스 커밍스"@ko ;
   rdfs:label "브루스 커밍스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q483927> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201200280> ;
+  owl:sameAs <http://viaf.org/viaf/76328603> ;
+  owl:sameAs <https://isni.org/isni/0000000109169871> ;
   schema:url <https://kcritic.kr/resource/p-bruce-cumings> .
 
 kc:p-bruce-franklin a critic:Thinker, foaf:Person ;
@@ -3391,6 +3448,10 @@ kc:p-cha-wonhyeon a critic:Thinker, foaf:Person ;
 kc:p-chae-gwangseok a critic:Writer, foaf:Person ;
   foaf:name "채광석"@ko ;
   rdfs:label "채광석"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q16167549> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201200770> ;
+  owl:sameAs <http://viaf.org/viaf/18145376349283721421> ;
+  owl:sameAs <https://isni.org/isni/0000000454811159> ;
   schema:url <https://kcritic.kr/resource/p-chae-gwangseok> .
 
 kc:p-chae-hogi a critic:Writer, foaf:Person ;
@@ -3423,6 +3484,9 @@ kc:p-chae-mansik a critic:Writer, foaf:Person ;
 kc:p-chae-yeongju a critic:Writer, foaf:Person ;
   foaf:name "채영주"@ko ;
   rdfs:label "채영주"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201719130> ;
+  owl:sameAs <http://viaf.org/viaf/22151351954352600929> ;
+  owl:sameAs <https://isni.org/isni/000000046435561X> ;
   schema:url <https://kcritic.kr/resource/p-chae-yeongju> .
 
 kc:p-chagall a critic:Thinker, foaf:Person ;
@@ -3512,6 +3576,9 @@ kc:p-cheon-yanghee a critic:Writer, foaf:Person ;
 kc:p-cheongeum a critic:Writer, foaf:Person ;
   foaf:name "천금"@ko ;
   rdfs:label "천금"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201815026> ;
+  owl:sameAs <http://viaf.org/viaf/102155103914476200105> ;
+  owl:sameAs <https://isni.org/isni/0000000473609968> ;
   schema:url <https://kcritic.kr/resource/p-cheongeum> .
 
 kc:p-chin-eunyoung a critic:Writer, foaf:Person ;
@@ -3595,6 +3662,10 @@ kc:p-cho-yunje a critic:Thinker, foaf:Person ;
 kc:p-choe-chiwon a critic:Writer, foaf:Person ;
   foaf:name "최치원"@ko ;
   rdfs:label "최치원"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q487042> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201205775> ;
+  owl:sameAs <http://viaf.org/viaf/77228757> ;
+  owl:sameAs <https://isni.org/isni/0000000078690284> ;
   schema:url <https://kcritic.kr/resource/p-choe-chiwon> .
 
 kc:p-choe-gyerak a critic:Writer, foaf:Person ;
@@ -3609,6 +3680,9 @@ kc:p-choe-gyerak a critic:Writer, foaf:Person ;
 kc:p-choe-harim a critic:Writer, foaf:Person ;
   foaf:name "최하림"@ko ;
   rdfs:label "최하림"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201514231> ;
+  owl:sameAs <http://viaf.org/viaf/67801260> ;
+  owl:sameAs <https://isni.org/isni/0000000023590411> ;
   schema:url <https://kcritic.kr/resource/p-choe-harim> .
 
 kc:p-choe-ilnam a critic:Writer, foaf:Person ;
@@ -3623,6 +3697,10 @@ kc:p-choe-ilnam a critic:Writer, foaf:Person ;
 kc:p-choe-inuk a critic:Writer, foaf:Person ;
   foaf:name "최인욱"@ko ;
   rdfs:label "최인욱"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12619795> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201011685> ;
+  owl:sameAs <http://viaf.org/viaf/43159773> ;
+  owl:sameAs <https://isni.org/isni/0000000023042001> ;
   schema:url <https://kcritic.kr/resource/p-choe-inuk> .
 
 kc:p-choe-minhui a critic:Writer, foaf:Person ;
@@ -3647,6 +3725,10 @@ kc:p-choe-myeongik a critic:Writer, foaf:Person ;
 kc:p-choe-sangsu a critic:Thinker, foaf:Person ;
   foaf:name "최상수"@ko ;
   rdfs:label "최상수"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12619585> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201759173> ;
+  owl:sameAs <http://viaf.org/viaf/76374555> ;
+  owl:sameAs <https://isni.org/isni/0000000073269570> ;
   schema:url <https://kcritic.kr/resource/p-choe-sangsu> .
 
 kc:p-choe-seohae a critic:Writer, foaf:Person ;
@@ -3661,6 +3743,9 @@ kc:p-choe-seohae a critic:Writer, foaf:Person ;
 kc:p-choe-seokha a critic:Writer, foaf:Person ;
   foaf:name "최석하"@ko ;
   rdfs:label "최석하"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201820225> ;
+  owl:sameAs <http://viaf.org/viaf/83153061324119202170> ;
+  owl:sameAs <https://isni.org/isni/0000000464811793> ;
   schema:url <https://kcritic.kr/resource/p-choe-seokha> .
 
 kc:p-choe-seongsil a critic:Critic, foaf:Person ;
@@ -3741,6 +3826,9 @@ kc:p-choi-inho a critic:Writer, foaf:Person ;
 kc:p-choi-min a critic:Writer, foaf:Person ;
   foaf:name "최민"@ko ;
   rdfs:label "최민"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201231016> ;
+  owl:sameAs <http://viaf.org/viaf/100684773> ;
+  owl:sameAs <https://isni.org/isni/0000000071205127> ;
   schema:url <https://kcritic.kr/resource/p-choi-min> .
 
 kc:p-chomsky a critic:Thinker, foaf:Person ;
@@ -3771,6 +3859,10 @@ kc:p-chong-jaehak a critic:Writer, foaf:Person ;
 kc:p-christa-wolf a critic:Writer, foaf:Person ;
   foaf:name "크리스타 볼프"@ko ;
   rdfs:label "크리스타 볼프"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q57382> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199630414> ;
+  owl:sameAs <http://viaf.org/viaf/109289723> ;
+  owl:sameAs <https://isni.org/isni/0000000121473104> ;
   schema:url <https://kcritic.kr/resource/p-christa-wolf> .
 
 kc:p-chu-sik a critic:Writer, foaf:Person ;
@@ -3886,11 +3978,19 @@ kc:p-coser a critic:Thinker, foaf:Person ;
 kc:p-croce a critic:Thinker, foaf:Person ;
   foaf:name "베네데토 크로체"@ko ;
   rdfs:label "베네데토 크로체"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q192348> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199605999> ;
+  owl:sameAs <http://viaf.org/viaf/61544292> ;
+  owl:sameAs <https://isni.org/isni/0000000121355490> ;
   schema:url <https://kcritic.kr/resource/p-croce> .
 
 kc:p-curt-sachs a critic:Thinker, foaf:Person ;
   foaf:name "쿠르트 작스"@ko ;
   rdfs:label "쿠르트 작스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q57696> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199623878> ;
+  owl:sameAs <http://viaf.org/viaf/46802025> ;
+  owl:sameAs <https://isni.org/isni/000000010814519X> ;
   schema:url <https://kcritic.kr/resource/p-curt-sachs> .
 
 kc:p-daiches a critic:Thinker, foaf:Person ;
@@ -3973,6 +4073,10 @@ kc:p-demokritos a critic:Thinker, foaf:Person ;
 kc:p-derrida a critic:Thinker, foaf:Person ;
   foaf:name "데리다"@ko ;
   rdfs:label "데리다"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q130631> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199606951> ;
+  owl:sameAs <http://viaf.org/viaf/88958529> ;
+  owl:sameAs <https://isni.org/isni/0000000121429146> ;
   schema:url <https://kcritic.kr/resource/p-derrida> .
 
 kc:p-destutt-de-tracy a critic:Thinker, foaf:Person ;
@@ -4165,6 +4269,10 @@ kc:p-edmund-burke a critic:Thinker, foaf:Person ;
 kc:p-edward-said a critic:Thinker, foaf:Person ;
   foaf:name "에드워드 사이드"@ko ;
   rdfs:label "에드워드 사이드"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q201538> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199636295> ;
+  owl:sameAs <http://viaf.org/viaf/82539804> ;
+  owl:sameAs <https://isni.org/isni/0000000121027147> ;
   schema:url <https://kcritic.kr/resource/p-edward-said> .
 
 kc:p-einstein a critic:Thinker, foaf:Person ;
@@ -4197,6 +4305,10 @@ kc:p-eliade a critic:Thinker, foaf:Person ;
 kc:p-elias-canetti a critic:Thinker, foaf:Person ;
   foaf:name "엘리아스 카네티"@ko ;
   rdfs:label "엘리아스 카네티"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q80064> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199604357> ;
+  owl:sameAs <http://viaf.org/viaf/108232742> ;
+  owl:sameAs <https://isni.org/isni/0000000122839307> ;
   schema:url <https://kcritic.kr/resource/p-elias-canetti> .
 
 kc:p-ellison a critic:Writer, foaf:Person ;
@@ -4548,6 +4660,8 @@ kc:p-gang-hyeondu a critic:Critic, foaf:Person ;
 kc:p-gautier a critic:Thinker, foaf:Person ;
   foaf:name "고티에"@ko ;
   rdfs:label "고티에"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC2018N9932> ;
+  owl:sameAs <http://viaf.org/viaf/2156130836658310424> ;
   schema:url <https://kcritic.kr/resource/p-gautier> .
 
 kc:p-genette a critic:Thinker, foaf:Person ;
@@ -4594,6 +4708,10 @@ kc:p-gifford a critic:Thinker, foaf:Person ;
 kc:p-gilbert-durand a critic:Thinker, foaf:Person ;
   foaf:name "질베르 뒤랑"@ko ;
   rdfs:label "질베르 뒤랑"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q2709641> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199607640> ;
+  owl:sameAs <http://viaf.org/viaf/109210505> ;
+  owl:sameAs <https://isni.org/isni/0000000121472822> ;
   schema:url <https://kcritic.kr/resource/p-gilbert-durand> .
 
 kc:p-gilles-girard a critic:Thinker, foaf:Person ;
@@ -4613,11 +4731,17 @@ kc:p-girard a critic:Thinker, foaf:Person ;
 kc:p-go-jaejong a critic:Writer, foaf:Person ;
   foaf:name "고재종"@ko ;
   rdfs:label "고재종"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201207379> ;
+  owl:sameAs <http://viaf.org/viaf/385144928080254341683> ;
+  owl:sameAs <https://isni.org/isni/0000000464206315> ;
   schema:url <https://kcritic.kr/resource/p-go-jaejong> .
 
 kc:p-go-jinha a critic:Writer, foaf:Person ;
   foaf:name "고진하"@ko ;
   rdfs:label "고진하"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201112128> ;
+  owl:sameAs <http://viaf.org/viaf/25149616712703751178> ;
+  owl:sameAs <https://isni.org/isni/000000046019971X> ;
   schema:url <https://kcritic.kr/resource/p-go-jinha> .
 
 kc:p-go-wonjeong a critic:Writer, foaf:Person ;
@@ -4650,6 +4774,10 @@ kc:p-godelier a critic:Thinker, foaf:Person ;
 kc:p-gogol a critic:Writer, foaf:Person ;
   foaf:name "고골리"@ko ;
   rdfs:label "고골리"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q43718> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199610283> ;
+  owl:sameAs <http://viaf.org/viaf/54148306> ;
+  owl:sameAs <https://isni.org/isni/0000000121014127> ;
   schema:url <https://kcritic.kr/resource/p-gogol> .
 
 kc:p-golden a critic:Thinker, foaf:Person ;
@@ -4705,6 +4833,10 @@ kc:p-goncourt-brothers a critic:Writer, foaf:Person ;
 kc:p-gong-jiyeong a critic:Writer, foaf:Person ;
   foaf:name "공지영"@ko ;
   rdfs:label "공지영"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q483344> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201007577> ;
+  owl:sameAs <http://viaf.org/viaf/116305807> ;
+  owl:sameAs <https://isni.org/isni/0000000121485666> ;
   schema:url <https://kcritic.kr/resource/p-gong-jiyeong> .
 
 kc:p-goodman a critic:Thinker, foaf:Person ;
@@ -4729,6 +4861,10 @@ kc:p-gosse a critic:Thinker, foaf:Person ;
 kc:p-gramsci a critic:Thinker, foaf:Person ;
   foaf:name "그람시"@ko ;
   rdfs:label "그람시"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q83003> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199610612> ;
+  owl:sameAs <http://viaf.org/viaf/44299576> ;
+  owl:sameAs <https://isni.org/isni/0000000122790742> ;
   schema:url <https://kcritic.kr/resource/p-gramsci> .
 
 kc:p-graves a critic:Thinker, foaf:Person ;
@@ -4807,6 +4943,10 @@ kc:p-guattari a critic:Thinker, foaf:Person ;
 kc:p-guenter-grass a critic:Writer, foaf:Person ;
   foaf:name "귄터 그라스"@ko ;
   rdfs:label "귄터 그라스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q6538> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199610635> ;
+  owl:sameAs <http://viaf.org/viaf/102319859> ;
+  owl:sameAs <https://isni.org/isni/0000000120967591> ;
   schema:url <https://kcritic.kr/resource/p-guenter-grass> .
 
 kc:p-gunder-frank a critic:Thinker, foaf:Person ;
@@ -4839,6 +4979,9 @@ kc:p-guoxi a critic:Thinker, foaf:Person ;
 kc:p-gwak-haksong a critic:Writer, foaf:Person ;
   foaf:name "곽학송"@ko ;
   rdfs:label "곽학송"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201213621> ;
+  owl:sameAs <http://viaf.org/viaf/56721106> ;
+  owl:sameAs <https://isni.org/isni/0000000038893458> ;
   schema:url <https://kcritic.kr/resource/p-gwak-haksong> .
 
 kc:p-gwak-hasin a critic:Writer, foaf:Person ;
@@ -4853,6 +4996,9 @@ kc:p-gwak-hasin a critic:Writer, foaf:Person ;
 kc:p-gwon-darung a critic:Writer, foaf:Person ;
   foaf:name "권달웅"@ko ;
   rdfs:label "권달웅"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201519277> ;
+  owl:sameAs <http://viaf.org/viaf/50616319> ;
+  owl:sameAs <https://isni.org/isni/0000000025128159> ;
   schema:url <https://kcritic.kr/resource/p-gwon-darung> .
 
 kc:p-gwon-hwan a critic:Writer, foaf:Person ;
@@ -4880,6 +5026,9 @@ kc:p-gwon-yeongmin a critic:Thinker, foaf:Person ;
 kc:p-ha-changsu a critic:Writer, foaf:Person ;
   foaf:name "하창수"@ko ;
   rdfs:label "하창수"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201008914> ;
+  owl:sameAs <http://viaf.org/viaf/117902884> ;
+  owl:sameAs <https://isni.org/isni/0000000084807004> ;
   schema:url <https://kcritic.kr/resource/p-ha-changsu> .
 
 kc:p-ha-eungbaek a critic:Critic, foaf:Person ;
@@ -4982,11 +5131,17 @@ kc:p-han-gi a critic:Critic, foaf:Person ;
 kc:p-han-gipal a critic:Writer, foaf:Person ;
   foaf:name "한기팔"@ko ;
   rdfs:label "한기팔"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201320514> ;
+  owl:sameAs <http://viaf.org/viaf/18506773> ;
+  owl:sameAs <https://isni.org/isni/000000003050880X> ;
   schema:url <https://kcritic.kr/resource/p-han-gipal> .
 
 kc:p-han-gwanggu a critic:Writer, foaf:Person ;
   foaf:name "한광구"@ko ;
   rdfs:label "한광구"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201110326> ;
+  owl:sameAs <http://viaf.org/viaf/38443750> ;
+  owl:sameAs <https://isni.org/isni/0000000031075567> ;
   schema:url <https://kcritic.kr/resource/p-han-gwanggu> .
 
 kc:p-han-hyeonggu a critic:Thinker, foaf:Person ;
@@ -5005,11 +5160,18 @@ kc:p-han-jaeyeong a critic:Critic, foaf:Person ;
 kc:p-han-seonggi a critic:Writer, foaf:Person ;
   foaf:name "한성기"@ko ;
   rdfs:label "한성기"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201405586> ;
+  owl:sameAs <http://viaf.org/viaf/29393351> ;
+  owl:sameAs <https://isni.org/isni/0000000051124469> ;
   schema:url <https://kcritic.kr/resource/p-han-seonggi> .
 
 kc:p-han-seorya a critic:Writer, foaf:Person ;
   foaf:name "한설야"@ko ;
   rdfs:label "한설야"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q487273> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201109626> ;
+  owl:sameAs <http://viaf.org/viaf/49334865> ;
+  owl:sameAs <https://isni.org/isni/0000000078340743> ;
   schema:url <https://kcritic.kr/resource/p-han-seorya> .
 
 kc:p-han-seungwon a critic:Writer, foaf:Person ;
@@ -5112,6 +5274,10 @@ kc:p-hayden-white a critic:Thinker, foaf:Person ;
 kc:p-heinrich-boell a critic:Writer, foaf:Person ;
   foaf:name "하인리히 뵐"@ko ;
   rdfs:label "하인리히 뵐"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q42747> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199602864> ;
+  owl:sameAs <http://viaf.org/viaf/88858559> ;
+  owl:sameAs <https://isni.org/isni/0000000120965916> ;
   schema:url <https://kcritic.kr/resource/p-heinrich-boell> .
 
 kc:p-heinrich-rickert a critic:Thinker, foaf:Person ;
@@ -5132,6 +5298,9 @@ kc:p-heo-gyun a critic:Writer, foaf:Person ;
 kc:p-heo-il a critic:Writer, foaf:Person ;
   foaf:name "허일"@ko ;
   rdfs:label "허일"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201113129> ;
+  owl:sameAs <http://viaf.org/viaf/137150468294304171717> ;
+  owl:sameAs <https://isni.org/isni/0000000460812983> ;
   schema:url <https://kcritic.kr/resource/p-heo-il> .
 
 kc:p-heo-jun a critic:Writer, foaf:Person ;
@@ -5226,6 +5395,10 @@ kc:p-holquist a critic:Thinker, foaf:Person ;
 kc:p-hong-duseung a critic:Thinker, foaf:Person ;
   foaf:name "홍두승"@ko ;
   rdfs:label "홍두승"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q134581223> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201220851> ;
+  owl:sameAs <http://viaf.org/viaf/56896353> ;
+  owl:sameAs <https://isni.org/isni/0000000066630743> ;
   schema:url <https://kcritic.kr/resource/p-hong-duseung> .
 
 kc:p-hong-gu a critic:Writer, foaf:Person ;
@@ -5236,6 +5409,9 @@ kc:p-hong-gu a critic:Writer, foaf:Person ;
 kc:p-hong-huidam a critic:Writer, foaf:Person ;
   foaf:name "홍희담"@ko ;
   rdfs:label "홍희담"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201111674> ;
+  owl:sameAs <http://viaf.org/viaf/33849554> ;
+  owl:sameAs <https://isni.org/isni/0000000038153644> ;
   schema:url <https://kcritic.kr/resource/p-hong-huidam> .
 
 kc:p-hong-jeongseon a critic:Critic, foaf:Person ;
@@ -5269,6 +5445,10 @@ kc:p-hong-sangsoo a critic:Thinker, foaf:Person ;
 kc:p-hong-sayong a critic:Writer, foaf:Person ;
   foaf:name "홍사용"@ko ;
   rdfs:label "홍사용"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q11287168> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201329757> ;
+  owl:sameAs <http://viaf.org/viaf/70413917> ;
+  owl:sameAs <https://isni.org/isni/0000000027597506> ;
   schema:url <https://kcritic.kr/resource/p-hong-sayong> .
 
 kc:p-hong-seongho a critic:Critic, foaf:Person ;
@@ -5307,11 +5487,17 @@ kc:p-hong-yeongchul a critic:Writer, foaf:Person ;
 kc:p-hong-yungi a critic:Critic, foaf:Person ;
   foaf:name "홍윤기"@ko ;
   rdfs:label "홍윤기"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201303058> ;
+  owl:sameAs <http://viaf.org/viaf/48315007> ;
+  owl:sameAs <https://isni.org/isni/0000000082269062> ;
   schema:url <https://kcritic.kr/resource/p-hong-yungi> .
 
 kc:p-hongrang a critic:Writer, foaf:Person ;
   foaf:name "홍랑"@ko ;
   rdfs:label "홍랑"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201815014> ;
+  owl:sameAs <http://viaf.org/viaf/11154590080843080602> ;
+  owl:sameAs <https://isni.org/isni/000000047361015X> ;
   schema:url <https://kcritic.kr/resource/p-hongrang> .
 
 kc:p-hopkins a critic:Thinker, foaf:Person ;
@@ -5362,6 +5548,10 @@ kc:p-hough a critic:Thinker, foaf:Person ;
 kc:p-howells a critic:Writer, foaf:Person ;
   foaf:name "윌리엄 딘 하우얼스"@ko ;
   rdfs:label "윌리엄 딘 하우얼스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q526709> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201501351> ;
+  owl:sameAs <http://viaf.org/viaf/95191935> ;
+  owl:sameAs <https://isni.org/isni/0000000122831540> ;
   schema:url <https://kcritic.kr/resource/p-howells> .
 
 kc:p-hu-feng a critic:Thinker, foaf:Person ;
@@ -5381,6 +5571,10 @@ kc:p-huineng a critic:Thinker, foaf:Person ;
 kc:p-huizinga a critic:Thinker, foaf:Person ;
   foaf:name "호이징하"@ko ;
   rdfs:label "호이징하"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q276280> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199613075> ;
+  owl:sameAs <http://viaf.org/viaf/66468881> ;
+  owl:sameAs <https://isni.org/isni/0000000092429488> ;
   schema:url <https://kcritic.kr/resource/p-huizinga> .
 
 kc:p-humboldt a critic:Thinker, foaf:Person ;
@@ -5467,6 +5661,9 @@ kc:p-hwang-jongyeon a critic:Critic, foaf:Person ;
 kc:p-hwang-myeonggeol a critic:Writer, foaf:Person ;
   foaf:name "황명걸"@ko ;
   rdfs:label "황명걸"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201501169> ;
+  owl:sameAs <http://viaf.org/viaf/63576184> ;
+  owl:sameAs <https://isni.org/isni/0000000039146673> ;
   schema:url <https://kcritic.kr/resource/p-hwang-myeonggeol> .
 
 kc:p-hwang-seokwoo a critic:Writer, foaf:Person ;
@@ -5481,11 +5678,17 @@ kc:p-hwang-seokwoo a critic:Writer, foaf:Person ;
 kc:p-hwang-taeyeon a critic:Thinker, foaf:Person ;
   foaf:name "황태연"@ko ;
   rdfs:label "황태연"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201308767> ;
+  owl:sameAs <http://viaf.org/viaf/27720159> ;
+  owl:sameAs <https://isni.org/isni/0000000083672312> ;
   schema:url <https://kcritic.kr/resource/p-hwang-taeyeon> .
 
 kc:p-hwang-unheon a critic:Writer, foaf:Person ;
   foaf:name "황운헌"@ko ;
   rdfs:label "황운헌"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201800293> ;
+  owl:sameAs <http://viaf.org/viaf/76152138517110980371> ;
+  owl:sameAs <https://isni.org/isni/0000000464429914> ;
   schema:url <https://kcritic.kr/resource/p-hwang-unheon> .
 
 kc:p-hyeon-gireon a critic:Writer, foaf:Person ;
@@ -5519,6 +5722,9 @@ kc:p-hyeon-jingeon a critic:Writer, foaf:Person ;
 kc:p-hyon-yongjun a critic:Thinker, foaf:Person ;
   foaf:name "현용준"@ko ;
   rdfs:label "현용준"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201305110> ;
+  owl:sameAs <http://viaf.org/viaf/50658892> ;
+  owl:sameAs <https://isni.org/isni/0000000082300090> ;
   schema:url <https://kcritic.kr/resource/p-hyon-yongjun> .
 
 kc:p-hytier a critic:Thinker, foaf:Person ;
@@ -5541,6 +5747,10 @@ kc:p-i-haejo a critic:Writer, foaf:Person ;
 kc:p-i-tae a critic:Writer, foaf:Person ;
   foaf:name "이태"@ko ;
   rdfs:label "이태"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q16261954> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201426562> ;
+  owl:sameAs <http://viaf.org/viaf/71337037> ;
+  owl:sameAs <https://isni.org/isni/0000000050034584> ;
   schema:url <https://kcritic.kr/resource/p-i-tae> .
 
 kc:p-i-tan a critic:Writer, foaf:Person ;
@@ -5602,6 +5812,9 @@ kc:p-im-chun a critic:Writer, foaf:Person ;
 kc:p-im-donghwak a critic:Writer, foaf:Person ;
   foaf:name "임동확"@ko ;
   rdfs:label "임동확"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201300267> ;
+  owl:sameAs <http://viaf.org/viaf/151152138537510981536> ;
+  owl:sameAs <https://isni.org/isni/0000000464590812> ;
   schema:url <https://kcritic.kr/resource/p-im-donghwak> .
 
 kc:p-im-gyuchan a critic:Thinker, foaf:Person ;
@@ -5612,6 +5825,9 @@ kc:p-im-gyuchan a critic:Thinker, foaf:Person ;
 kc:p-im-hongjae a critic:Writer, foaf:Person ;
   foaf:name "임홍재"@ko ;
   rdfs:label "임홍재"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201769992> ;
+  owl:sameAs <http://viaf.org/viaf/1348680> ;
+  owl:sameAs <https://isni.org/isni/000000003227623X> ;
   schema:url <https://kcritic.kr/resource/p-im-hongjae> .
 
 kc:p-im-jaehae a critic:Critic, foaf:Person ;
@@ -5787,6 +6003,10 @@ kc:p-jang-gyeongryeol a critic:Critic, foaf:Person ;
 kc:p-jang-jeongil a critic:Writer, foaf:Person ;
   foaf:name "장정일"@ko ;
   rdfs:label "장정일"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12614676> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201111578> ;
+  owl:sameAs <http://viaf.org/viaf/55605527> ;
+  owl:sameAs <https://isni.org/isni/0000000082375762> ;
   schema:url <https://kcritic.kr/resource/p-jang-jeongil> .
 
 kc:p-jang-jiyeon a critic:Thinker, foaf:Person ;
@@ -5817,6 +6037,10 @@ kc:p-jaspers a critic:Thinker, foaf:Person ;
 kc:p-jauss a critic:Thinker, foaf:Person ;
   foaf:name "한스 로베르트 야우스"@ko ;
   rdfs:label "한스 로베르트 야우스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q61262> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201915776> ;
+  owl:sameAs <http://viaf.org/viaf/108828994> ;
+  owl:sameAs <https://isni.org/isni/0000000081737952> ;
   schema:url <https://kcritic.kr/resource/p-jauss> .
 
 kc:p-jean-cassou a critic:Thinker, foaf:Person ;
@@ -5932,6 +6156,10 @@ kc:p-jeong-dojeon a critic:Writer, foaf:Person ;
 kc:p-jeong-dosang a critic:Writer, foaf:Person ;
   foaf:name "정도상"@ko ;
   rdfs:label "정도상"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q69696756> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201008032> ;
+  owl:sameAs <http://viaf.org/viaf/51544963> ;
+  owl:sameAs <https://isni.org/isni/0000000068319908> ;
   schema:url <https://kcritic.kr/resource/p-jeong-dosang> .
 
 kc:p-jeong-gwari a critic:Critic, foaf:Person ;
@@ -5970,6 +6198,9 @@ kc:p-jeong-hoseung a critic:Writer, foaf:Person ;
 kc:p-jeong-howung a critic:Thinker, foaf:Person ;
   foaf:name "정호웅"@ko ;
   rdfs:label "정호웅"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201332256> ;
+  owl:sameAs <http://viaf.org/viaf/3568163159924201640008> ;
+  owl:sameAs <https://isni.org/isni/0000000029141879> ;
   schema:url <https://kcritic.kr/resource/p-jeong-howung> .
 
 kc:p-jeong-hwajin a critic:Writer, foaf:Person ;
@@ -6002,6 +6233,9 @@ kc:p-jeong-inbo a critic:Thinker, foaf:Person ;
 kc:p-jeong-inhwa a critic:Writer, foaf:Person ;
   foaf:name "정인화"@ko ;
   rdfs:label "정인화"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201520713> ;
+  owl:sameAs <http://viaf.org/viaf/54028891> ;
+  owl:sameAs <https://isni.org/isni/0000000049437335> ;
   schema:url <https://kcritic.kr/resource/p-jeong-inhwa> .
 
 kc:p-jeong-jaehong a critic:Writer, foaf:Person ;
@@ -6012,6 +6246,9 @@ kc:p-jeong-jaehong a critic:Writer, foaf:Person ;
 kc:p-jeong-jaewan a critic:Thinker, foaf:Person ;
   foaf:name "정재완"@ko ;
   rdfs:label "정재완"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201755419> ;
+  owl:sameAs <http://viaf.org/viaf/103151351952552600429> ;
+  owl:sameAs <https://isni.org/isni/0000000464601235> ;
   schema:url <https://kcritic.kr/resource/p-jeong-jaewan> .
 
 kc:p-jeong-jichang a critic:Critic, foaf:Person ;
@@ -6030,6 +6267,9 @@ kc:p-jeong-junyeong a critic:Critic, foaf:Person ;
 kc:p-jeong-myeonghwan a critic:Critic, foaf:Person ;
   foaf:name "정명환"@ko ;
   rdfs:label "정명환"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201011859> ;
+  owl:sameAs <http://viaf.org/viaf/46842180> ;
+  owl:sameAs <https://isni.org/isni/0000000058878079> ;
   schema:url <https://kcritic.kr/resource/p-jeong-myeonghwan> .
 
 kc:p-jeong-uihong a critic:Writer, foaf:Person ;
@@ -6059,6 +6299,10 @@ kc:p-jeong-yakyong a critic:Writer, foaf:Person ;
 kc:p-jeremy-rifkin a critic:Thinker, foaf:Person ;
   foaf:name "제레미 리프킨"@ko ;
   rdfs:label "제레미 리프킨"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q505154> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199623052> ;
+  owl:sameAs <http://viaf.org/viaf/79124925> ;
+  owl:sameAs <https://isni.org/isni/0000000116781874> ;
   schema:url <https://kcritic.kr/resource/p-jeremy-rifkin> .
 
 kc:p-jga-pocock a critic:Thinker, foaf:Person ;
@@ -6077,11 +6321,18 @@ kc:p-jhenry a critic:Thinker, foaf:Person ;
 kc:p-jin-hyeongjun a critic:Critic, foaf:Person ;
   foaf:name "진형준"@ko ;
   rdfs:label "진형준"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201415942> ;
+  owl:sameAs <http://viaf.org/viaf/40913023> ;
+  owl:sameAs <https://isni.org/isni/000000003115429X> ;
   schema:url <https://kcritic.kr/resource/p-jin-hyeongjun> .
 
 kc:p-jo-gicheon a critic:Writer, foaf:Person ;
   foaf:name "조기천"@ko ;
   rdfs:label "조기천"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12616607> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201228302> ;
+  owl:sameAs <http://viaf.org/viaf/68025276> ;
+  owl:sameAs <https://isni.org/isni/0000000027584027> ;
   schema:url <https://kcritic.kr/resource/p-jo-gicheon> .
 
 kc:p-jo-hanuk a critic:Critic, foaf:Person ;
@@ -6101,6 +6352,9 @@ kc:p-jo-hyang a critic:Writer, foaf:Person ;
 kc:p-jo-jeonghwan a critic:Thinker, foaf:Person ;
   foaf:name "조정환"@ko ;
   rdfs:label "조정환"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201216165> ;
+  owl:sameAs <http://viaf.org/viaf/449144928081854341690> ;
+  owl:sameAs <https://isni.org/isni/0000000464597694> ;
   schema:url <https://kcritic.kr/resource/p-jo-jeonghwan> .
 
 kc:p-jo-jungrae a critic:Writer, foaf:Person ;
@@ -6123,11 +6377,18 @@ kc:p-jo-namhyeon a critic:Critic, foaf:Person ;
 kc:p-jo-namik a critic:Writer, foaf:Person ;
   foaf:name "조남익"@ko ;
   rdfs:label "조남익"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q94129468> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201110423> ;
+  owl:sameAs <http://viaf.org/viaf/117783588> ;
+  owl:sameAs <https://isni.org/isni/0000000083300631> ;
   schema:url <https://kcritic.kr/resource/p-jo-namik> .
 
 kc:p-jo-yeongchul a critic:Writer, foaf:Person ;
   foaf:name "조영출"@ko ;
   rdfs:label "조영출"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12616668> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201837700> ;
+  owl:sameAs <http://viaf.org/viaf/194153061232919200673> ;
   schema:url <https://kcritic.kr/resource/p-jo-yeongchul> .
 
 kc:p-jo-yunho a critic:Writer, foaf:Person ;
@@ -6157,6 +6418,10 @@ kc:p-joel-schechter a critic:Thinker, foaf:Person ;
 kc:p-johannes-becher a critic:Writer, foaf:Person ;
   foaf:name "요하네스 R. 베허"@ko ;
   rdfs:label "요하네스 R. 베허"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q58057> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC2022D4608> ;
+  owl:sameAs <http://viaf.org/viaf/49241183> ;
+  owl:sameAs <https://isni.org/isni/0000000108984727> ;
   schema:url <https://kcritic.kr/resource/p-johannes-becher> .
 
 kc:p-john-barth a critic:Writer, foaf:Person ;
@@ -6207,6 +6472,9 @@ kc:p-ju-changyun a critic:Writer, foaf:Person ;
 kc:p-ju-inseok a critic:Critic, foaf:Person ;
   foaf:name "주인석"@ko ;
   rdfs:label "주인석"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201320427> ;
+  owl:sameAs <http://viaf.org/viaf/62151776778018011369> ;
+  owl:sameAs <https://isni.org/isni/0000000049753688> ;
   schema:url <https://kcritic.kr/resource/p-ju-inseok> .
 
 kc:p-jules-michelet a critic:Thinker, foaf:Person ;
@@ -6242,6 +6510,9 @@ kc:p-kam-taejun a critic:Writer, foaf:Person ;
 kc:p-kang-changmin a critic:Writer, foaf:Person ;
   foaf:name "강창민"@ko ;
   rdfs:label "강창민"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201813507> ;
+  owl:sameAs <http://viaf.org/viaf/3789457> ;
+  owl:sameAs <https://isni.org/isni/0000000063337170> ;
   schema:url <https://kcritic.kr/resource/p-kang-changmin> .
 
 kc:p-kang-eungyo a critic:Writer, foaf:Person ;
@@ -6316,6 +6587,9 @@ kc:p-kang-sinjae a critic:Writer, foaf:Person ;
 kc:p-kang-woosik a critic:Writer, foaf:Person ;
   foaf:name "강우식"@ko ;
   rdfs:label "강우식"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201009704> ;
+  owl:sameAs <http://viaf.org/viaf/13629553> ;
+  owl:sameAs <https://isni.org/isni/0000000084270876> ;
   schema:url <https://kcritic.kr/resource/p-kang-woosik> .
 
 kc:p-kang-yeongju a critic:Thinker, foaf:Person ;
@@ -6365,6 +6639,10 @@ kc:p-kawaji a critic:Thinker, foaf:Person ;
 kc:p-kawamura-minato a critic:Thinker, foaf:Person ;
   foaf:name "가와무라 미나토"@ko ;
   rdfs:label "가와무라 미나토"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q1669091> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200109248> ;
+  owl:sameAs <http://viaf.org/viaf/108222101> ;
+  owl:sameAs <https://isni.org/isni/0000000082886730> ;
   schema:url <https://kcritic.kr/resource/p-kawamura-minato> .
 
 kc:p-kayser a critic:Thinker, foaf:Person ;
@@ -6438,6 +6716,10 @@ kc:p-kierkegaard a critic:Thinker, foaf:Person ;
 kc:p-kim-bangok a critic:Thinker, foaf:Person ;
   foaf:name "김방옥"@ko ;
   rdfs:label "김방옥"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q112550277> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201333555> ;
+  owl:sameAs <http://viaf.org/viaf/7248750> ;
+  owl:sameAs <https://isni.org/isni/0000000054547088> ;
   schema:url <https://kcritic.kr/resource/p-kim-bangok> .
 
 kc:p-kim-bunggu a critic:Thinker, foaf:Person ;
@@ -6453,11 +6735,17 @@ kc:p-kim-bunggu a critic:Thinker, foaf:Person ;
 kc:p-kim-changnam a critic:Critic, foaf:Person ;
   foaf:name "김창남"@ko ;
   rdfs:label "김창남"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201224343> ;
+  owl:sameAs <http://viaf.org/viaf/169380235> ;
+  owl:sameAs <https://isni.org/isni/0000000118315527> ;
   schema:url <https://kcritic.kr/resource/p-kim-changnam> .
 
 kc:p-kim-changsul a critic:Writer, foaf:Person ;
   foaf:name "김창술"@ko ;
   rdfs:label "김창술"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201619550> ;
+  owl:sameAs <http://viaf.org/viaf/65863065> ;
+  owl:sameAs <https://isni.org/isni/0000000036575966> ;
   schema:url <https://kcritic.kr/resource/p-kim-changsul> .
 
 kc:p-kim-changsun a critic:Thinker, foaf:Person ;
@@ -6512,6 +6800,9 @@ kc:p-kim-dongmyeong a critic:Writer, foaf:Person ;
 kc:p-kim-dongnip a critic:Writer, foaf:Person ;
   foaf:name "김동립"@ko ;
   rdfs:label "김동립"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201429985> ;
+  owl:sameAs <http://viaf.org/viaf/30152138623810981954> ;
+  owl:sameAs <https://isni.org/isni/0000000464459865> ;
   schema:url <https://kcritic.kr/resource/p-kim-dongnip> .
 
 kc:p-kim-donguk a critic:Thinker, foaf:Person ;
@@ -6563,6 +6854,10 @@ kc:p-kim-gaenam a critic:Writer, foaf:Person ;
 kc:p-kim-gapsu a critic:Writer, foaf:Person ;
   foaf:name "김갑수"@ko ;
   rdfs:label "김갑수"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q18531214> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201424052> ;
+  owl:sameAs <http://viaf.org/viaf/12182583> ;
+  owl:sameAs <https://isni.org/isni/0000000048055028> ;
   schema:url <https://kcritic.kr/resource/p-kim-gapsu> .
 
 kc:p-kim-gitaek a critic:Writer, foaf:Person ;
@@ -6624,6 +6919,10 @@ kc:p-kim-gwangseop a critic:Writer, foaf:Person ;
 kc:p-kim-gwangsik a critic:Writer, foaf:Person ;
   foaf:name "김광식"@ko ;
   rdfs:label "김광식"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q94110782> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201200554> ;
+  owl:sameAs <http://viaf.org/viaf/35813290> ;
+  owl:sameAs <https://isni.org/isni/0000000022896267> ;
   schema:url <https://kcritic.kr/resource/p-kim-gwangsik> .
 
 kc:p-kim-gwansik a critic:Writer, foaf:Person ;
@@ -6639,6 +6938,9 @@ kc:p-kim-gwansik a critic:Writer, foaf:Person ;
 kc:p-kim-gyeongmi a critic:Writer, foaf:Person ;
   foaf:name "김경미"@ko ;
   rdfs:label "김경미"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201224330> ;
+  owl:sameAs <http://viaf.org/viaf/28635514> ;
+  owl:sameAs <https://isni.org/isni/0000000030808191> ;
   schema:url <https://kcritic.kr/resource/p-kim-gyeongmi> .
 
 kc:p-kim-gyeongrin a critic:Writer, foaf:Person ;
@@ -6719,6 +7021,9 @@ kc:p-kim-hoon a critic:Critic, foaf:Person ;
 kc:p-kim-huisu a critic:Writer, foaf:Person ;
   foaf:name "김희수"@ko ;
   rdfs:label "김희수"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201229982> ;
+  owl:sameAs <http://viaf.org/viaf/52145375901683681628> ;
+  owl:sameAs <https://isni.org/isni/0000000464432961> ;
   schema:url <https://kcritic.kr/resource/p-kim-huisu> .
 
 kc:p-kim-hwiseung a critic:Writer, foaf:Person ;
@@ -6732,6 +7037,9 @@ kc:p-kim-hwiseung a critic:Writer, foaf:Person ;
 kc:p-kim-hyangsuk a critic:Writer, foaf:Person ;
   foaf:name "김향숙"@ko ;
   rdfs:label "김향숙"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201430019> ;
+  owl:sameAs <http://viaf.org/viaf/40755180> ;
+  owl:sameAs <https://isni.org/isni/0000000115678832> ;
   schema:url <https://kcritic.kr/resource/p-kim-hyangsuk> .
 
 kc:p-kim-hyeonggi a critic:Thinker, foaf:Person ;
@@ -6799,6 +7107,9 @@ kc:p-kim-ideum a critic:Writer, foaf:Person ;
 kc:p-kim-inbae a critic:Writer, foaf:Person ;
   foaf:name "김인배"@ko ;
   rdfs:label "김인배"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201430040> ;
+  owl:sameAs <http://viaf.org/viaf/46621791> ;
+  owl:sameAs <https://isni.org/isni/0000000051584289> ;
   schema:url <https://kcritic.kr/resource/p-kim-inbae> .
 
 kc:p-kim-inhwan a critic:Critic, foaf:Person ;
@@ -6857,6 +7168,9 @@ kc:p-kim-jinkyung a critic:Writer, foaf:Person ;
 kc:p-kim-jinseok a critic:Critic, foaf:Person ;
   foaf:name "김진석"@ko ;
   rdfs:label "김진석"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201509269> ;
+  owl:sameAs <http://viaf.org/viaf/115150468210704170586> ;
+  owl:sameAs <https://isni.org/isni/0000000463288988> ;
   schema:url <https://kcritic.kr/resource/p-kim-jinseok> .
 
 kc:p-kim-jinsu a critic:Critic, foaf:Person ;
@@ -7054,11 +7368,17 @@ kc:p-kim-okgyun a critic:Thinker, foaf:Person ;
 kc:p-kim-okyoung a critic:Writer, foaf:Person ;
   foaf:name "김옥영"@ko ;
   rdfs:label "김옥영"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201608517> ;
+  owl:sameAs <http://viaf.org/viaf/306146461599327732189> ;
+  owl:sameAs <https://isni.org/isni/0000000464356532> ;
   schema:url <https://kcritic.kr/resource/p-kim-okyoung> .
 
 kc:p-kim-rok a critic:Writer, foaf:Person ;
   foaf:name "김록"@ko ;
   rdfs:label "김록"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201330377> ;
+  owl:sameAs <http://viaf.org/viaf/169153409762441582472> ;
+  owl:sameAs <https://isni.org/isni/0000000467934369> ;
   schema:url <https://kcritic.kr/resource/p-kim-rok> .
 
 kc:p-kim-saryang a critic:Writer, foaf:Person ;
@@ -7093,6 +7413,9 @@ kc:p-kim-seokhui a critic:Writer, foaf:Person ;
 kc:p-kim-seongchun a critic:Writer, foaf:Person ;
   foaf:name "김성춘"@ko ;
   rdfs:label "김성춘"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201105701> ;
+  owl:sameAs <http://viaf.org/viaf/18610494> ;
+  owl:sameAs <https://isni.org/isni/0000000032785333> ;
   schema:url <https://kcritic.kr/resource/p-kim-seongchun> .
 
 kc:p-kim-seongdong a critic:Writer, foaf:Person ;
@@ -7190,6 +7513,10 @@ kc:p-kim-taekgyu a critic:Thinker, foaf:Person ;
 kc:p-kim-ukdong a critic:Critic, foaf:Person ;
   foaf:name "김욱동"@ko ;
   rdfs:label "김욱동"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q112460459> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200304857> ;
+  owl:sameAs <http://viaf.org/viaf/6504143> ;
+  owl:sameAs <https://isni.org/isni/0000000039885329> ;
   schema:url <https://kcritic.kr/resource/p-kim-ukdong> .
 
 kc:p-kim-wonil a critic:Critic, foaf:Person ;
@@ -7266,6 +7593,9 @@ kc:p-kim-yonghui a critic:Critic, foaf:Person ;
 kc:p-kim-yongjik a critic:Critic, foaf:Person ;
   foaf:name "김용직"@ko ;
   rdfs:label "김용직"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201232049> ;
+  owl:sameAs <http://viaf.org/viaf/61582867> ;
+  owl:sameAs <https://isni.org/isni/0000000081405026> ;
   schema:url <https://kcritic.kr/resource/p-kim-yongjik> .
 
 kc:p-kim-yongok a critic:Thinker, foaf:Person ;
@@ -7307,6 +7637,10 @@ kc:p-kim-yongtaek a critic:Writer, foaf:Person ;
 kc:p-kim-youngmu a critic:Thinker, foaf:Person ;
   foaf:name "김영무"@ko ;
   rdfs:label "김영무"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q6409687> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201200661> ;
+  owl:sameAs <http://viaf.org/viaf/265266046> ;
+  owl:sameAs <https://isni.org/isni/0000000081690015> ;
   schema:url <https://kcritic.kr/resource/p-kim-youngmu> .
 
 kc:p-kim-youngsik a critic:Thinker, foaf:Person ;
@@ -7326,6 +7660,9 @@ kc:p-kim-yunbi a critic:Critic, foaf:Person ;
 kc:p-kim-yunseong a critic:Writer, foaf:Person ;
   foaf:name "김윤성"@ko ;
   rdfs:label "김윤성"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201402161> ;
+  owl:sameAs <http://viaf.org/viaf/36152138521710981015> ;
+  owl:sameAs <https://isni.org/isni/0000000464369843> ;
   schema:url <https://kcritic.kr/resource/p-kim-yunseong> .
 
 kc:p-kim-yunsik a critic:Critic, foaf:Person ;
@@ -7512,6 +7849,9 @@ kc:p-kwon-dook a critic:Writer, foaf:Person ;
 kc:p-kwon-gukmyeong a critic:Writer, foaf:Person ;
   foaf:name "권국명"@ko ;
   rdfs:label "권국명"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201771302> ;
+  owl:sameAs <http://viaf.org/viaf/9152138634110982665> ;
+  owl:sameAs <https://isni.org/isni/0000000464262026> ;
   schema:url <https://kcritic.kr/resource/p-kwon-gukmyeong> .
 
 kc:p-kwon-oryong a critic:Critic, foaf:Person ;
@@ -7534,6 +7874,10 @@ kc:p-kwon-seongwoo a critic:Critic, foaf:Person ;
 kc:p-kwon-taekyoung a critic:Critic, foaf:Person ;
   foaf:name "권택영"@ko ;
   rdfs:label "권택영"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q22958177> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201010919> ;
+  owl:sameAs <http://viaf.org/viaf/55590130> ;
+  owl:sameAs <https://isni.org/isni/0000000025265487> ;
   schema:url <https://kcritic.kr/resource/p-kwon-taekyoung> .
 
 kc:p-labruyere a critic:Thinker, foaf:Person ;
@@ -7667,6 +8011,9 @@ kc:p-lavoisier a critic:Thinker, foaf:Person ;
 kc:p-lee-bongsun a critic:Writer, foaf:Person ;
   foaf:name "이봉순"@ko ;
   rdfs:label "이봉순"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201770894> ;
+  owl:sameAs <http://viaf.org/viaf/31152561504715441624> ;
+  owl:sameAs <https://isni.org/isni/0000000464391055> ;
   schema:url <https://kcritic.kr/resource/p-lee-bongsun> .
 
 kc:p-lee-boyoung a critic:Critic, foaf:Person ;
@@ -7738,6 +8085,9 @@ kc:p-lee-dongha-critic a critic:Critic, foaf:Person ;
 kc:p-lee-dongju a critic:Writer, foaf:Person ;
   foaf:name "이동주"@ko ;
   rdfs:label "이동주"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201011958> ;
+  owl:sameAs <http://viaf.org/viaf/4145375899083681412> ;
+  owl:sameAs <https://isni.org/isni/0000000460189087> ;
   schema:url <https://kcritic.kr/resource/p-lee-dongju> .
 
 kc:p-lee-eunbong a critic:Writer, foaf:Person ;
@@ -7769,6 +8119,10 @@ kc:p-lee-gwangho a critic:Critic, foaf:Person ;
 kc:p-lee-gwangung a critic:Writer, foaf:Person ;
   foaf:name "이광웅"@ko ;
   rdfs:label "이광웅"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q97477912> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201416313> ;
+  owl:sameAs <http://viaf.org/viaf/26152138572210981711> ;
+  owl:sameAs <https://isni.org/isni/0000000464597985> ;
   schema:url <https://kcritic.kr/resource/p-lee-gwangung> .
 
 kc:p-lee-gyeongho a critic:Critic, foaf:Person ;
@@ -7822,6 +8176,9 @@ kc:p-lee-hyeonseok a critic:Thinker, foaf:Person ;
 kc:p-lee-ilseung a critic:Writer, foaf:Person ;
   foaf:name "이일승"@ko ;
   rdfs:label "이일승"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201769341> ;
+  owl:sameAs <http://viaf.org/viaf/87152138528910981206> ;
+  owl:sameAs <https://isni.org/isni/000000046445030X> ;
   schema:url <https://kcritic.kr/resource/p-lee-ilseung> .
 
 kc:p-lee-inhae a critic:Writer, foaf:Person ;
@@ -7832,6 +8189,10 @@ kc:p-lee-inhae a critic:Writer, foaf:Person ;
 kc:p-lee-jaemu a critic:Writer, foaf:Person ;
   foaf:name "이재무"@ko ;
   rdfs:label "이재무"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q30716440> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201009931> ;
+  owl:sameAs <http://viaf.org/viaf/11411064> ;
+  owl:sameAs <https://isni.org/isni/0000000028129982> ;
   schema:url <https://kcritic.kr/resource/p-lee-jaemu> .
 
 kc:p-lee-janghui a critic:Writer, foaf:Person ;
@@ -7900,6 +8261,9 @@ kc:p-lee-saengjin a critic:Writer, foaf:Person ;
 kc:p-lee-sanggyeong a critic:Critic, foaf:Person ;
   foaf:name "이상경"@ko ;
   rdfs:label "이상경"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201320882> ;
+  owl:sameAs <http://viaf.org/viaf/118168832> ;
+  owl:sameAs <https://isni.org/isni/0000000083312165> ;
   schema:url <https://kcritic.kr/resource/p-lee-sanggyeong> .
 
 kc:p-lee-sangho a critic:Writer, foaf:Person ;
@@ -7910,11 +8274,17 @@ kc:p-lee-sangho a critic:Writer, foaf:Person ;
 kc:p-lee-sanghui a critic:Writer, foaf:Person ;
   foaf:name "이상희"@ko ;
   rdfs:label "이상희"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201200455> ;
+  owl:sameAs <http://viaf.org/viaf/21997870> ;
+  owl:sameAs <https://isni.org/isni/0000000050885215> ;
   schema:url <https://kcritic.kr/resource/p-lee-sanghui> .
 
 kc:p-lee-sara a critic:Writer, foaf:Person ;
   foaf:name "이사라"@ko ;
   rdfs:label "이사라"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201315618> ;
+  owl:sameAs <http://viaf.org/viaf/17056106> ;
+  owl:sameAs <https://isni.org/isni/0000000050717019> ;
   schema:url <https://kcritic.kr/resource/p-lee-sara> .
 
 kc:p-lee-seongbok a critic:Writer, foaf:Person ;
@@ -8023,11 +8393,17 @@ kc:p-lee-younggwang a critic:Writer, foaf:Person ;
 kc:p-lee-youngmi a critic:Thinker, foaf:Person ;
   foaf:name "이영미"@ko ;
   rdfs:label "이영미"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201211467> ;
+  owl:sameAs <http://viaf.org/viaf/58947875> ;
+  owl:sameAs <https://isni.org/isni/0000000049592845> ;
   schema:url <https://kcritic.kr/resource/p-lee-youngmi> .
 
 kc:p-lee-youngyu a critic:Writer, foaf:Person ;
   foaf:name "이영유"@ko ;
   rdfs:label "이영유"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201427299> ;
+  owl:sameAs <http://viaf.org/viaf/63888307> ;
+  owl:sameAs <https://isni.org/isni/0000000049752888> ;
   schema:url <https://kcritic.kr/resource/p-lee-youngyu> .
 
 kc:p-lee-yugyeong a critic:Writer, foaf:Person ;
@@ -8229,6 +8605,9 @@ kc:p-ma-jonggi a critic:Writer, foaf:Person ;
 kc:p-ma-jongha a critic:Writer, foaf:Person ;
   foaf:name "마종하"@ko ;
   rdfs:label "마종하"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201733136> ;
+  owl:sameAs <http://viaf.org/viaf/43253746> ;
+  owl:sameAs <https://isni.org/isni/0000000024926829> ;
   schema:url <https://kcritic.kr/resource/p-ma-jongha> .
 
 kc:p-macherey a critic:Thinker, foaf:Person ;
@@ -8295,6 +8674,10 @@ kc:p-manet a critic:Thinker, foaf:Person ;
 kc:p-mao-dun a critic:Writer, foaf:Person ;
   foaf:name "모순"@ko ;
   rdfs:label "모순"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q358494> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199631415> ;
+  owl:sameAs <http://viaf.org/viaf/97121854> ;
+  owl:sameAs <https://isni.org/isni/0000000368645959> ;
   schema:url <https://kcritic.kr/resource/p-mao-dun> .
 
 kc:p-maria-luisa a critic:Thinker, foaf:Person ;
@@ -8504,11 +8887,17 @@ kc:p-milton-friedman a critic:Thinker, foaf:Person ;
 kc:p-min-hyeongi a critic:Critic, foaf:Person ;
   foaf:name "민현기"@ko ;
   rdfs:label "민현기"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201843573> ;
+  owl:sameAs <http://viaf.org/viaf/67998533> ;
+  owl:sameAs <https://isni.org/isni/0000000027566312> ;
   schema:url <https://kcritic.kr/resource/p-min-hyeongi> .
 
 kc:p-min-jaesik a critic:Writer, foaf:Person ;
   foaf:name "민재식"@ko ;
   rdfs:label "민재식"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201103651> ;
+  owl:sameAs <http://viaf.org/viaf/60589895> ;
+  owl:sameAs <https://isni.org/isni/0000000027343020> ;
   schema:url <https://kcritic.kr/resource/p-min-jaesik> .
 
 kc:p-min-yeong a critic:Writer, foaf:Person ;
@@ -8615,6 +9004,9 @@ kc:p-mozart a critic:Thinker, foaf:Person ;
 kc:p-mu-mutian a critic:Writer, foaf:Person ;
   foaf:name "목목천"@ko ;
   rdfs:label "목목천"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q15552623> ;
+  owl:sameAs <http://viaf.org/viaf/45780794> ;
+  owl:sameAs <https://isni.org/isni/0000000063642028> ;
   schema:url <https://kcritic.kr/resource/p-mu-mutian> .
 
 kc:p-mun-byeongho a critic:Critic, foaf:Person ;
@@ -8635,6 +9027,9 @@ kc:p-mun-byeongran a critic:Writer, foaf:Person ;
 kc:p-mun-chungsong a critic:Writer, foaf:Person ;
   foaf:name "문충성"@ko ;
   rdfs:label "문충성"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201110687> ;
+  owl:sameAs <http://viaf.org/viaf/1149617017903751435> ;
+  owl:sameAs <https://isni.org/isni/0000000021937047> ;
   schema:url <https://kcritic.kr/resource/p-mun-chungsong> .
 
 kc:p-mun-ikhwan a critic:Writer, foaf:Person ;
@@ -8750,6 +9145,9 @@ kc:p-nam-jeonghyeon a critic:Writer, foaf:Person ;
 kc:p-nam-jinwoo a critic:Critic, foaf:Person ;
   foaf:name "남진우"@ko ;
   rdfs:label "남진우"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201307295> ;
+  owl:sameAs <http://viaf.org/viaf/36767934> ;
+  owl:sameAs <https://isni.org/isni/0000000046334947> ;
   schema:url <https://kcritic.kr/resource/p-nam-jinwoo> .
 
 kc:p-nanquan a critic:Thinker, foaf:Person ;
@@ -8841,6 +9239,9 @@ kc:p-no-cheonmyeong a critic:Writer, foaf:Person ;
 kc:p-no-hyangrim a critic:Writer, foaf:Person ;
   foaf:name "노향림"@ko ;
   rdfs:label "노향림"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201110600> ;
+  owl:sameAs <http://viaf.org/viaf/53026089> ;
+  owl:sameAs <https://isni.org/isni/0000000023277580> ;
   schema:url <https://kcritic.kr/resource/p-no-hyangrim> .
 
 kc:p-nochosaeng a critic:Writer, foaf:Person ;
@@ -8882,6 +9283,9 @@ kc:p-nym-wales a critic:Thinker, foaf:Person ;
 kc:p-o-bongok a critic:Writer, foaf:Person ;
   foaf:name "오봉옥"@ko ;
   rdfs:label "오봉옥"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201011528> ;
+  owl:sameAs <http://viaf.org/viaf/4508616> ;
+  owl:sameAs <https://isni.org/isni/0000000050415336> ;
   schema:url <https://kcritic.kr/resource/p-o-bongok> .
 
 kc:p-o-jiyeong a critic:Thinker, foaf:Person ;
@@ -9113,6 +9517,9 @@ kc:p-park-hyekyung a critic:Critic, foaf:Person ;
 kc:p-park-ido a critic:Writer, foaf:Person ;
   foaf:name "박이도"@ko ;
   rdfs:label "박이도"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201010582> ;
+  owl:sameAs <http://viaf.org/viaf/28408725> ;
+  owl:sameAs <https://isni.org/isni/0000000026537480> ;
   schema:url <https://kcritic.kr/resource/p-park-ido> .
 
 kc:p-park-ilmun a critic:Writer, foaf:Person ;
@@ -9123,6 +9530,9 @@ kc:p-park-ilmun a critic:Writer, foaf:Person ;
 kc:p-park-ilyoung a critic:Writer, foaf:Person ;
   foaf:name "박일영"@ko ;
   rdfs:label "박일영"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201612742> ;
+  owl:sameAs <http://viaf.org/viaf/129148995796859750031> ;
+  owl:sameAs <https://isni.org/isni/0000000477679357> ;
   schema:url <https://kcritic.kr/resource/p-park-ilyoung> .
 
 kc:p-park-imun a critic:Critic, foaf:Person ;
@@ -9182,6 +9592,9 @@ kc:p-park-jeongman a critic:Writer, foaf:Person ;
 kc:p-park-jonghae a critic:Writer, foaf:Person ;
   foaf:name "박종해"@ko ;
   rdfs:label "박종해"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201110543> ;
+  owl:sameAs <http://viaf.org/viaf/9802648> ;
+  owl:sameAs <https://isni.org/isni/0000000052338434> ;
   schema:url <https://kcritic.kr/resource/p-park-jonghae> .
 
 kc:p-park-jonghwa a critic:Writer, foaf:Person ;
@@ -9213,11 +9626,17 @@ kc:p-park-maengsu a critic:Critic, foaf:Person ;
 kc:p-park-monggu a critic:Writer, foaf:Person ;
   foaf:name "박몽구"@ko ;
   rdfs:label "박몽구"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201116850> ;
+  owl:sameAs <http://viaf.org/viaf/72871968> ;
+  owl:sameAs <https://isni.org/isni/0000000025680365> ;
   schema:url <https://kcritic.kr/resource/p-park-monggu> .
 
 kc:p-park-myeongseong a critic:Writer, foaf:Person ;
   foaf:name "박명성"@ko ;
   rdfs:label "박명성"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201513490> ;
+  owl:sameAs <http://viaf.org/viaf/50756501> ;
+  owl:sameAs <https://isni.org/isni/0000000027109269> ;
   schema:url <https://kcritic.kr/resource/p-park-myeongseong> .
 
 kc:p-park-namchul a critic:Writer, foaf:Person ;
@@ -9265,6 +9684,9 @@ kc:p-park-sangwoo a critic:Writer, foaf:Person ;
 kc:p-park-sehyeon a critic:Writer, foaf:Person ;
   foaf:name "박세현"@ko ;
   rdfs:label "박세현"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201113928> ;
+  owl:sameAs <http://viaf.org/viaf/55740552> ;
+  owl:sameAs <https://isni.org/isni/0000000029297814> ;
   schema:url <https://kcritic.kr/resource/p-park-sehyeon> .
 
 kc:p-park-seongchang a critic:Critic, foaf:Person ;
@@ -9299,6 +9721,9 @@ kc:p-park-taewon a critic:Writer, foaf:Person ;
 kc:p-park-uisang a critic:Writer, foaf:Person ;
   foaf:name "박의상"@ko ;
   rdfs:label "박의상"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201110533> ;
+  owl:sameAs <http://viaf.org/viaf/18650709> ;
+  owl:sameAs <https://isni.org/isni/0000000460267487> ;
   schema:url <https://kcritic.kr/resource/p-park-uisang> .
 
 kc:p-park-unsik a critic:Writer, foaf:Person ;
@@ -9321,6 +9746,9 @@ kc:p-park-wanseo a critic:Writer, foaf:Person ;
 kc:p-park-yanggyun a critic:Writer, foaf:Person ;
   foaf:name "박양균"@ko ;
   rdfs:label "박양균"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201754208> ;
+  owl:sameAs <http://viaf.org/viaf/118914434> ;
+  owl:sameAs <https://isni.org/isni/0000000083337485> ;
   schema:url <https://kcritic.kr/resource/p-park-yanggyun> .
 
 kc:p-park-yeonghan a critic:Writer, foaf:Person ;
@@ -9381,6 +9809,10 @@ kc:p-paul a critic:Thinker, foaf:Person ;
 kc:p-paul-de-man a critic:Thinker, foaf:Person ;
   foaf:name "폴 드 만"@ko ;
   rdfs:label "폴 드 만"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q353754> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199606641> ;
+  owl:sameAs <http://viaf.org/viaf/71401431> ;
+  owl:sameAs <https://isni.org/isni/0000000109135268> ;
   schema:url <https://kcritic.kr/resource/p-paul-de-man> .
 
 kc:p-paul-kennedy a critic:Thinker, foaf:Person ;
@@ -9433,6 +9865,10 @@ kc:p-peter-schneider a critic:Writer, foaf:Person ;
 kc:p-petronius a critic:Writer, foaf:Person ;
   foaf:name "페트로니우스"@ko ;
   rdfs:label "페트로니우스"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q47180> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199621546> ;
+  owl:sameAs <http://viaf.org/viaf/95155909> ;
+  owl:sameAs <https://isni.org/isni/0000000081678155> ;
   schema:url <https://kcritic.kr/resource/p-petronius> .
 
 kc:p-philip-rahv a critic:Thinker, foaf:Person ;
@@ -9501,11 +9937,18 @@ kc:p-piranesi a critic:Thinker, foaf:Person ;
 kc:p-piscator a critic:Thinker, foaf:Person ;
   foaf:name "피스카토르"@ko ;
   rdfs:label "피스카토르"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q60978> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC2018N8490> ;
+  owl:sameAs <http://viaf.org/viaf/56684151> ;
+  owl:sameAs <https://isni.org/isni/0000000110273342> ;
   schema:url <https://kcritic.kr/resource/p-piscator> .
 
 kc:p-plotinus a critic:Thinker, foaf:Person ;
   foaf:name "플로티누스"@ko ;
   rdfs:label "플로티누스"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC2018K3166> ;
+  owl:sameAs <http://viaf.org/viaf/236155103918176200897> ;
+  owl:sameAs <https://isni.org/isni/0000000473462708> ;
   schema:url <https://kcritic.kr/resource/p-plotinus> .
 
 kc:p-polanyi a critic:Thinker, foaf:Person ;
@@ -9713,6 +10156,10 @@ kc:p-reimer a critic:Thinker, foaf:Person ;
 kc:p-remarque a critic:Writer, foaf:Person ;
   foaf:name "레마르크"@ko ;
   rdfs:label "레마르크"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q47293> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199622782> ;
+  owl:sameAs <http://viaf.org/viaf/61551298> ;
+  owl:sameAs <https://isni.org/isni/0000000368651515> ;
   schema:url <https://kcritic.kr/resource/p-remarque> .
 
 kc:p-rembrandt a critic:Thinker, foaf:Person ;
@@ -10006,6 +10453,10 @@ kc:p-scheler a critic:Thinker, foaf:Person ;
 kc:p-schelling a critic:Thinker, foaf:Person ;
   foaf:name "셸링"@ko ;
   rdfs:label "셸링"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q60070> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199624308> ;
+  owl:sameAs <http://viaf.org/viaf/88933257> ;
+  owl:sameAs <https://isni.org/isni/0000000122827680> ;
   schema:url <https://kcritic.kr/resource/p-schelling> .
 
 kc:p-schiller a critic:Thinker, foaf:Person ;
@@ -10127,11 +10578,18 @@ kc:p-seo-jeongin a critic:Writer, foaf:Person ;
 kc:p-seo-jeongyun a critic:Writer, foaf:Person ;
   foaf:name "서정윤"@ko ;
   rdfs:label "서정윤"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q16171638> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201113946> ;
+  owl:sameAs <http://viaf.org/viaf/18771911> ;
+  owl:sameAs <https://isni.org/isni/0000000037669876> ;
   schema:url <https://kcritic.kr/resource/p-seo-jeongyun> .
 
 kc:p-seo-jongtaek a critic:Writer, foaf:Person ;
   foaf:name "서종택"@ko ;
   rdfs:label "서종택"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201315547> ;
+  owl:sameAs <http://viaf.org/viaf/138153409681741580285> ;
+  owl:sameAs <https://isni.org/isni/0000000467861235> ;
   schema:url <https://kcritic.kr/resource/p-seo-jongtaek> .
 
 kc:p-seo-junseop a critic:Critic, foaf:Person ;
@@ -10150,16 +10608,25 @@ kc:p-seo-namdong a critic:Thinker, foaf:Person ;
 kc:p-seo-useok a critic:Thinker, foaf:Person ;
   foaf:name "서우석"@ko ;
   rdfs:label "서우석"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201207343> ;
+  owl:sameAs <http://viaf.org/viaf/136153061343519202773> ;
+  owl:sameAs <https://isni.org/isni/0000000465048646> ;
   schema:url <https://kcritic.kr/resource/p-seo-useok> .
 
 kc:p-seo-wondong a critic:Writer, foaf:Person ;
   foaf:name "서원동"@ko ;
   rdfs:label "서원동"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201224026> ;
+  owl:sameAs <http://viaf.org/viaf/50631299> ;
+  owl:sameAs <https://isni.org/isni/0000000025137602> ;
   schema:url <https://kcritic.kr/resource/p-seo-wondong> .
 
 kc:p-seo-yeonho a critic:Thinker, foaf:Person ;
   foaf:name "서연호"@ko ;
   rdfs:label "서연호"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201501174> ;
+  owl:sameAs <http://viaf.org/viaf/76496445> ;
+  owl:sameAs <https://isni.org/isni/000000008156940X> ;
   schema:url <https://kcritic.kr/resource/p-seo-yeonho> .
 
 kc:p-seok-jeongnam a critic:Writer, foaf:Person ;
@@ -10181,6 +10648,9 @@ kc:p-seol-jungyu a critic:Thinker, foaf:Person ;
 kc:p-seong-byeonghui a critic:Thinker, foaf:Person ;
   foaf:name "성병희"@ko ;
   rdfs:label "성병희"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201720671> ;
+  owl:sameAs <http://viaf.org/viaf/265984529> ;
+  owl:sameAs <https://isni.org/isni/0000000398662290> ;
   schema:url <https://kcritic.kr/resource/p-seong-byeonghui> .
 
 kc:p-seong-changyeong a critic:Writer, foaf:Person ;
@@ -10221,6 +10691,9 @@ kc:p-shanin a critic:Thinker, foaf:Person ;
 kc:p-shin-beomsun a critic:Critic, foaf:Person ;
   foaf:name "신범순"@ko ;
   rdfs:label "신범순"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201208854> ;
+  owl:sameAs <http://viaf.org/viaf/60642676> ;
+  owl:sameAs <https://isni.org/isni/0000000027379744> ;
   schema:url <https://kcritic.kr/resource/p-shin-beomsun> .
 
 kc:p-shin-chaeho a critic:Thinker, foaf:Person ;
@@ -10242,6 +10715,9 @@ kc:p-shin-daechul a critic:Writer, foaf:Person ;
 kc:p-shin-dongjip a critic:Writer, foaf:Person ;
   foaf:name "신동집"@ko ;
   rdfs:label "신동집"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201520371> ;
+  owl:sameAs <http://viaf.org/viaf/35772643> ;
+  owl:sameAs <https://isni.org/isni/0000000022872943> ;
   schema:url <https://kcritic.kr/resource/p-shin-dongjip> .
 
 kc:p-shin-dongyeop a critic:Writer, foaf:Person ;
@@ -10270,6 +10746,9 @@ kc:p-shin-gyeongsuk a critic:Writer, foaf:Person ;
 kc:p-shin-gyuho a critic:Writer, foaf:Person ;
   foaf:name "신규호"@ko ;
   rdfs:label "신규호"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201106833> ;
+  owl:sameAs <http://viaf.org/viaf/63004438> ;
+  owl:sameAs <https://isni.org/isni/0000000025444629> ;
   schema:url <https://kcritic.kr/resource/p-shin-gyuho> .
 
 kc:p-shin-hyeoncheol a critic:Critic, foaf:Person ;
@@ -10280,11 +10759,17 @@ kc:p-shin-hyeoncheol a critic:Critic, foaf:Person ;
 kc:p-shin-hyeop a critic:Writer, foaf:Person ;
   foaf:name "신협"@ko ;
   rdfs:label "신협"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201326926> ;
+  owl:sameAs <http://viaf.org/viaf/2637236> ;
+  owl:sameAs <https://isni.org/isni/0000000023926528> ;
   schema:url <https://kcritic.kr/resource/p-shin-hyeop> .
 
 kc:p-shin-munsu a critic:Critic, foaf:Person ;
   foaf:name "신문수"@ko ;
   rdfs:label "신문수"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201301752> ;
+  owl:sameAs <http://viaf.org/viaf/14153061334619202483> ;
+  owl:sameAs <https://isni.org/isni/000000046467133X> ;
   schema:url <https://kcritic.kr/resource/p-shin-munsu> .
 
 kc:p-shin-namcheol a critic:Thinker, foaf:Person ;
@@ -10364,6 +10849,9 @@ kc:p-simone-weil a critic:Thinker, foaf:Person ;
 kc:p-sin-hyeonggi a critic:Thinker, foaf:Person ;
   foaf:name "신형기"@ko ;
   rdfs:label "신형기"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201517569> ;
+  owl:sameAs <http://viaf.org/viaf/29701422> ;
+  owl:sameAs <https://isni.org/isni/0000000028624764> ;
   schema:url <https://kcritic.kr/resource/p-sin-hyeonggi> .
 
 kc:p-sin-hyeonsuk a critic:Thinker, foaf:Person ;
@@ -10435,6 +10923,9 @@ kc:p-son-jintae a critic:Thinker, foaf:Person ;
 kc:p-son-usong a critic:Thinker, foaf:Person ;
   foaf:name "손우성"@ko ;
   rdfs:label "손우성"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201635765> ;
+  owl:sameAs <http://viaf.org/viaf/41152138532810980904> ;
+  owl:sameAs <https://isni.org/isni/0000000464333760> ;
   schema:url <https://kcritic.kr/resource/p-son-usong> .
 
 kc:p-song-byeongsu a critic:Writer, foaf:Person ;
@@ -10471,6 +10962,9 @@ kc:p-song-hogeun a critic:Thinker, foaf:Person ;
 kc:p-song-huibok a critic:Critic, foaf:Person ;
   foaf:name "송희복"@ko ;
   rdfs:label "송희복"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201116587> ;
+  owl:sameAs <http://viaf.org/viaf/39621385> ;
+  owl:sameAs <https://isni.org/isni/0000000049028582> ;
   schema:url <https://kcritic.kr/resource/p-song-huibok> .
 
 kc:p-song-jaehak a critic:Writer, foaf:Person ;
@@ -10614,6 +11108,10 @@ kc:p-stephen-pepper a critic:Thinker, foaf:Person ;
 kc:p-sterne a critic:Writer, foaf:Person ;
   foaf:name "로런스 스턴"@ko ;
   rdfs:label "로런스 스턴"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q218960> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200106746> ;
+  owl:sameAs <http://viaf.org/viaf/61552699> ;
+  owl:sameAs <https://isni.org/isni/0000000446461697> ;
   schema:url <https://kcritic.kr/resource/p-sterne> .
 
 kc:p-steven-kaplan a critic:Thinker, foaf:Person ;
@@ -10922,6 +11420,10 @@ kc:p-umberto-eco a critic:Writer, foaf:Person ;
 kc:p-uwe-johnson a critic:Writer, foaf:Person ;
   foaf:name "우베 욘존"@ko ;
   rdfs:label "우베 욘존"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q61627> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199614066> ;
+  owl:sameAs <http://viaf.org/viaf/12310347> ;
+  owl:sameAs <https://isni.org/isni/0000000122764237> ;
   schema:url <https://kcritic.kr/resource/p-uwe-johnson> .
 
 kc:p-van-wyck-brooks a critic:Thinker, foaf:Person ;
@@ -10935,6 +11437,9 @@ kc:p-van-wyck-brooks a critic:Thinker, foaf:Person ;
 kc:p-varro a critic:Thinker, foaf:Person ;
   foaf:name "마르쿠스 테렌티우스 바로"@ko ;
   rdfs:label "마르쿠스 테렌티우스 바로"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q206119> ;
+  owl:sameAs <http://viaf.org/viaf/100219311> ;
+  owl:sameAs <https://isni.org/isni/0000000121452047> ;
   schema:url <https://kcritic.kr/resource/p-varro> .
 
 kc:p-veblen a critic:Thinker, foaf:Person ;
@@ -11205,6 +11710,9 @@ kc:p-wordsworth a critic:Thinker, foaf:Person ;
 kc:p-wundt a critic:Thinker, foaf:Person ;
   foaf:name "빌헬름 분트"@ko ;
   rdfs:label "빌헬름 분트"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q75814> ;
+  owl:sameAs <http://viaf.org/viaf/7472991> ;
+  owl:sameAs <https://isni.org/isni/000000008339077X> ;
   schema:url <https://kcritic.kr/resource/p-wundt> .
 
 kc:p-wyndham-lewis a critic:Thinker, foaf:Person ;
@@ -11219,11 +11727,19 @@ kc:p-wyndham-lewis a critic:Thinker, foaf:Person ;
 kc:p-xenophon a critic:Thinker, foaf:Person ;
   foaf:name "크세노폰"@ko ;
   rdfs:label "크세노폰"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q129772> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199630710> ;
+  owl:sameAs <http://viaf.org/viaf/89597697> ;
+  owl:sameAs <https://isni.org/isni/0000000123212506> ;
   schema:url <https://kcritic.kr/resource/p-xenophon> .
 
 kc:p-xia-yan a critic:Writer, foaf:Person ;
   foaf:name "하연"@ko ;
   rdfs:label "하연"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q619051> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200203161> ;
+  owl:sameAs <http://viaf.org/viaf/5730804> ;
+  owl:sameAs <https://isni.org/isni/0000000083533443> ;
   schema:url <https://kcritic.kr/resource/p-xia-yan> .
 
 kc:p-xiao-san a critic:Writer, foaf:Person ;
@@ -11264,16 +11780,27 @@ kc:p-yang-geonsik a critic:Writer, foaf:Person ;
 kc:p-yang-gwija a critic:Writer, foaf:Person ;
   foaf:name "양귀자"@ko ;
   rdfs:label "양귀자"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q8048394> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201107179> ;
+  owl:sameAs <http://viaf.org/viaf/117886350> ;
+  owl:sameAs <https://isni.org/isni/0000000081869648> ;
   schema:url <https://kcritic.kr/resource/p-yang-gwija> .
 
 kc:p-yang-hansheng a critic:Writer, foaf:Person ;
   foaf:name "양한생"@ko ;
   rdfs:label "양한생"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q9076136> ;
+  owl:sameAs <http://viaf.org/viaf/65362665> ;
+  owl:sameAs <https://isni.org/isni/0000000063542692> ;
   schema:url <https://kcritic.kr/resource/p-yang-hansheng> .
 
 kc:p-yang-heonseok a critic:Writer, foaf:Person ;
   foaf:name "양헌석"@ko ;
   rdfs:label "양헌석"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12606465> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201430016> ;
+  owl:sameAs <http://viaf.org/viaf/11698038> ;
+  owl:sameAs <https://isni.org/isni/0000000034851496> ;
   schema:url <https://kcritic.kr/resource/p-yang-heonseok> .
 
 kc:p-yang-judong a critic:Thinker, foaf:Person ;
@@ -11310,6 +11837,9 @@ kc:p-yang-seungguk a critic:Thinker, foaf:Person ;
 kc:p-yang-wondal a critic:Thinker, foaf:Person ;
   foaf:name "양원달"@ko ;
   rdfs:label "양원달"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201770423> ;
+  owl:sameAs <http://viaf.org/viaf/117152138531810980679> ;
+  owl:sameAs <https://isni.org/isni/0000000464508727> ;
   schema:url <https://kcritic.kr/resource/p-yang-wondal> .
 
 kc:p-yeo-gyuhyeong a critic:Thinker, foaf:Person ;
@@ -11339,6 +11869,10 @@ kc:p-yi-bonggu a critic:Writer, foaf:Person ;
 kc:p-yi-bukmyeong a critic:Writer, foaf:Person ;
   foaf:name "이북명"@ko ;
   rdfs:label "이북명"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q81226438> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201416528> ;
+  owl:sameAs <http://viaf.org/viaf/67152138519710980629> ;
+  owl:sameAs <https://isni.org/isni/0000000464391434> ;
   schema:url <https://kcritic.kr/resource/p-yi-bukmyeong> .
 
 kc:p-yi-byeongdo a critic:Thinker, foaf:Person ;
@@ -11362,6 +11896,9 @@ kc:p-yi-byeongju a critic:Writer, foaf:Person ;
 kc:p-yi-cheolbeom a critic:Thinker, foaf:Person ;
   foaf:name "이철범"@ko ;
   rdfs:label "이철범"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201227076> ;
+  owl:sameAs <http://viaf.org/viaf/13637810> ;
+  owl:sameAs <https://isni.org/isni/0000000026182165> ;
   schema:url <https://kcritic.kr/resource/p-yi-cheolbeom> .
 
 kc:p-yi-dongsun a critic:Writer, foaf:Person ;
@@ -11384,6 +11921,9 @@ kc:p-yi-eunchan a critic:Writer, foaf:Person ;
 kc:p-yi-eunjik a critic:Writer, foaf:Person ;
   foaf:name "이은직"@ko ;
   rdfs:label "이은직"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201921400> ;
+  owl:sameAs <http://viaf.org/viaf/40156563460023241236> ;
+  owl:sameAs <https://isni.org/isni/0000000476482499> ;
   schema:url <https://kcritic.kr/resource/p-yi-eunjik> .
 
 kc:p-yi-gangok a critic:Thinker, foaf:Person ;
@@ -11398,6 +11938,8 @@ kc:p-yi-gangok a critic:Thinker, foaf:Person ;
 kc:p-yi-gapgi a critic:Writer, foaf:Person ;
   foaf:name "이갑기"@ko ;
   rdfs:label "이갑기"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC202321160> ;
+  owl:sameAs <https://isni.org/isni/0000000511249669> ;
   schema:url <https://kcritic.kr/resource/p-yi-gapgi> .
 
 kc:p-yi-geunjeon a critic:Writer, foaf:Person ;
@@ -11420,6 +11962,10 @@ kc:p-yi-giyeong a critic:Writer, foaf:Person ;
 kc:p-yi-gwangnae a critic:Thinker, foaf:Person ;
   foaf:name "이광래"@ko ;
   rdfs:label "이광래"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q24876562> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201203571> ;
+  owl:sameAs <http://viaf.org/viaf/118421869> ;
+  owl:sameAs <https://isni.org/isni/0000000084147376> ;
   schema:url <https://kcritic.kr/resource/p-yi-gwangnae> .
 
 kc:p-yi-gyubo a critic:Writer, foaf:Person ;
@@ -11453,11 +11999,19 @@ kc:p-yi-hanjik a critic:Writer, foaf:Person ;
 kc:p-yi-hayun a critic:Writer, foaf:Person ;
   foaf:name "이하윤"@ko ;
   rdfs:label "이하윤"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q16097172> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201231213> ;
+  owl:sameAs <http://viaf.org/viaf/23145376383983720773> ;
+  owl:sameAs <https://isni.org/isni/0000000455408900> ;
   schema:url <https://kcritic.kr/resource/p-yi-hayun> .
 
 kc:p-yi-hoeseong a critic:Writer, foaf:Person ;
   foaf:name "이회성"@ko ;
   rdfs:label "이회성"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q904489> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199640769> ;
+  owl:sameAs <http://viaf.org/viaf/72707887> ;
+  owl:sameAs <https://isni.org/isni/0000000082631535> ;
   schema:url <https://kcritic.kr/resource/p-yi-hoeseong> .
 
 kc:p-yi-hohcheol a critic:Writer, foaf:Person ;
@@ -11643,6 +12197,9 @@ kc:p-yijonyeon a critic:Writer, foaf:Person ;
 kc:p-yu-gyeonghwan a critic:Writer, foaf:Person ;
   foaf:name "유경환"@ko ;
   rdfs:label "유경환"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201104273> ;
+  owl:sameAs <http://viaf.org/viaf/23467876> ;
+  owl:sameAs <https://isni.org/isni/0000000024518542> ;
   schema:url <https://kcritic.kr/resource/p-yu-gyeonghwan> .
 
 kc:p-yu-hansang a critic:Thinker, foaf:Person ;
@@ -11717,11 +12274,19 @@ kc:p-yu-pyonggeun a critic:Thinker, foaf:Person ;
 kc:p-yu-simin a critic:Writer, foaf:Person ;
   foaf:name "유시민"@ko ;
   rdfs:label "유시민"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q488339> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201116642> ;
+  owl:sameAs <http://viaf.org/viaf/7238752> ;
+  owl:sameAs <https://isni.org/isni/0000000054541620> ;
   schema:url <https://kcritic.kr/resource/p-yu-simin> .
 
 kc:p-yu-sunha a critic:Writer, foaf:Person ;
   foaf:name "유순하"@ko ;
   rdfs:label "유순하"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q12609862> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201402211> ;
+  owl:sameAs <http://viaf.org/viaf/45860490> ;
+  owl:sameAs <https://isni.org/isni/0000000078346985> ;
   schema:url <https://kcritic.kr/resource/p-yu-sunha> .
 
 kc:p-yu-wanhui a critic:Writer, foaf:Person ;
@@ -11779,6 +12344,10 @@ kc:p-yun-heunggil a critic:Writer, foaf:Person ;
 kc:p-yun-humyeong a critic:Writer, foaf:Person ;
   foaf:name "윤후명"@ko ;
   rdfs:label "윤후명"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q626079> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201103343> ;
+  owl:sameAs <http://viaf.org/viaf/16112471> ;
+  owl:sameAs <https://isni.org/isni/0000000113543408> ;
   schema:url <https://kcritic.kr/resource/p-yun-humyeong> .
 
 kc:p-yun-jaechul a critic:Writer, foaf:Person ;
@@ -11841,6 +12410,9 @@ kc:p-yun-sepyeong a critic:Writer, foaf:Person ;
 kc:p-yun-yeongcheon a critic:Thinker, foaf:Person ;
   foaf:name "윤영천"@ko ;
   rdfs:label "윤영천"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201116381> ;
+  owl:sameAs <http://viaf.org/viaf/75389768> ;
+  owl:sameAs <https://isni.org/isni/0000000027769945> ;
   schema:url <https://kcritic.kr/resource/p-yun-yeongcheon> .
 
 kc:p-yungcheon a critic:Writer, foaf:Person ;
@@ -11868,11 +12440,19 @@ kc:p-zhaozhou a critic:Thinker, foaf:Person ;
 kc:p-zheng-zhenduo a critic:Thinker, foaf:Person ;
   foaf:name "정진탁"@ko ;
   rdfs:label "정진탁"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q6124178> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC200103021> ;
+  owl:sameAs <http://viaf.org/viaf/39533892> ;
+  owl:sameAs <https://isni.org/isni/0000000122785871> ;
   schema:url <https://kcritic.kr/resource/p-zheng-zhenduo> .
 
 kc:p-zhou-libo a critic:Writer, foaf:Person ;
   foaf:name "주립파"@ko ;
   rdfs:label "주립파"@ko ;
+  owl:sameAs <http://www.wikidata.org/entity/Q2562739> ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC199632190> ;
+  owl:sameAs <http://viaf.org/viaf/102460222> ;
+  owl:sameAs <https://isni.org/isni/0000000120187624> ;
   schema:url <https://kcritic.kr/resource/p-zhou-libo> .
 
 kc:p-zhou-yang a critic:Thinker, foaf:Person ;
@@ -11936,6 +12516,9 @@ kc:p-가네트 a critic:Thinker, foaf:Person ;
 kc:p-권태응 a critic:Writer, foaf:Person ;
   foaf:name "권태응"@ko ;
   rdfs:label "권태응"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201107487> ;
+  owl:sameAs <http://viaf.org/viaf/70273525> ;
+  owl:sameAs <https://isni.org/isni/0000000023645646> ;
   schema:url <https://kcritic.kr/resource/p-권태응> .
 
 kc:p-김남주 a critic:Writer, foaf:Person ;
@@ -11961,6 +12544,9 @@ kc:p-김달진 a critic:Thinker, foaf:Person ;
 kc:p-김상훈 a critic:Writer, foaf:Person ;
   foaf:name "김상훈"@ko ;
   rdfs:label "김상훈"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201322798> ;
+  owl:sameAs <http://viaf.org/viaf/530144928079554341791> ;
+  owl:sameAs <https://isni.org/isni/0000000464302251> ;
   schema:url <https://kcritic.kr/resource/p-김상훈> .
 
 kc:p-김성칠 a critic:Thinker, foaf:Person ;
@@ -12110,6 +12696,9 @@ kc:p-설정식 a critic:Writer, foaf:Person ;
 kc:p-여상현 a critic:Writer, foaf:Person ;
   foaf:name "여상현"@ko ;
   rdfs:label "여상현"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201762518> ;
+  owl:sameAs <http://viaf.org/viaf/126151352047852602509> ;
+  owl:sameAs <https://isni.org/isni/0000000464412661> ;
   schema:url <https://kcritic.kr/resource/p-여상현> .
 
 kc:p-예세닌 a critic:Thinker, foaf:Person ;
@@ -12124,6 +12713,9 @@ kc:p-예세닌 a critic:Thinker, foaf:Person ;
 kc:p-유진오 a critic:Writer, foaf:Person ;
   foaf:name "유진오"@ko ;
   rdfs:label "유진오"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201630307> ;
+  owl:sameAs <http://viaf.org/viaf/168148995808059750007> ;
+  owl:sameAs <https://isni.org/isni/0000000459327120> ;
   schema:url <https://kcritic.kr/resource/p-유진오> .
 
 kc:p-이용악 a critic:Writer, foaf:Person ;
@@ -12138,6 +12730,9 @@ kc:p-이용악 a critic:Writer, foaf:Person ;
 kc:p-이원섭 a critic:Thinker, foaf:Person ;
   foaf:name "이원섭"@ko ;
   rdfs:label "이원섭"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC201753882> ;
+  owl:sameAs <http://viaf.org/viaf/152452597> ;
+  owl:sameAs <https://isni.org/isni/0000000102219127> ;
   schema:url <https://kcritic.kr/resource/p-이원섭> .
 
 kc:p-이원수 a critic:Writer, foaf:Person ;
@@ -12179,6 +12774,9 @@ kc:p-존슨 a critic:Thinker, foaf:Person ;
 kc:p-최석두 a critic:Writer, foaf:Person ;
   foaf:name "최석두"@ko ;
   rdfs:label "최석두"@ko ;
+  owl:sameAs <http://lod.nl.go.kr/resource/KAC2020M3030> ;
+  owl:sameAs <http://viaf.org/viaf/644160483611204990369> ;
+  owl:sameAs <https://isni.org/isni/0000000492364505> ;
   schema:url <https://kcritic.kr/resource/p-최석두> .
 
 kc:p-페놀로싸 a critic:Thinker, foaf:Person ;

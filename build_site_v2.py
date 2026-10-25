@@ -76,6 +76,14 @@ def main():
         for p in json.loads((HERE / "site" / "data" / (f + ".json")).read_text(encoding="utf-8")):
             r = info.setdefault(p["id"], {"id": p["id"], "name": p["name"], "en": p.get("en", ""), "lod": p.get("lod", [])})
             r["lod"] = r["lod"] or p.get("lod", [])
+    # 2판 인물 화면은 ISNI·VIAF 배지도 보인다(예전 목록 카드는 칸이 좁아 build.py 에서 뺌) — 2026-10-25
+    for pid, r in info.items():
+        rec = build._lod_record(pid)
+        have = {b["href"] for b in r["lod"]}
+        for s in build.LOD_SOURCES:
+            v = rec.get(s["field"])
+            if s["card"] is None and v and s["url"](v) not in have:
+                r["lod"].append({"href": s["url"](v), "label": s["full"], "full": s["full"], "bg": "", "fg": ""})
     roles = collections.defaultdict(lambda: {"wrote": 0, "discussed": 0, "cited": 0, "years": []})
     for e in essays:
         y = int(e["year"]) if str(e["year"]).isdigit() else None

@@ -5480,9 +5480,17 @@
       "id": "p-00085",
       "label": "정동주",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201306023 https://isni.org/isni/0000000116172294 http://viaf.org/viaf/33437346",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201306023",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -9821,9 +9829,17 @@
       "id": "p-an-gyeongwon",
       "label": "안경원",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201108104 https://isni.org/isni/0000000460423953 http://viaf.org/viaf/322144928060854340233",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201108104",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -9854,9 +9870,17 @@
       "id": "p-an-hwak",
       "label": "안확",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201513527 https://isni.org/isni/0000000063468402 http://viaf.org/viaf/16177164",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201513527",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -9913,18 +9937,41 @@
       "id": "p-an-suhwan",
       "label": "안수환",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201011767 https://isni.org/isni/000000002423876X http://viaf.org/viaf/13585651",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201011767",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-anatole-france",
       "label": "아나톨 프랑스",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q42443 http://lod.nl.go.kr/resource/KAC199609168 https://isni.org/isni/0000000121184329 http://viaf.org/viaf/4925052",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199609168",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q42443",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -9979,9 +10026,24 @@
       "id": "p-anna-seghers",
       "label": "안나 제거스",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q57393 http://lod.nl.go.kr/resource/KAC200507167 https://isni.org/isni/0000000121325945 http://viaf.org/viaf/51684390",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200507167",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q57393",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -9997,9 +10059,17 @@
       "id": "p-antisthenes",
       "label": "안티스테네스",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q179149 https://isni.org/isni/000000011030089X http://viaf.org/viaf/79142539",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "https://www.wikidata.org/wiki/Q179149",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -10220,9 +10290,24 @@
       "id": "p-ba-jin",
       "label": "파금",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q13005 http://lod.nl.go.kr/resource/KAC200105165 https://isni.org/isni/0000000121229187 http://viaf.org/viaf/19673501",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200105165",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q13005",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -10277,27 +10362,51 @@
       "id": "p-bae-gyeongran",
       "label": "배경란",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201823118 https://isni.org/isni/0000000024288089 http://viaf.org/viaf/16051680",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201823118",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-bae-jinseong",
       "label": "배진성",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201302587 https://isni.org/isni/0000000468546640 http://viaf.org/viaf/12164960",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201302587",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-baek-hakgi",
       "label": "백학기",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201520144 https://isni.org/isni/0000000464429113 http://viaf.org/viaf/68152138532910981488",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201520144",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -10346,18 +10455,41 @@
       "id": "p-bak-daeho",
       "label": "박대호",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC2018F0972 https://isni.org/isni/0000000473446425 http://viaf.org/viaf/143154590166743081793",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC2018F0972",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-bak-gyeju",
       "label": "박계주",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q17964020 http://lod.nl.go.kr/resource/KAC201319331 https://isni.org/isni/0000000047140853 http://viaf.org/viaf/61384544",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201319331",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q17964020",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -10421,18 +10553,34 @@
       "id": "p-ban-gyeonghwan",
       "label": "반경환",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201210589 https://isni.org/isni/0000000050138981 http://viaf.org/viaf/76196527",
       "degree": 4,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201210589",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-ban-seongwan",
       "label": "반성완",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201303529 https://isni.org/isni/0000000041916390 http://viaf.org/viaf/66093146",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201303529",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -10924,9 +11072,24 @@
       "id": "p-boal",
       "label": "아우구스토 보알",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q434805 http://lod.nl.go.kr/resource/KAC201862877 https://isni.org/isni/0000000121392750 http://viaf.org/viaf/73831435",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201862877",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q434805",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -11380,9 +11543,24 @@
       "id": "p-bruce-cumings",
       "label": "브루스 커밍스",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q483927 http://lod.nl.go.kr/resource/KAC201200280 https://isni.org/isni/0000000109169871 http://viaf.org/viaf/76328603",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201200280",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q483927",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -11912,9 +12090,24 @@
       "id": "p-chae-gwangseok",
       "label": "채광석",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q16167549 http://lod.nl.go.kr/resource/KAC201200770 https://isni.org/isni/0000000454811159 http://viaf.org/viaf/18145376349283721421",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201200770",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q16167549",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -11980,9 +12173,17 @@
       "id": "p-chae-yeongju",
       "label": "채영주",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201719130 https://isni.org/isni/000000046435561X http://viaf.org/viaf/22151351954352600929",
       "degree": 4,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201719130",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -12200,9 +12401,17 @@
       "id": "p-cheongeum",
       "label": "천금",
       "type": "writer",
-      "ref": "#p-cheongeum",
+      "ref": "http://lod.nl.go.kr/resource/KAC201815026 https://isni.org/isni/0000000473609968 http://viaf.org/viaf/102155103914476200105",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201815026",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -12418,9 +12627,24 @@
       "id": "p-choe-chiwon",
       "label": "최치원",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q487042 http://lod.nl.go.kr/resource/KAC201205775 https://isni.org/isni/0000000078690284 http://viaf.org/viaf/77228757",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201205775",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q487042",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -12451,9 +12675,17 @@
       "id": "p-choe-harim",
       "label": "최하림",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201514231 https://isni.org/isni/0000000023590411 http://viaf.org/viaf/67801260",
       "degree": 13,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201514231",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -12484,9 +12716,24 @@
       "id": "p-choe-inuk",
       "label": "최인욱",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12619795 http://lod.nl.go.kr/resource/KAC201011685 https://isni.org/isni/0000000023042001 http://viaf.org/viaf/43159773",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201011685",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12619795",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -12535,9 +12782,24 @@
       "id": "p-choe-sangsu",
       "label": "최상수",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12619585 http://lod.nl.go.kr/resource/KAC201759173 https://isni.org/isni/0000000073269570 http://viaf.org/viaf/76374555",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201759173",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12619585",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -12568,9 +12830,17 @@
       "id": "p-choe-seokha",
       "label": "최석하",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201820225 https://isni.org/isni/0000000464811793 http://viaf.org/viaf/83153061324119202170",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201820225",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -12765,9 +13035,17 @@
       "id": "p-choi-min",
       "label": "최민",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201231016 https://isni.org/isni/0000000071205127 http://viaf.org/viaf/100684773",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201231016",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -12846,9 +13124,24 @@
       "id": "p-christa-wolf",
       "label": "크리스타 볼프",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q57382 http://lod.nl.go.kr/resource/KAC199630414 https://isni.org/isni/0000000121473104 http://viaf.org/viaf/109289723",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199630414",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q57382",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -13145,18 +13438,48 @@
       "id": "p-croce",
       "label": "베네데토 크로체",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q192348 http://lod.nl.go.kr/resource/KAC199605999 https://isni.org/isni/0000000121355490 http://viaf.org/viaf/61544292",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199605999",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q192348",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-curt-sachs",
       "label": "쿠르트 작스",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q57696 http://lod.nl.go.kr/resource/KAC199623878 https://isni.org/isni/000000010814519X http://viaf.org/viaf/46802025",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199623878",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q57696",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -13351,9 +13674,24 @@
       "id": "p-derrida",
       "label": "데리다",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q130631 http://lod.nl.go.kr/resource/KAC199606951 https://isni.org/isni/0000000121429146 http://viaf.org/viaf/88958529",
       "degree": 15,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199606951",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q130631",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -13824,9 +14162,24 @@
       "id": "p-edward-said",
       "label": "에드워드 사이드",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q201538 http://lod.nl.go.kr/resource/KAC199636295 https://isni.org/isni/0000000121027147 http://viaf.org/viaf/82539804",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199636295",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q201538",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -13905,9 +14258,24 @@
       "id": "p-elias-canetti",
       "label": "엘리아스 카네티",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q80064 http://lod.nl.go.kr/resource/KAC199604357 https://isni.org/isni/0000000122839307 http://viaf.org/viaf/108232742",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199604357",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q80064",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -14763,9 +15131,17 @@
       "id": "p-gautier",
       "label": "고티에",
       "type": "theorist",
-      "ref": "#p-gautier",
+      "ref": "http://lod.nl.go.kr/resource/KAC2018N9932 http://viaf.org/viaf/2156130836658310424",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC2018N9932",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -14864,9 +15240,24 @@
       "id": "p-gilbert-durand",
       "label": "질베르 뒤랑",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q2709641 http://lod.nl.go.kr/resource/KAC199607640 https://isni.org/isni/0000000121472822 http://viaf.org/viaf/109210505",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199607640",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q2709641",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -14906,18 +15297,34 @@
       "id": "p-go-jaejong",
       "label": "고재종",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201207379 https://isni.org/isni/0000000464206315 http://viaf.org/viaf/385144928080254341683",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201207379",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-go-jinha",
       "label": "고진하",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201112128 https://isni.org/isni/000000046019971X http://viaf.org/viaf/25149616712703751178",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201112128",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -14983,9 +15390,24 @@
       "id": "p-gogol",
       "label": "고골리",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q43718 http://lod.nl.go.kr/resource/KAC199610283 https://isni.org/isni/0000000121014127 http://viaf.org/viaf/54148306",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199610283",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q43718",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -15121,9 +15543,24 @@
       "id": "p-gong-jiyeong",
       "label": "공지영",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q483344 http://lod.nl.go.kr/resource/KAC201007577 https://isni.org/isni/0000000121485666 http://viaf.org/viaf/116305807",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201007577",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q483344",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -15172,9 +15609,24 @@
       "id": "p-gramsci",
       "label": "그람시",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q83003 http://lod.nl.go.kr/resource/KAC199610612 https://isni.org/isni/0000000122790742 http://viaf.org/viaf/44299576",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199610612",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q83003",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -15367,9 +15819,24 @@
       "id": "p-guenter-grass",
       "label": "귄터 그라스",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q6538 http://lod.nl.go.kr/resource/KAC199610635 https://isni.org/isni/0000000120967591 http://viaf.org/viaf/102319859",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199610635",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q6538",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -15448,9 +15915,17 @@
       "id": "p-gwak-haksong",
       "label": "곽학송",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201213621 https://isni.org/isni/0000000038893458 http://viaf.org/viaf/56721106",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201213621",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -15481,9 +15956,17 @@
       "id": "p-gwon-darung",
       "label": "권달웅",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201519277 https://isni.org/isni/0000000025128159 http://viaf.org/viaf/50616319",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201519277",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -15540,9 +16023,17 @@
       "id": "p-ha-changsu",
       "label": "하창수",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201008914 https://isni.org/isni/0000000084807004 http://viaf.org/viaf/117902884",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201008914",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -15786,18 +16277,34 @@
       "id": "p-han-gipal",
       "label": "한기팔",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201320514 https://isni.org/isni/000000003050880X http://viaf.org/viaf/18506773",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201320514",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-han-gwanggu",
       "label": "한광구",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201110326 https://isni.org/isni/0000000031075567 http://viaf.org/viaf/38443750",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201110326",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -15830,18 +16337,41 @@
       "id": "p-han-seonggi",
       "label": "한성기",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201405586 https://isni.org/isni/0000000051124469 http://viaf.org/viaf/29393351",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201405586",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-han-seorya",
       "label": "한설야",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q487273 http://lod.nl.go.kr/resource/KAC201109626 https://isni.org/isni/0000000078340743 http://viaf.org/viaf/49334865",
       "degree": 8,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201109626",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q487273",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -16085,9 +16615,24 @@
       "id": "p-heinrich-boell",
       "label": "하인리히 뵐",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q42747 http://lod.nl.go.kr/resource/KAC199602864 https://isni.org/isni/0000000120965916 http://viaf.org/viaf/88858559",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199602864",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q42747",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -16134,9 +16679,17 @@
       "id": "p-heo-il",
       "label": "허일",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201113129 https://isni.org/isni/0000000460812983 http://viaf.org/viaf/137150468294304171717",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201113129",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -16364,9 +16917,24 @@
       "id": "p-hong-duseung",
       "label": "홍두승",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q134581223 http://lod.nl.go.kr/resource/KAC201220851 https://isni.org/isni/0000000066630743 http://viaf.org/viaf/56896353",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201220851",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q134581223",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -16382,9 +16950,17 @@
       "id": "p-hong-huidam",
       "label": "홍희담",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201111674 https://isni.org/isni/0000000038153644 http://viaf.org/viaf/33849554",
       "degree": 5,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201111674",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -16470,9 +17046,24 @@
       "id": "p-hong-sayong",
       "label": "홍사용",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q11287168 http://lod.nl.go.kr/resource/KAC201329757 https://isni.org/isni/0000000027597506 http://viaf.org/viaf/70413917",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201329757",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q11287168",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -16561,18 +17152,34 @@
       "id": "p-hong-yungi",
       "label": "홍윤기",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201303058 https://isni.org/isni/0000000082269062 http://viaf.org/viaf/48315007",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201303058",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-hongrang",
       "label": "홍랑",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201815014 https://isni.org/isni/000000047361015X http://viaf.org/viaf/11154590080843080602",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201815014",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -16699,9 +17306,24 @@
       "id": "p-howells",
       "label": "윌리엄 딘 하우얼스",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q526709 http://lod.nl.go.kr/resource/KAC201501351 https://isni.org/isni/0000000122831540 http://viaf.org/viaf/95191935",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201501351",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q526709",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -16741,9 +17363,24 @@
       "id": "p-huizinga",
       "label": "호이징하",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q276280 http://lod.nl.go.kr/resource/KAC199613075 https://isni.org/isni/0000000092429488 http://viaf.org/viaf/66468881",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199613075",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q276280",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -16953,9 +17590,17 @@
       "id": "p-hwang-myeonggeol",
       "label": "황명걸",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201501169 https://isni.org/isni/0000000039146673 http://viaf.org/viaf/63576184",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201501169",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -16986,18 +17631,34 @@
       "id": "p-hwang-taeyeon",
       "label": "황태연",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201308767 https://isni.org/isni/0000000083672312 http://viaf.org/viaf/27720159",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201308767",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-hwang-unheon",
       "label": "황운헌",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201800293 https://isni.org/isni/0000000464429914 http://viaf.org/viaf/76152138517110980371",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201800293",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -17083,9 +17744,17 @@
       "id": "p-hyon-yongjun",
       "label": "현용준",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201305110 https://isni.org/isni/0000000082300090 http://viaf.org/viaf/50658892",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201305110",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -17133,9 +17802,24 @@
       "id": "p-i-tae",
       "label": "이태",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q16261954 http://lod.nl.go.kr/resource/KAC201426562 https://isni.org/isni/0000000050034584 http://viaf.org/viaf/71337037",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201426562",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q16261954",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -17288,9 +17972,17 @@
       "id": "p-im-donghwak",
       "label": "임동확",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201300267 https://isni.org/isni/0000000464590812 http://viaf.org/viaf/151152138537510981536",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201300267",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -17306,9 +17998,17 @@
       "id": "p-im-hongjae",
       "label": "임홍재",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201769992 https://isni.org/isni/000000003227623X http://viaf.org/viaf/1348680",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201769992",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -17713,9 +18413,24 @@
       "id": "p-jang-jeongil",
       "label": "장정일",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12614676 http://lod.nl.go.kr/resource/KAC201111578 https://isni.org/isni/0000000082375762 http://viaf.org/viaf/55605527",
       "degree": 7,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201111578",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12614676",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -17781,9 +18496,24 @@
       "id": "p-jauss",
       "label": "한스 로베르트 야우스",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q61262 http://lod.nl.go.kr/resource/KAC201915776 https://isni.org/isni/0000000081737952 http://viaf.org/viaf/108828994",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201915776",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q61262",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -18060,9 +18790,24 @@
       "id": "p-jeong-dosang",
       "label": "정도상",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q69696756 http://lod.nl.go.kr/resource/KAC201008032 https://isni.org/isni/0000000068319908 http://viaf.org/viaf/51544963",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201008032",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q69696756",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -18157,9 +18902,17 @@
       "id": "p-jeong-howung",
       "label": "정호웅",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201332256 https://isni.org/isni/0000000029141879 http://viaf.org/viaf/3568163159924201640008",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201332256",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18225,9 +18978,17 @@
       "id": "p-jeong-inhwa",
       "label": "정인화",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201520713 https://isni.org/isni/0000000049437335 http://viaf.org/viaf/54028891",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201520713",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18243,9 +19004,17 @@
       "id": "p-jeong-jaewan",
       "label": "정재완",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201755419 https://isni.org/isni/0000000464601235 http://viaf.org/viaf/103151351952552600429",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201755419",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18278,9 +19047,17 @@
       "id": "p-jeong-myeonghwan",
       "label": "정명환",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201011859 https://isni.org/isni/0000000058878079 http://viaf.org/viaf/46842180",
       "degree": 7,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201011859",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18351,9 +19128,24 @@
       "id": "p-jeremy-rifkin",
       "label": "제레미 리프킨",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q505154 http://lod.nl.go.kr/resource/KAC199623052 https://isni.org/isni/0000000116781874 http://viaf.org/viaf/79124925",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199623052",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q505154",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -18386,18 +19178,41 @@
       "id": "p-jin-hyeongjun",
       "label": "진형준",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201415942 https://isni.org/isni/000000003115429X http://viaf.org/viaf/40913023",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201415942",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-jo-gicheon",
       "label": "조기천",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12616607 http://lod.nl.go.kr/resource/KAC201228302 https://isni.org/isni/0000000027584027 http://viaf.org/viaf/68025276",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201228302",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12616607",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -18437,9 +19252,17 @@
       "id": "p-jo-jeonghwan",
       "label": "조정환",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201216165 https://isni.org/isni/0000000464597694 http://viaf.org/viaf/449144928081854341690",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201216165",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18487,18 +19310,48 @@
       "id": "p-jo-namik",
       "label": "조남익",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q94129468 http://lod.nl.go.kr/resource/KAC201110423 https://isni.org/isni/0000000083300631 http://viaf.org/viaf/117783588",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201110423",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q94129468",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-jo-yeongchul",
       "label": "조영출",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12616668 http://lod.nl.go.kr/resource/KAC201837700 http://viaf.org/viaf/194153061232919200673",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201837700",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12616668",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -18556,9 +19409,24 @@
       "id": "p-johannes-becher",
       "label": "요하네스 R. 베허",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q58057 http://lod.nl.go.kr/resource/KAC2022D4608 https://isni.org/isni/0000000108984727 http://viaf.org/viaf/49241183",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC2022D4608",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q58057",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -18672,9 +19540,17 @@
       "id": "p-ju-inseok",
       "label": "주인석",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201320427 https://isni.org/isni/0000000049753688 http://viaf.org/viaf/62151776778018011369",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201320427",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18749,9 +19625,17 @@
       "id": "p-kang-changmin",
       "label": "강창민",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201813507 https://isni.org/isni/0000000063337170 http://viaf.org/viaf/3789457",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201813507",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -18929,9 +19813,17 @@
       "id": "p-kang-woosik",
       "label": "강우식",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201009704 https://isni.org/isni/0000000084270876 http://viaf.org/viaf/13629553",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201009704",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -19038,9 +19930,24 @@
       "id": "p-kawamura-minato",
       "label": "가와무라 미나토",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q1669091 http://lod.nl.go.kr/resource/KAC200109248 https://isni.org/isni/0000000082886730 http://viaf.org/viaf/108222101",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200109248",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q1669091",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -19224,9 +20131,24 @@
       "id": "p-kim-bangok",
       "label": "김방옥",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q112550277 http://lod.nl.go.kr/resource/KAC201333555 https://isni.org/isni/0000000054547088 http://viaf.org/viaf/7248750",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201333555",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q112550277",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -19264,18 +20186,34 @@
       "id": "p-kim-changnam",
       "label": "김창남",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201224343 https://isni.org/isni/0000000118315527 http://viaf.org/viaf/169380235",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201224343",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-kim-changsul",
       "label": "김창술",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201619550 https://isni.org/isni/0000000036575966 http://viaf.org/viaf/65863065",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201619550",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -19404,9 +20342,17 @@
       "id": "p-kim-dongnip",
       "label": "김동립",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201429985 https://isni.org/isni/0000000464459865 http://viaf.org/viaf/30152138623810981954",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201429985",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -19528,9 +20474,24 @@
       "id": "p-kim-gapsu",
       "label": "김갑수",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q18531214 http://lod.nl.go.kr/resource/KAC201424052 https://isni.org/isni/0000000048055028 http://viaf.org/viaf/12182583",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201424052",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q18531214",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -19695,9 +20656,24 @@
       "id": "p-kim-gwangsik",
       "label": "김광식",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q94110782 http://lod.nl.go.kr/resource/KAC201200554 https://isni.org/isni/0000000022896267 http://viaf.org/viaf/35813290",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201200554",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q94110782",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -19735,9 +20711,17 @@
       "id": "p-kim-gyeongmi",
       "label": "김경미",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201224330 https://isni.org/isni/0000000030808191 http://viaf.org/viaf/28635514",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201224330",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -19919,9 +20903,17 @@
       "id": "p-kim-huisu",
       "label": "김희수",
       "type": "writer",
-      "ref": "#p-kim-huisu",
+      "ref": "http://lod.nl.go.kr/resource/KAC201229982 https://isni.org/isni/0000000464432961 http://viaf.org/viaf/52145375901683681628",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201229982",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -19945,9 +20937,17 @@
       "id": "p-kim-hyangsuk",
       "label": "김향숙",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201430019 https://isni.org/isni/0000000115678832 http://viaf.org/viaf/40755180",
       "degree": 5,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201430019",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -20103,9 +21103,17 @@
       "id": "p-kim-inbae",
       "label": "김인배",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201430040 https://isni.org/isni/0000000051584289 http://viaf.org/viaf/46621791",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201430040",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -20249,9 +21257,17 @@
       "id": "p-kim-jinseok",
       "label": "김진석",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201509269 https://isni.org/isni/0000000463288988 http://viaf.org/viaf/115150468210704170586",
       "degree": 9,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201509269",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -20731,18 +21747,34 @@
       "id": "p-kim-okyoung",
       "label": "김옥영",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201608517 https://isni.org/isni/0000000464356532 http://viaf.org/viaf/306146461599327732189",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201608517",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-kim-rok",
       "label": "김록",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201330377 https://isni.org/isni/0000000467934369 http://viaf.org/viaf/169153409762441582472",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201330377",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -20822,9 +21854,17 @@
       "id": "p-kim-seongchun",
       "label": "김성춘",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201105701 https://isni.org/isni/0000000032785333 http://viaf.org/viaf/18610494",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201105701",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -21021,9 +22061,24 @@
       "id": "p-kim-ukdong",
       "label": "김욱동",
       "type": "critic",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q112460459 http://lod.nl.go.kr/resource/KAC200304857 https://isni.org/isni/0000000039885329 http://viaf.org/viaf/6504143",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200304857",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q112460459",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -21189,9 +22244,17 @@
       "id": "p-kim-yongjik",
       "label": "김용직",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201232049 https://isni.org/isni/0000000081405026 http://viaf.org/viaf/61582867",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201232049",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -21294,9 +22357,24 @@
       "id": "p-kim-youngmu",
       "label": "김영무",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q6409687 http://lod.nl.go.kr/resource/KAC201200661 https://isni.org/isni/0000000081690015 http://viaf.org/viaf/265266046",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201200661",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q6409687",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -21336,9 +22414,17 @@
       "id": "p-kim-yunseong",
       "label": "김윤성",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201402161 https://isni.org/isni/0000000464369843 http://viaf.org/viaf/36152138521710981015",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201402161",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -21808,9 +22894,17 @@
       "id": "p-kwon-gukmyeong",
       "label": "권국명",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201771302 https://isni.org/isni/0000000464262026 http://viaf.org/viaf/9152138634110982665",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201771302",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -21858,9 +22952,24 @@
       "id": "p-kwon-taekyoung",
       "label": "권택영",
       "type": "critic",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q22958177 http://lod.nl.go.kr/resource/KAC201010919 https://isni.org/isni/0000000025265487 http://viaf.org/viaf/55590130",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201010919",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q22958177",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -22191,9 +23300,17 @@
       "id": "p-lee-bongsun",
       "label": "이봉순",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201770894 https://isni.org/isni/0000000464391055 http://viaf.org/viaf/31152561504715441624",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201770894",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -22363,9 +23480,17 @@
       "id": "p-lee-dongju",
       "label": "이동주",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201011958 https://isni.org/isni/0000000460189087 http://viaf.org/viaf/4145375899083681412",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201011958",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -22424,9 +23549,24 @@
       "id": "p-lee-gwangung",
       "label": "이광웅",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q97477912 http://lod.nl.go.kr/resource/KAC201416313 https://isni.org/isni/0000000464597985 http://viaf.org/viaf/26152138572210981711",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201416313",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q97477912",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -22536,9 +23676,17 @@
       "id": "p-lee-ilseung",
       "label": "이일승",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201769341 https://isni.org/isni/000000046445030X http://viaf.org/viaf/87152138528910981206",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201769341",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -22554,9 +23702,24 @@
       "id": "p-lee-jaemu",
       "label": "이재무",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q30716440 http://lod.nl.go.kr/resource/KAC201009931 https://isni.org/isni/0000000028129982 http://viaf.org/viaf/11411064",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201009931",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q30716440",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -22706,9 +23869,17 @@
       "id": "p-lee-sanggyeong",
       "label": "이상경",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201320882 https://isni.org/isni/0000000083312165 http://viaf.org/viaf/118168832",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201320882",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -22724,18 +23895,34 @@
       "id": "p-lee-sanghui",
       "label": "이상희",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201200455 https://isni.org/isni/0000000050885215 http://viaf.org/viaf/21997870",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201200455",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-lee-sara",
       "label": "이사라",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201315618 https://isni.org/isni/0000000050717019 http://viaf.org/viaf/17056106",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201315618",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -22983,18 +24170,34 @@
       "id": "p-lee-youngmi",
       "label": "이영미",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201211467 https://isni.org/isni/0000000049592845 http://viaf.org/viaf/58947875",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201211467",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-lee-youngyu",
       "label": "이영유",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201427299 https://isni.org/isni/0000000049752888 http://viaf.org/viaf/63888307",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201427299",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -23489,9 +24692,17 @@
       "id": "p-ma-jongha",
       "label": "마종하",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201733136 https://isni.org/isni/0000000024926829 http://viaf.org/viaf/43253746",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201733136",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -23652,9 +24863,24 @@
       "id": "p-mao-dun",
       "label": "모순",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q358494 http://lod.nl.go.kr/resource/KAC199631415 https://isni.org/isni/0000000368645959 http://viaf.org/viaf/97121854",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199631415",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q358494",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -24140,18 +25366,34 @@
       "id": "p-min-hyeongi",
       "label": "민현기",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201843573 https://isni.org/isni/0000000027566312 http://viaf.org/viaf/67998533",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201843573",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-min-jaesik",
       "label": "민재식",
       "type": "writer",
-      "ref": "#p-min-jaesik",
+      "ref": "http://lod.nl.go.kr/resource/KAC201103651 https://isni.org/isni/0000000027343020 http://viaf.org/viaf/60589895",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201103651",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -24423,9 +25665,17 @@
       "id": "p-mu-mutian",
       "label": "목목천",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q15552623 https://isni.org/isni/0000000063642028 http://viaf.org/viaf/45780794",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "https://www.wikidata.org/wiki/Q15552623",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -24472,9 +25722,17 @@
       "id": "p-mun-chungsong",
       "label": "문충성",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201110687 https://isni.org/isni/0000000021937047 http://viaf.org/viaf/1149617017903751435",
       "degree": 4,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201110687",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -24783,9 +26041,17 @@
       "id": "p-nam-jinwoo",
       "label": "남진우",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201307295 https://isni.org/isni/0000000046334947 http://viaf.org/viaf/36767934",
       "degree": 5,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201307295",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -25017,9 +26283,17 @@
       "id": "p-no-hyangrim",
       "label": "노향림",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201110600 https://isni.org/isni/0000000023277580 http://viaf.org/viaf/53026089",
       "degree": 5,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201110600",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -25109,9 +26383,17 @@
       "id": "p-o-bongok",
       "label": "오봉옥",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201011528 https://isni.org/isni/0000000050415336 http://viaf.org/viaf/4508616",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201011528",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -25675,9 +26957,17 @@
       "id": "p-park-ido",
       "label": "박이도",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201010582 https://isni.org/isni/0000000026537480 http://viaf.org/viaf/28408725",
       "degree": 4,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201010582",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -25693,9 +26983,17 @@
       "id": "p-park-ilyoung",
       "label": "박일영",
       "type": "writer",
-      "ref": "#p-park-ilyoung",
+      "ref": "http://lod.nl.go.kr/resource/KAC201612742 https://isni.org/isni/0000000477679357 http://viaf.org/viaf/129148995796859750031",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201612742",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -25833,9 +27131,17 @@
       "id": "p-park-jonghae",
       "label": "박종해",
       "type": "writer",
-      "ref": "#p-park-jonghae",
+      "ref": "http://lod.nl.go.kr/resource/KAC201110543 https://isni.org/isni/0000000052338434 http://viaf.org/viaf/9802648",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201110543",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -25908,18 +27214,34 @@
       "id": "p-park-monggu",
       "label": "박몽구",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201116850 https://isni.org/isni/0000000025680365 http://viaf.org/viaf/72871968",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201116850",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-park-myeongseong",
       "label": "박명성",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201513490 https://isni.org/isni/0000000027109269 http://viaf.org/viaf/50756501",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201513490",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -26038,9 +27360,17 @@
       "id": "p-park-sehyeon",
       "label": "박세현",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201113928 https://isni.org/isni/0000000029297814 http://viaf.org/viaf/55740552",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201113928",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -26120,9 +27450,17 @@
       "id": "p-park-uisang",
       "label": "박의상",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201110533 https://isni.org/isni/0000000460267487 http://viaf.org/viaf/18650709",
       "degree": 4,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201110533",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -26170,9 +27508,17 @@
       "id": "p-park-yanggyun",
       "label": "박양균",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201754208 https://isni.org/isni/0000000083337485 http://viaf.org/viaf/118914434",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201754208",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -26330,9 +27676,24 @@
       "id": "p-paul-de-man",
       "label": "폴 드 만",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q353754 http://lod.nl.go.kr/resource/KAC199606641 https://isni.org/isni/0000000109135268 http://viaf.org/viaf/71401431",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199606641",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q353754",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -26434,9 +27795,24 @@
       "id": "p-petronius",
       "label": "페트로니우스",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q47180 http://lod.nl.go.kr/resource/KAC199621546 https://isni.org/isni/0000000081678155 http://viaf.org/viaf/95155909",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199621546",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q47180",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -26598,18 +27974,41 @@
       "id": "p-piscator",
       "label": "피스카토르",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q60978 http://lod.nl.go.kr/resource/KAC2018N8490 https://isni.org/isni/0000000110273342 http://viaf.org/viaf/56684151",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC2018N8490",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q60978",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-plotinus",
       "label": "플로티누스",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC2018K3166 https://isni.org/isni/0000000473462708 http://viaf.org/viaf/236155103918176200897",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC2018K3166",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -27107,9 +28506,24 @@
       "id": "p-remarque",
       "label": "레마르크",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q47293 http://lod.nl.go.kr/resource/KAC199622782 https://isni.org/isni/0000000368651515 http://viaf.org/viaf/61551298",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199622782",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q47293",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -27793,9 +29207,24 @@
       "id": "p-schelling",
       "label": "셸링",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q60070 http://lod.nl.go.kr/resource/KAC199624308 https://isni.org/isni/0000000122827680 http://viaf.org/viaf/88933257",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199624308",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q60070",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -28068,18 +29497,41 @@
       "id": "p-seo-jeongyun",
       "label": "서정윤",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q16171638 http://lod.nl.go.kr/resource/KAC201113946 https://isni.org/isni/0000000037669876 http://viaf.org/viaf/18771911",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201113946",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q16171638",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-seo-jongtaek",
       "label": "서종택",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201315547 https://isni.org/isni/0000000467861235 http://viaf.org/viaf/138153409681741580285",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201315547",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28112,27 +29564,51 @@
       "id": "p-seo-useok",
       "label": "서우석",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201207343 https://isni.org/isni/0000000465048646 http://viaf.org/viaf/136153061343519202773",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201207343",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-seo-wondong",
       "label": "서원동",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201224026 https://isni.org/isni/0000000025137602 http://viaf.org/viaf/50631299",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201224026",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-seo-yeonho",
       "label": "서연호",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201501174 https://isni.org/isni/000000008156940X http://viaf.org/viaf/76496445",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201501174",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28173,9 +29649,17 @@
       "id": "p-seong-byeonghui",
       "label": "성병희",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201720671 https://isni.org/isni/0000000398662290 http://viaf.org/viaf/265984529",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201720671",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28271,9 +29755,17 @@
       "id": "p-shin-beomsun",
       "label": "신범순",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201208854 https://isni.org/isni/0000000027379744 http://viaf.org/viaf/60642676",
       "degree": 5,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201208854",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28328,9 +29820,17 @@
       "id": "p-shin-dongjip",
       "label": "신동집",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201520371 https://isni.org/isni/0000000022872943 http://viaf.org/viaf/35772643",
       "degree": 3,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201520371",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28394,9 +29894,17 @@
       "id": "p-shin-gyuho",
       "label": "신규호",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201106833 https://isni.org/isni/0000000025444629 http://viaf.org/viaf/63004438",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201106833",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28412,18 +29920,34 @@
       "id": "p-shin-hyeop",
       "label": "신협",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201326926 https://isni.org/isni/0000000023926528 http://viaf.org/viaf/2637236",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201326926",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-shin-munsu",
       "label": "신문수",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201301752 https://isni.org/isni/000000046467133X http://viaf.org/viaf/14153061334619202483",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201301752",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28611,9 +30135,17 @@
       "id": "p-sin-hyeonggi",
       "label": "신형기",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201517569 https://isni.org/isni/0000000028624764 http://viaf.org/viaf/29701422",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201517569",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28771,9 +30303,17 @@
       "id": "p-son-usong",
       "label": "손우성",
       "type": "theorist",
-      "ref": "#p-son-usong",
+      "ref": "http://lod.nl.go.kr/resource/KAC201635765 https://isni.org/isni/0000000464333760 http://viaf.org/viaf/41152138532810980904",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201635765",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -28854,9 +30394,17 @@
       "id": "p-song-huibok",
       "label": "송희복",
       "type": "critic",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201116587 https://isni.org/isni/0000000049028582 http://viaf.org/viaf/39621385",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201116587",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -29192,9 +30740,24 @@
       "id": "p-sterne",
       "label": "로런스 스턴",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q218960 http://lod.nl.go.kr/resource/KAC200106746 https://isni.org/isni/0000000446461697 http://viaf.org/viaf/61552699",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200106746",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q218960",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -29944,9 +31507,24 @@
       "id": "p-uwe-johnson",
       "label": "우베 욘존",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q61627 http://lod.nl.go.kr/resource/KAC199614066 https://isni.org/isni/0000000122764237 http://viaf.org/viaf/12310347",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199614066",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q61627",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -29970,9 +31548,17 @@
       "id": "p-varro",
       "label": "마르쿠스 테렌티우스 바로",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q206119 https://isni.org/isni/0000000121452047 http://viaf.org/viaf/100219311",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "https://www.wikidata.org/wiki/Q206119",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -30638,9 +32224,17 @@
       "id": "p-wundt",
       "label": "빌헬름 분트",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q75814 https://isni.org/isni/000000008339077X http://viaf.org/viaf/7472991",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "https://www.wikidata.org/wiki/Q75814",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -30671,18 +32265,48 @@
       "id": "p-xenophon",
       "label": "크세노폰",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q129772 http://lod.nl.go.kr/resource/KAC199630710 https://isni.org/isni/0000000123212506 http://viaf.org/viaf/89597697",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199630710",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q129772",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-xia-yan",
       "label": "하연",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q619051 http://lod.nl.go.kr/resource/KAC200203161 https://isni.org/isni/0000000083533443 http://viaf.org/viaf/5730804",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200203161",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q619051",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -30759,27 +32383,65 @@
       "id": "p-yang-gwija",
       "label": "양귀자",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q8048394 http://lod.nl.go.kr/resource/KAC201107179 https://isni.org/isni/0000000081869648 http://viaf.org/viaf/117886350",
       "degree": 7,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201107179",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q8048394",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-yang-hansheng",
       "label": "양한생",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q9076136 https://isni.org/isni/0000000063542692 http://viaf.org/viaf/65362665",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "https://www.wikidata.org/wiki/Q9076136",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-yang-heonseok",
       "label": "양헌석",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12606465 http://lod.nl.go.kr/resource/KAC201430016 https://isni.org/isni/0000000034851496 http://viaf.org/viaf/11698038",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201430016",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12606465",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -30861,9 +32523,17 @@
       "id": "p-yang-wondal",
       "label": "양원달",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201770423 https://isni.org/isni/0000000464508727 http://viaf.org/viaf/117152138531810980679",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201770423",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -30921,9 +32591,24 @@
       "id": "p-yi-bukmyeong",
       "label": "이북명",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q81226438 http://lod.nl.go.kr/resource/KAC201416528 https://isni.org/isni/0000000464391434 http://viaf.org/viaf/67152138519710980629",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201416528",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q81226438",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -30978,9 +32663,17 @@
       "id": "p-yi-cheolbeom",
       "label": "이철범",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201227076 https://isni.org/isni/0000000026182165 http://viaf.org/viaf/13637810",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201227076",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -31030,9 +32723,17 @@
       "id": "p-yi-eunjik",
       "label": "이은직",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201921400 https://isni.org/isni/0000000476482499 http://viaf.org/viaf/40156563460023241236",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201921400",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -31063,9 +32764,17 @@
       "id": "p-yi-gapgi",
       "label": "이갑기",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC202321160 https://isni.org/isni/0000000511249669",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC202321160",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -31113,9 +32822,24 @@
       "id": "p-yi-gwangnae",
       "label": "이광래",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q24876562 http://lod.nl.go.kr/resource/KAC201203571 https://isni.org/isni/0000000084147376 http://viaf.org/viaf/118421869",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201203571",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q24876562",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -31201,18 +32925,48 @@
       "id": "p-yi-hayun",
       "label": "이하윤",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q16097172 http://lod.nl.go.kr/resource/KAC201231213 https://isni.org/isni/0000000455408900 http://viaf.org/viaf/23145376383983720773",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201231213",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q16097172",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-yi-hoeseong",
       "label": "이회성",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q904489 http://lod.nl.go.kr/resource/KAC199640769 https://isni.org/isni/0000000082631535 http://viaf.org/viaf/72707887",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199640769",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q904489",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -31688,9 +33442,17 @@
       "id": "p-yu-gyeonghwan",
       "label": "유경환",
       "type": "writer",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201104273 https://isni.org/isni/0000000024518542 http://viaf.org/viaf/23467876",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201104273",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -31868,18 +33630,48 @@
       "id": "p-yu-simin",
       "label": "유시민",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q488339 http://lod.nl.go.kr/resource/KAC201116642 https://isni.org/isni/0000000054541620 http://viaf.org/viaf/7238752",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201116642",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q488339",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-yu-sunha",
       "label": "유순하",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q12609862 http://lod.nl.go.kr/resource/KAC201402211 https://isni.org/isni/0000000078346985 http://viaf.org/viaf/45860490",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201402211",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q12609862",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -32016,9 +33808,24 @@
       "id": "p-yun-humyeong",
       "label": "윤후명",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q626079 http://lod.nl.go.kr/resource/KAC201103343 https://isni.org/isni/0000000113543408 http://viaf.org/viaf/16112471",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201103343",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q626079",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -32166,9 +33973,17 @@
       "id": "p-yun-yeongcheon",
       "label": "윤영천",
       "type": "theorist",
-      "ref": "",
+      "ref": "http://lod.nl.go.kr/resource/KAC201116381 https://isni.org/isni/0000000027769945 http://viaf.org/viaf/75389768",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201116381",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -32225,18 +34040,48 @@
       "id": "p-zheng-zhenduo",
       "label": "정진탁",
       "type": "theorist",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q6124178 http://lod.nl.go.kr/resource/KAC200103021 https://isni.org/isni/0000000122785871 http://viaf.org/viaf/39533892",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC200103021",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q6124178",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
       "id": "p-zhou-libo",
       "label": "주립파",
       "type": "writer",
-      "ref": "",
+      "ref": "https://www.wikidata.org/wiki/Q2562739 http://lod.nl.go.kr/resource/KAC199632190 https://isni.org/isni/0000000120187624 http://viaf.org/viaf/102460222",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC199632190",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        },
+        {
+          "href": "https://www.wikidata.org/wiki/Q2562739",
+          "label": "W",
+          "full": "Wikidata",
+          "bg": "",
+          "fg": ""
+        }
+      ],
       "en": ""
     },
     {
@@ -32389,9 +34234,17 @@
       "id": "p-권태응",
       "label": "권태응",
       "type": "writer",
-      "ref": "#p-kwon-taeeung",
+      "ref": "http://lod.nl.go.kr/resource/KAC201107487 https://isni.org/isni/0000000023645646 http://viaf.org/viaf/70273525",
       "degree": 2,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201107487",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -32460,9 +34313,17 @@
       "id": "p-김상훈",
       "label": "김상훈",
       "type": "writer",
-      "ref": "#p-김상훈",
+      "ref": "http://lod.nl.go.kr/resource/KAC201322798 https://isni.org/isni/0000000464302251 http://viaf.org/viaf/530144928079554341791",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201322798",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -32867,9 +34728,17 @@
       "id": "p-여상현",
       "label": "여상현",
       "type": "writer",
-      "ref": "#p-여상현",
+      "ref": "http://lod.nl.go.kr/resource/KAC201762518 https://isni.org/isni/0000000464412661 http://viaf.org/viaf/126151352047852602509",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201762518",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -32900,9 +34769,17 @@
       "id": "p-유진오",
       "label": "유진오",
       "type": "writer",
-      "ref": "#p-유진오",
+      "ref": "http://lod.nl.go.kr/resource/KAC201630307 https://isni.org/isni/0000000459327120 http://viaf.org/viaf/168148995808059750007",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201630307",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -32933,9 +34810,17 @@
       "id": "p-이원섭",
       "label": "이원섭",
       "type": "theorist",
-      "ref": "#p-이원섭",
+      "ref": "http://lod.nl.go.kr/resource/KAC201753882 https://isni.org/isni/0000000102219127 http://viaf.org/viaf/152452597",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC201753882",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
@@ -33038,9 +34923,17 @@
       "id": "p-최석두",
       "label": "최석두",
       "type": "writer",
-      "ref": "#p-최석두",
+      "ref": "http://lod.nl.go.kr/resource/KAC2020M3030 https://isni.org/isni/0000000492364505 http://viaf.org/viaf/644160483611204990369",
       "degree": 1,
-      "lod": [],
+      "lod": [
+        {
+          "href": "http://lod.nl.go.kr/resource/KAC2020M3030",
+          "label": "NLK",
+          "full": "NLK LOD",
+          "bg": "#e8eef5",
+          "fg": "#1a3a5a"
+        }
+      ],
       "en": ""
     },
     {
