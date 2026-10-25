@@ -1816,15 +1816,17 @@ def main():
     for pid, cls in re.findall(r"^kc:(\S+) a critic:(\w+)", ttl, re.M):
         if cls in page_dir and (Path("site") / page_dir[cls] / f"{pid}.html").exists():
             redirects.append(f"/resource/{pid} /site/{page_dir[cls]}/{pid} 303")
-    for stem in re.findall(r"^kce:(\S+) a critic:CriticalEssay", ttl, re.M):
-        if (Path("site/essays") / f"{stem}.html").exists():
-            redirects.append(f"/resource/essay/{stem} /site/essays/{stem} 303")
+    # 비평글 IRI 는 주소 모양이 같아(…/resource/essay/{stem} → /site/essays/{stem}) splat 한 줄로 갈음한다 — 2026-10-25,
+    # 『문학과사회』 14–29호 추가로 줄 수가 한도를 넘게 되어. 정적 한도 2,000줄과 별도로 동적(splat) 규칙은 100줄까지
+    n_essay = sum(1 for stem in re.findall(r"^kce:(\S+) a critic:CriticalEssay", ttl, re.M)
+                  if (Path("site/essays") / f"{stem}.html").exists())
     redirects.sort()
+    redirects.append("/resource/essay/* /site/essays/:splat 303")
     if len(redirects) > 2000:
         print(f"  [경고] _redirects {len(redirects)}줄 — Cloudflare 정적 리다이렉트 한도(2,000) 초과")
     Path("_redirects").write_text(
         "# build.py 자동 생성 — 손으로 고치지 말 것\n" + "\n".join(redirects) + "\n", encoding="utf-8")
-    print(f"  OK _redirects 개체 IRI 리다이렉트 {len(redirects)}개")
+    print(f"  OK _redirects 개체 IRI 리다이렉트 {len(redirects)}줄 (인물 {len(redirects) - 1} + 비평글 {n_essay}편 splat 1)")
 
     print("\n완료.")
 

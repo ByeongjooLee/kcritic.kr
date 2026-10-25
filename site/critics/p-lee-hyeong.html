@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이형 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이형</span></div>
+      <h1 class="index-heading">이형</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김지하</span> <span class="chip role-writer">고은</span> <span class="chip role-writer">박경리</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">바흐친 (1)</span> <span class="chip chip-term">한완상 (1)</span> <span class="chip chip-term">김성기 (1)</span> <span class="chip chip-term">서광선 (1)</span> <span class="chip chip-term">서남동 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "lee-hyeong_endless-han-desire_1991", "label": "한 많은 세상의 한없는 한의 욕망", "type": "essay", "year": "1991", "degree": 10}, {"id": "p-00106", "label": "김지하", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697 https://isni.org/isni/0000000081761311 http://viaf.org/viaf/110339675", "degree": 36, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201205697", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44366", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00122", "label": "고은", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q494036 http://lod.nl.go.kr/resource/KAC201011569 https://isni.org/isni/0000000110791051 http://viaf.org/viaf/98400788", "degree": 26, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071227", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201011569", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q494036", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 44, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00168", "label": "박경리", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q39963 https://encykorea.aks.ac.kr/Article/E0071046 http://lod.nl.go.kr/resource/KAC201110881 https://isni.org/isni/0000000081196148 http://viaf.org/viaf/40224767", "degree": 10, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071046", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201110881", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q39963", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bakhtin", "label": "바흐친", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q185375 http://lod.nl.go.kr/resource/KAC199601442 https://isni.org/isni/0000000121029425 http://viaf.org/viaf/88958796", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601442", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q185375", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Mikhail Bakhtin"}, {"id": "p-han-wansang", "label": "한완상", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12624201 http://lod.nl.go.kr/resource/KAC201219426 https://isni.org/isni/0000000084401151 http://viaf.org/viaf/35787702", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201219426", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12624201", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-seonggi", "label": "김성기", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-hyeong", "label": "이형", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seo-gwangseon", "label": "서광선", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201720037 https://isni.org/isni/0000000023279383 http://viaf.org/viaf/53029132", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201720037", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-seo-namdong", "label": "서남동", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-lee-hyeong", "target": "lee-hyeong_endless-han-desire_1991", "type": "wrote", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-00122", "type": "subject_of", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-00168", "type": "subject_of", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-bakhtin", "type": "uses_theory", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-han-wansang", "type": "uses_theory", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-kim-seonggi", "type": "uses_theory", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-seo-gwangseon", "type": "uses_theory", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-seo-namdong", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1991</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-hyeong_endless-han-desire_1991.html">한 많은 세상의 한없는 한의 욕망</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 15호, 문학과지성사, 1991</p>
+        <div class="essay-card-tags"><span class="tag">김지하</span> <span class="tag">고은</span> <span class="tag">박경리</span><span class="tag">니체</span> <span class="tag">바흐친</span> <span class="tag">한완상</span> <span class="tag">김성기</span> <span class="tag">서광선</span> <span class="tag">서남동</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

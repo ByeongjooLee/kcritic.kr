@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임상우 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">임상우</span></div>
+      <h1 class="index-heading">임상우</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">15</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">하버마스 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">베버 (1)</span> <span class="chip chip-term">긴츠버그 (1)</span> <span class="chip chip-term">카 (1)</span> <span class="chip chip-term">크로체 (1)</span> <span class="chip chip-term">데리다 (1)</span> <span class="chip chip-term">라카프라 (1)</span> <span class="chip chip-term">푸코 (1)</span> <span class="chip chip-term">골드만 (1)</span> <span class="chip chip-term">화이트 (1)</span> <span class="chip chip-term">헤로도투스 (1)</span> <span class="chip chip-term">랑케 (1)</span> <span class="chip chip-term">톰슨 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "im-sangu_historical-narrative-and-literary-imagination_1992", "label": "역사 서술과 문학적 상상력", "type": "essay", "year": "1992", "degree": 16}, {"id": "p-00062", "label": "위르겐 하버마스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76357 http://lod.nl.go.kr/resource/KAC199611157 https://isni.org/isni/0000000121468372 http://viaf.org/viaf/108179854", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611157", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76357", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jürgen Habermas"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 45, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 44, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00230", "label": "막스 베버", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9387 http://lod.nl.go.kr/resource/KAC199629452 https://isni.org/isni/000000012145101X http://viaf.org/viaf/100180950", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199629452", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9387", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Max Weber"}, {"id": "p-carlo-ginzburg", "label": "긴츠버그", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-carr", "label": "E. H. 카", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q274764 http://lod.nl.go.kr/resource/KAC199604482 https://isni.org/isni/0000000120194744 http://viaf.org/viaf/24418", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199604482", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q274764", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "E. H. Carr"}, {"id": "p-croce", "label": "베네데토 크로체", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-derrida", "label": "데리다", "type": "theorist", "ref": "", "degree": 15, "lod": [], "en": ""}, {"id": "p-dominick-lacapra", "label": "라카프라", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 32, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-goldmann", "label": "골드만", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q513448 http://lod.nl.go.kr/resource/KAC199610335 https://isni.org/isni/0000000108700579 http://viaf.org/viaf/12309113", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610335", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q513448", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Lucien Goldmann"}, {"id": "p-hayden-white", "label": "화이트", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-herodotus", "label": "헤로도토스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q26825 http://lod.nl.go.kr/resource/KAC199612186 https://isni.org/isni/0000000123530133 http://viaf.org/viaf/100225976", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199612186", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q26825", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Herodotus"}, {"id": "p-im-sangu", "label": "임상우", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ranke", "label": "랑케", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q77184 http://lod.nl.go.kr/resource/KAC199622495 https://isni.org/isni/0000000120956729 http://viaf.org/viaf/17303591", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199622495", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q77184", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Leopold von Ranke"}, {"id": "p-thompson", "label": "E. P. 톰슨", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q434160 http://lod.nl.go.kr/resource/KAC199627416 https://isni.org/isni/0000000123196649 http://viaf.org/viaf/18196", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199627416", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q434160", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "E. P. Thompson"}], "edges": [{"source": "p-im-sangu", "target": "im-sangu_historical-narrative-and-literary-imagination_1992", "type": "wrote", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-00062", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-00230", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-carlo-ginzburg", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-carr", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-croce", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-derrida", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-dominick-lacapra", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-goldmann", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-hayden-white", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-herodotus", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-ranke", "type": "uses_theory", "weight": 1}, {"source": "im-sangu_historical-narrative-and-literary-imagination_1992", "target": "p-thompson", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1992</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/im-sangu_historical-narrative-and-literary-imagination_1992.html">역사 서술과 문학적 상상력</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 19호, 문학과지성사, 1992</p>
+        <div class="essay-card-tags"><span class="tag">하버마스</span> <span class="tag">마르크스</span> <span class="tag">니체</span> <span class="tag">베버</span> <span class="tag">긴츠버그</span> <span class="tag">카</span> <span class="tag">크로체</span> <span class="tag">데리다</span> <span class="tag">라카프라</span> <span class="tag">푸코</span> <span class="tag">골드만</span> <span class="tag">화이트</span> <span class="tag">헤로도투스</span> <span class="tag">랑케</span> <span class="tag">톰슨</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

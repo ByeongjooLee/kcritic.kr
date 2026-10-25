@@ -1710,24 +1710,41 @@
         "fg": ""
       }
     ],
-    "essay_count": 6,
+    "essay_count": 11,
     "subjects": [
+      "p-00018",
+      "p-00033",
+      "p-00049",
       "p-00063",
       "p-00076",
+      "p-00087",
       "p-00091",
       "p-00098",
       "p-00106",
       "p-00114",
       "p-00116",
       "p-00133",
+      "p-00149",
+      "p-00155",
+      "p-00162",
       "p-00186",
+      "p-00192",
       "p-00195",
       "p-00240",
+      "p-00241",
+      "p-00244",
       "p-00245",
+      "p-00250",
+      "p-bok-geoil",
       "p-chae-gwangseok",
+      "p-chae-hogi",
+      "p-choe-seungja",
       "p-emily-dickinson",
+      "p-im-cheolu",
       "p-kim-jinkyung",
+      "p-kim-jonghwan",
       "p-kim-jungran",
+      "p-kim-seungok",
       "p-kim-wonil",
       "p-lee-sanghui",
       "p-lee-seongbok",
@@ -1737,274 +1754,65 @@
       "p-rabelais",
       "p-shin-daechul",
       "p-shin-dongyeop",
-      "p-yi-munyol"
+      "p-yi-inseong",
+      "p-yi-munyol",
+      "p-yuha"
     ],
     "theorists": [
+      "p-00013",
+      "p-00040",
       "p-00065",
+      "p-00066",
+      "p-00093",
+      "p-00095",
+      "p-00117",
+      "p-00125",
       "p-00146",
       "p-00152",
       "p-00184",
-      "p-bak-hyeonchae",
-      "p-bakhtin",
-      "p-cho-dongil",
-      "p-galileo",
-      "p-gramsci",
-      "p-imheonyeong",
-      "p-kim-inhwan",
-      "p-kim-yongbok",
-      "p-kosik",
-      "p-lee-seonyeong",
-      "p-martinet",
-      "p-newton",
-      "p-ptolemy",
-      "p-seo-useok",
-      "p-soboul"
-    ]
-  },
-  {
-    "id": "p-hong-jeongseon",
-    "name": "홍정선",
-    "ref": "https://www.wikidata.org/wiki/Q16092664 http://lod.nl.go.kr/resource/KAC201220849 https://isni.org/isni/0000000035121719 http://viaf.org/viaf/18702520",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201220849",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q16092664",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 6,
-    "subjects": [
-      "p-00031",
-      "p-00034",
-      "p-00063",
-      "p-00077",
-      "p-00078",
-      "p-00091",
-      "p-00099",
-      "p-00100",
-      "p-00106",
-      "p-00195",
-      "p-00218",
-      "p-00239",
-      "p-00241",
-      "p-bang-hyeonseok",
-      "p-chae-huimun",
-      "p-chae-mansik",
-      "p-chae-yeongju",
-      "p-choe-harim",
-      "p-choe-yun",
-      "p-hong-huidam",
-      "p-i-tae",
-      "p-imhwa",
-      "p-jeon-jinu",
-      "p-jeong-chan",
-      "p-jeong-dosang",
-      "p-jeong-hwajin",
-      "p-jo-jungrae",
-      "p-kim-dalsu",
-      "p-kim-eok",
-      "p-kim-hakcheol",
-      "p-kim-seokbeom",
-      "p-kim-seokhui",
-      "p-kim-seungok",
-      "p-kim-yeonghyeon",
-      "p-kimnamcheon",
-      "p-nam-jeonghyeon",
-      "p-park-taewon",
-      "p-shin-dongyeop",
-      "p-yi-eunjik",
-      "p-yi-geunjeon",
-      "p-yi-giyeong",
-      "p-yi-hoeseong",
-      "p-yi-sanha",
-      "p-yu-juhyeon",
-      "p-yu-simin",
-      "p-yun-jeongmo"
-    ],
-    "theorists": [
       "p-00192",
-      "p-00211",
-      "p-bachelard",
-      "p-brecht",
-      "p-foucault",
-      "p-francis-jeanson",
-      "p-girard",
-      "p-gwon-yeongmin",
-      "p-imheonyeong",
-      "p-jeong-inbo",
-      "p-joel-schechter",
-      "p-lee-byeonggi",
-      "p-mun-ilpyeong",
-      "p-piscator",
-      "p-shin-chaeho",
-      "p-simone-weil",
-      "p-son-jintae",
-      "p-yang-judong",
-      "p-yi-suin",
-      "p-yun-jigwan"
-    ]
-  },
-  {
-    "id": "p-seong-minyeop",
-    "name": "성민엽",
-    "ref": "https://www.wikidata.org/wiki/Q16083535 http://lod.nl.go.kr/resource/KAC201314274 https://isni.org/isni/0000000036391593 http://viaf.org/viaf/60936176",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201314274",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q16083535",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 5,
-    "subjects": [
-      "p-00076",
-      "p-00077",
-      "p-00106",
-      "p-00144",
-      "p-00149",
-      "p-00240",
-      "p-choe-harim",
-      "p-kim-jinkyung",
-      "p-lee-siyoung",
-      "p-yi-inseong",
-      "p-yi-munyol"
-    ],
-    "theorists": [
+      "p-00227",
       "p-adorno",
-      "p-bachelard",
       "p-bak-hyeonchae",
-      "p-foucault",
-      "p-girard",
-      "p-kim-hyon",
-      "p-kim-inhwan",
-      "p-kim-juyeon",
-      "p-kwon-taekyoung"
-    ]
-  },
-  {
-    "id": "p-im-ugi",
-    "name": "임우기",
-    "ref": "http://lod.nl.go.kr/resource/KAC201629673 https://isni.org/isni/0000000049412293 http://viaf.org/viaf/51613479",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201629673",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 5,
-    "subjects": [
-      "p-00017",
-      "p-00031",
-      "p-00033",
-      "p-00078",
-      "p-00079",
-      "p-00083",
-      "p-00100",
-      "p-00133",
-      "p-00195",
-      "p-00218",
-      "p-00250",
-      "p-an-jaeseong",
-      "p-baek-musan",
-      "p-bang-hyeonseok",
-      "p-han-seorya",
-      "p-han-seungwon",
-      "p-hyeon-giyeong",
-      "p-imhwa",
-      "p-jeong-hwajin",
-      "p-jeong-inhwa",
-      "p-jo-jungrae",
-      "p-kim-seongdong",
-      "p-kim-wonil",
-      "p-kimnamcheon",
-      "p-nam-jeonghyeon",
-      "p-pak-nohae",
-      "p-seo-giwon",
-      "p-song-byeongsu",
-      "p-song-kiwon",
-      "p-yi-byeongju",
-      "p-yi-giyeong",
-      "p-yi-inseong",
-      "p-yi-munyol",
-      "p-yun-heunggil"
-    ],
-    "theorists": [
-      "p-00009",
-      "p-00047",
-      "p-00138",
-      "p-00152",
-      "p-althusser",
-      "p-bruce-cumings",
-      "p-gramsci",
-      "p-kang-mangil",
-      "p-kim-namsik",
-      "p-pak-chiu"
-    ]
-  },
-  {
-    "id": "p-kwon-oryong",
-    "name": "권오룡",
-    "ref": "https://www.wikidata.org/wiki/Q16080117 http://lod.nl.go.kr/resource/KAC201221330 https://isni.org/isni/0000000025552793 http://viaf.org/viaf/67913246",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201221330",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q16080117",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 4,
-    "subjects": [
-      "p-00033",
-      "p-00078",
-      "p-bok-geoil",
-      "p-chae-yeongju",
-      "p-ha-changsu",
-      "p-hong-huidam",
-      "p-mun-ikhwan",
-      "p-yi-inseong",
-      "p-yi-munyol"
-    ],
-    "theorists": [
-      "p-00062",
-      "p-00065",
-      "p-00146",
-      "p-00152",
-      "p-althusser",
       "p-bakhtin",
       "p-barthes",
-      "p-derrida",
-      "p-foucault",
-      "p-talcott-parsons"
+      "p-baudrillard",
+      "p-cho-dongil",
+      "p-cho-yeonhyeon",
+      "p-galileo",
+      "p-genette",
+      "p-goldmann",
+      "p-gramsci",
+      "p-im-jihyeon",
+      "p-imheonyeong",
+      "p-jakobson",
+      "p-jeong-junyeong",
+      "p-jeong-myeonghwan",
+      "p-jeong-unyeong",
+      "p-kim-chisu",
+      "p-kim-hyon",
+      "p-kim-inhwan",
+      "p-kim-jinseok",
+      "p-kim-juyeon",
+      "p-kim-yongbok",
+      "p-kim-yunsik",
+      "p-kosik",
+      "p-kwon-seongwoo",
+      "p-lacoue-labarthe",
+      "p-lee-gwangho",
+      "p-lee-seonyeong",
+      "p-lyotard",
+      "p-martinet",
+      "p-nam-jinwoo",
+      "p-newton",
+      "p-park-cheolhwa",
+      "p-park-hyekyung",
+      "p-pierre-levy",
+      "p-ptolemy",
+      "p-seo-useok",
+      "p-shin-beomsun",
+      "p-soboul",
+      "p-woo-chanje"
     ]
   },
   {
@@ -2041,142 +1849,341 @@
         "fg": ""
       }
     ],
-    "essay_count": 4,
-    "subjects": [
-      "p-00028",
-      "p-00060",
-      "p-00076",
-      "p-00079",
-      "p-00087",
-      "p-00239",
-      "p-00240",
-      "p-beauvoir",
-      "p-gong-jiyeong",
-      "p-han-baek",
-      "p-hong-huidam",
-      "p-i-tae",
-      "p-jeong-hwajin",
-      "p-jo-jungrae",
-      "p-kim-insuk",
-      "p-kim-seungok",
-      "p-kim-sin",
-      "p-kim-wonil",
-      "p-lee-seongbok",
-      "p-lee-seungu",
-      "p-pak-nohae",
-      "p-park-taesun",
-      "p-seok-jeongnam",
-      "p-yi-byeongju",
-      "p-yi-inseong",
-      "p-yun-heunggil"
-    ],
-    "theorists": [
-      "p-00047",
-      "p-00052",
-      "p-00138",
-      "p-00146",
-      "p-00152",
-      "p-00192",
-      "p-brecht",
-      "p-jo-namhyeon"
-    ]
-  },
-  {
-    "id": "p-gu-moryong",
-    "name": "구모룡",
-    "ref": "http://lod.nl.go.kr/resource/KAC201116831 https://isni.org/isni/0000000070763522 http://viaf.org/viaf/96734026",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201116831",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 3,
-    "subjects": [
-      "p-00240",
-      "p-baek-musan",
-      "p-choe-sucheol",
-      "p-kim-jonghwan",
-      "p-song-kiwon",
-      "p-yu-ikseo"
-    ],
-    "theorists": [
-      "p-brecht"
-    ]
-  },
-  {
-    "id": "p-kwon-seongwoo",
-    "name": "권성우",
-    "ref": "http://lod.nl.go.kr/resource/KAC201424483 https://isni.org/isni/0000000464570117 http://viaf.org/viaf/116152138533710980898",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201424483",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 3,
+    "essay_count": 9,
     "subjects": [
       "p-00028",
       "p-00033",
       "p-00059",
-      "p-00078",
+      "p-00060",
+      "p-00076",
+      "p-00079",
+      "p-00087",
       "p-00106",
+      "p-00239",
       "p-00240",
-      "p-chae-mansik",
-      "p-go-wonjeong",
-      "p-ha-changsu",
-      "p-ha-jongo",
+      "p-beauvoir",
+      "p-bok-geoil",
+      "p-borges",
+      "p-choe-seohae",
+      "p-gong-jiyeong",
+      "p-han-baek",
+      "p-hesse",
+      "p-hong-huidam",
+      "p-i-tae",
       "p-imhwa",
-      "p-kim-juntae",
+      "p-jang-jeongil",
+      "p-jeong-hwajin",
+      "p-jo-jungrae",
+      "p-kim-insuk",
+      "p-kim-juyeong",
+      "p-kim-seungok",
+      "p-kim-sin",
+      "p-kim-wonil",
       "p-kim-yeonghyeon",
-      "p-kwon-dook",
-      "p-lee-gwangung",
-      "p-malraux",
+      "p-lee-seongbok",
+      "p-lee-seungu",
+      "p-lee-sunwon",
       "p-pak-nohae",
-      "p-park-sangwoo",
-      "p-park-taewon",
-      "p-park-yeonghan",
-      "p-remarque"
+      "p-park-ilmun",
+      "p-park-taesun",
+      "p-seok-jeongnam",
+      "p-shin-dongyeop",
+      "p-shin-gyeongsuk",
+      "p-yi-byeongju",
+      "p-yi-inhwa",
+      "p-yi-inseong",
+      "p-yi-munyol",
+      "p-yun-heunggil",
+      "p-조명희"
     ],
     "theorists": [
+      "cp-snow",
+      "p-00047",
+      "p-00052",
+      "p-00138",
       "p-00146",
       "p-00151",
       "p-00152",
       "p-00192",
-      "p-an-byeongjik",
-      "p-foucault",
-      "p-hwang-taeyeon",
-      "p-thomas-metscher"
+      "p-adorno",
+      "p-ban-gyeonghwan",
+      "p-brecht",
+      "p-jeong-gwari",
+      "p-jeong-unyeong",
+      "p-jo-namhyeon",
+      "p-kim-hyeonggi",
+      "p-kwon-seongwoo",
+      "p-park-cheolhwa",
+      "p-shin-beomsun",
+      "p-song-hogeun",
+      "p-woo-chanje",
+      "sakharov"
     ]
   },
   {
-    "id": "p-kim-dongwon",
-    "name": "김동원",
-    "ref": "",
-    "lod": [],
-    "essay_count": 3,
+    "id": "p-seong-minyeop",
+    "name": "성민엽",
+    "ref": "https://www.wikidata.org/wiki/Q16083535 http://lod.nl.go.kr/resource/KAC201314274 https://isni.org/isni/0000000036391593 http://viaf.org/viaf/60936176",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201314274",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q16083535",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 9,
     "subjects": [
-      "p-00028",
-      "p-00162",
-      "p-bae-jinseong",
-      "p-heo-sugyeong",
-      "p-kim-gapsu",
-      "p-park-sehyeon",
-      "p-song-jaehak",
-      "p-won-jaegil"
+      "p-00018",
+      "p-00076",
+      "p-00077",
+      "p-00102",
+      "p-00106",
+      "p-00144",
+      "p-00149",
+      "p-00240",
+      "p-choe-harim",
+      "p-hong-seongwon",
+      "p-jeong-chan",
+      "p-keats",
+      "p-kim-jinkyung",
+      "p-kim-jonghwan",
+      "p-kim-wonil",
+      "p-lee-siyoung",
+      "p-lee-sunwon",
+      "p-lee-wongyu-novelist",
+      "p-pak-nohae",
+      "p-rimbaud",
+      "p-yi-inseong",
+      "p-yi-munyol"
     ],
     "theorists": [
-      "p-00062",
+      "p-adorno",
       "p-bachelard",
+      "p-bak-hyeonchae",
+      "p-deleuze",
+      "p-foucault",
+      "p-girard",
+      "p-guattari",
+      "p-hong-jeongseon",
+      "p-kim-chisu",
+      "p-kim-hyon",
+      "p-kim-inhwan",
+      "p-kim-juyeon",
+      "p-kwon-taekyoung",
+      "p-oh-saenggeun",
+      "p-qin-zhaoyang"
+    ]
+  },
+  {
+    "id": "p-hong-jeongseon",
+    "name": "홍정선",
+    "ref": "https://www.wikidata.org/wiki/Q16092664 http://lod.nl.go.kr/resource/KAC201220849 https://isni.org/isni/0000000035121719 http://viaf.org/viaf/18702520",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201220849",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q16092664",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 9,
+    "subjects": [
+      "p-00031",
+      "p-00034",
+      "p-00063",
+      "p-00077",
+      "p-00078",
+      "p-00091",
+      "p-00099",
+      "p-00100",
+      "p-00106",
+      "p-00195",
+      "p-00218",
+      "p-00239",
+      "p-00241",
+      "p-00244",
+      "p-00247",
+      "p-bang-hyeonseok",
+      "p-chae-huimun",
+      "p-chae-mansik",
+      "p-chae-yeongju",
+      "p-choe-harim",
+      "p-choe-yun",
+      "p-ha-jaebong",
+      "p-hong-huidam",
+      "p-i-tae",
+      "p-imhwa",
+      "p-jang-jeongil",
+      "p-jeon-jinu",
+      "p-jeong-chan",
+      "p-jeong-dosang",
+      "p-jeong-hwajin",
+      "p-jo-jungrae",
+      "p-kim-dalsu",
+      "p-kim-eok",
+      "p-kim-hakcheol",
+      "p-kim-seokbeom",
+      "p-kim-seokhui",
+      "p-kim-seungok",
+      "p-kim-yeonghyeon",
+      "p-kimnamcheon",
+      "p-nam-jeonghyeon",
+      "p-pak-nohae",
+      "p-park-ilmun",
+      "p-park-taewon",
+      "p-shin-dongyeop",
+      "p-yang-geonsik",
+      "p-yi-eunjik",
+      "p-yi-geunjeon",
+      "p-yi-giyeong",
+      "p-yi-hoeseong",
+      "p-yi-inhwa",
+      "p-yi-sanha",
+      "p-yu-juhyeon",
+      "p-yu-simin",
+      "p-yuha",
+      "p-yun-jeongmo"
+    ],
+    "theorists": [
+      "p-00192",
+      "p-00211",
+      "p-00232",
+      "p-austin-warren",
+      "p-bachelard",
+      "p-brecht",
+      "p-foucault",
+      "p-francis-jeanson",
+      "p-fukumoto-kazuo",
+      "p-girard",
+      "p-gwon-yeongmin",
+      "p-imheonyeong",
+      "p-jeong-inbo",
+      "p-joel-schechter",
+      "p-kwon-oryong",
+      "p-lee-byeonggi",
+      "p-mun-ilpyeong",
+      "p-piscator",
+      "p-shin-chaeho",
+      "p-simone-weil",
+      "p-son-jintae",
+      "p-yang-judong",
+      "p-yi-suin",
+      "p-yun-jigwan"
+    ]
+  },
+  {
+    "id": "p-kwon-oryong",
+    "name": "권오룡",
+    "ref": "https://www.wikidata.org/wiki/Q16080117 http://lod.nl.go.kr/resource/KAC201221330 https://isni.org/isni/0000000025552793 http://viaf.org/viaf/67913246",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201221330",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q16080117",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 7,
+    "subjects": [
+      "p-00031",
+      "p-00033",
+      "p-00063",
+      "p-00076",
+      "p-00078",
+      "p-00087",
+      "p-00089",
+      "p-00090",
+      "p-00091",
+      "p-00097",
+      "p-00099",
+      "p-00109",
+      "p-00114",
+      "p-00116",
+      "p-00122",
+      "p-00162",
+      "p-00169",
+      "p-00192",
+      "p-00195",
+      "p-00239",
+      "p-00240",
+      "p-00247",
+      "p-00250",
+      "p-bok-geoil",
+      "p-chae-mansik",
+      "p-chae-yeongju",
+      "p-cho-seonjak",
+      "p-choe-sucheol",
+      "p-choi-inho",
+      "p-edmond-duranty",
+      "p-fuma-motohiko",
+      "p-ha-changsu",
+      "p-hong-huidam",
+      "p-jeon-sangguk",
+      "p-kang-seokgyeong",
+      "p-kim-guktae",
+      "p-kim-juntae",
+      "p-kim-seungok",
+      "p-kim-wonwoo",
+      "p-lee-seongbok",
+      "p-mun-chungsong",
+      "p-mun-ikhwan",
+      "p-park-sangryung",
+      "p-park-taesun",
+      "p-seo-jeongin",
+      "p-song-sugwon",
+      "p-yi-inseong",
+      "p-yi-munyol",
+      "p-yu-jaeyong",
+      "p-yun-heunggil"
+    ],
+    "theorists": [
+      "p-00006",
+      "p-00013",
+      "p-00062",
+      "p-00065",
+      "p-00093",
+      "p-00146",
+      "p-00151",
+      "p-00152",
+      "p-00157",
+      "p-althusser",
+      "p-bakhtin",
+      "p-barthes",
+      "p-cho-yeonhyeon",
+      "p-derrida",
+      "p-foucault",
       "p-goldmann",
-      "p-ihab-hassan",
-      "p-jeremy-rifkin"
+      "p-hong-jeongseon",
+      "p-karatani-kojin",
+      "p-kim-chisu",
+      "p-kurihara-yukio",
+      "p-renan",
+      "p-talcott-parsons"
     ]
   },
   {
@@ -2199,21 +2206,442 @@
         "fg": ""
       }
     ],
-    "essay_count": 3,
+    "essay_count": 6,
     "subjects": [
       "p-00077",
+      "p-00091",
+      "p-00092",
+      "p-00098",
+      "p-00106",
+      "p-00116",
+      "p-00186",
       "p-00244",
       "p-bang-hyeonseok",
       "p-jang-gyeongrin",
       "p-jo-jungrae",
+      "p-kim-hyesoon",
       "p-kim-wonil",
       "p-kim-yongtaek",
       "p-seo-jeongyun",
+      "p-wolfgang-borchert",
       "p-yi-inseong",
       "p-yi-munyol"
     ],
     "theorists": [
-      "p-00062"
+      "p-00062",
+      "p-lessing",
+      "p-seong-minyeop"
+    ]
+  },
+  {
+    "id": "p-kim-jinseok",
+    "name": "김진석",
+    "ref": "",
+    "lod": [],
+    "essay_count": 6,
+    "subjects": [
+      "p-00092",
+      "p-00106",
+      "p-00116",
+      "p-antonin-artaud",
+      "p-borges",
+      "p-cervantes",
+      "p-holderlin",
+      "p-imhwa",
+      "p-yi-inseong"
+    ],
+    "theorists": [
+      "p-00010",
+      "p-00040",
+      "p-00051",
+      "p-00062",
+      "p-00065",
+      "p-00066",
+      "p-00124",
+      "p-00125",
+      "p-00138",
+      "p-00146",
+      "p-00152",
+      "p-00161",
+      "p-00174",
+      "p-adorno",
+      "p-althusser",
+      "p-bachelard",
+      "p-barthes",
+      "p-bataille",
+      "p-baudrillard",
+      "p-blanchot",
+      "p-deleuze",
+      "p-derrida",
+      "p-do-jeongil",
+      "p-foucault",
+      "p-guattari",
+      "p-jameson",
+      "p-laplanche",
+      "p-lyotard",
+      "p-paul-de-man",
+      "p-rousseau",
+      "p-socrates",
+      "p-sollers",
+      "p-thomas-szasz"
+    ]
+  },
+  {
+    "id": "p-im-ugi",
+    "name": "임우기",
+    "ref": "http://lod.nl.go.kr/resource/KAC201629673 https://isni.org/isni/0000000049412293 http://viaf.org/viaf/51613479",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201629673",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 6,
+    "subjects": [
+      "p-00017",
+      "p-00018",
+      "p-00031",
+      "p-00033",
+      "p-00078",
+      "p-00079",
+      "p-00083",
+      "p-00100",
+      "p-00106",
+      "p-00133",
+      "p-00195",
+      "p-00218",
+      "p-00250",
+      "p-an-jaeseong",
+      "p-baek-musan",
+      "p-bang-hyeonseok",
+      "p-han-seorya",
+      "p-han-seungwon",
+      "p-hyeon-giyeong",
+      "p-imhwa",
+      "p-jeong-hwajin",
+      "p-jeong-inhwa",
+      "p-jo-jungrae",
+      "p-kim-seongdong",
+      "p-kim-wonil",
+      "p-kim-wonwoo",
+      "p-kimnamcheon",
+      "p-nam-jeonghyeon",
+      "p-pak-nohae",
+      "p-park-wanseo",
+      "p-park-yeonghan",
+      "p-seo-giwon",
+      "p-seo-jeongin",
+      "p-song-byeongsu",
+      "p-song-kiwon",
+      "p-yi-byeongju",
+      "p-yi-giyeong",
+      "p-yi-inseong",
+      "p-yi-munyol",
+      "p-yun-heunggil"
+    ],
+    "theorists": [
+      "p-00009",
+      "p-00047",
+      "p-00138",
+      "p-00146",
+      "p-00152",
+      "p-00174",
+      "p-althusser",
+      "p-brecht",
+      "p-bruce-cumings",
+      "p-gramsci",
+      "p-kang-mangil",
+      "p-kim-jinseok",
+      "p-kim-namsik",
+      "p-pak-chiu",
+      "p-yu-pyonggeun"
+    ]
+  },
+  {
+    "id": "p-kim-dongwon",
+    "name": "김동원",
+    "ref": "",
+    "lod": [],
+    "essay_count": 5,
+    "subjects": [
+      "p-00028",
+      "p-00162",
+      "p-an-dohyeon",
+      "p-bae-jinseong",
+      "p-choe-seungja",
+      "p-heo-sugyeong",
+      "p-hwang-hakju",
+      "p-hwang-insook",
+      "p-im-donghwak",
+      "p-jeon-yeonok",
+      "p-ki-hyongdo",
+      "p-kim-gapsu",
+      "p-kim-gitaek",
+      "p-kim-hyesoon",
+      "p-kim-seongmi",
+      "p-lee-seonyeong-poet",
+      "p-park-insuk",
+      "p-park-sehyeon",
+      "p-song-chanho",
+      "p-song-jaehak",
+      "p-won-jaegil",
+      "p-yang-seonhui",
+      "p-yuha"
+    ],
+    "theorists": [
+      "p-00062",
+      "p-bachelard",
+      "p-goldmann",
+      "p-ihab-hassan",
+      "p-jeremy-rifkin"
+    ]
+  },
+  {
+    "id": "p-park-hyekyung",
+    "name": "박혜경",
+    "ref": "",
+    "lod": [],
+    "essay_count": 5,
+    "subjects": [
+      "p-00032",
+      "p-00076",
+      "p-00091",
+      "p-00102",
+      "p-00114",
+      "p-00116",
+      "p-00122",
+      "p-00136",
+      "p-00199",
+      "p-baek-musan",
+      "p-choe-seungja",
+      "p-kim-gwangseop",
+      "p-kim-jungran",
+      "p-kim-minsuk",
+      "p-kim-wonwoo",
+      "p-lee-seongbok",
+      "p-lee-youngyu",
+      "p-pak-nohae",
+      "p-shin-dongyeop",
+      "p-yang-heonseok",
+      "p-yun-jungho",
+      "p-김남주"
+    ],
+    "theorists": [
+      "p-00146",
+      "p-00230",
+      "p-bakhtin",
+      "p-gramsci",
+      "p-jeong-gwari",
+      "p-jin-hyeongjun",
+      "p-jo-jeonghwan",
+      "p-kim-youngmu",
+      "p-rabelais",
+      "p-yun-jigwan"
+    ]
+  },
+  {
+    "id": "p-gu-moryong",
+    "name": "구모룡",
+    "ref": "http://lod.nl.go.kr/resource/KAC201116831 https://isni.org/isni/0000000070763522 http://viaf.org/viaf/96734026",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201116831",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 4,
+    "subjects": [
+      "p-00058",
+      "p-00240",
+      "p-baek-musan",
+      "p-choe-sihan",
+      "p-choe-sucheol",
+      "p-gu-hyoseo",
+      "p-kim-jonghwan",
+      "p-song-kiwon",
+      "p-yu-ikseo"
+    ],
+    "theorists": [
+      "p-brecht",
+      "p-foucault"
+    ]
+  },
+  {
+    "id": "p-kwon-seongwoo",
+    "name": "권성우",
+    "ref": "http://lod.nl.go.kr/resource/KAC201424483 https://isni.org/isni/0000000464570117 http://viaf.org/viaf/116152138533710980898",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201424483",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 4,
+    "subjects": [
+      "p-00028",
+      "p-00033",
+      "p-00042",
+      "p-00059",
+      "p-00078",
+      "p-00087",
+      "p-00106",
+      "p-00240",
+      "p-bok-geoil",
+      "p-chae-mansik",
+      "p-go-wonjeong",
+      "p-ha-changsu",
+      "p-ha-jongo",
+      "p-imhwa",
+      "p-jo-jungrae",
+      "p-kim-juntae",
+      "p-kim-yeonghyeon",
+      "p-kwon-dook",
+      "p-lee-gwangung",
+      "p-malraux",
+      "p-milan-kundera",
+      "p-pak-nohae",
+      "p-park-sangwoo",
+      "p-park-taewon",
+      "p-park-yeonghan",
+      "p-remarque",
+      "p-umberto-eco",
+      "p-yi-munyol"
+    ],
+    "theorists": [
+      "p-00146",
+      "p-00151",
+      "p-00152",
+      "p-00192",
+      "p-an-byeongjik",
+      "p-foucault",
+      "p-hwang-taeyeon",
+      "p-kim-hyon",
+      "p-kim-juyeon",
+      "p-lee-seonguk",
+      "p-seol-jungyu",
+      "p-thomas-metscher"
+    ]
+  },
+  {
+    "id": "p-kim-yunsik",
+    "name": "김윤식",
+    "ref": "https://www.wikidata.org/wiki/Q12588319 http://lod.nl.go.kr/resource/KAC201112267 https://isni.org/isni/0000000063063501 http://viaf.org/viaf/5025275",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201112267",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12588319",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 4,
+    "subjects": [
+      "p-00004",
+      "p-00028",
+      "p-00033",
+      "p-00049",
+      "p-00060",
+      "p-00063",
+      "p-00086",
+      "p-00087",
+      "p-00092",
+      "p-00099",
+      "p-00100",
+      "p-00109",
+      "p-00196",
+      "p-00200",
+      "p-00239",
+      "p-00241",
+      "p-00243",
+      "p-00244",
+      "p-an-guksun",
+      "p-aragon",
+      "p-baek-injun",
+      "p-chae-mansik",
+      "p-cheon-sebong",
+      "p-goncourt-brothers",
+      "p-han-seorya",
+      "p-hwang-geon",
+      "p-i-haejo",
+      "p-imhwa",
+      "p-jacques-decour",
+      "p-jo-gicheon",
+      "p-jo-yeongchul",
+      "p-kang-gyeongae",
+      "p-kim-saryang",
+      "p-kim-wonil",
+      "p-kimnamcheon",
+      "p-malraux",
+      "p-mauriac",
+      "p-song-yeong",
+      "p-vercors",
+      "p-yang-gwija",
+      "p-yi-bukmyeong",
+      "p-yi-gapgi",
+      "p-yi-giyeong",
+      "p-yi-injik",
+      "p-yi-taejun",
+      "p-yun-sepyeong",
+      "p-박세영",
+      "p-설정식",
+      "p-조명희"
+    ],
+    "theorists": [
+      "p-00040",
+      "p-00047",
+      "p-00065",
+      "p-00066",
+      "p-00125",
+      "p-00138",
+      "p-00146",
+      "p-00152",
+      "p-00161",
+      "p-00171",
+      "p-00174",
+      "p-00192",
+      "p-adorno",
+      "p-anderson",
+      "p-ban-seongwan",
+      "p-bataille",
+      "p-bogdanov",
+      "p-cho-yunje",
+      "p-choe-takho",
+      "p-deleuze",
+      "p-eorsi",
+      "p-godel",
+      "p-guattari",
+      "p-horkheimer",
+      "p-husserl",
+      "p-imhwa",
+      "p-jameson",
+      "p-jeong-heunggyo",
+      "p-kim-hamyeong",
+      "p-kim-hyon",
+      "p-kim-yeongpil",
+      "p-klein",
+      "p-moebius",
+      "p-park-jongwon",
+      "p-ryu-man",
+      "p-stirner",
+      "p-wittgenstein",
+      "p-김태준"
     ]
   },
   {
@@ -2221,9 +2649,10 @@
     "name": "김철",
     "ref": "",
     "lod": [],
-    "essay_count": 3,
+    "essay_count": 4,
     "subjects": [
       "p-00015",
+      "p-00077",
       "p-00078",
       "p-00086",
       "p-00109",
@@ -2242,6 +2671,7 @@
       "p-imhwa",
       "p-jeong-dosang",
       "p-kim-gwanggyun",
+      "p-kim-jonghwan",
       "p-kimnamcheon",
       "p-o-sangwon",
       "p-seo-giwon",
@@ -2257,7 +2687,9 @@
       "p-조명희"
     ],
     "theorists": [
+      "p-00014",
       "p-00047",
+      "p-00095",
       "p-00146",
       "p-bak-daeho",
       "p-bakhtin",
@@ -2267,46 +2699,323 @@
       "p-jeong-howung",
       "p-kang-yeongju",
       "p-kim-yunsik",
+      "p-lee-gwangho",
+      "p-park-cheolhwa",
       "p-seo-gyeongseok",
       "p-yi-gangok",
       "p-yun-yeongcheon"
     ]
   },
   {
-    "id": "p-park-hyekyung",
-    "name": "박혜경",
+    "id": "p-kim-chisu",
+    "name": "김치수",
+    "ref": "https://www.wikidata.org/wiki/Q16180744 http://lod.nl.go.kr/resource/KAC201420398 https://isni.org/isni/0000000083554797 http://viaf.org/viaf/8700458",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201420398",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q16180744",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "subjects": [
+      "p-00133",
+      "p-00240",
+      "p-bok-geoil",
+      "p-choe-sucheol",
+      "p-hong-seongwon",
+      "p-hyeon-gireon",
+      "p-im-cheolu",
+      "p-jo-jungrae",
+      "p-kim-hyangsuk",
+      "p-kim-inbae",
+      "p-kim-insuk",
+      "p-kim-juyeong",
+      "p-kim-namil",
+      "p-kim-wonil",
+      "p-lee-changdong",
+      "p-yang-gwija",
+      "p-yi-inseong"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-kim-heonseon",
+    "name": "김헌선",
+    "ref": "http://lod.nl.go.kr/resource/KAC201205182 https://isni.org/isni/0000000081869752 http://viaf.org/viaf/117896697",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201205182",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 3,
+    "subjects": [
+      "p-00015",
+      "p-00018",
+      "p-00063",
+      "p-00086",
+      "p-00114",
+      "p-00122",
+      "p-00134",
+      "p-00186",
+      "p-00244",
+      "p-00247",
+      "p-choi-duseok",
+      "p-hwang-insook",
+      "p-imhwa",
+      "p-jang-gyeongrin",
+      "p-ju-changyun",
+      "p-ki-hyongdo",
+      "p-kim-yongtaek",
+      "p-lee-gicheol",
+      "p-lee-seongbok",
+      "p-이용악"
+    ],
+    "theorists": [
+      "p-an-hwak",
+      "p-cho-dongil",
+      "p-cho-yunje",
+      "p-kim-sueop"
+    ]
+  },
+  {
+    "id": "p-nam-jinwoo",
+    "name": "남진우",
     "ref": "",
     "lod": [],
     "essay_count": 3,
     "subjects": [
-      "p-00032",
-      "p-00076",
-      "p-00091",
-      "p-00102",
-      "p-00114",
+      "p-00077",
       "p-00116",
-      "p-00122",
-      "p-00136",
-      "p-00199",
-      "p-baek-musan",
-      "p-choe-seungja",
-      "p-kim-gwangseop",
-      "p-kim-minsuk",
-      "p-kim-wonwoo",
-      "p-pak-nohae",
-      "p-shin-dongyeop",
-      "p-yang-heonseok",
-      "p-yun-jungho",
-      "p-김남주"
+      "p-cha-changryong",
+      "p-hwang-insook",
+      "p-jeong-chan",
+      "p-kim-hyesoon",
+      "p-kim-seokhui",
+      "p-lee-gapsu",
+      "p-lee-janghui",
+      "p-nam-jinwoo"
     ],
     "theorists": [
+      "p-elias-canetti",
+      "p-foucault",
+      "p-jeong-gwari"
+    ]
+  },
+  {
+    "id": "p-ryu-cheolgyun",
+    "name": "류철균",
+    "ref": "",
+    "lod": [],
+    "essay_count": 3,
+    "subjects": [
+      "p-00034",
+      "p-00063",
+      "p-00077",
+      "p-00089",
+      "p-00099",
+      "p-00114",
+      "p-00181",
+      "p-00241",
+      "p-an-guksun",
+      "p-chae-mansik",
+      "p-hwang-hyeon",
+      "p-im-cheolu",
+      "p-jeong-jaehong",
+      "p-kim-eunkook",
+      "p-kim-seungok",
+      "p-lee-dongha",
+      "p-yang-gwija",
+      "p-yi-injik",
+      "p-yi-inseong",
+      "p-yi-jeha",
+      "p-yi-munyol"
+    ],
+    "theorists": [
+      "p-00014",
+      "p-00051",
+      "p-00053",
+      "p-00065",
       "p-00146",
-      "p-bakhtin",
-      "p-gramsci",
-      "p-jo-jeonghwan",
-      "p-kim-youngmu",
-      "p-rabelais",
-      "p-yun-jigwan"
+      "p-00161",
+      "p-00230",
+      "p-deleuze",
+      "p-foucault",
+      "p-guattari",
+      "p-jang-jiyeon",
+      "p-jung",
+      "p-kim-yunsik",
+      "p-merton",
+      "p-shin-chaeho",
+      "p-yeo-gyuhyeong"
+    ]
+  },
+  {
+    "id": "p-park-cheolhwa",
+    "name": "박철화",
+    "ref": "http://lod.nl.go.kr/resource/KAC201317115 https://isni.org/isni/0000000050571208 http://viaf.org/viaf/9717750",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201317115",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 3,
+    "subjects": [
+      "p-00018",
+      "p-00077",
+      "p-00091",
+      "p-an-jaeseong",
+      "p-bang-hyeonseok",
+      "p-cha-juok",
+      "p-chae-yeongju",
+      "p-gong-jiyeong",
+      "p-jammes",
+      "p-jang-jeongil",
+      "p-jeong-hwajin",
+      "p-ju-inseok",
+      "p-ki-hyongdo",
+      "p-kim-hagi",
+      "p-lee-seungu",
+      "p-yi-inseong"
+    ],
+    "theorists": [
+      "p-girard",
+      "p-illich"
+    ]
+  },
+  {
+    "id": "p-seo-junseop",
+    "name": "서준섭",
+    "ref": "http://lod.nl.go.kr/resource/KAC201511104 https://isni.org/isni/000000003510613X http://viaf.org/viaf/18679175",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201511104",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 3,
+    "subjects": [
+      "p-00035",
+      "p-kim-hyesoon",
+      "p-kwak-jaegu",
+      "p-lee-seongbok",
+      "p-lee-taesu",
+      "p-mun-chungsong"
+    ],
+    "theorists": [
+      "p-gwon-yeongmin",
+      "p-jeong-howung",
+      "p-kim-yunsik",
+      "p-kwon-seongwoo",
+      "p-park-cheolhwa",
+      "p-ryu-cheolgyun",
+      "p-shin-beomsun",
+      "p-yijaeseon"
+    ]
+  },
+  {
+    "id": "p-woo-chanje",
+    "name": "우찬제",
+    "ref": "https://www.wikidata.org/wiki/Q12608984 http://lod.nl.go.kr/resource/KAC201301951 https://isni.org/isni/000000046111823X http://viaf.org/viaf/38150746991716301969",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201301951",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12608984",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 3,
+    "subjects": [
+      "p-00035",
+      "p-00059",
+      "p-00162",
+      "p-00168",
+      "p-go-jaejong",
+      "p-gu-hyoseo",
+      "p-jang-jeongil",
+      "p-jo-yunho",
+      "p-kim-seunghui",
+      "p-kim-wonwoo",
+      "p-lee-eunbong",
+      "p-park-sangwoo",
+      "p-yuha"
+    ],
+    "theorists": [
+      "p-00095",
+      "p-00152",
+      "p-baudrillard",
+      "p-jeong-hyeongi",
+      "p-kang-naehui",
+      "p-rousseau",
+      "p-yijaeseon"
+    ]
+  },
+  {
+    "id": "p-jang-gyeongryeol",
+    "name": "장경렬",
+    "ref": "http://lod.nl.go.kr/resource/KAC201011018 https://isni.org/isni/0000000373985958 http://viaf.org/viaf/34307384",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201011018",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 3,
+    "subjects": [
+      "p-00088",
+      "p-00196",
+      "p-00237",
+      "p-borges",
+      "p-celine",
+      "p-cervantes",
+      "p-chaucer",
+      "p-john-barth",
+      "p-seo-jeongin"
+    ],
+    "theorists": [
+      "p-00010",
+      "p-00094",
+      "p-00145",
+      "p-00161",
+      "p-00174",
+      "p-barthes",
+      "p-booth",
+      "p-derrida",
+      "p-paul-de-man",
+      "p-peirce",
+      "p-socrates"
     ]
   },
   {
@@ -2431,19 +3140,77 @@
     ]
   },
   {
-    "id": "p-kim-yunsik",
-    "name": "김윤식",
-    "ref": "https://www.wikidata.org/wiki/Q12588319 http://lod.nl.go.kr/resource/KAC201112267 https://isni.org/isni/0000000063063501 http://viaf.org/viaf/5025275",
+    "id": "p-kim-inhwan",
+    "name": "김인환",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-00004",
+      "p-00033",
+      "p-00049",
+      "p-00059",
+      "p-00078",
+      "p-00079",
+      "p-00100",
+      "p-00106",
+      "p-00131",
+      "p-00196",
+      "p-00240",
+      "p-00241",
+      "p-celine",
+      "p-choe-chiwon",
+      "p-choe-inuk",
+      "p-defoe",
+      "p-im-chun",
+      "p-kim-naeseong",
+      "p-kim-satgat",
+      "p-nerval",
+      "p-park-taesun",
+      "p-rabelais",
+      "p-seo-jeongin",
+      "p-tournier"
+    ],
+    "theorists": [
+      "p-00005",
+      "p-00051",
+      "p-00151",
+      "p-00152",
+      "p-00161",
+      "p-00166",
+      "p-00192",
+      "p-00230",
+      "p-althusser",
+      "p-bachelard",
+      "p-borges",
+      "p-edward-said",
+      "p-feyerabend",
+      "p-jeong-yakyong",
+      "p-jung",
+      "p-keynes",
+      "p-laozi",
+      "p-massignon",
+      "p-montaigne",
+      "p-renan",
+      "p-sacy",
+      "p-zhuangzi",
+      "p-로자"
+    ]
+  },
+  {
+    "id": "p-kim-hyesoon",
+    "name": "김혜순",
+    "ref": "https://www.wikidata.org/wiki/Q14623809 http://lod.nl.go.kr/resource/KAC201114288 https://isni.org/isni/0000000078656481 http://viaf.org/viaf/55039845",
     "lod": [
       {
-        "href": "http://lod.nl.go.kr/resource/KAC201112267",
+        "href": "http://lod.nl.go.kr/resource/KAC201114288",
         "label": "NLK",
         "full": "NLK LOD",
         "bg": "#e8eef5",
         "fg": "#1a3a5a"
       },
       {
-        "href": "https://www.wikidata.org/wiki/Q12588319",
+        "href": "https://www.wikidata.org/wiki/Q14623809",
         "label": "W",
         "full": "Wikidata",
         "bg": "",
@@ -2452,169 +3219,19 @@
     ],
     "essay_count": 2,
     "subjects": [
-      "p-00004",
-      "p-00028",
-      "p-00049",
-      "p-00060",
-      "p-00086",
-      "p-00087",
-      "p-00092",
-      "p-00099",
-      "p-00109",
-      "p-00196",
-      "p-00200",
-      "p-00239",
-      "p-00241",
-      "p-00243",
-      "p-00244",
-      "p-an-guksun",
-      "p-aragon",
-      "p-baek-injun",
-      "p-chae-mansik",
-      "p-cheon-sebong",
-      "p-goncourt-brothers",
-      "p-han-seorya",
-      "p-hwang-geon",
-      "p-i-haejo",
-      "p-imhwa",
-      "p-jacques-decour",
-      "p-jo-gicheon",
-      "p-jo-yeongchul",
-      "p-kang-gyeongae",
-      "p-kim-saryang",
-      "p-kimnamcheon",
-      "p-malraux",
-      "p-mauriac",
-      "p-song-yeong",
-      "p-vercors",
-      "p-yang-gwija",
-      "p-yi-bukmyeong",
-      "p-yi-gapgi",
-      "p-yi-giyeong",
-      "p-yi-injik",
-      "p-yi-taejun",
-      "p-yun-sepyeong",
-      "p-박세영",
-      "p-설정식",
-      "p-조명희"
-    ],
-    "theorists": [
-      "p-00040",
-      "p-00047",
-      "p-00065",
-      "p-00138",
-      "p-00146",
-      "p-00152",
-      "p-00171",
-      "p-00174",
-      "p-00192",
-      "p-adorno",
-      "p-ban-seongwan",
-      "p-bogdanov",
-      "p-cho-yunje",
-      "p-choe-takho",
-      "p-eorsi",
-      "p-godel",
-      "p-horkheimer",
-      "p-husserl",
-      "p-jeong-heunggyo",
-      "p-kim-hamyeong",
-      "p-kim-yeongpil",
-      "p-klein",
-      "p-moebius",
-      "p-park-jongwon",
-      "p-ryu-man",
-      "p-stirner",
-      "p-김태준"
-    ]
-  },
-  {
-    "id": "p-kim-heonseon",
-    "name": "김헌선",
-    "ref": "http://lod.nl.go.kr/resource/KAC201205182 https://isni.org/isni/0000000081869752 http://viaf.org/viaf/117896697",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201205182",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 2,
-    "subjects": [
       "p-00015",
-      "p-00018",
       "p-00063",
-      "p-00086",
-      "p-00114",
-      "p-00122",
-      "p-00134",
-      "p-00186",
-      "p-00244",
-      "p-00247",
-      "p-choi-duseok",
-      "p-hwang-insook",
-      "p-imhwa",
-      "p-jang-gyeongrin",
-      "p-ju-changyun",
-      "p-ki-hyongdo",
-      "p-kim-yongtaek",
-      "p-lee-gicheol",
+      "p-00116",
+      "p-an-dohyeon",
+      "p-kim-hyesoon",
+      "p-lee-changgi",
       "p-lee-seongbok",
+      "p-song-chanho",
       "p-이용악"
     ],
-    "theorists": []
-  },
-  {
-    "id": "p-nam-jinwoo",
-    "name": "남진우",
-    "ref": "",
-    "lod": [],
-    "essay_count": 2,
-    "subjects": [
-      "p-00077",
-      "p-00116",
-      "p-hwang-insook",
-      "p-jeong-chan",
-      "p-kim-hyesoon",
-      "p-kim-seokhui",
-      "p-lee-janghui",
-      "p-nam-jinwoo"
-    ],
     "theorists": [
-      "p-elias-canetti",
-      "p-foucault"
-    ]
-  },
-  {
-    "id": "p-ryu-cheolgyun",
-    "name": "류철균",
-    "ref": "",
-    "lod": [],
-    "essay_count": 2,
-    "subjects": [
-      "p-00077",
-      "p-00181",
-      "p-im-cheolu",
-      "p-kim-eunkook",
-      "p-kim-seungok",
-      "p-lee-dongha",
-      "p-yang-gwija",
-      "p-yi-inseong",
-      "p-yi-jeha",
-      "p-yi-munyol"
-    ],
-    "theorists": [
-      "p-00014",
-      "p-00051",
-      "p-00065",
-      "p-00146",
-      "p-00230",
-      "p-foucault",
-      "p-jung",
-      "p-kim-yunsik",
-      "p-merton"
+      "p-00066",
+      "p-laozi"
     ]
   },
   {
@@ -2663,32 +3280,24 @@
     ]
   },
   {
-    "id": "p-park-cheolhwa",
-    "name": "박철화",
-    "ref": "http://lod.nl.go.kr/resource/KAC201317115 https://isni.org/isni/0000000050571208 http://viaf.org/viaf/9717750",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201317115",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
+    "id": "p-bak-daeho",
+    "name": "박대호",
+    "ref": "",
+    "lod": [],
     "essay_count": 2,
     "subjects": [
-      "p-00018",
-      "p-00077",
-      "p-00091",
-      "p-jammes",
-      "p-ju-inseok",
-      "p-ki-hyongdo",
-      "p-lee-seungu",
-      "p-yi-inseong"
+      "p-choe-sucheol",
+      "p-ha-ilji",
+      "p-ha-jaebong",
+      "p-kim-hyangsuk",
+      "p-yi-inseong",
+      "p-yuha"
     ],
     "theorists": [
-      "p-girard",
-      "p-illich"
+      "p-00146",
+      "p-00227",
+      "p-hauser",
+      "p-jameson"
     ]
   },
   {
@@ -2715,6 +3324,303 @@
       "p-00051",
       "p-00161",
       "p-lamarck"
+    ]
+  },
+  {
+    "id": "p-bok-geoil",
+    "name": "복거일",
+    "ref": "https://www.wikidata.org/wiki/Q626098 http://lod.nl.go.kr/resource/KAC201204280 https://isni.org/isni/0000000048792861 http://viaf.org/viaf/32306053",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201204280",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q626098",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-bok-geoil",
+      "p-robert-heinlein"
+    ],
+    "theorists": [
+      "ortega",
+      "p-alvin-toffler",
+      "p-bruce-franklin",
+      "p-jeong-gwari",
+      "p-marshall-mcluhan",
+      "p-milton-friedman",
+      "p-park-eunsik",
+      "p-paul-kennedy",
+      "p-shin-chaeho"
+    ]
+  },
+  {
+    "id": "p-song-jeon",
+    "name": "송전",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-00092",
+      "p-max-von-der-grun",
+      "p-yi-inseong"
+    ],
+    "theorists": [
+      "p-00005",
+      "p-00093",
+      "p-an-chiun",
+      "p-barthes",
+      "p-brecht",
+      "p-jeong-jichang",
+      "p-kim-bangok",
+      "p-stanislavski"
+    ]
+  },
+  {
+    "id": "p-shin-beomsun",
+    "name": "신범순",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-00063",
+      "p-00098",
+      "p-00114",
+      "p-00195",
+      "p-00244",
+      "p-chae-hogi",
+      "p-heo-sugyeong",
+      "p-hwang-jini",
+      "p-imhwa",
+      "p-kim-jungran",
+      "p-kimnamcheon",
+      "p-lee-seongbok"
+    ],
+    "theorists": [
+      "p-00051",
+      "p-00065",
+      "p-00125",
+      "p-00161",
+      "p-00192",
+      "p-alfred-adler",
+      "p-ban-gyeonghwan",
+      "p-kim-jinseok",
+      "p-kim-yunsik"
+    ]
+  },
+  {
+    "id": "p-oh-saenggeun",
+    "name": "오생근",
+    "ref": "https://www.wikidata.org/wiki/Q12607888 http://lod.nl.go.kr/resource/KAC201115776 https://isni.org/isni/0000000024603990 http://viaf.org/viaf/28353841",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201115776",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q12607888",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-kim-seongdong",
+      "p-lee-changdong"
+    ],
+    "theorists": [
+      "p-00051",
+      "p-00151",
+      "p-baudrillard",
+      "p-deleuze",
+      "p-foucault",
+      "p-galbraith",
+      "p-girard",
+      "p-guattari",
+      "p-lasch"
+    ]
+  },
+  {
+    "id": "p-lee-gwangho",
+    "name": "이광호",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-go-wonjeong",
+      "p-hyeon-gireon",
+      "p-lee-seungu",
+      "p-yang-gwija"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-lee-dongha-critic",
+    "name": "이동하",
+    "ref": "http://lod.nl.go.kr/resource/KAC201213779 https://isni.org/isni/0000000081243362 http://viaf.org/viaf/45775119",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201213779",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-00018",
+      "p-00102",
+      "p-kim-myungin"
+    ],
+    "theorists": [
+      "p-00152",
+      "p-00161"
+    ]
+  },
+  {
+    "id": "p-lee-deukjae",
+    "name": "이득재",
+    "ref": "http://lod.nl.go.kr/resource/KAC201221381 https://isni.org/isni/000000046438156X http://viaf.org/viaf/21145375903283681136",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201221381",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-00042",
+      "p-00087",
+      "p-dickens",
+      "p-seo-jeongin"
+    ],
+    "theorists": [
+      "p-00125",
+      "p-00184",
+      "p-00227",
+      "p-bakhtin",
+      "p-deleuze",
+      "p-feuerbach",
+      "p-genette",
+      "p-guattari"
+    ]
+  },
+  {
+    "id": "p-yi-inseong",
+    "name": "이인성",
+    "ref": "https://www.wikidata.org/wiki/Q3572265 http://lod.nl.go.kr/resource/KAC201229400 https://isni.org/isni/0000000120228959 http://viaf.org/viaf/27309529",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201229400",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q3572265",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-lee-seongbok",
+      "p-yi-inseong",
+      "p-yuha"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-lee-changgi",
+    "name": "이창기",
+    "ref": "http://lod.nl.go.kr/resource/KAC201424493 https://isni.org/isni/0000000052303581 http://viaf.org/viaf/9757365",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201424493",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-00035",
+      "p-00055",
+      "p-00076",
+      "p-00077",
+      "p-00091",
+      "p-00162",
+      "p-00204",
+      "p-choe-seokha",
+      "p-kang-changmin",
+      "p-kim-gitaek",
+      "p-kim-hwiseung",
+      "p-lee-changgi",
+      "p-lee-seongbok",
+      "p-park-namchul"
+    ],
+    "theorists": [
+      "p-00093",
+      "p-cassirer",
+      "p-hauser",
+      "p-huizinga",
+      "p-wittgenstein"
+    ]
+  },
+  {
+    "id": "p-im-jaehae",
+    "name": "임재해",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-00106",
+      "p-00196"
+    ],
+    "theorists": [
+      "p-braudel",
+      "p-chae-huiwan",
+      "p-cho-dongil",
+      "p-choe-sangsu",
+      "p-curt-sachs",
+      "p-goldmann",
+      "p-im-jintaek",
+      "p-jeong-ikseop",
+      "p-kim-donguk",
+      "p-kim-gwangeok",
+      "p-kim-heunggyu",
+      "p-kim-sueop",
+      "p-kim-taekgyu",
+      "p-kim-yeolgyu",
+      "p-seo-jeongbeom",
+      "p-seo-yeonho",
+      "p-seong-byeonghui",
+      "p-yi-duhyeon",
+      "p-yi-jaeho",
+      "p-yijaeseon",
+      "p-yu-hansang"
     ]
   },
   {
@@ -2759,6 +3665,60 @@
     "theorists": []
   },
   {
+    "id": "p-jeong-myeonghwan",
+    "name": "정명환",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-00075",
+      "p-00181",
+      "p-00250",
+      "p-alphonse-daudet"
+    ],
+    "theorists": [
+      "p-00005",
+      "p-00053",
+      "p-00062",
+      "p-00066",
+      "p-00171",
+      "p-00192",
+      "p-edgar-morin",
+      "p-jacques-ellul",
+      "p-lewis-mumford",
+      "p-oswald-spengler",
+      "p-rousseau"
+    ]
+  },
+  {
+    "id": "p-jo-namhyeon",
+    "name": "조남현",
+    "ref": "http://lod.nl.go.kr/resource/KAC201208839 https://isni.org/isni/000000008108252X http://viaf.org/viaf/29570623",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201208839",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 2,
+    "subjects": [
+      "p-jo-jungrae",
+      "p-park-sangryung"
+    ],
+    "theorists": [
+      "p-00184",
+      "p-bachelard",
+      "p-barthes",
+      "p-foucault",
+      "p-girard",
+      "p-lennard-davis",
+      "p-yi-sangseop"
+    ]
+  },
+  {
     "id": "p-jin-hyeongjun",
     "name": "진형준",
     "ref": "",
@@ -2794,6 +3754,55 @@
     ]
   },
   {
+    "id": "p-hwang-dogyeong",
+    "name": "황도경",
+    "ref": "",
+    "lod": [],
+    "essay_count": 2,
+    "subjects": [
+      "p-heo-sugyeong",
+      "p-kim-hoon",
+      "p-kim-hwiseung",
+      "p-lee-yeonju",
+      "p-oh-junghee",
+      "p-park-wanseo",
+      "p-shin-gyeongsuk",
+      "p-sim-sangdae",
+      "p-yi-jinmyeong"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-gang-hyeondu",
+    "name": "강현두",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-norman-mailer"
+    ],
+    "theorists": [
+      "p-00138",
+      "p-john-reed",
+      "p-walter-lippmann"
+    ]
+  },
+  {
+    "id": "p-kurihara-yukio",
+    "name": "구리하라 유키오",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-kobayashi-takiji"
+    ],
+    "theorists": [
+      "p-hirabayashi-hatsunosuke",
+      "p-miyamoto-kenji",
+      "p-osugi-sakae"
+    ]
+  },
+  {
     "id": "p-kwon-taekyoung",
     "name": "권택영",
     "ref": "",
@@ -2817,6 +3826,40 @@
     ]
   },
   {
+    "id": "p-kim-yeongmin-critic",
+    "name": "김영민",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [],
+    "theorists": [
+      "p-choe-yuchan",
+      "p-kim-jaeyong",
+      "p-lee-seonyeong"
+    ]
+  },
+  {
+    "id": "p-kim-yeongmin-philosopher",
+    "name": "김영민",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-iris-murdoch"
+    ],
+    "theorists": [
+      "p-00040",
+      "p-00065",
+      "p-00171",
+      "p-00234",
+      "p-foucault",
+      "p-jung",
+      "p-newton",
+      "p-richard-rorty",
+      "p-sapir"
+    ]
+  },
+  {
     "id": "p-kim-yongjik",
     "name": "김용직",
     "ref": "",
@@ -2833,58 +3876,95 @@
     "theorists": []
   },
   {
-    "id": "p-kim-inhwan",
-    "name": "김인환",
+    "id": "p-kim-yonghui",
+    "name": "김용희",
     "ref": "",
     "lod": [],
     "essay_count": 1,
     "subjects": [
-      "p-00004",
-      "p-00033",
-      "p-00049",
-      "p-00059",
-      "p-00078",
-      "p-00079",
-      "p-00100",
-      "p-00106",
-      "p-00131",
-      "p-00196",
-      "p-00240",
-      "p-00241",
-      "p-celine",
-      "p-choe-chiwon",
-      "p-choe-inuk",
-      "p-defoe",
-      "p-im-chun",
-      "p-kim-naeseong",
-      "p-kim-satgat",
-      "p-nerval",
-      "p-park-taesun",
-      "p-rabelais",
-      "p-seo-jeongin",
-      "p-tournier"
+      "p-kim-gitaek"
+    ],
+    "theorists": [
+      "p-00022",
+      "p-00066",
+      "p-bachelard",
+      "p-kim-hoon",
+      "p-richard-jean-pierre"
+    ]
+  },
+  {
+    "id": "p-kim-wonil",
+    "name": "김원일",
+    "ref": "https://www.wikidata.org/wiki/Q562774 http://lod.nl.go.kr/resource/KAC201107052 https://isni.org/isni/000000008175885X http://viaf.org/viaf/110167649",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201107052",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q562774",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "subjects": [
+      "p-00088",
+      "p-00092",
+      "p-00181",
+      "p-faulkner",
+      "p-kim-wonil"
+    ],
+    "theorists": [
+      "p-kim-changsun"
+    ]
+  },
+  {
+    "id": "p-kim-yunbi",
+    "name": "김윤비",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-ki-hyongdo"
     ],
     "theorists": [
       "p-00005",
       "p-00051",
-      "p-00151",
-      "p-00152",
-      "p-00161",
-      "p-00166",
+      "p-00125",
+      "p-00174",
       "p-00192",
-      "p-althusser",
-      "p-bachelard",
-      "p-borges",
-      "p-edward-said",
-      "p-feyerabend",
-      "p-jeong-yakyong",
-      "p-jung",
-      "p-laozi",
-      "p-massignon",
-      "p-montaigne",
-      "p-renan",
-      "p-sacy",
-      "p-zhuangzi"
+      "p-00206",
+      "p-barthes",
+      "p-baudrillard",
+      "p-cassirer",
+      "p-foucault",
+      "p-genette",
+      "p-socrates",
+      "p-spitzer"
+    ]
+  },
+  {
+    "id": "p-kim-eungjong",
+    "name": "김응종",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [],
+    "theorists": [
+      "p-braudel",
+      "p-derrida",
+      "p-dominick-lacapra",
+      "p-frye",
+      "p-hayden-white",
+      "p-ladurie",
+      "p-roger-chartier",
+      "p-vovelle"
     ]
   },
   {
@@ -2937,28 +4017,19 @@
     ]
   },
   {
-    "id": "p-kim-jinseok",
-    "name": "김진석",
+    "id": "p-kim-jiyeong-critic",
+    "name": "김지영",
     "ref": "",
     "lod": [],
     "essay_count": 1,
-    "subjects": [],
+    "subjects": [
+      "p-00059",
+      "p-jang-jeongil"
+    ],
     "theorists": [
-      "p-00062",
-      "p-00065",
-      "p-00066",
-      "p-00124",
-      "p-00138",
-      "p-00152",
-      "p-00161",
-      "p-00174",
-      "p-adorno",
-      "p-althusser",
-      "p-bataille",
-      "p-derrida",
-      "p-paul-de-man",
-      "p-rousseau",
-      "p-sollers"
+      "p-00171",
+      "p-foucault",
+      "p-paul-veyne"
     ]
   },
   {
@@ -2995,80 +4066,6 @@
     ]
   },
   {
-    "id": "p-kim-chisu",
-    "name": "김치수",
-    "ref": "https://www.wikidata.org/wiki/Q16180744 http://lod.nl.go.kr/resource/KAC201420398 https://isni.org/isni/0000000083554797 http://viaf.org/viaf/8700458",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201420398",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q16180744",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "subjects": [
-      "p-00133",
-      "p-00240",
-      "p-bok-geoil",
-      "p-choe-sucheol",
-      "p-hyeon-gireon",
-      "p-im-cheolu",
-      "p-jo-jungrae",
-      "p-kim-hyangsuk",
-      "p-kim-inbae",
-      "p-kim-insuk",
-      "p-kim-juyeong",
-      "p-kim-namil",
-      "p-kim-wonil",
-      "p-lee-changdong",
-      "p-yang-gwija",
-      "p-yi-inseong"
-    ],
-    "theorists": []
-  },
-  {
-    "id": "p-kim-hyesoon",
-    "name": "김혜순",
-    "ref": "https://www.wikidata.org/wiki/Q14623809 http://lod.nl.go.kr/resource/KAC201114288 https://isni.org/isni/0000000078656481 http://viaf.org/viaf/55039845",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201114288",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q14623809",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "subjects": [
-      "p-00015",
-      "p-an-dohyeon",
-      "p-lee-changgi",
-      "p-song-chanho",
-      "p-이용악"
-    ],
-    "theorists": [
-      "p-00066",
-      "p-laozi"
-    ]
-  },
-  {
     "id": "p-kim-hoon",
     "name": "김훈",
     "ref": "",
@@ -3081,17 +4078,30 @@
     "theorists": []
   },
   {
-    "id": "p-bak-daeho",
-    "name": "박대호",
+    "id": "p-mun-byeongho",
+    "name": "문병호",
     "ref": "",
     "lod": [],
     "essay_count": 1,
     "subjects": [
-      "p-choe-sucheol",
-      "p-yi-inseong"
+      "p-00017",
+      "p-00060",
+      "p-00088",
+      "p-00092",
+      "p-00181",
+      "p-00207",
+      "p-00216",
+      "p-beckett"
     ],
     "theorists": [
-      "p-jameson"
+      "p-00138",
+      "p-00146",
+      "p-00152",
+      "p-adorno",
+      "p-derrida",
+      "p-foucault",
+      "p-jauss",
+      "p-peter-buerger"
     ]
   },
   {
@@ -3108,6 +4118,79 @@
     ],
     "theorists": [
       "p-kim-yunsik"
+    ]
+  },
+  {
+    "id": "p-park-maengsu",
+    "name": "박맹수",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-00106",
+      "p-hwang-hyeon"
+    ],
+    "theorists": [
+      "p-cho-dongil",
+      "p-o-jiyeong",
+      "p-park-eunsik",
+      "p-sin-yongha"
+    ]
+  },
+  {
+    "id": "p-park-seongchang",
+    "name": "박성창",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-00017",
+      "p-00059"
+    ],
+    "theorists": [
+      "p-barthes",
+      "p-derrida",
+      "p-eagleton",
+      "p-jameson",
+      "p-rousset",
+      "p-saussure"
+    ]
+  },
+  {
+    "id": "p-park-imun",
+    "name": "박이문",
+    "ref": "https://www.wikidata.org/wiki/Q17152098 http://lod.nl.go.kr/resource/KAC201109499 https://isni.org/isni/0000000374147059 http://viaf.org/viaf/35531912",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201109499",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q17152098",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "subjects": [],
+    "theorists": [
+      "p-00065",
+      "p-00066",
+      "p-00093",
+      "p-00161",
+      "p-00171",
+      "p-barthes",
+      "p-derrida",
+      "p-gadamer",
+      "p-george-berkeley",
+      "p-laozi",
+      "p-lyotard",
+      "p-richard-rorty"
     ]
   },
   {
@@ -3139,44 +4222,6 @@
     "theorists": [
       "p-bachelard",
       "p-nerval"
-    ]
-  },
-  {
-    "id": "p-seo-junseop",
-    "name": "서준섭",
-    "ref": "http://lod.nl.go.kr/resource/KAC201511104 https://isni.org/isni/000000003510613X http://viaf.org/viaf/18679175",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201511104",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 1,
-    "subjects": [
-      "p-kim-hyesoon",
-      "p-kwak-jaegu",
-      "p-lee-taesu",
-      "p-mun-chungsong"
-    ],
-    "theorists": []
-  },
-  {
-    "id": "p-song-jeon",
-    "name": "송전",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "subjects": [
-      "p-max-von-der-grun"
-    ],
-    "theorists": [
-      "p-00005",
-      "p-brecht",
-      "p-jeong-jichang",
-      "p-kim-bangok"
     ]
   },
   {
@@ -3230,26 +4275,6 @@
     ]
   },
   {
-    "id": "p-shin-beomsun",
-    "name": "신범순",
-    "ref": "",
-    "lod": [],
-    "essay_count": 1,
-    "subjects": [
-      "p-imhwa",
-      "p-kimnamcheon"
-    ],
-    "theorists": [
-      "p-00051",
-      "p-00065",
-      "p-00125",
-      "p-00161",
-      "p-00192",
-      "p-alfred-adler",
-      "p-kim-yunsik"
-    ]
-  },
-  {
     "id": "p-sin-seungyeop",
     "name": "신승엽",
     "ref": "",
@@ -3273,6 +4298,19 @@
       "p-brecht",
       "p-girard"
     ]
+  },
+  {
+    "id": "p-sim-sanghyeop",
+    "name": "심상협",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-jeong-chan",
+      "p-kim-jonghwan",
+      "p-lee-sunwon"
+    ],
+    "theorists": []
   },
   {
     "id": "p-an-samhwan",
@@ -3311,34 +4349,31 @@
     ]
   },
   {
-    "id": "p-woo-chanje",
-    "name": "우찬제",
-    "ref": "https://www.wikidata.org/wiki/Q12608984 http://lod.nl.go.kr/resource/KAC201301951 https://isni.org/isni/000000046111823X http://viaf.org/viaf/38150746991716301969",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201301951",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q12608984",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
+    "id": "p-yeo-hongsang",
+    "name": "여홍상",
+    "ref": "",
+    "lod": [],
     "essay_count": 1,
     "subjects": [
-      "p-go-jaejong",
-      "p-jo-yunho",
-      "p-lee-eunbong",
-      "p-yuha"
+      "p-00106"
     ],
     "theorists": [
-      "p-rousseau"
+      "p-00051",
+      "p-00125",
+      "p-00139",
+      "p-00146",
+      "p-00157",
+      "p-00184",
+      "p-althusser",
+      "p-bakhtin",
+      "p-barthes",
+      "p-derrida",
+      "p-edward-said",
+      "p-foucault",
+      "p-lee-hyeonseok",
+      "p-rabelais",
+      "p-saussure",
+      "p-thompson"
     ]
   },
   {
@@ -3493,58 +4528,39 @@
     "theorists": []
   },
   {
-    "id": "p-lee-gwangho",
-    "name": "이광호",
+    "id": "p-lee-gyeongho",
+    "name": "이경호",
+    "ref": "http://lod.nl.go.kr/resource/KAC201415662 https://isni.org/isni/000000004938128X http://viaf.org/viaf/51566526",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201415662",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 1,
+    "subjects": [
+      "p-choe-sucheol",
+      "p-yi-inseong"
+    ],
+    "theorists": [
+      "p-kwon-oryong"
+    ]
+  },
+  {
+    "id": "yi-namho",
+    "name": "이남호",
     "ref": "",
     "lod": [],
     "essay_count": 1,
     "subjects": [
-      "p-go-wonjeong",
-      "p-hyeon-gireon",
-      "p-lee-seungu"
-    ],
-    "theorists": []
-  },
-  {
-    "id": "p-lee-dongha-critic",
-    "name": "이동하",
-    "ref": "http://lod.nl.go.kr/resource/KAC201213779 https://isni.org/isni/0000000081243362 http://viaf.org/viaf/45775119",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201213779",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 1,
-    "subjects": [
-      "p-00102",
-      "p-kim-myungin"
-    ],
-    "theorists": []
-  },
-  {
-    "id": "p-lee-deukjae",
-    "name": "이득재",
-    "ref": "http://lod.nl.go.kr/resource/KAC201221381 https://isni.org/isni/000000046438156X http://viaf.org/viaf/21145375903283681136",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201221381",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
-    "essay_count": 1,
-    "subjects": [
-      "p-00042",
-      "p-seo-jeongin"
+      "p-00076",
+      "p-00162"
     ],
     "theorists": [
-      "p-feuerbach"
+      "p-kim-juyeon"
     ]
   },
   {
@@ -3637,33 +4653,6 @@
     "theorists": []
   },
   {
-    "id": "p-yi-inseong",
-    "name": "이인성",
-    "ref": "https://www.wikidata.org/wiki/Q3572265 http://lod.nl.go.kr/resource/KAC201229400 https://isni.org/isni/0000000120228959 http://viaf.org/viaf/27309529",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201229400",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      },
-      {
-        "href": "https://www.wikidata.org/wiki/Q3572265",
-        "label": "W",
-        "full": "Wikidata",
-        "bg": "",
-        "fg": ""
-      }
-    ],
-    "essay_count": 1,
-    "subjects": [
-      "p-lee-seongbok",
-      "p-yi-inseong"
-    ],
-    "theorists": []
-  },
-  {
     "id": "p-lee-jongsook",
     "name": "이종숙",
     "ref": "",
@@ -3686,90 +4675,86 @@
     ]
   },
   {
-    "id": "p-lee-changgi",
-    "name": "이창기",
-    "ref": "http://lod.nl.go.kr/resource/KAC201424493 https://isni.org/isni/0000000052303581 http://viaf.org/viaf/9757365",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201424493",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
+    "id": "p-lee-jonghwan",
+    "name": "이종환",
+    "ref": "",
+    "lod": [],
     "essay_count": 1,
     "subjects": [
-      "p-00035",
-      "p-00055",
-      "p-00076",
-      "p-00077",
-      "p-00091",
-      "p-00162",
-      "p-00204",
-      "p-choe-seokha",
-      "p-kang-changmin",
-      "p-lee-changgi",
-      "p-lee-seongbok",
-      "p-park-namchul"
+      "p-hwang-hakju",
+      "p-jeong-hoseung",
+      "p-park-rayeon"
     ],
-    "theorists": [
-      "p-00093",
-      "p-cassirer",
-      "p-hauser",
-      "p-huizinga",
-      "p-wittgenstein"
-    ]
+    "theorists": []
   },
   {
-    "id": "p-im-jaehae",
-    "name": "임재해",
+    "id": "p-lee-hyeong",
+    "name": "이형",
     "ref": "",
     "lod": [],
     "essay_count": 1,
     "subjects": [
       "p-00106",
-      "p-00196"
+      "p-00122",
+      "p-00168"
     ],
     "theorists": [
-      "p-cho-dongil",
-      "p-choe-sangsu",
-      "p-curt-sachs",
-      "p-jeong-ikseop",
-      "p-kim-donguk",
-      "p-kim-heunggyu",
-      "p-kim-sueop",
-      "p-kim-taekgyu",
-      "p-kim-yeolgyu",
-      "p-seo-jeongbeom",
-      "p-seo-yeonho",
-      "p-seong-byeonghui",
-      "p-yi-duhyeon",
-      "p-yi-jaeho",
-      "p-yijaeseon",
-      "p-yu-hansang"
+      "p-00161",
+      "p-bakhtin",
+      "p-han-wansang",
+      "p-kim-seonggi",
+      "p-seo-gwangseon",
+      "p-seo-namdong"
     ]
   },
   {
-    "id": "p-jang-gyeongryeol",
-    "name": "장경렬",
-    "ref": "http://lod.nl.go.kr/resource/KAC201011018 https://isni.org/isni/0000000373985958 http://viaf.org/viaf/34307384",
+    "id": "p-im-sangu",
+    "name": "임상우",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [],
+    "theorists": [
+      "p-00062",
+      "p-00152",
+      "p-00161",
+      "p-00230",
+      "p-carlo-ginzburg",
+      "p-carr",
+      "p-croce",
+      "p-derrida",
+      "p-dominick-lacapra",
+      "p-foucault",
+      "p-goldmann",
+      "p-hayden-white",
+      "p-herodotus",
+      "p-ranke",
+      "p-thompson"
+    ]
+  },
+  {
+    "id": "p-jang-seokju",
+    "name": "장석주",
+    "ref": "https://www.wikidata.org/wiki/Q97750118",
     "lod": [
       {
-        "href": "http://lod.nl.go.kr/resource/KAC201011018",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
+        "href": "https://www.wikidata.org/wiki/Q97750118",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
       }
     ],
     "essay_count": 1,
     "subjects": [
-      "p-seo-jeongin"
+      "p-00077",
+      "p-choe-seungja",
+      "p-jang-seokju",
+      "p-lee-seongbok",
+      "p-sylvia-plath"
     ],
     "theorists": [
-      "p-00145",
-      "p-booth"
+      "p-jeong-gwari"
     ]
   },
   {
@@ -3785,6 +4770,20 @@
       "p-jung-inseop"
     ],
     "theorists": []
+  },
+  {
+    "id": "p-jeong-junyeong",
+    "name": "정준영",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [],
+    "theorists": [
+      "p-00227",
+      "p-adorno",
+      "p-althusser",
+      "p-gombrich"
+    ]
   },
   {
     "id": "p-jeong-jichang",
@@ -3812,25 +4811,45 @@
     ]
   },
   {
-    "id": "p-jo-namhyeon",
-    "name": "조남현",
-    "ref": "http://lod.nl.go.kr/resource/KAC201208839 https://isni.org/isni/000000008108252X http://viaf.org/viaf/29570623",
-    "lod": [
-      {
-        "href": "http://lod.nl.go.kr/resource/KAC201208839",
-        "label": "NLK",
-        "full": "NLK LOD",
-        "bg": "#e8eef5",
-        "fg": "#1a3a5a"
-      }
-    ],
+    "id": "p-jo-hanuk",
+    "name": "조한욱",
+    "ref": "",
+    "lod": [],
     "essay_count": 1,
-    "subjects": [
-      "p-jo-jungrae"
-    ],
+    "subjects": [],
     "theorists": [
-      "p-00184",
-      "p-lennard-davis"
+      "p-00041",
+      "p-00065",
+      "p-00139",
+      "p-00150",
+      "p-00152",
+      "p-00161",
+      "p-00224",
+      "p-alexis-de-tocqueville",
+      "p-arthur-lovejoy",
+      "p-bakhtin",
+      "p-burckhardt",
+      "p-carlo-antoni",
+      "p-cheon-hyeonggyun",
+      "p-croce",
+      "p-dominick-lacapra",
+      "p-foucault",
+      "p-frye",
+      "p-hayden-white",
+      "p-heinrich-rickert",
+      "p-im-jihyeon",
+      "p-jga-pocock",
+      "p-jules-michelet",
+      "p-juliet-gardiner",
+      "p-kim-wonsu",
+      "p-quentin-skinner",
+      "p-ranke",
+      "p-roger-chartier",
+      "p-stephen-pepper",
+      "p-steven-kaplan",
+      "p-wilhelm-windelband",
+      "p-yi-gwangnae",
+      "p-yi-jongheup"
     ]
   },
   {
@@ -3850,6 +4869,84 @@
       "p-boal",
       "p-brecht",
       "p-ibsen"
+    ]
+  },
+  {
+    "id": "p-choe-mungyu",
+    "name": "최문규",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-ernst-jandl"
+    ],
+    "theorists": [
+      "p-00062",
+      "p-00066",
+      "p-00093",
+      "p-adorno",
+      "p-albrecht-wellmer",
+      "p-foucault",
+      "p-gadamer",
+      "p-jonathan-culler",
+      "p-lyotard",
+      "p-pseudo-longinos"
+    ]
+  },
+  {
+    "id": "p-choe-seongsil",
+    "name": "최성실",
+    "ref": "http://lod.nl.go.kr/resource/KAC201735467 https://isni.org/isni/0000000461092535 http://viaf.org/viaf/223150468194004170157",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201735467",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 1,
+    "subjects": [
+      "p-choe-yun"
+    ],
+    "theorists": [
+      "p-00066"
+    ]
+  },
+  {
+    "id": "p-ha-eungbaek",
+    "name": "하응백",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-00240",
+      "p-chae-mansik",
+      "p-han-seungwon",
+      "p-imhwa",
+      "p-jeon-sangguk",
+      "p-kim-wonil",
+      "p-lee-dongha",
+      "p-park-taewon"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-ha-jeongil",
+    "name": "하정일",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-imhwa"
+    ],
+    "theorists": [
+      "p-im-gyuchan",
+      "p-kim-jaeyong",
+      "p-lee-yangsuk",
+      "p-seo-gyeongseok",
+      "p-sin-hyeonggi"
     ]
   },
   {
@@ -3888,6 +4985,65 @@
     ]
   },
   {
+    "id": "p-han-jaeyeong",
+    "name": "한재영",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-00078",
+      "p-00079",
+      "p-00083",
+      "p-00099",
+      "p-00100",
+      "p-00239",
+      "p-00240",
+      "p-00241",
+      "p-chae-mansik",
+      "p-hong-myeonghui",
+      "p-hyeon-jingeon",
+      "p-kim-seungok",
+      "p-yi-inseong",
+      "p-yu-jino"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-hong-seongho",
+    "name": "홍성호",
+    "ref": "http://lod.nl.go.kr/resource/KAC201223319 https://isni.org/isni/0000000464681036 http://viaf.org/viaf/10153061249919201529",
+    "lod": [
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201223319",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      }
+    ],
+    "essay_count": 1,
+    "subjects": [
+      "p-00028",
+      "p-00192",
+      "p-jean-genet",
+      "p-racine",
+      "p-robbe-grillet",
+      "p-witold-gombrowicz"
+    ],
+    "theorists": [
+      "p-00150",
+      "p-00152",
+      "p-althusser",
+      "p-destutt-de-tracy",
+      "p-edmond-maire",
+      "p-goldmann",
+      "p-jacques-leenhardt",
+      "p-macherey",
+      "p-pierre-zima",
+      "p-renee-balibar"
+    ]
+  },
+  {
     "id": "p-hong-yungi",
     "name": "홍윤기",
     "ref": "",
@@ -3908,6 +5064,64 @@
     ],
     "theorists": [
       "p-00040"
+    ]
+  },
+  {
+    "id": "p-hwang-jongyeon",
+    "name": "황종연",
+    "ref": "",
+    "lod": [],
+    "essay_count": 1,
+    "subjects": [
+      "p-chae-yeongju",
+      "p-gu-hyoseo",
+      "p-park-sangwoo",
+      "p-shin-gyeongsuk"
+    ],
+    "theorists": []
+  },
+  {
+    "id": "p-00077",
+    "name": "황지우",
+    "ref": "https://www.wikidata.org/wiki/Q3143549 http://lod.nl.go.kr/resource/KAC201407481 https://isni.org/isni/0000000363867800 http://viaf.org/viaf/226087436",
+    "lod": [
+      {
+        "href": "https://encykorea.aks.ac.kr/Article/E0074660",
+        "label": "한(작품)",
+        "full": "한국민족문화대백과 (작품)",
+        "bg": "#f0ede8",
+        "fg": "#5a3a2a"
+      },
+      {
+        "href": "http://lod.nl.go.kr/resource/KAC201407481",
+        "label": "NLK",
+        "full": "NLK LOD",
+        "bg": "#e8eef5",
+        "fg": "#1a3a5a"
+      },
+      {
+        "href": "https://www.wikidata.org/wiki/Q3143549",
+        "label": "W",
+        "full": "Wikidata",
+        "bg": "",
+        "fg": ""
+      }
+    ],
+    "essay_count": 1,
+    "subjects": [
+      "p-00038",
+      "p-00077",
+      "p-00078",
+      "p-00087",
+      "p-00106",
+      "p-00116",
+      "p-kim-seungok",
+      "p-lee-seongbok",
+      "p-park-inhwan"
+    ],
+    "theorists": [
+      "p-00157",
+      "p-00192"
     ]
   }
 ]

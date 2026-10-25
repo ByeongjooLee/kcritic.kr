@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박맹수 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">박맹수</span></div>
+      <h1 class="index-heading">박맹수</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김지하</span> <span class="chip role-writer">황현</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">조동일 (1)</span> <span class="chip chip-term">오지영 (1)</span> <span class="chip chip-term">박은식 (1)</span> <span class="chip chip-term">신용하 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "p-00106", "label": "김지하", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697 https://isni.org/isni/0000000081761311 http://viaf.org/viaf/110339675", "degree": 36, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201205697", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44366", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-cho-dongil", "label": "조동일", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12616636 http://lod.nl.go.kr/resource/KAC201203718 https://isni.org/isni/0000000109713283 http://viaf.org/viaf/51843523", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201203718", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12616636", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-hwang-hyeon", "label": "황현", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q11287888 http://lod.nl.go.kr/resource/KAC200107376 https://isni.org/isni/0000000023811974 http://viaf.org/viaf/264384383", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200107376", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11287888", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-o-jiyeong", "label": "오지영", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-park-eunsik", "label": "박은식", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q494106 http://lod.nl.go.kr/resource/KAC201111834 https://isni.org/isni/0000000034708817 http://viaf.org/viaf/6258120", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201111834", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q494106", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-park-maengsu", "label": "박맹수", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-sin-yongha", "label": "신용하", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q16084218 http://lod.nl.go.kr/resource/KAC201212378 https://isni.org/isni/0000000084097022 http://viaf.org/viaf/112354145", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201212378", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16084218", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "park-maengsu_donghak-cultural-history_1994", "label": "동학 혁명의 문화사적 의미", "type": "essay", "year": "1994", "degree": 7}], "edges": [{"source": "p-park-maengsu", "target": "park-maengsu_donghak-cultural-history_1994", "type": "wrote", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-cho-dongil", "type": "uses_theory", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-hwang-hyeon", "type": "subject_of", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-o-jiyeong", "type": "uses_theory", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-park-eunsik", "type": "uses_theory", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-sin-yongha", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1994</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/park-maengsu_donghak-cultural-history_1994.html">동학 혁명의 문화사적 의미</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 25호, 문학과지성사, 1994</p>
+        <div class="essay-card-tags"><span class="tag">김지하</span> <span class="tag">황현</span><span class="tag">조동일</span> <span class="tag">오지영</span> <span class="tag">박은식</span> <span class="tag">신용하</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홍성호 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">홍성호</span></div>
+      <h1 class="index-heading">홍성호</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201223319" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000464681036" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/10153061249919201529" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">카뮈</span> <span class="chip role-writer">사르트르</span> <span class="chip role-writer">장 쥬네</span> <span class="chip role-writer">라신</span> <span class="chip role-writer">로브-그리예</span> <span class="chip role-writer">곰브로비츠</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">만하임 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">알튀세르 (1)</span> <span class="chip chip-term">드 트라시 (1)</span> <span class="chip chip-term">메르 (1)</span> <span class="chip chip-term">골드만 (1)</span> <span class="chip chip-term">레나르트 (1)</span> <span class="chip chip-term">마슈레 (1)</span> <span class="chip chip-term">지마 (1)</span> <span class="chip chip-term">르네 발리바르 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "hong-seongho_literature-and-ideology_1992", "label": "문학과 이데올로기", "type": "essay", "year": "1992", "degree": 17}, {"id": "p-00028", "label": "카뮈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q34670 http://lod.nl.go.kr/resource/KAC200807597 https://isni.org/isni/0000000122832690 http://viaf.org/viaf/97000332", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200807597", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34670", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Albert Camus"}, {"id": "p-00150", "label": "카를 만하임", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76823 http://lod.nl.go.kr/resource/KAC199617632 https://isni.org/isni/0000000108748580 http://viaf.org/viaf/17291505", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617632", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76823", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Mannheim"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 45, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-00192", "label": "사르트르", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q9364 http://lod.nl.go.kr/resource/KAC199624126 https://isni.org/isni/000000012321080X http://viaf.org/viaf/76322562", "degree": 64, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199624126", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9364", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean-Paul Sartre"}, {"id": "p-althusser", "label": "루이 알튀세르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q184169 http://lod.nl.go.kr/resource/KAC199600493 https://isni.org/isni/0000000121243798 http://viaf.org/viaf/24596917", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600493", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q184169", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Louis Althusser"}, {"id": "p-destutt-de-tracy", "label": "드 트라시", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-edmond-maire", "label": "메르", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-goldmann", "label": "골드만", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q513448 http://lod.nl.go.kr/resource/KAC199610335 https://isni.org/isni/0000000108700579 http://viaf.org/viaf/12309113", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610335", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q513448", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Lucien Goldmann"}, {"id": "p-hong-seongho", "label": "홍성호", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201223319 https://isni.org/isni/0000000464681036 http://viaf.org/viaf/10153061249919201529", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201223319", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-jacques-leenhardt", "label": "레나르트", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jean-genet", "label": "장 쥬네", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-macherey", "label": "마셔레이", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q326897 http://lod.nl.go.kr/resource/KAC199617364 https://isni.org/isni/0000000109310572 http://viaf.org/viaf/108291115", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617364", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q326897", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Pierre Macherey"}, {"id": "p-pierre-zima", "label": "지마", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-racine", "label": "라신", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q742 http://lod.nl.go.kr/resource/KAC199622360 https://isni.org/isni/0000000123212338 http://viaf.org/viaf/88809641", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199622360", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q742", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean Racine"}, {"id": "p-renee-balibar", "label": "르네 발리바르", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-robbe-grillet", "label": "로브-그리예", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q216266 http://lod.nl.go.kr/resource/KAC199623134 https://isni.org/isni/0000000121448216 http://viaf.org/viaf/98153286", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199623134", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q216266", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Alain Robbe-Grillet"}, {"id": "p-witold-gombrowicz", "label": "곰브로비츠", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-hong-seongho", "target": "hong-seongho_literature-and-ideology_1992", "type": "wrote", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-00028", "type": "subject_of", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-00150", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-00192", "type": "subject_of", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-althusser", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-destutt-de-tracy", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-edmond-maire", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-goldmann", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-jacques-leenhardt", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-jean-genet", "type": "subject_of", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-macherey", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-pierre-zima", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-racine", "type": "subject_of", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-renee-balibar", "type": "uses_theory", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-robbe-grillet", "type": "subject_of", "weight": 1}, {"source": "hong-seongho_literature-and-ideology_1992", "target": "p-witold-gombrowicz", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1992</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/hong-seongho_literature-and-ideology_1992.html">문학과 이데올로기</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 17호, 문학과지성사, 1992</p>
+        <div class="essay-card-tags"><span class="tag">카뮈</span> <span class="tag">사르트르</span> <span class="tag">장 쥬네</span> <span class="tag">라신</span> <span class="tag">로브-그리예</span> <span class="tag">곰브로비츠</span><span class="tag">만하임</span> <span class="tag">마르크스</span> <span class="tag">알튀세르</span> <span class="tag">드 트라시</span> <span class="tag">메르</span> <span class="tag">골드만</span> <span class="tag">레나르트</span> <span class="tag">마슈레</span> <span class="tag">지마</span> <span class="tag">르네 발리바르</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

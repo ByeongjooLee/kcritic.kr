@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오생근 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q12607888" target="_blank" class="chip role-critic chip-linked">오생근 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">오생근</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201115776" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q12607888" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000024603990" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/28353841" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김성동</span> <span class="chip role-writer">이창동</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">마르쿠제 (1)</span> <span class="chip chip-term">보드리야르 (1)</span> <span class="chip chip-term">들뢰즈 (1)</span> <span class="chip chip-term">푸코 (1)</span> <span class="chip chip-term">갈브레이드 (1)</span> <span class="chip chip-term">지라르 (1)</span> <span class="chip chip-term">가타리 (1)</span> <span class="chip chip-term">크리스토퍼 라쉬 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-hyon_criticism-method_1980", "label": "비평의 방법", "type": "essay", "year": "1980", "degree": 19}, {"id": "oh-saenggeun_lee-changdong-totality-and-truth_1993", "label": "이창동의 총체적 시각과 삶의 진실", "type": "essay", "year": "1993", "degree": 3}, {"id": "oh-saenggeun_power-desire-society_1991", "label": "권력·욕망·사회", "type": "essay", "year": "1991", "degree": 10}, {"id": "p-00051", "label": "프로이트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9215 http://lod.nl.go.kr/resource/KAC199609326 https://isni.org/isni/0000000121272193 http://viaf.org/viaf/34456780", "degree": 42, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609326", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9215", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sigmund Freud"}, {"id": "p-00151", "label": "헤르베르트 마르쿠제", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q60030 http://lod.nl.go.kr/resource/KAC199617703 https://isni.org/isni/0000000121280417 http://viaf.org/viaf/36921579", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617703", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q60030", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Herbert Marcuse"}, {"id": "p-baudrillard", "label": "보드리야르", "type": "theorist", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-deleuze", "label": "들뢰즈", "type": "theorist", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 32, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-galbraith", "label": "갈브레이드", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-girard", "label": "르네 지라르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q129228 http://lod.nl.go.kr/resource/KAC199610152 https://isni.org/isni/0000000121495469 http://viaf.org/viaf/121751954", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610152", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q129228", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "René Girard"}, {"id": "p-guattari", "label": "가타리", "type": "theorist", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-kim-seongdong", "label": "김성동", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-lasch", "label": "크리스토퍼 래슈", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q705399 http://lod.nl.go.kr/resource/KAC199615974 https://isni.org/isni/0000000109151428 http://viaf.org/viaf/73856034", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199615974", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q705399", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Christopher Lasch"}, {"id": "p-lee-changdong", "label": "이창동", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q239656 http://lod.nl.go.kr/resource/KAC201229402 https://isni.org/isni/0000000122824674 http://viaf.org/viaf/84408838", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229402", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q239656", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-oh-saenggeun", "label": "오생근", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12607888 http://lod.nl.go.kr/resource/KAC201115776 https://isni.org/isni/0000000024603990 http://viaf.org/viaf/28353841", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201115776", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12607888", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "seong-minyeop_critical-sincerity_1994", "label": "비평적 진정성의 힘", "type": "essay", "year": "1994", "degree": 16}], "edges": [{"source": "kim-hyon_criticism-method_1980", "target": "p-oh-saenggeun", "type": "uses_theory", "weight": 1}, {"source": "p-oh-saenggeun", "target": "oh-saenggeun_lee-changdong-totality-and-truth_1993", "type": "wrote", "weight": 1}, {"source": "p-oh-saenggeun", "target": "oh-saenggeun_power-desire-society_1991", "type": "wrote", "weight": 1}, {"source": "seong-minyeop_critical-sincerity_1994", "target": "p-oh-saenggeun", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_lee-changdong-totality-and-truth_1993", "target": "p-kim-seongdong", "type": "subject_of", "weight": 1}, {"source": "oh-saenggeun_lee-changdong-totality-and-truth_1993", "target": "p-lee-changdong", "type": "subject_of", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-00051", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-00151", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-baudrillard", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-deleuze", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-galbraith", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-girard", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-guattari", "type": "uses_theory", "weight": 1}, {"source": "oh-saenggeun_power-desire-society_1991", "target": "p-lasch", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1991</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/oh-saenggeun_power-desire-society_1991.html">권력·욕망·사회</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 15호, 문학과지성사, 1991</p>
+        <div class="essay-card-tags"><span class="tag">프로이트</span> <span class="tag">마르쿠제</span> <span class="tag">보드리야르</span> <span class="tag">들뢰즈</span> <span class="tag">푸코</span> <span class="tag">갈브레이드</span> <span class="tag">지라르</span> <span class="tag">가타리</span> <span class="tag">크리스토퍼 라쉬</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1993</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/oh-saenggeun_lee-changdong-totality-and-truth_1993.html">이창동의 총체적 시각과 삶의 진실</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 21호, 문학과지성사, 1993</p>
+        <div class="essay-card-tags"><span class="tag">김성동</span> <span class="tag">이창동</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

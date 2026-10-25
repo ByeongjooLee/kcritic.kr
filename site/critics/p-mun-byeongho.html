@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문병호 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">문병호</span></div>
+      <h1 class="index-heading">문병호</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">8</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">8</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">발자크</span> <span class="chip role-writer">고리키</span> <span class="chip role-writer">조이스</span> <span class="chip role-writer">카프카</span> <span class="chip role-writer">프루스트</span> <span class="chip role-writer">스탕달</span> <span class="chip role-writer">토마스 만</span> <span class="chip role-writer">베케트</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">레닌 (1)</span> <span class="chip chip-term">루카치 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">아도르노 (1)</span> <span class="chip chip-term">데리다 (1)</span> <span class="chip chip-term">푸코 (1)</span> <span class="chip chip-term">야우스 (1)</span> <span class="chip chip-term">뷔르거 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "mun-byeongho_dialectical-art-theory_1994", "label": "변증법적 예술 이론의 현재적 의미 — 환경 위기 시대에 있어서 루카치, 아도르노 이론의 상호 보완 가능성", "type": "essay", "year": "1994", "degree": 17}, {"id": "p-00017", "label": "발자크", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q9711 http://lod.nl.go.kr/resource/KAC199601509 https://isni.org/isni/0000000123478072 http://viaf.org/viaf/29529595", "degree": 24, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601509", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9711", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Honoré de Balzac"}, {"id": "p-00060", "label": "막심 고리키", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12706 http://lod.nl.go.kr/resource/KAC199610478 https://isni.org/isni/0000000121445808 http://viaf.org/viaf/96998392", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610478", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12706", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Maxim Gorky"}, {"id": "p-00088", "label": "제임스 조이스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q6882 http://lod.nl.go.kr/resource/KAC199614250 https://isni.org/isni/0000000121302495 http://viaf.org/viaf/44300643", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614250", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6882", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "James Joyce"}, {"id": "p-00092", "label": "카프카", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q905 http://lod.nl.go.kr/resource/KAC199614306 https://isni.org/isni/000000012280370X http://viaf.org/viaf/56611857", "degree": 20, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614306", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q905", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Franz Kafka"}, {"id": "p-00138", "label": "레닌", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q1394 http://lod.nl.go.kr/resource/KAC199616356 https://isni.org/isni/0000000120988915 http://viaf.org/viaf/7393146", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199616356", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q1394", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Vladimir Lenin"}, {"id": "p-00146", "label": "루카치", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q151523 http://lod.nl.go.kr/resource/KAC199617179 https://isni.org/isni/0000000121309398 http://viaf.org/viaf/46764285", "degree": 43, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617179", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q151523", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Lukács"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 45, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-00181", "label": "프루스트", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q7199 http://lod.nl.go.kr/resource/KAC199622210 https://isni.org/isni/0000000121003911 http://viaf.org/viaf/32001793", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199622210", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q7199", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Marcel Proust"}, {"id": "p-00207", "label": "스탕달", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q502 http://lod.nl.go.kr/resource/KAC199626409 https://isni.org/isni/0000000120981326 http://viaf.org/viaf/17823", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199626409", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q502", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Stendhal"}, {"id": "p-00216", "label": "토마스 만", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q37030 http://lod.nl.go.kr/resource/KAC200104031 https://isni.org/isni/0000000121333953 http://viaf.org/viaf/54151065", "degree": 22, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200104031", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37030", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Thomas Mann"}, {"id": "p-adorno", "label": "아도르노", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q152388 http://lod.nl.go.kr/resource/KAC199600199 https://isni.org/isni/0000000121442113 http://viaf.org/viaf/95247377", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600199", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q152388", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Theodor W. Adorno"}, {"id": "p-beckett", "label": "베케트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q37327 http://lod.nl.go.kr/resource/KAC199601994 https://isni.org/isni/0000000121192038 http://viaf.org/viaf/7386737", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601994", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37327", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Samuel Beckett"}, {"id": "p-derrida", "label": "데리다", "type": "theorist", "ref": "", "degree": 15, "lod": [], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 32, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-jauss", "label": "한스 로베르트 야우스", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-mun-byeongho", "label": "문병호", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-peter-buerger", "label": "뷔르거", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-mun-byeongho", "target": "mun-byeongho_dialectical-art-theory_1994", "type": "wrote", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00017", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00060", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00088", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00092", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00138", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00146", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00181", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00207", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-00216", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-adorno", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-beckett", "type": "subject_of", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-derrida", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-jauss", "type": "uses_theory", "weight": 1}, {"source": "mun-byeongho_dialectical-art-theory_1994", "target": "p-peter-buerger", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1994</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/mun-byeongho_dialectical-art-theory_1994.html">변증법적 예술 이론의 현재적 의미 — 환경 위기 시대에 있어서 루카치, 아도르노 이론의 상호 보완 가능성</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 27호, 문학과지성사, 1994</p>
+        <div class="essay-card-tags"><span class="tag">발자크</span> <span class="tag">고리키</span> <span class="tag">조이스</span> <span class="tag">카프카</span> <span class="tag">프루스트</span> <span class="tag">스탕달</span> <span class="tag">토마스 만</span> <span class="tag">베케트</span><span class="tag">레닌</span> <span class="tag">루카치</span> <span class="tag">마르크스</span> <span class="tag">아도르노</span> <span class="tag">데리다</span> <span class="tag">푸코</span> <span class="tag">야우스</span> <span class="tag">뷔르거</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

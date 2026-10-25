@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>최문규 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">최문규</span></div>
+      <h1 class="index-heading">최문규</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">얀들</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">하버마스 (1)</span> <span class="chip chip-term">하이데거 (1)</span> <span class="chip chip-term">칸트 (1)</span> <span class="chip chip-term">아도르노 (1)</span> <span class="chip chip-term">알브레히트 벨머 (1)</span> <span class="chip chip-term">푸코 (1)</span> <span class="chip chip-term">가다머 (1)</span> <span class="chip chip-term">조나탄 컬러 (1)</span> <span class="chip chip-term">료타르 (1)</span> <span class="chip chip-term">롱기노스 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "label": "포스트모더니즘과 장엄함의 미학 — 칸트와 료타르를 중심으로", "type": "essay", "year": "1992", "degree": 12}, {"id": "p-00062", "label": "위르겐 하버마스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76357 http://lod.nl.go.kr/resource/KAC199611157 https://isni.org/isni/0000000121468372 http://viaf.org/viaf/108179854", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611157", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76357", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jürgen Habermas"}, {"id": "p-00066", "label": "하이데거", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q48301 http://lod.nl.go.kr/resource/KAC199611974 https://isni.org/isni/0000000121244141 http://viaf.org/viaf/24602613", "degree": 36, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611974", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q48301", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Martin Heidegger"}, {"id": "p-00093", "label": "칸트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9312 http://lod.nl.go.kr/resource/KAC199614392 https://isni.org/isni/0000000122824025 http://viaf.org/viaf/82088490", "degree": 20, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614392", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9312", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Immanuel Kant"}, {"id": "p-adorno", "label": "아도르노", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q152388 http://lod.nl.go.kr/resource/KAC199600199 https://isni.org/isni/0000000121442113 http://viaf.org/viaf/95247377", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600199", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q152388", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Theodor W. Adorno"}, {"id": "p-albrecht-wellmer", "label": "알브레히트 벨머", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-choe-mungyu", "label": "최문규", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ernst-jandl", "label": "얀들", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 32, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-gadamer", "label": "가다머", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q76356 http://lod.nl.go.kr/resource/KAC199609548 https://isni.org/isni/0000000121468698 http://viaf.org/viaf/108229357", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609548", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q76356", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Hans-Georg Gadamer"}, {"id": "p-jonathan-culler", "label": "조나탄 컬러", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lyotard", "label": "리오타르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q193257 http://lod.nl.go.kr/resource/KAC201515338 https://isni.org/isni/0000000120968164 http://viaf.org/viaf/108393539", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201515338", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q193257", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean-François Lyotard"}, {"id": "p-pseudo-longinos", "label": "롱기노스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-choe-mungyu", "target": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "type": "wrote", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-00062", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-00066", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-00093", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-adorno", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-albrecht-wellmer", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-ernst-jandl", "type": "subject_of", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-gadamer", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-jonathan-culler", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-lyotard", "type": "uses_theory", "weight": 1}, {"source": "choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992", "target": "p-pseudo-longinos", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1992</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/choe-mungyu_postmodernism-and-aesthetics-of-the-sublime_1992.html">포스트모더니즘과 장엄함의 미학 — 칸트와 료타르를 중심으로</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 19호, 문학과지성사, 1992</p>
+        <div class="essay-card-tags"><span class="tag">얀들</span><span class="tag">하버마스</span> <span class="tag">하이데거</span> <span class="tag">칸트</span> <span class="tag">아도르노</span> <span class="tag">알브레히트 벨머</span> <span class="tag">푸코</span> <span class="tag">가다머</span> <span class="tag">조나탄 컬러</span> <span class="tag">료타르</span> <span class="tag">롱기노스</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>
