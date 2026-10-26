@@ -65,6 +65,7 @@ function shell(current) {
   const ph = () => { gq.placeholder = narrowQ.matches ? "이름으로 찾기" : "글·인물·개념어 이름으로 찾기"; };
   narrowQ.addEventListener("change", ph); ph();
   globalSearch();
+  const st = document.createElement("script"); st.src = "/kc-stat.js"; st.defer = true; document.head.appendChild(st);   // 방문 통계(IP 없음)
 }
 
 function globalSearch() {
@@ -93,10 +94,11 @@ function globalSearch() {
       e.preventDefault(); sel = Math.max(0, Math.min(items.length - 1, sel + (e.key === "ArrowDown" ? 1 : -1)));
       items.forEach((a, i) => a.classList.toggle("sel", i === sel));
     } else if (e.key === "Enter") {
-      if (items[sel]) location.href = items[sel].href;
+      if (items[sel]) { window.kcStat?.("search", inp.value); location.href = items[sel].href; }   // 전체 검색(else)은 explore 화면이 센다
       else location.href = `explore.html?p=essays&q=${encodeURIComponent(inp.value.trim())}`;
     } else if (e.key === "Escape") box.classList.remove("show");
   });
+  box.addEventListener("click", e => { const a = e.target.closest("a"); if (a && !a.href.includes("explore.html")) window.kcStat?.("search", inp.value); });
   document.addEventListener("click", e => { if (!e.target.closest(".gsearch")) box.classList.remove("show"); });
   document.addEventListener("keydown", e => { if (e.key === "/" && document.activeElement.tagName !== "INPUT") { e.preventDefault(); inp.focus(); } });
 }

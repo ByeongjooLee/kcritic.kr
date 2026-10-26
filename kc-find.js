@@ -167,7 +167,7 @@ const FIND = (() => {
 
   async function api(q, words) {
     try {
-      const r = await fetch(`/api/find?q=${encodeURIComponent(q)}&w=${encodeURIComponent(words.join(","))}`);
+      const r = await fetch(`/api/find?q=${encodeURIComponent(q)}&w=${encodeURIComponent(words.join(","))}${window.KC_NOSTAT ? "&ns=1" : ""}`);   // ns: 관리자 브라우저는 통계에서 뺀다
       if (!r.ok) return { v: null, body: {}, error: r.status === 429 ? "잠시 뒤 다시 시도해 주세요" : "검색 서버 응답 없음" };
       return await r.json();
     } catch (e) { return { v: null, body: {}, error: "검색 서버에 연결하지 못했습니다" }; }

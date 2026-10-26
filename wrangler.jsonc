@@ -5,6 +5,10 @@
   // /api/* 만 Worker(worker/index.js)가 받고 나머지는 정적 자산. 글 찾기: 질문 임베딩(Workers AI) + 본문 희귀어 조회
   "main": "worker/index.js",
   "ai": { "binding": "AI" },
+  // 방문 통계 — 날짜·항목별 숫자만, IP·방문자 식별자는 저장하지 않는다. 표: worker/stats.sql. 보는 화면은 사이트 밖(관리자 컴퓨터의 파일)
+  "d1_databases": [
+    { "binding": "DB", "database_name": "kcritic-stats", "database_id": "79920b2c-7dc4-4a63-be97-765bcd6b237a" }
+  ],
   "observability": {
     "enabled": true
   },

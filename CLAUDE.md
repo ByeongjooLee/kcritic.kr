@@ -38,6 +38,7 @@ AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로
 - 판정 수집기 `../판정수집_AppsScript.gs` 는 운영자 메일 주소를 담고 있어 **저장소 밖(부모 폴더)** 에 둔다. 저장소·사이트 코드에는 웹 앱 URL(`site/data/game_config.json`)만 들어간다
 - `.env.example` 도 배포 제외 (`.assetsignore`) — 실값은 없어도 어떤 키를 쓰는지 스캐너에 알려주는 힌트가 됨
 - **글 찾기 본문 색인 `worker/private/` 은 공개 금지 (2026-10-22)**: 본문 희귀어 역색인(원문에서 만든 낱말→글 번호)은 `.gitignore`·`.assetsignore` 로 막혀 있고 Worker 번들에만 들어간다. GitHub 공개 저장소에 올리거나 정적 파일로 내보내지 말 것. 본문 구간 벡터도 만들어 공개하지 않는다(임베딩 역추적으로 원문 일부 복원 가능). 공개되는 `site/data/find/` 벡터는 메타데이터(제목·개념어·인물)에서만 만든다
+- **방문 통계 (2026-10-25)**: `kc-stat.js`(kc.js `shell()`·kc-shell.js 가 불러옴)가 화면을 열 때·머리말 검색 때 `POST /api/hit` 를 보내고, Worker 가 D1 `kcritic-stats` 의 `hits(day, kind, k, n)` 에 날짜(한국 시각)·항목별 건수만 +1 한다(표: `worker/stats.sql`). **IP·쿠키·방문자 식별자는 저장하지 않는다** — IP 는 분당 요청 상한을 셀 때 메모리에서만. 방문 = 그 탭에서 처음 연 화면(sessionStorage). 봇 UA·엉뚱한 키는 버린다. 14개월 넘은 기록은 지운다. 조회는 `GET /api/stats`(Authorization: Bearer `STATS_TOKEN` 비밀값, CORS 허용) — **통계 화면은 사이트·저장소에 두지 않는다**(연구자 결정): 관리자 컴퓨터의 `../kcritic_방문통계.html`, 토큰은 `../관리자_통계_토큰.txt`. 관리자 브라우저는 `?nostat=1` 로 한 번 열면 통계에서 빠진다. 글 찾기 질문은 `/api/find` 에서 센다(`ns=1` 이면 안 셈)
 - `/api/find` 응답에는 질문 벡터와 '질문에 있던 낱말 → 글 번호'만 담는다. 원문 문장을 돌려주는 경로를 만들지 말 것
 
 ### API 서버(`neo4j_api.py`) 보안 규칙 — 2026-09-07 강화
