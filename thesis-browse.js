@@ -8,7 +8,7 @@ const ThesisBrowse=(()=>{
    const tags=new Map(t.topics.map(t=>[t.id,t]));return b.theses.map(d=>({...d,institution:t.institutions?.[d.university]||d.university,people:tags.get(d.id)?.people||[],concepts:tags.get(d.id)?.concepts||[]}));
  }).catch(e=>{pending=null;throw e;});
  const href=(p,field='',term='')=>'/theses/?'+new URLSearchParams({p,...(field?{field,term}:{})});
- function tabs(){document.title=labels[view]+' · 학술연구 — kcritic';const nav=document.querySelector('.thesis-search .tabs');nav.replaceChildren();for(const [p,label] of Object.entries(labels)){const a=node('a',label,p===view?'on':'');a.href=href(p);if(p===view)a.setAttribute('aria-current','page');nav.append(a);}const lineage=node('a','학맥(學脈)');lineage.href='/lineage.html';nav.append(lineage);document.querySelector('.ex-head h1').textContent='학술연구';}
+ function tabs(){document.title=labels[view]+' · 학술연구 — kcritic';const nav=document.querySelector('.thesis-search .tabs');nav.replaceChildren();for(const [p,label] of Object.entries(labels)){const a=node('a',label,p===view?'on':'');a.href=href(p);if(p===view)a.setAttribute('aria-current','page');nav.append(a);}const lineage=node('a','학맥(學脈)');lineage.href='/lineage.html';nav.insertBefore(lineage,nav.children[4]);document.querySelector('.ex-head h1').textContent='학술연구';}
  function card(d,query='',options={}){
    const item=node('article',undefined,'row'),year=node('div',String(d.year||'—'),'yr num'),body=node('div'),h=node('h4'),a=node('a',d.title);
    const p=new URLSearchParams({type:'thesis',id:d.id});if(query){p.set('q',query);for(const k of ['relevanceStrength','selectionStrength'])p.set(k,options[k]||0);}
