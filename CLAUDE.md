@@ -1002,3 +1002,5 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - Git 미커밋 파일이라도 이미 운영 중일 수 있다. 배포 전 운영 자산과 직전 배포본을 대조하고, 커밋 추출만으로 기존 운영 기능이 보존된다고 판단하지 않는다.
 
 - 지도교수 정정(2026-10-27): 천정환 본인 학위논문 `eeea758c003fa8ac`의 지도교수는 미확인. 김윤식으로 확정하지 않는다. 공개 내보내기는 advisor_raw를 비우고 advisor_status=unconfirmed로 표시한다. 천정환이 지도한 제자 관계에는 적용하지 않는다.
+
+- 김인환→오형엽: 사용자 확인에 따라 고려대학교 사제관계로 표시한다. 관계의 institution_id를 사용하며 박사 지도관계로 자동 승격하지 않는다.

@@ -57,3 +57,11 @@ test('Chun Jung-hwan advisor remains unconfirmed in data and the rendered page',
  const n=await render();n.get('thesis-query').value='천정환';n.get('thesis-query').oninput();
  assert(n.get('thesis-results').innerHTML.includes('미확인'));
 });
+
+test('Kim In-hwan and Oh Hyeong-yeop mentorship identifies Korea University',async()=>{
+ const people=new Map(data.people.map(p=>[p.id,p.name]));
+ const edge=data.relationships.find(e=>people.get(e.source)==='김인환'&&people.get(e.target)==='오형엽');
+ assert.equal(edge.type,'mentorship');assert.equal(edge.thesis_id,null);
+ assert.equal(data.institutions.find(o=>o.id===edge.institution_id).name,'고려대학교');
+ const n=await render();assert(n.get('mentorships').innerHTML.includes('고려대학교 사제관계'));
+});

@@ -32,7 +32,7 @@ def export(data):
     return dict(schema_version='1.0',updated_at=data['generated_at'],summary={k:data['summary'][k] for k in ['thesis_records','normalized_degree_institutions','unresolved_school_records','user_mentorship_edges','prior_verified_supervision_edges','supplemental_thesis_records','web_reviewed_faculty_profiles']},
         institutions=[{k:o[k] for k in ['id','name','thesis_count']} for o in data['institutions']],people=people,
         theses=[thesis(t) for t in data['theses']],reference_theses=[thesis(t) for t in data['reference_theses']],
-        relationships=[{**{k:e.get(k) for k in ['id','type','source','target','status','thesis_id']},'sources':links(e['evidence_ids'])} for e in data['relationships']],
+        relationships=[{**{k:e.get(k) for k in ['id','type','source','target','status','thesis_id','institution_id']},'sources':links(e['evidence_ids'])} for e in data['relationships']],
         faculty_profiles=[{k:f[k] for k in ['person_id','name','institution','department','status','status_label','death_year','books']} for f in data['faculty_profiles']])
 
 if __name__=='__main__':
