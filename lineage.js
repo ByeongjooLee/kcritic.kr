@@ -369,12 +369,34 @@ el('clearHighlight').onclick = () => { highlight = null; uniFocus = null; render
 el('backRoot').onclick = () => { if (trail.length) setRoot(trail.pop(), false); };
 el('csv').onclick = downloadCsv;
 const vp = el('viewport'); let drag = null, suppressClick = false;
+const pointers = new Map(); let pinch = null;                      // 두 손가락 집기(모바일·태블릿)
+// 휠 = 확대·축소(페이지 스크롤은 막음). 트랙패드 집기는 ctrlKey 가 붙은 작은 휠 이벤트로 오므로 감도를 올린다. deltaMode 가 줄·쪽 단위인 브라우저도 맞춘다.
+vp.addEventListener('wheel', e => {
+  e.preventDefault(); const r = vp.getBoundingClientRect();
+  const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? vp.clientHeight : 1, dy = e.deltaY * unit;
+  zoomTo(Z.k * Math.exp(-dy * (e.ctrlKey ? .01 : .0012)), e.clientX - r.left, e.clientY - r.top);
+}, { passive: false });
 // 포인터 캡처는 쓰지 않는다(캡처하면 click 대상이 바뀌어 노드 클릭이 먹지 않는다). 창 전체에서 이동·놓기를 받는다.
-vp.addEventListener('wheel', e => { e.preventDefault(); const r = vp.getBoundingClientRect(); zoomTo(Z.k * Math.exp(-e.deltaY * .0012), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
-vp.addEventListener('pointerdown', e => { if (e.button !== 0) return; drag = { x: e.clientX, y: e.clientY, zx: Z.x, zy: Z.y, moved: false }; });
-window.addEventListener('pointermove', e => { if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (!drag.moved && Math.abs(dx) + Math.abs(dy) < 4) return; drag.moved = true; vp.classList.add('dragging'); Z.x = drag.zx + dx; Z.y = drag.zy + dy; apply(); e.preventDefault(); });
-const endDrag = () => { suppressClick = !!drag?.moved; drag = null; vp.classList.remove('dragging'); };
-window.addEventListener('pointerup', endDrag); window.addEventListener('pointercancel', endDrag); window.addEventListener('blur', endDrag);
+vp.addEventListener('pointerdown', e => {
+  if (e.pointerType === 'touch') pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (pointers.size === 2) {                                        // 두 번째 손가락: 끌기를 멈추고 집기 시작
+    const [a, b] = [...pointers.values()], r = vp.getBoundingClientRect();
+    pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: Z.k, mx: (a.x + b.x) / 2 - r.left, my: (a.y + b.y) / 2 - r.top, zx: Z.x, zy: Z.y };
+    drag = null; return;
+  }
+  if (e.button !== 0) return; drag = { x: e.clientX, y: e.clientY, zx: Z.x, zy: Z.y, moved: false };
+});
+window.addEventListener('pointermove', e => {
+  if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (pinch && pointers.size === 2) {
+    const [a, b] = [...pointers.values()], r = vp.getBoundingClientRect(), d = Math.hypot(a.x - b.x, a.y - b.y);
+    const mx = (a.x + b.x) / 2 - r.left, my = (a.y + b.y) / 2 - r.top, k = Math.max(.2, Math.min(3, pinch.k * d / pinch.d));
+    Z.x = mx - (pinch.mx - pinch.zx) * k / pinch.k; Z.y = my - (pinch.my - pinch.zy) * k / pinch.k; Z.k = k; apply(); e.preventDefault(); return;
+  }
+  if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (!drag.moved && Math.abs(dx) + Math.abs(dy) < 4) return; drag.moved = true; vp.classList.add('dragging'); Z.x = drag.zx + dx; Z.y = drag.zy + dy; apply(); e.preventDefault();
+});
+const endDrag = e => { if (e && pointers.has(e.pointerId)) pointers.delete(e.pointerId); if (pointers.size < 2) { if (pinch) suppressClick = true; pinch = null; } if (drag) suppressClick = !!drag.moved; drag = null; vp.classList.remove('dragging'); };
+window.addEventListener('pointerup', endDrag); window.addEventListener('pointercancel', endDrag); window.addEventListener('blur', () => { pointers.clear(); endDrag(); });
 vp.addEventListener('click', e => { if (suppressClick) { suppressClick = false; e.stopPropagation(); e.preventDefault(); } else if (!e.target.closest('.ln-node')) { highlight = null; paint(); } }, true);
 window.addEventListener('resize', () => { if (view) apply(); });
 
