@@ -32,3 +32,6 @@ id_map.json
 
 # 개념어 나눔 표(빌드 입력, 원문 없음) — 정적 자산 아님
 concept_split.json
+
+# Local automated checks are not site assets
+/tests
