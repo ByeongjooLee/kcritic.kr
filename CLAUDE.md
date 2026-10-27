@@ -551,6 +551,14 @@ py build.py → py build_site_v2.py → git push → npx wrangler deploy   (.\de
 
 > **`.rdf`는 제외 대상이 아니다** — `critic_v8_schema.rdf`·`critic_v8_data.rdf` 는 의도적으로 배포되어 `about.html` 에서 내려받게 되어 있다. `*.xml` 패턴에 걸리지 않으니 확장자를 `.xml`로 바꾸지 말 것.
 
+### 학술연구(`/theses/*`) 는 별도 Worker — 데이터 파일은 이 저장소가 공급 (2026-10-28)
+
+`/theses/*` 화면(박사논문 찾기·글·인물·개념어·학위수여기관·지도교수 탭)은 **다른 Worker `kcritic-theses-search`**(route `kcritic.kr/theses*`, 소스 `Documents/Codex/2026-10-23/…ddmkl…/work/public_search`)가 서빙한다. 그 화면이 쓰는 `/thesis-browse.js`·`/study.html`·`/site/data/research-public.json`·`/site/data/thesis-topics-public.json`·`/site/data/thesis-citations-public.json` 은 **이 저장소(메인 `kcritic` Worker)의 자산**이다.
+
+- `site/data/thesis-topics-public.json` 은 theses-search 쪽 `export_browse.mjs` 가 만든다(논문별 공개 인물·개념어 태그 + 대학명 정규화 표, 1,593편). 2026-10-27 까지 git 에 없이 작업 폴더에서만 배포돼 있었고, 저장소 체크아웃에서 배포하자 404 → 글·인물·개념어·학위수여기관·지도교수 탭이 "서지정보를 불러오지 못했습니다" 로 멈췄다. 2026-10-28 저장소에 넣어 복구. **새로 export 하면 반드시 커밋한다.**
+- 배포 전 확인: `curl -s -o /dev/null -w "%{http_code}" https://kcritic.kr/site/data/thesis-topics-public.json` 이 200 이어야 한다. `thesis-browse.js` 는 두 파일 중 하나라도 실패하면 탭 전체를 비운다.
+- `research-public.json` 의 `works`(참고문헌 집계)는 저장소 판이 12종(김기림 관련 일부)이고, theses-search 의 `menu_release` 판은 236종(전체)이다. 어느 쪽을 공개할지는 연구자 결정 사항(2026-10-28 현재 12종 유지).
+
 ### 개체 IRI 역참조 (`_redirects`)
 
 graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다. 인물은 한 줄씩, 비평글은 `/resource/essay/* /site/essays/:splat 303` 한 줄(2026-10-25, 현재 1,616줄). Cloudflare 정적 리다이렉트 한도는 2,000줄 — 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
