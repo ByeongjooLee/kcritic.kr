@@ -1000,3 +1000,5 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - 상단 메뉴는 통합검색·현장비평·학술연구 3개다. kc.js와 kc-shell.js를 함께 유지한다.
 - 이전 별도 배포본의 상단·통합검색·연구 상세·공개 서지 데이터를 저장소에 포함한다. academic-network와 기존 학맥 연결을 유지한다.
 - Git 미커밋 파일이라도 이미 운영 중일 수 있다. 배포 전 운영 자산과 직전 배포본을 대조하고, 커밋 추출만으로 기존 운영 기능이 보존된다고 판단하지 않는다.
+
+- 지도교수 정정(2026-10-27): 천정환 본인 학위논문 `eeea758c003fa8ac`의 지도교수는 미확인. 김윤식으로 확정하지 않는다. 공개 내보내기는 advisor_raw를 비우고 advisor_status=unconfirmed로 표시한다. 천정환이 지도한 제자 관계에는 적용하지 않는다.

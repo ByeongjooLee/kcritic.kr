@@ -49,3 +49,11 @@ test('existing lineage links to the new screen without rewriting doctoral edges'
  assert(fs.readFileSync(path.join(root,'lineage.js'),'utf8').includes('encodeURIComponent(t.name)'));
  assert(fs.readFileSync(path.join(root,'.assetsignore'),'utf8').includes('/tests'));
 });
+
+test('Chun Jung-hwan advisor remains unconfirmed in data and the rendered page',async()=>{
+ const t=data.theses.find(t=>t.id==='eeea758c003fa8ac');
+ assert.equal(t.advisor_raw,'');assert.equal(t.advisor_status,'unconfirmed');
+ assert(!data.relationships.some(e=>e.type==='doctoral_supervision'&&e.target===t.author_person_id));
+ const n=await render();n.get('thesis-query').value='천정환';n.get('thesis-query').oninput();
+ assert(n.get('thesis-results').innerHTML.includes('미확인'));
+});

@@ -23,7 +23,12 @@ def export(data):
             affiliations.append({**{k:a.get(k) for k in ['institution_id','department','role','temporal_status','verification','display_status','end_date']},'sources':links(a['evidence_ids'])})
         people.append(dict(id=p['id'],name=p['name'],thesis_ids=p['thesis_ids'],affiliations=affiliations,death_year=p.get('life_status',{}).get('year'),books=[b['title'] for b in p.get('books',[])]))
     def thesis(t):
-        return {k:t.get(k) for k in ['id','title','author_raw','author_person_id','year_raw','institution_id','university_raw','riss_url','advisor_raw']}
+        result = {k:t.get(k) for k in ['id','title','author_raw','author_person_id','year_raw','institution_id','university_raw','riss_url','advisor_raw']}
+        # Explicit correction: do not re-import an unverified advisor assignment.
+        if t['id']=='eeea758c003fa8ac':
+            result.update(advisor_raw='', advisor_status='unconfirmed')
+        return result
+    assert not any(e.get('type')=='doctoral_supervision' and e.get('thesis_id')=='eeea758c003fa8ac' for e in data['relationships']), 'Unconfirmed doctoral advisor for Chun Jung-hwan'
     return dict(schema_version='1.0',updated_at=data['generated_at'],summary={k:data['summary'][k] for k in ['thesis_records','normalized_degree_institutions','unresolved_school_records','user_mentorship_edges','prior_verified_supervision_edges','supplemental_thesis_records','web_reviewed_faculty_profiles']},
         institutions=[{k:o[k] for k in ['id','name','thesis_count']} for o in data['institutions']],people=people,
         theses=[thesis(t) for t in data['theses']],reference_theses=[thesis(t) for t in data['reference_theses']],
