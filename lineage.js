@@ -16,8 +16,11 @@ const PALETTE = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300
 const COL = 250;                                       // 간단 보기: 세대 사이 열 간격
 let D, N, adj, root, selected, selectedEdge = null, highlight = null, uniFocus = null, view = null, uniColor = new Map(), metricsCache = new Map(), sortKey = 'descendants', sortDir = -1;
 // 기본은 간단 보기. 시간축 보기는 ?view=time 이나 버튼으로 고르고, 마지막 선택은 localStorage 에 남긴다.
-let mode = (new URLSearchParams(location.search).get('view') === 'time' || (!new URLSearchParams(location.search).has('view') && (() => { try { return localStorage.getItem('kc-lineage-view') === 'time'; } catch (_) { return false; } })())) ? 'time' : 'simple';   // 'simple' = 세대 열·역할 색, 'time' = 시간축·대학 색
-const simple = () => mode === 'simple';
+// 보기: 'radial' = 원형(기본, 세대 고리·역할 색), 'simple' = 세대 열·역할 색, 'time' = 시간축·대학 색. ?view= 가 우선, 없으면 마지막 선택.
+const VIEWS = ['radial', 'simple', 'time'];
+let mode = (() => { const q = new URLSearchParams(location.search).get('view'); if (VIEWS.includes(q)) return q; try { const s = localStorage.getItem('kc-lineage-view'); if (VIEWS.includes(s)) return s; } catch (_) {} return 'radial'; })();
+const simple = () => mode === 'simple', radial = () => mode === 'radial', timeline = () => mode === 'time';
+const polar = (r, t) => [r * Math.cos(t), r * Math.sin(t)];
 const trail = [], Z = { k: 1, x: 0, y: 0 };
 
 // 소속·학위 대학 표기: 한자 교명을 한글로, 대학원·학과·전공을 떼고 대학명(+캠퍼스)만 남긴다. 서지 원표기는 상세에서 그대로 보존한다.
@@ -110,6 +113,16 @@ function layout() {
   const known = items.map(x => x.year).filter(Boolean);
   const y0 = tree.year || (known.length ? Math.min(...known) - 4 : 2000), y1 = (known.length ? Math.max(...known) : y0 + 10) + 1;
   const x0 = PAD_L + colOffset, maxDepth = Math.max(...items.map(x => x.depth)), ticks = [];
+  if (radial()) {
+    // 원형 보기: 세로 트리의 겹치지 않는 행 간격을 그대로 각도로 옮기고(첫 제자가 12시 방향, 시계 방향), 세대는 고리.
+    // 고리 간격은 1세대 고리에서 학위자 행(27px)의 호 길이가 24px 이상이 되도록 정한다 → 이름이 서로 겹치지 않는다.
+    // 12시 방향에는 빈 쐐기(세로 트리 90px 상당)를 두어 고리 이름이 들어갈 자리를 만든다.
+    const SEAM = 90, H = Math.max(tree.h, 1) + SEAM, ring = Math.max(170, Math.round(H * 24 / (2 * Math.PI * ROW.student)));
+    const Rmax = Math.max(1, maxDepth) * ring, pad = 250, cx = Rmax + pad, cy = Rmax + pad;
+    items.forEach(x => { x.theta = x.depth ? -Math.PI / 2 + 2 * Math.PI * (x.y - top + SEAM / 2) / H : 0; x.r = x.depth * ring; x.x = cx + x.r * Math.cos(x.theta); x.y = cy + x.r * Math.sin(x.theta); });
+    for (let d = 1; d <= maxDepth; d++) ticks.push([d * ring, `제자 ${d}세대`]);
+    return { items, tree, mentors, lines, cycles, maxDepth, ticks, ring, cx, cy, x0, y0, y1, width: cx * 2, height: cy * 2 };   // 상위 지도교수는 그리지 않고 버튼으로만 (mentorNav)
+  }
   if (simple()) {                                       // 간단 보기: 세대마다 같은 간격의 열
     items.forEach(x => { x.x = x0 + x.depth * COL; });
     for (let d = 0; d <= maxDepth; d++) ticks.push([x0 + d * COL, d ? `제자 ${d}세대` : '시작 교수']);
@@ -128,36 +141,55 @@ function layout() {
 // ── 그리기
 function draw() {
   view = layout(); const v = view, svg = el('network');
-  svg.classList.toggle('simple', simple());
+  svg.classList.toggle('simple', !timeline());          // 원형·간단 보기는 역할 색, 시간축 보기는 대학 색
   let s = '<g id="scene">';
-  s += v.ticks.map(([x]) => `<line class="ln-grid" x1="${x}" x2="${x}" y1="0" y2="${v.height - PAD_BOTTOM + 8}"/>`).join('');
+  if (radial()) s += v.ticks.map(([r, t]) => `<circle class="ln-ring" cx="${v.cx}" cy="${v.cy}" r="${r}"/><text class="ln-col ln-ringlabel" x="${v.cx}" y="${v.cy - r + 4}" text-anchor="middle">${t}</text>`).join('');
+  else s += v.ticks.map(([x]) => `<line class="ln-grid" x1="${x}" x2="${x}" y1="0" y2="${v.height - PAD_BOTTOM + 8}"/>`).join('');
   // 지도 기간 띠 (시간축 보기에서만: 제자를 둔 사람마다 첫 제자부터 마지막 제자까지)
-  if (!simple()) s += v.items.filter(x => x.kids.length).map(x => { const xs = x.kids.map(k => k.x); return `<line class="ln-span" x1="${x.x}" x2="${Math.max(...xs)}" y1="${x.y}" y2="${x.y}" stroke="${colorOf(x.uni)}"/>`; }).join('');
+  if (timeline()) s += v.items.filter(x => x.kids.length).map(x => { const xs = x.kids.map(k => k.x); return `<line class="ln-span" x1="${x.x}" x2="${Math.max(...xs)}" y1="${x.y}" y2="${x.y}" stroke="${colorOf(x.uni)}"/>`; }).join('');
   s += v.lines.map(({ a, b, e, mentor }, i) => {
-    const x1 = a.x + RADIUS[a.kind] + 3, x2 = b.x - RADIUS[b.kind] - 3, mx = (x1 + x2) / 2;
-    return `<path class="ln-link${e.student_is_inferred_professor ? ' inferred' : ''}${mentor ? ' mentor' : ''}${b.kids.length ? ' toprof' : ''}" data-line="${i}" d="M${x1} ${a.y}C${mx} ${a.y},${mx} ${b.y},${x2} ${b.y}"/>`;
+    let d;
+    if (radial()) {   // 반지름 방향으로 나갔다가 제자의 각도로 꺾이는 곡선 (제어점은 중간 반지름)
+      const ta = a.depth ? a.theta : b.theta, rm = (a.r + b.r) / 2;
+      const [x1, y1] = polar(a.r + RADIUS[a.kind] + 3, ta), [c1x, c1y] = polar(rm, ta), [c2x, c2y] = polar(rm, b.theta), [x2, y2] = polar(b.r - RADIUS[b.kind] - 3, b.theta);
+      d = `M${v.cx + x1} ${v.cy + y1}C${v.cx + c1x} ${v.cy + c1y},${v.cx + c2x} ${v.cy + c2y},${v.cx + x2} ${v.cy + y2}`;
+    } else {
+      const x1 = a.x + RADIUS[a.kind] + 3, x2 = b.x - RADIUS[b.kind] - 3, mx = (x1 + x2) / 2;
+      d = `M${x1} ${a.y}C${mx} ${a.y},${mx} ${b.y},${x2} ${b.y}`;
+    }
+    return `<path class="ln-link${e.student_is_inferred_professor ? ' inferred' : ''}${mentor ? ' mentor' : ''}${b.kids.length ? ' toprof' : ''}" data-line="${i}" d="${d}"/>`;
   }).join('');
   s += v.items.map((x, i) => {
     const n = x.n, r = RADIUS[x.kind], inferred = x.kind !== 'mentor' && x.via?.student_is_inferred_professor;
     const aff = affOf(n), yr = x.kind === 'mentor' ? '' : (x.year ? String(x.year) : '연도 미상');
-    // 이름 자리: 시작 교수·상위 지도교수는 왼쪽(들어오는 선이 없는 쪽), 제자를 둔 교수는 시간축에서는 점 위(들어오는 선과 나가는 선 모두 피함), 간단 보기에서는 오른쪽(다음 열까지 여유가 있음), 말단은 오른쪽
-    const left = x.kind === 'root' || x.kind === 'mentor', above = !left && !simple() && x.kids.length > 0;
-    const tx = left ? -(r + 8) : above ? -r : r + 7, anchor = left ? 'end' : 'start';
     const name = `${esc(nameOf(n))}${yr ? `<tspan class="yr"> ${esc(yr)}</tspan>` : ''}`;
-    let label;
-    if (x.kind === 'student') label = `<text class="name" x="${tx}" y="5" text-anchor="${anchor}">${name}</text>`;
-    else {
-      const sub = [cut(aff, 22) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
-      const big = x.kind === 'root';
-      const ny = above ? -24 : big ? -4 : 5, sy = above ? -10 : big ? 17 : 22;
-      label = `<text class="name" x="${tx}" y="${ny}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="${sy}" text-anchor="${anchor}">${esc(sub)}</text>`;
+    const sub = x.kind === 'student' ? '' : [cut(aff, 22) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
+    let label, transform = `translate(${x.x} ${x.y})`;
+    if (radial() && x.depth > 0) {
+      // 글자는 반지름 방향으로 바깥쪽에 눕힌다(안쪽은 부모의 선 다발이 모이는 곳). 왼쪽 반은 180° 뒤집어 거꾸로 읽히지 않게 한다.
+      const flip = Math.cos(x.theta) < 0, deg = x.theta * 180 / Math.PI + (flip ? 180 : 0);
+      const right = !flip;                                                 // 회전된 좌표계에서 오른쪽(= 바깥쪽)에 쓸지
+      const tx = right ? r + 8 : -(r + 8), anchor = right ? 'start' : 'end';
+      transform += ` rotate(${deg.toFixed(2)})`;
+      label = sub ? `<text class="name" x="${tx}" y="${-2}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="14" text-anchor="${anchor}">${esc(sub)}</text>` : `<text class="name" x="${tx}" y="5" text-anchor="${anchor}">${name}</text>`;
+    } else if (radial()) {   // 시작 교수: 가운데, 이름은 점 위·소속은 점 아래에 수평으로
+      label = `<text class="name" x="0" y="${-r - 10}" text-anchor="middle">${name}</text><text class="sub" x="0" y="${r + 20}" text-anchor="middle">${esc(sub)}</text>`;
+    } else {
+      // 이름 자리: 시작 교수·상위 지도교수는 왼쪽(들어오는 선이 없는 쪽), 제자를 둔 교수는 시간축에서는 점 위(들어오는 선과 나가는 선 모두 피함), 간단 보기에서는 오른쪽(다음 열까지 여유가 있음), 말단은 오른쪽
+      const left = x.kind === 'root' || x.kind === 'mentor', above = !left && timeline() && x.kids.length > 0;
+      const tx = left ? -(r + 8) : above ? -r : r + 7, anchor = left ? 'end' : 'start';
+      if (x.kind === 'student') label = `<text class="name" x="${tx}" y="5" text-anchor="${anchor}">${name}</text>`;
+      else {
+        const big = x.kind === 'root', ny = above ? -24 : big ? -4 : 5, sy = above ? -10 : big ? 17 : 22;
+        label = `<text class="name" x="${tx}" y="${ny}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="${sy}" text-anchor="${anchor}">${esc(sub)}</text>`;
+      }
     }
     const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', x.id === selected ? 'selected' : ''].filter(Boolean).join(' ');
     const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : ''].filter(Boolean).join(' · ');
-    return `<g class="${cls}" transform="translate(${x.x} ${x.y})" tabindex="0" role="button" data-i="${i}" aria-label="${esc(tip)} 상세 보기"><title>${esc(tip)}</title><circle r="${r}" fill="${colorOf(x.uni)}"/>${label}</g>`;
+    return `<g class="${cls}" transform="${transform}" tabindex="0" role="button" data-i="${i}" aria-label="${esc(tip)} 상세 보기"><title>${esc(tip)}</title><circle r="${r}" fill="${colorOf(x.uni)}"/>${label}</g>`;
   }).join('');
-  // 연도 눈금은 화면 위에 고정(세로로는 따라 움직이지 않음). 가로 위치는 apply() 가 배율·이동에 맞춰 갱신한다.
-  s += '</g><g id="ruler"><rect class="ln-ruler-bg" x="0" y="0" width="100%" height="30"/>' + v.ticks.map(([x, t]) => `<text class="${simple() ? 'ln-col' : 'ln-tick'}" data-x="${x}" y="20" text-anchor="middle">${t}</text>`).join('') + (v.mentors.length ? `<text class="ln-col" data-x="${PAD_L + 10}" y="20" text-anchor="middle">지도교수</text>` : '') + '</g>';
+  // 연도 눈금·열 머리글은 화면 위에 고정(세로로는 따라 움직이지 않음). 가로 위치는 apply() 가 배율·이동에 맞춰 갱신한다. 원형 보기는 고리에 세대를 적으므로 없음.
+  s += '</g>' + (radial() ? '' : '<g id="ruler"><rect class="ln-ruler-bg" x="0" y="0" width="100%" height="30"/>' + v.ticks.map(([x, t]) => `<text class="${simple() ? 'ln-col' : 'ln-tick'}" data-x="${x}" y="20" text-anchor="middle">${t}</text>`).join('') + (v.mentors.length ? `<text class="ln-col" data-x="${PAD_L + 10}" y="20" text-anchor="middle">지도교수</text>` : '') + '</g>');
   svg.innerHTML = s;
   svg.querySelectorAll('.ln-node').forEach(g => {
     const item = () => v.items[+g.dataset.i];
@@ -167,11 +199,11 @@ function draw() {
   });
   el('mentorNav').innerHTML = v.mentors.map(m => `<button data-mentor="${esc(m.id)}">← 지도교수 ${esc(nameOf(m.n))}</button>`).join('');
   el('mentorNav').querySelectorAll('[data-mentor]').forEach(b => b.onclick = () => setRoot(b.dataset.mentor));
-  const R = N.get(root), shown = v.items.length - v.mentors.length;
+  const R = N.get(root), shown = v.items.filter(x => x.kind !== 'mentor').length;
   el('selected-title').textContent = nameOf(R) + '의 학맥';
-  el('count').textContent = `표시 ${shown - 1}명 · ${v.maxDepth}세대${simple() ? '' : ` · 시간축 ${v.y0}–${v.y1 - 1}`}${v.cycles ? ' · 순환 연결 제외' : ''}`;
-  el('legendTime').hidden = simple(); el('uniLegend').hidden = simple(); el('legendSimple').hidden = !simple();
-  el('modeTime').setAttribute('aria-pressed', String(!simple())); el('modeSimple').setAttribute('aria-pressed', String(simple()));
+  el('count').textContent = `표시 ${shown - 1}명 · ${v.maxDepth}세대${timeline() ? ` · 시간축 ${v.y0}–${v.y1 - 1}` : ''}${v.cycles ? ' · 순환 연결 제외' : ''}`;
+  el('legendTime').hidden = !timeline(); el('uniLegend').hidden = !timeline(); el('legendSimple').hidden = timeline();
+  for (const m of VIEWS) el('mode-' + m).setAttribute('aria-pressed', String(mode === m));
   svg.setAttribute('aria-label', `${nameOf(R)}의 학맥: 제자 ${shown - 1}명, ${v.maxDepth}세대, ${v.y0}년부터 ${v.y1 - 1}년`);
   renderUniLegend(); renderMetrics(); paint();
 }
@@ -234,6 +266,7 @@ function fitAll() {
 function home() {   // 글자를 실제 크기(100%)로 두고, 왼쪽(시작 교수)부터 보이게 하며 시작 교수를 세로 중앙에 둔다
   const vp = el('viewport'), fit = Math.min((vp.clientWidth - 24) / view.width, (vp.clientHeight - 24) / view.height);
   const k = Math.max(1, Math.min(1.15, fit)); Z.k = k;
+  if (radial()) { Z.x = vp.clientWidth / 2 - view.cx * k; Z.y = vp.clientHeight / 2 - view.cy * k; apply(); return; }   // 시작 교수를 화면 한가운데에
   Z.x = view.width * k <= vp.clientWidth ? (vp.clientWidth - view.width * k) / 2 : 0;
   Z.y = view.height * k <= vp.clientHeight ? (vp.clientHeight - view.height * k) / 2 : Math.min(8, vp.clientHeight / 2 - view.tree.y * k);
   apply();
@@ -331,7 +364,7 @@ function setMode(m) {
   const u = new URL(location.href); u.searchParams.set('view', m); history.replaceState(null, '', u);
   draw(); home();
 }
-el('modeTime').onclick = () => setMode('time'); el('modeSimple').onclick = () => setMode('simple');
+for (const m of VIEWS) el('mode-' + m).onclick = () => setMode(m);
 el('clearHighlight').onclick = () => { highlight = null; uniFocus = null; renderUniLegend(); paint(); };
 el('backRoot').onclick = () => { if (trail.length) setRoot(trail.pop(), false); };
 el('csv').onclick = downloadCsv;

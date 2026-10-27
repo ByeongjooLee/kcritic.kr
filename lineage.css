@@ -87,6 +87,8 @@ svg.simple .ln-grid { stroke-dasharray: 2 6; }
 
 /* 시간축 */
 .ln-grid { stroke: #e2e6ec; }
+.ln-ring { fill: none; stroke: #e2e6ec; stroke-dasharray: 3 8; }
+.ln-ringlabel { paint-order: stroke; stroke: #fbfbfc; stroke-width: 6px; stroke-linejoin: round; font-size: 12px; }
 .ln-tick { font-size: 13px; font-weight: 600; fill: var(--muted); font-variant-numeric: tabular-nums; }
 .ln-ruler-bg { fill: rgba(251,251,252,.92); }
 #ruler { pointer-events: none; }
