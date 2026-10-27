@@ -6,17 +6,17 @@
   <title>kcritic — 한국 비평사 온톨로지</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="kc.css">
-</head>
+<style>.data-overview{display:grid;grid-template-columns:1fr 1fr;gap:20px}.data-overview h3{font-size:22px;margin:0 0 8px}.data-overview .stats{margin-bottom:16px}.data-overview .stats b{font-size:26px}@media(max-width:760px){.data-overview{grid-template-columns:1fr}}</style></head>
 <body>
 <main>
   <section class="hero"><div class="wrap">
     <div class="eyebrow">KOREAN LITERARY CRITICISM · LINKED DATA</div>
-    <h1>누가, 누구를, <em>어떤 이론과 개념으로</em> 비평했는가</h1>
-    <p class="lead">한국 현대 문학비평 589편을 TEI XML로 인코딩해 비평가·작가·이론가·개념어의 관계를 연결 데이터로 엮었습니다. 원문 대신 관계를 읽습니다.</p>
-    <form class="bigsearch" action="explore.html">
-      <input type="hidden" name="p" value="find">
-      <input name="q" type="search" placeholder="읽고 싶은 글을 문장으로 — 예: 1980년대 민중문학과 리얼리즘 논쟁" autocomplete="off">
-      <button>글 찾기</button>
+    <h1>현장비평과 학술연구를 <em>한곳에서 찾다</em></h1>
+    <p class="lead">현장비평의 인물·개념 관계와 박사학위논문의 연구 주제·인용 관계를 함께 살펴보세요. 원문 대신 서지정보와 연구의 연결을 제공합니다.</p>
+    <form class="bigsearch" action="/search.html">
+
+      <input name="q" type="search" placeholder="작가·개념으로 비평과 연구 찾기 — 예: 김기림 모더니티" autocomplete="off">
+      <button>함께 찾기</button>
     </form>
     <div class="examples">이렇게 물어보세요
       <a href="explore.html?p=find&q=전쟁 체험과 분단을 다룬 소설에 관한 글">전쟁 체험과 분단을 다룬 소설에 관한 글</a>
@@ -28,16 +28,16 @@
       <a href="entity.html?t=person&id=p-00116">김수영을 다룬 비평가들</a>
       <a href="explore.html?p=essays&from=1980&to=1989&view=stats">1980년대 비평의 개념어</a>
     </div>
-    <div class="stats" id="stats"></div>
+    <section aria-label="제공 중인 데이터" style="margin-top:36px"><h2 style="font-size:20px;margin-bottom:18px">제공 중인 데이터</h2><div class="data-overview"><div class="panel"><h3>현장비평</h3><p class="note">비평 글과 비평가·작가·이론가·개념어의 관계</p><div class="stats" id="stats" style="margin-top:16px;gap:22px"></div><a href="/explore.html?p=find">현장비평 검색 ↗</a></div><div class="panel"><h3>학술연구</h3><p class="note">박사학위논문의 문장 검색과 선행·후속연구 연결</p><div class="stats" id="research-stats" style="margin-top:16px;gap:22px"><p>학술연구 현황을 불러오고 있습니다.</p></div><p id="research-scope" class="note"></p><a href="/theses/">학술연구 검색 ↗</a></div></div><p class="note" style="margin-top:14px">학술연구의 원문·평가·내부 검토 자료는 비공개입니다. 인용 연결은 보유 자료 내 집계입니다.</p></section>
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="sec-h"><h2>관점으로 둘러보기</h2><p>각 관점은 같은 방식으로 작동합니다. 왼쪽에서 거르고, 오른쪽에서 목록·표·분석으로 봅니다.</p></div>
+    <div class="sec-h"><h2>현장비평 · 관점으로 둘러보기</h2><p>각 관점은 같은 방식으로 작동합니다. 왼쪽에서 거르고, 오른쪽에서 목록·표·분석으로 봅니다.</p></div>
     <div class="persp" id="persp"></div>
   </div></section>
 
   <section class="sec"><div class="wrap">
-    <div class="sec-h"><h2>컬렉션</h2><p>글을 어디서 가져왔는지에 따른 묶음입니다.</p></div>
+    <div class="sec-h"><h2>현장비평 컬렉션</h2><p>글을 어디서 가져왔는지에 따른 묶음입니다.</p></div>
     <div class="colls" id="colls"></div>
   </div></section>
 
@@ -54,6 +54,13 @@
 <script src="kc.js"></script>
 <script>
 shell("home");
+
+Promise.all(['/site/data/research-public.json','/site/data/thesis-citations-public.json'].map(url=>fetch(url).then(r=>{if(!r.ok)throw Error('unavailable');return r.json();}))).then(([research,citations])=>{
+ const links=citations.citing_by_thesis,edges=Object.values(links).reduce((n,ids)=>n+new Set(ids).size,0),years=research.theses.map(d=>Number(d.year)).filter(Number.isFinite);
+ document.getElementById('research-stats').innerHTML=[[research.theses.length,'박사학위논문'],[edges,'논문 간 인용 연결'],[Object.keys(links).length,'후속연구가 연결된 논문']].map(([n,label])=>`<div><b class="num">${fmt(n)}</b><span>${label}</span></div>`).join('');
+ document.getElementById('research-scope').textContent=`${Math.min(...years)}–${Math.max(...years)}년 학위논문 · 실제 서지 대조가 된 연결만 집계합니다. 모든 참고문헌을 연결한 것은 아닙니다.`;
+}).catch(()=>{document.getElementById('research-stats').textContent='학술연구 현황을 불러오지 못했습니다.';});
+
 db().then(D => {
   const nCrit = D.people.filter(p => p.wrote).length;
   const nWri = D.people.filter(p => p.discussed).length, nTh = D.people.filter(p => p.cited).length;

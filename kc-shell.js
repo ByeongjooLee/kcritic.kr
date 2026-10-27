@@ -4,10 +4,10 @@
 (function () {
   const R = "/";
   const NAV = [
-    ["find", "글 찾기", R + "explore.html?p=find"], ["essays", "글", R + "explore.html?p=essays"],
-    ["people", "인물", R + "explore.html?p=people"], ["concepts", "개념어", R + "explore.html?p=concepts"],
-    ["venues", "지면", R + "explore.html?p=venues"], ["graph", "관계망", R + "graph.html"],
-  ];
+  ["search", "통합검색", "/search.html"],
+  ["find", "현장비평", "/explore.html?p=find"],
+  ["theses", "학술연구", "/theses/"],
+];
   const TYPE = { essay: ["글", "t-essay"], critic: ["비평가", "t-critic"], writer: ["작가", "t-writer"], theorist: ["이론가", "t-theorist"], concept: ["개념어", "t-concept"] };
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const role = p => p.wrote ? "critic" : (p.discussed >= p.cited ? "writer" : "theorist");
@@ -29,12 +29,12 @@
   <footer class="ft"><div class="wrap cols">
     <div><b style="color:var(--kc-ink);font-size:15px">kcritic.</b><p style="margin-top:6px;max-width:360px">한국 현대 문학비평을 TEI XML로 인코딩해 비평가·작가·이론가·개념어의 관계를 연결 데이터로 공개합니다. 원문은 제공하지 않습니다.</p></div>
     <div><h6>분석</h6><a href="${R}ask.html">질문하기 · SPARQL</a><a href="${R}evaluate.html">태도 평가</a><a href="${R}graph.html">관계망</a></div>
-    <div><h6>참고 데이터</h6><a href="${R}research.html">선행연구 (박사논문)</a><a href="${R}criticism.html">2000년대 시 비평 목록</a></div>
+    <div><h6>참고 데이터</h6><a href="${R}theses/">학술연구 · 박사논문 검색</a><a href="${R}criticism.html">2000년대 시 비평 목록</a></div>
     <div><h6>프로젝트</h6><a href="${R}about.html">소개 · 방법</a><a href="${R}maker.html">만든 사람</a><a href="${R}contribute.html">참여하기</a><a href="${R}site/data/graph.ttl">데이터 내려받기 (TTL)</a><a href="${R}critic_v8_schema.rdf">온톨로지 (OWL)</a><a href="${R}list.html">전체 목록 (예전 화면)</a></div>
   </div></footer>`);
     const nav = document.getElementById("kcs-nav");
     document.getElementById("kcs-menu").onclick = () => nav.classList.toggle("show");
-    const q = document.getElementById("kcs-q"), box = document.getElementById("kcs-s"), narrow = matchMedia("(max-width: 980px)");
+    const q = document.getElementById("kcs-q"), box = document.getElementById("kcs-s"), narrow = matchMedia("(max-width: 1180px)");
     const ph = () => { q.placeholder = narrow.matches ? "이름으로 찾기" : "글·인물·개념어 이름으로 찾기"; };
     narrow.addEventListener("change", ph); ph();
     search(q, box);

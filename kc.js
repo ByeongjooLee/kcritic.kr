@@ -1,5 +1,5 @@
 // kcritic 사이트 2판 — 공통 머리글·바닥글·데이터·작은 시각화 (build_site_v2.py 가 site/data/v2/ 를 만든다)
-const KC = "";                                  // 사이트 뿌리 기준 (현행 프로필·관계망·질문하기 등)
+const KC = "/";                                  // 사이트 뿌리 기준 (현행 프로필·관계망·질문하기 등)
 const TYPE = {
   essay:    { label: "글", cls: "t-essay" },
   critic:   { label: "비평가", cls: "t-critic" },
@@ -8,14 +8,11 @@ const TYPE = {
   concept:  { label: "개념어", cls: "t-concept" },
   venue:    { label: "지면",   cls: "t-venue" },
 };
-// 주 메뉴는 '관점' 다섯 개뿐. 분석·참여·참고 자료는 오른쪽 버튼과 바닥글로.
+// 현장비평과 학술연구를 구분하고, 비평의 인물·개념·지면 탐색을 제공한다.
 const NAV = [
-  ["find", "글 찾기", "explore.html?p=find"],
-  ["essays", "글", "explore.html?p=essays"],
-  ["people", "인물", "explore.html?p=people"],
-  ["concepts", "개념어", "explore.html?p=concepts"],
-  ["venues", "지면", "explore.html?p=venues"],
-  ["graph", "관계망", KC + "graph.html"],
+  ["search", "통합검색", "/search.html"],
+  ["find", "현장비평", "/explore.html?p=find"],
+  ["theses", "학술연구", "/theses/"],
 ];
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -24,17 +21,17 @@ const ko = (a, b) => String(a).localeCompare(String(b), "ko");
 const qs = new URLSearchParams(location.search);
 
 const _cache = {};
-const load = name => (_cache[name] ??= fetch(`site/data/v2/${name}.json`).then(r => r.json()));
+const load = name => (_cache[name] ??= fetch(`/site/data/v2/${name}.json`).then(r => r.json()));
 async function db() {
   const [essays, people, concepts, issues] = await Promise.all(["essays", "people", "concepts", "issues"].map(load));
   const E = new Map(essays.map(e => [e.id, e])), P = new Map(people.map(p => [p.id, p]));
   return { essays, people, concepts, issues, E, P };
 }
 const href = {
-  essay: id => `entity.html?t=essay&id=${encodeURIComponent(id)}`,
-  person: id => `entity.html?t=person&id=${encodeURIComponent(id)}`,
-  concept: n => `entity.html?t=concept&id=${encodeURIComponent(n)}`,
-  issue: id => `entity.html?t=issue&id=${encodeURIComponent(id)}`,
+  essay: id => `/entity.html?t=essay&id=${encodeURIComponent(id)}`,
+  person: id => `/entity.html?t=person&id=${encodeURIComponent(id)}`,
+  concept: n => `/entity.html?t=concept&id=${encodeURIComponent(n)}`,
+  issue: id => `/entity.html?t=issue&id=${encodeURIComponent(id)}`,
 };
 // 잡지 원문 안내 (build.py JOURNAL_LINKS 와 같게) — 원문 대신 발행처 공식 페이지로 연결
 const VENUE_LINK = { mhs: { url: "https://moonji.com/literatureAndSociety/intro", label: "문학과지성사 『문학과사회』 소개·구독" } };
@@ -43,9 +40,10 @@ const lodName = b => LODN[b.label] || b.full || b.label;
 const mainRole = p => p.wrote ? "critic" : (p.discussed >= p.cited ? "writer" : "theorist");
 
 function shell(current) {
+  if (["essays","people","concepts","venues","graph"].includes(current)) current="find";
   document.body.insertAdjacentHTML("afterbegin", `
   <header class="hd"><div class="wrap">
-    <a class="brand" href="index.html"><b>kcritic<i>.</i></b><span>한국 비평사 온톨로지</span></a>
+    <a class="brand" href="/index.html"><b>kcritic<i>.</i></b><span>한국 비평사 온톨로지</span></a>
     <nav class="nav">${NAV.map(([k, l, h]) => `<a href="${h}"${k === current ? ' class="on"' : ""}>${l}</a>`).join("")}</nav>
     <div class="hd-right">
       <div class="gsearch"><input id="gq" type="search" placeholder="글·인물·개념어 이름으로 찾기" autocomplete="off"><div class="suggest" id="gs"></div></div>
@@ -57,11 +55,11 @@ function shell(current) {
   <footer class="ft"><div class="wrap cols">
     <div><b style="color:var(--ink);font-size:15px">kcritic.</b><p style="margin-top:6px;max-width:360px">한국 현대 문학비평을 TEI XML로 인코딩해 비평가·작가·이론가·개념어의 관계를 연결 데이터로 공개합니다. 원문은 제공하지 않습니다.</p></div>
     <div><h6>분석</h6><a href="${KC}ask.html">질문하기 · SPARQL</a><a href="${KC}evaluate.html">태도 평가</a><a href="${KC}graph.html">관계망</a></div>
-    <div><h6>참고 데이터</h6><a href="${KC}research.html">선행연구 (박사논문)</a><a href="${KC}criticism.html">2000년대 시 비평 목록</a></div>
+    <div><h6>참고 데이터</h6><a href="${KC}theses/">학술연구 · 박사논문 검색</a><a href="${KC}criticism.html">2000년대 시 비평 목록</a></div>
     <div><h6>프로젝트</h6><a href="${KC}about.html">소개 · 방법</a><a href="${KC}maker.html">만든 사람</a><a href="${KC}contribute.html">참여하기</a><a href="${KC}site/data/graph.ttl">데이터 내려받기 (TTL)</a><a href="${KC}critic_v8_schema.rdf">온톨로지 (OWL)</a><a href="${KC}list.html">전체 목록 (예전 화면)</a></div>
   </div></footer>`);
   document.getElementById("menu").onclick = () => document.querySelector(".nav").classList.toggle("show");
-  const gq = document.getElementById("gq"), narrowQ = matchMedia("(max-width: 980px)");   // 좁은 화면: 안내 글이 잘리지 않게 짧게
+  const gq = document.getElementById("gq"), narrowQ = matchMedia("(max-width: 1180px)");   // 좁은 화면: 안내 글이 잘리지 않게 짧게
   const ph = () => { gq.placeholder = narrowQ.matches ? "이름으로 찾기" : "글·인물·개념어 이름으로 찾기"; };
   narrowQ.addEventListener("change", ph); ph();
   globalSearch();
@@ -85,7 +83,7 @@ function globalSearch() {
       grp("인물", ppl.map(p => `<a href="${href.person(p.id)}"><span class="dot ${TYPE[mainRole(p)].cls}"></span>${esc(p.name)}<small>${TYPE[mainRole(p)].label}</small></a>`)) +
       grp("글", ess.map(e => `<a href="${href.essay(e.id)}"><span class="dot t-essay"></span>${esc(e.title)}<small>${esc(e.critic_name)} ${e.year}</small></a>`)) +
       grp("개념어", con.map(c => `<a href="${href.concept(c.name)}"><span class="dot t-concept"></span>${esc(c.name)}<small>${c.n}편</small></a>`)) +
-      `<h6>전체 검색</h6><a href="explore.html?p=essays&q=${encodeURIComponent(q)}">“${esc(q)}” 글 전체에서 찾기 →</a>`;
+      `<h6>전체 검색</h6><a href="/explore.html?p=essays&q=${encodeURIComponent(q)}">“${esc(q)}” 글 전체에서 찾기 →</a>`;
     box.classList.add("show"); sel = -1;
   });
   inp.addEventListener("keydown", e => {
