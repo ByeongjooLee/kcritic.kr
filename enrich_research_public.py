@@ -9,13 +9,15 @@
   원래 표기(한자 등)가 다르면 `advisor_raw` 에 남긴다.
 - 학맥에만 있는 논문(본문 색인 밖, 서울대 도서관 전용 `snu:` 포함): 서지(제목·저자·연도·대학·지도교수·RISS 링크)만
   `theses` 에 덧붙이고 `in_search_corpus: false` 로 표시한다. 글 찾기(뜻 검색)·인용 관계·인물/개념어 태그에는 들어가지 않는다.
-- 대학 표기는 한글 교명(`대학교` 까지)으로 정규화한다. `corpus_size`·`works`·`scope` 는 손대지 않는다.
+- 대학 표기는 「OO대」로 통일하고(hanja_norm.uni_norm), 제목·저자·지도교수의 한자는 한글로 바꾼다(2026-10-28). 바뀐 값의
+  원표기는 `title_raw`·`author_raw`·`university_raw`·`advisor_raw` 에 남긴다. `corpus_size`·`works`·`scope` 는 손대지 않는다.
 
 실행: `py enrich_research_public.py` (genealogy-library.json 을 바꾼 뒤, 또는 theses-search 쪽에서 research-public.json 을
 새로 내보낸 뒤). 두 번 실행해도 결과가 같다(결정적).
 """
 import json, re, sys, unicodedata
 from pathlib import Path
+from hanja_norm import h2k, uni_norm
 
 ROOT = Path(__file__).resolve().parent
 RP = ROOT / 'site/data/research-public.json'
@@ -55,11 +57,20 @@ def main():
     base = [t for t in rp['theses'] if t.get('in_search_corpus') is not False]
     changed = filled = 0
     for t in base:
+        # 제목·저자·대학: 재실행이면 *_raw 가 원표기다. 원표기에서 다시 계산해 결정적으로 같은 결과를 낸다
+        for k, fn in (('title', h2k), ('author', lambda v: h2k(v, name=True)), ('university', uni_norm)):
+            src = t.pop(k + '_raw', None)
+            if src is None: src = t.get(k) or ''
+            new = fn(src)
+            t[k] = new
+            if new != src: t[k + '_raw'] = src
         # 재실행이면 advisor_raw 가 원래 표기다(원 표기를 보존하며 결정적으로 다시 계산)
         old_raw = t.pop('advisor_raw', None)
         if t['id'] not in advisors:
-            if old_raw:
-                t['advisor'] = old_raw   # 학맥에서 빠진 논문은 원 표기로 되돌린다
+            src = old_raw if old_raw else (t.get('advisor') or '')
+            new = h2k(src, name=True)         # 학맥에서 빠진 논문은 원 표기(한자면 한글 음)로
+            if src: t['advisor'] = new
+            if new != src: t['advisor_raw'] = src
             continue
         old = (old_raw or t.get('advisor') or '').strip()
         new = ', '.join(sorted(advisors[t['id']]))
@@ -79,7 +90,7 @@ def main():
         i = info[tid]
         y = str(i['year'])[:4]
         rec = {'id': tid, 'title': i['title'], 'author': i['author'], 'year': int(y) if y.isdigit() else i['year'],
-               'university': uni(i['university']) or '미확인', 'advisor': ', '.join(sorted(advisors[tid])),
+               'university': uni_norm(i['university']) or '미확인', 'advisor': ', '.join(sorted(advisors[tid])),
                'degree': '학위논문(박사)', 'in_search_corpus': False}
         if not tid.startswith('snu:'):
             rec['riss_url'] = RISS.format(tid)

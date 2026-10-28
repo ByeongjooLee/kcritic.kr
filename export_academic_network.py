@@ -5,6 +5,7 @@ The input contains private provenance; never copy it into site/data.
 import hashlib, json, sys
 from pathlib import Path
 from urllib.parse import urlparse
+from hanja_norm import h2k, uni_norm   # 2026-10-28: 제목·저자 한자 → 한글, 기관명 「OO대」 (원표기는 *_raw)
 
 # 천정환(성균관대) 박사논문(서울대 2002)의 지도교수 = 조남현(서울대 국어국문학과). 근거: 서울대 중앙도서관 Primo 레코드의
 # 지도교수 항목 "조남현." + 연구자 확인(2026-10-27/28). genealogy-library.json 과 같은 판정. 입력 JSON 쪽이 고쳐지면 이 블록을 지운다.
@@ -33,6 +34,10 @@ def export(data):
         people.append(dict(id=p['id'],name=p['name'],thesis_ids=p['thesis_ids'],affiliations=affiliations,death_year=p.get('life_status',{}).get('year'),books=[b['title'] for b in p.get('books',[])]))
     def thesis(t):
         result = {k:t.get(k) for k in ['id','title','author_raw','author_person_id','year_raw','institution_id','university_raw','riss_url','advisor_raw']}
+        title = h2k(result['title'])
+        if title != (result['title'] or ''): result['title_raw'] = result['title']; result['title'] = title
+        result['author'] = h2k(result['author_raw'], name=True)   # 화면 표기; author_raw 는 서지 원표기
+        if result.get('advisor_raw'): result['advisor'] = h2k(result['advisor_raw'], name=True)   # 화면 표기; advisor_raw 는 서지 원표기
         # Explicit correction (2026-10-27 unconfirmed -> 2026-10-28 confirmed): the input still carries the
         # withdrawn 김윤식 assignment as blank/unconfirmed. SNU library record + researcher confirmation
         # establish 조남현 (Seoul National University) as the advisor of 천정환's 2002 dissertation.
@@ -49,7 +54,7 @@ def export(data):
     summary={k:data['summary'][k] for k in ['thesis_records','normalized_degree_institutions','unresolved_school_records','user_mentorship_edges','prior_verified_supervision_edges','supplemental_thesis_records','web_reviewed_faculty_profiles']}
     summary['library_confirmed_supervision_edges']=sum(e['type']=='doctoral_supervision' and e['status']=='library_confirmed' for e in relationships)
     return dict(schema_version='1.0',updated_at=data['generated_at'],summary=summary,
-        institutions=[{k:o[k] for k in ['id','name','thesis_count']} for o in data['institutions']],people=people,
+        institutions=[{**{k:o[k] for k in ['id','name','thesis_count']},**({'name_raw':o['name']} if uni_norm(o['name'])!=o['name'] else {}),'name':uni_norm(o['name'])} for o in data['institutions']],people=people,
         theses=[thesis(t) for t in data['theses']],reference_theses=[thesis(t) for t in data['reference_theses']],
         relationships=relationships,
         faculty_profiles=[{k:f[k] for k in ['person_id','name','institution','department','status','status_label','death_year','books']} for f in data['faculty_profiles']])
