@@ -144,6 +144,18 @@ svg.simple .ln-grid { stroke-dasharray: 2 6; }
 .ln-node.inferred circle { stroke: rgba(15,17,21,.6); stroke-width: 1.6; stroke-dasharray: 3 2; } /* 동일인 추론: 점선 테두리 */
 .ln-node.hi circle { stroke: var(--accent); stroke-width: 2.5; }
 .ln-node.selected circle, .ln-node:hover circle, .ln-node:focus-visible circle { stroke: var(--ink); stroke-width: 3; }
+/* 클릭해 펼치기: 접힌 교수는 점선 겉고리(.more). 선택·강조 테두리 규칙은 겉고리에 적용하지 않는다 */
+.ln-node circle.more, svg.simple .ln-node circle.more, .ln-node.selected circle.more, .ln-node:hover circle.more, .ln-node.hi circle.more, svg.simple .ln-node.selected circle.more, svg.simple .ln-node:hover circle.more, svg.simple .ln-node:focus-visible circle.more, .ln-node:focus-visible circle.more { fill: none; stroke: var(--ln-prof); stroke-width: 1.5; stroke-dasharray: 3 3; opacity: .85; }
+.ln-node.collapsed:hover circle.more { stroke-width: 2.5; opacity: 1; }
+.ln-node.collapsed .sub { fill: var(--ln-prof); font-weight: 600; }
+/* 펼칠 때: 새로 나타난 인물은 점이 자라고 글자가 떠오르며, 선은 떠오른다. 자리가 바뀐 인물은 JS(Web Animations)로 미끄러진다 */
+@keyframes ln-grow { from { r: 0; } }
+@keyframes ln-fade { from { opacity: 0; } }
+.ln-node.ln-new circle { animation: ln-grow .45s cubic-bezier(.2,.7,.2,1) both; }
+.ln-node.ln-new text { animation: ln-fade .5s ease-out both; }
+.ln-link.ln-new, .ln-span.ln-new { animation: ln-fade .45s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .ln-node.ln-new circle, .ln-node.ln-new text, .ln-link.ln-new, .ln-span.ln-new { animation: none; } }
+.ln-check.ln-inline { margin: 0 6px 0 0; height: 32px; }
 .ln-node text { fill: var(--ink); paint-order: stroke; stroke: #fbfbfc; stroke-width: 4px; stroke-linejoin: round; }
 .ln-node .name { font-size: 14.5px; font-weight: 500; }
 .ln-node.professor .name, .ln-node.mentor .name { font-size: 16px; font-weight: 700; }
