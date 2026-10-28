@@ -58,6 +58,8 @@ def main():
         # 재실행이면 advisor_raw 가 원래 표기다(원 표기를 보존하며 결정적으로 다시 계산)
         old_raw = t.pop('advisor_raw', None)
         if t['id'] not in advisors:
+            if old_raw:
+                t['advisor'] = old_raw   # 학맥에서 빠진 논문은 원 표기로 되돌린다
             continue
         old = (old_raw or t.get('advisor') or '').strip()
         new = ', '.join(sorted(advisors[t['id']]))

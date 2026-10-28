@@ -334,9 +334,9 @@ function downloadCsv() {
 function options() {
   const q = el('search').value.trim().toLowerCase();
   const list = D.nodes.filter(n => n.kind === 'professor' && studentCount(n.id) > 0 && (!q || [n.name, ...(n.aliases || []), ...n.affiliations].join(' ').toLowerCase().includes(q)))
-    .sort((a, b) => studentCount(b.id) - studentCount(a.id) || a.name.localeCompare(b.name, 'ko'));
-  el('list-count').textContent = `${list.length}명 · 지도학생 수 순`;
-  el('people').innerHTML = list.map(n => `<button class="ln-person${n.id === root ? ' on' : ''}" data-root="${esc(n.id)}" aria-pressed="${n.id === root}"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${studentCount(n.id)}명</span><small>${esc(n.affiliations.join(' / ') || '소속 미확인')}</small></button>`).join('') || '<p class="ln-muted">검색 결과가 없습니다.</p>';
+    .sort((a, b) => metrics(b.id).descendants - metrics(a.id).descendants || studentCount(b.id) - studentCount(a.id) || a.name.localeCompare(b.name, 'ko'));   // 학맥 인원(후손 수) 순, 2026-10-28
+  el('list-count').textContent = `${list.length}명 · 학맥 인원 순`;
+  el('people').innerHTML = list.map(n => `<button class="ln-person${n.id === root ? ' on' : ''}" data-root="${esc(n.id)}" aria-pressed="${n.id === root}" title="후손 ${metrics(n.id).descendants}명 · 직접 제자 ${studentCount(n.id)}명"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${metrics(n.id).descendants}명</span><small>${esc(n.affiliations.join(' / ') || '소속 미확인')}</small></button>`).join('') || '<p class="ln-muted">검색 결과가 없습니다.</p>';
   el('people').querySelectorAll('[data-root]').forEach(b => b.onclick = () => setRoot(b.dataset.root));
 }
 function setRoot(id, remember = true) {

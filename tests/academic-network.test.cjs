@@ -11,7 +11,8 @@ test('all public references resolve; general mentorship never becomes doctoral s
  const orgs=new Set(data.institutions.map(o=>o.id));
  const theses=new Set([...data.theses,...data.reference_theses].map(t=>t.id));
  assert.equal(data.theses.length,2189);assert.equal(data.reference_theses.length,2);
- assert.equal(data.relationships.filter(e=>e.type==='doctoral_supervision').length,164);
+ assert.equal(data.relationships.filter(e=>e.type==='doctoral_supervision'&&e.status==='previously_verified').length,164);
+ assert.equal(data.relationships.filter(e=>e.type==='doctoral_supervision').length,165);   // 164 기존 검증 + 조남현→천정환 도서관 확인(2026-10-28)
  assert.equal(data.relationships.filter(e=>e.type==='mentorship').length,5);
  for(const t of data.theses){assert(people.has(t.author_person_id));assert(!t.institution_id||orgs.has(t.institution_id));}
  for(const p of people.values()){for(const t of p.thesis_ids)assert(theses.has(t));for(const a of p.affiliations)assert(orgs.has(a.institution_id));}
@@ -50,12 +51,19 @@ test('existing lineage links to the new screen without rewriting doctoral edges'
  assert(fs.readFileSync(path.join(root,'.assetsignore'),'utf8').includes('/tests'));
 });
 
-test('Chun Jung-hwan advisor remains unconfirmed in data and the rendered page',async()=>{
+test('Chun Jung-hwan advisor is Cho Nam-hyun (SNU library record + researcher confirmation, 2026-10-28)',async()=>{
  const t=data.theses.find(t=>t.id==='eeea758c003fa8ac');
- assert.equal(t.advisor_raw,'');assert.equal(t.advisor_status,'unconfirmed');
- assert(!data.relationships.some(e=>e.type==='doctoral_supervision'&&e.target===t.author_person_id));
+ assert.equal(t.advisor_raw,'조남현');assert.equal(t.advisor_status,'library_confirmed');
+ const people=new Map(data.people.map(p=>[p.id,p]));
+ const edge=data.relationships.find(e=>e.type==='doctoral_supervision'&&e.target===t.author_person_id);
+ assert.equal(people.get(edge.source).name,'조남현');assert.equal(edge.status,'library_confirmed');assert.equal(edge.thesis_id,t.id);
+ assert(people.get(edge.source).affiliations.some(a=>data.institutions.find(o=>o.id===a.institution_id).name==='서울대학교'));
+ assert(edge.sources.some(u=>u.includes('82SNU_INST21422400670002591')));
+ assert.equal(data.relationships.filter(e=>e.type==='doctoral_supervision').length,data.summary.prior_verified_supervision_edges+data.summary.library_confirmed_supervision_edges);
  const n=await render();n.get('thesis-query').value='천정환';n.get('thesis-query').oninput();
- assert(n.get('thesis-results').innerHTML.includes('미확인'));
+ assert(n.get('thesis-results').innerHTML.includes('조남현'));assert(!n.get('thesis-results').innerHTML.includes('미확인'));
+ n.get('relationship-query').value='천정환';n.get('relationship-query').oninput();
+ assert.equal(n.get('relationship-count').textContent,'1건');assert(n.get('relationship-results').innerHTML.includes('조남현 → 천정환'));assert(n.get('relationship-results').innerHTML.includes('도서관 기록'));
 });
 
 test('Kim In-hwan and Oh Hyeong-yeop mentorship identifies Korea University',async()=>{
