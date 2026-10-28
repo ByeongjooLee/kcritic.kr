@@ -13,9 +13,12 @@
   2. 근거 충돌 간선(advisor_conflict) 제거, 비공개·검수용 필드 제거, 간선에 연결되지 않은 교수 노드 제거,
      summary 재계산. 상위 키는 as_of·default_root·nodes·edges·summary·notes 만 남긴다.
   3. 로컬 경로·파일 URL 이 섞여 들어오지 않았는지 검사한다.
+  4. (2026-10-28) 논문 제목·인물 이름의 한자를 한글로, 대학명(간선 university·교수 affiliations)을 「OO대」로 통일한다
+     (hanja_norm.py). 바뀐 값의 원표기는 title_raw·name_raw·university_raw·affiliations_raw 에 남긴다.
 """
 import argparse, copy, json, re, sys
 from pathlib import Path
+from hanja_norm import h2k, uni_norm
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -108,6 +111,19 @@ def publish(data):
     nb = {n['id']: n for n in out['nodes']}
     for n in out['nodes']:
         n['advisee_thesis_count'] = sum(e['source'] == n['id'] for e in out['edges'])
+        # 한글 표기·「OO대」 통일 (원표기는 *_raw 에 보존)
+        raw_aff = list(n.get('affiliations') or [])
+        aff = list(dict.fromkeys(a for a in (uni_norm(x) for x in raw_aff) if a))
+        if aff != raw_aff: n['affiliations_raw'] = raw_aff; n['affiliations'] = aff
+        for k in ('name', 'display_name'):
+            if n.get(k):
+                v = h2k(n[k], name=True)
+                if v != n[k]: n[k + '_raw'] = n[k]; n[k] = v
+    for e in out['edges']:
+        u = uni_norm(e.get('university'))
+        if u != (e.get('university') or ''): e['university_raw'] = e.get('university') or ''; e['university'] = u
+        t = h2k(e.get('title'))
+        if t != (e.get('title') or ''): e['title_raw'] = e.get('title') or ''; e['title'] = t
     s = out.setdefault('summary', {})
     s['faculty_nodes'] = sum(n['kind'] == 'professor' for n in out['nodes'])
     s['faculty_with_advisees'] = sum(n['kind'] == 'professor' and n['advisee_thesis_count'] > 0 for n in out['nodes'])

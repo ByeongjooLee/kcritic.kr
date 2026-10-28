@@ -26,7 +26,7 @@ test('public projection contains no private evidence fields or filesystem paths'
  const forbidden=new Set(['record','evidence_ids','notes','reason','pdf_hits','pdf_path','download_record','identity_evidence_ids','advisor_evidence','verification_note','source_record','sha256','text','note','evidence']);
  function walk(v){if(Array.isArray(v))return v.forEach(walk);if(v&&typeof v==='object'){for(const [k,x]of Object.entries(v)){assert(!forbidden.has(k),k);walk(x);}}else if(typeof v==='string'){assert(!/(?:^|\s)[A-Z]:[\\/]|file:\/\/|Users[\\/]hgohg|pdf_image_verified/i.test(v));}}
  walk(data);
- assert.deepEqual(Object.keys(data.theses[0]).sort(),['id','title','author_raw','author_person_id','year_raw','institution_id','university_raw','riss_url','advisor_raw'].sort());
+ const allowed=new Set(['id','title','title_raw','author','author_raw','author_person_id','year_raw','institution_id','university_raw','riss_url','advisor','advisor_raw','advisor_status']);for(const t of data.theses)for(const k of Object.keys(t))assert(allowed.has(k),k);   // title_raw·author = 한자 원표기·한글 표기 (2026-10-28)
 });
 
 async function render(ok=true){
@@ -57,7 +57,7 @@ test('Chun Jung-hwan advisor is Cho Nam-hyun (SNU library record + researcher co
  const people=new Map(data.people.map(p=>[p.id,p]));
  const edge=data.relationships.find(e=>e.type==='doctoral_supervision'&&e.target===t.author_person_id);
  assert.equal(people.get(edge.source).name,'조남현');assert.equal(edge.status,'library_confirmed');assert.equal(edge.thesis_id,t.id);
- assert(people.get(edge.source).affiliations.some(a=>data.institutions.find(o=>o.id===a.institution_id).name==='서울대학교'));
+ assert(people.get(edge.source).affiliations.some(a=>data.institutions.find(o=>o.id===a.institution_id).name==='서울대'));
  assert(edge.sources.some(u=>u.includes('82SNU_INST21422400670002591')));
  assert.equal(data.relationships.filter(e=>e.type==='doctoral_supervision').length,data.summary.prior_verified_supervision_edges+data.summary.library_confirmed_supervision_edges);
  const n=await render();n.get('thesis-query').value='천정환';n.get('thesis-query').oninput();
@@ -70,6 +70,6 @@ test('Kim In-hwan and Oh Hyeong-yeop mentorship identifies Korea University',asy
  const people=new Map(data.people.map(p=>[p.id,p.name]));
  const edge=data.relationships.find(e=>people.get(e.source)==='김인환'&&people.get(e.target)==='오형엽');
  assert.equal(edge.type,'mentorship');assert.equal(edge.thesis_id,null);
- assert.equal(data.institutions.find(o=>o.id===edge.institution_id).name,'고려대학교');
- const n=await render();assert(n.get('mentorships').innerHTML.includes('고려대학교 사제관계'));
+ assert.equal(data.institutions.find(o=>o.id===edge.institution_id).name,'고려대');
+ const n=await render();assert(n.get('mentorships').innerHTML.includes('고려대 사제관계'));
 });
