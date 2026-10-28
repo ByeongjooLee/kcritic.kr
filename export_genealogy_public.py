@@ -127,8 +127,11 @@ def publish(data):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('input'); ap.add_argument('--roster'); ap.add_argument('--out', default='site/data/genealogy-library.json'); ap.add_argument('--check')
+    ap.add_argument('--as-of', help='화면 머리의 기준일(YYYY-MM-DD). 생략하면 입력 그래프의 as_of 그대로')
     a = ap.parse_args()
     data = json.loads(Path(a.input).read_text(encoding='utf-8-sig'))
+    if a.as_of:
+        data['as_of'] = a.as_of
     if a.roster:
         added, skipped = add_roster_advisor_edges(data, json.loads(Path(a.roster).read_text(encoding='utf-8-sig')))
         print(f'명단 지도교수 간선 추가 {len(added)}건: ' + ', '.join(f'{adv}→{name}({u})' for _, name, adv, u in added))
