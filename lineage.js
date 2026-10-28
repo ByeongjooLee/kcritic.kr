@@ -22,6 +22,10 @@ let mode = (() => { const q = new URLSearchParams(location.search).get('view'); 
 const simple = () => mode === 'simple', radial = () => mode === 'radial', timeline = () => mode === 'time';
 const polar = (r, t) => [r * Math.cos(t), r * Math.sin(t)];
 const trail = [], Z = { k: 1, x: 0, y: 0 };
+// 클릭해 펼치기(2026-10-28): 시작 교수의 직접 제자만 먼저 보이고, 접힌 교수를 누르면 그 아래 세대가 나타나며 화면이 그쪽으로 확대된다.
+// expanded = 아래 세대를 펼친 교수 id. 시작 교수는 늘 펼쳐져 있다. 체크를 끄면 예전처럼 모든 세대를 한 번에 펼친다(이름은 어느 쪽이든 접지 않는다).
+let expanded = new Set(), camAnim = null;
+const stepwise = () => el('stepwise').checked;
 
 // 소속·학위 대학 표기: 한자 교명을 한글로, 대학원·학과·전공을 떼고 대학명(+캠퍼스)만 남긴다. 서지 원표기는 상세에서 그대로 보존한다.
 const HANJA = [['忠南', '충남'], ['高麗', '고려'], ['延世', '연세'], ['梨花女子', '이화여자'], ['慶熙', '경희'], ['漢陽', '한양'], ['東國', '동국'], ['全南', '전남'], ['西江', '서강'], ['成均館', '성균관'], ['中央', '중앙'], ['檀國', '단국'], ['釜山', '부산'], ['嶺南', '영남'], ['亞洲', '아주'], ['國民', '국민'], ['全州', '전주'], ['朝鮮', '조선'], ['昌原', '창원'], ['韓南', '한남'], ['淑明女子', '숙명여자'], ['韓國外國語', '한국외국어'], ['慶北', '경북'], ['崇實', '숭실'], ['弘益', '홍익'], ['世宗', '세종'], ['仁川', '인천'], ['蔚山', '울산'], ['公州', '공주'], ['東亞', '동아'], ['順天', '순천'], ['牧園', '목원'], ['忠北', '충북'], ['慶南', '경남'], ['鮮文', '선문'], ['大學校', '대학교'], ['大學院', '대학원']];
@@ -79,10 +83,12 @@ function layout() {
   const items = [], lines = []; let cycles = 0;
   function walk(id, depth, via, parent, path) {
     if (path.has(id)) { cycles++; return null; }
-    const n = N.get(id), item = { id, n, depth, via, parent, kids: [], kind: depth === 0 ? 'root' : n.kind, year: via ? yearOf(via) : null, uni: via ? affiliationName(via.university) : '' };
+    const n = N.get(id), item = { id, n, depth, via, parent, kids: [], hidden: 0, kind: depth === 0 ? 'root' : n.kind, year: via ? yearOf(via) : null, uni: via ? affiliationName(via.university) : '' };
     items.push(item);
+    const kids = children(id);
+    if (stepwise() && depth > 0 && kids.length && !expanded.has(id)) { item.hidden = new Set(kids.map(e => e.target)).size; return item; }   // 접힌 교수: 제자 수만 적고 내려가지 않는다
     const next = new Set(path); next.add(id);
-    for (const e of children(id)) { const c = walk(e.target, depth + 1, e, item, next); if (c) { item.kids.push(c); lines.push({ a: item, b: c, e }); } }
+    for (const e of kids) { const c = walk(e.target, depth + 1, e, item, next); if (c) { item.kids.push(c); lines.push({ a: item, b: c, e }); } }
     return item;
   }
   const tree = walk(root, 0, null, null, new Set());
@@ -140,6 +146,7 @@ function layout() {
 
 // ── 그리기
 function draw() {
+  const prev = new Map((view?.items || []).map(x => [x.id, x]));   // 직전 배치: 자리가 바뀐 인물은 그 자리에서 미끄러지고, 새로 나타난 인물은 자라난다
   view = layout(); const v = view, svg = el('network');
   svg.classList.toggle('simple', !timeline());          // 원형·간단 보기는 역할 색, 시간축 보기는 대학 색
   let s = '<g id="scene">';
@@ -163,14 +170,14 @@ function draw() {
     const n = x.n, r = RADIUS[x.kind], inferred = x.kind !== 'mentor' && x.via?.student_is_inferred_professor;
     const aff = affOf(n), yr = x.kind === 'mentor' ? '' : (x.year ? String(x.year) : '연도 미상');
     const name = `${esc(nameOf(n))}${yr ? `<tspan class="yr"> ${esc(yr)}</tspan>` : ''}`;
-    const sub = x.kind === 'student' ? '' : [cut(aff, 22) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
-    let label, transform = `translate(${x.x} ${x.y})`;
+    const sub = x.kind === 'student' ? '' : [cut(aff, 22) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), x.hidden ? `▸ 제자 ${x.hidden}명` : n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
+    let label, transform = `translate(${x.x} ${x.y})`; x.deg = 0;
     if (radial() && x.depth > 0) {
       // 글자는 반지름 방향으로 바깥쪽에 눕힌다(안쪽은 부모의 선 다발이 모이는 곳). 왼쪽 반은 180° 뒤집어 거꾸로 읽히지 않게 한다.
       const flip = Math.cos(x.theta) < 0, deg = x.theta * 180 / Math.PI + (flip ? 180 : 0);
       const right = !flip;                                                 // 회전된 좌표계에서 오른쪽(= 바깥쪽)에 쓸지
       const tx = right ? r + 8 : -(r + 8), anchor = right ? 'start' : 'end';
-      transform += ` rotate(${deg.toFixed(2)})`;
+      transform += ` rotate(${deg.toFixed(2)})`; x.deg = deg;
       label = sub ? `<text class="name" x="${tx}" y="${-2}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="14" text-anchor="${anchor}">${esc(sub)}</text>` : `<text class="name" x="${tx}" y="5" text-anchor="${anchor}">${name}</text>`;
     } else if (radial()) {   // 시작 교수: 가운데, 이름은 점 위·소속은 점 아래에 수평으로
       label = `<text class="name" x="0" y="${-r - 10}" text-anchor="middle">${name}</text><text class="sub" x="0" y="${r + 20}" text-anchor="middle">${esc(sub)}</text>`;
@@ -184,24 +191,36 @@ function draw() {
         label = `<text class="name" x="${tx}" y="${ny}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="${sy}" text-anchor="${anchor}">${esc(sub)}</text>`;
       }
     }
-    const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', x.id === selected ? 'selected' : ''].filter(Boolean).join(' ');
-    const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : ''].filter(Boolean).join(' · ');
-    return `<g class="${cls}" transform="${transform}" tabindex="0" role="button" data-i="${i}" aria-label="${esc(tip)} 상세 보기"><title>${esc(tip)}</title><circle r="${r}" fill="${colorOf(x.uni)}"/>${label}</g>`;
+    const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', x.id === selected ? 'selected' : '', x.hidden ? 'collapsed' : stepwise() && x.kids.length && x.depth > 0 ? 'open' : ''].filter(Boolean).join(' ');
+    const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : '', x.hidden ? `클릭하면 제자 ${x.hidden}명 펼침` : ''].filter(Boolean).join(' · ');
+    const ring = x.hidden ? `<circle class="more" r="${r + 4.5}"/>` : '';   // 접힌 교수: 점선 겉고리
+    return `<g class="${cls}" transform="${transform}" tabindex="0" role="button" data-i="${i}" aria-label="${esc(tip)}${x.hidden ? '' : ' 상세 보기'}"><title>${esc(tip)}</title>${ring}<circle r="${r}" fill="${colorOf(x.uni)}"/>${label}</g>`;
   }).join('');
   // 연도 눈금·열 머리글은 화면 위에 고정(세로로는 따라 움직이지 않음). 가로 위치는 apply() 가 배율·이동에 맞춰 갱신한다. 원형 보기는 고리에 세대를 적으므로 없음.
   s += '</g>' + (radial() ? '' : '<g id="ruler"><rect class="ln-ruler-bg" x="0" y="0" width="100%" height="30"/>' + v.ticks.map(([x, t]) => `<text class="${simple() ? 'ln-col' : 'ln-tick'}" data-x="${x}" y="20" text-anchor="middle">${t}</text>`).join('') + (v.mentors.length ? `<text class="ln-col" data-x="${PAD_L + 10}" y="20" text-anchor="middle">지도교수</text>` : '') + '</g>');
   svg.innerHTML = s;
+  const tween = prev.size > 0 && typeof Element.prototype.animate === 'function';
   svg.querySelectorAll('.ln-node').forEach(g => {
     const item = () => v.items[+g.dataset.i];
-    g.onclick = e => { e.stopPropagation(); select(item()); };
+    g.onclick = e => { e.stopPropagation(); activate(item()); };
     g.ondblclick = e => { e.preventDefault(); e.stopPropagation(); reroot(item()); };
-    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (e.shiftKey) reroot(item()); else select(item()); } };
+    g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (e.shiftKey) reroot(item()); else activate(item()); } };
+    if (!prev.size) return;
+    const x = item(), p = prev.get(x.id);
+    if (!p) { g.classList.add('ln-new'); g.addEventListener('animationend', () => g.classList.remove('ln-new'), { once: true }); return; }
+    // 자리가 바뀐 인물은 직전 자리에서 새 자리로 미끄러진다 (뒤집힘 각도가 크게 달라지면 그냥 옮긴다)
+    const d0 = p.deg || 0, d1 = x.deg || 0;
+    if (tween && (p.x !== x.x || p.y !== x.y || d0 !== d1) && Math.abs(d1 - d0) <= 180)
+      g.animate([{ transform: `translate(${p.x}px, ${p.y}px) rotate(${d0}deg)` }, { transform: `translate(${x.x}px, ${x.y}px) rotate(${d1}deg)` }], { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' });
   });
+  if (prev.size) svg.querySelectorAll('.ln-link, .ln-span').forEach(p => { p.classList.add('ln-new'); p.addEventListener('animationend', () => p.classList.remove('ln-new'), { once: true }); });
   el('mentorNav').innerHTML = v.mentors.map(m => `<button data-mentor="${esc(m.id)}">← 지도교수 ${esc(nameOf(m.n))}</button>`).join('');
   el('mentorNav').querySelectorAll('[data-mentor]').forEach(b => b.onclick = () => setRoot(b.dataset.mentor));
-  const R = N.get(root), shown = v.items.filter(x => x.kind !== 'mentor').length;
+  const R = N.get(root), shown = v.items.filter(x => x.kind !== 'mentor').length, folded = v.items.filter(x => x.hidden);
   el('selected-title').textContent = nameOf(R) + '의 학맥';
-  el('count').textContent = `표시 ${shown - 1}명 · ${v.maxDepth}세대${timeline() ? ` · 시간축 ${v.y0}–${v.y1 - 1}` : ''}${v.cycles ? ' · 순환 연결 제외' : ''}`;
+  el('count').textContent = `표시 ${shown - 1}명 · ${v.maxDepth}세대${folded.length ? ` · 접힌 교수 ${folded.length}명(제자 ${folded.reduce((a, x) => a + x.hidden, 0)}명) — 클릭해 펼치기` : ''}${timeline() ? ` · 시간축 ${v.y0}–${v.y1 - 1}` : ''}${v.cycles ? ' · 순환 연결 제외' : ''}`;
+  el('expandNext').disabled = !stepwise() || !folded.length;
+  el('collapseAll').disabled = !stepwise() || !v.items.some(x => x.depth > 0 && x.kids.length);
   el('legendTime').hidden = !timeline(); el('uniLegend').hidden = !timeline(); el('legendSimple').hidden = timeline();
   for (const m of VIEWS) el('mode-' + m).setAttribute('aria-pressed', String(mode === m));
   svg.setAttribute('aria-label', `${nameOf(R)}의 학맥: 제자 ${shown - 1}명, ${v.maxDepth}세대, ${v.y0}년부터 ${v.y1 - 1}년`);
@@ -247,6 +266,45 @@ function paint() {
 }
 function select(item) { selected = item.id; selectedEdge = item.kind === 'mentor' ? null : item.via; highlight = item.id; showDetail(); paint(); }
 function reroot(item) { if (item.n.kind === 'professor' && item.id !== root) setRoot(item.id); else select(item); }
+// 클릭 한 번의 뜻(클릭해 펼치기 모드): 접힌 교수 → 그 아래 세대를 펼치고 그쪽으로 확대 · 이미 펼친 교수를 다시 클릭 → 접기 · 그 밖 → 계보 강조·상세와 함께 그 인물 쪽으로 확대
+function activate(item) {
+  if (!stepwise() || item.kind === 'mentor') { select(item); if (stepwise()) flyTo(item.id); return; }
+  if (item.hidden) { expanded.add(item.id); focusNode(item); flyTo(item.id); return; }
+  if (item.kids.length && item.depth > 0 && item.id === selected) { collapseBelow(item.id); focusNode(item); flyTo(item.parent ? item.parent.id : item.id); return; }
+  select(item); flyTo(item.id);
+}
+function focusNode(item) { selected = item.id; selectedEdge = item.kind === 'mentor' ? null : item.via; highlight = item.id; draw(); showDetail(); }
+function collapseBelow(id) {   // 그 교수와 그 아래 모든 후손을 접는다
+  const it = view.items.find(x => x.id === id); if (!it) return;
+  (function down(x) { expanded.delete(x.id); x.kids.forEach(down); })(it);
+}
+function expandNext() {        // 지금 보이는 접힌 교수를 모두 한 세대 펼친다
+  view.items.filter(x => x.hidden).forEach(x => expanded.add(x.id));
+  draw(); showDetail(); flyAll();
+}
+function collapseAll() { expanded = new Set(); selected = root; selectedEdge = null; highlight = null; draw(); showDetail(); flyTo(root); }
+// 카메라: 그 인물과 (펼쳐진) 제자들이 화면에 들어오도록 부드럽게 확대·이동한다. 배율은 0.4~1.6 사이에서 정한다.
+function flyTo(id) {
+  const vp = el('viewport'), it = view.items.find(x => x.id === id); if (!it) return;
+  const pts = [it, ...it.kids], mx = radial() ? 170 : 130, my = radial() ? 170 : 50;
+  const x0 = Math.min(...pts.map(p => p.x)) - mx, x1 = Math.max(...pts.map(p => p.x)) + (radial() ? mx : 230), y0 = Math.min(...pts.map(p => p.y)) - my, y1 = Math.max(...pts.map(p => p.y)) + my;
+  const k = Math.max(.4, Math.min(1.6, (vp.clientWidth - 32) / (x1 - x0), (vp.clientHeight - 32) / (y1 - y0)));
+  animateZ({ k, x: vp.clientWidth / 2 - (x0 + x1) / 2 * k, y: vp.clientHeight / 2 - (y0 + y1) / 2 * k });
+}
+function flyAll() {
+  const vp = el('viewport'), k = Math.max(.2, Math.min(1.2, (vp.clientWidth - 24) / view.width, (vp.clientHeight - 24) / view.height));
+  animateZ({ k, x: (vp.clientWidth - view.width * k) / 2, y: (vp.clientHeight - view.height * k) / 2 });
+}
+function animateZ(to, ms = 520) {
+  if (camAnim) cancelAnimationFrame(camAnim);
+  const from = { ...Z }, t0 = performance.now();
+  const step = now => {
+    const p = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - p, 3);
+    Z.k = from.k + (to.k - from.k) * e; Z.x = from.x + (to.x - from.x) * e; Z.y = from.y + (to.y - from.y) * e; apply();
+    camAnim = p < 1 ? requestAnimationFrame(step) : null;
+  };
+  camAnim = requestAnimationFrame(step);
+}
 
 // ── 화면 이동·배율
 function apply() {
@@ -282,9 +340,10 @@ function showDetail() {
   const professors = (adj.get(selected) || []).filter(x => N.get(x.target).kind === 'professor');
   const advisees = (adj.get(selected) || []).slice().sort((a, b) => (yearOf(a) || 0) - (yearOf(b) || 0));
   const profile = '/academic-network.html?name=' + encodeURIComponent(t.name) + '#faculty';
+  const it = view?.items.find(x => x.id === selected), fold = stepwise() && it && it.depth > 0 ? (it.hidden ? `<button id="foldBtn" class="ln-btn" data-act="open">▸ 다음 세대 펼치기 (${it.hidden}명)</button>` : it.kids.length ? '<button id="foldBtn" class="ln-btn" data-act="close">▾ 접기</button>' : '') : '';
   el('detail').innerHTML = `
 <div class="ln-detail-head"><div><h2>${esc(nameOf(t))}</h2><p>${esc(affOf(t) || (t.kind === 'professor' ? '교수 소속 미확인' : '학위자 · 교수 여부 미확인'))}</p><p class="muted">${esc(t.faculty_statuses.join(' / ') || t.identity_status)}</p></div>
-<div class="ln-detail-actions">${t.kind === 'professor' && studentCount(t.id) > 0 && t.id !== root ? '<button id="makeRoot" class="ln-btn">이 교수부터 보기</button>' : ''}<a class="ln-btn" href="${profile}">학교·소속·사제관계 →</a></div></div>
+<div class="ln-detail-actions">${fold}${t.kind === 'professor' && studentCount(t.id) > 0 && t.id !== root ? '<button id="makeRoot" class="ln-btn">이 교수부터 보기</button>' : ''}<a class="ln-btn" href="${profile}">학교·소속·사제관계 →</a></div></div>
 ${urls(t.urls) ? `<p>${urls(t.urls)}</p>` : ''}
 ${t.kind === 'professor' && studentCount(t.id) ? `<h3>학맥 지표</h3>${metricLine(t.id)}` : ''}
 ${t.kind === 'professor' ? `<h3>다음 세대</h3><p>지도논문 ${t.advisee_thesis_count}편 · 교수로 연결된 제자 ${professors.length}명</p>${advisees.length ? `<details><summary>지도논문 ${advisees.length}편 보기</summary><ol>${advisees.map(a => `<li>${esc(nameOf(N.get(a.target)))} · ${esc(a.year || '연도 미상')} · ${esc(affiliationName(a.university))} · ${esc(a.title)}</li>`).join('')}</ol></details>` : ''}` : ''}
@@ -292,6 +351,7 @@ ${t.kind === 'professor' ? `<h3>다음 세대</h3><p>지도논문 ${t.advisee_th
 ${e ? `<h3>지도 관계</h3><p><b>${esc(nameOf(N.get(e.source)))} → ${esc(nameOf(t))}</b></p><p class="thesis">${esc(e.title)}</p><p class="muted">${esc(affiliationName(e.university))} · 서지 연도 ${esc(e.year || '미확인')} · 지도교수 원표기 ${esc(e.advisor_raw || '미확인')} · 수여기관 원표기 ${esc(e.university || '미확인')}</p>${e.advisor_conflict ? '<p class="callout">근거 충돌 검토: 기존 관계와 도서관 기록이 달라 해당 학위논문의 확정 지도교수로 표시하지 않습니다.</p>' : ''}<p class="muted">관계 연결: ${esc(e.basis)} · 학생 동일인: ${esc(e.student_identity.status)}</p>${urls(e.urls) ? `<p>${urls(e.urls)}</p>` : ''}<details><summary>저장된 지도교수 검수 근거</summary><pre>${esc(JSON.stringify(e.advisor_evidence, null, 2))}</pre></details>` : ''}
 <h3>표시 범위</h3><p class="muted">현재 수집자료에서 연결된 논문만 표시합니다. 다음 세대가 표시되지 않아도 실제 지도학생이 없다는 뜻은 아닙니다. 학생 이름만으로 교수 노드에 합치지 않았습니다.</p>`;
   const b = el('makeRoot'); if (b) b.onclick = () => setRoot(selected);
+  const f = el('foldBtn'); if (f) f.onclick = () => { const x = view.items.find(y => y.id === selected); if (!x) return; if (f.dataset.act === 'open') { expanded.add(x.id); focusNode(x); flyTo(x.id); } else { collapseBelow(x.id); focusNode(x); flyTo(x.parent ? x.parent.id : x.id); } el('viewport').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); };
 }
 
 // ── 비교표: 지도논문이 있는 교수 전원
@@ -342,7 +402,7 @@ function options() {
 function setRoot(id, remember = true) {
   if (!N.has(id)) return;
   if (remember && id !== root) trail.push(root);
-  root = id; selected = id; selectedEdge = null; highlight = null; uniFocus = null;
+  root = id; selected = id; selectedEdge = null; highlight = null; uniFocus = null; expanded = new Set();   // 새 시작 교수: 직접 제자부터 다시 펼친다
   const u = new URL(location.href); u.searchParams.set('person', id); history.replaceState(null, '', u);
   options(); draw(); home(); showDetail(); revealInList(); markCompareRow();
   el('backRoot').disabled = !trail.length;
@@ -358,6 +418,10 @@ el('search').oninput = options;
 el('profOnly').onchange = () => { draw(); home(); showDetail(); };
 el('inferred').onchange = () => { metricsCache.clear(); draw(); home(); showDetail(); renderCompare(); };
 el('minus').onclick = () => zoomTo(Z.k / 1.25); el('plus').onclick = () => zoomTo(Z.k * 1.25);
+// 클릭해 펼치기 켜기/끄기 (마지막 선택은 localStorage). 끄면 모든 세대를 한 번에 펼친다.
+try { const s = localStorage.getItem('kc-lineage-stepwise'); if (s !== null) el('stepwise').checked = s === '1'; } catch (_) {}
+el('stepwise').onchange = () => { try { localStorage.setItem('kc-lineage-stepwise', stepwise() ? '1' : '0'); } catch (_) {} expanded = new Set(); draw(); home(); showDetail(); };
+el('expandNext').onclick = expandNext; el('collapseAll').onclick = collapseAll;
 el('zoomReset').onclick = fitAll; el('zoomHome').onclick = home;
 function setMode(m) {
   mode = m; uniFocus = null; try { localStorage.setItem('kc-lineage-view', m); } catch (_) {}
@@ -414,6 +478,6 @@ fetch('/site/data/genealogy-library.json').then(r => { if (!r.ok) throw Error(r.
   const want = new URLSearchParams(location.search).get('person');
   root = N.has(want) ? want : D.default_root; selected = root;
   options(); draw(); home(); showDetail(); revealInList(); renderCompare();
-  window.genealogyState = () => ({ root, profOnly: profOnly(), visible: view.items.map(x => ({ name: x.n.name, kind: x.n.kind, depth: x.depth, year: x.year, uni: x.uni })), metrics: metrics(root), summary: D.summary });
+  window.genealogyState = () => ({ root, profOnly: profOnly(), stepwise: stepwise(), expanded: [...expanded], visible: view.items.map(x => ({ name: x.n.name, kind: x.n.kind, depth: x.depth, year: x.year, uni: x.uni, hidden: x.hidden })), metrics: metrics(root), summary: D.summary });
 }).catch(err => { console.error(err); el('status').textContent = '학맥 데이터를 불러오지 못했습니다. 새로고침해 주세요.'; });
 })();
