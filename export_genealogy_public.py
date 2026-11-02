@@ -15,10 +15,14 @@
   3. 로컬 경로·파일 URL 이 섞여 들어오지 않았는지 검사한다.
   4. (2026-10-28) 논문 제목·인물 이름의 한자를 한글로, 대학명(간선 university·교수 affiliations)을 「OO대」로 통일한다
      (hanja_norm.py). 바뀐 값의 원표기는 title_raw·name_raw·university_raw·affiliations_raw 에 남긴다.
+  5. (2026-10-29 감사) 판정 상태를 「확정 / 추론 / 미확인」 세 단계로 묶는다(lineage_status.py). 간선 student_identity.status,
+     노드 identity_status·own_thesis_identity.status 가 세 단계 값이 되고, 원래 값은 status_raw·identity_status_raw 에 남는다.
+     summary.identity_levels 에 단계별 건수를 둔다.
 """
 import argparse, copy, json, re, sys
 from pathlib import Path
 from hanja_norm import h2k, uni_norm
+from lineage_status import LEVEL_EDGE, LEVEL_NODE, LEVEL_OWN, LEVELS, level_of
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -124,7 +128,21 @@ def publish(data):
         if u != (e.get('university') or ''): e['university_raw'] = e.get('university') or ''; e['university'] = u
         t = h2k(e.get('title'))
         if t != (e.get('title') or ''): e['title_raw'] = e.get('title') or ''; e['title'] = t
+    # 판정 상태 3단계 (원래 값은 *_raw 에 보존)
+    levels = {'edges': dict.fromkeys(LEVELS, 0), 'professors_own_thesis': dict.fromkeys(LEVELS, 0), 'nodes': dict.fromkeys(LEVELS, 0)}
+    for e in out['edges']:
+        si = e.setdefault('student_identity', {})
+        raw = si.get('status', ''); si['status_raw'] = raw; si['status'] = level_of(raw, LEVEL_EDGE)
+        levels['edges'][si['status']] += 1
+    for n in out['nodes']:
+        raw = n.get('identity_status', ''); n['identity_status_raw'] = raw; n['identity_status'] = level_of(raw, LEVEL_NODE)
+        levels['nodes'][n['identity_status']] += 1
+        own = n.get('own_thesis_identity')
+        if own:
+            raw = own.get('status', ''); own['status_raw'] = raw; own['status'] = level_of(raw, LEVEL_OWN)
+            levels['professors_own_thesis'][own['status']] += 1
     s = out.setdefault('summary', {})
+    s['identity_levels'] = levels
     s['faculty_nodes'] = sum(n['kind'] == 'professor' for n in out['nodes'])
     s['faculty_with_advisees'] = sum(n['kind'] == 'professor' and n['advisee_thesis_count'] > 0 for n in out['nodes'])
     s['advisor_thesis_edges'] = len(out['edges'])

@@ -39,6 +39,9 @@ function affiliationName(value) {
 }
 const shortUni = s => s.replace(/대학교/, '대').replace(/여자대/, '여대');
 const nameOf = n => n.display_name || n.name;
+// 동일인 판정 3단계(확정·추론·미확인, 2026-10-29). status 는 단계, status_raw 는 판정 경위(사용자 확인·교수 명단·추론 연결 …).
+const levelText = (lv, raw) => raw && raw !== lv ? `${lv} (${raw})` : (lv || '미확인');
+const unconfirmedEdge = e => e?.student_identity?.status === '미확인';
 const affOf = n => n.kind === 'professor' ? n.affiliations.join(' / ') : '';
 const cut = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
 const urls = arr => [...new Set(arr || [])].filter(x => /^https?:\/\//.test(x)).map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">근거 ${i + 1}</a>`).join(' · ');
@@ -164,10 +167,11 @@ function draw() {
       const x1 = a.x + RADIUS[a.kind] + 3, x2 = b.x - RADIUS[b.kind] - 3, mx = (x1 + x2) / 2;
       d = `M${x1} ${a.y}C${mx} ${a.y},${mx} ${b.y},${x2} ${b.y}`;
     }
-    return `<path class="ln-link${e.student_is_inferred_professor ? ' inferred' : ''}${mentor ? ' mentor' : ''}${b.kids.length ? ' toprof' : ''}" data-line="${i}" d="${d}"/>`;
+    return `<path class="ln-link${e.student_is_inferred_professor ? ' inferred' : ''}${b.kind === 'professor' && unconfirmedEdge(e) ? ' unconfirmed' : ''}${mentor ? ' mentor' : ''}${b.kids.length ? ' toprof' : ''}" data-line="${i}" d="${d}"/>`;
   }).join('');
   s += v.items.map((x, i) => {
     const n = x.n, r = RADIUS[x.kind], inferred = x.kind !== 'mentor' && x.via?.student_is_inferred_professor;
+    const unconfirmed = x.kind === 'professor' && unconfirmedEdge(x.via);   // 연구자 지시로 반영했으나 근거 없는 동일인 병합: 촘촘한 점선
     const aff = affOf(n), yr = x.kind === 'mentor' ? '' : (x.year ? String(x.year) : '연도 미상');
     const name = `${esc(nameOf(n))}${yr ? `<tspan class="yr"> ${esc(yr)}</tspan>` : ''}`;
     const sub = x.kind === 'student' ? '' : [cut(aff, 22) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), x.hidden ? `▸ 제자 ${x.hidden}명` : n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
@@ -191,8 +195,8 @@ function draw() {
         label = `<text class="name" x="${tx}" y="${ny}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="${sy}" text-anchor="${anchor}">${esc(sub)}</text>`;
       }
     }
-    const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', x.id === selected ? 'selected' : '', x.hidden ? 'collapsed' : stepwise() && x.kids.length && x.depth > 0 ? 'open' : ''].filter(Boolean).join(' ');
-    const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : '', x.hidden ? `클릭하면 제자 ${x.hidden}명 펼침` : ''].filter(Boolean).join(' · ');
+    const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', unconfirmed ? 'unconfirmed' : '', x.id === selected ? 'selected' : '', x.hidden ? 'collapsed' : stepwise() && x.kids.length && x.depth > 0 ? 'open' : ''].filter(Boolean).join(' ');
+    const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : '', x.kind === 'professor' && x.via ? '동일인 ' + x.via.student_identity.status : '', x.hidden ? `클릭하면 제자 ${x.hidden}명 펼침` : ''].filter(Boolean).join(' · ');
     const ring = x.hidden ? `<circle class="more" r="${r + 4.5}"/>` : '';   // 접힌 교수: 점선 겉고리
     return `<g class="${cls}" transform="${transform}" tabindex="0" role="button" data-i="${i}" aria-label="${esc(tip)}${x.hidden ? '' : ' 상세 보기'}"><title>${esc(tip)}</title>${ring}<circle r="${r}" fill="${colorOf(x.uni)}"/>${label}</g>`;
   }).join('');
@@ -342,13 +346,13 @@ function showDetail() {
   const profile = '/academic-network.html?name=' + encodeURIComponent(t.name) + '#faculty';
   const it = view?.items.find(x => x.id === selected), fold = stepwise() && it && it.depth > 0 ? (it.hidden ? `<button id="foldBtn" class="ln-btn" data-act="open">▸ 다음 세대 펼치기 (${it.hidden}명)</button>` : it.kids.length ? '<button id="foldBtn" class="ln-btn" data-act="close">▾ 접기</button>' : '') : '';
   el('detail').innerHTML = `
-<div class="ln-detail-head"><div><h2>${esc(nameOf(t))}</h2><p>${esc(affOf(t) || (t.kind === 'professor' ? '교수 소속 미확인' : '학위자 · 교수 여부 미확인'))}</p><p class="muted">${esc(t.faculty_statuses.join(' / ') || t.identity_status)}</p></div>
+<div class="ln-detail-head"><div><h2>${esc(nameOf(t))}</h2><p>${esc(affOf(t) || (t.kind === 'professor' ? '교수 소속 미확인' : '학위자 · 교수 여부 미확인'))}</p><p class="muted">${esc([t.faculty_statuses.join(' / '), '동일인 판정 ' + levelText(t.identity_status, t.identity_status_raw), t.own_thesis_identity ? '본인 박사논문 ' + levelText(t.own_thesis_identity.status, t.own_thesis_identity.status_raw) : ''].filter(Boolean).join(' · '))}</p></div>
 <div class="ln-detail-actions">${fold}${t.kind === 'professor' && studentCount(t.id) > 0 && t.id !== root ? '<button id="makeRoot" class="ln-btn">이 교수부터 보기</button>' : ''}<a class="ln-btn" href="${profile}">학교·소속·사제관계 →</a></div></div>
 ${urls(t.urls) ? `<p>${urls(t.urls)}</p>` : ''}
 ${t.kind === 'professor' && studentCount(t.id) ? `<h3>학맥 지표</h3>${metricLine(t.id)}` : ''}
 ${t.kind === 'professor' ? `<h3>다음 세대</h3><p>지도논문 ${t.advisee_thesis_count}편 · 교수로 연결된 제자 ${professors.length}명</p>${advisees.length ? `<details><summary>지도논문 ${advisees.length}편 보기</summary><ol>${advisees.map(a => `<li>${esc(nameOf(N.get(a.target)))} · ${esc(a.year || '연도 미상')} · ${esc(affiliationName(a.university))} · ${esc(a.title)}</li>`).join('')}</ol></details>` : ''}` : ''}
 <div class="callout">${esc(e?.student_identity.note || t.identity_note)}</div>
-${e ? `<h3>지도 관계</h3><p><b>${esc(nameOf(N.get(e.source)))} → ${esc(nameOf(t))}</b></p><p class="thesis">${esc(e.title)}</p>${e.title_raw ? `<p class="muted">제목 원표기 ${esc(e.title_raw)}</p>` : ''}<p class="muted">${esc(affiliationName(e.university))} · 서지 연도 ${esc(e.year || '미확인')} · 지도교수 원표기 ${esc(e.advisor_raw || '미확인')} · 수여기관 원표기 ${esc(e.university_raw || e.university || '미확인')}</p>${e.advisor_conflict ? '<p class="callout">근거 충돌 검토: 기존 관계와 도서관 기록이 달라 해당 학위논문의 확정 지도교수로 표시하지 않습니다.</p>' : ''}<p class="muted">관계 연결: ${esc(e.basis)} · 학생 동일인: ${esc(e.student_identity.status)}</p>${urls(e.urls) ? `<p>${urls(e.urls)}</p>` : ''}<details><summary>저장된 지도교수 검수 근거</summary><pre>${esc(JSON.stringify(e.advisor_evidence, null, 2))}</pre></details>` : ''}
+${e ? `<h3>지도 관계</h3><p><b>${esc(nameOf(N.get(e.source)))} → ${esc(nameOf(t))}</b></p><p class="thesis">${esc(e.title)}</p>${e.title_raw ? `<p class="muted">제목 원표기 ${esc(e.title_raw)}</p>` : ''}<p class="muted">${esc(affiliationName(e.university))} · 서지 연도 ${esc(e.year || '미확인')} · 지도교수 원표기 ${esc(e.advisor_raw || '미확인')} · 수여기관 원표기 ${esc(e.university_raw || e.university || '미확인')}</p>${e.advisor_conflict ? '<p class="callout">근거 충돌 검토: 기존 관계와 도서관 기록이 달라 해당 학위논문의 확정 지도교수로 표시하지 않습니다.</p>' : ''}<p class="muted">관계 연결: ${esc(e.basis)} · 학생 동일인: ${esc(levelText(e.student_identity.status, e.student_identity.status_raw))}</p>${urls(e.urls) ? `<p>${urls(e.urls)}</p>` : ''}<details><summary>저장된 지도교수 검수 근거</summary><pre>${esc(JSON.stringify(e.advisor_evidence, null, 2))}</pre></details>` : ''}
 <h3>표시 범위</h3><p class="muted">현재 수집자료에서 연결된 논문만 표시합니다. 다음 세대가 표시되지 않아도 실제 지도학생이 없다는 뜻은 아닙니다. 학생 이름만으로 교수 노드에 합치지 않았습니다.</p>`;
   const b = el('makeRoot'); if (b) b.onclick = () => setRoot(selected);
   const f = el('foldBtn'); if (f) f.onclick = () => { const x = view.items.find(y => y.id === selected); if (!x) return; if (f.dataset.act === 'open') { expanded.add(x.id); focusNode(x); flyTo(x.id); } else { collapseBelow(x.id); focusNode(x); flyTo(x.parent ? x.parent.id : x.id); } el('viewport').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); };
@@ -474,6 +478,8 @@ fetch('/site/data/genealogy-library.json').then(r => { if (!r.ok) throw Error(r.
   [...uc.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko')).slice(0, PALETTE.length).forEach(([u], i) => uniColor.set(u, PALETTE[i]));
   el('status').textContent = '';
   el('totals').textContent = `지도논문이 있는 교수 ${fmt(D.summary.faculty_with_advisees)}명 · 지도논문 연결 ${fmt(D.summary.advisor_thesis_edges)}건 · ${D.as_of} 기준`;
+  const lv = D.summary.identity_levels;   // 동일인 판정 3단계 건수 (2026-10-29)
+  if (lv && el('levelNote')) el('levelNote').textContent = `동일인 판정 — 교수 본인 박사논문: 확정 ${fmt(lv.professors_own_thesis['확정'])} · 추론 ${fmt(lv.professors_own_thesis['추론'])} · 미확인(연구자 지시 반영) ${fmt(lv.professors_own_thesis['미확인'])} / 지도논문 저자: 확정 ${fmt(lv.edges['확정'])} · 추론 ${fmt(lv.edges['추론'])} · 미확인 ${fmt(lv.edges['미확인'])}. 미확인은 교수 여부를 확인하지 못했다는 뜻이며 비교수 판정이 아닙니다.`;
   el('coverage').innerHTML = `전체 ${fmt(D.summary.advisor_thesis_edges)}개 지도논문 연결 · 지도논문이 있는 교수 ${fmt(D.summary.faculty_with_advisees)}개 인물 ID. <a href="/site/data/genealogy-library.json">근거 포함 데이터</a> · 기본 교수 명단과 기존 학맥 검수의 교수 이력을 합쳤습니다. 동일인 미확정 교수행은 별도로 남아 있습니다. 지표는 Rossi 외(2018)의 계보 지표(직접 제자·후손·세대·교수 배출)를 이 자료에 맞게 줄인 것입니다.`;
   const want = new URLSearchParams(location.search).get('person');
   root = N.has(want) ? want : D.default_root; selected = root;

@@ -16,8 +16,19 @@ CHUN={'thesis_id':'eeea758c003fa8ac','advisor_name':'조남현',
       'sources':['https://snu-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?context=L&vid=82SNU&lang=ko_KR&docid=82SNU_INST21422400670002591',
                  'https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&control_no=eeea758c003fa8ac&keyword=']}
 
+# 2026-10-29 감사 1b: 입력(통합목록 10-26 시점)에 지도교수가 비어 있으나 학맥(genealogy-library.json, 도서관·통합목록 검수)에는 있는 논문은
+# 화면 표기 advisor 를 학맥에서 채우고 advisor_status='genealogy_library' 로 표시한다. advisor_raw(서지 원표기)는 비워 둔 채 그대로.
+GENEALOGY=Path(__file__).parent/'site/data/genealogy-library.json'
+def genealogy_advisors():
+    try: g=json.loads(GENEALOGY.read_text(encoding='utf-8'))
+    except FileNotFoundError: return {}
+    name={n['id']:n['name'] for n in g['nodes']}; adv={}
+    for e in g['edges']: adv.setdefault(e['thesis_id'],set()).add(name[e['source']])
+    return {t:', '.join(sorted(v)) for t,v in adv.items()}
+
 def export(data):
     evidence={e['id']:e for e in data['evidence']}
+    gen_adv=genealogy_advisors()
     def links(ids):
         urls=[]
         for eid in ids:
@@ -38,6 +49,7 @@ def export(data):
         if title != (result['title'] or ''): result['title_raw'] = result['title']; result['title'] = title
         result['author'] = h2k(result['author_raw'], name=True)   # 화면 표기; author_raw 는 서지 원표기
         if result.get('advisor_raw'): result['advisor'] = h2k(result['advisor_raw'], name=True)   # 화면 표기; advisor_raw 는 서지 원표기
+        elif t['id'] in gen_adv: result['advisor'] = gen_adv[t['id']]; result['advisor_status'] = 'genealogy_library'   # 학맥에서 채움 (2026-10-29)
         # Explicit correction (2026-10-27 unconfirmed -> 2026-10-28 confirmed): the input still carries the
         # withdrawn 김윤식 assignment as blank/unconfirmed. SNU library record + researcher confirmation
         # establish 조남현 (Seoul National University) as the advisor of 천정환's 2002 dissertation.

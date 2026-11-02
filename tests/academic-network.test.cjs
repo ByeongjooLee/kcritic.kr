@@ -66,6 +66,19 @@ test('Chun Jung-hwan advisor is Cho Nam-hyun (SNU library record + researcher co
  assert.equal(n.get('relationship-count').textContent,'1건');assert(n.get('relationship-results').innerHTML.includes('조남현 → 천정환'));assert(n.get('relationship-results').innerHTML.includes('도서관 기록'));
 });
 
+test('blank advisors are filled from the genealogy data and marked genealogy_library (2026-10-29 audit)',()=>{
+ const gen=JSON.parse(fs.readFileSync(path.join(root,'site/data/genealogy-library.json'),'utf8'));
+ const name=new Map(gen.nodes.map(n=>[n.id,n.name]));const adv=new Map();
+ for(const e of gen.edges){if(!adv.has(e.thesis_id))adv.set(e.thesis_id,new Set());adv.get(e.thesis_id).add(name.get(e.source));}
+ const filled=data.theses.filter(t=>t.advisor_status==='genealogy_library');
+ assert(filled.length>0);
+ for(const t of filled){assert.equal(t.advisor_raw,'');assert.equal(t.advisor,[...adv.get(t.id)].sort().join(', '));}   // 서지 원표기는 비워 둔 채 학맥 지도교수만 표기
+ for(const t of data.theses)if(t.advisor_raw&&t.advisor_status!=='library_confirmed')assert.notEqual(t.advisor_status,'genealogy_library');
+ assert(gen.summary.identity_levels&&['확정','추론','미확인'].every(k=>k in gen.summary.identity_levels.edges));
+ for(const e of gen.edges){assert(['확정','추론','미확인'].includes(e.student_identity.status));assert('status_raw'in e.student_identity);}
+ for(const n of gen.nodes)assert(['확정','추론','미확인'].includes(n.identity_status));
+});
+
 test('Kim In-hwan and Oh Hyeong-yeop mentorship identifies Korea University',async()=>{
  const people=new Map(data.people.map(p=>[p.id,p.name]));
  const edge=data.relationships.find(e=>people.get(e.source)==='김인환'&&people.get(e.target)==='오형엽');

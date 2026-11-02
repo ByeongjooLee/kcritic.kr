@@ -75,6 +75,7 @@ def main():
         old = (old_raw or t.get('advisor') or '').strip()
         new = ', '.join(sorted(advisors[t['id']]))
         if old == new:
+            t['advisor'] = new     # 원표기와 학맥이 같으면 advisor_raw 없이 표기만 맞춘다 (한 번에 수렴, 2026-10-29)
             continue
         if old:
             t['advisor_raw'] = old; changed += 1
@@ -92,7 +93,7 @@ def main():
         rec = {'id': tid, 'title': i['title'], 'author': i['author'], 'year': int(y) if y.isdigit() else i['year'],
                'university': uni_norm(i['university']) or '미확인', 'advisor': ', '.join(sorted(advisors[tid])),
                'degree': '학위논문(박사)', 'in_search_corpus': False}
-        if not tid.startswith('snu:'):
+        if re.fullmatch(r'[0-9a-f]{16,32}', tid):   # RISS 제어번호 꼴일 때만 (snu:·DDMKL_UNMATCHED_ 등은 링크 없음)
             rec['riss_url'] = RISS.format(tid)
         added.append(rec)
     added.sort(key=lambda r: (str(r['year']), r['title'], r['id']))
