@@ -20,7 +20,7 @@
     <a class="brand" href="${R}index.html"><b>kcritic<i>.</i></b><span>한국 비평사 온톨로지</span></a>
     <nav class="nav" id="kcs-nav">${NAV.map(([, l, h]) => `<a href="${h}">${l}</a>`).join("")}</nav>
     <div class="hd-right">
-      <div class="gsearch"><input id="kcs-q" type="search" placeholder="글·인물·개념어 이름으로 찾기" autocomplete="off" aria-label="글·인물·개념어 찾기"><div class="suggest" id="kcs-s"></div></div>
+      <div class="gsearch"><input id="kcs-q" type="search" placeholder="글·인물·개념어·박사논문 찾기" autocomplete="off" aria-label="글·인물·개념어·박사논문 찾기"><div class="suggest" id="kcs-s"></div></div>
       <a class="btn dark" href="${R}ask.html">질문하기</a>
       <button class="btn menu-btn" id="kcs-menu" type="button">메뉴</button>
     </div>
@@ -35,29 +35,51 @@
     const nav = document.getElementById("kcs-nav");
     document.getElementById("kcs-menu").onclick = () => nav.classList.toggle("show");
     const q = document.getElementById("kcs-q"), box = document.getElementById("kcs-s"), narrow = matchMedia("(max-width: 1180px)");
-    const ph = () => { q.placeholder = narrow.matches ? "이름으로 찾기" : "글·인물·개념어 이름으로 찾기"; };
+    const ph = () => { q.placeholder = narrow.matches ? "이름·논문 찾기" : "글·인물·개념어·박사논문 찾기"; };
     narrow.addEventListener("change", ph); ph();
     search(q, box);
     const st = document.createElement("script"); st.src = "/kc-stat.js"; st.defer = true; document.head.appendChild(st);   // 방문 통계(IP 없음)
   }
 
   function search(inp, box) {
-    let D = null, sel = -1;
+    // kc.js globalSearch() 와 같은 동작(2026-11-02): 현장비평 이름 찾기 + 박사논문 제목·저자 + 입력이 멈추면 학술연구 뜻 검색, Enter 는 통합검색
+    let D = null, RS = null, sel = -1, gen = 0, timer = null; const sem = new Map();
     const load = () => D ??= Promise.all(["essays", "people", "concepts"].map(n => fetch(`${R}site/data/v2/${n}.json`).then(r => r.json())))
       .then(([essays, people, concepts]) => ({ essays, people, concepts }));
-    inp.addEventListener("focus", load);
-    inp.addEventListener("input", async () => {
-      const d = await load(), v = inp.value.trim();
-      if (!v) { box.classList.remove("show"); return; }
-      const has = s => (s || "").includes(v);
+    const thesisId = u => { try { return new URL(u).searchParams.get("control_no") || ""; } catch (e) { return ""; } };
+    const thesisHref = (id, q) => `${R}study.html?type=thesis&id=${encodeURIComponent(id)}&q=${encodeURIComponent(q.slice(0, 160))}`;
+    const loadResearch = () => RS ??= fetch(`${R}site/data/research-public.json`).then(r => r.json())
+      .then(d => d.theses.map(t => ({ id: thesisId(t.riss_url), title: t.title, author: t.author, year: t.year, advisor: t.advisor })).filter(t => t.id)).catch(() => (RS = null, []));
+    inp.addEventListener("focus", () => { load(); loadResearch(); });
+    const render = async (v, g) => {
+      const d = await load(), th = (await loadResearch()).filter(t => (t.title || "").includes(v) || (t.author || "").includes(v) || (t.advisor || "").includes(v)).slice(0, 4);   // 제목·저자·지도교수 이름
+      if (g !== gen) return;
+      const has = s => (s || "").includes(v), s = sem.get(v) || [];
       const grp = (h, items) => items.length ? `<h6>${h}</h6>` + items.join("") : "";
       box.innerHTML =
         grp("인물", d.people.filter(p => has(p.name) || has(p.en)).slice(0, 5).map(p => { const t = TYPE[role(p)];
           return `<a href="${ent("person", p.id)}"><span class="dot ${t[1]}"></span>${esc(p.name)}<small>${t[0]}</small></a>`; })) +
         grp("글", d.essays.filter(e => has(e.title)).slice(0, 5).map(e => `<a href="${ent("essay", e.id)}"><span class="dot t-essay"></span>${esc(e.title)}<small>${esc(e.critic_name)} ${esc(e.year)}</small></a>`)) +
         grp("개념어", d.concepts.filter(c => has(c.name)).slice(0, 5).map(c => `<a href="${ent("concept", c.name)}"><span class="dot t-concept"></span>${esc(c.name)}<small>${c.n}편</small></a>`)) +
-        `<h6>전체 검색</h6><a href="${R}explore.html?p=essays&q=${encodeURIComponent(v)}">“${esc(v)}” 글 전체에서 찾기 →</a>`;
+        grp("박사논문 (학술연구)", th.map(t => `<a href="${thesisHref(t.id, v)}"><span class="dot t-venue"></span>${esc(t.title)}<small>${esc(t.author)} ${esc(t.year)}${t.advisor ? ' · 지도 ' + esc(t.advisor) : ''}</small></a>`)) +
+        grp("학술연구 · 뜻으로 찾은 논문", s.map(t => `<a href="${thesisHref(t.id, v)}"><span class="dot t-venue"></span>${esc(t.title)}<small>${esc(t.author)} ${esc(t.year)}</small></a>`)) +
+        `<h6>전체 검색</h6><a href="${R}search.html?q=${encodeURIComponent(v)}">“${esc(v)}” 통합검색 — 현장비평·학술연구를 뜻으로 찾기 →</a><a href="${R}explore.html?p=essays&q=${encodeURIComponent(v)}">“${esc(v)}” 현장비평 글에서만 찾기 →</a>`;
       box.classList.add("show"); sel = -1;
+    };
+    const semantic = async (v, g) => {
+      if (v.length < 2 || sem.has(v)) return;
+      try {
+        const r = await fetch(`${R}theses/api/search`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ query: v }), signal: AbortSignal.timeout(12000) });
+        if (!r.ok) return;
+        const d = await r.json();
+        sem.set(v, (d.results || []).map(t => ({ id: thesisId(t.riss_url), title: t.title, author: t.author, year: t.year })).filter(t => t.id).slice(0, 4));
+      } catch (e) { return; }
+      if (g === gen && inp.value.trim() === v) render(v, g);
+    };
+    inp.addEventListener("input", () => {
+      const v = inp.value.trim(), g = ++gen; clearTimeout(timer);
+      if (!v) { box.classList.remove("show"); return; }
+      render(v, g); timer = setTimeout(() => semantic(v, g), 600);
     });
     inp.addEventListener("keydown", e => {
       const items = [...box.querySelectorAll("a")];
@@ -65,11 +87,11 @@
         e.preventDefault(); sel = Math.max(0, Math.min(items.length - 1, sel + (e.key === "ArrowDown" ? 1 : -1)));
         items.forEach((a, i) => a.classList.toggle("sel", i === sel));
       } else if (e.key === "Enter") {
-        if (items[sel]) window.kcStat?.("search", inp.value);   // 전체 검색은 explore 화면이 센다
-        location.href = items[sel] ? items[sel].href : `${R}explore.html?p=essays&q=${encodeURIComponent(inp.value.trim())}`;
+        if (items[sel]) window.kcStat?.("search", inp.value);   // 전체 검색은 통합검색 화면이 센다
+        location.href = items[sel] ? items[sel].href : `${R}search.html?q=${encodeURIComponent(inp.value.trim())}`;
       } else if (e.key === "Escape") box.classList.remove("show");
     });
-    box.addEventListener("click", e => { const a = e.target.closest("a"); if (a && !a.href.includes("explore.html")) window.kcStat?.("search", inp.value); });
+    box.addEventListener("click", e => { const a = e.target.closest("a"); if (a && !a.href.includes("explore.html") && !a.href.includes("search.html")) window.kcStat?.("search", inp.value); });
     document.addEventListener("click", e => { if (!e.target.closest(".hd .gsearch")) box.classList.remove("show"); });
   }
 
