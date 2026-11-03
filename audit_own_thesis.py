@@ -88,6 +88,7 @@ def main():
     kac_theses = defaultdict(list) # kac -> NLK 박사논문 [{title, year, uni, dept, kdm}]
     kac_fields = {}                # kac -> (fields, jobs)
     thesis_kac = {}                # our thesis id -> (kac, grade)
+    kac_rec = {}                   # kac -> 국중 전거 레코드(소속·생년·분야)
     if a.authority:
         A = Path(a.authority)
         for r in csv.DictReader(open(A / 'prof_kac_A.csv', encoding='utf-8-sig')):
@@ -101,6 +102,10 @@ def main():
                 kac_theses[r['kac']].append({'title': h2k(r['title']), 'year': yr(r['year']), 'uni': uni_norm(r['pub_norm'] or r['pub']), 'dept': r['dept'], 'kdm': r['kdm'], 'by_kac': 'kac:' in r['found_by']})
         for r in csv.DictReader(open(A / 'thesis' / 'thesis_matches.csv', encoding='utf-8-sig')):
             thesis_kac[r['thesis_id']] = (r['kac'], r['grade'])
+        sp = A / 'sparql' / 'nlk_sparql_matches.jsonl'
+        if sp.exists():
+            for line in open(sp, encoding='utf-8'):
+                rec = json.loads(line); kac_rec.setdefault(rec['kac'], rec)
 
     own = defaultdict(list)      # professor id -> own thesis edges
     advisees = defaultdict(list) # professor id -> advisee edges
@@ -164,6 +169,8 @@ def main():
                 if same:
                     flags.append('국중 전거(소속 일치)의 박사논문과 같음')
                     nlk_note = 'NLK-same'
+                if not it['title'] and not it['year']:
+                    flags.append('목록 밖 논문(우리 서지 없음 — own_thesis_identity 의 RISS 링크로 확인)'); same = nlk_own
                 if nlk_own and not same:
                     other = nlk_own[0]
                     in_corpus = any(same_thesis(h2k(x['title']), yr(x['year']), uni_norm(x['university']), other['title'], other['year'], other['uni']) for x in same_name)
@@ -206,8 +213,18 @@ def main():
                 flags.append(f'같은 이름 교수 노드 {prof_names[n["name"]]}개')
             if roster_mismatch:
                 flags.append('명단 행 번호와 이름 불일치')
+            trec = kac_rec.get(tk) if tk and tg in ('A', 'A*') else None
+            t_corp = ' | '.join((trec or {}).get('corporate') or [])
+            t_birth = yr((trec or {}).get('birth_year'))
+            if trec and nlk_note != 'NLK-same':
+                corp_unis = {uni_norm(re.sub(r'\(.*?\)|\[前\]', '', c).strip()) for c in ((trec or {}).get('corporate') or [])}
+                corp_unis |= {uni_norm(re.sub(r'\(.*?\)|\[前\]', '', c).split(' ')[0]) for c in ((trec or {}).get('corporate') or [])}
+                aff_unis = {a.split(' ')[0] for a in affs_n}
+                if aff_unis & corp_unis or any(x and (x in t_corp or x.replace('여대', '여자대') in t_corp) for x in affs_n):
+                    flags.append('논문 저자 전거의 소속에 이 교수의 소속 대학 있음'); nlk_note = 'NLK-same'
+                # 소속이 다르게 적힌 것은 전거 작성 시점(강사·전임지)일 수 있어 표지로만 적고 등급에는 안 넣는다 → '논문 저자 전거 소속' 열 참고
             if nlk_note == 'NLK-same':   # 국중 전거가 같은 논문을 가리키면 동명·학과·연령 표지는 뜻이 없다
-                flags = [f for f in flags if f.startswith(('국중 전거(소속', '복수', '명단 박사 대학', '명단 박사 제목', '명단 지도교수', '지도 시작', '명단 행'))]
+                flags = [f for f in flags if f.startswith(('국중 전거(소속', '논문 저자 전거의 소속에', '복수', '명단 박사 대학', '명단 박사 제목', '명단 지도교수', '지도 시작', '명단 행'))]
             errs = [f for f in flags if f.startswith(('복수', '명단 박사', '명단 지도교수', '명단 행')) and '차이' not in f]
             if nlk_note.startswith('NLK-other'):
                 errs.append('국중 전거 논문 다름')
@@ -215,7 +232,7 @@ def main():
                 errs.append('지도 시작 3년+ 앞섬(미확정)')
             if errs:
                 grade = '오류'
-            elif [f for f in flags if not f.startswith('국중 전거(소속 일치)')]:
+            elif [f for f in flags if not f.startswith(('국중 전거(소속 일치)', '논문 저자 전거의 소속에', '목록 밖 논문'))]:
                 grade = '의심'
             elif nlk_note == 'NLK-same':
                 grade = '정합(국중 일치)'
@@ -237,7 +254,7 @@ def main():
             elif nlk_note == 'NLK-kac-diff':
                 rec_act = '연구자 판정(전거는 다른 사람을 가리킴)'
             elif grade == '정합(국중 일치)' and lvl != '확정':
-                rec_act = '확정으로 올림 권고(국중 전거 일치)'
+                rec_act = '확정으로 올림 권고(국중 전거 일치)' if '국중 전거(소속 일치)' in ' '.join(flags) else '확정으로 올림 권고(논문 저자 전거의 소속 일치)'
             elif grade == '오류':
                 rec_act = '연구자 판정'
             else:
@@ -250,7 +267,7 @@ def main():
                    '같은 이름 논문 목록': ' | '.join(f"{x['year']} {uni_norm(x['university'])} 「{h2k(x['title'])[:30]}」({x['id'][:8]})" for x in sorted(same_name, key=lambda x: str(x['year']))),
                    '교수 KAC(국중 전거 A)': ' · '.join(sorted({k['kac'] for k in kacs})), '전거 생년': next((k['birth'] for k in kacs if k['birth']), ''), '전거 소속 표기': ' | '.join(k['corporate'] for k in kacs)[:200],
                    '국중 전거의 박사논문': ' | '.join(f"{t['year']} {t['uni']} 「{t['title'][:30]}」" for k in sorted({k['kac'] for k in kacs}) for t in kac_theses.get(k, [])),
-                   '붙은 논문 KAC': tk, '논문 대응 등급': tg,
+                   '붙은 논문 KAC': tk, '논문 대응 등급': tg, '논문 저자 전거 소속': t_corp[:200], '논문 저자 전거 생년': t_birth or '',
                    '점검 표지': '; '.join(flags)}
             rows.append(rec)
 
