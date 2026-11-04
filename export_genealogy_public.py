@@ -107,28 +107,7 @@ def add_roster_advisor_edges(data, roster):
     return added, skipped
 
 
-# 교수 명단의 직급 표기(2026-11-04, 연구자 「외래교수·초빙교수 등은 별도로 표기」): 명단 rank/status → (표기, 구분)
-POSITION_KINDS = ['전임', '비전임', '연구', '명예·퇴임', '미표기', '명단 밖']
-_FULL = ('교수', '부교수', '조교수', '정교수', '석좌교수', '특임', '학과장', '교수(학과장)', '교수(소개 표기)', '대학주임교수', '조교수(외국인전임교원)', '부교수/교육중점교원', '명예교수·석좌교수')
-
-
-def position_of(rank, status):
-    r = (rank or '').strip(); st = (status or '').strip()
-    shown = r if r and r not in ('미표기', '현직 소개 등재') else ''
-    key = shown or st
-    if re.search(r'명예|퇴임|퇴직|은퇴|전직', st) or re.search(r'명예|퇴임|퇴직|은퇴|전직', key):
-        kind = '명예·퇴임'
-        if shown and not re.search(r'명예|퇴임|퇴직|은퇴|전직', shown): shown = f'{st}({shown})'   # 예: 퇴임교수(겸직)
-    elif re.search(r'외래|초빙|겸임|겸직|출강|객원|강의|강사', key): kind = '비전임'
-    elif re.search(r'연구', key): kind = '연구'
-    elif key in _FULL: kind = '전임'
-    elif not shown: kind = '미표기'
-    else: kind = '전임'
-    if kind == '명예·퇴임' and not shown: shown = st
-    return shown, kind
-
-
-def publish(data, positions=None):
+def publish(data):
     out = {k: copy.deepcopy(data[k]) for k in TOP_KEEP if k in data}
     out['edges'] = [{k: v for k, v in e.items() if k not in EDGE_DROP} for e in out['edges'] if not e.get('advisor_conflict')]
     linked = {e['source'] for e in out['edges']} | {e['target'] for e in out['edges']}
@@ -136,8 +115,6 @@ def publish(data, positions=None):
     nb = {n['id']: n for n in out['nodes']}
     for n in out['nodes']:
         n['advisee_thesis_count'] = sum(e['source'] == n['id'] for e in out['edges'])
-        if n['kind'] == 'professor':   # 명단 직급 표기(외래·초빙·겸임·출강 등은 화면에서 소속 옆에 따로 보인다)
-            n['position'], n['position_kind'] = (positions or {}).get(n['id'], ('', '명단 밖'))
         # 한글 표기·「OO대」 통일 (원표기는 *_raw 에 보존)
         raw_aff = list(n.get('affiliations') or [])
         aff = list(dict.fromkeys(a for a in (uni_norm(x) for x in raw_aff) if a))
@@ -166,7 +143,6 @@ def publish(data, positions=None):
             levels['professors_own_thesis'][own['status']] += 1
     s = out.setdefault('summary', {})
     s['identity_levels'] = levels
-    s['position_kinds'] = {k: sum(n['kind'] == 'professor' and n.get('position_kind') == k for n in out['nodes']) for k in POSITION_KINDS}
     s['faculty_nodes'] = sum(n['kind'] == 'professor' for n in out['nodes'])
     s['faculty_with_advisees'] = sum(n['kind'] == 'professor' and n['advisee_thesis_count'] > 0 for n in out['nodes'])
     s['advisor_thesis_edges'] = len(out['edges'])
@@ -190,14 +166,11 @@ def main():
     data = json.loads(Path(a.input).read_text(encoding='utf-8-sig'))
     if a.as_of:
         data['as_of'] = a.as_of
-    positions = {}
     if a.roster:
-        roster = json.loads(Path(a.roster).read_text(encoding='utf-8-sig'))
-        positions = {f'person:roster614:{i:04d}': position_of(r.get('rank'), r.get('status')) for i, r in enumerate(roster['records'], 1)}
-        added, skipped = add_roster_advisor_edges(data, roster)
+        added, skipped = add_roster_advisor_edges(data, json.loads(Path(a.roster).read_text(encoding='utf-8-sig')))
         print(f'명단 지도교수 간선 추가 {len(added)}건: ' + ', '.join(f'{adv}→{name}({u})' for _, name, adv, u in added))
         for row in skipped: print('  건너뜀', row)
-    out, text = publish(data, positions)
+    out, text = publish(data)
     if a.check:
         exp = json.loads(Path(a.check).read_text(encoding='utf-8-sig'))
         same = ({n['id'] for n in exp['nodes']} == {n['id'] for n in out['nodes']}, {e['id'] for e in exp['edges']} == {e['id'] for e in out['edges']}, exp['summary'] == out['summary'],
