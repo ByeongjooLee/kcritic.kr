@@ -43,6 +43,9 @@ const nameOf = n => n.display_name || n.name;
 const levelText = (lv, raw) => raw && raw !== lv ? `${lv} (${raw})` : (lv || '미확인');
 const unconfirmedEdge = e => e?.student_identity?.status === '미확인';
 const affOf = n => n.kind === 'professor' ? n.affiliations.join(' / ') : '';
+// 명단 직급(2026-11-04): 전임이 아닌 표기(외래·초빙·겸임·출강·객원·강의·연구·명예·퇴임)는 소속 옆에 따로 적는다
+const posOf = n => n.kind === 'professor' && n.position && n.position_kind !== '전임' ? n.position : '';
+const affPos = n => [affOf(n), posOf(n)].filter(Boolean).join(' · ');
 const cut = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
 const urls = arr => [...new Set(arr || [])].filter(x => /^https?:\/\//.test(x)).map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">근거 ${i + 1}</a>`).join(' · ');
 const yearOf = e => { const y = Number(e?.year); return y > 1900 && y < 2100 ? y : null; };
@@ -174,7 +177,7 @@ function draw() {
     const unconfirmed = x.kind === 'professor' && unconfirmedEdge(x.via);   // 연구자 지시로 반영했으나 근거 없는 동일인 병합: 촘촘한 점선
     const aff = affOf(n), yr = x.kind === 'mentor' ? '' : (x.year ? String(x.year) : '연도 미상');
     const name = `${esc(nameOf(n))}${yr ? `<tspan class="yr"> ${esc(yr)}</tspan>` : ''}`;
-    const sub = x.kind === 'student' ? '' : [cut(aff, 22) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), x.hidden ? `▸ 제자 ${x.hidden}명` : n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
+    const sub = x.kind === 'student' ? '' : [cut(affPos(n), 30) || (x.kind === 'root' ? shortUni(x.uni) : '소속 미확인'), x.hidden ? `▸ 제자 ${x.hidden}명` : n.advisee_thesis_count ? `지도 ${n.advisee_thesis_count}편` : ''].filter(Boolean).join(' · ');
     let label, transform = `translate(${x.x} ${x.y})`; x.deg = 0;
     if (radial() && x.depth > 0) {
       // 글자는 반지름 방향으로 바깥쪽에 눕힌다(안쪽은 부모의 선 다발이 모이는 곳). 왼쪽 반은 180° 뒤집어 거꾸로 읽히지 않게 한다.
@@ -195,8 +198,8 @@ function draw() {
         label = `<text class="name" x="${tx}" y="${ny}" text-anchor="${anchor}">${name}</text><text class="sub" x="${tx}" y="${sy}" text-anchor="${anchor}">${esc(sub)}</text>`;
       }
     }
-    const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', unconfirmed ? 'unconfirmed' : '', x.id === selected ? 'selected' : '', x.hidden ? 'collapsed' : stepwise() && x.kids.length && x.depth > 0 ? 'open' : ''].filter(Boolean).join(' ');
-    const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : '', x.kind === 'professor' && x.via ? '동일인 ' + x.via.student_identity.status : '', x.hidden ? `클릭하면 제자 ${x.hidden}명 펼침` : ''].filter(Boolean).join(' · ');
+    const cls = ['ln-node', x.kind, inferred ? 'inferred' : '', unconfirmed ? 'unconfirmed' : '', n.position_kind === '비전임' ? 'nonfulltime' : '', x.id === selected ? 'selected' : '', x.hidden ? 'collapsed' : stepwise() && x.kids.length && x.depth > 0 ? 'open' : ''].filter(Boolean).join(' ');
+    const tip = [nameOf(n), x.uni ? '학위 ' + x.uni : '', yr ? '박사 ' + yr : '', aff ? '재직 ' + aff : '', n.position ? '명단 직급 ' + n.position : '', x.kind === 'professor' && x.via ? '동일인 ' + x.via.student_identity.status : '', x.hidden ? `클릭하면 제자 ${x.hidden}명 펼침` : ''].filter(Boolean).join(' · ');
     const ring = x.hidden ? `<circle class="more" r="${r + 4.5}"/>` : '';   // 접힌 교수: 점선 겉고리
     return `<g class="${cls}" transform="${transform}" tabindex="0" role="button" data-i="${i}" aria-label="${esc(tip)}${x.hidden ? '' : ' 상세 보기'}"><title>${esc(tip)}</title>${ring}<circle r="${r}" fill="${colorOf(x.uni)}"/>${label}</g>`;
   }).join('');
@@ -346,7 +349,7 @@ function showDetail() {
   const profile = '/academic-network.html?name=' + encodeURIComponent(t.name) + '#faculty';
   const it = view?.items.find(x => x.id === selected), fold = stepwise() && it && it.depth > 0 ? (it.hidden ? `<button id="foldBtn" class="ln-btn" data-act="open">▸ 다음 세대 펼치기 (${it.hidden}명)</button>` : it.kids.length ? '<button id="foldBtn" class="ln-btn" data-act="close">▾ 접기</button>' : '') : '';
   el('detail').innerHTML = `
-<div class="ln-detail-head"><div><h2>${esc(nameOf(t))}</h2><p>${esc(affOf(t) || (t.kind === 'professor' ? '교수 소속 미확인' : '학위자 · 교수 여부 미확인'))}</p><p class="muted">${esc([t.faculty_statuses.join(' / '), '동일인 판정 ' + levelText(t.identity_status, t.identity_status_raw), t.own_thesis_identity ? '본인 박사논문 ' + levelText(t.own_thesis_identity.status, t.own_thesis_identity.status_raw) : ''].filter(Boolean).join(' · '))}</p></div>
+<div class="ln-detail-head"><div><h2>${esc(nameOf(t))}</h2><p>${esc(affPos(t) || (t.kind === 'professor' ? '교수 소속 미확인' : '학위자 · 교수 여부 미확인'))}</p><p class="muted">${esc([t.kind === 'professor' ? (t.position ? `명단 직급 ${t.position}(${t.position_kind})` : t.position_kind === '명단 밖' ? '명단 밖 교수(도서관·검수 기록)' : '명단 직급 미표기') : '', t.faculty_statuses.join(' / '), '동일인 판정 ' + levelText(t.identity_status, t.identity_status_raw), t.own_thesis_identity ? '본인 박사논문 ' + levelText(t.own_thesis_identity.status, t.own_thesis_identity.status_raw) : ''].filter(Boolean).join(' · '))}</p></div>
 <div class="ln-detail-actions">${fold}${t.kind === 'professor' && studentCount(t.id) > 0 && t.id !== root ? '<button id="makeRoot" class="ln-btn">이 교수부터 보기</button>' : ''}<a class="ln-btn" href="${profile}">학교·소속·사제관계 →</a>${t.kind === 'professor' ? `<a class="ln-btn" href="/school.html?prof=${encodeURIComponent(t.id)}">학풍(연구 주제) →</a>` : ''}</div></div>
 ${urls(t.urls) ? `<p>${urls(t.urls)}</p>` : ''}
 ${t.kind === 'professor' && studentCount(t.id) ? `<h3>학맥 지표</h3>${metricLine(t.id)}` : ''}
@@ -360,15 +363,15 @@ ${e ? `<h3>지도 관계</h3><p><b>${esc(nameOf(N.get(e.source)))} → ${esc(nam
 
 // ── 비교표: 지도논문이 있는 교수 전원
 const COLS = [
-  ['name', '교수', 'ko'], ['aff', '소속', 'ko'], ['direct', '직접 제자', 'num'], ['theses', '지도논문', 'num'], ['profs', '교수 배출', 'num'], ['profRate', '배출률', 'num'],
+  ['name', '교수', 'ko'], ['aff', '소속', 'ko'], ['pos', '직급', 'ko'], ['direct', '직접 제자', 'num'], ['theses', '지도논문', 'num'], ['profs', '교수 배출', 'num'], ['profRate', '배출률', 'num'],
   ['descendants', '후손', 'num'], ['generations', '세대', 'num'], ['first', '지도 기간', 'num'], ['span', '연수', 'num'], ['lag', '다음 세대까지', 'num'], ['stay', '모교 잔류', 'num'], ['unis', '학위 대학', 'num']];
 function compareRows() {
-  return D.nodes.filter(n => n.kind === 'professor' && kidsAll(n.id).length).map(n => { const m = metrics(n.id); return { id: n.id, name: nameOf(n), aff: n.affiliations.join(' / '), ...m, profRate: m.direct ? m.profs / m.direct : 0, span: m.span == null ? null : m.span + 1 }; });
+  return D.nodes.filter(n => n.kind === 'professor' && kidsAll(n.id).length).map(n => { const m = metrics(n.id); return { id: n.id, name: nameOf(n), aff: n.affiliations.join(' / '), pos: n.position || (n.position_kind === '명단 밖' ? '명단 밖' : ''), ...m, profRate: m.direct ? m.profs / m.direct : 0, span: m.span == null ? null : m.span + 1 }; });
 }
 const median = a => { const s = a.filter(x => x != null).sort((x, y) => x - y); return s.length ? (s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2) : null; };
 function cell(r, k) {
   switch (k) {
-    case 'name': return `<b>${esc(r.name)}</b>`; case 'aff': return esc(r.aff || '—');
+    case 'name': return `<b>${esc(r.name)}</b>`; case 'aff': return esc(r.aff || '—'); case 'pos': return esc(r.pos || '—');
     case 'profRate': return pct(r.profs, r.direct); case 'first': return r.first ? `${r.first}–${r.last}` : '—';
     case 'lag': return r.lag == null ? '—' : r.lag.toFixed(1) + '년'; case 'stay': return r.profs ? `${r.stay}/${r.profs}` : '—';
     default: return r[k] == null ? '—' : fmt(r[k]);
@@ -379,7 +382,7 @@ function renderCompare() {
   rows.sort((a, b) => { const x = a[sortKey], y = b[sortKey]; if (col[2] === 'ko') return sortDir * String(x).localeCompare(String(y), 'ko'); if (x == null) return 1; if (y == null) return -1; return sortDir * (x - y) || b.descendants - a.descendants || a.name.localeCompare(b.name, 'ko'); });
   const med = Object.fromEntries(['direct', 'theses', 'profs', 'descendants', 'generations', 'span', 'lag', 'unis'].map(k => [k, median(rows.map(r => r[k]))]));
   el('compare-count').textContent = `교수 ${rows.length}명 · 열 머리글을 누르면 정렬 · 행을 누르면 그 교수의 학맥으로 이동`;
-  el('compare').innerHTML = `<table class="ln-table"><thead><tr>${COLS.map(([k, l]) => `<th data-sort="${k}" class="${k === sortKey ? (sortDir < 0 ? 'desc' : 'asc') : ''}${k === 'name' || k === 'aff' ? ' txt' : ''}" scope="col"><button type="button">${l}</button></th>`).join('')}</tr></thead>
+  el('compare').innerHTML = `<table class="ln-table"><thead><tr>${COLS.map(([k, l]) => `<th data-sort="${k}" class="${k === sortKey ? (sortDir < 0 ? 'desc' : 'asc') : ''}${k === 'name' || k === 'aff' || k === 'pos' ? ' txt' : ''}" scope="col"><button type="button">${l}</button></th>`).join('')}</tr></thead>
 <tbody>${rows.map(r => `<tr data-root="${esc(r.id)}" class="${r.id === root ? 'on' : ''}" tabindex="0">${COLS.map(([k]) => `<td class="${k === 'name' || k === 'aff' ? 'txt' : 'num'}">${cell(r, k)}</td>`).join('')}</tr>`).join('')}</tbody>
 <tfoot><tr><td class="txt">중앙값</td><td class="txt muted">교수 ${rows.length}명</td><td class="num">${med.direct ?? '—'}</td><td class="num">${med.theses ?? '—'}</td><td class="num">${med.profs ?? '—'}</td><td class="num">—</td><td class="num">${med.descendants ?? '—'}</td><td class="num">${med.generations ?? '—'}</td><td class="num">—</td><td class="num">${med.span ?? '—'}</td><td class="num">${med.lag == null ? '—' : med.lag.toFixed(1) + '년'}</td><td class="num">—</td><td class="num">${med.unis ?? '—'}</td></tr></tfoot></table>`;
   el('compare').querySelectorAll('th[data-sort]').forEach(th => th.querySelector('button').onclick = () => { const k = th.dataset.sort; if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = COLS.find(c => c[0] === k)[2] === 'ko' ? 1 : -1; } renderCompare(); });
@@ -387,9 +390,9 @@ function renderCompare() {
 }
 function downloadCsv() {
   const rows = compareRows().sort((a, b) => b.descendants - a.descendants);
-  const head = ['교수', '소속', '직접 제자', '지도논문', '교수 배출', '배출률', '후손', '세대', '지도 시작', '지도 끝', '지도 연수', '다음 세대까지 평균 연수', '모교 잔류', '학위 대학 수', '주요 학위 대학'];
+  const head = ['교수', '소속', '명단 직급', '직접 제자', '지도논문', '교수 배출', '배출률', '후손', '세대', '지도 시작', '지도 끝', '지도 연수', '다음 세대까지 평균 연수', '모교 잔류', '학위 대학 수', '주요 학위 대학'];
   const q = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
-  const body = rows.map(r => [r.name, r.aff, r.direct, r.theses, r.profs, r.direct ? (r.profs / r.direct).toFixed(3) : '', r.descendants, r.generations, r.first ?? '', r.last ?? '', r.span ?? '', r.lag == null ? '' : r.lag.toFixed(1), r.profs ? `${r.stay}/${r.profs}` : '', r.unis, r.mainUni].map(q).join(','));
+  const body = rows.map(r => [r.name, r.aff, r.pos, r.direct, r.theses, r.profs, r.direct ? (r.profs / r.direct).toFixed(3) : '', r.descendants, r.generations, r.first ?? '', r.last ?? '', r.span ?? '', r.lag == null ? '' : r.lag.toFixed(1), r.profs ? `${r.stay}/${r.profs}` : '', r.unis, r.mainUni].map(q).join(','));
   const blob = new Blob(['﻿' + [head.map(q).join(','), ...body].join('\n')], { type: 'text/csv;charset=utf-8' });
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `kcritic_학맥지표_${D.as_of}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
@@ -400,7 +403,7 @@ function options() {
   const list = D.nodes.filter(n => n.kind === 'professor' && studentCount(n.id) > 0 && (!q || [n.name, ...(n.aliases || []), ...n.affiliations].join(' ').toLowerCase().includes(q)))
     .sort((a, b) => metrics(b.id).descendants - metrics(a.id).descendants || studentCount(b.id) - studentCount(a.id) || a.name.localeCompare(b.name, 'ko'));   // 학맥 인원(후손 수) 순, 2026-10-28
   el('list-count').textContent = `${list.length}명 · 학맥 인원 순`;
-  el('people').innerHTML = list.map(n => `<button class="ln-person${n.id === root ? ' on' : ''}" data-root="${esc(n.id)}" aria-pressed="${n.id === root}" title="후손 ${metrics(n.id).descendants}명 · 직접 제자 ${studentCount(n.id)}명"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${metrics(n.id).descendants}명</span><small>${esc(n.affiliations.join(' / ') || '소속 미확인')}</small></button>`).join('') || '<p class="ln-muted">검색 결과가 없습니다.</p>';
+  el('people').innerHTML = list.map(n => `<button class="ln-person${n.id === root ? ' on' : ''}" data-root="${esc(n.id)}" aria-pressed="${n.id === root}" title="후손 ${metrics(n.id).descendants}명 · 직접 제자 ${studentCount(n.id)}명"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${metrics(n.id).descendants}명</span><small>${esc(affPos(n) || '소속 미확인')}</small></button>`).join('') || '<p class="ln-muted">검색 결과가 없습니다.</p>';
   el('people').querySelectorAll('[data-root]').forEach(b => b.onclick = () => setRoot(b.dataset.root));
 }
 function setRoot(id, remember = true) {
@@ -479,7 +482,7 @@ fetch('/site/data/genealogy-library.json').then(r => { if (!r.ok) throw Error(r.
   el('status').textContent = '';
   el('totals').textContent = `지도논문이 있는 교수 ${fmt(D.summary.faculty_with_advisees)}명 · 지도논문 연결 ${fmt(D.summary.advisor_thesis_edges)}건 · ${D.as_of} 기준`;
   const lv = D.summary.identity_levels;   // 동일인 판정 3단계 건수 (2026-10-29)
-  if (lv && el('levelNote')) el('levelNote').textContent = `동일인 판정 — 교수 본인 박사논문: 확정 ${fmt(lv.professors_own_thesis['확정'])} · 추론 ${fmt(lv.professors_own_thesis['추론'])} · 미확인(연구자 지시 반영) ${fmt(lv.professors_own_thesis['미확인'])} / 지도논문 저자: 확정 ${fmt(lv.edges['확정'])} · 추론 ${fmt(lv.edges['추론'])} · 미확인 ${fmt(lv.edges['미확인'])}. 미확인은 교수 여부를 확인하지 못했다는 뜻이며 비교수 판정이 아닙니다.`;
+  if (lv && el('levelNote')) el('levelNote').textContent = `동일인 판정 — 교수 본인 박사논문: 확정 ${fmt(lv.professors_own_thesis['확정'])} · 추론 ${fmt(lv.professors_own_thesis['추론'])} · 미확인(연구자 지시 반영) ${fmt(lv.professors_own_thesis['미확인'])} / 지도논문 저자: 확정 ${fmt(lv.edges['확정'])} · 추론 ${fmt(lv.edges['추론'])} · 미확인 ${fmt(lv.edges['미확인'])}. 미확인은 교수 여부를 확인하지 못했다는 뜻이며 비교수 판정이 아닙니다.` + (D.summary.position_kinds ? ` 명단 직급(교수 노드): ${Object.entries(D.summary.position_kinds).map(([k, v]) => `${k} ${fmt(v)}`).join(' · ')} — 전임이 아닌 직급(외래·초빙·겸임·출강·객원·강의·연구·명예·퇴임)은 소속 옆에 따로 적고, 비전임은 이름 아래 줄을 기울입니다.` : '');
   el('coverage').innerHTML = `전체 ${fmt(D.summary.advisor_thesis_edges)}개 지도논문 연결 · 지도논문이 있는 교수 ${fmt(D.summary.faculty_with_advisees)}개 인물 ID. <a href="/site/data/genealogy-library.json">근거 포함 데이터</a> · 기본 교수 명단과 기존 학맥 검수의 교수 이력을 합쳤습니다. 동일인 미확정 교수행은 별도로 남아 있습니다. 지표는 Rossi 외(2018)의 계보 지표(직접 제자·후손·세대·교수 배출)를 이 자료에 맞게 줄인 것입니다.`;
   const want = new URLSearchParams(location.search).get('person');
   root = N.has(want) ? want : D.default_root; selected = root;
