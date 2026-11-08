@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김명인 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">김명인</span></div>
+      <h1 class="index-heading">김명인</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">19</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">조태일</span> <span class="chip role-writer">황지우</span> <span class="chip role-writer">정희성</span> <span class="chip role-writer">김창완</span> <span class="chip role-writer">김광규</span> <span class="chip role-writer">김지하</span> <span class="chip role-writer">김수영</span> <span class="chip role-writer">이성부</span> <span class="chip role-writer">최하림</span> <span class="chip role-writer">최영미</span> <span class="chip role-writer">정호승</span> <span class="chip role-writer">김준태</span> <span class="chip role-writer">김명인</span> <span class="chip role-writer">이종욱</span> <span class="chip role-writer">이시영</span> <span class="chip role-writer">박노해</span> <span class="chip role-writer">신동엽</span> <span class="chip role-writer">송기원</span> <span class="chip role-writer">양성우</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-myeongin_path-of-extinction-flower-of-life_1995", "label": "소멸의 길과 생명의 꽃 — 김명인과 김준태의 90년대", "type": "essay", "year": "1995", "degree": 20}, {"id": "p-00032", "label": "조태일", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12617126 https://encykorea.aks.ac.kr/Article/E0052727 http://lod.nl.go.kr/resource/KAC201219361 https://isni.org/isni/0000000026217719 http://viaf.org/viaf/13699380", "degree": 8, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0052727", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201219361", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12617126", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00077", "label": "황지우", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q3143549 http://lod.nl.go.kr/resource/KAC201407481 https://isni.org/isni/0000000363867800 http://viaf.org/viaf/226087436", "degree": 47, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0074660", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201407481", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3143549", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00090", "label": "정희성", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12616210 http://lod.nl.go.kr/resource/KAC201230790 https://isni.org/isni/0000000054328344 http://viaf.org/viaf/49092005", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201230790", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12616210", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00097", "label": "김창완", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12588930", "degree": 3, "lod": [{"href": "https://www.wikidata.org/wiki/Q12588930", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00102", "label": "김광규", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q13582904 http://lod.nl.go.kr/resource/KAC201103658 https://isni.org/isni/0000000081616245 http://viaf.org/viaf/87056056", "degree": 21, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201103658", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q13582904", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00106", "label": "김지하", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697 https://isni.org/isni/0000000081761311 http://viaf.org/viaf/110339675", "degree": 45, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201205697", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44366", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00116", "label": "김수영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q4556301 https://encykorea.aks.ac.kr/Article/E0009567 http://lod.nl.go.kr/resource/KAC200207959 https://isni.org/isni/0000000083779451 http://viaf.org/viaf/44471306", "degree": 76, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0009567", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200207959", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4556301", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00135", "label": "이성부", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12611779 https://encykorea.aks.ac.kr/Article/E0044731 http://lod.nl.go.kr/resource/KAC201207464 https://isni.org/isni/0000000023560474 http://viaf.org/viaf/65383573", "degree": 18, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0044731", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201207464", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12611779", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-choe-harim", "label": "최하림", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201514231 https://isni.org/isni/0000000023590411 http://viaf.org/viaf/67801260", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201514231", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-choe-yeongmi", "label": "최영미", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-jeong-hoseung", "label": "정호승", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q626164 http://lod.nl.go.kr/resource/KAC201011403 https://isni.org/isni/0000000021497838 http://viaf.org/viaf/52987119", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011403", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626164", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-juntae", "label": "김준태", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q19939535 http://lod.nl.go.kr/resource/KAC201417091 https://isni.org/isni/0000000040613961 http://viaf.org/viaf/28966831", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201417091", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q19939535", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-myeongin-critic", "label": "김명인", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-myungin", "label": "김명인", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12587344 http://lod.nl.go.kr/resource/KAC201319419 https://isni.org/isni/0000000114668966 http://viaf.org/viaf/6249100", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201319419", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12587344", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-lee-jongwook", "label": "이종욱", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-siyoung", "label": "이시영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12611954 http://lod.nl.go.kr/resource/KAC201322453 https://isni.org/isni/0000000049909953 http://viaf.org/viaf/68804378", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201322453", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12611954", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-pak-nohae", "label": "박노해", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q16173752 http://lod.nl.go.kr/resource/KAC201011163 https://isni.org/isni/0000000380879096 http://viaf.org/viaf/260183991", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011163", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16173752", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-shin-dongyeop", "label": "신동엽", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12604190 http://lod.nl.go.kr/resource/KAC201106395 https://isni.org/isni/0000000384316119 http://viaf.org/viaf/275063697", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201106395", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12604190", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-song-kiwon", "label": "송기원", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12602836 http://lod.nl.go.kr/resource/KAC201110795 https://isni.org/isni/0000000116504180 http://viaf.org/viaf/57908172", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201110795", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12602836", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yang-seongwoo", "label": "양성우", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12606283", "degree": 4, "lod": [{"href": "https://www.wikidata.org/wiki/Q12606283", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-kim-myeongin-critic", "target": "kim-myeongin_path-of-extinction-flower-of-life_1995", "type": "wrote", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00032", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00077", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00090", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00097", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00102", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00116", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00135", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-choe-harim", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-choe-yeongmi", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-jeong-hoseung", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-kim-juntae", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-kim-myungin", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-lee-jongwook", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-lee-siyoung", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-pak-nohae", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-shin-dongyeop", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-song-kiwon", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-yang-seongwoo", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1995</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-myeongin_path-of-extinction-flower-of-life_1995.html">소멸의 길과 생명의 꽃 — 김명인과 김준태의 90년대</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 29호, 문학과지성사, 1995</p>
+        <div class="essay-card-tags"><span class="tag">조태일</span> <span class="tag">황지우</span> <span class="tag">정희성</span> <span class="tag">김창완</span> <span class="tag">김광규</span> <span class="tag">김지하</span> <span class="tag">김수영</span> <span class="tag">이성부</span> <span class="tag">최하림</span> <span class="tag">최영미</span> <span class="tag">정호승</span> <span class="tag">김준태</span> <span class="tag">김명인</span> <span class="tag">이종욱</span> <span class="tag">이시영</span> <span class="tag">박노해</span> <span class="tag">신동엽</span> <span class="tag">송기원</span> <span class="tag">양성우</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>안치운 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">안치운</span></div>
+      <h1 class="index-heading">안치운</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201107788" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000064310682" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/46657485" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">11</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">무라카미 류</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">하이데거 (1)</span> <span class="chip chip-term">바디우 (1)</span> <span class="chip chip-term">앙투안 비데즈 (1)</span> <span class="chip chip-term">베케트 (1)</span> <span class="chip chip-term">드니 디드로 (1)</span> <span class="chip chip-term">에우제니오 바르바 (1)</span> <span class="chip chip-term">타비아니 (1)</span> <span class="chip chip-term">조르주 바누 (1)</span> <span class="chip chip-term">그로토프스키 (1)</span> <span class="chip chip-term">미셸 도이치 (1)</span> <span class="chip chip-term">피란델로 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "an-chiun_on-pornographic-theatre_1996", "label": "포르노 연극에 대하여", "type": "essay", "year": "1996", "degree": 3}, {"id": "an-chiun_theatre-audience-survival-archipelago_1995", "label": "연극과 관객의 생존: 그 제도(諸島)를 찾아서", "type": "essay", "year": "1995", "degree": 11}, {"id": "p-00066", "label": "하이데거", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q48301 http://lod.nl.go.kr/resource/KAC199611974 https://isni.org/isni/0000000121244141 http://viaf.org/viaf/24602613", "degree": 46, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611974", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q48301", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Martin Heidegger"}, {"id": "p-alain-badiou", "label": "바디우", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-an-chiun", "label": "안치운", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201107788 https://isni.org/isni/0000000064310682 http://viaf.org/viaf/46657485", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201107788", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-antoine-vitez", "label": "앙투안 비데즈", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-beckett", "label": "베케트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q37327 http://lod.nl.go.kr/resource/KAC199601994 https://isni.org/isni/0000000121192038 http://viaf.org/viaf/7386737", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601994", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37327", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Samuel Beckett"}, {"id": "p-diderot", "label": "디드로", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q448 http://lod.nl.go.kr/resource/KAC199607105 https://isni.org/isni/000000012133370X http://viaf.org/viaf/54146831", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199607105", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q448", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Denis Diderot"}, {"id": "p-eugenio-barba", "label": "에우제니오 바르바", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ferdinando-taviani", "label": "타비아니", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-georges-banu", "label": "조르주 바누", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-grotowski", "label": "그로토프스키", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-michel-deutsch", "label": "미셸 도이치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-murakami-ryu", "label": "무라카미 류", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-pirandello", "label": "루이지 피란델로", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q1403 http://lod.nl.go.kr/resource/KAC199621775 https://isni.org/isni/0000000121363538 http://viaf.org/viaf/64010465", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199621775", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q1403", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Luigi Pirandello"}, {"id": "song-jeon_actor-solitude-and-theatre-studies_1992", "label": "배우의 고독, 그 연극학적 탐색", "type": "essay", "year": "1992", "degree": 7}], "edges": [{"source": "p-an-chiun", "target": "an-chiun_on-pornographic-theatre_1996", "type": "wrote", "weight": 1}, {"source": "p-an-chiun", "target": "an-chiun_theatre-audience-survival-archipelago_1995", "type": "wrote", "weight": 1}, {"source": "song-jeon_actor-solitude-and-theatre-studies_1992", "target": "p-an-chiun", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_on-pornographic-theatre_1996", "target": "p-diderot", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_on-pornographic-theatre_1996", "target": "p-murakami-ryu", "type": "subject_of", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-00066", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-alain-badiou", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-antoine-vitez", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-beckett", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-eugenio-barba", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-ferdinando-taviani", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-georges-banu", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-grotowski", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-michel-deutsch", "type": "uses_theory", "weight": 1}, {"source": "an-chiun_theatre-audience-survival-archipelago_1995", "target": "p-pirandello", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1995</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/an-chiun_theatre-audience-survival-archipelago_1995.html">연극과 관객의 생존: 그 제도(諸島)를 찾아서</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 29호, 문학과지성사, 1995</p>
+        <div class="essay-card-tags"><span class="tag">하이데거</span> <span class="tag">바디우</span> <span class="tag">앙투안 비데즈</span> <span class="tag">베케트</span> <span class="tag">에우제니오 바르바</span> <span class="tag">타비아니</span> <span class="tag">조르주 바누</span> <span class="tag">그로토프스키</span> <span class="tag">미셸 도이치</span> <span class="tag">피란델로</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1996</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/an-chiun_on-pornographic-theatre_1996.html">포르노 연극에 대하여</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 36호, 문학과지성사, 1996</p>
+        <div class="essay-card-tags"><span class="tag">무라카미 류</span><span class="tag">드니 디드로</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

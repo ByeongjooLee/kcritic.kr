@@ -1812,21 +1812,42 @@ def main():
     # 개체 IRI 역참조 — https://kcritic.kr/resource/{id} 를 사람이 읽는 페이지로 303 리다이렉트한다.
     # graph.ttl 의 kc:/kce: IRI 와 인물 schema:url 이 브라우저에서 404 가 되지 않게 (Cloudflare _redirects, 정적 2,000줄 한도)
     page_dir = {"Critic": "critics", "Writer": "writers", "Thinker": "thinkers"}
-    redirects = []
+    # 인물마다 그 인물이 나온 비평글 수(정적 줄에 넣을 순서용) — ttl 에서 kce:… 줄과 kc:인물 이 함께 나오는 횟수 대신
+    # 빌드 맵의 essays 목록을 쓴다(없으면 0)
+    n_essays_of = defaultdict(int)
+    for m in (writers_map, thinkers_map):
+        for k, v in m.items():
+            n_essays_of[k] = max(n_essays_of[k], len({e["stem"] for e in v.get("essays", [])}))
+    people = []
     for pid, cls in re.findall(r"^kc:(\S+) a critic:(\w+)", ttl, re.M):
         if cls in page_dir and (Path("site") / page_dir[cls] / f"{pid}.html").exists():
-            redirects.append(f"/resource/{pid} /site/{page_dir[cls]}/{pid} 303")
+            people.append((pid, cls))
+    # 인물 IRI 는 분류마다 폴더가 달라 splat 하나로 묶을 수 없다. 2026-11-08 『문학과사회』 29–55호 추가로 인물 줄이
+    # 2,288 이 되어 정적 한도(2,000)를 넘었다 → 이미 정적 줄이 있던 인물(기존 _redirects, 주소 유지) → 비평가 → 작가 →
+    # 이론가(각각 글 수 많은 순) 순서로 STATIC_MAX 명까지 정적 줄로 두고, 넘치는 인물은 맨 끝 동적 규칙이
+    # 2판 개체 화면(entity.html?t=person&id=…)으로 303 한다.
+    # Cloudflare 문서: 정적 2,000 + 동적 100, 같은 source 는 위 규칙이 이기고 정적 규칙을 동적 규칙보다 앞에 둔다
+    STATIC_MAX = 1995
+    prev_static = set()
+    if Path("_redirects").exists():
+        prev_static = {m.group(1) for m in re.finditer(r"^/resource/([^/\s*]+) /site/", Path("_redirects").read_text(encoding="utf-8"), re.M)}
+    rank = {"Critic": 0, "Writer": 1, "Thinker": 2}
+    people.sort(key=lambda x: (x[0] not in prev_static, rank[x[1]], -n_essays_of[x[0]], x[0]))
+    kept, overflow = people[:STATIC_MAX], people[STATIC_MAX:]
+    redirects = sorted(f"/resource/{pid} /site/{page_dir[cls]}/{pid} 303" for pid, cls in kept)
     # 비평글 IRI 는 주소 모양이 같아(…/resource/essay/{stem} → /site/essays/{stem}) splat 한 줄로 갈음한다 — 2026-10-25,
     # 『문학과사회』 14–29호 추가로 줄 수가 한도를 넘게 되어. 정적 한도 2,000줄과 별도로 동적(splat) 규칙은 100줄까지
     n_essay = sum(1 for stem in re.findall(r"^kce:(\S+) a critic:CriticalEssay", ttl, re.M)
                   if (Path("site/essays") / f"{stem}.html").exists())
-    redirects.sort()
     redirects.append("/resource/essay/* /site/essays/:splat 303")
-    if len(redirects) > 2000:
-        print(f"  [경고] _redirects {len(redirects)}줄 — Cloudflare 정적 리다이렉트 한도(2,000) 초과")
+    if overflow:
+        redirects.append("/resource/* /entity.html?t=person&id=:splat 303")
+    if len(kept) > 2000:
+        print(f"  [경고] _redirects 정적 {len(kept)}줄 — Cloudflare 정적 리다이렉트 한도(2,000) 초과")
     Path("_redirects").write_text(
         "# build.py 자동 생성 — 손으로 고치지 말 것\n" + "\n".join(redirects) + "\n", encoding="utf-8")
-    print(f"  OK _redirects 개체 IRI 리다이렉트 {len(redirects)}줄 (인물 {len(redirects) - 1} + 비평글 {n_essay}편 splat 1)")
+    print(f"  OK _redirects 개체 IRI 리다이렉트 {len(redirects)}줄 (인물 정적 {len(kept)} + 비평글 {n_essay}편 splat 1"
+          + (f" + 나머지 인물 {len(overflow)}명 entity.html splat 1" if overflow else "") + ")")
 
     print("\n완료.")
 

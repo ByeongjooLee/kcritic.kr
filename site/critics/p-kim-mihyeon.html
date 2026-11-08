@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김미현 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">김미현</span></div>
+      <h1 class="index-heading">김미현</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">18</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">보들레르</span> <span class="chip role-writer">황동규</span> <span class="chip role-writer">황석영</span> <span class="chip role-writer">조세희</span> <span class="chip role-writer">이광수</span> <span class="chip role-writer">배수아</span> <span class="chip role-writer">보르헤스</span> <span class="chip role-writer">조해일</span> <span class="chip role-writer">조선작</span> <span class="chip role-writer">최인호</span> <span class="chip role-writer">은희경</span> <span class="chip role-writer">공지영</span> <span class="chip role-writer">하일지</span> <span class="chip role-writer">한창훈</span> <span class="chip role-writer">정비석</span> <span class="chip role-writer">김정환</span> <span class="chip role-writer">송경아</span> <span class="chip role-writer">윤흥길</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">질 들뢰즈 (2)</span> <span class="chip chip-term">에리히 프롬 (1)</span> <span class="chip chip-term">줄리아 크리스테바 (1)</span> <span class="chip chip-term">가타리 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kim-mihyeon_romance-novels-after-liberation_2001", "label": "연애부터 연애까지 — 해방 이후의 연애소설", "type": "essay", "year": "2001", "degree": 21}, {"id": "kim-mihyeon_song-gyeonga-crusade_1999", "label": "새로운 문학 십자군의 행로 — 송경아론", "type": "essay", "year": "1999", "degree": 4}, {"id": "p-00018", "label": "보들레르", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q501 http://lod.nl.go.kr/resource/KAC199601837 https://isni.org/isni/0000000121221863 http://viaf.org/viaf/17218730", "degree": 60, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601837", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q501", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Charles Baudelaire"}, {"id": "p-00052", "label": "에리히 프롬", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q57085 http://lod.nl.go.kr/resource/KAC199609424 https://isni.org/isni/0000000121371685 http://viaf.org/viaf/66467430", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609424", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q57085", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Erich Fromm"}, {"id": "p-00076", "label": "황동규", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12625798 http://lod.nl.go.kr/resource/KAC201200312 https://isni.org/isni/0000000078377888 http://viaf.org/viaf/84479211", "degree": 53, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201200312", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12625798", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00078", "label": "황석영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q484947 http://lod.nl.go.kr/resource/KAC201106592 https://isni.org/isni/0000000121322250 http://viaf.org/viaf/49439184", "degree": 28, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0048341", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201106592", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q484947", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00087", "label": "조세희", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q5103384 http://lod.nl.go.kr/resource/KAC201110793 https://isni.org/isni/000000007978395X http://viaf.org/viaf/79079950", "degree": 27, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0011711", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201110793", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103384", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00124", "label": "줄리아 크리스테바", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q159876 http://lod.nl.go.kr/resource/KAC199615498 https://isni.org/isni/0000000122839200 http://viaf.org/viaf/108172648", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199615498", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q159876", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Julia Kristeva"}, {"id": "p-00241", "label": "이광수", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564", "degree": 69, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0043688", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200108735", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q495454", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bae-sua", "label": "배수아", "type": "writer", "ref": "", "degree": 11, "lod": [], "en": ""}, {"id": "p-borges", "label": "보르헤스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q909 http://lod.nl.go.kr/resource/KAC199603014 https://isni.org/isni/0000000121429031 http://viaf.org/viaf/88919448", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603014", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q909", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jorge Luis Borges"}, {"id": "p-cho-haeil", "label": "조해일", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5103342 http://lod.nl.go.kr/resource/KAC201113060 https://isni.org/isni/000000008178373X http://viaf.org/viaf/111679189", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113060", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103342", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-cho-seonjak", "label": "조선작", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5103382 http://lod.nl.go.kr/resource/KAC201113050 https://isni.org/isni/0000000114416697 http://viaf.org/viaf/35566018", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113050", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103382", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-choi-inho", "label": "최인호", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5103902 https://encykorea.aks.ac.kr/Article/E0079616 http://lod.nl.go.kr/resource/KAC201011047 https://isni.org/isni/0000000120176677 http://viaf.org/viaf/34516399", "degree": 7, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0079616", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201011047", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103902", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-deleuze", "label": "들뢰즈", "type": "theorist", "ref": "", "degree": 25, "lod": [], "en": ""}, {"id": "p-eun-huigyeong", "label": "은희경", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-gong-jiyeong", "label": "공지영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q483344 http://lod.nl.go.kr/resource/KAC201007577 https://isni.org/isni/0000000121485666 http://viaf.org/viaf/116305807", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201007577", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q483344", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-guattari", "label": "가타리", "type": "theorist", "ref": "", "degree": 11, "lod": [], "en": ""}, {"id": "p-ha-ilji", "label": "하일지", "type": "writer", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-han-changhun", "label": "한창훈", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-biseok", "label": "정비석", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q16175943 http://lod.nl.go.kr/resource/KAC201109073 https://isni.org/isni/0000000026188516 http://viaf.org/viaf/13649015", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201109073", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16175943", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-jonghwan", "label": "김정환", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12588602 http://lod.nl.go.kr/resource/KAC201008554 https://isni.org/isni/0000000023663801 http://viaf.org/viaf/70305371", "degree": 20, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008554", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12588602", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-mihyeon", "label": "김미현", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-song-gyeonga", "label": "송경아", "type": "critic", "ref": "", "degree": 15, "lod": [], "en": ""}, {"id": "p-yun-heunggil", "label": "윤흥길", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q626357 http://lod.nl.go.kr/resource/KAC201102621 https://isni.org/isni/000000007832986X http://viaf.org/viaf/5013437", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201102621", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626357", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-kim-mihyeon", "target": "kim-mihyeon_romance-novels-after-liberation_2001", "type": "wrote", "weight": 1}, {"source": "p-kim-mihyeon", "target": "kim-mihyeon_song-gyeonga-crusade_1999", "type": "wrote", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00018", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00052", "type": "uses_theory", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00076", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00078", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00124", "type": "uses_theory", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00241", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-bae-sua", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-cho-haeil", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-cho-seonjak", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-choi-inho", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-deleuze", "type": "uses_theory", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-eun-huigyeong", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-gong-jiyeong", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-guattari", "type": "uses_theory", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-ha-ilji", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-han-changhun", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-jeong-biseok", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-kim-jonghwan", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-yun-heunggil", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_song-gyeonga-crusade_1999", "target": "p-borges", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_song-gyeonga-crusade_1999", "target": "p-deleuze", "type": "uses_theory", "weight": 1}, {"source": "kim-mihyeon_song-gyeonga-crusade_1999", "target": "p-song-gyeonga", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1999</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-mihyeon_song-gyeonga-crusade_1999.html">새로운 문학 십자군의 행로 — 송경아론</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 47호, 문학과지성사, 1999</p>
+        <div class="essay-card-tags"><span class="tag">보르헤스</span> <span class="tag">송경아</span><span class="tag">질 들뢰즈</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2001</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-mihyeon_romance-novels-after-liberation_2001.html">연애부터 연애까지 — 해방 이후의 연애소설</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 53호, 문학과지성사, 2001</p>
+        <div class="essay-card-tags"><span class="tag">보들레르</span> <span class="tag">황동규</span> <span class="tag">황석영</span> <span class="tag">조세희</span> <span class="tag">이광수</span> <span class="tag">배수아</span> <span class="tag">조해일</span> <span class="tag">조선작</span> <span class="tag">최인호</span> <span class="tag">은희경</span> <span class="tag">공지영</span> <span class="tag">하일지</span> <span class="tag">한창훈</span> <span class="tag">정비석</span> <span class="tag">김정환</span> <span class="tag">윤흥길</span><span class="tag">에리히 프롬</span> <span class="tag">줄리아 크리스테바</span> <span class="tag">들뢰즈</span> <span class="tag">가타리</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

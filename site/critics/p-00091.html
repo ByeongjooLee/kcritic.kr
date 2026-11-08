@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정현종 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q12616152" target="_blank" class="chip role-critic chip-linked">정현종 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">정현종</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201207472" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q12616152" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000083942968" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/74032003" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">정현종</span> <span class="chip role-writer">세사르 바예호</span> <span class="chip role-writer">파블로 네루다</span> <span class="chip role-writer">옥타비오 파스</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">니체 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "choe-hyeonsik_park-jutaek-kim-cham_1999", "label": "개성의 옹호와 회피 — 박주택과 김참의 최근 시에 대하여", "type": "essay", "year": "1999", "degree": 9}, {"id": "hong-jeongseon_life-of-hot-symbol_1990", "label": "‘뜨거운 상징’의 생애", "type": "essay", "year": "1990", "degree": 8}, {"id": "jeong-gwari_foundation-of-kim-hyon_1990", "label": "김현 문학의 밑자리", "type": "essay", "year": "1990", "degree": 11}, {"id": "jeong-gwari_gi-hyeongdo-collected-works_1999", "label": "죽음 옆의 삶, 삶 안의 죽음 — 『기형도 전집』에 부쳐", "type": "essay", "year": "1999", "degree": 18}, {"id": "jeong-gwari_na-huideok-blackout_2001", "label": "암전(暗電) — 나희덕론", "type": "essay", "year": "2001", "degree": 9}, {"id": "jeong-gwari_yu-jongho-empirical-classicist_2001", "label": "경험적 고전주의자의 시선 — 유종호의 『서정적 진실을 찾아서』", "type": "essay", "year": "2001", "degree": 21}, {"id": "jeong-hyeonjong_what-poetry-dreams_1995", "label": "시가 꿈꾸는 것 — 오늘날 시란 무엇인가", "type": "essay", "year": "1995", "degree": 6}, {"id": "kim-hoon_helicopter-jeong-hyunjong_1989", "label": "헬리콥터와 정현종 생각", "type": "essay", "year": "1989", "degree": 3}, {"id": "kim-hyon_60s-literature_1988", "label": "60년대 문학의 배경과 성과", "type": "essay", "year": "1988", "degree": 60}, {"id": "kim-hyon_an-jaechan_1984", "label": "비를 만드는 커다란 나무", "type": "essay", "year": "1984", "degree": 7}, {"id": "kim-hyon_hwang-insook_1990", "label": "이루어지지 않는 바람", "type": "essay", "year": "1990", "degree": 8}, {"id": "kim-hyon_imagination-tendencies_1973", "label": "상상력의 두 경향", "type": "essay", "year": "1973", "degree": 8}, {"id": "kim-hyon_industrialization-poetry_1980", "label": "산업화 시대의 시", "type": "essay", "year": "1980", "degree": 32}, {"id": "kim-hyon_jeon-bonggeon_1975", "label": "전봉건을 찾아서", "type": "essay", "year": "1975", "degree": 7}, {"id": "kim-hyon_jung-hyunjong-drunk_1988", "label": "술취한 거지의 시학", "type": "essay", "year": "1988", "degree": 22}, {"id": "kim-hyon_jung-hyunjong_1973", "label": "바람의 현상학", "type": "essay", "year": "1973", "degree": 14}, {"id": "kim-hyon_jung-hyunjong_1975", "label": "정현종을 찾아서", "type": "essay", "year": "1975", "degree": 4}, {"id": "kim-hyon_jung-hyunjong_1980", "label": "변증법적 상상력", "type": "essay", "year": "1980", "degree": 6}, {"id": "kim-hyon_ki-hyungdo_1990", "label": "영원히 닫힌 빈방의 체험", "type": "essay", "year": "1990", "degree": 20}, {"id": "kim-hyon_kim-jongsam_1975", "label": "김종삼을 찾아서", "type": "essay", "year": "1975", "degree": 16}, {"id": "kim-hyon_kim-suyoung-two_1984", "label": "김수영에 대한 두 개의 글", "type": "essay", "year": "1984", "degree": 26}, {"id": "kim-hyon_lee-seongbok_1984", "label": "따뜻한 비관주의", "type": "essay", "year": "1984", "degree": 8}, {"id": "kim-hyon_literary-situation-1969a_1969", "label": "1969년의 문학적 상황 I", "type": "essay", "year": "1969", "degree": 30}, {"id": "kim-hyon_literary-situation-1969b_1969", "label": "1969년의 문학적 상황 II", "type": "essay", "year": "1969", "degree": 21}, {"id": "kim-hyon_literary-situation-1970_1970", "label": "1970년의 문학적 상황", "type": "essay", "year": "1970", "degree": 32}, {"id": "kim-hyon_literary-situation-1971_1971", "label": "1971년의 문학적 상황", "type": "essay", "year": "1971", "degree": 33}, {"id": "kim-hyon_living-poems-1_1983", "label": "살아 있는 시들 (제1권 몽상 속의 작은 길들)", "type": "essay", "year": "1982", "degree": 39}, {"id": "kim-hyon_living-poems-2_1983", "label": "살아 있는 시들 (제2권 거대한 낙원에서)", "type": "essay", "year": "1983", "degree": 49}, {"id": "kim-hyon_monthly-review_1973", "label": "이해와 공감", "type": "essay", "year": "1973", "degree": 39}, {"id": "kim-hyon_park-sungryong_1975", "label": "박성룡을 찾아서", "type": "essay", "year": "1975", "degree": 9}, {"id": "kim-hyon_suffering-poetics_1988", "label": "고난의 시학", "type": "essay", "year": "1988", "degree": 12}, {"id": "kim-hyon_understanding-korean-poetry_1973", "label": "한국시의 이해", "type": "essay", "year": "1973", "degree": 22}, {"id": "kim-hyon_water-sound-poetics_1984", "label": "물소리의 시학", "type": "essay", "year": "1984", "degree": 14}, {"id": "kim-inhwan_twentieth-century-korean-criticism_1999", "label": "20세기 한국 비평의 비판적 검토", "type": "essay", "year": "1999", "degree": 71}, {"id": "kim-jinseok_ideal-virtual-fantastic-reality_1996", "label": "이상 현실·가상 현실·환상 현실 — 문학과 영화의 예에서", "type": "essay", "year": "1996", "degree": 3}, {"id": "kim-juyeon_jeong-hyeonjong-poetic-existence_1992", "label": "정현종의 시적 실존과 시의 운명", "type": "essay", "year": "1992", "degree": 4}, {"id": "kim-juyeon_poetry-salvation-jeong-hyeonjong_1999", "label": "시와 구원, 혹은 시의 구원 — 정현종·오규원의 새 시집들", "type": "essay", "year": "1999", "degree": 6}, {"id": "kim-taehwan_kim-hyon-symposium-report_2000", "label": "김현 10주기 기념 문학 심포지엄을 다녀와서", "type": "essay", "year": "2000", "degree": 26}, {"id": "kim-uchang_conscience-poetry_1979", "label": "괴로운 양심의 시대의 시", "type": "essay", "year": "1979", "degree": 10}, {"id": "kim-uchang_jung-hyunjong_1977", "label": "사물의 꿈 — 정현종의 시", "type": "essay", "year": "1977", "degree": 7}, {"id": "kim-uchang_kim-jonggil-b_1977", "label": "염결성의 시학 — 김종길의 『진실과 언어』론", "type": "essay", "year": "1977", "degree": 20}, {"id": "kim-uchang_science-tech-literature_1993", "label": "과학 기술 시대의 문학 — 현실주의를 넘어서", "type": "essay", "year": "1993", "degree": 31}, {"id": "kim-yangheon_poetry-reading-method_1998", "label": "불상유통(不相流通)/동기 감응(同氣感應) — 90년대 시읽기의 방법적 시론", "type": "essay", "year": "1998", "degree": 66}, {"id": "kwon-oryong_dignity-of-literature_1993", "label": "문학의 위엄 — 김우창 교수 비평의 방법과 주제", "type": "essay", "year": "1993", "degree": 20}, {"id": "kwon-seongwoo_april19-generation-criticism_2000", "label": "4·19 세대 비평의 성과와 한계 — 비평적 인정 투쟁의 논리를 중심으로", "type": "essay", "year": "2000", "degree": 13}, {"id": "lee-changgi_play-two-faces_1990", "label": "놀이, 억압과 해방의 두 얼굴", "type": "essay", "year": "1990", "degree": 18}, {"id": "lee-gwangho_korea-japan-literary-exchange_1996", "label": "한일 문학의 교류와 타자의 시선", "type": "essay", "year": "1996", "degree": 37}, {"id": "lee-kyungsoo_conservative-progressive_1988", "label": "보수와 진보의 실상", "type": "essay", "year": "1988", "degree": 16}, {"id": "oh-saenggeun_poetics-of-breath-and-laughter_1995", "label": "숨결과 웃음의 시학 — 정현종의 『세상의 나무들』을 중심으로", "type": "essay", "year": "1995", "degree": 7}, {"id": "p-00091", "label": "정현종", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12616152 http://lod.nl.go.kr/resource/KAC201207472 https://isni.org/isni/0000000083942968 http://viaf.org/viaf/74032003", "degree": 60, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201207472", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12616152", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 66, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-cesar-vallejo", "label": "세사르 바예호", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-neruda", "label": "파블로 네루다", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q34189 http://lod.nl.go.kr/resource/KAC199620047 https://isni.org/isni/0000000121440986 http://viaf.org/viaf/95126958", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620047", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34189", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Pablo Neruda"}, {"id": "p-octavio-paz", "label": "옥타비오 파스", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "park-cheolhwa_homeless-wayfinding-death_1989", "label": "집 없는 자의 길찾기, 혹은 죽음 — 기형도론", "type": "essay", "year": "1989", "degree": 6}, {"id": "park-hyekyung_between-poem-and-poem_1996", "label": "시와 시, 그 소통과 대화의 사잇길", "type": "essay", "year": "1996", "degree": 27}, {"id": "park-hyekyung_literary-praxis-critical-balance_1990", "label": "문학의 실천성과 비평적 균형 감각", "type": "essay", "year": "1990", "degree": 20}, {"id": "seong-minyeop_what-changes-and-what-does-not_1995", "label": "변하는 것과 변하지 않는 것", "type": "essay", "year": "1995", "degree": 10}, {"id": "shin-munsu_criticism-toward-openness_1989", "label": "열림의 세계로 나아가기 위한 비평", "type": "essay", "year": "1989", "degree": 28}, {"id": "woo-chanje_beyond-borders-21st-century_2000", "label": "경계를 넘어서 — 21세기 문학 지도를 위한 밑그림", "type": "essay", "year": "2000", "degree": 33}, {"id": "yu-jongho_v2-10_1982", "label": "소설과 정치 — 「광장」과 「회색인」", "type": "essay", "year": "1979", "degree": 10}, {"id": "yu-jongho_v4-07_1989", "label": "시와 번역", "type": "essay", "year": "1989", "degree": 33}, {"id": "yu-jongho_v4-14_1989", "label": "낯설게 하기 혹은 생소화", "type": "essay", "year": "1989", "degree": 16}, {"id": "yu-jongho_v5-03_1995", "label": "해학의 친화력", "type": "essay", "year": "1995", "degree": 6}], "edges": [{"source": "choe-hyeonsik_park-jutaek-kim-cham_1999", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "hong-jeongseon_life-of-hot-symbol_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_foundation-of-kim-hyon_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_gi-hyeongdo-collected-works_1999", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_na-huideok-blackout_2001", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_yu-jongho-empirical-classicist_2001", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "jeong-hyeonjong_what-poetry-dreams_1995", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hoon_helicopter-jeong-hyunjong_1989", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_60s-literature_1988", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_an-jaechan_1984", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_hwang-insook_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_imagination-tendencies_1973", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_industrialization-poetry_1980", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jeon-bonggeon_1975", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jung-hyunjong-drunk_1988", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jung-hyunjong_1973", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jung-hyunjong_1975", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_jung-hyunjong_1980", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ki-hyungdo_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jongsam_1975", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-suyoung-two_1984", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_lee-seongbok_1984", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-situation-1969a_1969", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-situation-1969b_1969", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-situation-1970_1970", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-situation-1971_1971", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_living-poems-1_1983", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_living-poems-2_1983", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_monthly-review_1973", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_park-sungryong_1975", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_suffering-poetics_1988", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_understanding-korean-poetry_1973", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_water-sound-poetics_1984", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_twentieth-century-korean-criticism_1999", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-jinseok_ideal-virtual-fantastic-reality_1996", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_jeong-hyeonjong-poetic-existence_1992", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_poetry-salvation-jeong-hyeonjong_1999", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-taehwan_kim-hyon-symposium-report_2000", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_conscience-poetry_1979", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_jung-hyunjong_1977", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_kim-jonggil-b_1977", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_science-tech-literature_1993", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kim-yangheon_poetry-reading-method_1998", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_dignity-of-literature_1993", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "kwon-seongwoo_april19-generation-criticism_2000", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "lee-changgi_play-two-faces_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "lee-gwangho_korea-japan-literary-exchange_1996", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "lee-kyungsoo_conservative-progressive_1988", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "oh-saenggeun_poetics-of-breath-and-laughter_1995", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "p-00091", "target": "jeong-hyeonjong_what-poetry-dreams_1995", "type": "wrote", "weight": 1}, {"source": "park-cheolhwa_homeless-wayfinding-death_1989", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "park-hyekyung_between-poem-and-poem_1996", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "park-hyekyung_literary-praxis-critical-balance_1990", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "seong-minyeop_what-changes-and-what-does-not_1995", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "shin-munsu_criticism-toward-openness_1989", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "woo-chanje_beyond-borders-21st-century_2000", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v2-10_1982", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v4-07_1989", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v4-14_1989", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v5-03_1995", "target": "p-00091", "type": "subject_of", "weight": 1}, {"source": "jeong-hyeonjong_what-poetry-dreams_1995", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "jeong-hyeonjong_what-poetry-dreams_1995", "target": "p-cesar-vallejo", "type": "subject_of", "weight": 1}, {"source": "jeong-hyeonjong_what-poetry-dreams_1995", "target": "p-neruda", "type": "subject_of", "weight": 1}, {"source": "jeong-hyeonjong_what-poetry-dreams_1995", "target": "p-octavio-paz", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1995</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/jeong-hyeonjong_what-poetry-dreams_1995.html">시가 꿈꾸는 것 — 오늘날 시란 무엇인가</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 31호, 문학과지성사, 1995</p>
+        <div class="essay-card-tags"><span class="tag">정현종</span> <span class="tag">세사르 바예호</span> <span class="tag">파블로 네루다</span> <span class="tag">옥타비오 파스</span><span class="tag">니체</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

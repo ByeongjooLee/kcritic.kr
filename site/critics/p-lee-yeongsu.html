@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>듀나 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">듀나</span></div>
+      <h1 class="index-heading">듀나</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">16</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">듀나</span> <span class="chip role-writer">아서 C. 클라크</span> <span class="chip role-writer">복거일</span> <span class="chip role-writer">보르헤스</span> <span class="chip role-writer">클리포드 D. 시막</span> <span class="chip role-writer">데이비드 브린</span> <span class="chip role-writer">아이작 아시모프</span> <span class="chip role-writer">조애너 러스</span> <span class="chip role-writer">존 발리</span> <span class="chip role-writer">쥘 베른</span> <span class="chip role-writer">케이트 윌헬름</span> <span class="chip role-writer">메리 셸리</span> <span class="chip role-writer">올라프 스테이플던</span> <span class="chip role-writer">움베르트 에코</span> <span class="chip role-writer">어슐러 K. 르 귄</span> <span class="chip role-writer">윌리엄 깁슨</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">아인슈타인 (1)</span> <span class="chip chip-term">갈바니 (1)</span> <span class="chip chip-term">스티븐 호킹 (1)</span> <span class="chip chip-term">베르너 하이젠베르크 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "choe-seongsil_subculture-new-literary-writing_2000", "label": "하위 문화와 새로운 문학적 글쓰기 — 몇 개의 블록, 혹은 나쁜 유토피아", "type": "essay", "year": "2000", "degree": 34}, {"id": "duna_genome-project-sf-motifs_2001", "label": "게놈 프로젝트의 SF적 모티프", "type": "essay", "year": "2001", "degree": 18}, {"id": "duna_writers-letter_2000", "label": "작가의 편지", "type": "essay", "year": "2000", "degree": 5}, {"id": "p-arthur-clarke", "label": "아서 클라크", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-bok-geoil", "label": "복거일", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q626098 http://lod.nl.go.kr/resource/KAC201204280 https://isni.org/isni/0000000048792861 http://viaf.org/viaf/32306053", "degree": 25, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201204280", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626098", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-borges", "label": "보르헤스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q909 http://lod.nl.go.kr/resource/KAC199603014 https://isni.org/isni/0000000121429031 http://viaf.org/viaf/88919448", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603014", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q909", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jorge Luis Borges"}, {"id": "p-clifford-simak", "label": "클리포드 D. 시막", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-david-brin", "label": "데이비드 브린", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-einstein", "label": "아인슈타인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q937 http://lod.nl.go.kr/resource/KAC200103196 https://isni.org/isni/000000012281955X http://viaf.org/viaf/75121530", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200103196", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q937", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-galvani", "label": "갈바니", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-isaac-asimov", "label": "아이작 아시모프", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-joanna-russ", "label": "조애너 러스", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-john-varley", "label": "존 발리", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jules-verne", "label": "쥘 베른", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-kate-wilhelm", "label": "케이트 윌헬름", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-yeongsu", "label": "듀나", "type": "critic", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-mary-shelley", "label": "메리 셸리", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-olaf-stapledon", "label": "올라프 스테이플던", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-stephen-hawking", "label": "스티븐 호킹", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-umberto-eco", "label": "움베르토 에코", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-ursula-le-guin", "label": "어슐러 르 귄", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-werner-heisenberg", "label": "베르너 하이젠베르크", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-william-gibson", "label": "윌리엄 깁슨", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "seong-minyeop_duna-science-fiction-as-novel_2000", "label": "소설로서의 과학소설", "type": "essay", "year": "2000", "degree": 10}], "edges": [{"source": "choe-seongsil_subculture-new-literary-writing_2000", "target": "p-lee-yeongsu", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-lee-yeongsu", "type": "subject_of", "weight": 1}, {"source": "duna_writers-letter_2000", "target": "p-lee-yeongsu", "type": "subject_of", "weight": 1}, {"source": "p-lee-yeongsu", "target": "duna_genome-project-sf-motifs_2001", "type": "wrote", "weight": 1}, {"source": "p-lee-yeongsu", "target": "duna_writers-letter_2000", "type": "wrote", "weight": 1}, {"source": "seong-minyeop_duna-science-fiction-as-novel_2000", "target": "p-lee-yeongsu", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-arthur-clarke", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-clifford-simak", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-david-brin", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-einstein", "type": "uses_theory", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-galvani", "type": "uses_theory", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-isaac-asimov", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-joanna-russ", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-john-varley", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-jules-verne", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-kate-wilhelm", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-mary-shelley", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-olaf-stapledon", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-stephen-hawking", "type": "uses_theory", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-ursula-le-guin", "type": "subject_of", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-werner-heisenberg", "type": "uses_theory", "weight": 1}, {"source": "duna_genome-project-sf-motifs_2001", "target": "p-william-gibson", "type": "subject_of", "weight": 1}, {"source": "duna_writers-letter_2000", "target": "p-bok-geoil", "type": "subject_of", "weight": 1}, {"source": "duna_writers-letter_2000", "target": "p-borges", "type": "subject_of", "weight": 1}, {"source": "duna_writers-letter_2000", "target": "p-umberto-eco", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2000</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/duna_writers-letter_2000.html">작가의 편지</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 51호, 문학과지성사, 2000</p>
+        <div class="essay-card-tags"><span class="tag">복거일</span> <span class="tag">보르헤스</span> <span class="tag">듀나</span> <span class="tag">움베르트 에코</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2001</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/duna_genome-project-sf-motifs_2001.html">게놈 프로젝트의 SF적 모티프</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 54호, 문학과지성사, 2001</p>
+        <div class="essay-card-tags"><span class="tag">아서 C. 클라크</span> <span class="tag">클리포드 D. 시막</span> <span class="tag">데이비드 브린</span> <span class="tag">아이작 아시모프</span> <span class="tag">조애너 러스</span> <span class="tag">존 발리</span> <span class="tag">쥘 베른</span> <span class="tag">케이트 윌헬름</span> <span class="tag">듀나</span> <span class="tag">메리 셸리</span> <span class="tag">올라프 스테이플던</span> <span class="tag">어슐러 K. 르 귄</span> <span class="tag">윌리엄 깁슨</span><span class="tag">아인슈타인</span> <span class="tag">갈바니</span> <span class="tag">스티븐 호킹</span> <span class="tag">베르너 하이젠베르크</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

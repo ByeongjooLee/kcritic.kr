@@ -110,9 +110,12 @@ def main():
         if ip.exists():
             inv = {x["id"]: x for x in json.loads(ip.read_text(encoding="utf-8"))}
         published = {e["id"]: e for e in essays if e["coll"] == "mhs"}
+        # --max-issue 055: 그 호까지만 목차를 만든다(다음 호를 인코딩하는 중일 때 대장의 미완성 항목을 싣지 않으려고, 2026-11-08)
+        max_issue = sys.argv[sys.argv.index("--max-issue") + 1] if "--max-issue" in sys.argv else None
         by_issue = collections.defaultdict(list)
         for v in ledger.values():
-            if v.get("status") != "skipped": by_issue[v["issue"]].append(v)
+            if v.get("status") != "skipped" and (max_issue is None or v["issue"][:3] <= max_issue):
+                by_issue[v["issue"]].append(v)
         state = {"done": "인코딩 완료·미공개", "held": "검토 보류", "queued": "인코딩 예정", "encoding": "인코딩 중"}
         issues = []
         for iid in sorted(by_issue):

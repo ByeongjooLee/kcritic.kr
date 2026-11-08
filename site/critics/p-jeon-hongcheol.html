@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전홍철 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">전홍철</span></div>
+      <h1 class="index-heading">전홍철</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">26</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">호메로스</span> <span class="chip role-writer">김시습</span> <span class="chip role-writer">마오뚠(茅盾)</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">루카치 (1)</span> <span class="chip chip-term">바흐친 (1)</span> <span class="chip chip-term">반성완 (1)</span> <span class="chip chip-term">브루노 힐레브란트 (1)</span> <span class="chip chip-term">천핑유엔(陳平原) (1)</span> <span class="chip chip-term">조동일 (1)</span> <span class="chip chip-term">드워스킨 (1)</span> <span class="chip chip-term">후스(胡適) (1)</span> <span class="chip chip-term">이드마 (1)</span> <span class="chip chip-term">가또 슈우치(加藤周一) (1)</span> <span class="chip chip-term">김문현 (1)</span> <span class="chip chip-term">김태준 (1)</span> <span class="chip chip-term">이종민 (1)</span> <span class="chip chip-term">이성원 (1)</span> <span class="chip chip-term">린껑쩌(林庚則) (1)</span> <span class="chip chip-term">남기학 (1)</span> <span class="chip chip-term">노영희 (1)</span> <span class="chip chip-term">박병화 (1)</span> <span class="chip chip-term">폴 머천트 (1)</span> <span class="chip chip-term">서경호 (1)</span> <span class="chip chip-term">쓰다 소키치(津田左右吉) (1)</span> <span class="chip chip-term">빅터 메이어 (1)</span> <span class="chip chip-term">윌리스 마틴 (1)</span> <span class="chip chip-term">원이뚜어(聞一多) (1)</span> <span class="chip chip-term">원당희 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "jeon-hongcheol_east-asian-novel-theory_1996", "label": "동아시아적 소설론의 모색", "type": "essay", "year": "1996", "degree": 30}, {"id": "p-00065", "label": "헤겔", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9235 http://lod.nl.go.kr/resource/KAC199611965 https://isni.org/isni/0000000122828149 http://viaf.org/viaf/89774942", "degree": 63, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611965", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9235", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Wilhelm Friedrich Hegel"}, {"id": "p-00072", "label": "호메로스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q6691 http://lod.nl.go.kr/resource/KAC199612729 https://isni.org/isni/000000036354151X http://viaf.org/viaf/224924963", "degree": 25, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199612729", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6691", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Homer"}, {"id": "p-00146", "label": "루카치", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q151523 http://lod.nl.go.kr/resource/KAC199617179 https://isni.org/isni/0000000121309398 http://viaf.org/viaf/46764285", "degree": 56, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617179", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q151523", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Lukács"}, {"id": "p-bakhtin", "label": "바흐친", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q185375 http://lod.nl.go.kr/resource/KAC199601442 https://isni.org/isni/0000000121029425 http://viaf.org/viaf/88958796", "degree": 25, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601442", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q185375", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Mikhail Bakhtin"}, {"id": "p-ban-seongwan", "label": "반성완", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201303529 https://isni.org/isni/0000000041916390 http://viaf.org/viaf/66093146", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201303529", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-bruno-hillebrand", "label": "브루노 힐레브란트", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-chen-pingyuan", "label": "천핑유엔", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-cho-dongil", "label": "조동일", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12616636 http://lod.nl.go.kr/resource/KAC201203718 https://isni.org/isni/0000000109713283 http://viaf.org/viaf/51843523", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201203718", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12616636", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-dewoskin", "label": "드워스킨", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-hu-shi", "label": "후스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-idema", "label": "이드마", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeon-hongcheol", "label": "전홍철", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kato-shuichi", "label": "가또 슈우치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-munhyeon", "label": "김문현", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-siseup", "label": "김시습", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-taejun-translator", "label": "김태준", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-jongmin", "label": "이종민", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-seongwon", "label": "이성원", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-lin-geng", "label": "린껑쩌", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-mao-dun", "label": "모순", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q358494 http://lod.nl.go.kr/resource/KAC199631415 https://isni.org/isni/0000000368645959 http://viaf.org/viaf/97121854", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631415", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q358494", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-nam-gihak", "label": "남기학", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-no-yeonghui", "label": "노영희", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-park-byeonghwa", "label": "박병화", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-paul-merchant", "label": "폴 머천트", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seo-gyeongho", "label": "서경호", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-tsuda-sokichi", "label": "쓰다 소키치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-victor-mair", "label": "빅터 메이어", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-wallace-martin", "label": "윌리스 마틴", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-wen-yiduo", "label": "원이뚜어", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-won-danghui", "label": "원당희", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-hongcheol", "target": "jeon-hongcheol_east-asian-novel-theory_1996", "type": "wrote", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-00065", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-00072", "type": "subject_of", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-00146", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-bakhtin", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-ban-seongwan", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-bruno-hillebrand", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-chen-pingyuan", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-cho-dongil", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-dewoskin", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-hu-shi", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-idema", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-kato-shuichi", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-kim-munhyeon", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-kim-siseup", "type": "subject_of", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-kim-taejun-translator", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-lee-jongmin", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-lee-seongwon", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-lin-geng", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-mao-dun", "type": "subject_of", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-nam-gihak", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-no-yeonghui", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-park-byeonghwa", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-paul-merchant", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-seo-gyeongho", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-tsuda-sokichi", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-victor-mair", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-wallace-martin", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-wen-yiduo", "type": "uses_theory", "weight": 1}, {"source": "jeon-hongcheol_east-asian-novel-theory_1996", "target": "p-won-danghui", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1996</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/jeon-hongcheol_east-asian-novel-theory_1996.html">동아시아적 소설론의 모색</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 36호, 문학과지성사, 1996</p>
+        <div class="essay-card-tags"><span class="tag">호메로스</span> <span class="tag">김시습</span> <span class="tag">마오뚠(茅盾)</span><span class="tag">헤겔</span> <span class="tag">루카치</span> <span class="tag">바흐친</span> <span class="tag">반성완</span> <span class="tag">브루노 힐레브란트</span> <span class="tag">천핑유엔(陳平原)</span> <span class="tag">조동일</span> <span class="tag">드워스킨</span> <span class="tag">후스(胡適)</span> <span class="tag">이드마</span> <span class="tag">가또 슈우치(加藤周一)</span> <span class="tag">김문현</span> <span class="tag">김태준</span> <span class="tag">이종민</span> <span class="tag">이성원</span> <span class="tag">린껑쩌(林庚則)</span> <span class="tag">남기학</span> <span class="tag">노영희</span> <span class="tag">박병화</span> <span class="tag">폴 머천트</span> <span class="tag">서경호</span> <span class="tag">쓰다 소키치(津田左右吉)</span> <span class="tag">빅터 메이어</span> <span class="tag">윌리스 마틴</span> <span class="tag">원이뚜어(聞一多)</span> <span class="tag">원당희</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

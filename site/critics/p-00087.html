@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조세희 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q5103384" target="_blank" class="chip role-critic chip-linked">조세희 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">조세희</h1>
+      <div class="lod-links"><a href="https://encykorea.aks.ac.kr/Article/E0011711" target="_blank" class="lod-badge lod-badge-work" title="한국민족문화대백과 (작품)">한국민족문화대백과 (작품) ↗</a> <a href="http://lod.nl.go.kr/resource/KAC201110793" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q5103384" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/000000007978395X" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/79079950" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">조세희</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "gwon-oryong_situation-and-choice-kim-chisu_1992", "label": "상황과 선택 — 김치수 비평의 전개 양상", "type": "essay", "year": "1992", "degree": 33}, {"id": "ha-eungbaek_seo-jeongin-kim-wonwoo_1999", "label": "느림과 지연의 소설 — 서정인의 『베네치아에서 만난 사람』과 김원우의 『일인극 가족』", "type": "essay", "year": "1999", "degree": 13}, {"id": "hong-yungi_declassed-choice_1988", "label": "탈계급적인 선택과 결단의 문학적 표출 — 해방문학으로서의 대학문학", "type": "essay", "year": "1988", "degree": 13}, {"id": "hwang-jiu_terrible-modernity_1992", "label": "끔찍한 모더니티", "type": "essay", "year": "1992", "degree": 12}, {"id": "jang-seokju_diverging-discourses-of-disillusion-park-cheongho_1996", "label": "분화해가는 환멸의 담론들 — 박청호의 소설에 대하여", "type": "essay", "year": "1996", "degree": 18}, {"id": "jeong-gwari_gi-hyeongdo-collected-works_1999", "label": "죽음 옆의 삶, 삶 안의 죽음 — 『기형도 전집』에 부쳐", "type": "essay", "year": "1999", "degree": 18}, {"id": "jeong-gwari_literariness-revisited-2_1992", "label": "다시 문학성을 논한다(2)", "type": "essay", "year": "1992", "degree": 31}, {"id": "jo-sehui_destruction-false-hope-contempt_1996", "label": "파괴와 거짓 희망, 모멸의 시대", "type": "essay", "year": "1996", "degree": 2}, {"id": "kim-byeongik_memory-of-pain-and-creative-pain_1992", "label": "고통에의 기억과 창조에의 고통 — 이순원과 장정일의 성장소설", "type": "essay", "year": "1992", "degree": 11}, {"id": "kim-byungik_labor-literature_1988", "label": "'노동'문학과 노동'문학' — 최근의 노동소설들을 읽고", "type": "essay", "year": "1988", "degree": 11}, {"id": "kim-hyon_60s-literature_1988", "label": "60년대 문학의 배경과 성과", "type": "essay", "year": "1988", "degree": 60}, {"id": "kim-hyon_kim-byungik_1988", "label": "감동하는 의식의 관용적 역사주의", "type": "essay", "year": "1988", "degree": 12}, {"id": "kim-hyon_park-kidong_1980", "label": "두려움과 회한의 변주곡", "type": "essay", "year": "1980", "degree": 9}, {"id": "kim-mihyeon_romance-novels-after-liberation_2001", "label": "연애부터 연애까지 — 해방 이후의 연애소설", "type": "essay", "year": "2001", "degree": 21}, {"id": "kim-taehwan_kim-hyon-symposium-report_2000", "label": "김현 10주기 기념 문학 심포지엄을 다녀와서", "type": "essay", "year": "2000", "degree": 26}, {"id": "kim-taehwan_reading-the-square-and-dwarf_1996", "label": "『광장』과 『난장이…』 읽기, 그리고 천천히 다시 읽기", "type": "essay", "year": "1996", "degree": 8}, {"id": "kim-uchang_industrial-literature_1981", "label": "산업 시대의 문학", "type": "essay", "year": "1981", "degree": 11}, {"id": "kim-uchang_time-korean-novel_1981", "label": "한국소설의 시간", "type": "essay", "year": "1981", "degree": 19}, {"id": "kim-yunsik_how-to-face-north-korean-literature_1989", "label": "북한 문학을 어떻게 대할 것인가", "type": "essay", "year": "1989", "degree": 55}, {"id": "kim-yunsik_literary-historical-intervention_1991", "label": "문학사적 개입과 논리적 개입 — 『노을』과 『난장이……』 재평가", "type": "essay", "year": "1991", "degree": 13}, {"id": "kim-yunsik_modernity-introspection-outside_1994", "label": "근대와 비근대 또는 내성과 외부 — 우리 문학 연구와 비평이 안고 있는 몇 가지 과제", "type": "essay", "year": "1994", "degree": 14}, {"id": "kwon-oryong_yi-munyol-byeongyeong_1998", "label": "‘변경’에서 벗어나기 위하여", "type": "essay", "year": "1998", "degree": 13}, {"id": "kwon-seongu_popular-literature-and-cultural-strategy_1992", "label": "‘뜨거운 감자’를 ‘잘’ 먹기 위한 기나긴 장정", "type": "essay", "year": "1992", "degree": 14}, {"id": "lee-deukjae_style-space_1994", "label": "문체와 공간", "type": "essay", "year": "1994", "degree": 10}, {"id": "p-00087", "label": "조세희", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q5103384 http://lod.nl.go.kr/resource/KAC201110793 https://isni.org/isni/000000007978395X http://viaf.org/viaf/79079950", "degree": 27, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0011711", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201110793", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103384", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "woo-chanje_beyond-borders-21st-century_2000", "label": "경계를 넘어서 — 21세기 문학 지도를 위한 밑그림", "type": "essay", "year": "2000", "degree": 33}, {"id": "woo-chanje_korean-novel-pain-enjoyment_1999", "label": "한국 소설의 고통과 향유", "type": "essay", "year": "1999", "degree": 94}], "edges": [{"source": "gwon-oryong_situation-and-choice-kim-chisu_1992", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "ha-eungbaek_seo-jeongin-kim-wonwoo_1999", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "hong-yungi_declassed-choice_1988", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "hwang-jiu_terrible-modernity_1992", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "jang-seokju_diverging-discourses-of-disillusion-park-cheongho_1996", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_gi-hyeongdo-collected-works_1999", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_literariness-revisited-2_1992", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "jo-sehui_destruction-false-hope-contempt_1996", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_memory-of-pain-and-creative-pain_1992", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-byungik_labor-literature_1988", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_60s-literature_1988", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-byungik_1988", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_park-kidong_1980", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-mihyeon_romance-novels-after-liberation_2001", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-taehwan_kim-hyon-symposium-report_2000", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-taehwan_reading-the-square-and-dwarf_1996", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_industrial-literature_1981", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_time-korean-novel_1981", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-yunsik_how-to-face-north-korean-literature_1989", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-yunsik_literary-historical-intervention_1991", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kim-yunsik_modernity-introspection-outside_1994", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_yi-munyol-byeongyeong_1998", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "kwon-seongu_popular-literature-and-cultural-strategy_1992", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "lee-deukjae_style-space_1994", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "p-00087", "target": "jo-sehui_destruction-false-hope-contempt_1996", "type": "wrote", "weight": 1}, {"source": "woo-chanje_beyond-borders-21st-century_2000", "target": "p-00087", "type": "subject_of", "weight": 1}, {"source": "woo-chanje_korean-novel-pain-enjoyment_1999", "target": "p-00087", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1996</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/jo-sehui_destruction-false-hope-contempt_1996.html">파괴와 거짓 희망, 모멸의 시대</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 35호, 문학과지성사, 1996</p>
+        <div class="essay-card-tags"><span class="tag">조세희</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

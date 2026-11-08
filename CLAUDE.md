@@ -2,17 +2,17 @@
 
 AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로운 결정이 생기면 즉시 이 파일을 업데이트할 것.
 
-**현재 상태 (2026-10-22 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
+**현재 상태 (2026-11-08 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
 
 | 항목 | 값 |
 |---|---|
-| 수록 비평가 | 74인 — 전집 기반 4인(김현 136편·유종호 114편·김우창 109편·황현산 11편) + 『문학과사회』 1–13호(1988–1991) 필자 118편 |
-| 수록 비평글 | 488편 (`essays/*.xml`) — 전집 370 + 『문학과사회』 118 (작업 폴더 `../문학과사회/`, 반영 스크립트 `../문학과사회/site_prep/`) |
-| 관계망 | 노드 1,944 / 엣지 5,455 · graph.ttl 27,026 트리플 · `_redirects` 1,944줄(한도 2,000 근접) |
-| 노드 구성 | theorist 840 · writer 542 · essay 488 · critic 74 |
-| 엣지 구성 | uses_theory 2,573 · subject_of 2,394 · wrote 488 |
-| 목록 데이터 | writers.json 588 · thinkers.json 878 · concepts.json 4,532(공개 519) |
-| 인물 권위 목록 | persons.json 1,636명 — Wikidata 1,040 · NLK 967 (2026-09-30 전수 판정 + 2026-10-22 『문학과사회』 498명 추가: NLK 스냅샷 이름·생년·분야 일치만 연결) |
+| 수록 비평가 | 191인 — 전집 기반 4인(김현 136편·유종호 114편·김우창 109편·황현산 11편) + 『문학과사회』 1–55호(1988–2001) 필자 189명 461편 |
+| 수록 비평글 | 831편 (`essays/*.xml`) — 전집 370 + 『문학과사회』 461 (작업 폴더 `../문학과사회/`, 반영 스크립트 `../문학과사회/site_prep/`) |
+| 관계망 | 노드 3,119 / 엣지 9,251 · graph.ttl 44,072 트리플 · `_redirects` 1,997줄(인물 정적 1,995 + 동적 2) |
+| 노드 구성 | theorist 1,201 · writer 896 · essay 831 · critic 191 |
+| 엣지 구성 | subject_of 4,260 · uses_theory 4,160 · wrote 831 |
+| 목록 데이터 | writers.json 965 · thinkers.json 1,343 · concepts.json 5,930(공개 1,152) |
+| 인물 권위 목록 | persons.json 2,857명 — Wikidata 1,125 · NLK 1,172 (2026-09-30 전수 판정 + 『문학과사회』 2026-10-22 498명·10-25 172명·11-08 1,049명 추가: NLK 스냅샷 이름·생년·분야 일치만 연결, 11-08 묶음은 전거 비움) |
 | 공식 온톨로지 | **v8** (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
 
 ---
@@ -567,7 +567,7 @@ py build.py → py build_site_v2.py → git push → npx wrangler deploy   (.\de
 
 ### 개체 IRI 역참조 (`_redirects`)
 
-graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다. 인물은 한 줄씩, 비평글은 `/resource/essay/* /site/essays/:splat 303` 한 줄(2026-10-25, 현재 1,616줄). Cloudflare 정적 리다이렉트 한도는 2,000줄 — 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
+graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다. 인물은 한 줄씩, 비평글은 `/resource/essay/* /site/essays/:splat 303` 한 줄(2026-10-25). Cloudflare 한도는 정적 2,000 + 동적 100 — 2026-11-08 인물이 2,288명이 되어 정적 줄을 1,995명(이미 정적 줄이 있던 인물 → 비평가 → 작가 → 이론가, 각각 글 수 많은 순)으로 자르고, 나머지는 맨 끝 동적 규칙 `/resource/* /entity.html?t=person&id=:splat 303` 이 2판 개체 화면으로 보낸다(현재 1,997줄). 정적 줄이 2,000을 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
 
 ### not_found_handling
 
@@ -961,6 +961,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 ### 진행 중 (잡지 확장 — 『문학과사회』)
 - 2026-10-22: 1–13호(1988–1991) 비평 118편 공개. 원본 초안·OCR·기사 분할·인코딩 대장은 `../문학과사회/` (README 참조)
 - 2026-10-25: 14–28호(1991–1994) 101편 추가 공개 → 비평글 589 · 비평가 109 · 노드 2,203 · 엣지 6,377. 반영은 `publish_mhs.py --batch 20261025`(README §6-1). 좌담·심사평은 별도 컬렉션(`../문학과사회/site_prep/jwadam_simsa_collection.tsv`), 편집 동인·발행처 명의 글과 번역 글은 제외. 인물 전거 보강 지침 `../문학과사회/site_prep/NLK_ENRICH_GUIDE.md`
+- 2026-11-08: 29–55호(1995–2001) 242편 추가 → 비평글 831 · 비평가 191 · 노드 3,119 · 엣지 9,251 · 트리플 44,072. 반영은 `../문학과사회/site_prep/publish_mhs_20261108.py`(대상 `pending_stems_20261108.txt` 363편, 제외 121편 `exclude_20261108.tsv` — 단체 명의 93·복수 저자 26·번역 2, 10-25 와 같은 규칙) → `py build.py` → `py build_site_v2.py --max-issue 055`(56호 인코딩 중이라 호 목차는 55호까지) → `PYTHONHASHSEED=0 py build_graph_metrics.py` → `make_cards.py --stems site_prep/published_stems.pending_20261108.txt`. 새 인물 1,049명은 NLK 자동 대조 없이 전거를 비워 등록(보강은 따로). 기록 `../문학과사회/site_prep/report_20261108.md`
 - 반영 절차: `../문학과사회/site_prep/census.py`(점검) → `publish_mhs.py --apply`(개념어 통일·persons.json 등록·XML 복사) → `py build.py` → `make_cards.py`(index.html 카드 섹션 `MHS-START`~`MHS-END` 자동 생성)
 - 심사평(복수 심사위원)은 build.py 가 titleStmt 첫 저자만 비평가로 잡아 오귀속되므로 **사이트에서 제외**(작업 폴더에만 있음). 복수 저자 지원은 미구현
 - 역할이 `critic` 뿐인 언급 인물(다른 비평가를 논하는 경우)은 build.py 분류상 관계망 엣지가 생기지 않는다. 비평가 간 논쟁 관계는 `critic:respondsTo` 구현과 함께 다룰 것
