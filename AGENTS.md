@@ -965,6 +965,8 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - build.py 수정(2026-10-22): biblStruct 의 호수·쪽·비고를 읽어 비평글 페이지에 표시하고, 프로필 카드 출처 줄(`_source_short`)은 비평글 제목이 아니라 수록지면(수록 단행본 → 비고의 《잡지》)을 쓴다. critics.json 은 글 수 내림차순(동수는 이름순)
 
 ### 진행 중 (잡지 확장 — 『창작과비평』)
+
+- 2026-11-09 연구자 승인: 기존 보류 기준을 유지하고 검수 통과분부터 요약·주장을 공개. 첫 묶음은 CB-07335·07374·07375(3편·주장 15개), `build_changbi_summaries.py` → `site/data/v2/changbi_summaries.json`. 호 화면에 표시하며 관계망에는 합치지 않는다. 허용 필드는 u·t·a·y·l·s·h·kw·c, 비고·본문·약력·전자우편 제외. 아래의 '미공개' 기록은 이 3편 외 나머지에 적용한다.
 - **반영 지침·기록의 정본은 `../문학과사회/changbi_corpus/site_prep/SITE_GUIDE.md`**(2026-11-09 제정, 『문학과사회』 site_prep 관례를 옮김). 날짜별 `report_*`·`exclude_*`·`commit_message_*`·`verbatim_*` 도 그 폴더에 둔다. 점검 `python -X utf8 site_prep/check_public.py [--summaries]`(changbi_corpus 에서)
 - **코퍼스는 비공개**: `changbi_corpus` 는 원격 없는 로컬 git — 원격 생성·push 금지, `data/`·`ocr/`(웹진 본문·웹북 OCR) 커밋 금지. 사이트에는 원문 문장을 싣지 않고 창비 웹진 기사로 연결. §1 원문 공개 예외 셋은 창비에 적용하지 않음
 - 공개 층: ① 목차만 공개(2026-11-09, 213호 7,401항목·비평·산문 4,558, `build_changbi_toc.py`, 필드 허용 목록 호 `id no label year season list n n_crit`·항목 `s sec t a i c`). ② 해제·키워드 ③ 요지·주장·인물·작품(`changbi_corpus/summary/out{,2}/`, 4,557건)은 **미공개 — 공개는 연구자 결정**
