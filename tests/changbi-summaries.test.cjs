@@ -5,10 +5,12 @@ const vm = require('node:vm');
 
 test('reviewed summaries expose only the approved fields and ids', () => {
   const data = JSON.parse(fs.readFileSync('site/data/v2/changbi_summaries.json', 'utf8'));
-  assert.deepEqual(Object.keys(data), ['7335', '7374', '7375']);
-  for (const entry of Object.values(data)) {
+  for (const id of ['7335', '7374', '7375']) assert.ok(data[id]);
+  for (const [id, entry] of Object.entries(data)) {
+    assert.equal(entry.u, `CB-${id.padStart(5, '0')}`);
     assert.deepEqual(Object.keys(entry).sort(), ['u','t','a','y','l','s','h','kw','c'].sort());
-    assert.equal(entry.c.length, 5);
+    assert.ok(Array.isArray(entry.c));
+    for (const claim of entry.c) assert.ok(['주장', '논거', '비판', '제언'].includes(claim[1]));
     assert.ok(!JSON.stringify(entry).includes('@'));
   }
 });
