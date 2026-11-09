@@ -324,7 +324,7 @@ function renderVenues() {
   const opt = (k, name, n) => `<label class="opt"><input type="radio" name="vmag" value="${k}"${VMAG === k ? " checked" : ""}>『${name}』<span class="c">${n}호</span></label>`;
   document.getElementById("facets").innerHTML = `<div class="facet"><h5>잡지</h5>${opt("mhs", "문학과사회", D.issues.length)}${D.cb.length ? opt("cb", CB.name, D.cb.length) : ""}</div>
     <div class="facet"><h5>안내</h5><p class="note">${VMAG === "cb"
-      ? "『창작과비평』은 아직 목차만 싣습니다(1966년 창간호부터). 목차는 창비 웹진의 호별 목차를 옮긴 것이며, 기사 제목을 누르면 창비 웹진의 그 기사로 갑니다. 쪽수는 웹진 목차에 없어 싣지 않았습니다."
+      ? "『창작과비평』은 1966년 창간호부터의 목차와 검수를 통과한 일부 글의 해제·주장을 호별 화면에 싣습니다. 해제는 AI 보조로 작성하고 본문과 대조한 요약이며 원문이 아닙니다. 목차 제목을 누르면 창비 웹진의 기사로 갑니다. 쪽수는 웹진 목차에 없어 싣지 않았습니다."
       : "잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 1988~1991년 호는 한 해 한 권으로 쪽 번호를 이어 매겨서, 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다."}</p></div>`;
   document.querySelectorAll('input[name="vmag"]').forEach(r => r.onchange = () => { VMAG = r.value; renderVenues(); });
   history.replaceState(null, "", "?p=venues" + (VMAG === "cb" ? "&mag=cb" : ""));
