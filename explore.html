@@ -54,7 +54,7 @@ function syncURL() {
 let D;
 db().then(d => {
   D = d;
-  const counts = { find: null, essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length };
+  const counts = { find: null, essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length + D.cb.length };
   document.getElementById("ptabs").innerHTML = Object.entries(PERSP).map(([k, l]) =>
     `<a href="explore.html?p=${k}" class="${k === P ? "on" : ""}">${k === "find" ? `<span class="dot" style="background:var(--accent)"></span>` : ""}${l}${counts[k] != null ? ` <small class="num">${fmt(counts[k])}</small>` : ""}</a>`).join("");
   prepare(); render();
@@ -318,10 +318,27 @@ async function runFind() {
 }
 
 // ── 지면 ───────────────────────────────────────
+let VMAG = qs.get("mag") === "cb" ? "cb" : "mhs";   // 지면 화면에서 볼 잡지(?mag=cb)
 function renderVenues() {
-  document.getElementById("facets").innerHTML = `<div class="facet"><h5>잡지</h5><label class="opt"><input type="checkbox" checked disabled>『문학과사회』<span class="c">${D.issues.length}호</span></label></div>
-    <div class="facet"><h5>안내</h5><p class="note">잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 1988~1991년 호는 한 해 한 권으로 쪽 번호를 이어 매겨서, 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다. 앞으로 다른 잡지가 추가되면 여기에 함께 놓입니다.</p></div>`;
+  if (!D.cb.length) VMAG = "mhs";
+  const opt = (k, name, n) => `<label class="opt"><input type="radio" name="vmag" value="${k}"${VMAG === k ? " checked" : ""}>『${name}』<span class="c">${n}호</span></label>`;
+  document.getElementById("facets").innerHTML = `<div class="facet"><h5>잡지</h5>${opt("mhs", "문학과사회", D.issues.length)}${D.cb.length ? opt("cb", CB.name, D.cb.length) : ""}</div>
+    <div class="facet"><h5>안내</h5><p class="note">${VMAG === "cb"
+      ? "『창작과비평』은 아직 목차만 싣습니다(1966년 창간호부터). 목차는 창비 웹진의 호별 목차를 옮긴 것이며, 기사 제목을 누르면 창비 웹진의 그 기사로 갑니다. 쪽수는 웹진 목차에 없어 싣지 않았습니다."
+      : "잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 1988~1991년 호는 한 해 한 권으로 쪽 번호를 이어 매겨서, 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다."}</p></div>`;
+  document.querySelectorAll('input[name="vmag"]').forEach(r => r.onchange = () => { VMAG = r.value; renderVenues(); });
+  history.replaceState(null, "", "?p=venues" + (VMAG === "cb" ? "&mag=cb" : ""));
   document.getElementById("active").innerHTML = "";
+  if (VMAG === "cb") {
+    const all = D.cb.reduce((s, i) => s + i.n, 0), crit = D.cb.reduce((s, i) => s + i.n_crit, 0);
+    document.getElementById("rhead").innerHTML = `<span class="count">『${CB.name}』 <span class="num">${D.cb.length}</span>호 · 목차 <span class="num">${fmt(all)}</span> · 비평·산문 <span class="num">${fmt(crit)}</span></span>`;
+    const decades = [...new Set(D.cb.map(i => Math.floor(i.year / 10) * 10))];
+    document.getElementById("results").innerHTML = decades.map(d => `
+      <div class="block"><h3>${d}년대</h3><div class="issues">${D.cb.filter(i => Math.floor(i.year / 10) * 10 === d).map(i => `
+        <a class="iss" href="${href.issue(i.id)}"><b>${cbNo(i)}</b><span>${i.year} ${i.season}</span>
+          <span class="num">목차 ${i.n} · 비평·산문 ${i.n_crit}</span></a>`).join("")}</div></div>`).join("");
+    return;
+  }
   const pub = D.issues.reduce((s, i) => s + i.n_public, 0), all = D.issues.reduce((s, i) => s + i.items.length, 0);
   document.getElementById("rhead").innerHTML = `<span class="count">『문학과사회』 <span class="num">${D.issues.length}</span>호 · 공개 <span class="num">${pub}</span> / 목차 <span class="num">${all}</span></span>`;
   const years = [...new Set(D.issues.map(i => i.year))];

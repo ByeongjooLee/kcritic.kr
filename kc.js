@@ -23,9 +23,9 @@ const qs = new URLSearchParams(location.search);
 const _cache = {};
 const load = name => (_cache[name] ??= fetch(`/site/data/v2/${name}.json`).then(r => r.json()));
 async function db() {
-  const [essays, people, concepts, issues] = await Promise.all(["essays", "people", "concepts", "issues"].map(load));
+  const [essays, people, concepts, issues, cb] = await Promise.all([...["essays", "people", "concepts", "issues"].map(load), load("issues_cb").catch(() => [])]);
   const E = new Map(essays.map(e => [e.id, e])), P = new Map(people.map(p => [p.id, p]));
-  return { essays, people, concepts, issues, E, P };
+  return { essays, people, concepts, issues, cb, E, P };
 }
 const href = {
   essay: id => `/entity.html?t=essay&id=${encodeURIComponent(id)}`,
@@ -35,6 +35,9 @@ const href = {
 };
 // 잡지 원문 안내 (build.py JOURNAL_LINKS 와 같게) — 원문 대신 발행처 공식 페이지로 연결
 const VENUE_LINK = { mhs: { url: "https://moonji.com/literatureAndSociety/intro", label: "문학과지성사 『문학과사회』 소개·구독" } };
+// 『창작과비평』은 목차만 싣는다(D.cb = 호 목록 issues_cb.json, 항목은 호 화면에서만 issues_cb_items.json) — 기사·호는 창비 웹진으로 연결
+const CB = { name: "창작과비평", pub: "창작과비평사", item: i => `https://magazine.changbi.com/MCQuarterly/Item/${i}`, list: n => `https://magazine.changbi.com/MCQuarterly/List/${n}` };
+const cbNo = i => i.label === "창간호" ? "창간호" : `${i.no}호`;
 const LODN = { "W": "Wikidata", "NLK": "국중 LOD", "한": "민족문화대백과", "한(작품)": "민족문화대백과(작품)", "문학": "현대문학대사전" };
 const lodName = b => LODN[b.label] || b.full || b.label;
 const mainRole = p => p.wrote ? "critic" : (p.discussed >= p.cited ? "writer" : "theorist");

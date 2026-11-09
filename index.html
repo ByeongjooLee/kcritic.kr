@@ -81,8 +81,9 @@ db().then(D => {
       `<ul class="mini-list">${topP.map(p => `<li>${esc(p.name)}<span class="num">${p.wrote}편</span></li>`).join("")}</ul>`) +
     card("concepts", "concept", fmt(D.concepts.length), "두 편 이상에서 쓰인 비평 개념",
       `<ul class="mini-list">${topC.map(c => `<li>${esc(c.name)}<span class="num">${c.n}편</span></li>`).join("")}</ul>`) +
-    card("venues", "venue", `${D.issues.length}<small style="font-size:16px;font-weight:600">호</small>`, "『문학과사회』 호별 목차와 인코딩 현황",
-      `<div style="font-size:12.5px;color:var(--muted);margin-bottom:6px">공개 ${pub} / 목차 ${all}</div><div class="bar"><i style="width:${100 * pub / all}%"></i></div>`);
+    card("venues", "venue", `${D.issues.length + D.cb.length}<small style="font-size:16px;font-weight:600">호</small>`,
+      D.cb.length ? `『문학과사회』 호별 목차와 인코딩 현황 · 『창작과비평』 목차 ${D.cb.length}호` : "『문학과사회』 호별 목차와 인코딩 현황",
+      `<div style="font-size:12.5px;color:var(--muted);margin-bottom:6px">『문학과사회』 공개 ${pub} / 목차 ${all}</div><div class="bar"><i style="width:${100 * pub / all}%"></i></div>`);
 
   const by = {};
   D.essays.forEach(e => { const c = (by[e.coll] ??= { name: e.coll_name, n: 0, y: [] }); c.n++; c.y.push(+e.year); });

@@ -162,6 +162,31 @@ db().then(D => {
   }
 
   // ── 호 ──
+  // 『창작과비평』 호 — 목차만(항목은 이 화면에서만 issues_cb_items.json 을 읽는다), 기사는 창비 웹진으로 연결
+  if (T === "issue" && /^cb\d+$/.test(ID || "")) {
+    const i = D.cb.find(x => x.id === ID);
+    if (!i) return root.innerHTML = `<div class="empty">호를 찾을 수 없습니다.</div>`;
+    document.title = `『${CB.name}』 ${cbNo(i)} — kcritic`;
+    const k = D.cb.indexOf(i), prev = D.cb[k - 1], next = D.cb[k + 1];
+    root.innerHTML = `
+      <div class="ent-head"><div class="crumb"><a href="explore.html?p=venues&mag=cb">지면</a><span>/</span><span>『${CB.name}』</span><span>/</span><span>${cbNo(i)}</span></div>
+        <span class="pill t-venue"><span class="dot t-venue"></span>잡지 호</span><h1>『${CB.name}』 ${cbNo(i)} <small>${i.year}년 ${esc(i.season)}</small></h1>
+        <div class="ent-sub">${CB.pub} · <a href="${CB.list(i.list)}" target="_blank" rel="noopener">창비 웹진의 이 호 ↗</a> · ${prev ? `<a href="${href.issue(prev.id)}">← ${cbNo(prev)}</a>` : ""} ${next ? `<a href="${href.issue(next.id)}">${cbNo(next)} →</a>` : ""}</div></div>
+      <div class="ent"><div>
+        ${kv([[i.n, "목차 항목"], [i.n_crit, "비평·논문·산문"], [i.n - i.n_crit, "시·소설·희곡 등 창작"]])}
+        <div class="block"><h3>목차</h3>
+          <p class="note" style="margin:-4px 0 10px">창비 웹진의 호별 목차를 옮긴 것입니다(웹진에 실린 순서). 웹진 목차에 쪽수가 없어 쪽수는 싣지 않았습니다. 제목을 누르면 창비 웹진의 그 기사로 갑니다. 이 사이트는 『창작과비평』의 본문을 싣지 않습니다.</p>
+          <div class="rows" id="cbrows"><p class="note">목차를 불러오는 중…</p></div></div>
+      </div>
+      <aside class="aside"><div class="panel"><h5>목차만 싣는 잡지</h5><p class="note">『창작과비평』은 아직 목차만 싣습니다. 비평 글의 인코딩(개념어·인물 관계)은 『문학과사회』부터 하고 있습니다.</p></div></aside></div>`;
+    load("issues_cb_items").then(X => {
+      document.getElementById("cbrows").innerHTML = (X[ID] || []).map(x => `<article class="row"${x.c ? ' style="color:var(--faint)"' : ""}>
+          <div class="yr num">${x.s}</div><div><h4 style="font-weight:${x.c ? 500 : 600}"><a href="${CB.item(x.i)}" target="_blank" rel="noopener">${esc(x.t)}</a></h4>
+          <div class="meta"><span>${esc(x.a)}</span><span>${esc(x.sec)}</span></div></div>
+          <div class="side"><span class="pill">${x.c ? "창작" : "비평·산문"}</span></div></article>`).join("") || `<p class="note">목차 항목이 없습니다.</p>`;
+    }).catch(() => { document.getElementById("cbrows").innerHTML = `<p class="note">목차를 불러오지 못했습니다.</p>`; });
+    return;
+  }
   if (T === "issue") {
     const i = D.issues.find(x => x.id === ID);
     if (!i) return root.innerHTML = `<div class="empty">호를 찾을 수 없습니다.</div>`;
