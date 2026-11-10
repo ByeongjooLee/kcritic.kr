@@ -76,6 +76,7 @@ def main():
     if removed:
         raise RuntimeError(f'기존 공개분이 검수 대장에서 빠짐: {sorted(removed)}. 대장 확인 후 다시 빌드')
     write(destination, public)
+    import build_changbi_search; build_changbi_search.main()   # 검색 색인(cb_search.json)도 같이 갱신
     write(prep / 'publication_decisions.json', decisions)
     stats = {'public': len(public), 'claims': sum(len(row['c']) for row in public.values()),
              'held': len(decisions)-len(public), 'reasons': dict(sorted(Counter(row['reason'] for row in decisions if row['status']=='held').items()))}

@@ -44,8 +44,15 @@
   function search(inp, box) {
     // kc.js globalSearch() 와 같은 동작(2026-11-02): 현장비평 이름 찾기 + 박사논문 제목·저자 + 입력이 멈추면 학술연구 뜻 검색, Enter 는 통합검색
     let D = null, RS = null, sel = -1, gen = 0, timer = null; const sem = new Map();
-    const load = () => D ??= Promise.all(["essays", "people", "concepts"].map(n => fetch(`${R}site/data/v2/${n}.json`).then(r => r.json())))
-      .then(([essays, people, concepts]) => ({ essays, people, concepts }));
+    const load = () => D ??= Promise.all(["essays", "people", "concepts"].map(n => fetch(`${R}site/data/v2/${n}.json`).then(r => r.json()))
+      .concat(fetch(`${R}site/data/v2/cb_search.json`).then(r => r.json()).catch(() => [])))
+      .then(([essays, people, concepts, cb]) => ({ essays, people, concepts, cb }));
+    // 『창작과비평』 글(kc.js cbSearch 와 같은 규칙, 2026-11-10): [Item, 호 id, 연도, 표제, 필자, 난, 키워드, 요지] — 띄어쓰기 무시, 표제 > 키워드 > 필자 > 요지·난
+    const cbNorm = s => String(s || "").toLowerCase().replace(/\s+/g, "");
+    const cbFind = (q, rows) => { const w = cbNorm(q); if (!w) return []; rows._n ??= rows.map(r => r.map(cbNorm));
+      const out = []; rows._n.forEach((r, k) => { const sc = Math.max(0, ...[[3, 4], [6, 3], [4, 2], [7, 1], [5, 1]].map(([f, wt]) => r[f].includes(w) ? wt : 0)); if (sc) out.push([sc, rows[k]]); });
+      return out.sort((a, b) => b[0] - a[0] || (b[1][7] ? 1 : 0) - (a[1][7] ? 1 : 0) || b[1][2] - a[1][2]).slice(0, 5).map(x => x[1]); };
+    const cbLink = r => r[7] ? `${ent("issue", r[1])}#CB-${String(r[0]).padStart(5, "0")}` : `https://magazine.changbi.com/MCQuarterly/Item/${r[0]}`;
     const thesisId = u => { try { return new URL(u).searchParams.get("control_no") || ""; } catch (e) { return ""; } };
     const thesisHref = (id, q) => `${R}study.html?type=thesis&id=${encodeURIComponent(id)}&q=${encodeURIComponent(q.slice(0, 160))}`;
     const loadResearch = () => RS ??= fetch(`${R}site/data/research-public.json`).then(r => r.json())
@@ -60,6 +67,7 @@
         grp("인물", d.people.filter(p => has(p.name) || has(p.en)).slice(0, 5).map(p => { const t = TYPE[role(p)];
           return `<a href="${ent("person", p.id)}"><span class="dot ${t[1]}"></span>${esc(p.name)}<small>${t[0]}</small></a>`; })) +
         grp("글", d.essays.filter(e => has(e.title)).slice(0, 5).map(e => `<a href="${ent("essay", e.id)}"><span class="dot t-essay"></span>${esc(e.title)}<small>${esc(e.critic_name)} ${esc(e.year)}</small></a>`)) +
+        grp("『창작과비평』 글", cbFind(v, d.cb).map(r => `<a href="${cbLink(r)}"${r[7] ? "" : ' target="_blank" rel="noopener"'}><span class="dot t-essay"></span>${esc(r[3])}<small>${esc(`${r[4]} · ${r[2]} · 『창작과비평』 ${r[1].replace(/^cb0*/, "")}호${r[7] ? " · 해제" : " · 창비 웹진"}`)}</small></a>`)) +
         grp("개념어", d.concepts.filter(c => has(c.name)).slice(0, 5).map(c => `<a href="${ent("concept", c.name)}"><span class="dot t-concept"></span>${esc(c.name)}<small>${c.n}편</small></a>`)) +
         grp("박사논문 (학술연구)", th.map(t => `<a href="${thesisHref(t.id, v)}"><span class="dot t-venue"></span>${esc(t.title)}<small>${esc(t.author)} ${esc(t.year)}${t.advisor ? ' · 지도 ' + esc(t.advisor) : ''}</small></a>`)) +
         grp("학술연구 · 뜻으로 찾은 논문", s.map(t => `<a href="${thesisHref(t.id, v)}"><span class="dot t-venue"></span>${esc(t.title)}<small>${esc(t.author)} ${esc(t.year)}</small></a>`)) +

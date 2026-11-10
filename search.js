@@ -22,7 +22,7 @@ async function run(event){
  ui("criticism-more").href=`/explore.html?p=find&q=${encodeURIComponent(q)}`;
  ui("common-references").hidden=!/김\s*기\s*림|金起林|金基林/.test(q);
  ui("references-results").replaceChildren();ui("references-status").textContent="참고문헌 인용 빈도를 불러오고 있습니다…";
- for(const type of ["criticism","research"]){ui(`${type}-results`).replaceChildren();ui(`${type}-status`).textContent="찾고 있습니다…";}
+ for(const type of ["criticism","changbi","research"]){ui(`${type}-results`).replaceChildren();ui(`${type}-status`).textContent="찾고 있습니다…";}
  const field=(async()=>{
   const D=await criticismData();
   const result=await FIND.find(q,D,20,async(query,words)=>getJson(`/api/find?q=${encodeURIComponent(query)}&w=${encodeURIComponent(words.join(","))}`));
@@ -31,6 +31,13 @@ async function run(event){
   ui("criticism-status").textContent=result.results.length?`관련도순 ${result.results.length}편 추천${result.error?" · 일부 검색 기능 지연":""}`:"관련 비평이 없습니다.";
   for(const r of result.results){const e=E.get(r.id);if(e)card(ui("criticism-results"),e.title,[e.critic_name||D.P.get(e.critic)?.name,e.year,e.coll_name].filter(Boolean).join(" · "),`/entity.html?t=essay&id=${encodeURIComponent(e.id)}`);}
  })().catch(()=>{if(id===generation)ui("criticism-status").textContent="현장비평 검색을 불러오지 못했습니다. 다시 검색해 주세요.";});
+ // 『창작과비평』 글: 문장 질문을 낱말로 나눠 표제·키워드·필자·요지에서 찾는다(맞은 낱말 수순, kc.js cbSearch) — 2026-11-10
+ const changbi=(async()=>{
+  const rows=await getJson("/site/data/v2/cb_search.json");if(id!==generation)return;
+  const hits=cbSearch(q,rows,10,true);
+  ui("changbi-status").textContent=hits.length?`낱말이 맞은 글 ${hits.length}편 (표제·키워드·필자·요지)`:"낱말이 맞는 『창작과비평』 글이 없습니다.";
+  for(const r of hits)card(ui("changbi-results"),r[3],cbMeta(r),cbHref(r),!r[7]);
+ })().catch(()=>{if(id===generation)ui("changbi-status").textContent="『창작과비평』 목록을 불러오지 못했습니다.";});
  const research=(async()=>{
   const data=await getJson("/theses/api/search",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query:q})});
   if(id!==generation)return;
@@ -46,7 +53,7 @@ async function run(event){
   ui("references-status").textContent=`${works.length}종 · 같은 박사논문은 1편으로 집계`;
   for(const w of works)card(ui("references-results"),w.title,`${w.author} · ${w.year} · 참고문헌 수록 ${w.citation_count}편`,ResearchPublic.link("reference",w.id));
  })().catch(()=>{if(id===generation)ui("references-status").textContent="인용 빈도를 불러오지 못했습니다. 다시 검색해 주세요.";});
- await Promise.allSettled([field,research,references]);
+ await Promise.allSettled([field,changbi,research,references]);
 }
 ui("unified-form").addEventListener("submit",run);
 ui("unified-query").value=(new URLSearchParams(location.search).get("q")||"").slice(0,160);

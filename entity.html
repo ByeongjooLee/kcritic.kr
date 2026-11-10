@@ -190,8 +190,12 @@ db().then(D => {
       if (!reviewed.length) return;
       const section = document.createElement("section");
       section.className = "block";
-      section.innerHTML = `<h3>검수된 해제·주장 (${reviewed.length}편)</h3>` + reviewed.map(entry => `<article class="panel" style="margin-bottom:20px"><h4>${esc(entry.t)}</h4><p class="meta">${esc(entry.a)} · ${esc(entry.l)}</p><p><strong>${esc(entry.s)}</strong></p><p>${esc(entry.h)}</p><div class="tags">${entry.kw.map(word => `<span>${esc(word)}</span>`).join("")}</div><details><summary>주장·근거 구조</summary><p class="note">서평이 소개하는 책의 논지와 평자의 평가를 함께 요약했습니다.</p><ul>${entry.c.map(claim => `<li><strong>${esc(claim[1])}</strong> — ${esc(claim[0])}</li>`).join("")}</ul></details></article>`).join("");
+      section.innerHTML = `<h3>검수된 해제·주장 (${reviewed.length}편)</h3>` + reviewed.map(entry => `<article class="panel" id="${esc(entry.u)}" style="margin-bottom:20px;scroll-margin-top:80px"><h4>${esc(entry.t)}</h4><p class="meta">${esc(entry.a)} · ${esc(entry.l)}</p><p><strong>${esc(entry.s)}</strong></p><p>${esc(entry.h)}</p><div class="tags">${entry.kw.map(word => `<span>${esc(word)}</span>`).join("")}</div><details><summary>주장·근거 구조</summary><p class="note">서평이 소개하는 책의 논지와 평자의 평가를 함께 요약했습니다.</p><ul>${entry.c.map(claim => `<li><strong>${esc(claim[1])}</strong> — ${esc(claim[0])}</li>`).join("")}</ul></details></article>`).join("");
       document.getElementById("cbrows").parentElement.appendChild(section);
+      // 검색에서 온 #CB-xxxxx — 해제가 나중에 붙으므로 붙인 뒤 그 글로 내려간다
+      const hash = globalThis.location?.hash || "";
+      const target = /^#CB-\d{5}$/.test(hash) && document.getElementById(hash.slice(1));
+      if (target) { target.scrollIntoView(); target.style.outline = "2px solid var(--accent, #2a6)"; }
     }).catch(() => {});
     return;
   }

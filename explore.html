@@ -146,11 +146,29 @@ function render() {
   h.querySelectorAll(".seg button").forEach(b => b.onclick = () => { S.view = b.dataset.v; render(); });
   h.querySelector("#dl").onclick = () => exportCSV(rows);
   const R = document.getElementById("results");
-  if (!rows.length) { R.innerHTML = `<div class="empty">조건에 맞는 결과가 없습니다.</div>`; return; }
-  if (S.view === "table") R.innerHTML = table(rows);
+  if (!rows.length) R.innerHTML = `<div class="empty">조건에 맞는 결과가 없습니다.</div>`;
+  else if (S.view === "table") R.innerHTML = table(rows);
   else if (S.view === "stats" && P === "essays") R.innerHTML = stats(rows);
   else R.innerHTML = list(rows);
   const m = document.getElementById("more"); if (m) m.onclick = () => { S.shown += 50; render(); };
+  if (P === "essays" && S.q) renderCB(S.q);
+}
+
+// 『창작과비평』 글 — 인코딩한 비평글과 따로(패싯·개수에 섞지 않음) 표제·필자·키워드·요지에서 찾는다 (2026-11-10)
+async function renderCB(q) {
+  const rows = await load("cb_search").catch(() => []), all = cbSearch(q, rows, 1e9);
+  if (q !== S.q || P !== "essays" || !all.length) return;
+  document.getElementById("cbres")?.remove();   // render 가 잇달아 불려도 한 번만
+  const R = document.getElementById("results"), lim = S.cbAll ? all.length : 20;
+  R.insertAdjacentHTML("beforeend", `<div class="block" id="cbres"><h3>『창작과비평』에서 찾은 글 <span class="num">${fmt(all.length)}</span>편</h3>
+    <p class="note" style="margin:-4px 0 10px">창비 웹진 목차의 비평·산문 4,558편에서 표제·필자와, 검수된 해제가 있는 글은 키워드·요지까지 찾습니다. 해제가 있는 글은 호 화면의 해제로, 없는 글은 창비 웹진으로 갑니다.</p>
+    <div class="rows">${all.slice(0, lim).map(r => `<article class="row"><div class="yr num">${r[2]}</div><div>
+      <h4><a href="${cbHref(r)}"${r[7] ? "" : ' target="_blank" rel="noopener"'}>${esc(r[3])}</a></h4>
+      <div class="meta"><span>${esc(r[4])}</span><span><a href="${href.issue(r[1])}">《창작과비평》 ${esc(r[1].replace(/^cb0*/, ""))}호</a>${r[5] ? " · " + esc(r[5]) : ""}</span></div>
+      ${r[6] ? `<div class="tags">${r[6].split("|").map(k => `<span class="${cbNorm(k).includes(cbNorm(q)) ? "hl" : ""}">${esc(k)}</span>`).join("")}</div>` : ""}</div>
+      <div class="side"><span class="pill${r[7] ? " t-essay" : ""}">${r[7] ? "해제" : "웹진"}</span></div></article>`).join("")}</div>
+    ${all.length > lim ? `<button class="btn morebtn" id="cbmore">${fmt(all.length - lim)}편 더 보기</button>` : ""}</div>`);
+  const b = document.getElementById("cbmore"); if (b) b.onclick = () => { S.cbAll = true; document.getElementById("cbres").remove(); renderCB(q); };
 }
 
 function renderFacets() {

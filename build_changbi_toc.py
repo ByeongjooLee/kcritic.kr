@@ -46,6 +46,7 @@ def main():
     # 호 목록(가벼움, 모든 탐색 화면이 읽음)과 항목(호 화면에서만 읽음)을 나눠 쓴다
     write(OUT_ITEMS, {x["id"]: x.pop("items") for x in out})
     write(OUT, out)
+    import build_changbi_search; build_changbi_search.main()   # 검색 색인(cb_search.json)도 같이 갱신
     print(f"창비 목차: 호 {len(out)} · 항목 {sum(x['n'] for x in out)} · 비평·산문 {sum(x['n_crit'] for x in out)} → {OUT.relative_to(HERE)}, {OUT_ITEMS.name}")
 
 
