@@ -158,7 +158,7 @@ critic-ontology/
 ### 글 찾기 (2026-10-22)
 작업도구/추천 「읽을 글 찾기」 2판을 kcritic 글에 옮긴 것. **DeepSeek(질문 해석·재순위)은 쓰지 않는다**(연구자 결정).
 - 점수 = 뜻 0.62 + 낱말 0.23 + 인물 관계 0.15. 뜻 = bge-m3 글 전체 0.55 + 칸별(제목·개념어·인물) 최고 0.45. 낱말 = 개념어·인물 정확 일치(idf)·부분 일치·글자 2-gram BM25·**본문 희귀어**(Worker 조회)·드문 말 가산. 인물 관계 = 질문 속 인물이 쓴/다룬/인용한 글(「~가 쓴」「~를 인용한」「~론」 규칙)
-- 구성: 브라우저(`kc-find.js`)가 공개 벡터 `site/data/find/{vec.bin,vocab.bin,meta.json}`(int8, 약 4MB)로 계산. `/api/find`(Worker `worker/index.js`)는 Workers AI `@cf/baai/bge-m3` 질문 벡터 + 비공개 본문 희귀어 조각(`worker/private/bodylex/*.txt` 256개, FNV-1a)만 돌려준다. Worker CPU 를 거의 쓰지 않아 무료 한도(10ms) 안
+- 구성: 브라우저(`kc-find.js`)가 공개 벡터 `site/data/find/{vec.bin,vocab.bin,meta.json}`(int8, 약 15MB — 2026-11-10 글 2,560편·어휘는 개념어·인물 2편 이상; 『창작과비평』은 글 전체 벡터에 공개 해제를 더하고 본문 희귀어 색인도 해제에서 만들며 원문은 쓰지 않음, 희귀어 색인은 줄기 형태만 실어 Worker 번들을 무료 한도 안으로)로 계산. `/api/find`(Worker `worker/index.js`)는 Workers AI `@cf/baai/bge-m3` 질문 벡터 + 비공개 본문 희귀어 조각(`worker/private/bodylex/*.txt` 256개, FNV-1a)만 돌려준다. Worker CPU 를 거의 쓰지 않아 무료 한도(10ms) 안
 - 색인 다시 만들기(글이 바뀌면): `py build.py` → `py build_site_v2.py` → `<ocr_train venv python> -X utf8 find/build_find.py`(GPU, 1분). 벡터와 essays.json 순서가 어긋나도 id 로 맞추며, 벡터 없는 글은 낱말·관계로만 찾힌다
 - 평가: 정답 정해진 질문 46개(`../site_proto/v2/find/eval_set.json`). 운영 구성 MRR 메타 0.903 / 본문 0.852 (로컬 GPU 서버판은 본문 구간 벡터까지 써서 0.903 / 0.938, 1판 0.933 / 0.293). Node 대조: `node ../site_proto/v2/find/node_parity.js`
 - 시안·로컬 서버판·평가 도구는 저장소 밖 `../site_proto/v2/` 에 있다
