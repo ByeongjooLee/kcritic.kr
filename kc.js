@@ -56,6 +56,12 @@ function cbSearch(q, rows, n = 5, loose = false) {
   });
   return out.sort((a, b) => b[0] - a[0] || b[1] - a[1] || (b[2][7] ? 1 : 0) - (a[2][7] ? 1 : 0) || b[2][2] - a[2][2]).slice(0, n).map(x => x[2]);
 }
+// 검수 통과 해제가 있는 『창작과비평』 글을 글 목록(explore 「글」)·첫 화면 수치용 꼴로 (2026-11-10).
+// 인물·개념어 관계망에는 아직 넣지 않았으므로 concepts·subjects·theorists 는 비우고, 해제 키워드는 kw 로 따로 둔다.
+const cbEssays = () => _cache._cbE ??= load("cb_search").catch(() => []).then(rows => rows.filter(r => r[7]).map(r => ({
+  id: `cb${r[0]}`, cb: r, coll: "cb", coll_name: "『창작과비평』", year: r[2], title: r[3], critic: `cb:${r[4]}`, critic_name: r[4],
+  venue: `『창작과비평』 ${r[1].replace(/^cb0*/, "")}호`, issue: +r[1].slice(2), section: r[5], pages: "",
+  concepts: [], subjects: [], theorists: [], kw: r[6] ? r[6].split("|") : [], gist: r[7] })));
 // 해제가 있는 글은 그 호 화면의 해제로, 없는 글은 창비 웹진 기사로
 const cbHref = r => r[7] ? `${href.issue(r[1])}#CB-${String(r[0]).padStart(5, "0")}` : CB.item(r[0]);
 const cbMeta = r => `${r[4]} · ${r[2]} · 『창작과비평』 ${r[1].replace(/^cb0*/, "")}호${r[7] ? " · 해제" : " · 창비 웹진"}`;

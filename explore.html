@@ -40,7 +40,7 @@ const S = {
   view: qs.get("view") || "list", sort: qs.get("sort") || "",
   f: {}, shown: 50, open: {},
 };
-const MULTI = ["coll", "critic", "concept", "writer", "theorist", "role", "lod"];
+const MULTI = ["coll", "critic", "concept", "kw", "writer", "theorist", "role", "lod"];
 MULTI.forEach(k => { const v = qs.getAll(k); if (v.length) S.f[k] = new Set(v); });
 function syncURL() {
   if (P === "find") { history.replaceState(null, "", "?" + new URLSearchParams(S.q ? { p: P, q: S.q } : { p: P })); return; }
@@ -52,9 +52,9 @@ function syncURL() {
 }
 
 let D;
-db().then(d => {
-  D = d;
-  const counts = { find: null, essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length + D.cb.length };
+Promise.all([db(), cbEssays()]).then(([d, cbe]) => {
+  D = d; D.cbE = cbe;   // 『창작과비평』 검수 해제 글(kc.js cbEssays) — 「글」 목록에만 합친다(글 찾기·관계망·개념어는 그대로)
+  const counts = { find: null, essays: D.essays.length + cbe.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length + D.cb.length };
   document.getElementById("ptabs").innerHTML = Object.entries(PERSP).map(([k, l]) =>
     `<a href="explore.html?p=${k}" class="${k === P ? "on" : ""}">${k === "find" ? `<span class="dot" style="background:var(--accent)"></span>` : ""}${l}${counts[k] != null ? ` <small class="num">${fmt(counts[k])}</small>` : ""}</a>`).join("");
   prepare(); render();
@@ -63,15 +63,16 @@ db().then(d => {
 // ── 관점별 정의: 항목, 검색 대상, 패싯(값 추출기), 정렬, 보기 ─────────
 let CFG;
 function prepare() {
-  const nameOf = id => D.P.get(id)?.name || id;
+  const nameOf = id => D.P.get(id)?.name || String(id).replace(/^cb:/, "");   // cb:이름 = 『창작과비평』 필자(인물 목록 밖)
   if (P === "essays") CFG = {
-    items: D.essays, unit: "편",
-    text: e => [e.title, e.critic_name, e.venue, e.section, ...e.concepts, ...e.subjects.map(nameOf), ...e.theorists.map(nameOf)],
+    items: D.essays.concat(D.cbE), unit: "편",
+    text: e => [e.title, e.critic_name, e.venue, e.section, ...e.concepts, ...e.subjects.map(nameOf), ...e.theorists.map(nameOf), ...(e.kw || []), e.gist],
     year: e => +e.year,
     facets: [
-      { k: "coll", label: "컬렉션", get: e => [e.coll], name: v => D.essays.find(e => e.coll === v)?.coll_name || v, top: 10 },
+      { k: "coll", label: "컬렉션", get: e => [e.coll], name: v => v === "cb" ? "『창작과비평』" : D.essays.find(e => e.coll === v)?.coll_name || v, top: 10 },
       { k: "critic", label: "비평가", get: e => [e.critic], name: nameOf, top: 8 },
       { k: "concept", label: "개념어", get: e => e.concepts, name: v => v, top: 8 },
+      { k: "kw", label: "『창작과비평』 해제 키워드", get: e => e.kw || [], name: v => v, top: 8 },
       { k: "writer", label: "다룬 작가", get: e => e.subjects, name: nameOf, top: 6 },
       { k: "theorist", label: "인용 이론가", get: e => e.theorists, name: nameOf, top: 6 },
     ],
@@ -154,14 +155,14 @@ function render() {
   if (P === "essays" && S.q) renderCB(S.q);
 }
 
-// 『창작과비평』 글 — 인코딩한 비평글과 따로(패싯·개수에 섞지 않음) 표제·필자·키워드·요지에서 찾는다 (2026-11-10)
+// 『창작과비평』 해제 없는 목차 항목 — 해제 있는 1,748편은 위 목록(컬렉션 『창작과비평』)에 들어 있으므로 여기서는 나머지만 표제·필자로 (2026-11-10)
 async function renderCB(q) {
-  const rows = await load("cb_search").catch(() => []), all = cbSearch(q, rows, 1e9);
+  const rows = await load("cb_search").catch(() => []), all = cbSearch(q, rows, 1e9).filter(r => !r[7]);
   if (q !== S.q || P !== "essays" || !all.length) return;
   document.getElementById("cbres")?.remove();   // render 가 잇달아 불려도 한 번만
   const R = document.getElementById("results"), lim = S.cbAll ? all.length : 20;
-  R.insertAdjacentHTML("beforeend", `<div class="block" id="cbres"><h3>『창작과비평』에서 찾은 글 <span class="num">${fmt(all.length)}</span>편</h3>
-    <p class="note" style="margin:-4px 0 10px">창비 웹진 목차의 비평·산문 4,558편에서 표제·필자와, 검수된 해제가 있는 글은 키워드·요지까지 찾습니다. 해제가 있는 글은 호 화면의 해제로, 없는 글은 창비 웹진으로 갑니다.</p>
+  R.insertAdjacentHTML("beforeend", `<div class="block" id="cbres"><h3>『창작과비평』 목차에서 더 찾은 글 <span class="num">${fmt(all.length)}</span>편 <small style="font-weight:500;color:var(--muted)">해제 없음</small></h3>
+    <p class="note" style="margin:-4px 0 10px">해제가 아직 공개되지 않은 『창작과비평』 비평·산문의 표제·필자에서 찾았습니다. 제목을 누르면 창비 웹진으로 갑니다.</p>
     <div class="rows">${all.slice(0, lim).map(r => `<article class="row"><div class="yr num">${r[2]}</div><div>
       <h4><a href="${cbHref(r)}"${r[7] ? "" : ' target="_blank" rel="noopener"'}>${esc(r[3])}</a></h4>
       <div class="meta"><span>${esc(r[4])}</span><span><a href="${href.issue(r[1])}">《창작과비평》 ${esc(r[1].replace(/^cb0*/, ""))}호</a>${r[5] ? " · " + esc(r[5]) : ""}</span></div>
@@ -173,11 +174,11 @@ async function renderCB(q) {
 
 function renderFacets() {
   const F = document.getElementById("facets");
-  let html = `<div class="facet"><h5>검색</h5><input type="search" id="fq" value="${esc(S.q)}" placeholder="${P === "essays" ? "제목·인물·개념어" : "이름"}"></div>`;
+  let html = `<div class="facet"><h5>검색</h5><input type="search" id="fq" value="${esc(S.q)}" placeholder="${P === "essays" ? "제목·인물·개념어·키워드" : "이름"}"></div>`;
   if (CFG.year) {
     const ys = filtered("__year__").map(CFG.year);
     html += `<div class="facet"><h5>${P === "people" ? "처음 등장한 해" : P === "concepts" ? "처음 쓰인 해" : "연도"}${S.from || S.to ? `<button id="yclear">지우기</button>` : ""}</h5>
-      <div id="yh">${histSVG(ys.filter(Boolean), { h: 64, sel: S.from || S.to ? [S.from || 0, S.to || 9999] : null })}</div>
+      <div id="yh">${histSVG(ys.filter(Boolean), { h: 64, to: Math.max(2015, ...ys.filter(Boolean)), sel: S.from || S.to ? [S.from || 0, S.to || 9999] : null })}</div>
       <div style="font-size:12px;color:var(--faint);margin-top:4px">막대를 누르면 그 10년으로 거릅니다</div></div>`;
   }
   for (const f of CFG.facets) {
@@ -226,7 +227,17 @@ function renderActive() {
 function list(rows) {
   const more = rows.length > S.shown ? `<button class="btn morebtn" id="more">${fmt(rows.length - S.shown)}${CFG.unit} 더 보기</button>` : "";
   const sl = rows.slice(0, S.shown), q = S.q;
-  if (P === "essays") return `<div class="rows">${sl.map(e => `
+  if (P === "essays") return `<div class="rows">${sl.map(e => e.cb ? `
+    <article class="row">
+      <div class="yr num">${e.year}</div>
+      <div>
+        <h4><a href="${cbHref(e.cb)}">${esc(e.title)}</a></h4>
+        <div class="meta"><span><span class="dot t-critic"></span> ${esc(e.critic_name)}</span>
+          <span><a href="${href.issue(e.cb[1])}">《창작과비평》 ${e.issue}호</a>${e.section ? " · " + esc(e.section) : ""}</span></div>
+        <div class="tags">${e.kw.slice(0, 6).map(k => `<span class="${q && k.includes(q) || S.f.kw?.has(k) ? "hl" : ""}">${esc(k)}</span>`).join("")}</div>
+      </div>
+      <div class="side"><span class="pill t-essay">해제</span></div>
+    </article>` : `
     <article class="row">
       <div class="yr num">${e.year}</div>
       <div>
@@ -252,7 +263,7 @@ function table(rows) {
   const sl = rows.slice(0, 500);
   let head, body;
   if (P === "essays") { head = ["연도", "제목", "비평가", "지면", "개념어", "작가", "이론가"];
-    body = sl.map(e => `<tr><td class="num">${e.year}</td><td><a href="${href.essay(e.id)}">${esc(e.title)}</a></td><td>${esc(e.critic_name)}</td><td>${e.coll === "mhs" ? `문학과사회 ${e.issue}호` : esc(e.venue)}</td><td>${esc(e.concepts.slice(0, 4).join(", "))}</td><td class="n num">${e.subjects.length}</td><td class="n num">${e.theorists.length}</td></tr>`); }
+    body = sl.map(e => `<tr><td class="num">${e.year}</td><td><a href="${e.cb ? cbHref(e.cb) : href.essay(e.id)}">${esc(e.title)}</a></td><td>${esc(e.critic_name)}</td><td>${e.coll === "mhs" ? `문학과사회 ${e.issue}호` : esc(e.venue)}</td><td>${esc((e.cb ? e.kw : e.concepts).slice(0, 4).join(", "))}</td><td class="n num">${e.subjects.length}</td><td class="n num">${e.theorists.length}</td></tr>`); }
   if (P === "people") { head = ["이름", "영문", "쓴 글", "다뤄짐", "인용됨", "연도", "전거"];
     body = sl.map(p => `<tr><td><a href="${href.person(p.id)}">${esc(p.name)}</a></td><td>${esc(p.en)}</td><td class="n num">${p.wrote || ""}</td><td class="n num">${p.discussed || ""}</td><td class="n num">${p.cited || ""}</td><td class="num">${p.from ? p.from + "–" + p.to : ""}</td><td>${p.lod.map(b => lodName(b)).join(", ")}</td></tr>`); }
   if (P === "concepts") { head = ["개념어", "편수", "비평가 수", "처음", "마지막"];
@@ -264,13 +275,15 @@ function table(rows) {
 // ── 보기: 분석 (거른 결과를 바로 분석 — 2단계 탐색) ─────────────
 function stats(rows) {
   const tally = (get) => { const m = new Map(); rows.forEach(e => new Set(get(e)).forEach(v => m.set(v, (m.get(v) || 0) + 1))); return [...m].sort((a, b) => b[1] - a[1]); };
-  const nm = id => D.P.get(id)?.name || id;
-  const coll = tally(e => [e.coll_name]);
+  const nm = id => D.P.get(id)?.name || String(id).replace(/^cb:/, "");
+  const pref = k => k.startsWith("cb:") ? `explore.html?p=essays&critic=${encodeURIComponent(k)}` : href.person(k);   // 창비 필자는 인물 화면이 없다
+  const coll = tally(e => [e.coll_name]), kws = tally(e => e.kw || []);
   return `<div class="dash">
     <div class="panel wide"><h5>연도별 글 <span class="num">${fmt(rows.length)}편</span></h5>${histSVG(rows.map(e => +e.year), (() => { const ys = rows.map(e => +e.year).filter(Boolean), lo = Math.min(...ys), hi = Math.max(...ys), pad = Math.max(0, 12 - (hi - lo)) / 2; return { h: 120, from: Math.floor(lo - pad - 1), to: Math.ceil(hi + pad + 1) }; })())}
       <div class="legend">${coll.map(([k, v]) => `<span>${esc(k)} <b class="num">${v}</b></span>`).join("")}</div></div>
     <div class="panel t-concept"><h5>많이 쓰인 개념어 <span>상위 12</span></h5>${hbars(tally(e => e.concepts).slice(0, 12).map(([k, v]) => ({ label: k, v, href: href.concept(k), cls: "t-concept" })))}</div>
-    <div class="panel t-critic"><h5>비평가 <span>상위 12</span></h5>${hbars(tally(e => [e.critic]).slice(0, 12).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-critic" })))}</div>
+    <div class="panel t-critic"><h5>비평가 <span>상위 12</span></h5>${hbars(tally(e => [e.critic]).slice(0, 12).map(([k, v]) => ({ label: nm(k), v, href: pref(k), cls: "t-critic" })))}</div>
+    ${kws.length ? `<div class="panel t-concept"><h5>『창작과비평』 해제 키워드 <span>상위 12</span></h5>${hbars(kws.slice(0, 12).map(([k, v]) => ({ label: k, v, href: `explore.html?p=essays&kw=${encodeURIComponent(k)}`, cls: "t-concept" })))}</div>` : ""}
     <div class="panel t-writer"><h5>많이 다뤄진 작가 <span>상위 12</span></h5>${hbars(tally(e => e.subjects).slice(0, 12).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-writer" })))}</div>
     <div class="panel t-theorist"><h5>많이 인용된 이론가 <span>상위 12</span></h5>${hbars(tally(e => e.theorists).slice(0, 12).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-theorist" })))}</div>
   </div>`;
