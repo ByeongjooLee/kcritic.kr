@@ -575,6 +575,11 @@ graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `�
 
 ---
 
+### 속도 — 한국 접속은 LAX (2026-11-10)
+- Cloudflare 무료 등급이라 한국 접속이 로스앤젤레스(LAX)로 간다(`/cdn-cgi/trace` 의 colo). 파일마다 첫 응답 약 0.9초·전송 초당 0.05~0.2MB — 코드로는 못 고침(유료 등급·국내 호스팅 문제).
+- 그래서 `_headers` 로 `/site/data/*`·`*.js`·`*.css` 를 10분 캐시 + 일주일 stale-while-revalidate(HTML 은 매번 확인). 데이터 파일을 새로 만들 때 화면이 필요한 것만 받게 쪼갤 것(예: 창비 해제는 호별 `site/data/v2/cb_sum/<호>.json`, 글·호 화면은 그 호만).
+- 큰 정적 파일 대조: 이 PC 에서 curl 은 큰 응답이 2~4MB 에서 끊김 → JSON 은 `--compressed`, .bin 은 PowerShell `Invoke-WebRequest`.
+
 ## 12. TEI XML 인코딩 패턴
 
 ### 파일명 규칙
