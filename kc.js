@@ -62,8 +62,8 @@ const cbEssays = () => _cache._cbE ??= load("cb_search").catch(() => []).then(ro
   id: `cb${r[0]}`, cb: r, coll: "cb", coll_name: "『창작과비평』", year: r[2], title: r[3], critic: `cb:${r[4]}`, critic_name: r[4],
   venue: `『창작과비평』 ${r[1].replace(/^cb0*/, "")}호`, issue: +r[1].slice(2), section: r[5], pages: "",
   concepts: [], subjects: [], theorists: [], kw: r[6] ? r[6].split("|") : [], gist: r[7] })));
-// 해제가 있는 글은 그 호 화면의 해제로, 없는 글은 창비 웹진 기사로
-const cbHref = r => r[7] ? `${href.issue(r[1])}#CB-${String(r[0]).padStart(5, "0")}` : CB.item(r[0]);
+// 해제가 있는 글은 이 사이트의 글 화면(entity.html?t=essay&id=cb<Item>)으로, 없는 글은 창비 웹진 기사로
+const cbHref = r => r[7] ? href.essay(`cb${r[0]}`) : CB.item(r[0]);
 const cbMeta = r => `${r[4]} · ${r[2]} · 『창작과비평』 ${r[1].replace(/^cb0*/, "")}호${r[7] ? " · 해제" : " · 창비 웹진"}`;
 const LODN = { "W": "Wikidata", "NLK": "국중 LOD", "한": "민족문화대백과", "한(작품)": "민족문화대백과(작품)", "문학": "현대문학대사전" };
 const lodName = b => LODN[b.label] || b.full || b.label;

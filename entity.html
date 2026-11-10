@@ -99,6 +99,54 @@ db().then(D => {
     }).catch(() => {});
   }
 
+  // ── 『창작과비평』 글 (검수 통과 해제, 2026-11-10) — 『문학과사회』 글 화면과 같은 틀. 본문 대신 해제·요지·주장, 원문은 창비 웹진으로
+  if (T === "essay" && /^cb\d+$/.test(ID || "")) {
+    root.innerHTML = `<p class="note">글을 불러오는 중…</p>`;
+    Promise.all([load("changbi_summaries"), cbEssays()]).then(([summaries, cbe]) => {
+      const entry = summaries[ID.slice(2)], e = cbe.find(x => x.id === ID);
+      if (!entry || !e) return root.innerHTML = `<div class="empty">글을 찾을 수 없습니다.</div>`;
+      document.title = `${entry.t} — kcritic`;
+      const issueId = e.cb[1], kwHref = k => `explore.html?p=essays&kw=${encodeURIComponent(k)}`;
+      const cbRow = (x, tags) => `<article class="row"><div class="yr num">${x.year}</div><div>
+          <h4><a href="${href.essay(x.id)}">${esc(x.title)}</a></h4>
+          <div class="meta"><span><span class="dot t-critic"></span> ${esc(x.critic_name)}</span><span>《창작과비평》 ${x.issue}호${x.section ? " · " + esc(x.section) : ""}</span></div>
+          <div class="tags">${tags.map(k => `<a class="${entry.kw.includes(k) ? "hl" : ""}" href="${kwHref(k)}">${esc(k)}</a>`).join("")}</div></div>
+          <div class="side">${tags === x.kw ? "" : `공유 ${tags.length}`}</div></article>`;
+      const share = cbe.filter(x => x.id !== ID).map(x => ({ x, s: x.kw.filter(k => entry.kw.includes(k)) })).filter(o => o.s.length)
+        .sort((a, b) => b.s.length - a.s.length || b.x.year - a.x.year).slice(0, 8);
+      const sameIssue = cbe.filter(x => x.id !== ID && x.cb[1] === issueId);
+      const web = CB.item(ID.slice(2));
+      root.innerHTML = `
+      <div class="ent-head">
+        <div class="crumb"><a href="explore.html?p=essays">글</a><span>/</span><a href="explore.html?p=essays&coll=cb">『창작과비평』</a><span>/</span><a href="${href.issue(issueId)}">${e.issue}호</a></div>
+        <span class="pill t-essay"><span class="dot t-essay"></span>글</span>
+        <h1>${esc(entry.t)}</h1>
+        <div class="ent-sub"><a href="explore.html?p=essays&critic=${encodeURIComponent(e.critic)}"><span class="dot t-critic"></span> <b style="color:var(--ink)">${esc(entry.a)}</b></a><span class="num">${e.year}</span>
+          <span>《창작과비평》 ${e.issue}호${e.section ? " · " + esc(e.section) : ""}</span></div>
+      </div>
+      <div class="ent"><div>
+        ${kv([[entry.c.length, "주장·근거"], [entry.kw.length, "해제 키워드"], [sameIssue.length + 1, "같은 호 해제"]])}
+        <div class="block"><h3>요지</h3><p style="font-size:17px;font-weight:600;line-height:1.6;margin:0">${esc(entry.s)}</p></div>
+        <div class="block"><h3>해제</h3><p style="line-height:1.8;margin:0">${esc(entry.h)}</p></div>
+        <div class="block"><h3><span class="dot t-concept"></span>해제 키워드 <span>${entry.kw.length}</span></h3>${chips(entry.kw.map(k => [k, 1]), "t-concept", kwHref, x => x)}</div>
+        <div class="block"><h3>주장·근거 구조 <span>${entry.c.length}</span></h3>
+          <div class="rows">${entry.c.map(claim => `<article class="row"><div class="yr">${esc(claim[1])}</div><div><p style="margin:0;line-height:1.7">${esc(claim[0])}</p></div><div class="side"></div></article>`).join("")}</div></div>
+        <div class="block"><h3>키워드를 공유하는 글</h3>${share.length ? `<div class="rows">${share.map(o => cbRow(o.x, o.s)).join("")}</div>` : `<p class="note">공유하는 글이 없습니다.</p>`}</div>
+        ${sameIssue.length ? `<div class="block"><h3>같은 호의 해제 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(x => cbRow(x, x.kw)).join("")}</div></div>` : ""}
+      </div>
+      <aside class="aside">
+        <div class="panel"><h5>서지</h5><dl><dt>필자</dt><dd>${esc(entry.a)}</dd><dt>연도</dt><dd class="num">${e.year}</dd>
+          <dt>지면</dt><dd><a href="${href.issue(issueId)}">《창작과비평》 ${e.issue}호</a><div class="note">${esc(entry.l)}</div></dd>${e.section ? `<dt>난</dt><dd>${esc(e.section)}</dd>` : ""}<dt>컬렉션</dt><dd>『창작과비평』</dd>
+          <dt>원문 정보</dt><dd><a href="${web}" target="_blank" rel="noopener">창비 웹진의 이 기사 ↗</a></dd></dl></div>
+        <div class="panel"><h5>이 해제에 대하여</h5>
+          <p class="note">AI 보조로 작성하고 본문과 끝까지 대조해 검수를 통과한 요약입니다. 원문이 아니며, 서평은 소개하는 책의 논지와 평자의 평가를 함께 요약했습니다. 필자·키워드는 아직 비평가·개념어 관계망에 넣지 않았습니다.</p>
+          <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다. 원문은 발행처에서 확인할 수 있습니다.</p>
+          <a class="btn btn-block" style="margin-top:10px" href="${web}" target="_blank" rel="noopener">원문 정보 ↗<small>창비 웹진 『창작과비평』</small></a></div>
+      </aside></div>`;
+    }).catch(() => { root.innerHTML = `<div class="empty">글을 불러오지 못했습니다.</div>`; });
+    return;
+  }
+
   // ── 글 ──
   if (T === "essay") {
     const e = D.E.get(ID);
@@ -175,28 +223,20 @@ db().then(D => {
       <div class="ent"><div>
         ${kv([[i.n, "목차 항목"], [i.n_crit, "비평·논문·산문"], [i.n - i.n_crit, "시·소설·희곡 등 창작"]])}
         <div class="block"><h3>목차</h3>
-          <p class="note" style="margin:-4px 0 10px">창비 웹진의 호별 목차를 옮긴 것입니다(웹진에 실린 순서). 웹진 목차에 쪽수가 없어 쪽수는 싣지 않았습니다. 제목을 누르면 창비 웹진의 그 기사로 갑니다. 이 사이트는 『창작과비평』의 본문을 싣지 않습니다.</p>
+          <p class="note" style="margin:-4px 0 10px">창비 웹진의 호별 목차를 옮긴 것입니다(웹진에 실린 순서). 웹진 목차에 쪽수가 없어 쪽수는 싣지 않았습니다. 검수된 해제가 있는 글은 이 사이트의 글 화면으로, 나머지는 창비 웹진의 그 기사로 갑니다. 이 사이트는 『창작과비평』의 본문을 싣지 않습니다.</p>
           <div class="rows" id="cbrows"><p class="note">목차를 불러오는 중…</p></div></div>
       </div>
       <aside class="aside"><div class="panel"><h5>목차와 검수된 해제</h5><p class="note">검수를 통과한 일부 글에 해제·요지·주장을 제공합니다. AI 보조로 작성하고 본문과 대조한 요약이며 원문이 아닙니다. 번역·무기명·복수 저자 및 저작자 확인이 필요한 글은 공개를 보류합니다. 인물 관계망에는 아직 통합하지 않았습니다.</p></div></aside></div>`;
-    load("issues_cb_items").then(X => {
-      document.getElementById("cbrows").innerHTML = (X[ID] || []).map(x => `<article class="row"${x.c ? ' style="color:var(--faint)"' : ""}>
-          <div class="yr num">${x.s}</div><div><h4 style="font-weight:${x.c ? 500 : 600}"><a href="${CB.item(x.i)}" target="_blank" rel="noopener">${esc(x.t)}</a></h4>
+    // 목차 행: 검수 해제가 있는 글은 이 사이트의 글 화면(entity.html?t=essay&id=cb<Item>)으로 — 『문학과사회』 호 화면처럼 굵게·「해제」, 나머지는 창비 웹진
+    Promise.all([load("issues_cb_items"), load("changbi_summaries").catch(() => ({}))]).then(([X, summaries]) => {
+      document.getElementById("cbrows").innerHTML = (X[ID] || []).map(x => { const s = summaries[String(x.i)];
+        return `<article class="row"${s ? "" : ' style="color:var(--faint)"'}>
+          <div class="yr num">${x.s}</div><div><h4 style="font-weight:${s ? 600 : 500}">${s ? `<a href="${href.essay(`cb${x.i}`)}">${esc(x.t)}</a>` : `<a href="${CB.item(x.i)}" target="_blank" rel="noopener">${esc(x.t)}</a>`}</h4>
           <div class="meta"><span>${esc(x.a)}</span><span>${esc(x.sec)}</span></div></div>
-          <div class="side"><span class="pill">${x.c ? "창작" : "비평·산문"}</span></div></article>`).join("") || `<p class="note">목차 항목이 없습니다.</p>`;
+          <div class="side"><span class="pill${s ? " t-essay" : ""}">${s ? "해제" : x.c ? "창작" : "비평·산문"}</span></div></article>`; }).join("") || `<p class="note">목차 항목이 없습니다.</p>`;
+      const n = (X[ID] || []).filter(x => summaries[String(x.i)]).length;
+      const kvN = document.querySelector(".kv"); if (kvN && n) kvN.insertAdjacentHTML("beforeend", `<div><b class="num">${n}</b><span>검수된 해제</span></div>`), kvN.style.gridTemplateColumns = "repeat(4,1fr)";
     }).catch(() => { document.getElementById("cbrows").innerHTML = `<p class="note">목차를 불러오지 못했습니다.</p>`; });
-    Promise.all([load("issues_cb_items"), load("changbi_summaries")]).then(([items, summaries]) => {
-      const reviewed = (items[ID] || []).map(item => summaries[String(item.i)]).filter(Boolean);
-      if (!reviewed.length) return;
-      const section = document.createElement("section");
-      section.className = "block";
-      section.innerHTML = `<h3>검수된 해제·주장 (${reviewed.length}편)</h3>` + reviewed.map(entry => `<article class="panel" id="${esc(entry.u)}" style="margin-bottom:20px;scroll-margin-top:80px"><h4>${esc(entry.t)}</h4><p class="meta">${esc(entry.a)} · ${esc(entry.l)}</p><p><strong>${esc(entry.s)}</strong></p><p>${esc(entry.h)}</p><div class="tags">${entry.kw.map(word => `<span>${esc(word)}</span>`).join("")}</div><details><summary>주장·근거 구조</summary><p class="note">서평이 소개하는 책의 논지와 평자의 평가를 함께 요약했습니다.</p><ul>${entry.c.map(claim => `<li><strong>${esc(claim[1])}</strong> — ${esc(claim[0])}</li>`).join("")}</ul></details></article>`).join("");
-      document.getElementById("cbrows").parentElement.appendChild(section);
-      // 검색에서 온 #CB-xxxxx — 해제가 나중에 붙으므로 붙인 뒤 그 글로 내려간다
-      const hash = globalThis.location?.hash || "";
-      const target = /^#CB-\d{5}$/.test(hash) && document.getElementById(hash.slice(1));
-      if (target) { target.scrollIntoView(); target.style.outline = "2px solid var(--accent, #2a6)"; }
-    }).catch(() => {});
     return;
   }
   if (T === "issue") {

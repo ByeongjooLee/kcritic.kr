@@ -52,7 +52,7 @@
     const cbFind = (q, rows) => { const w = cbNorm(q); if (!w) return []; rows._n ??= rows.map(r => r.map(cbNorm));
       const out = []; rows._n.forEach((r, k) => { const sc = Math.max(0, ...[[3, 4], [6, 3], [4, 2], [7, 1], [5, 1]].map(([f, wt]) => r[f].includes(w) ? wt : 0)); if (sc) out.push([sc, rows[k]]); });
       return out.sort((a, b) => b[0] - a[0] || (b[1][7] ? 1 : 0) - (a[1][7] ? 1 : 0) || b[1][2] - a[1][2]).slice(0, 5).map(x => x[1]); };
-    const cbLink = r => r[7] ? `${ent("issue", r[1])}#CB-${String(r[0]).padStart(5, "0")}` : `https://magazine.changbi.com/MCQuarterly/Item/${r[0]}`;
+    const cbLink = r => r[7] ? ent("essay", `cb${r[0]}`) : `https://magazine.changbi.com/MCQuarterly/Item/${r[0]}`;
     const thesisId = u => { try { return new URL(u).searchParams.get("control_no") || ""; } catch (e) { return ""; } };
     const thesisHref = (id, q) => `${R}study.html?type=thesis&id=${encodeURIComponent(id)}&q=${encodeURIComponent(q.slice(0, 160))}`;
     const loadResearch = () => RS ??= fetch(`${R}site/data/research-public.json`).then(r => r.json())

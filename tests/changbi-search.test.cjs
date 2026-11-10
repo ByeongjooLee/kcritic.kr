@@ -10,7 +10,7 @@ const summaries = JSON.parse(read('site/data/v2/changbi_summaries.json'));
 function kc() {   // kc.js 의 검색 함수만 꺼내 돌린다
   const src = read('kc.js');
   const start = src.indexOf('const CB = {'), end = src.indexOf('const LODN');
-  const ctx = { href: { issue: id => `/entity.html?t=issue&id=${id}` } };
+  const ctx = { href: { issue: id => `/entity.html?t=issue&id=${id}`, essay: id => `/entity.html?t=essay&id=${id}` } };
   vm.runInNewContext(src.slice(start, end) + ';this.cbSearch=cbSearch;this.cbHref=cbHref;this.cbMeta=cbMeta;', ctx);
   return ctx;
 }
@@ -46,12 +46,12 @@ test('loose mode ranks sentence questions by matched words', () => {
   assert.ok([hits[0][3], hits[0][6], hits[0][7]].join('').includes('리얼리즘'));
 });
 
-test('links go to the issue anchor when reviewed, otherwise to the webzine', () => {
+test('links go to the Changbi essay page when reviewed, otherwise to the webzine', () => {
   const { cbHref } = kc();
   const a = rows.find(r => r[7]), b = rows.find(r => !r[7]);
-  assert.equal(cbHref(a), `/entity.html?t=issue&id=${a[1]}#CB-${String(a[0]).padStart(5, '0')}`);
+  assert.equal(cbHref(a), `/entity.html?t=essay&id=cb${a[0]}`);
   assert.equal(cbHref(b), `https://magazine.changbi.com/MCQuarterly/Item/${b[0]}`);
-  assert.ok(read('entity.html').includes('id="${esc(entry.u)}"'), 'issue page gives each summary an anchor');
+  assert.ok(read('entity.html').includes('T === "essay" && /^cb'), 'entity.html has a Changbi essay page');
 });
 
 test('header searches, explore and unified search all use the index', () => {
