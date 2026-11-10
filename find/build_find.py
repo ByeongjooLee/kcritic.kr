@@ -62,14 +62,21 @@ def main():
     essays = json.load(open(os.path.join(REPO, "site/data/v2/essays.json"), encoding="utf-8"))
     people = {p["id"]: p["name"] for p in json.load(open(os.path.join(REPO, "site/data/v2/people.json"), encoding="utf-8"))}
     nm = lambda i: people.get(i, "")
+    # 『창작과비평』(컬렉션 cb, 2026-11-10): 원문을 쓰지 않는다 — 공개된 해제(요지 s·해제 h·주장 c, changbi_summaries.json)를
+    # 글 전체 벡터 문장과 본문 희귀어 색인에 쓴다(코퍼스 비공개 원칙, ../문학과사회/changbi_corpus/site_prep/SITE_GUIDE.md)
+    sp = os.path.join(REPO, "site/data/v2/changbi_summaries.json")
+    cbs = json.load(open(sp, encoding="utf-8")) if os.path.exists(sp) else {}
+    cb_of = lambda e: cbs.get(e["id"][2:]) if e["coll"] == "cb" else None
     M = LocalBGE(max_len=512)
 
     def doc_text(e):
         parts = [f"제목: {e['title']}", f"필자: {e['critic_name']}", f"연도: {e['year']}",
-                 "지면: " + (f"문학과사회 {e['issue']}호 {e['section']}" if e["coll"] == "mhs" else e["venue"])]
+                 "지면: " + (f"문학과사회 {e['issue']}호 {e['section']}" if e["coll"] == "mhs" else f"창작과비평 {e['issue']}호 {e['section']}" if e["coll"] == "cb" else e["venue"])]
         if e["concepts"]: parts.append("개념어: " + ", ".join(e["concepts"]))
         if e["subjects"]: parts.append("다룬 작가: " + ", ".join(filter(None, map(nm, e["subjects"]))))
         if e["theorists"]: parts.append("인용 이론가: " + ", ".join(filter(None, map(nm, e["theorists"]))))
+        cb = cb_of(e)
+        if cb: parts += ["요지: " + cb["s"], "해제: " + cb["h"]]
         return "\n".join(parts)
 
     def ppl(e):
@@ -91,7 +98,7 @@ def main():
         for c in set(e["concepts"]): cnt[("c", c)] += 1
         for pid in set(e["subjects"] + e["theorists"] + [e["critic"]]):
             if nm(pid): cnt[("p", pid)] += 1
-    vocab = [(k, v, n) for (k, v), n in sorted(cnt.items(), key=lambda x: (-x[1], x[0])) if k == "p" or n >= 2]
+    vocab = [(k, v, n) for (k, v), n in sorted(cnt.items(), key=lambda x: (-x[1], x[0])) if n >= 2]   # 인물도 2편 이상만(2026-11-10, 「관련 어휘」용 — 공개 파일 크기)
     terms = [v if k == "c" else nm(v) for k, v, n in vocab]
     W = M.encode(terms, batch=64)
     write_bin(os.path.join(PUB, "vocab.bin"), W)
@@ -104,9 +111,12 @@ def main():
 
     df = collections.defaultdict(set)
     for i, e in enumerate(essays):
+        cb = cb_of(e)
         p = os.path.join(REPO, "essays", e["id"] + ".txt")
-        if not os.path.exists(p): continue
-        for w in re.findall(r"[가-힣A-Za-z0-9·]{2,}", open(p, encoding="utf-8").read()):
+        if cb: text = "\n".join([cb["s"], cb["h"]] + [c[0] for c in cb["c"]])   # 창비: 원문 대신 공개 해제
+        elif os.path.exists(p): text = open(p, encoding="utf-8").read()
+        else: continue
+        for w in re.findall(r"[가-힣A-Za-z0-9·]{2,}", text):
             w = w.strip("·")
             if len(w) < 2 or w.isdigit(): continue
             df[w].add(i)
@@ -114,7 +124,9 @@ def main():
             if s != w and len(s) >= 2: df[s].add(i)
     shards = [[] for _ in range(NSHARD)]
     for w, d in df.items():
-        if len(d) <= MAX_DF and "\t" not in w and "\n" not in w:
+        # 조사가 붙은 꼴(「평론가는」)은 싣지 않고 줄기(「평론가」)만 — kc-find.js 가 질의 낱말을 strip() 한 줄기로도 보내므로 찾기는 그대로,
+        # Worker 번들은 무료 한도(압축 3MB) 안으로(2026-11-10: 글 2,560편으로 늘며 11MB → 줄기만)
+        if len(d) <= MAX_DF and "\t" not in w and "\n" not in w and strip_particle(w) == w:
             shards[fnv(w) % NSHARD].append(w + "\t" + ",".join(map(str, sorted(d))))
     for k, lines in enumerate(shards):
         with open(os.path.join(PRIV, f"{k:03d}.txt"), "w", encoding="utf-8", newline="\n") as f:

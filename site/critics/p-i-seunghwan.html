@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이승환 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이승환</span></div>
+      <h1 class="index-heading">이승환</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">16</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">문익환</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">박근혜 (2)</span> <span class="chip chip-term">엥겔스 (1)</span> <span class="chip chip-term">아베 신조 (1)</span> <span class="chip chip-term">알렉산더 웬트 (1)</span> <span class="chip chip-term">박명규 (1)</span> <span class="chip chip-term">박명림 (1)</span> <span class="chip chip-term">박순성 (1)</span> <span class="chip chip-term">방인혁 (1)</span> <span class="chip chip-term">김정은 (1)</span> <span class="chip chip-term">구갑우 (1)</span> <span class="chip chip-term">홍석률 (1)</span> <span class="chip chip-term">이대훈 (1)</span> <span class="chip chip-term">이종석 (1)</span> <span class="chip chip-term">정세현 (1)</span> <span class="chip chip-term">조성렬 (1)</span> <span class="chip chip-term">로버트 칼린 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3737", "label": "6월항쟁 20년, 새로운 통일담론을 위하여", "type": "essay", "year": "2007", "degree": 7}, {"id": "cb3937", "label": "시민참여형 통일운동의 역할과 가능성", "type": "essay", "year": "2008", "degree": 5}, {"id": "cb4594", "label": "이명박정부 이후의 대북정책 구상", "type": "essay", "year": "2012", "degree": 5}, {"id": "cb4826", "label": "이석기사건과 ‘진보의 재구성’ 논의에 부쳐", "type": "essay", "year": "2013", "degree": 5}, {"id": "cb4856", "label": "연합정치의 진전을 위하여", "type": "essay", "year": "2014", "degree": 4}, {"id": "cb5240", "label": "한반도 군사위기의 구조와 출로", "type": "essay", "year": "2016", "degree": 5}, {"id": "cb7053", "label": "한반도정세의 새 국면과 분단체제", "type": "essay", "year": "2024", "degree": 5}, {"id": "p-00047", "label": "엥겔스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q34787 http://lod.nl.go.kr/resource/KAC199608161 https://isni.org/isni/0000000121379599 http://viaf.org/viaf/68928644", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199608161", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34787", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Engels"}, {"id": "p-abe-sinjo", "label": "아베 신조", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q132345 http://lod.nl.go.kr/resource/KAC201716487 https://isni.org/isni/0000000078777443 http://viaf.org/viaf/54057111", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201716487", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q132345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-alexander-wendt", "label": "알렉산더 웬트", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-bak-geunhye", "label": "박근혜", "type": "theorist", "ref": "", "degree": 41, "lod": [], "en": ""}, {"id": "p-bak-myeonggyu", "label": "박명규", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201200650 https://isni.org/isni/0000000054896659 http://viaf.org/viaf/29852602", "degree": 13, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201200650", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-bak-myeongrim", "label": "박명림", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12596631 http://lod.nl.go.kr/resource/KAC201217510 https://isni.org/isni/0000000391987607 http://viaf.org/viaf/285916442", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201217510", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12596631", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bak-sunseong", "label": "박순성", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201210838 https://isni.org/isni/0000000053065749 http://viaf.org/viaf/39288075", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201210838", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-bang-inhyeok", "label": "방인혁", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-jeongeun", "label": "김정은", "type": "theorist", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-gu-gapu", "label": "구갑우", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201200742 https://isni.org/isni/0000000039933191 http://viaf.org/viaf/9302752", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201200742", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-hong-seokryul", "label": "홍석률", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201222537 https://isni.org/isni/0000000465071627 http://viaf.org/viaf/129153061367619202429", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201222537", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-i-daehun", "label": "이대훈", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-i-jongseok", "label": "이종석", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q624486 http://lod.nl.go.kr/resource/KAC201212798 https://isni.org/isni/0000000381706904 http://viaf.org/viaf/261991359", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201212798", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624486", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-seunghwan", "label": "이승환", "type": "critic", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-jeong-sehyeon", "label": "정세현", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201320191 https://isni.org/isni/0000000027840633 http://viaf.org/viaf/77856242", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201320191", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-jo-seongryeol", "label": "조성렬", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201214279 https://isni.org/isni/0000000040339069 http://viaf.org/viaf/21577328", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201214279", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-mun-ikhwan", "label": "문익환", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q626438 https://encykorea.aks.ac.kr/Article/E0019632 http://lod.nl.go.kr/resource/KAC201116395 https://isni.org/isni/0000000083002351 http://viaf.org/viaf/110571140", "degree": 6, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0019632", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201116395", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626438", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-robert-carlin", "label": "로버트 칼린", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201202657 https://isni.org/isni/0000000038859663 http://viaf.org/viaf/179144928810654441309", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201202657", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "cb3937", "target": "p-i-seunghwan", "type": "uses_theory", "weight": 1}, {"source": "cb4856", "target": "p-i-seunghwan", "type": "uses_theory", "weight": 1}, {"source": "cb7053", "target": "p-i-seunghwan", "type": "uses_theory", "weight": 1}, {"source": "p-i-seunghwan", "target": "cb3737", "type": "wrote", "weight": 1}, {"source": "p-i-seunghwan", "target": "cb4594", "type": "wrote", "weight": 1}, {"source": "p-i-seunghwan", "target": "cb4826", "type": "wrote", "weight": 1}, {"source": "p-i-seunghwan", "target": "cb5240", "type": "wrote", "weight": 1}, {"source": "cb3737", "target": "p-bak-myeongrim", "type": "uses_theory", "weight": 1}, {"source": "cb3737", "target": "p-bak-sunseong", "type": "uses_theory", "weight": 1}, {"source": "cb3737", "target": "p-gu-gapu", "type": "uses_theory", "weight": 1}, {"source": "cb3737", "target": "p-i-daehun", "type": "uses_theory", "weight": 1}, {"source": "cb3737", "target": "p-jeong-sehyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3737", "target": "p-mun-ikhwan", "type": "subject_of", "weight": 1}, {"source": "cb4594", "target": "p-bak-myeonggyu", "type": "uses_theory", "weight": 1}, {"source": "cb4594", "target": "p-hong-seokryul", "type": "uses_theory", "weight": 1}, {"source": "cb4594", "target": "p-i-jongseok", "type": "uses_theory", "weight": 1}, {"source": "cb4594", "target": "p-jo-seongryeol", "type": "uses_theory", "weight": 1}, {"source": "cb4826", "target": "p-00047", "type": "uses_theory", "weight": 1}, {"source": "cb4826", "target": "p-alexander-wendt", "type": "uses_theory", "weight": 1}, {"source": "cb4826", "target": "p-bak-geunhye", "type": "uses_theory", "weight": 1}, {"source": "cb4826", "target": "p-bang-inhyeok", "type": "uses_theory", "weight": 1}, {"source": "cb5240", "target": "p-abe-sinjo", "type": "uses_theory", "weight": 1}, {"source": "cb5240", "target": "p-bak-geunhye", "type": "uses_theory", "weight": 1}, {"source": "cb5240", "target": "p-gim-jeongeun", "type": "uses_theory", "weight": 1}, {"source": "cb5240", "target": "p-robert-carlin", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (4편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2007</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3737.html">6월항쟁 20년, 새로운 통일담론을 위하여</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 137호, 창비, 2007</p>
+        <div class="essay-card-tags"><span class="tag">문익환</span><span class="tag">박명림</span> <span class="tag">박순성</span> <span class="tag">구갑우</span> <span class="tag">이대훈</span> <span class="tag">정세현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2012</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4594.html">이명박정부 이후의 대북정책 구상</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 157호, 창비, 2012</p>
+        <div class="essay-card-tags"><span class="tag">박명규</span> <span class="tag">홍석률</span> <span class="tag">이종석</span> <span class="tag">조성렬</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2013</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4826.html">이석기사건과 ‘진보의 재구성’ 논의에 부쳐</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 162호, 창비, 2013</p>
+        <div class="essay-card-tags"><span class="tag">엥겔스</span> <span class="tag">알렉산더 웬트</span> <span class="tag">박근혜</span> <span class="tag">방인혁</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2016</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5240.html">한반도 군사위기의 구조와 출로</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 174호, 창비, 2016</p>
+        <div class="essay-card-tags"><span class="tag">아베 신조</span> <span class="tag">박근혜</span> <span class="tag">김정은</span> <span class="tag">로버트 칼린</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

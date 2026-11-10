@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이봉수 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이봉수</span></div>
+      <h1 class="index-heading">이봉수</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">최승호</span> <span class="chip role-writer">하인리히 뵐</span> <span class="chip role-writer">유시민</span> <span class="chip role-writer">윤석열</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">촘스키 (1)</span> <span class="chip chip-term">에드먼드 버크 (1)</span> <span class="chip chip-term">강준만 (1)</span> <span class="chip chip-term">문재인 (1)</span> <span class="chip chip-term">리영희 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb6217", "label": "선거와 민주주의를 타격한 저널리즘", "type": "essay", "year": "2022", "degree": 10}, {"id": "p-00035", "label": "최승호", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5103956 http://lod.nl.go.kr/resource/KAC201102262 https://isni.org/isni/0000000078245412 http://viaf.org/viaf/25752073", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201102262", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5103956", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-chomsky", "label": "촘스키", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9049 http://lod.nl.go.kr/resource/KAC200602319 https://isni.org/isni/0000000121430999 http://viaf.org/viaf/89803084", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200602319", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9049", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Noam Chomsky"}, {"id": "p-edmund-burke", "label": "에드먼드 버크", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q165792 http://lod.nl.go.kr/resource/KAC199603953 https://isni.org/isni/0000000121450834 http://viaf.org/viaf/100173535", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603953", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q165792", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Edmund Burke"}, {"id": "p-heinrich-boell", "label": "하인리히 뵐", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q42747 http://lod.nl.go.kr/resource/KAC199602864 https://isni.org/isni/0000000120965916 http://viaf.org/viaf/88858559", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602864", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q42747", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-bongsu", "label": "이봉수", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kang-junman", "label": "강준만", "type": "critic", "ref": "", "degree": 14, "lod": [], "en": ""}, {"id": "p-mun-jaein", "label": "문재인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q21001 http://lod.nl.go.kr/resource/KAC201113552 https://isni.org/isni/0000000460202827 http://viaf.org/viaf/72149616723003751010", "degree": 35, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113552", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q21001", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-yonghui", "label": "이영희", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4991750 https://encykorea.aks.ac.kr/Article/E0079001 http://lod.nl.go.kr/resource/KAC201101585 https://isni.org/isni/0000000081730857 http://viaf.org/viaf/108273069", "degree": 16, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0079001", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201101585", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4991750", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yu-simin", "label": "유시민", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q488339 http://lod.nl.go.kr/resource/KAC201116642 https://isni.org/isni/0000000054541620 http://viaf.org/viaf/7238752", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116642", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q488339", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 34, "lod": [], "en": ""}], "edges": [{"source": "p-i-bongsu", "target": "cb6217", "type": "wrote", "weight": 1}, {"source": "cb6217", "target": "p-00035", "type": "subject_of", "weight": 1}, {"source": "cb6217", "target": "p-chomsky", "type": "uses_theory", "weight": 1}, {"source": "cb6217", "target": "p-edmund-burke", "type": "uses_theory", "weight": 1}, {"source": "cb6217", "target": "p-heinrich-boell", "type": "subject_of", "weight": 1}, {"source": "cb6217", "target": "p-kang-junman", "type": "uses_theory", "weight": 1}, {"source": "cb6217", "target": "p-mun-jaein", "type": "uses_theory", "weight": 1}, {"source": "cb6217", "target": "p-yi-yonghui", "type": "uses_theory", "weight": 1}, {"source": "cb6217", "target": "p-yu-simin", "type": "subject_of", "weight": 1}, {"source": "cb6217", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2022</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6217.html">선거와 민주주의를 타격한 저널리즘</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 196호, 창비, 2022</p>
+        <div class="essay-card-tags"><span class="tag">최승호</span> <span class="tag">하인리히 뵐</span> <span class="tag">유시민</span> <span class="tag">윤석열</span><span class="tag">촘스키</span> <span class="tag">에드먼드 버크</span> <span class="tag">강준만</span> <span class="tag">문재인</span> <span class="tag">리영희</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

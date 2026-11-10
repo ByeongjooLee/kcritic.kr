@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>윤영상 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">윤영상</span></div>
+      <h1 class="index-heading">윤영상</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">안도현</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">최은주 (1)</span> <span class="chip chip-term">이종석 (1)</span> <span class="chip chip-term">이영훈 (1)</span> <span class="chip chip-term">문재인 (1)</span> <span class="chip chip-term">노무현 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb5847", "label": "이종석 외 『제재속의 북한경제, 밀어서 잠금해제』", "type": "essay", "year": "2020", "degree": 4}, {"id": "cb6245", "label": "위기에 빠진 진보정치", "type": "essay", "year": "2022", "degree": 3}, {"id": "cb6827", "label": "이광호 『노회찬 평전』", "type": "essay", "year": "2023", "degree": 2}, {"id": "p-an-dohyeon", "label": "안도현", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12605590 http://lod.nl.go.kr/resource/KAC201011797 https://isni.org/isni/0000000083334647 http://viaf.org/viaf/118826950", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011797", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12605590", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-choe-eunju", "label": "최은주", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-jongseok", "label": "이종석", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q624486 http://lod.nl.go.kr/resource/KAC201212798 https://isni.org/isni/0000000381706904 http://viaf.org/viaf/261991359", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201212798", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624486", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-yeonghun", "label": "이영훈", "type": "theorist", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-mun-jaein", "label": "문재인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q21001 http://lod.nl.go.kr/resource/KAC201113552 https://isni.org/isni/0000000460202827 http://viaf.org/viaf/72149616723003751010", "degree": 35, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113552", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q21001", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-no-muhyeon", "label": "노무현", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q14345 http://lod.nl.go.kr/resource/KAC201100150 https://isni.org/isni/0000000121219755 http://viaf.org/viaf/15704800", "degree": 53, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201100150", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yun-yeongsang", "label": "윤영상", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}], "edges": [{"source": "p-yun-yeongsang", "target": "cb5847", "type": "wrote", "weight": 1}, {"source": "p-yun-yeongsang", "target": "cb6245", "type": "wrote", "weight": 1}, {"source": "p-yun-yeongsang", "target": "cb6827", "type": "wrote", "weight": 1}, {"source": "cb5847", "target": "p-choe-eunju", "type": "uses_theory", "weight": 1}, {"source": "cb5847", "target": "p-i-jongseok", "type": "uses_theory", "weight": 1}, {"source": "cb5847", "target": "p-i-yeonghun", "type": "uses_theory", "weight": 1}, {"source": "cb6245", "target": "p-mun-jaein", "type": "uses_theory", "weight": 1}, {"source": "cb6245", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb6827", "target": "p-an-dohyeon", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (3편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2020</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5847.html">이종석 외 『제재속의 북한경제, 밀어서 잠금해제』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 187호, 창비, 2020</p>
+        <div class="essay-card-tags"><span class="tag">최은주</span> <span class="tag">이종석</span> <span class="tag">이영훈</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2022</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6245.html">위기에 빠진 진보정치</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 197호, 창비, 2022</p>
+        <div class="essay-card-tags"><span class="tag">문재인</span> <span class="tag">노무현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2023</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6827.html">이광호 『노회찬 평전』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 201호, 창비, 2023</p>
+        <div class="essay-card-tags"><span class="tag">안도현</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

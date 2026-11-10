@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강수환 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">강수환</span></div>
+      <h1 class="index-heading">강수환</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201927081" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000476653251" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/54156563533323241992" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">박소영</span> <span class="chip role-writer">현호정</span> <span class="chip role-writer">조우리</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">앤드루 호스킨스 (1)</span> <span class="chip chip-term">베르나르 스티글러 (1)</span> <span class="chip chip-term">박태웅 (1)</span> <span class="chip chip-term">라캉 (1)</span> <span class="chip chip-term">슬라보예 지젝 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb6205", "label": "다시 너와 연결될 수 있다면", "type": "essay", "year": "2022", "degree": 8}, {"id": "cb6823", "label": "박태웅 『박태웅의 AI 강의』", "type": "essay", "year": "2023", "degree": 2}, {"id": "p-aendeuru-hoseukinseu", "label": "앤드루 호스킨스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-b-stiegler", "label": "베르나르 스티글러", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q822727 http://lod.nl.go.kr/resource/KAC201419425 https://isni.org/isni/0000000122771955 http://viaf.org/viaf/19758943", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201419425", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q822727", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bak-soyeong", "label": "박소영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q111633664 http://lod.nl.go.kr/resource/KAC2020O4547 https://isni.org/isni/0000000492495759 http://viaf.org/viaf/39161271978047440226", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC2020O4547", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q111633664", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bak-taeung", "label": "박태웅", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC202630887 https://isni.org/isni/0000000530505381", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202630887", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-gang-suhwan", "label": "강수환", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201927081 https://isni.org/isni/0000000476653251 http://viaf.org/viaf/54156563533323241992", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201927081", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-hyeon-hojeong", "label": "현호정", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC202255867 https://isni.org/isni/0000000508146597", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202255867", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-j-lacan", "label": "라캉", "type": "theorist", "ref": "", "degree": 14, "lod": [], "en": ""}, {"id": "p-jo-uri", "label": "조우리", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201914879 https://isni.org/isni/0000000476416993 http://viaf.org/viaf/5503156565727923500004", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201914879", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-seulraboye-jijek", "label": "슬라보예 지젝", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q184750 http://lod.nl.go.kr/resource/KAC199630983 https://isni.org/isni/0000000120954619 http://viaf.org/viaf/2478493", "degree": 21, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199630983", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q184750", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-gang-suhwan", "target": "cb6205", "type": "wrote", "weight": 1}, {"source": "p-gang-suhwan", "target": "cb6823", "type": "wrote", "weight": 1}, {"source": "cb6205", "target": "p-aendeuru-hoseukinseu", "type": "uses_theory", "weight": 1}, {"source": "cb6205", "target": "p-b-stiegler", "type": "uses_theory", "weight": 1}, {"source": "cb6205", "target": "p-bak-soyeong", "type": "subject_of", "weight": 1}, {"source": "cb6205", "target": "p-hyeon-hojeong", "type": "subject_of", "weight": 1}, {"source": "cb6205", "target": "p-j-lacan", "type": "uses_theory", "weight": 1}, {"source": "cb6205", "target": "p-jo-uri", "type": "subject_of", "weight": 1}, {"source": "cb6205", "target": "p-seulraboye-jijek", "type": "uses_theory", "weight": 1}, {"source": "cb6823", "target": "p-bak-taeung", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2022</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6205.html">다시 너와 연결될 수 있다면</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 196호, 창비, 2022</p>
+        <div class="essay-card-tags"><span class="tag">박소영</span> <span class="tag">현호정</span> <span class="tag">조우리</span><span class="tag">앤드루 호스킨스</span> <span class="tag">베르나르 스티글러</span> <span class="tag">라캉</span> <span class="tag">슬라보예 지젝</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2023</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6823.html">박태웅 『박태웅의 AI 강의』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 201호, 창비, 2023</p>
+        <div class="essay-card-tags"><span class="tag">박태웅</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

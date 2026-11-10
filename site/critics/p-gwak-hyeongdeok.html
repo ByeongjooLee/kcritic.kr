@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>곽형덕 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">곽형덕</span></div>
+      <h1 class="index-heading">곽형덕</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201417919" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000463614093" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/682144928080754341562" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김시종</span> <span class="chip role-writer">마타요시 에이키</span> <span class="chip role-writer">메도루마 슌</span> <span class="chip role-writer">오시로 다쓰히로</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">백영서 (1)</span> <span class="chip chip-term">나리타 지히로 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb5427", "label": "곽형덕 『김사량과 일제 말 식민지 문학』", "type": "essay", "year": "2017", "degree": 3}, {"id": "cb5733", "label": "‘오끼나와 문학’이라는 물음", "type": "essay", "year": "2019", "degree": 6}, {"id": "cb6649", "label": "김시종 『잃어버린 계절』", "type": "essay", "year": "2019", "degree": 2}, {"id": "cb6737", "label": "나리타 지히로 『오키나와 반환과 동아시아 냉전체제』", "type": "essay", "year": "2022", "degree": 6}, {"id": "p-baek-yeongseo", "label": "백영서", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q60992161 http://lod.nl.go.kr/resource/KAC201318789 https://isni.org/isni/0000000378130529 http://viaf.org/viaf/255956817", "degree": 43, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201318789", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q60992161", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gim-sijong", "label": "김시종", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-gwak-hyeongdeok", "label": "곽형덕", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201417919 https://isni.org/isni/0000000463614093 http://viaf.org/viaf/682144928080754341562", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201417919", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-matayosi-eiki", "label": "마타요시 에이키", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q1085452 http://lod.nl.go.kr/resource/KAC200808450 https://isni.org/isni/0000000110752917 http://viaf.org/viaf/85732989", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200808450", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q1085452", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-medoruma-syun", "label": "메도루마 슌", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q553484 http://lod.nl.go.kr/resource/KAC200711793 https://isni.org/isni/0000000118846715 http://viaf.org/viaf/101624207", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200711793", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q553484", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-narita-jihiro", "label": "나리타 지히로", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC202110449 http://viaf.org/viaf/544162664606855002415", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202110449", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-oshiro-tatsuhiro", "label": "오시로 다쓰히로", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "cb5427", "target": "p-gwak-hyeongdeok", "type": "uses_theory", "weight": 1}, {"source": "cb5733", "target": "p-gwak-hyeongdeok", "type": "uses_theory", "weight": 1}, {"source": "p-gwak-hyeongdeok", "target": "cb6649", "type": "wrote", "weight": 1}, {"source": "p-gwak-hyeongdeok", "target": "cb6737", "type": "wrote", "weight": 1}, {"source": "cb6649", "target": "p-gim-sijong", "type": "subject_of", "weight": 1}, {"source": "cb6737", "target": "p-baek-yeongseo", "type": "uses_theory", "weight": 1}, {"source": "cb6737", "target": "p-matayosi-eiki", "type": "subject_of", "weight": 1}, {"source": "cb6737", "target": "p-medoruma-syun", "type": "subject_of", "weight": 1}, {"source": "cb6737", "target": "p-narita-jihiro", "type": "uses_theory", "weight": 1}, {"source": "cb6737", "target": "p-oshiro-tatsuhiro", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2019</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6649.html">김시종 『잃어버린 계절』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 186호, 창비, 2019</p>
+        <div class="essay-card-tags"><span class="tag">김시종</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2022</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6737.html">나리타 지히로 『오키나와 반환과 동아시아 냉전체제』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 196호, 창비, 2022</p>
+        <div class="essay-card-tags"><span class="tag">마타요시 에이키</span> <span class="tag">메도루마 슌</span> <span class="tag">오시로 다쓰히로</span><span class="tag">백영서</span> <span class="tag">나리타 지히로</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

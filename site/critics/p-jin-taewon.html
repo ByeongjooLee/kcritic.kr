@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>진태원 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">진태원</span></div>
+      <h1 class="index-heading">진태원</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201207330" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000464303289" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/21152138531810980938" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">11</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">윤석열</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">주디스 버틀러 (2)</span> <span class="chip chip-term">알랭 바디우 (1)</span> <span class="chip chip-term">토크빌 (1)</span> <span class="chip chip-term">아테나 아타나시오우 (1)</span> <span class="chip chip-term">클로드 르포르 (1)</span> <span class="chip chip-term">코스탄티노 모르타티 (1)</span> <span class="chip chip-term">미셸 푸코 (1)</span> <span class="chip chip-term">조르조 아감벤 (1)</span> <span class="chip chip-term">한홍구 (1)</span> <span class="chip chip-term">송제숙 (1)</span> <span class="chip chip-term">스피노자 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3878", "label": "조르조 아감벤 『호모 사케르』", "type": "essay", "year": "2008", "degree": 2}, {"id": "cb4247", "label": "알랭 바디우 『비미학』", "type": "essay", "year": "2010", "degree": 2}, {"id": "cb5068", "label": "클로드 르포르 『19~20세기 정치적인 것에 대한 시론』", "type": "essay", "year": "2016", "degree": 3}, {"id": "cb5179", "label": "송제숙 『복지의 배신』", "type": "essay", "year": "2016", "degree": 3}, {"id": "cb5273", "label": "주디스 버틀러‧아테나 아타나시오우 『박탈』", "type": "essay", "year": "2016", "degree": 4}, {"id": "cb5428", "label": "서동욱‧진태원 엮음 『스피노자의 귀환』", "type": "essay", "year": "2017", "degree": 4}, {"id": "cb5499", "label": "문학의 열린 길", "type": "essay", "year": "2016", "degree": 14}, {"id": "cb7239", "label": "‘우리’라는 실재(창비신인평론상)", "type": "essay", "year": "2025", "degree": 8}, {"id": "cb7365", "label": "『반헌법행위자열전』의 출간이 의미하는 것", "type": "essay", "year": "2026", "degree": 5}, {"id": "p-alain-badiou", "label": "바디우", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q311005 http://lod.nl.go.kr/resource/KAC199701211 https://isni.org/isni/000000012136299X http://viaf.org/viaf/64001185", "degree": 21, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199701211", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q311005", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-alexis-de-tocqueville", "label": "토크빌", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-athena-athanasiou", "label": "아테나 아타나시오우", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-claude-lefort", "label": "클로드 르포르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q373036 http://lod.nl.go.kr/resource/KAC201601417 https://isni.org/isni/0000000109310636 http://viaf.org/viaf/199262651", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201601417", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q373036", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-costantino-mortati", "label": "코스탄티노 모르타티", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 64, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-giorgio-agamben", "label": "조르조 아감벤", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q311687 http://lod.nl.go.kr/resource/KAC200400171 https://isni.org/isni/0000000121480099 http://viaf.org/viaf/112062695", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200400171", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q311687", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-han-honggu", "label": "한홍구", "type": "critic", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-jin-taewon", "label": "진태원", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201207330 https://isni.org/isni/0000000464303289 http://viaf.org/viaf/21152138531810980938", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201207330", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-judith-butler", "label": "주디스 버틀러", "type": "theorist", "ref": "", "degree": 13, "lod": [], "en": ""}, {"id": "p-song-jesuk", "label": "송제숙", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201421748 https://isni.org/isni/0000000477693044 http://viaf.org/viaf/83558771", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201421748", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-spinoza", "label": "스피노자", "type": "theorist", "ref": "", "degree": 17, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 34, "lod": [], "en": ""}], "edges": [{"source": "cb5428", "target": "p-jin-taewon", "type": "uses_theory", "weight": 1}, {"source": "cb5499", "target": "p-jin-taewon", "type": "uses_theory", "weight": 1}, {"source": "cb7239", "target": "p-jin-taewon", "type": "uses_theory", "weight": 1}, {"source": "p-jin-taewon", "target": "cb3878", "type": "wrote", "weight": 1}, {"source": "p-jin-taewon", "target": "cb4247", "type": "wrote", "weight": 1}, {"source": "p-jin-taewon", "target": "cb5068", "type": "wrote", "weight": 1}, {"source": "p-jin-taewon", "target": "cb5179", "type": "wrote", "weight": 1}, {"source": "p-jin-taewon", "target": "cb5273", "type": "wrote", "weight": 1}, {"source": "p-jin-taewon", "target": "cb7365", "type": "wrote", "weight": 1}, {"source": "cb3878", "target": "p-giorgio-agamben", "type": "uses_theory", "weight": 1}, {"source": "cb4247", "target": "p-alain-badiou", "type": "uses_theory", "weight": 1}, {"source": "cb5068", "target": "p-alexis-de-tocqueville", "type": "uses_theory", "weight": 1}, {"source": "cb5068", "target": "p-claude-lefort", "type": "uses_theory", "weight": 1}, {"source": "cb5179", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "cb5179", "target": "p-song-jesuk", "type": "uses_theory", "weight": 1}, {"source": "cb5273", "target": "p-athena-athanasiou", "type": "uses_theory", "weight": 1}, {"source": "cb5273", "target": "p-judith-butler", "type": "uses_theory", "weight": 1}, {"source": "cb5273", "target": "p-spinoza", "type": "uses_theory", "weight": 1}, {"source": "cb7365", "target": "p-costantino-mortati", "type": "uses_theory", "weight": 1}, {"source": "cb7365", "target": "p-han-honggu", "type": "uses_theory", "weight": 1}, {"source": "cb7365", "target": "p-judith-butler", "type": "uses_theory", "weight": 1}, {"source": "cb7365", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (6편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2008</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3878.html">조르조 아감벤 『호모 사케르』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 140호, 창비, 2008</p>
+        <div class="essay-card-tags"><span class="tag">조르조 아감벤</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2010</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4247.html">알랭 바디우 『비미학』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 149호, 창비, 2010</p>
+        <div class="essay-card-tags"><span class="tag">알랭 바디우</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2016</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5068.html">클로드 르포르 『19~20세기 정치적인 것에 대한 시론』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 171호, 창비, 2016</p>
+        <div class="essay-card-tags"><span class="tag">토크빌</span> <span class="tag">클로드 르포르</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2016</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5179.html">송제숙 『복지의 배신』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 173호, 창비, 2016</p>
+        <div class="essay-card-tags"><span class="tag">미셸 푸코</span> <span class="tag">송제숙</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2016</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5273.html">주디스 버틀러‧아테나 아타나시오우 『박탈』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 174호, 창비, 2016</p>
+        <div class="essay-card-tags"><span class="tag">아테나 아타나시오우</span> <span class="tag">주디스 버틀러</span> <span class="tag">스피노자</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2026</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb7365.html">『반헌법행위자열전』의 출간이 의미하는 것</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 212호, 창비, 2026</p>
+        <div class="essay-card-tags"><span class="tag">윤석열</span><span class="tag">코스탄티노 모르타티</span> <span class="tag">한홍구</span> <span class="tag">주디스 버틀러</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

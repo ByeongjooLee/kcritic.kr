@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이정숙 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이정숙</span></div>
+      <h1 class="index-heading">이정숙</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">이육사</span> <span class="chip role-writer">오에 겐자부로</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">아베 신조 (1)</span> <span class="chip chip-term">E. H. 카 (1)</span> <span class="chip chip-term">도진순 (1)</span> <span class="chip chip-term">가토 요코 (1)</span> <span class="chip chip-term">고모리 요이치 (1)</span> <span class="chip chip-term">푸코 (1)</span> <span class="chip chip-term">낸시 프레이저 (1)</span> <span class="chip chip-term">록산 게이 (1)</span> <span class="chip chip-term">사사키 아타루 (1)</span> <span class="chip chip-term">리영희 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb5543", "label": "도진순 『강철로 된 무지개』", "type": "essay", "year": "2018", "degree": 3}, {"id": "cb5594", "label": "록산 게이 『헝거』", "type": "essay", "year": "2018", "degree": 4}, {"id": "cb5631", "label": "사사키 아타루 『이 나날의 돌림노래』", "type": "essay", "year": "2018", "degree": 2}, {"id": "cb5666", "label": "가토 요코 『왜 전쟁까지』", "type": "essay", "year": "2018", "degree": 7}, {"id": "p-00136", "label": "이육사", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q2948453 https://encykorea.aks.ac.kr/Article/E0045444 http://lod.nl.go.kr/resource/KAC201110672 https://isni.org/isni/0000000385675201 http://viaf.org/viaf/248168217", "degree": 20, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0045444", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201110672", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q2948453", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-abe-sinjo", "label": "아베 신조", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q132345 http://lod.nl.go.kr/resource/KAC201716487 https://isni.org/isni/0000000078777443 http://viaf.org/viaf/54057111", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201716487", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q132345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-carr", "label": "E. H. 카", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q274764 http://lod.nl.go.kr/resource/KAC199604482 https://isni.org/isni/0000000120194744 http://viaf.org/viaf/24418", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199604482", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q274764", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "E. H. Carr"}, {"id": "p-do-jinsun", "label": "도진순", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201502937 https://isni.org/isni/0000000461050626 http://viaf.org/viaf/14150747032716302805", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201502937", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-gato-yoko", "label": "가토 요코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q11399577 http://lod.nl.go.kr/resource/KAC200101939 https://isni.org/isni/0000000114975966 http://viaf.org/viaf/120228149", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200101939", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11399577", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gomori-yoichi", "label": "고모리 요이치", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4027421 http://lod.nl.go.kr/resource/KAC200003654 https://isni.org/isni/0000000084061740 http://viaf.org/viaf/108762500", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200003654", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4027421", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-jeongsuk", "label": "이정숙", "type": "critic", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-m-foucault", "label": "푸코", "type": "theorist", "ref": "", "degree": 20, "lod": [], "en": ""}, {"id": "p-nancy-fraser", "label": "낸시 프레이저", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q267536 http://lod.nl.go.kr/resource/KAC200902074 https://isni.org/isni/0000000121477084 http://viaf.org/viaf/110699555", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200902074", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q267536", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-oe", "label": "오에", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q80095 http://lod.nl.go.kr/resource/KAC199631288 https://isni.org/isni/000000012031278X http://viaf.org/viaf/97169275", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631288", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q80095", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Kenzaburō Ōe"}, {"id": "p-roxane-gay", "label": "록산 게이", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q16202911 http://lod.nl.go.kr/resource/KAC201608614 https://isni.org/isni/0000000434301581 http://viaf.org/viaf/308698170", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201608614", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16202911", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-sasaki-ataru", "label": "사사키 아타루", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q11382061 http://lod.nl.go.kr/resource/KAC201225337 https://isni.org/isni/0000000378560166 http://viaf.org/viaf/256711222", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201225337", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11382061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-yonghui", "label": "이영희", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4991750 https://encykorea.aks.ac.kr/Article/E0079001 http://lod.nl.go.kr/resource/KAC201101585 https://isni.org/isni/0000000081730857 http://viaf.org/viaf/108273069", "degree": 16, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0079001", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201101585", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4991750", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-i-jeongsuk", "target": "cb5543", "type": "wrote", "weight": 1}, {"source": "p-i-jeongsuk", "target": "cb5594", "type": "wrote", "weight": 1}, {"source": "p-i-jeongsuk", "target": "cb5631", "type": "wrote", "weight": 1}, {"source": "p-i-jeongsuk", "target": "cb5666", "type": "wrote", "weight": 1}, {"source": "cb5543", "target": "p-00136", "type": "subject_of", "weight": 1}, {"source": "cb5543", "target": "p-do-jinsun", "type": "uses_theory", "weight": 1}, {"source": "cb5594", "target": "p-m-foucault", "type": "uses_theory", "weight": 1}, {"source": "cb5594", "target": "p-nancy-fraser", "type": "uses_theory", "weight": 1}, {"source": "cb5594", "target": "p-roxane-gay", "type": "uses_theory", "weight": 1}, {"source": "cb5631", "target": "p-sasaki-ataru", "type": "uses_theory", "weight": 1}, {"source": "cb5666", "target": "p-abe-sinjo", "type": "uses_theory", "weight": 1}, {"source": "cb5666", "target": "p-carr", "type": "uses_theory", "weight": 1}, {"source": "cb5666", "target": "p-gato-yoko", "type": "uses_theory", "weight": 1}, {"source": "cb5666", "target": "p-gomori-yoichi", "type": "uses_theory", "weight": 1}, {"source": "cb5666", "target": "p-oe", "type": "subject_of", "weight": 1}, {"source": "cb5666", "target": "p-yi-yonghui", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (4편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2018</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5543.html">도진순 『강철로 된 무지개』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 179호, 창비, 2018</p>
+        <div class="essay-card-tags"><span class="tag">이육사</span><span class="tag">도진순</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2018</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5594.html">록산 게이 『헝거』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 180호, 창비, 2018</p>
+        <div class="essay-card-tags"><span class="tag">푸코</span> <span class="tag">낸시 프레이저</span> <span class="tag">록산 게이</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2018</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5631.html">사사키 아타루 『이 나날의 돌림노래』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 181호, 창비, 2018</p>
+        <div class="essay-card-tags"><span class="tag">사사키 아타루</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2018</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5666.html">가토 요코 『왜 전쟁까지』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 182호, 창비, 2018</p>
+        <div class="essay-card-tags"><span class="tag">오에 겐자부로</span><span class="tag">아베 신조</span> <span class="tag">E. H. 카</span> <span class="tag">가토 요코</span> <span class="tag">고모리 요이치</span> <span class="tag">리영희</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

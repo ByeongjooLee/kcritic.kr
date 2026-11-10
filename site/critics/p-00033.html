@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>최인훈 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q11274314" target="_blank" class="chip role-critic chip-linked">최인훈 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">최인훈</h1>
+      <div class="lod-links"><a href="https://encykorea.aks.ac.kr/Article/E0005204" target="_blank" class="lod-badge lod-badge-work" title="한국민족문화대백과 (작품)">한국민족문화대백과 (작품) ↗</a> <a href="http://lod.nl.go.kr/resource/KAC201108593" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q11274314" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000116984436" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/110167855" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">최인훈</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">유클리드 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "bang-mijin_living-writers-collected-works_1998", "label": "거대한 기표, 그 허와 실 — 생존 작가 전집 출판에 대하여", "type": "essay", "year": "1998", "degree": 19}, {"id": "cb2879", "label": "한국계 미국작가들의 현주소", "type": "essay", "year": "2002", "degree": 8}, {"id": "cb5206", "label": "더 넓어지고 깊어지자", "type": "essay", "year": "2015", "degree": 8}, {"id": "cb5621", "label": "최인훈 선생의 마지막 병상을 방문하고", "type": "essay", "year": "2018", "degree": 4}, {"id": "choi-inhun_before-and-after-the-square_1996", "label": "나에게 있어 『광장』 이전과 이후", "type": "essay", "year": "1996", "degree": 3}, {"id": "hong-jeongseon_contextual-reading-and-criticism_1996", "label": "맥락의 독서와 비평", "type": "essay", "year": "1996", "degree": 29}, {"id": "im-ugi_division-novels-1980s_1988", "label": "80년대 분단소설의 새로운 전개 — 『태백산맥』과 『겨울골짜기』에 대하여", "type": "essay", "year": "1988", "degree": 23}, {"id": "jeong-gwari_kim-hyon-criticism-today_2000", "label": "김현 비평의 현재성", "type": "essay", "year": "2000", "degree": 16}, {"id": "jeong-gwari_naked-intellectuals_1994", "label": "벌거숭이 지식인 — 한국 지식인의 위상: 어제와 오늘", "type": "essay", "year": "1994", "degree": 10}, {"id": "jeong-gwari_novel-living-again_1995", "label": "소설, 곧 다시 살기 — 『캠프 세네카의 기지촌』에 기대어", "type": "essay", "year": "1995", "degree": 9}, {"id": "jeong-gwari_phenomenology-of-evaporation_1996", "label": "증발의 현상학, 회귀의 의미론 — 김주영의 『야정』", "type": "essay", "year": "1996", "degree": 7}, {"id": "jeong-gwari_yun-hyeongjin-fable-politics_1998", "label": "우화의 정치학 — 윤형진의 「책을 먹는 남자」에 붙여", "type": "essay", "year": "1998", "degree": 5}, {"id": "kim-byeongik_choi-inhun-consciousness-autobiography_1994", "label": "‘남북조 시대 작가’의 의식의 자서전 — 최인훈의 『화두』를 보며", "type": "essay", "year": "1994", "degree": 7}, {"id": "kim-hyeonju_choi-inhun-studies-symposium_2001", "label": "새롭게 시작하는 ‘최인훈학(學)’", "type": "essay", "year": "2001", "degree": 7}, {"id": "kim-hyon_60s-literature_1988", "label": "60년대 문학의 배경과 성과", "type": "essay", "year": "1988", "degree": 60}, {"id": "kim-hyon_choe-inhun-reading_1984", "label": "책읽기의 괴로움", "type": "essay", "year": "1984", "degree": 3}, {"id": "kim-hyon_choe-inhun_1980", "label": "사랑의 재확인", "type": "essay", "year": "1980", "degree": 5}, {"id": "kim-hyon_criticism-method_1980", "label": "비평의 방법", "type": "essay", "year": "1980", "degree": 19}, {"id": "kim-hyon_hometown-search_1984", "label": "고향 탐색의 문학적 의미", "type": "essay", "year": "1984", "degree": 14}, {"id": "kim-hyon_human-sign_1984", "label": "인간이라는 기호의 모습", "type": "essay", "year": "1984", "degree": 11}, {"id": "kim-hyon_ki-hyungdo_1990", "label": "영원히 닫힌 빈방의 체험", "type": "essay", "year": "1990", "degree": 20}, {"id": "kim-hyon_kim-chunsu-two_1984", "label": "김춘수에 대한 두 개의 글", "type": "essay", "year": "1984", "degree": 16}, {"id": "kim-hyon_lee-inseong_1984", "label": "이인성에 대한 두 개의 글", "type": "essay", "year": "1984", "degree": 11}, {"id": "kim-hyon_literary-history-method_1980", "label": "문학사의 방법과 그 반성", "type": "essay", "year": "1980", "degree": 43}, {"id": "kim-hyon_novel-structure_1984", "label": "소설의 구조", "type": "essay", "year": "1984", "degree": 21}, {"id": "kim-hyon_park-sangryung_1980", "label": "인신(人神)의 고뇌와 방황", "type": "essay", "year": "1980", "degree": 8}, {"id": "kim-hyon_suffering-poetics_1988", "label": "고난의 시학", "type": "essay", "year": "1988", "degree": 12}, {"id": "kim-hyon_translation-reflection_1980", "label": "성찰과 반성", "type": "essay", "year": "1979", "degree": 20}, {"id": "kim-hyon_yi-chungjun_1980", "label": "이청준에 대한 세 편의 글", "type": "essay", "year": "1980", "degree": 13}, {"id": "kim-inhwan_topography-of-writing_1988", "label": "글쓰기의 지형학 — 김현론", "type": "essay", "year": "1988", "degree": 45}, {"id": "kim-inhwan_twentieth-century-korean-criticism_1999", "label": "20세기 한국 비평의 비판적 검토", "type": "essay", "year": "1999", "degree": 71}, {"id": "kim-taehwan_kim-juyeon-kim-inhwan_2001", "label": "신학적 비평과 문학의 사회사 — 김주연·김인환론", "type": "essay", "year": "2001", "degree": 24}, {"id": "kim-taehwan_reading-the-square-and-dwarf_1996", "label": "『광장』과 『난장이…』 읽기, 그리고 천천히 다시 읽기", "type": "essay", "year": "1996", "degree": 8}, {"id": "kim-uchang_choe-inhun_1977", "label": "남북조 시대의 예술가의 초상 — 최인훈의 『소설가 구보씨의 일일』", "type": "essay", "year": "1977", "degree": 7}, {"id": "kim-uchang_national-literature-conscience_1981", "label": "민족문학의 양심과 이념", "type": "essay", "year": "1981", "degree": 31}, {"id": "kim-uchang_poetry-situation_1981", "label": "시의 상황", "type": "essay", "year": "1981", "degree": 11}, {"id": "kim-uchang_theory-korean-novel_1984", "label": "한국 현대 소설의 이론을 위한 서설", "type": "essay", "year": "1984", "degree": 13}, {"id": "kim-yunsik_literary-historical-intervention_1991", "label": "문학사적 개입과 논리적 개입 — 『노을』과 『난장이……』 재평가", "type": "essay", "year": "1991", "degree": 13}, {"id": "kwon-oryong_choe-inhun-journey-west_1999", "label": "시간이여, 강낭콩 꽃빛으로 흘러라 — 『서유기』의 탈근대적 지향", "type": "essay", "year": "1999", "degree": 18}, {"id": "kwon-oryong_overcoming-time_1988", "label": "시간 이겨내기의 의미 — 복거일론", "type": "essay", "year": "1988", "degree": 10}, {"id": "kwon-seongu_popular-literature-and-cultural-strategy_1992", "label": "‘뜨거운 감자’를 ‘잘’ 먹기 위한 기나긴 장정", "type": "essay", "year": "1992", "degree": 14}, {"id": "kwon-seongwoo_april19-generation-criticism_2000", "label": "4·19 세대 비평의 성과와 한계 — 비평적 인정 투쟁의 논리를 중심으로", "type": "essay", "year": "2000", "degree": 13}, {"id": "kwon-seongwoo_experience-idea_1988", "label": "체험과 관념 사이", "type": "essay", "year": "1988", "degree": 16}, {"id": "kwon-seongwoo_three-faces-minjung-poetry_1989", "label": "최근 민중시의 세 가지 모습", "type": "essay", "year": "1989", "degree": 6}, {"id": "p-00033", "label": "최인훈", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q11274314 http://lod.nl.go.kr/resource/KAC201108593 https://isni.org/isni/0000000116984436 http://viaf.org/viaf/110167855", "degree": 53, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0005204", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201108593", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11274314", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-euclid", "label": "유클리드", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "park-myeongjin_division-films-encounter-other_2001", "label": "타자와의 조우, 망각된 미래의 현상학 — 분단 체제에 말을 거는 3편의 영화", "type": "essay", "year": "2001", "degree": 19}, {"id": "shin-munsu_criticism-toward-openness_1989", "label": "열림의 세계로 나아가기 위한 비평", "type": "essay", "year": "1989", "degree": 28}, {"id": "woo-chanje_korean-novel-pain-enjoyment_1999", "label": "한국 소설의 고통과 향유", "type": "essay", "year": "1999", "degree": 94}, {"id": "yu-jongho_experience-imagination-viewpoint_1961", "label": "경험 · 상상력 · 관점 — 한국소설의 반성", "type": "essay", "year": "1961", "degree": 22}, {"id": "yu-jongho_v2-10_1982", "label": "소설과 정치 — 「광장」과 「회색인」", "type": "essay", "year": "1979", "degree": 10}, {"id": "yu-jongho_v3-07_1987", "label": "오늘의 삶과 문화", "type": "essay", "year": "1982", "degree": 6}, {"id": "yu-jongho_v4-02_1989", "label": "문학 텍스트의 확정", "type": "essay", "year": "1989", "degree": 18}, {"id": "yu-jongho_v5-18_1995", "label": "문학 속에 굴절된 전쟁 경험", "type": "essay", "year": "1995", "degree": 28}], "edges": [{"source": "bang-mijin_living-writers-collected-works_1998", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "cb2879", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "cb5206", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "cb5621", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "choi-inhun_before-and-after-the-square_1996", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "hong-jeongseon_contextual-reading-and-criticism_1996", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "im-ugi_division-novels-1980s_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_kim-hyon-criticism-today_2000", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_naked-intellectuals_1994", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_novel-living-again_1995", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_phenomenology-of-evaporation_1996", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_yun-hyeongjin-fable-politics_1998", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_choi-inhun-consciousness-autobiography_1994", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyeonju_choi-inhun-studies-symposium_2001", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_60s-literature_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_choe-inhun-reading_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_choe-inhun_1980", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_criticism-method_1980", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_hometown-search_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_human-sign_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ki-hyungdo_1990", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-chunsu-two_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_lee-inseong_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-history-method_1980", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_novel-structure_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_park-sangryung_1980", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_suffering-poetics_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_translation-reflection_1980", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_yi-chungjun_1980", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_twentieth-century-korean-criticism_1999", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-taehwan_kim-juyeon-kim-inhwan_2001", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-taehwan_reading-the-square-and-dwarf_1996", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_choe-inhun_1977", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_national-literature-conscience_1981", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_poetry-situation_1981", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_theory-korean-novel_1984", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kim-yunsik_literary-historical-intervention_1991", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_choe-inhun-journey-west_1999", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_overcoming-time_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-seongu_popular-literature-and-cultural-strategy_1992", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-seongwoo_april19-generation-criticism_2000", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-seongwoo_experience-idea_1988", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "kwon-seongwoo_three-faces-minjung-poetry_1989", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "p-00033", "target": "choi-inhun_before-and-after-the-square_1996", "type": "wrote", "weight": 1}, {"source": "park-myeongjin_division-films-encounter-other_2001", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "shin-munsu_criticism-toward-openness_1989", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "woo-chanje_korean-novel-pain-enjoyment_1999", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_experience-imagination-viewpoint_1961", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v2-10_1982", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v3-07_1987", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v4-02_1989", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v5-18_1995", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "choi-inhun_before-and-after-the-square_1996", "target": "p-euclid", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1996</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/choi-inhun_before-and-after-the-square_1996.html">나에게 있어 『광장』 이전과 이후</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 35호, 문학과지성사, 1996</p>
+        <div class="essay-card-tags"><span class="tag">최인훈</span><span class="tag">유클리드</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

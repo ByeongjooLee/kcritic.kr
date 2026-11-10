@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김소영 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">김소영</span></div>
+      <h1 class="index-heading">김소영</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">18</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">보들레르</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">베르그송 (1)</span> <span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">플라톤 (1)</span> <span class="chip chip-term">레이먼드 윌리엄스 (1)</span> <span class="chip chip-term">발터 벤야민 (1)</span> <span class="chip chip-term">브레히트 (1)</span> <span class="chip chip-term">캐리 넬슨 (1)</span> <span class="chip chip-term">크리스 베리 (1)</span> <span class="chip chip-term">데이비드 보드웰 (1)</span> <span class="chip chip-term">들뢰즈 (1)</span> <span class="chip chip-term">기 드보르 (1)</span> <span class="chip chip-term">할 포스터 (1)</span> <span class="chip chip-term">짐 파인스 (1)</span> <span class="chip chip-term">로렌스 그로스버그 (1)</span> <span class="chip chip-term">비릴리오 (1)</span> <span class="chip chip-term">폴 윌먼 (1)</span> <span class="chip chip-term">폴라 트라이클러 (1)</span> <span class="chip chip-term">리치오토 카누도 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2908", "label": "서구와 한국의 교차점: 문화, 대중, 변혁, 진실", "type": "essay", "year": "2002", "degree": 13}, {"id": "cb4621", "label": "증인석이 가득 찰 때까지", "type": "essay", "year": "2012", "degree": 1}, {"id": "kim-soyeong_cinephilia-and-necrophilia_1996", "label": "시네필리아와 네크로필리아", "type": "essay", "year": "1996", "degree": 20}, {"id": "p-00018", "label": "보들레르", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q501 http://lod.nl.go.kr/resource/KAC199601837 https://isni.org/isni/0000000121221863 http://viaf.org/viaf/17218730", "degree": 66, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601837", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q501", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Charles Baudelaire"}, {"id": "p-00022", "label": "베르그송", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q42156 http://lod.nl.go.kr/resource/KAC199602305 https://isni.org/isni/0000000121355394 http://viaf.org/viaf/61541730", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602305", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q42156", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Henri Bergson"}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 80, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00174", "label": "플라톤", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q859 http://lod.nl.go.kr/resource/KAC199621825 https://isni.org/isni/0000000120967858 http://viaf.org/viaf/108159964", "degree": 53, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199621825", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q859", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Plato"}, {"id": "p-00184", "label": "레이먼드 윌리엄스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q394628 http://lod.nl.go.kr/resource/KAC199639230 https://isni.org/isni/0000000120965617 http://viaf.org/viaf/87380498", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199639230", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q394628", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Raymond Williams"}, {"id": "p-00227", "label": "발터 벤야민", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q61078 http://lod.nl.go.kr/resource/KAC199602170 https://isni.org/isni/0000000121010732 http://viaf.org/viaf/46757196", "degree": 55, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602170", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q61078", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Walter Benjamin"}, {"id": "p-brecht", "label": "베르톨트 브레히트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q38757 http://lod.nl.go.kr/resource/KAC199603342 https://isni.org/isni/0000000368636577 http://viaf.org/viaf/2467372", "degree": 27, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603342", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q38757", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Bertolt Brecht"}, {"id": "p-cary-nelson", "label": "캐리 넬슨", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-chris-berry", "label": "크리스 베리", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-david-bordwell", "label": "데이비드 보드웰", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-deleuze", "label": "들뢰즈", "type": "theorist", "ref": "", "degree": 43, "lod": [], "en": ""}, {"id": "p-guy-debord", "label": "기 드보르", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-hal-foster", "label": "할 포스터", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jim-pines", "label": "짐 파인스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-soyeong", "label": "김소영", "type": "critic", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-lawrence-grossberg", "label": "로렌스 그로스버그", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-paul-virilio", "label": "비릴리오", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-paul-willemen", "label": "폴 윌먼", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-paula-treichler", "label": "폴라 트라이클러", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ricciotto-canudo", "label": "리치오토 카누도", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "park-myeongjin_division-films-encounter-other_2001", "label": "타자와의 조우, 망각된 미래의 현상학 — 분단 체제에 말을 거는 3편의 영화", "type": "essay", "year": "2001", "degree": 19}], "edges": [{"source": "cb2908", "target": "p-kim-soyeong", "type": "uses_theory", "weight": 1}, {"source": "p-kim-soyeong", "target": "cb4621", "type": "wrote", "weight": 1}, {"source": "p-kim-soyeong", "target": "kim-soyeong_cinephilia-and-necrophilia_1996", "type": "wrote", "weight": 1}, {"source": "park-myeongjin_division-films-encounter-other_2001", "target": "p-kim-soyeong", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-00018", "type": "subject_of", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-00022", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-00174", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-00184", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-00227", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-brecht", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-cary-nelson", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-chris-berry", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-david-bordwell", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-deleuze", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-guy-debord", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-hal-foster", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-jim-pines", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-lawrence-grossberg", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-paul-virilio", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-paul-willemen", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-paula-treichler", "type": "uses_theory", "weight": 1}, {"source": "kim-soyeong_cinephilia-and-necrophilia_1996", "target": "p-ricciotto-canudo", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1996</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kim-soyeong_cinephilia-and-necrophilia_1996.html">시네필리아와 네크로필리아</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 35호, 문학과지성사, 1996</p>
+        <div class="essay-card-tags"><span class="tag">보들레르</span><span class="tag">베르그송</span> <span class="tag">니체</span> <span class="tag">플라톤</span> <span class="tag">레이먼드 윌리엄스</span> <span class="tag">발터 벤야민</span> <span class="tag">브레히트</span> <span class="tag">캐리 넬슨</span> <span class="tag">크리스 베리</span> <span class="tag">데이비드 보드웰</span> <span class="tag">들뢰즈</span> <span class="tag">기 드보르</span> <span class="tag">할 포스터</span> <span class="tag">짐 파인스</span> <span class="tag">로렌스 그로스버그</span> <span class="tag">비릴리오</span> <span class="tag">폴 윌먼</span> <span class="tag">폴라 트라이클러</span> <span class="tag">리치오토 카누도</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2012</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4621.html">증인석이 가득 찰 때까지</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 157호, 창비, 2012</p>
+        <div class="essay-card-tags"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

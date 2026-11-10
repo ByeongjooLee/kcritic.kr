@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정희진 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q18880801" target="_blank" class="chip role-critic chip-linked">정희진 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">정희진</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201304957" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q18880801" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000467727319" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/100145375897083680354" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">셰익스피어</span> <span class="chip role-writer">유치환</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">허라금 (1)</span> <span class="chip chip-term">이대훈 (1)</span> <span class="chip chip-term">임헌영 (1)</span> <span class="chip chip-term">리영희 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3343", "label": "리영희·임헌영 『대화: 한 지식인의 삶과 사상』", "type": "essay", "year": "2005", "degree": 7}, {"id": "cb3523", "label": "정희진 『페미니즘의 도전』", "type": "essay", "year": "2006", "degree": 2}, {"id": "cb5178", "label": "임옥희 『젠더 감정 정치』", "type": "essay", "year": "2016", "degree": 6}, {"id": "cb5308", "label": "정희진 외 『양성평등에 반대한다』", "type": "essay", "year": "2017", "degree": 5}, {"id": "cb5785", "label": "사유 ‧ 정동 ‧ 리얼리즘", "type": "essay", "year": "2019", "degree": 12}, {"id": "cb6010", "label": "리영희의 씀과 쓰임", "type": "essay", "year": "2021", "degree": 7}, {"id": "cb6323", "label": "앤절라 Y. 데이비스 『여성, 인종, 계급』", "type": "essay", "year": "2022", "degree": 4}, {"id": "cb6343", "label": "‘적’을 만드는 정부와 시민사회 연대의 재건", "type": "essay", "year": "2023", "degree": 5}, {"id": "cb6361", "label": "함세웅 『함세웅의 붓으로 쓰는 역사기도』", "type": "essay", "year": "2023", "degree": 3}, {"id": "p-00196", "label": "셰익스피어", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q692 http://lod.nl.go.kr/resource/KAC200000024 https://isni.org/isni/0000000121032683 http://viaf.org/viaf/96994048", "degree": 35, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200000024", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q692", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Shakespeare"}, {"id": "p-00245", "label": "유치환", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q624665 https://encykorea.aks.ac.kr/Article/E0041928 http://lod.nl.go.kr/resource/KAC200207498 https://isni.org/isni/0000000080825061 http://viaf.org/viaf/2705213", "degree": 26, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0041928", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200207498", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624665", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-heo-rageum", "label": "허라금", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q131310314 http://lod.nl.go.kr/resource/KAC201318780 https://isni.org/isni/0000000464670433 http://viaf.org/viaf/71145375900783681794", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201318780", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q131310314", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-daehun", "label": "이대훈", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-imheonyeong", "label": "임헌영", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q491139", "degree": 9, "lod": [{"href": "https://www.wikidata.org/wiki/Q491139", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-huijin", "label": "정희진", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q18880801 http://lod.nl.go.kr/resource/KAC201304957 https://isni.org/isni/0000000467727319 http://viaf.org/viaf/100145375897083680354", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201304957", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q18880801", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-yonghui", "label": "이영희", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4991750 https://encykorea.aks.ac.kr/Article/E0079001 http://lod.nl.go.kr/resource/KAC201101585 https://isni.org/isni/0000000081730857 http://viaf.org/viaf/108273069", "degree": 16, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0079001", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201101585", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4991750", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "cb3523", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb5178", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb5308", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb5785", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb6010", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb6323", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb6343", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "cb6361", "target": "p-jeong-huijin", "type": "uses_theory", "weight": 1}, {"source": "p-jeong-huijin", "target": "cb3343", "type": "wrote", "weight": 1}, {"source": "cb3343", "target": "p-00196", "type": "subject_of", "weight": 1}, {"source": "cb3343", "target": "p-00245", "type": "subject_of", "weight": 1}, {"source": "cb3343", "target": "p-heo-rageum", "type": "uses_theory", "weight": 1}, {"source": "cb3343", "target": "p-i-daehun", "type": "uses_theory", "weight": 1}, {"source": "cb3343", "target": "p-imheonyeong", "type": "uses_theory", "weight": 1}, {"source": "cb3343", "target": "p-yi-yonghui", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3343.html">리영희·임헌영 『대화: 한 지식인의 삶과 사상』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 129호, 창비, 2005</p>
+        <div class="essay-card-tags"><span class="tag">셰익스피어</span> <span class="tag">유치환</span><span class="tag">허라금</span> <span class="tag">이대훈</span> <span class="tag">임헌영</span> <span class="tag">리영희</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>윤재민 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">윤재민</span></div>
+      <h1 class="index-heading">윤재민</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김애란</span> <span class="chip role-writer">김학찬</span> <span class="chip role-writer">김사과</span> <span class="chip role-writer">윌리엄 S. 버로스</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">지젝 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2846", "label": "송재소 『한시 미학과 역사적 진실』", "type": "essay", "year": "2002", "degree": 1}, {"id": "cb4651", "label": "너무 많이 아는 아이들을 위한 가족 로망스", "type": "essay", "year": "2012", "degree": 6}, {"id": "cb6131", "label": "김학찬 장편소설 『풀빵이 어때서?』", "type": "essay", "year": "2013", "degree": 2}, {"id": "p-00051", "label": "프로이트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9215 http://lod.nl.go.kr/resource/KAC199609326 https://isni.org/isni/0000000121272193 http://viaf.org/viaf/34456780", "degree": 76, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609326", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9215", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sigmund Freud"}, {"id": "p-gim-aeran", "label": "김애란", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q6408321 http://lod.nl.go.kr/resource/KAC201106795 https://isni.org/isni/0000000044728635 http://viaf.org/viaf/68676251", "degree": 21, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201106795", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6408321", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gim-hakchan", "label": "김학찬", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201302872 https://isni.org/isni/0000000473995715 http://viaf.org/viaf/304871113", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201302872", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-gim-sagwa", "label": "김사과", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12587542 http://lod.nl.go.kr/resource/KAC201011943 https://isni.org/isni/0000000355940908 http://viaf.org/viaf/174367496", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011943", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12587542", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-ji-jek", "label": "지젝", "type": "theorist", "ref": "", "degree": 11, "lod": [], "en": ""}, {"id": "p-wilrieom-s-beoroseu", "label": "윌리엄 S. 버로스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q188176 http://lod.nl.go.kr/resource/KAC199604015 https://isni.org/isni/0000000120968287 http://viaf.org/viaf/108916275", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199604015", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q188176", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yun-jaemin", "label": "윤재민", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}], "edges": [{"source": "p-yun-jaemin", "target": "cb2846", "type": "wrote", "weight": 1}, {"source": "p-yun-jaemin", "target": "cb4651", "type": "wrote", "weight": 1}, {"source": "p-yun-jaemin", "target": "cb6131", "type": "wrote", "weight": 1}, {"source": "cb4651", "target": "p-00051", "type": "uses_theory", "weight": 1}, {"source": "cb4651", "target": "p-gim-aeran", "type": "subject_of", "weight": 1}, {"source": "cb4651", "target": "p-gim-sagwa", "type": "subject_of", "weight": 1}, {"source": "cb4651", "target": "p-ji-jek", "type": "uses_theory", "weight": 1}, {"source": "cb4651", "target": "p-wilrieom-s-beoroseu", "type": "subject_of", "weight": 1}, {"source": "cb6131", "target": "p-gim-hakchan", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (3편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2002</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2846.html">송재소 『한시 미학과 역사적 진실』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 115호, 창비, 2002</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2012</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4651.html">너무 많이 아는 아이들을 위한 가족 로망스</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 158호, 창비, 2012</p>
+        <div class="essay-card-tags"><span class="tag">김애란</span> <span class="tag">김사과</span> <span class="tag">윌리엄 S. 버로스</span><span class="tag">프로이트</span> <span class="tag">지젝</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2013</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6131.html">김학찬 장편소설 『풀빵이 어때서?』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 161호, 창비, 2013</p>
+        <div class="essay-card-tags"><span class="tag">김학찬</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

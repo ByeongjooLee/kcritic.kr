@@ -53,8 +53,8 @@ function syncURL() {
 
 let D;
 db().then(d => {
-  D = d;
-  const counts = { find: null, essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length };
+  D = d;   // 『창작과비평』 검수 글은 essays.json 에 컬렉션 cb 로 들어 있다(publish_cb.py → build, 2026-11-10)
+  const counts = { find: null, essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length + D.cb.length };
   document.getElementById("ptabs").innerHTML = Object.entries(PERSP).map(([k, l]) =>
     `<a href="explore.html?p=${k}" class="${k === P ? "on" : ""}">${k === "find" ? `<span class="dot" style="background:var(--accent)"></span>` : ""}${l}${counts[k] != null ? ` <small class="num">${fmt(counts[k])}</small>` : ""}</a>`).join("");
   prepare(); render();
@@ -146,20 +146,38 @@ function render() {
   h.querySelectorAll(".seg button").forEach(b => b.onclick = () => { S.view = b.dataset.v; render(); });
   h.querySelector("#dl").onclick = () => exportCSV(rows);
   const R = document.getElementById("results");
-  if (!rows.length) { R.innerHTML = `<div class="empty">조건에 맞는 결과가 없습니다.</div>`; return; }
-  if (S.view === "table") R.innerHTML = table(rows);
+  if (!rows.length) R.innerHTML = `<div class="empty">조건에 맞는 결과가 없습니다.</div>`;
+  else if (S.view === "table") R.innerHTML = table(rows);
   else if (S.view === "stats" && P === "essays") R.innerHTML = stats(rows);
   else R.innerHTML = list(rows);
   const m = document.getElementById("more"); if (m) m.onclick = () => { S.shown += 50; render(); };
+  if (P === "essays" && S.q) renderCB(S.q);
+}
+
+// 『창작과비평』 목차 항목 가운데 위 목록(essays.json 컬렉션 cb)에 없는 것 — 해제 없는 글과 인물 보류로 뺀 글 (2026-11-10)
+async function renderCB(q) {
+  const rows = await load("cb_search").catch(() => []), all = cbSearch(q, rows, 1e9).filter(r => !D.E.has(`cb${r[0]}`));
+  if (q !== S.q || P !== "essays" || !all.length) return;
+  document.getElementById("cbres")?.remove();   // render 가 잇달아 불려도 한 번만
+  const R = document.getElementById("results"), lim = S.cbAll ? all.length : 20;
+  R.insertAdjacentHTML("beforeend", `<div class="block" id="cbres"><h3>『창작과비평』 목차에서 더 찾은 글 <span class="num">${fmt(all.length)}</span>편</h3>
+    <p class="note" style="margin:-4px 0 10px">위 목록에 없는 『창작과비평』 비평·산문의 표제·필자(해제가 있으면 키워드·요지까지)에서 찾았습니다. 해제가 있는 글은 이 사이트의 글 화면으로, 나머지는 창비 웹진으로 갑니다.</p>
+    <div class="rows">${all.slice(0, lim).map(r => `<article class="row"><div class="yr num">${r[2]}</div><div>
+      <h4><a href="${cbHref(r)}"${r[7] ? "" : ' target="_blank" rel="noopener"'}>${esc(r[3])}</a></h4>
+      <div class="meta"><span>${esc(r[4])}</span><span><a href="${href.issue(r[1])}">《창작과비평》 ${esc(r[1].replace(/^cb0*/, ""))}호</a>${r[5] ? " · " + esc(r[5]) : ""}</span></div>
+      ${r[6] ? `<div class="tags">${r[6].split("|").map(k => `<span class="${cbNorm(k).includes(cbNorm(q)) ? "hl" : ""}">${esc(k)}</span>`).join("")}</div>` : ""}</div>
+      <div class="side"><span>${r[7] ? "해제" : "창비 웹진"}</span></div></article>`).join("")}</div>
+    ${all.length > lim ? `<button class="btn morebtn" id="cbmore">${fmt(all.length - lim)}편 더 보기</button>` : ""}</div>`);
+  const b = document.getElementById("cbmore"); if (b) b.onclick = () => { S.cbAll = true; document.getElementById("cbres").remove(); renderCB(q); };
 }
 
 function renderFacets() {
   const F = document.getElementById("facets");
-  let html = `<div class="facet"><h5>검색</h5><input type="search" id="fq" value="${esc(S.q)}" placeholder="${P === "essays" ? "제목·인물·개념어" : "이름"}"></div>`;
+  let html = `<div class="facet"><h5>검색</h5><input type="search" id="fq" value="${esc(S.q)}" placeholder="${P === "essays" ? "제목·인물·개념어·키워드" : "이름"}"></div>`;
   if (CFG.year) {
     const ys = filtered("__year__").map(CFG.year);
     html += `<div class="facet"><h5>${P === "people" ? "처음 등장한 해" : P === "concepts" ? "처음 쓰인 해" : "연도"}${S.from || S.to ? `<button id="yclear">지우기</button>` : ""}</h5>
-      <div id="yh">${histSVG(ys.filter(Boolean), { h: 64, sel: S.from || S.to ? [S.from || 0, S.to || 9999] : null })}</div>
+      <div id="yh">${histSVG(ys.filter(Boolean), { h: 64, to: Math.max(2015, ...ys.filter(Boolean)), sel: S.from || S.to ? [S.from || 0, S.to || 9999] : null })}</div>
       <div style="font-size:12px;color:var(--faint);margin-top:4px">막대를 누르면 그 10년으로 거릅니다</div></div>`;
   }
   for (const f of CFG.facets) {
@@ -214,7 +232,7 @@ function list(rows) {
       <div>
         <h4><a href="${href.essay(e.id)}">${esc(e.title)}</a></h4>
         <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a>
-          <span>${e.coll === "mhs" ? `<a href="${href.issue(String(e.issue).padStart(3, "0"))}">《문학과사회》 ${e.issue}호</a> · ${esc(e.pages)}면${e.section ? " · " + esc(e.section) : ""}` : esc(e.venue)}</span></div>
+          <span>${venueLine(e)}</span></div>
         <div class="tags">${e.concepts.slice(0, 6).map(c => `<a href="${href.concept(c)}" class="${q && c.includes(q) || S.f.concept?.has(c) ? "hl" : ""}">${esc(c)}</a>`).join("")}</div>
       </div>
       <div class="side"><span>작가 ${e.subjects.length}</span><span>이론가 ${e.theorists.length}</span></div>
@@ -234,7 +252,7 @@ function table(rows) {
   const sl = rows.slice(0, 500);
   let head, body;
   if (P === "essays") { head = ["연도", "제목", "비평가", "지면", "개념어", "작가", "이론가"];
-    body = sl.map(e => `<tr><td class="num">${e.year}</td><td><a href="${href.essay(e.id)}">${esc(e.title)}</a></td><td>${esc(e.critic_name)}</td><td>${e.coll === "mhs" ? `문학과사회 ${e.issue}호` : esc(e.venue)}</td><td>${esc(e.concepts.slice(0, 4).join(", "))}</td><td class="n num">${e.subjects.length}</td><td class="n num">${e.theorists.length}</td></tr>`); }
+    body = sl.map(e => `<tr><td class="num">${e.year}</td><td><a href="${href.essay(e.id)}">${esc(e.title)}</a></td><td>${esc(e.critic_name)}</td><td>${e.coll === "mhs" ? `문학과사회 ${e.issue}호` : e.coll === "cb" ? `창작과비평 ${e.issue}호` : esc(e.venue)}</td><td>${esc(e.concepts.slice(0, 4).join(", "))}</td><td class="n num">${e.subjects.length}</td><td class="n num">${e.theorists.length}</td></tr>`); }
   if (P === "people") { head = ["이름", "영문", "쓴 글", "다뤄짐", "인용됨", "연도", "전거"];
     body = sl.map(p => `<tr><td><a href="${href.person(p.id)}">${esc(p.name)}</a></td><td>${esc(p.en)}</td><td class="n num">${p.wrote || ""}</td><td class="n num">${p.discussed || ""}</td><td class="n num">${p.cited || ""}</td><td class="num">${p.from ? p.from + "–" + p.to : ""}</td><td>${p.lod.map(b => lodName(b)).join(", ")}</td></tr>`); }
   if (P === "concepts") { head = ["개념어", "편수", "비평가 수", "처음", "마지막"];
@@ -307,7 +325,7 @@ async function runFind() {
     <div class="rows">${r.results.map((x, n) => { const e = D.E.get(x.id); return `
       <article class="row"><div class="yr num">${n + 1}<div style="font-size:12px;color:var(--faint)">${e.year}</div></div><div>
         <h4><a href="${href.essay(e.id)}">${esc(e.title)}</a></h4>
-        <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호${e.section ? " · " + esc(e.section) : ""}` : esc(e.venue)}</span></div>
+        <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${venueLine(e)}</span></div>
         <div class="meta" style="margin-top:6px;color:var(--accent)">${x.why.map(esc).join(" · ")}</div>
         <div class="tags">${e.concepts.slice(0, 6).map(c => `<a href="${href.concept(c)}" class="${x.why.join(" ").includes(c) ? "hl" : ""}">${esc(c)}</a>`).join("")}</div></div>
         <div class="side" style="min-width:132px"><b class="num" style="font-size:18px;color:var(--ink)">${x.rel}<small style="font-size:11px;font-weight:500;color:var(--faint)"> 관련도</small></b>
@@ -318,10 +336,27 @@ async function runFind() {
 }
 
 // ── 지면 ───────────────────────────────────────
+let VMAG = qs.get("mag") === "cb" ? "cb" : "mhs";   // 지면 화면에서 볼 잡지(?mag=cb)
 function renderVenues() {
-  document.getElementById("facets").innerHTML = `<div class="facet"><h5>잡지</h5><label class="opt"><input type="checkbox" checked disabled>『문학과사회』<span class="c">${D.issues.length}호</span></label></div>
-    <div class="facet"><h5>안내</h5><p class="note">잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 1988~1991년 호는 한 해 한 권으로 쪽 번호를 이어 매겨서, 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다. 앞으로 다른 잡지가 추가되면 여기에 함께 놓입니다.</p></div>`;
+  if (!D.cb.length) VMAG = "mhs";
+  const opt = (k, name, n) => `<label class="opt"><input type="radio" name="vmag" value="${k}"${VMAG === k ? " checked" : ""}>『${name}』<span class="c">${n}호</span></label>`;
+  document.getElementById("facets").innerHTML = `<div class="facet"><h5>잡지</h5>${opt("mhs", "문학과사회", D.issues.length)}${D.cb.length ? opt("cb", CB.name, D.cb.length) : ""}</div>
+    <div class="facet"><h5>안내</h5><p class="note">${VMAG === "cb"
+      ? "『창작과비평』은 1966년 창간호부터의 목차와 검수를 통과한 일부 글의 해제·주장을 호별 화면에 싣습니다. 해제는 AI 보조로 작성하고 본문과 대조한 요약이며 원문이 아닙니다. 목차 제목을 누르면 창비 웹진의 기사로 갑니다. 쪽수는 웹진 목차에 없어 싣지 않았습니다."
+      : "잡지 지면은 호 단위로 봅니다. 호를 고르면 목차와 인코딩 현황이 나옵니다. 1988~1991년 호는 한 해 한 권으로 쪽 번호를 이어 매겨서, 여름·가을·겨울호는 수백~천 몇 쪽에서 시작합니다."}</p></div>`;
+  document.querySelectorAll('input[name="vmag"]').forEach(r => r.onchange = () => { VMAG = r.value; renderVenues(); });
+  history.replaceState(null, "", "?p=venues" + (VMAG === "cb" ? "&mag=cb" : ""));
   document.getElementById("active").innerHTML = "";
+  if (VMAG === "cb") {
+    const all = D.cb.reduce((s, i) => s + i.n, 0), crit = D.cb.reduce((s, i) => s + i.n_crit, 0);
+    document.getElementById("rhead").innerHTML = `<span class="count">『${CB.name}』 <span class="num">${D.cb.length}</span>호 · 목차 <span class="num">${fmt(all)}</span> · 비평·산문 <span class="num">${fmt(crit)}</span></span>`;
+    const decades = [...new Set(D.cb.map(i => Math.floor(i.year / 10) * 10))];
+    document.getElementById("results").innerHTML = decades.map(d => `
+      <div class="block"><h3>${d}년대</h3><div class="issues">${D.cb.filter(i => Math.floor(i.year / 10) * 10 === d).map(i => `
+        <a class="iss" href="${href.issue(i.id)}"><b>${cbNo(i)}</b><span>${i.year} ${i.season}</span>
+          <span class="num">목차 ${i.n} · 비평·산문 ${i.n_crit}</span></a>`).join("")}</div></div>`).join("");
+    return;
+  }
   const pub = D.issues.reduce((s, i) => s + i.n_public, 0), all = D.issues.reduce((s, i) => s + i.items.length, 0);
   document.getElementById("rhead").innerHTML = `<span class="count">『문학과사회』 <span class="num">${D.issues.length}</span>호 · 공개 <span class="num">${pub}</span> / 목차 <span class="num">${all}</span></span>`;
   const years = [...new Set(D.issues.map(i => i.year))];

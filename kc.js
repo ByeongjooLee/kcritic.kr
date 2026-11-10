@@ -23,9 +23,9 @@ const qs = new URLSearchParams(location.search);
 const _cache = {};
 const load = name => (_cache[name] ??= fetch(`/site/data/v2/${name}.json`).then(r => r.json()));
 async function db() {
-  const [essays, people, concepts, issues] = await Promise.all(["essays", "people", "concepts", "issues"].map(load));
+  const [essays, people, concepts, issues, cb] = await Promise.all([...["essays", "people", "concepts", "issues"].map(load), load("issues_cb").catch(() => [])]);
   const E = new Map(essays.map(e => [e.id, e])), P = new Map(people.map(p => [p.id, p]));
-  return { essays, people, concepts, issues, E, P };
+  return { essays, people, concepts, issues, cb, E, P };
 }
 const href = {
   essay: id => `/entity.html?t=essay&id=${encodeURIComponent(id)}`,
@@ -35,6 +35,33 @@ const href = {
 };
 // 잡지 원문 안내 (build.py JOURNAL_LINKS 와 같게) — 원문 대신 발행처 공식 페이지로 연결
 const VENUE_LINK = { mhs: { url: "https://moonji.com/literatureAndSociety/intro", label: "문학과지성사 『문학과사회』 소개·구독" } };
+// 『창작과비평』은 목차만 싣는다(D.cb = 호 목록 issues_cb.json, 항목은 호 화면에서만 issues_cb_items.json) — 기사·호는 창비 웹진으로 연결
+const CB = { name: "창작과비평", pub: "창작과비평사", item: i => `https://magazine.changbi.com/MCQuarterly/Item/${i}`, list: n => `https://magazine.changbi.com/MCQuarterly/List/${n}` };
+const cbNo = i => i.label === "창간호" ? "창간호" : `${i.no}호`;
+// 글 목록 한 줄의 지면 표기 — 잡지 글은 호 화면으로 잇는다(『문학과사회』 쪽수·난, 『창작과비평』 난)
+const venueLine = e => e.coll === "mhs" ? `<a href="${href.issue(String(e.issue).padStart(3, "0"))}">《문학과사회》 ${e.issue}호</a> · ${esc(e.pages)}면${e.section ? " · " + esc(e.section) : ""}`
+  : e.coll === "cb" ? `<a href="${href.issue("cb" + String(e.issue).padStart(3, "0"))}">《창작과비평》 ${e.issue}호</a>${e.section ? " · " + esc(e.section) : ""}` : esc(e.venue);
+// 『창작과비평』 낱말 검색(2026-11-10) — cb_search.json 한 줄 = [웹진 Item, 호 id, 연도, 표제, 필자, 난, 키워드("|"), 요지]
+// (build_changbi_search.py, 비평·산문 4,558편, 키워드·요지는 검수 통과한 해제가 있는 글만). 띄어쓰기는 무시한다.
+// loose: 문장 질문(통합검색)용 — 낱말마다 조사 떼고 맞은 낱말 수로 순위. 아니면 입력 전체가 한 칸에 들어 있어야 한다.
+const CB_W = [[3, 4], [6, 3], [4, 2], [7, 1], [5, 1]];   // [칸, 가중치]: 표제 > 키워드 > 필자 > 요지·난
+const cbNorm = s => String(s || "").toLowerCase().replace(/\s+/g, "");
+function cbSearch(q, rows, n = 5, loose = false) {
+  if (!rows?.length) return [];
+  rows._n ??= rows.map(r => r.map(cbNorm));
+  const words = loose ? [...new Set(q.split(/[\s,.?!·]+/).map(w => cbNorm(w).replace(/(으로|에서|에게|은|는|이|가|을|를|의|에|로|과|와|도|란|이란)$/, "")).filter(w => w.length >= 2))] : [cbNorm(q)];
+  if (!words.length || !words[0]) return [];
+  const out = [];
+  rows._n.forEach((r, k) => {
+    let sc = 0, hit = 0;
+    for (const w of words) { const m = Math.max(0, ...CB_W.map(([f, wt]) => r[f].includes(w) ? wt : 0)); if (m) { sc += m; hit++; } }
+    if (hit && (loose || hit === words.length)) out.push([hit, sc, rows[k]]);
+  });
+  return out.sort((a, b) => b[0] - a[0] || b[1] - a[1] || (b[2][7] ? 1 : 0) - (a[2][7] ? 1 : 0) || b[2][2] - a[2][2]).slice(0, n).map(x => x[2]);
+}
+// 해제가 있는 글은 이 사이트의 글 화면(entity.html?t=essay&id=cb<Item>)으로, 없는 글은 창비 웹진 기사로
+const cbHref = r => r[7] ? href.essay(`cb${r[0]}`) : CB.item(r[0]);
+const cbMeta = r => `${r[4]} · ${r[2]} · 『창작과비평』 ${r[1].replace(/^cb0*/, "")}호${r[7] ? " · 해제" : " · 창비 웹진"}`;
 const LODN = { "W": "Wikidata", "NLK": "국중 LOD", "한": "민족문화대백과", "한(작품)": "민족문화대백과(작품)", "문학": "현대문학대사전" };
 const lodName = b => LODN[b.label] || b.full || b.label;
 const mainRole = p => p.wrote ? "critic" : (p.discussed >= p.cited ? "writer" : "theorist");
@@ -75,10 +102,11 @@ function globalSearch() {
   const thesisHref = (id, q) => `/study.html?type=thesis&id=${encodeURIComponent(id)}&q=${encodeURIComponent(q.slice(0, 160))}`;
   const loadResearch = () => R ??= fetch("/site/data/research-public.json").then(r => r.json())
     .then(d => d.theses.map(t => ({ id: thesisId(t.riss_url), title: t.title, author: t.author, year: t.year, uni: t.university, advisor: t.advisor })).filter(t => t.id)).catch(() => (R = null, []));
-  inp.addEventListener("focus", async () => { D ??= await db(); loadResearch(); });
+  inp.addEventListener("focus", async () => { D ??= await db(); loadResearch(); load("cb_search").catch(() => []); });
   const render = async (q, g) => {
     const has = s => (s || "").includes(q);
     const ess = D.essays.filter(e => has(e.title)).slice(0, 5);
+    const cbr = cbSearch(q, await load("cb_search").catch(() => []), 5);   // 『창작과비평』 표제·필자·키워드·요지
     const ppl = D.people.filter(p => has(p.name) || has(p.en)).slice(0, 5);
     const con = D.concepts.filter(c => has(c.name)).slice(0, 5);
     const th = (await loadResearch()).filter(t => has(t.title) || has(t.author) || has(t.advisor)).slice(0, 4);   // 제목·저자·지도교수 이름
@@ -88,6 +116,7 @@ function globalSearch() {
     box.innerHTML =
       grp("인물", ppl.map(p => `<a href="${href.person(p.id)}"><span class="dot ${TYPE[mainRole(p)].cls}"></span>${esc(p.name)}<small>${TYPE[mainRole(p)].label}</small></a>`)) +
       grp("글", ess.map(e => `<a href="${href.essay(e.id)}"><span class="dot t-essay"></span>${esc(e.title)}<small>${esc(e.critic_name)} ${e.year}</small></a>`)) +
+      grp("『창작과비평』 글", cbr.map(r => `<a href="${cbHref(r)}"${r[7] ? "" : ' target="_blank" rel="noopener"'}><span class="dot t-essay"></span>${esc(r[3])}<small>${esc(cbMeta(r))}</small></a>`)) +
       grp("개념어", con.map(c => `<a href="${href.concept(c.name)}"><span class="dot t-concept"></span>${esc(c.name)}<small>${c.n}편</small></a>`)) +
       grp("박사논문 (학술연구)", th.map(t => `<a href="${thesisHref(t.id, q)}"><span class="dot t-venue"></span>${esc(t.title)}<small>${esc(t.author)} ${esc(t.year)}${t.advisor ? ' · 지도 ' + esc(t.advisor) : ''}</small></a>`)) +
       grp("학술연구 · 뜻으로 찾은 논문", s.map(t => `<a href="${thesisHref(t.id, q)}"><span class="dot t-venue"></span>${esc(t.title)}<small>${esc(t.author)} ${esc(t.year)}</small></a>`)) +

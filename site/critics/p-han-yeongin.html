@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한영인 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">한영인</span></div>
+      <h1 class="index-heading">한영인</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">14</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">진은영</span> <span class="chip role-writer">김봉곤</span> <span class="chip role-writer">김세희</span> <span class="chip role-writer">이병훈</span> <span class="chip role-writer">장정일</span> <span class="chip role-writer">조해진</span> <span class="chip role-writer">윤고은</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">발터 벤야민 (2)</span> <span class="chip chip-term">한기욱 (2)</span> <span class="chip chip-term">에리히 프롬 (1)</span> <span class="chip chip-term">마르크스 (1)</span> <span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">바흐친 (1)</span> <span class="chip chip-term">미셸 푸코 (1)</span> <span class="chip chip-term">노스럽 프라이 (1)</span> <span class="chip chip-term">강명관 (1)</span> <span class="chip chip-term">김동춘 (1)</span> <span class="chip chip-term">황정아 (1)</span> <span class="chip chip-term">마우리치오 라자라토 (1)</span> <span class="chip chip-term">맹정현 (1)</span> <span class="chip chip-term">지그문트 바우만 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb5086", "label": "세계의 불안을 견디는 두가지 방식", "type": "essay", "year": "2016", "degree": 10}, {"id": "cb5487", "label": "위기 속의 비평과 시의 미학적 윤리", "type": "essay", "year": "2017", "degree": 12}, {"id": "cb5764", "label": "‘뉴노멀’ 시대의 소설", "type": "essay", "year": "2019", "degree": 6}, {"id": "cb5785", "label": "사유 ‧ 정동 ‧ 리얼리즘", "type": "essay", "year": "2019", "degree": 12}, {"id": "cb6153", "label": "‘한류’와 협동적 창조의 가능성", "type": "essay", "year": "2022", "degree": 8}, {"id": "cb6914", "label": "비평적 대화를 수행하는 섬세한 독해의 힘", "type": "essay", "year": "2023", "degree": 3}, {"id": "cb7327", "label": "진정성이라는 대리 물성과 정체성의 딜레마", "type": "essay", "year": "2026", "degree": 9}, {"id": "p-00052", "label": "에리히 프롬", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q57085 http://lod.nl.go.kr/resource/KAC199609424 https://isni.org/isni/0000000121371685 http://viaf.org/viaf/66467430", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609424", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q57085", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Erich Fromm"}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 99, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 80, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00227", "label": "발터 벤야민", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q61078 http://lod.nl.go.kr/resource/KAC199602170 https://isni.org/isni/0000000121010732 http://viaf.org/viaf/46757196", "degree": 55, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602170", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q61078", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Walter Benjamin"}, {"id": "p-bakhtin", "label": "바흐친", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q185375 http://lod.nl.go.kr/resource/KAC199601442 https://isni.org/isni/0000000121029425 http://viaf.org/viaf/88958796", "degree": 38, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601442", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q185375", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Mikhail Bakhtin"}, {"id": "p-chin-eunyoung", "label": "진은영", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12618315 http://lod.nl.go.kr/resource/KAC201012141 https://isni.org/isni/0000000460170407 http://viaf.org/viaf/302144928075454340997", "degree": 25, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201012141", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12618315", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 64, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-frye", "label": "노스럽 프라이", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q354256 http://lod.nl.go.kr/resource/KAC199609447 https://isni.org/isni/0000000121318761 http://viaf.org/viaf/49236705", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609447", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q354256", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Northrop Frye"}, {"id": "p-gang-myeonggwan", "label": "강명관", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q112450776 http://lod.nl.go.kr/resource/KAC201221034 https://isni.org/isni/0000000054445583 http://viaf.org/viaf/4850031", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201221034", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q112450776", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gim-bonggon", "label": "김봉곤", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201810313 https://isni.org/isni/0000000465122324 http://viaf.org/viaf/42153061345719202937", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201810313", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-gim-dongchun", "label": "김동춘", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q21575776 http://lod.nl.go.kr/resource/KAC201232151 https://isni.org/isni/0000000078504779 http://viaf.org/viaf/103661441", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201232151", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q21575776", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gim-sehui", "label": "김세희", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201814856 https://isni.org/isni/0000000467613231 http://viaf.org/viaf/41153409749041581993", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201814856", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-han-giuk", "label": "한기욱", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201114429 https://isni.org/isni/0000000380685822 http://viaf.org/viaf/6871323", "degree": 51, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201114429", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-han-yeongin", "label": "한영인", "type": "critic", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-hwang-jeonga", "label": "황정아", "type": "critic", "ref": "", "degree": 54, "lod": [], "en": ""}, {"id": "p-i-byeonghun", "label": "이병훈", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-jang-jeongil", "label": "장정일", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12614676 http://lod.nl.go.kr/resource/KAC201111578 https://isni.org/isni/0000000082375762 http://viaf.org/viaf/55605527", "degree": 30, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201111578", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12614676", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jo-haejin", "label": "조해진", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q45025266 http://lod.nl.go.kr/resource/KAC201105206 https://isni.org/isni/0000000075989416 http://viaf.org/viaf/106768974", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201105206", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q45025266", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-m-lazzarato", "label": "마우리치오 라자라토", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-maeng-jeonghyeon", "label": "맹정현", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201213089 https://isni.org/isni/0000000463344062 http://viaf.org/viaf/21145375898483681057", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201213089", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-yun-goeun", "label": "윤고은", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q37995040 http://lod.nl.go.kr/resource/KAC201009362 https://isni.org/isni/0000000460164576 http://viaf.org/viaf/450148389508010712533", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009362", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37995040", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-zygmunt-bauman", "label": "지그문트 바우만", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q158092 http://lod.nl.go.kr/resource/KAC200204409 https://isni.org/isni/0000000121327983 http://viaf.org/viaf/51744696", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200204409", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q158092", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "cb5487", "target": "p-han-yeongin", "type": "uses_theory", "weight": 1}, {"source": "cb5785", "target": "p-han-yeongin", "type": "uses_theory", "weight": 1}, {"source": "cb7327", "target": "p-han-yeongin", "type": "uses_theory", "weight": 1}, {"source": "p-han-yeongin", "target": "cb5086", "type": "wrote", "weight": 1}, {"source": "p-han-yeongin", "target": "cb5764", "type": "wrote", "weight": 1}, {"source": "p-han-yeongin", "target": "cb6153", "type": "wrote", "weight": 1}, {"source": "p-han-yeongin", "target": "cb6914", "type": "wrote", "weight": 1}, {"source": "cb5086", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "cb5086", "target": "p-chin-eunyoung", "type": "subject_of", "weight": 1}, {"source": "cb5086", "target": "p-gang-myeonggwan", "type": "uses_theory", "weight": 1}, {"source": "cb5086", "target": "p-gim-dongchun", "type": "uses_theory", "weight": 1}, {"source": "cb5086", "target": "p-han-giuk", "type": "uses_theory", "weight": 1}, {"source": "cb5086", "target": "p-jo-haejin", "type": "subject_of", "weight": 1}, {"source": "cb5086", "target": "p-maeng-jeonghyeon", "type": "uses_theory", "weight": 1}, {"source": "cb5086", "target": "p-yun-goeun", "type": "subject_of", "weight": 1}, {"source": "cb5086", "target": "p-zygmunt-bauman", "type": "uses_theory", "weight": 1}, {"source": "cb5764", "target": "p-00052", "type": "uses_theory", "weight": 1}, {"source": "cb5764", "target": "p-00227", "type": "uses_theory", "weight": 1}, {"source": "cb5764", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "cb5764", "target": "p-gim-bonggon", "type": "subject_of", "weight": 1}, {"source": "cb5764", "target": "p-gim-sehui", "type": "subject_of", "weight": 1}, {"source": "cb6153", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "cb6153", "target": "p-00227", "type": "uses_theory", "weight": 1}, {"source": "cb6153", "target": "p-frye", "type": "uses_theory", "weight": 1}, {"source": "cb6153", "target": "p-han-giuk", "type": "uses_theory", "weight": 1}, {"source": "cb6153", "target": "p-hwang-jeonga", "type": "uses_theory", "weight": 1}, {"source": "cb6153", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "cb6153", "target": "p-m-lazzarato", "type": "uses_theory", "weight": 1}, {"source": "cb6914", "target": "p-bakhtin", "type": "uses_theory", "weight": 1}, {"source": "cb6914", "target": "p-i-byeonghun", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (4편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2016</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5086.html">세계의 불안을 견디는 두가지 방식</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 172호, 창비, 2016</p>
+        <div class="essay-card-tags"><span class="tag">진은영</span> <span class="tag">조해진</span> <span class="tag">윤고은</span><span class="tag">마르크스</span> <span class="tag">강명관</span> <span class="tag">김동춘</span> <span class="tag">한기욱</span> <span class="tag">맹정현</span> <span class="tag">지그문트 바우만</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2019</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5764.html">‘뉴노멀’ 시대의 소설</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 185호, 창비, 2019</p>
+        <div class="essay-card-tags"><span class="tag">김봉곤</span> <span class="tag">김세희</span><span class="tag">에리히 프롬</span> <span class="tag">발터 벤야민</span> <span class="tag">미셸 푸코</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2022</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6153.html">‘한류’와 협동적 창조의 가능성</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 195호, 창비, 2022</p>
+        <div class="essay-card-tags"><span class="tag">장정일</span><span class="tag">니체</span> <span class="tag">발터 벤야민</span> <span class="tag">노스럽 프라이</span> <span class="tag">한기욱</span> <span class="tag">황정아</span> <span class="tag">마우리치오 라자라토</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2023</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6914.html">비평적 대화를 수행하는 섬세한 독해의 힘</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 202호, 창비, 2023</p>
+        <div class="essay-card-tags"><span class="tag">이병훈</span><span class="tag">바흐친</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

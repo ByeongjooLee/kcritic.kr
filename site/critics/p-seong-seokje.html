@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성석제 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">성석제</span></div>
+      <h1 class="index-heading">성석제</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">윌리엄 셰익스피어</span> <span class="chip role-writer">홍명희</span> <span class="chip role-writer">미하일 숄로호프</span> <span class="chip role-writer">성석제</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">이우성 (1)</span> <span class="chip chip-term">임형택 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2669", "label": "박완서 박범신 성석제 소설", "type": "essay", "year": "2001", "degree": 5}, {"id": "cb3083", "label": "성석제 소설집 『황만근은 이렇게 말했다』", "type": "essay", "year": "2003", "degree": 6}, {"id": "cb3199", "label": "권지예 소설집 『폭소』", "type": "essay", "year": "2003", "degree": 4}, {"id": "cb5085", "label": "리얼리티 재장전", "type": "essay", "year": "2016", "degree": 11}, {"id": "cb5337", "label": "너머의 퀴어", "type": "essay", "year": "2017", "degree": 11}, {"id": "cb5588", "label": "이우성·임형택 편역 『이조한문단편집』", "type": "essay", "year": "2018", "degree": 3}, {"id": "jeong-gwari_seong-seokje-holim_1999", "label": "누가 웃나, 그리고 그녀는 왜 우나? — 성석제의 『홀림』에 대하여", "type": "essay", "year": "1999", "degree": 13}, {"id": "p-00196", "label": "셰익스피어", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q692 http://lod.nl.go.kr/resource/KAC200000024 https://isni.org/isni/0000000121032683 http://viaf.org/viaf/96994048", "degree": 35, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200000024", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q692", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Shakespeare"}, {"id": "p-hong-myeonghui", "label": "벽초", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q624491 https://encykorea.aks.ac.kr/Article/E0064074 http://lod.nl.go.kr/resource/KAC200103410 https://isni.org/isni/0000000364564334 http://viaf.org/viaf/229050031", "degree": 10, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0064074", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200103410", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624491", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-useong", "label": "이우성", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-im-hyeongtaek", "label": "임형택", "type": "critic", "ref": "", "degree": 19, "lod": [], "en": ""}, {"id": "p-mikhail-sholokhov", "label": "미하일 숄로호프", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seong-seokje", "label": "성석제", "type": "critic", "ref": "", "degree": 11, "lod": [], "en": ""}, {"id": "park-hyekyung_novel-subject-crisis_1998", "label": "소설이 주체의 위기를 살아내는 방식 — 90년대의 소설을 위한 밑그림", "type": "essay", "year": "1998", "degree": 14}, {"id": "seong-seokje_my-literary-journey_1999", "label": "‘나’의 문학적 편력", "type": "essay", "year": "1999", "degree": 5}, {"id": "woo-chanje_korean-novel-pain-enjoyment_1999", "label": "한국 소설의 고통과 향유", "type": "essay", "year": "1999", "degree": 94}], "edges": [{"source": "cb2669", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "cb3083", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "cb3199", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "cb5085", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "cb5337", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_seong-seokje-holim_1999", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "p-seong-seokje", "target": "cb5588", "type": "wrote", "weight": 1}, {"source": "p-seong-seokje", "target": "seong-seokje_my-literary-journey_1999", "type": "wrote", "weight": 1}, {"source": "park-hyekyung_novel-subject-crisis_1998", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "seong-seokje_my-literary-journey_1999", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "woo-chanje_korean-novel-pain-enjoyment_1999", "target": "p-seong-seokje", "type": "subject_of", "weight": 1}, {"source": "cb5588", "target": "p-i-useong", "type": "uses_theory", "weight": 1}, {"source": "cb5588", "target": "p-im-hyeongtaek", "type": "uses_theory", "weight": 1}, {"source": "seong-seokje_my-literary-journey_1999", "target": "p-00196", "type": "subject_of", "weight": 1}, {"source": "seong-seokje_my-literary-journey_1999", "target": "p-hong-myeonghui", "type": "subject_of", "weight": 1}, {"source": "seong-seokje_my-literary-journey_1999", "target": "p-mikhail-sholokhov", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">1999</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/seong-seokje_my-literary-journey_1999.html">‘나’의 문학적 편력</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 48호, 문학과지성사, 1999</p>
+        <div class="essay-card-tags"><span class="tag">윌리엄 셰익스피어</span> <span class="tag">홍명희</span> <span class="tag">미하일 숄로호프</span> <span class="tag">성석제</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2018</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5588.html">이우성·임형택 편역 『이조한문단편집』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 180호, 창비, 2018</p>
+        <div class="essay-card-tags"><span class="tag">이우성</span> <span class="tag">임형택</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

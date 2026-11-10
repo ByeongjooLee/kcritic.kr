@@ -2,17 +2,17 @@
 
 AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로운 결정이 생기면 즉시 이 파일을 업데이트할 것.
 
-**현재 상태 (2026-10-22 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
+**현재 상태 (2026-11-08 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
 
 | 항목 | 값 |
 |---|---|
-| 수록 비평가 | 74인 — 전집 기반 4인(김현 136편·유종호 114편·김우창 109편·황현산 11편) + 『문학과사회』 1–13호(1988–1991) 필자 118편 |
-| 수록 비평글 | 488편 (`essays/*.xml`) — 전집 370 + 『문학과사회』 118 (작업 폴더 `../문학과사회/`, 반영 스크립트 `../문학과사회/site_prep/`) |
-| 관계망 | 노드 1,944 / 엣지 5,455 · graph.ttl 27,026 트리플 · `_redirects` 1,944줄(한도 2,000 근접) |
-| 노드 구성 | theorist 840 · writer 542 · essay 488 · critic 74 |
-| 엣지 구성 | uses_theory 2,573 · subject_of 2,394 · wrote 488 |
-| 목록 데이터 | writers.json 588 · thinkers.json 878 · concepts.json 4,532(공개 519) |
-| 인물 권위 목록 | persons.json 1,636명 — Wikidata 1,040 · NLK 967 (2026-09-30 전수 판정 + 2026-10-22 『문학과사회』 498명 추가: NLK 스냅샷 이름·생년·분야 일치만 연결) |
+| 수록 비평가 | 1,029인 — 전집 기반 4인(김현 136편·유종호 114편·김우창 109편·황현산 11편) + 『문학과사회』 1–55호(1988–2001) 필자 189명 461편 + 『창작과비평』 107–213호(2000–2026) 검수 해제 1,729편의 필자 (2026-11-10) |
+| 수록 비평글 | 2,560편 (`essays/*.xml`) — 전집 370 + 『문학과사회』 461 (작업 폴더 `../문학과사회/`, 반영 스크립트 `../문학과사회/site_prep/`) + 『창작과비평』 1,729 (본문 없는 메타데이터 XML `essays/cb<Item>.xml`, `../문학과사회/changbi_corpus/site_prep/publish_cb.py`) |
+| 관계망 | 노드 6,843 / 엣지 15,783 · graph.ttl 88,672 트리플 · `_redirects` 1,997줄(인물 정적 1,995 + 동적 2) |
+| 노드 구성 | essay 2,560 · theorist 2,043 · writer 1,212 · critic 1,028 |
+| 엣지 구성 | uses_theory 7,363 · subject_of 5,856 · wrote 2,560 |
+| 목록 데이터 | writers.json 1,388 · thinkers.json 2,387 · concepts.json 13,033(공개 2,328) |
+| 인물 권위 목록 | persons.json 4,846명 — Wikidata 1,125 · NLK 1,172 (2026-09-30 전수 판정 + 『문학과사회』 2026-10-22 498명·10-25 172명·11-08 1,049명 추가: NLK 스냅샷 이름·생년·분야 일치만 연결, 11-08 묶음은 전거 비움) · 『창작과비평』 2026-11-10 2,049명 추가(해제 작업의 인물 설명으로 유형 자동 판정, 같은 이름 1명이면 기존 인물로 연결, 전거 비움) · 같은 날 국중 Person 덤프(Person_json_20261008)·Open API 로 창비 새 인물 2,049명 대조: 확정 1,105(국중 서지 제어번호 일치 768), 같은 사람 56묶음 합침, 미확정 430·없음 514(`../문학과사회/changbi_corpus/site_prep/nlk_cb_judged_20261110.tsv`) |
 | 공식 온톨로지 | **v8** (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
 
 ---
@@ -153,12 +153,12 @@ critic-ontology/
 - **주 메뉴(모든 페이지 동일)**: 글 찾기 · 글 · 인물 · 개념어 · 지면 · 관계망 · 질문하기 · 소개. 예전 페이지(critics/writers/thinkers/concepts/research/criticism/evaluate/contribute/about/ask/sparql/admin/list, site/graph.html, build.py 템플릿 4곳)의 `<nav class="site-nav">` 도 이 8개로 맞췄다. 태도 평가·선행연구·2000년대 비평·기여하기는 2판 바닥글에서 연결
 - 2판 페이지는 '비평글' 대신 **'글'** 이라고 부른다 (좌담·심사평 등 비평 외 글도 포함하므로)
 - **잡지 원문 안내**: 원문을 제공하지 않는 대신 발행처 공식 페이지로 연결한다. 『문학과사회』 → https://moonji.com/literatureAndSociety/intro (문학과지성사 소개·구독, 호별 과월호 목록은 없음). 등록은 build.py `JOURNAL_LINKS`(현행 글 페이지 출처 칸·안내문)와 kc.js `VENUE_LINK`(2판 글·호 페이지) 두 곳을 같게
-- 데이터: `site/data/v2/{essays,people,concepts,issues}.json` ← `py build_site_v2.py` (build.py 다음). 호별 목차는 `../문학과사회/encode_ledger.json` 이 있을 때 다시 만든다
+- 데이터: `site/data/v2/{essays,people,concepts,issues}.json` ← `py build_site_v2.py` (build.py 다음). 호별 목차는 `../문학과사회/encode_ledger.json` 이 있을 때 다시 만든다. 『창작과비평』 목차(목차만, 본문·요약 없음)는 `site/data/v2/issues_cb.json`(호 목록)·`issues_cb_items.json`(호별 항목) ← `py build_changbi_toc.py`(입력 `../문학과사회/changbi_corpus/data/{issues,toc}.jsonl`·`summary/plan.json` 의 창작 판정, 입력이 없으면 기존 파일 유지). 지면 화면 `explore.html?p=venues&mag=cb`, 호 화면 `entity.html?t=issue&id=cb001`(기사는 창비 웹진 Item 으로 연결). 검수 통과 해제·주장은 `changbi_summaries.json`(글 화면 `entity.html?t=essay&id=cb<Item>` — 『문학과사회』 글 화면과 같은 틀: 요지·해제·해제 키워드·주장·근거·키워드 공유 글·같은 호 해제, 원문은 창비 웹진. 호 화면 목차는 해제 있는 글을 이 화면으로 연결), 낱말 검색 색인은 `site/data/v2/cb_search.json` ← `build_changbi_search.py`(두 창비 빌더가 끝에 부름; 비평·산문 한 줄 = Item·호·연도·표제·필자·난·키워드·요지) — 상단 검색(kc.js `cbSearch`·kc-shell.js)·현장비평 글 찾기(`explore.html` 「『창작과비평』에서 찾은 글」)·통합검색(search.js — 현장비평 칸 한 목록에 인코딩 비평 뜻 검색 결과와 창비 낱말 검색 결과(문장은 낱말로 나눠 맞은 수순)를 번갈아 놓고 줄마다 지면 표기)이 읽는다(2026-11-10). 「글」 탭·첫 화면·소개의 글 수에는 검수 해제 글(kc.js `cbEssays()`, 컬렉션 `cb`, 필자 id `cb:이름`, 키워드는 `kw` 패싯)을 더하되 인물·개념어·관계망에는 넣지 않는다
 
 ### 글 찾기 (2026-10-22)
 작업도구/추천 「읽을 글 찾기」 2판을 kcritic 글에 옮긴 것. **DeepSeek(질문 해석·재순위)은 쓰지 않는다**(연구자 결정).
 - 점수 = 뜻 0.62 + 낱말 0.23 + 인물 관계 0.15. 뜻 = bge-m3 글 전체 0.55 + 칸별(제목·개념어·인물) 최고 0.45. 낱말 = 개념어·인물 정확 일치(idf)·부분 일치·글자 2-gram BM25·**본문 희귀어**(Worker 조회)·드문 말 가산. 인물 관계 = 질문 속 인물이 쓴/다룬/인용한 글(「~가 쓴」「~를 인용한」「~론」 규칙)
-- 구성: 브라우저(`kc-find.js`)가 공개 벡터 `site/data/find/{vec.bin,vocab.bin,meta.json}`(int8, 약 4MB)로 계산. `/api/find`(Worker `worker/index.js`)는 Workers AI `@cf/baai/bge-m3` 질문 벡터 + 비공개 본문 희귀어 조각(`worker/private/bodylex/*.txt` 256개, FNV-1a)만 돌려준다. Worker CPU 를 거의 쓰지 않아 무료 한도(10ms) 안
+- 구성: 브라우저(`kc-find.js`)가 공개 벡터 `site/data/find/{vec.bin,vocab.bin,meta.json}`(int8, 약 15MB — 2026-11-10 글 2,560편·어휘는 개념어·인물 2편 이상; 『창작과비평』은 글 전체 벡터에 공개 해제를 더하고 본문 희귀어 색인도 해제에서 만들며 원문은 쓰지 않음, 희귀어 색인은 줄기 형태만 실어 Worker 번들을 무료 한도 안으로)로 계산. `/api/find`(Worker `worker/index.js`)는 Workers AI `@cf/baai/bge-m3` 질문 벡터 + 비공개 본문 희귀어 조각(`worker/private/bodylex/*.txt` 256개, FNV-1a)만 돌려준다. Worker CPU 를 거의 쓰지 않아 무료 한도(10ms) 안
 - 색인 다시 만들기(글이 바뀌면): `py build.py` → `py build_site_v2.py` → `<ocr_train venv python> -X utf8 find/build_find.py`(GPU, 1분). 벡터와 essays.json 순서가 어긋나도 id 로 맞추며, 벡터 없는 글은 낱말·관계로만 찾힌다
 - 평가: 정답 정해진 질문 46개(`../site_proto/v2/find/eval_set.json`). 운영 구성 MRR 메타 0.903 / 본문 0.852 (로컬 GPU 서버판은 본문 구간 벡터까지 써서 0.903 / 0.938, 1판 0.933 / 0.293). Node 대조: `node ../site_proto/v2/find/node_parity.js`
 - 시안·로컬 서버판·평가 도구는 저장소 밖 `../site_proto/v2/` 에 있다
@@ -567,7 +567,7 @@ py build.py → py build_site_v2.py → git push → npx wrangler deploy   (.\de
 
 ### 개체 IRI 역참조 (`_redirects`)
 
-graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다. 인물은 한 줄씩, 비평글은 `/resource/essay/* /site/essays/:splat 303` 한 줄(2026-10-25, 현재 1,616줄). Cloudflare 정적 리다이렉트 한도는 2,000줄 — 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
+graph.ttl 의 개체 IRI(`kc:` = `https://kcritic.kr/resource/{id}`, `kce:` = `…/resource/essay/{stem}`)와 인물의 `schema:url` 은 실제 파일이 없는 주소다. `build.py` 가 루트 `_redirects` 를 생성해 이 주소를 프로필·비평문 페이지로 **303** 리다이렉트한다. 인물은 한 줄씩, 비평글은 `/resource/essay/* /site/essays/:splat 303` 한 줄(2026-10-25). Cloudflare 한도는 정적 2,000 + 동적 100 — 2026-11-08 인물이 2,288명이 되어 정적 줄을 1,995명(이미 정적 줄이 있던 인물 → 비평가 → 작가 → 이론가, 각각 글 수 많은 순)으로 자르고, 나머지는 맨 끝 동적 규칙 `/resource/* /entity.html?t=person&id=:splat 303` 이 2판 개체 화면으로 보낸다(현재 1,997줄). 정적 줄이 2,000을 넘으면 빌드 로그에 경고가 뜬다. 손으로 고치지 말 것. 검증: `curl -sI https://kcritic.kr/resource/p-00078` 이 303.
 
 ### not_found_handling
 
@@ -961,12 +961,19 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 ### 진행 중 (잡지 확장 — 『문학과사회』)
 - 2026-10-22: 1–13호(1988–1991) 비평 118편 공개. 원본 초안·OCR·기사 분할·인코딩 대장은 `../문학과사회/` (README 참조)
 - 2026-10-25: 14–28호(1991–1994) 101편 추가 공개 → 비평글 589 · 비평가 109 · 노드 2,203 · 엣지 6,377. 반영은 `publish_mhs.py --batch 20261025`(README §6-1). 좌담·심사평은 별도 컬렉션(`../문학과사회/site_prep/jwadam_simsa_collection.tsv`), 편집 동인·발행처 명의 글과 번역 글은 제외. 인물 전거 보강 지침 `../문학과사회/site_prep/NLK_ENRICH_GUIDE.md`
+- 2026-11-08: 29–55호(1995–2001) 242편 추가 → 비평글 831 · 비평가 191 · 노드 3,119 · 엣지 9,251 · 트리플 44,072. 반영은 `../문학과사회/site_prep/publish_mhs_20261108.py`(대상 `pending_stems_20261108.txt` 363편, 제외 121편 `exclude_20261108.tsv` — 단체 명의 93·복수 저자 26·번역 2, 10-25 와 같은 규칙) → `py build.py` → `py build_site_v2.py --max-issue 055`(56호 인코딩 중이라 호 목차는 55호까지) → `PYTHONHASHSEED=0 py build_graph_metrics.py` → `make_cards.py --stems site_prep/published_stems.pending_20261108.txt`. 새 인물 1,049명은 NLK 자동 대조 없이 전거를 비워 등록(보강은 따로). 기록 `../문학과사회/site_prep/report_20261108.md`
 - 반영 절차: `../문학과사회/site_prep/census.py`(점검) → `publish_mhs.py --apply`(개념어 통일·persons.json 등록·XML 복사) → `py build.py` → `make_cards.py`(index.html 카드 섹션 `MHS-START`~`MHS-END` 자동 생성)
 - 심사평(복수 심사위원)은 build.py 가 titleStmt 첫 저자만 비평가로 잡아 오귀속되므로 **사이트에서 제외**(작업 폴더에만 있음). 복수 저자 지원은 미구현
 - 역할이 `critic` 뿐인 언급 인물(다른 비평가를 논하는 경우)은 build.py 분류상 관계망 엣지가 생기지 않는다. 비평가 간 논쟁 관계는 `critic:respondsTo` 구현과 함께 다룰 것
 - 이 확장으로 사이트 수치는 논문(4인 370편) 시점과 달라졌다. 논문 수치 재현은 그 시점 스냅샷 기준
 - 수록지면(2026-10-22): 『문학과사회』 XML 의 sourceDesc 는 가이드 §2-1 의 `<biblStruct type="journal">` 구조다 — analytic=비평글, monogr=`문학과사회`·문학과지성사·발행 계절 + `biblScope unit="issue"`·`unit="page"`, 비고 note 는 biblStruct 안. 변환은 `../문학과사회/site_prep/convert_sourcedesc.py`(이미 바뀐 파일은 건너뜀). 스키마는 monogr/author 선택화·`biblScope`·biblStruct/`note` 를 추가한 상위호환
 - build.py 수정(2026-10-22): biblStruct 의 호수·쪽·비고를 읽어 비평글 페이지에 표시하고, 프로필 카드 출처 줄(`_source_short`)은 비평글 제목이 아니라 수록지면(수록 단행본 → 비고의 《잡지》)을 쓴다. critics.json 은 글 수 내림차순(동수는 이름순)
+
+### 진행 중 (잡지 확장 — 『창작과비평』)
+- **반영 지침·기록의 정본은 `../문학과사회/changbi_corpus/site_prep/SITE_GUIDE.md`**(2026-11-09 제정, 『문학과사회』 site_prep 관례를 옮김). 날짜별 `report_*`·`exclude_*`·`commit_message_*`·`verbatim_*` 도 그 폴더에 둔다. 점검 `python -X utf8 site_prep/check_public.py [--summaries]`(changbi_corpus 에서)
+- **코퍼스는 비공개**: `changbi_corpus` 는 원격 없는 로컬 git — 원격 생성·push 금지, `data/`·`ocr/`(웹진 본문·웹북 OCR) 커밋 금지. 사이트에는 원문 문장을 싣지 않고 창비 웹진 기사로 연결. §1 원문 공개 예외 셋은 창비에 적용하지 않음
+- 공개 층: ① 목차(213호 7,401항목·비평·산문 4,558, `build_changbi_toc.py`) ② 해제·요지·키워드 ③ 주장·근거 — 본문 대조 검수 통과 1,748편(`changbi_summaries.json`, `build_changbi_reviewed.py`) ④ 인물·개념어 관계(2026-11-10, 연구자 "제대로 진행"): 검수 통과 글의 필자·인물(관계 대상·근거·인용·비판·옹호, '언급' 제외)·해제 키워드를 `publish_cb.py` 가 본문 없는 메타데이터 XML `essays/cb<Item>.xml` 로 옮겨 build.py 가 다른 컬렉션과 똑같이 처리(1,729편; 필자가 동명이인 보류인 19편 제외). 인물 대조는 `cb_persons.py`(같은 이름 1명 → 기존 id, 없으면 새 id·전거 비움, 같은 이름 2명 이상·알려진 동명이인 → 보류, 유형 '기타'는 관계망 밖이라 등록 안 함), 관계 검수는 이름이 본문에 있는지 자동 확인만(99.6%). 기록·판정표는 `../문학과사회/changbi_corpus/site_prep/`(report_20261110_persons.md · cb_persons_20261110.tsv · exclude_cb_20261110.tsv). 창비 글 화면은 entity.html 의 `cb<Item>` 갈래(해제 + 관계)
+- 배포는 연구자 지시 때만 `git push origin main` + `npx wrangler deploy --config <이 폴더>/wrangler.jsonc`(deploy.ps1·`git add -A` 쓰지 않음 — `--max-issue` 없는 빌드와 .bak 커밋)
 
 ### 진행 중 (Phase 2 — 개념어 계층)
 - 현황: 370편 중 **61편에 `<taxonomy>` 선언이 이미 들어가 있으나 build.py가 읽지 않는다** (§12 금지 패턴 항목 참조)

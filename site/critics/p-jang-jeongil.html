@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장정일 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q12614676" target="_blank" class="chip role-critic chip-linked">장정일 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">장정일</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201111578" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q12614676" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000082375762" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/55605527" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">후루이 요시키치</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">정병호 (1)</span> <span class="chip chip-term">수전 손택 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2873", "label": "모더니즘에 대한 오해에 맞서서", "type": "essay", "year": "2002", "degree": 11}, {"id": "cb4881", "label": "후루이 요시끼찌 『요오꼬‧아내와의 칩거』", "type": "essay", "year": "2014", "degree": 4}, {"id": "cb5087", "label": "‘헬조선’에서 ‘탈조선’을 꿈꾼다는 것", "type": "essay", "year": "2016", "degree": 9}, {"id": "cb5440", "label": "비평의 질문은 어떻게 귀환하는가", "type": "essay", "year": "2015", "degree": 8}, {"id": "cb6153", "label": "‘한류’와 협동적 창조의 가능성", "type": "essay", "year": "2022", "degree": 8}, {"id": "choe-ikhyeon_new-paperbacks_1997", "label": "새로운 문고본의 출현, 즐거운 앎 혹은 전유로부터의 일탈", "type": "essay", "year": "1997", "degree": 24}, {"id": "choe-mungyu_art-autonomy-limits-possibilities_2001", "label": "예술의 자율성, 그 한계와 가능성", "type": "essay", "year": "2001", "degree": 25}, {"id": "hong-jeongseon_literary-signs-of-the-1990s_1992", "label": "90년대의 문학적 징후에 대한 몇 가지 단상", "type": "essay", "year": "1992", "degree": 7}, {"id": "hong-junhyeong_freedom-of-expression-legal-limits_1997", "label": "표현의 자유와 법적 규제의 한계", "type": "essay", "year": "1997", "degree": 12}, {"id": "hwang-jongyeon_a-context-of-bildungsroman_1996", "label": "성장소설의 한 맥락 — 편모슬하, 혹은 성장의 고행", "type": "essay", "year": "1996", "degree": 11}, {"id": "jang-hyeondong_five-names-of-vanishing-poetry_1995", "label": "죽음, 추락, 부패, 탁탁 혹은 톡톡, 섹스, 사라져가는 시의 다섯 가지 이름", "type": "essay", "year": "1995", "degree": 18}, {"id": "jeong-gwari_gi-hyeongdo-collected-works_1999", "label": "죽음 옆의 삶, 삶 안의 죽음 — 『기형도 전집』에 부쳐", "type": "essay", "year": "1999", "degree": 18}, {"id": "kim-byeongik_memory-of-pain-and-creative-pain_1992", "label": "고통에의 기억과 창조에의 고통 — 이순원과 장정일의 성장소설", "type": "essay", "year": "1992", "degree": 11}, {"id": "kim-byeongik_new-generation-life-literature_1995", "label": "신세대와 새로운 삶의 양식, 그리고 문학", "type": "essay", "year": "1995", "degree": 35}, {"id": "kim-byeongik_young-criticism-1990s_1993", "label": "90년대 젊은 비평의 새로운 양상", "type": "essay", "year": "1993", "degree": 8}, {"id": "kim-byungik_fate-of-literature-capital-science_1997", "label": "자본-과학 복합체 시대에서의 문학의 운명", "type": "essay", "year": "1997", "degree": 14}, {"id": "kim-dongsik_tympan-subculture-wanderings_2000", "label": "비평가 tympan 씨의 하위 문화 만유기(漫遊記)", "type": "essay", "year": "2000", "degree": 11}, {"id": "kim-jiyeong_irony-fictional-affect-and-mode_1993", "label": "어떤 아이러니—허구의 정서, 허구의 방식", "type": "essay", "year": "1993", "degree": 6}, {"id": "kim-juyeon_collapse-of-sexual-mores-perspectivism_1997", "label": "성관습의 붕괴와 원근법주의 — 세기말의 젊은 소설가들", "type": "essay", "year": "1997", "degree": 9}, {"id": "kim-taehwan_kim-juyeon-kim-inhwan_2001", "label": "신학적 비평과 문학의 사회사 — 김주연·김인환론", "type": "essay", "year": "2001", "degree": 24}, {"id": "kwon-oryong_kim-juyeon-fake-truth_1998", "label": "전환의 모색, 그리고 그 모호함 — 김주연 평론집 『가짜의 진실, 그 환상』", "type": "essay", "year": "1998", "degree": 12}, {"id": "lee-seonguk_literature-and-kitsch_1998", "label": "문학과 키치", "type": "essay", "year": "1998", "degree": 22}, {"id": "min-hyeongi_bird-taxi-distance_1988", "label": "‘새’와 ‘택시’의 시적 거리", "type": "essay", "year": "1988", "degree": 5}, {"id": "oh-hyeongyeop_subversive-imagination-poetics_1998", "label": "전복적 상상력, 탈주체의 시적 전략 — 서정학·이철성·성기완의 첫 시집", "type": "essay", "year": "1998", "degree": 11}, {"id": "p-hurui-yosikichi", "label": "후루이 요시키치", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q2500054 http://lod.nl.go.kr/resource/KAC200202802 https://isni.org/isni/0000000109318574 http://viaf.org/viaf/108729082", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200202802", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q2500054", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jang-jeongil", "label": "장정일", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12614676 http://lod.nl.go.kr/resource/KAC201111578 https://isni.org/isni/0000000082375762 http://viaf.org/viaf/55605527", "degree": 30, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201111578", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12614676", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-byeongho", "label": "정병호", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201310900 https://isni.org/isni/0000000005727816 http://viaf.org/viaf/56043532", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201310900", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-susan-sontag-2", "label": "수전 손택", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q152824 http://lod.nl.go.kr/resource/KAC199625960 https://isni.org/isni/0000000121037046 http://viaf.org/viaf/108171730", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199625960", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q152824", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "park-cheolhwa_fight-with-guilt_1991", "label": "죄의식과의 싸움 — 새로운 세대를 이해하기 위하여", "type": "essay", "year": "1991", "degree": 10}, {"id": "park-hyekyung_between-poem-and-poem_1996", "label": "시와 시, 그 소통과 대화의 사잇길", "type": "essay", "year": "1996", "degree": 27}, {"id": "park-hyekyung_novel-subject-crisis_1998", "label": "소설이 주체의 위기를 살아내는 방식 — 90년대의 소설을 위한 밑그림", "type": "essay", "year": "1998", "degree": 14}, {"id": "sin-sujeong_television-kid-play_1997", "label": "텔레비전 키드의 유희", "type": "essay", "year": "1997", "degree": 13}, {"id": "woo-chanje_ominous-desire_1991", "label": "그토록 불길한 욕망 — 소비 사회의 구조와 욕망의 풍경", "type": "essay", "year": "1991", "degree": 12}, {"id": "yi-jaehyeon_do-the-right-thing-style-of-abuse_1997", "label": "Do the Right Thing — 욕설의 문체를 통한 역설의 진술", "type": "essay", "year": "1997", "degree": 13}], "edges": [{"source": "cb2873", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "cb5087", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "cb5440", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "cb6153", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "choe-ikhyeon_new-paperbacks_1997", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "choe-mungyu_art-autonomy-limits-possibilities_2001", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "hong-jeongseon_literary-signs-of-the-1990s_1992", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "hong-junhyeong_freedom-of-expression-legal-limits_1997", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "hwang-jongyeon_a-context-of-bildungsroman_1996", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "jang-hyeondong_five-names-of-vanishing-poetry_1995", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_gi-hyeongdo-collected-works_1999", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_memory-of-pain-and-creative-pain_1992", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_new-generation-life-literature_1995", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_young-criticism-1990s_1993", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-byungik_fate-of-literature-capital-science_1997", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-dongsik_tympan-subculture-wanderings_2000", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-jiyeong_irony-fictional-affect-and-mode_1993", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_collapse-of-sexual-mores-perspectivism_1997", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kim-taehwan_kim-juyeon-kim-inhwan_2001", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "kwon-oryong_kim-juyeon-fake-truth_1998", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "lee-seonguk_literature-and-kitsch_1998", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "min-hyeongi_bird-taxi-distance_1988", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "oh-hyeongyeop_subversive-imagination-poetics_1998", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "p-jang-jeongil", "target": "cb4881", "type": "wrote", "weight": 1}, {"source": "park-cheolhwa_fight-with-guilt_1991", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "park-hyekyung_between-poem-and-poem_1996", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "park-hyekyung_novel-subject-crisis_1998", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "sin-sujeong_television-kid-play_1997", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "woo-chanje_ominous-desire_1991", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "yi-jaehyeon_do-the-right-thing-style-of-abuse_1997", "target": "p-jang-jeongil", "type": "subject_of", "weight": 1}, {"source": "cb4881", "target": "p-hurui-yosikichi", "type": "subject_of", "weight": 1}, {"source": "cb4881", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "cb4881", "target": "p-susan-sontag-2", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2014</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4881.html">후루이 요시끼찌 『요오꼬‧아내와의 칩거』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 163호, 창비, 2014</p>
+        <div class="essay-card-tags"><span class="tag">후루이 요시키치</span><span class="tag">정병호</span> <span class="tag">수전 손택</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

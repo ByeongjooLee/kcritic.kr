@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>권영빈 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">권영빈</span></div>
+      <h1 class="index-heading">권영빈</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">박솔뫼</span> <span class="chip role-writer">최진영</span> <span class="chip role-writer">김초엽</span> <span class="chip role-writer">이희주</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">T. S. 엘리엇 (1)</span> <span class="chip chip-term">장 아메리 (1)</span> <span class="chip chip-term">세리자와 슌스케 (1)</span> <span class="chip chip-term">장켈레비치 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb6819", "label": "죽음보다 명백한 것, 비평보다 확실한 것: 최진영이 쓴 비규범적 조의의 방식, 『구의 증명』", "type": "essay", "year": "2023", "degree": 6}, {"id": "cb7288", "label": "느끼고 아는 존재들", "type": "essay", "year": "2025", "degree": 4}, {"id": "p-00045", "label": "T. S. 엘리엇", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q37767 http://lod.nl.go.kr/resource/KAC199608019 https://isni.org/isni/0000000121339888 http://viaf.org/viaf/56609282", "degree": 47, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199608019", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37767", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "T. S. Eliot"}, {"id": "p-bak-solmoe", "label": "박솔뫼", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q42954404 http://lod.nl.go.kr/resource/KAC201115573 https://isni.org/isni/0000000107361667 http://viaf.org/viaf/160037277", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201115573", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q42954404", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-choe-jinyeong", "label": "최진영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q47541802 http://lod.nl.go.kr/resource/KAC201009364 https://isni.org/isni/0000000460166053 http://viaf.org/viaf/302144928079954341429", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009364", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q47541802", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gim-choyeop", "label": "김초엽", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q86980997 http://lod.nl.go.kr/resource/KAC201810458 https://isni.org/isni/0000000467761867 http://viaf.org/viaf/122153409672841580383", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201810458", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q86980997", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gwon-yeongbin", "label": "권영빈", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-i-huiju", "label": "이희주", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q139181766 http://lod.nl.go.kr/resource/KAC201618109 https://isni.org/isni/0000000477549595 http://viaf.org/viaf/394148995814059750663", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201618109", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q139181766", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jean-am-ry", "label": "장 아메리", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q15969 http://lod.nl.go.kr/resource/KAC201001505 https://isni.org/isni/0000000122790881 http://viaf.org/viaf/44315657", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201001505", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q15969", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-serijawa-syunseuke", "label": "세리자와 슌스케", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-v-jank-l-vitch", "label": "장켈레비치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-gwon-yeongbin", "target": "cb6819", "type": "wrote", "weight": 1}, {"source": "p-gwon-yeongbin", "target": "cb7288", "type": "wrote", "weight": 1}, {"source": "cb6819", "target": "p-00045", "type": "uses_theory", "weight": 1}, {"source": "cb6819", "target": "p-choe-jinyeong", "type": "subject_of", "weight": 1}, {"source": "cb6819", "target": "p-jean-am-ry", "type": "uses_theory", "weight": 1}, {"source": "cb6819", "target": "p-serijawa-syunseuke", "type": "uses_theory", "weight": 1}, {"source": "cb6819", "target": "p-v-jank-l-vitch", "type": "uses_theory", "weight": 1}, {"source": "cb7288", "target": "p-bak-solmoe", "type": "subject_of", "weight": 1}, {"source": "cb7288", "target": "p-gim-choyeop", "type": "subject_of", "weight": 1}, {"source": "cb7288", "target": "p-i-huiju", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2023</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6819.html">죽음보다 명백한 것, 비평보다 확실한 것: 최진영이 쓴 비규범적 조의의 방식, 『구의 증명』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 201호, 창비, 2023</p>
+        <div class="essay-card-tags"><span class="tag">최진영</span><span class="tag">T. S. 엘리엇</span> <span class="tag">장 아메리</span> <span class="tag">세리자와 슌스케</span> <span class="tag">장켈레비치</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2025</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb7288.html">느끼고 아는 존재들</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 210호, 창비, 2025</p>
+        <div class="essay-card-tags"><span class="tag">박솔뫼</span> <span class="tag">김초엽</span> <span class="tag">이희주</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

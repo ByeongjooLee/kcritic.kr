@@ -40,6 +40,12 @@ def main():
     if lp.exists():
         ledger = json.loads(lp.read_text(encoding="utf-8"))
     section_of = {v["stem"]: v.get("section", "") for v in ledger.values() if v.get("stem")}
+    # 『창작과비평』 메타데이터 XML(essays/cb<Item>.xml, 변경 publish_cb.py)의 난 — 공개 목차(issues_cb_items.json)에서 (2026-11-10)
+    cb_sec = {}
+    ip = OUT / "issues_cb_items.json"
+    if ip.exists():
+        for rows in json.loads(ip.read_text(encoding="utf-8")).values():
+            for x in rows: cb_sec[f"cb{x['i']}"] = x.get("sec", "")
 
     essays, examples, contexts = [], {}, collections.defaultdict(list)
     for xml_path in sorted(Path("essays").glob("*.xml")):
@@ -54,16 +60,17 @@ def main():
                         contexts[pid].append([d["stem"], c["sentence"]])
         src = d["sources"][0] if d["sources"] else {}
         is_mhs = src.get("type") == "journal" and src.get("journal_or_book") == "문학과사회"
+        is_cb = src.get("type") == "journal" and src.get("journal_or_book") == "창작과비평"
         aid = d["author_id"]
         essays.append({
             "id": d["stem"], "title": d["title"], "year": d["display_year"] or d["year"],
             "critic": aid, "critic_name": build._strip_parens(d["persons"].get(aid, {}).get("name", "")),
-            "coll": "mhs" if is_mhs else "works-" + aid,
-            "coll_name": "『문학과사회』" if is_mhs else WORKS.get(aid, "기타"),
-            "venue": build._source_short(d["sources"]),
-            "issue": int(src["issue"]) if is_mhs and str(src.get("issue", "")).isdigit() else None,
+            "coll": "mhs" if is_mhs else "cb" if is_cb else "works-" + aid,
+            "coll_name": "『문학과사회』" if is_mhs else "『창작과비평』" if is_cb else WORKS.get(aid, "기타"),
+            "venue": f"『창작과비평』 {src.get('issue')}호" if is_cb else build._source_short(d["sources"]),
+            "issue": int(src["issue"]) if (is_mhs or is_cb) and str(src.get("issue", "")).isdigit() else None,
             "pages": fmt_pages(src.get("pages", "")) if is_mhs else "",
-            "section": section_of.get(d["stem"], "") if is_mhs else "",
+            "section": section_of.get(d["stem"], "") if is_mhs else cb_sec.get(d["stem"], "") if is_cb else "",
             "concepts": [c["name"] for c in d.get("concepts", [])][:12],
             "subjects": sorted(d["subjects"]), "theorists": sorted(d["theorists"]),
         })
@@ -110,9 +117,12 @@ def main():
         if ip.exists():
             inv = {x["id"]: x for x in json.loads(ip.read_text(encoding="utf-8"))}
         published = {e["id"]: e for e in essays if e["coll"] == "mhs"}
+        # --max-issue 055: 그 호까지만 목차를 만든다(다음 호를 인코딩하는 중일 때 대장의 미완성 항목을 싣지 않으려고, 2026-11-08)
+        max_issue = sys.argv[sys.argv.index("--max-issue") + 1] if "--max-issue" in sys.argv else None
         by_issue = collections.defaultdict(list)
         for v in ledger.values():
-            if v.get("status") != "skipped": by_issue[v["issue"]].append(v)
+            if v.get("status") != "skipped" and (max_issue is None or v["issue"][:3] <= max_issue):
+                by_issue[v["issue"]].append(v)
         state = {"done": "인코딩 완료·미공개", "held": "검토 보류", "queued": "인코딩 예정", "encoding": "인코딩 중"}
         issues = []
         for iid in sorted(by_issue):

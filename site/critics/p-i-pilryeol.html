@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이필렬 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이필렬</span></div>
+      <h1 class="index-heading">이필렬</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201206239" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000460897999" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/34150746898016301318" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">17</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">31</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김지하</span> <span class="chip role-writer">볼프 비어만</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">노무현 (4)</span> <span class="chip chip-term">프리먼 다이슨 (2)</span> <span class="chip chip-term">하랄트 벨처 (2)</span> <span class="chip chip-term">카를 마르크스 (1)</span> <span class="chip chip-term">앨버트라슬로 바라바시 (1)</span> <span class="chip chip-term">앤드루 드윗 (1)</span> <span class="chip chip-term">빌 조이 (1)</span> <span class="chip chip-term">에른스트 블로흐 (1)</span> <span class="chip chip-term">프리초프 카프라 (1)</span> <span class="chip chip-term">샤를로테 케르너 (1)</span> <span class="chip chip-term">프란츠 알트 (1)</span> <span class="chip chip-term">엔첸스베르거 (1)</span> <span class="chip chip-term">헤르만 셰어 (1)</span> <span class="chip chip-term">이해찬 (1)</span> <span class="chip chip-term">이명박 (1)</span> <span class="chip chip-term">제임스 핸슨 (1)</span> <span class="chip chip-term">제임스 러블록 (1)</span> <span class="chip chip-term">재레드 다이아몬드 (1)</span> <span class="chip chip-term">제임스 하워드 쿤슬러 (1)</span> <span class="chip chip-term">조효제 (1)</span> <span class="chip chip-term">케빈 워윅 (1)</span> <span class="chip chip-term">김상환 (1)</span> <span class="chip chip-term">오철우 (1)</span> <span class="chip chip-term">피터 싱어 (1)</span> <span class="chip chip-term">레스터 브라운 (1)</span> <span class="chip chip-term">로저 펜로즈 (1)</span> <span class="chip chip-term">루돌프 바로 (1)</span> <span class="chip chip-term">스티븐 와인버그 (1)</span> <span class="chip chip-term">울리히 벡 (1)</span> <span class="chip chip-term">월러스틴 (1)</span> <span class="chip chip-term">요제프 바이첸바움 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2541", "label": "피터 씽어 『동물해방』", "type": "essay", "year": "2000", "degree": 3}, {"id": "cb2570", "label": "환경관리주의와 생태주의의 긴장", "type": "essay", "year": "2000", "degree": 4}, {"id": "cb2585", "label": "거리의 소멸, 경계의 소멸", "type": "essay", "year": "2000", "degree": 5}, {"id": "cb2726", "label": "21세기 과학기술의 특징", "type": "essay", "year": "2001", "degree": 8}, {"id": "cb3086", "label": "A.L. 바라바시 『링크』", "type": "essay", "year": "2003", "degree": 2}, {"id": "cb3147", "label": "C. 케르너 『블루프린트』", "type": "essay", "year": "2003", "degree": 2}, {"id": "cb3198", "label": "F. 알트 『생태주의자 예수』", "type": "essay", "year": "2003", "degree": 2}, {"id": "cb3230", "label": "지속가능한 발전과 생태적 전환", "type": "essay", "year": "2003", "degree": 3}, {"id": "cb3286", "label": "위기의 환경운동, 이제 변해야 한다", "type": "essay", "year": "2005", "degree": 2}, {"id": "cb3417", "label": "지속불가능한 발전의 지속인가 생태적 전환인가", "type": "essay", "year": "2005", "degree": 4}, {"id": "cb3875", "label": "기후변화의 지정학과 한국사회", "type": "essay", "year": "2008", "degree": 6}, {"id": "cb4340", "label": "저탄소 정책의 좌절과 에너지 계획의 전망", "type": "essay", "year": "2011", "degree": 5}, {"id": "cb4433", "label": "최성일 『어느 인문주의자의 과학책 읽기』", "type": "essay", "year": "2011", "degree": 1}, {"id": "cb4481", "label": "제임스 하워드 쿤슬러 『장기 비상시대』", "type": "essay", "year": "2011", "degree": 2}, {"id": "cb4766", "label": "에너지전환은 생태적 변혁의 첫걸음", "type": "essay", "year": "2013", "degree": 3}, {"id": "cb5154", "label": "기후변화, 인공지능 그리고 자본주의", "type": "essay", "year": "2016", "degree": 1}, {"id": "cb5306", "label": "오철우 『천안함의 과학 블랙박스를 열다』", "type": "essay", "year": "2017", "degree": 2}, {"id": "p-00106", "label": "김지하", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697 https://isni.org/isni/0000000081761311 http://viaf.org/viaf/110339675", "degree": 56, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201205697", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44366", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00152", "label": "마르크스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9061 http://lod.nl.go.kr/resource/KAC199617910 https://isni.org/isni/0000000122796570 http://viaf.org/viaf/49228757", "degree": 99, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617910", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9061", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Karl Marx"}, {"id": "p-a-l-barab-si", "label": "앨버트라슬로 바라바시", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q725467 http://lod.nl.go.kr/resource/KAC200306268 https://isni.org/isni/000000011609103X http://viaf.org/viaf/24707196", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200306268", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q725467", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-aendeuru-deuwit", "label": "앤드루 드윗", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-bill-joy", "label": "빌 조이", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-bloch", "label": "에른스트 블로흐", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q57240 http://lod.nl.go.kr/resource/KAC199602753 https://isni.org/isni/0000000109229942 http://viaf.org/viaf/88956296", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602753", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q57240", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Ernst Bloch"}, {"id": "p-capra", "label": "프리초프 카프라", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q84258 http://lod.nl.go.kr/resource/KAC199604385 https://isni.org/isni/0000000118756437 http://viaf.org/viaf/46758379", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199604385", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q84258", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Fritjof Capra"}, {"id": "p-charlotte-kerner", "label": "샤를로테 케르너", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q96318 http://lod.nl.go.kr/resource/KAC200305663 https://isni.org/isni/0000000110758454 http://viaf.org/viaf/88570014", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200305663", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q96318", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-dyson", "label": "프리먼 다이슨", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q153717 http://lod.nl.go.kr/resource/KAC199607710 https://isni.org/isni/0000000118736639 http://viaf.org/viaf/19745011", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199607710", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q153717", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Freeman Dyson"}, {"id": "p-franz-alt", "label": "프란츠 알트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q96149 http://lod.nl.go.kr/resource/KAC200402859 https://isni.org/isni/0000000109347607 http://viaf.org/viaf/110573895", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200402859", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q96149", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-h-m-enzensberger", "label": "엔첸스베르거", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-haralteu-belcheo", "label": "하랄트 벨처", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q92394 http://lod.nl.go.kr/resource/KAC201008518 https://isni.org/isni/0000000121419159 http://viaf.org/viaf/85062553", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008518", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q92394", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-hermann-scheer", "label": "헤르만 셰어", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q63346 http://lod.nl.go.kr/resource/KAC200603147 https://isni.org/isni/0000000114768748 http://viaf.org/viaf/86806636", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200603147", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q63346", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-haechan", "label": "이해찬", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201765651 https://isni.org/isni/0000000529624930 http://viaf.org/viaf/141151351950752601014", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201765651", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-i-myeongbak", "label": "이명박", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q14342 http://lod.nl.go.kr/resource/KAC201116201 https://isni.org/isni/0000000078831411 http://viaf.org/viaf/54050630", "degree": 59, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116201", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14342", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-pilryeol", "label": "이필렬", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201206239 https://isni.org/isni/0000000460897999 http://viaf.org/viaf/34150746898016301318", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201206239", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-james-hansen", "label": "제임스 핸슨", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-james-lovelock", "label": "제임스 러블록", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-jared-m-diamond", "label": "재레드 다이아몬드", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q205772 http://lod.nl.go.kr/resource/KAC200105466 https://isni.org/isni/0000000110309413 http://viaf.org/viaf/90709225", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200105466", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q205772", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeimseu-hawodeu-kunseulreo", "label": "제임스 하워드 쿤슬러", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q962004 http://lod.nl.go.kr/resource/KAC201111710 https://isni.org/isni/0000000120217336 http://viaf.org/viaf/17394381", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201111710", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q962004", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jo-hyoje", "label": "조효제", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q133634249 http://lod.nl.go.kr/resource/KAC201212566 https://isni.org/isni/0000000049636246 http://viaf.org/viaf/59011971", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201212566", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q133634249", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-k-warwick", "label": "케빈 워윅", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-sanghwan", "label": "김상환", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-no-muhyeon", "label": "노무현", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q14345 http://lod.nl.go.kr/resource/KAC201100150 https://isni.org/isni/0000000121219755 http://viaf.org/viaf/15704800", "degree": 53, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201100150", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-o-cheolu", "label": "오철우", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201315338 https://isni.org/isni/0000000464913183 http://viaf.org/viaf/537144928076954340135", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201315338", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-peter-singer", "label": "피터 싱어", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q211539 http://lod.nl.go.kr/resource/KAC199625440 https://isni.org/isni/0000000080506474 http://viaf.org/viaf/108385086", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199625440", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q211539", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-reseuteo-beuraun", "label": "레스터 브라운", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q463250 http://lod.nl.go.kr/resource/KAC199603666 https://isni.org/isni/0000000122767980 http://viaf.org/viaf/14766896", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603666", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q463250", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-roger-penrose", "label": "로저 펜로즈", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q193803 http://lod.nl.go.kr/resource/KAC200209931 https://isni.org/isni/0000000084056757 http://viaf.org/viaf/108188624", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200209931", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q193803", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-rudolf-bahro", "label": "루돌프 바로", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-steven-weinberg", "label": "스티븐 와인버그", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q179282 http://lod.nl.go.kr/resource/KAC199629542 https://isni.org/isni/0000000107878543 http://viaf.org/viaf/108185971", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199629542", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q179282", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-ulrich-beck", "label": "울리히 벡", "type": "theorist", "ref": "", "degree": 8, "lod": [], "en": ""}, {"id": "p-wallerstein", "label": "월러스틴", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q494287 http://lod.nl.go.kr/resource/KAC199629161 https://isni.org/isni/0000000120962459 http://viaf.org/viaf/61553720", "degree": 40, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199629161", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q494287", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Immanuel Wallerstein"}, {"id": "p-wolf-biermann", "label": "볼프 비어만", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q323063 http://lod.nl.go.kr/resource/KAC201908068 https://isni.org/isni/0000000109318419 http://viaf.org/viaf/108717279", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201908068", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q323063", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yojepeu-baichenbaum", "label": "요제프 바이첸바움", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q75778 http://lod.nl.go.kr/resource/KAC199629611 https://isni.org/isni/0000000116429790 http://viaf.org/viaf/52486307", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199629611", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q75778", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-i-pilryeol", "target": "cb2541", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb2570", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb2585", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb2726", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3086", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3147", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3198", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3230", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3286", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3417", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb3875", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb4340", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb4433", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb4481", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb4766", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb5154", "type": "wrote", "weight": 1}, {"source": "p-i-pilryeol", "target": "cb5306", "type": "wrote", "weight": 1}, {"source": "cb2541", "target": "p-peter-singer", "type": "uses_theory", "weight": 1}, {"source": "cb2541", "target": "p-rudolf-bahro", "type": "uses_theory", "weight": 1}, {"source": "cb2570", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2570", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb2570", "target": "p-ulrich-beck", "type": "uses_theory", "weight": 1}, {"source": "cb2585", "target": "p-bill-joy", "type": "uses_theory", "weight": 1}, {"source": "cb2585", "target": "p-dyson", "type": "uses_theory", "weight": 1}, {"source": "cb2585", "target": "p-h-m-enzensberger", "type": "uses_theory", "weight": 1}, {"source": "cb2585", "target": "p-k-warwick", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-00152", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-capra", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-dyson", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-kim-sanghwan", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-roger-penrose", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-steven-weinberg", "type": "uses_theory", "weight": 1}, {"source": "cb2726", "target": "p-yojepeu-baichenbaum", "type": "uses_theory", "weight": 1}, {"source": "cb3086", "target": "p-a-l-barab-si", "type": "uses_theory", "weight": 1}, {"source": "cb3147", "target": "p-charlotte-kerner", "type": "uses_theory", "weight": 1}, {"source": "cb3198", "target": "p-franz-alt", "type": "uses_theory", "weight": 1}, {"source": "cb3230", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3230", "target": "p-reseuteo-beuraun", "type": "uses_theory", "weight": 1}, {"source": "cb3286", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3417", "target": "p-bloch", "type": "uses_theory", "weight": 1}, {"source": "cb3417", "target": "p-wallerstein", "type": "uses_theory", "weight": 1}, {"source": "cb3417", "target": "p-wolf-biermann", "type": "subject_of", "weight": 1}, {"source": "cb3875", "target": "p-haralteu-belcheo", "type": "uses_theory", "weight": 1}, {"source": "cb3875", "target": "p-james-hansen", "type": "uses_theory", "weight": 1}, {"source": "cb3875", "target": "p-james-lovelock", "type": "uses_theory", "weight": 1}, {"source": "cb3875", "target": "p-jared-m-diamond", "type": "uses_theory", "weight": 1}, {"source": "cb3875", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb4340", "target": "p-aendeuru-deuwit", "type": "uses_theory", "weight": 1}, {"source": "cb4340", "target": "p-i-haechan", "type": "uses_theory", "weight": 1}, {"source": "cb4340", "target": "p-i-myeongbak", "type": "uses_theory", "weight": 1}, {"source": "cb4340", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb4481", "target": "p-jeimseu-hawodeu-kunseulreo", "type": "uses_theory", "weight": 1}, {"source": "cb4766", "target": "p-haralteu-belcheo", "type": "uses_theory", "weight": 1}, {"source": "cb4766", "target": "p-hermann-scheer", "type": "uses_theory", "weight": 1}, {"source": "cb5306", "target": "p-o-cheolu", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (17편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2000</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2541.html">피터 씽어 『동물해방』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 107호, 창비, 2000</p>
+        <div class="essay-card-tags"><span class="tag">피터 싱어</span> <span class="tag">루돌프 바로</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2000</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2570.html">환경관리주의와 생태주의의 긴장</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 108호, 창비, 2000</p>
+        <div class="essay-card-tags"><span class="tag">김지하</span><span class="tag">조효제</span> <span class="tag">울리히 벡</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2000</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2585.html">거리의 소멸, 경계의 소멸</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 109호, 창비, 2000</p>
+        <div class="essay-card-tags"><span class="tag">빌 조이</span> <span class="tag">프리먼 다이슨</span> <span class="tag">엔첸스베르거</span> <span class="tag">케빈 워윅</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2001</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2726.html">21세기 과학기술의 특징</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 113호, 창비, 2001</p>
+        <div class="essay-card-tags"><span class="tag">카를 마르크스</span> <span class="tag">프리초프 카프라</span> <span class="tag">프리먼 다이슨</span> <span class="tag">김상환</span> <span class="tag">로저 펜로즈</span> <span class="tag">스티븐 와인버그</span> <span class="tag">요제프 바이첸바움</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3086.html">A.L. 바라바시 『링크』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 119호, 창비, 2003</p>
+        <div class="essay-card-tags"><span class="tag">앨버트라슬로 바라바시</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3147.html">C. 케르너 『블루프린트』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 120호, 창비, 2003</p>
+        <div class="essay-card-tags"><span class="tag">샤를로테 케르너</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3198.html">F. 알트 『생태주의자 예수』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 121호, 창비, 2003</p>
+        <div class="essay-card-tags"><span class="tag">프란츠 알트</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3230.html">지속가능한 발전과 생태적 전환</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 122호, 창비, 2003</p>
+        <div class="essay-card-tags"><span class="tag">노무현</span> <span class="tag">레스터 브라운</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3286.html">위기의 환경운동, 이제 변해야 한다</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 127호, 창비, 2005</p>
+        <div class="essay-card-tags"><span class="tag">노무현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3417.html">지속불가능한 발전의 지속인가 생태적 전환인가</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 130호, 창비, 2005</p>
+        <div class="essay-card-tags"><span class="tag">볼프 비어만</span><span class="tag">에른스트 블로흐</span> <span class="tag">월러스틴</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2008</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3875.html">기후변화의 지정학과 한국사회</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 140호, 창비, 2008</p>
+        <div class="essay-card-tags"><span class="tag">하랄트 벨처</span> <span class="tag">제임스 핸슨</span> <span class="tag">제임스 러블록</span> <span class="tag">재레드 다이아몬드</span> <span class="tag">노무현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2011</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4340.html">저탄소 정책의 좌절과 에너지 계획의 전망</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 151호, 창비, 2011</p>
+        <div class="essay-card-tags"><span class="tag">앤드루 드윗</span> <span class="tag">이해찬</span> <span class="tag">이명박</span> <span class="tag">노무현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2011</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4433.html">최성일 『어느 인문주의자의 과학책 읽기』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 153호, 창비, 2011</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2011</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4481.html">제임스 하워드 쿤슬러 『장기 비상시대』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 154호, 창비, 2011</p>
+        <div class="essay-card-tags"><span class="tag">제임스 하워드 쿤슬러</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2013</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4766.html">에너지전환은 생태적 변혁의 첫걸음</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 161호, 창비, 2013</p>
+        <div class="essay-card-tags"><span class="tag">하랄트 벨처</span> <span class="tag">헤르만 셰어</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2016</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5154.html">기후변화, 인공지능 그리고 자본주의</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 173호, 창비, 2016</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2017</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5306.html">오철우 『천안함의 과학 블랙박스를 열다』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 175호, 창비, 2017</p>
+        <div class="essay-card-tags"><span class="tag">오철우</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>
