@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5269", "label": "사미 무바예드 『IS의 전쟁』", "type": "essay", "year": "2016", "degree": 2}, {"id": "p-jeong-uigil", "label": "정의길", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-sami-moubayed", "label": "사미 무바예드", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeong-uigil", "target": "cb5269", "type": "wrote", "weight": 1}, {"source": "cb5269", "target": "p-sami-moubayed", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5269", "label": "사미 무바예드 『IS의 전쟁』", "type": "essay", "year": "2016", "degree": 2}, {"id": "p-jeong-uigil", "label": "정의길", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-sami-moubayed", "label": "사미 무바예드", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q7409384 http://lod.nl.go.kr/resource/KAC201619301 https://isni.org/isni/0000000018583233 http://viaf.org/viaf/27281126", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201619301", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q7409384", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-jeong-uigil", "target": "cb5269", "type": "wrote", "weight": 1}, {"source": "cb5269", "target": "p-sami-moubayed", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

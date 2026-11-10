@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4519", "label": "야마모토 요시타카 『후쿠시마, 일본 핵발전의 진실』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-jeon-jinho", "label": "전진호", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yamamoto-yositaka", "label": "야마모토 요시타카", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-jinho", "target": "cb4519", "type": "wrote", "weight": 1}, {"source": "cb4519", "target": "p-yamamoto-yositaka", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4519", "label": "야마모토 요시타카 『후쿠시마, 일본 핵발전의 진실』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-jeon-jinho", "label": "전진호", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yamamoto-yositaka", "label": "야마모토 요시타카", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q11469306 http://lod.nl.go.kr/resource/KAC201001727 http://viaf.org/viaf/77440860", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201001727", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11469306", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-jeon-jinho", "target": "cb4519", "type": "wrote", "weight": 1}, {"source": "cb4519", "target": "p-yamamoto-yositaka", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

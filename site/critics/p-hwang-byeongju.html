@@ -18,19 +18,19 @@
       
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="muted">—</span></div>
+        <div class="chip-group"><span class="chip role-writer">김영미</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="chip chip-term">김영미 (1)</span></div>
+        <div class="chip-group"><span class="muted">—</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3657", "label": "윤해동 외 엮음 『근대를 다시 읽는다』1~2", "type": "essay", "year": "2007", "degree": 4}, {"id": "cb4108", "label": "김영미 『그들의 새마을운동』", "type": "essay", "year": "2009", "degree": 2}, {"id": "p-gim-yeongmi", "label": "김영미", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-hwang-byeongju", "label": "황병주", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "cb3657", "target": "p-hwang-byeongju", "type": "uses_theory", "weight": 1}, {"source": "p-hwang-byeongju", "target": "cb4108", "type": "wrote", "weight": 1}, {"source": "cb4108", "target": "p-gim-yeongmi", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3657", "label": "윤해동 외 엮음 『근대를 다시 읽는다』1~2", "type": "essay", "year": "2007", "degree": 4}, {"id": "cb4108", "label": "김영미 『그들의 새마을운동』", "type": "essay", "year": "2009", "degree": 2}, {"id": "p-gim-yeongmi", "label": "김영미", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201956981 https://isni.org/isni/0000000485147860 http://viaf.org/viaf/105160483742504991895", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201956981", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-hwang-byeongju", "label": "황병주", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "cb3657", "target": "p-hwang-byeongju", "type": "uses_theory", "weight": 1}, {"source": "p-hwang-byeongju", "target": "cb4108", "type": "wrote", "weight": 1}, {"source": "cb4108", "target": "p-gim-yeongmi", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">송충기</span></div>
       <h1 class="index-heading">송충기</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201326861" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000049676774" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/61437881" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2897", "label": "I. 부루마 『아우슈비츠와 히로시마』", "type": "essay", "year": "2002", "degree": 2}, {"id": "p-ian-buruma", "label": "이안 부루마", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-song-chunggi", "label": "송충기", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-song-chunggi", "target": "cb2897", "type": "wrote", "weight": 1}, {"source": "cb2897", "target": "p-ian-buruma", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2897", "label": "I. 부루마 『아우슈비츠와 히로시마』", "type": "essay", "year": "2002", "degree": 2}, {"id": "p-ian-buruma", "label": "이안 부루마", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q680728 http://lod.nl.go.kr/resource/KAC200202952 https://isni.org/isni/0000000110809733 http://viaf.org/viaf/108393038", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200202952", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q680728", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-song-chunggi", "label": "송충기", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201326861 https://isni.org/isni/0000000049676774 http://viaf.org/viaf/61437881", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201326861", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-song-chunggi", "target": "cb2897", "type": "wrote", "weight": 1}, {"source": "cb2897", "target": "p-ian-buruma", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

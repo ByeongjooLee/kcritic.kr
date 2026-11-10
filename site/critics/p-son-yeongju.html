@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7298", "label": "D. H. 로런스 『무지개』(전2권)", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-d-h-roreonseu", "label": "D. H. 로런스", "type": "writer", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-son-yeongju", "label": "손영주", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-son-yeongju", "target": "cb7298", "type": "wrote", "weight": 1}, {"source": "cb7298", "target": "p-d-h-roreonseu", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7298", "label": "D. H. 로런스 『무지개』(전2권)", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-00131", "label": "로렌스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q34970 http://lod.nl.go.kr/resource/KAC199616058 https://isni.org/isni/000000012144117X http://viaf.org/viaf/95150359", "degree": 23, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199616058", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34970", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "D. H. Lawrence"}, {"id": "p-son-yeongju", "label": "손영주", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-son-yeongju", "target": "cb7298", "type": "wrote", "weight": 1}, {"source": "cb7298", "target": "p-00131", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

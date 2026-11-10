@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6729", "label": "김재형 『질병, 낙인』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-gim-hyeoncheol", "label": "김현철", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-jaehyeong", "label": "김재형", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-gim-hyeoncheol", "target": "cb6729", "type": "wrote", "weight": 1}, {"source": "cb6729", "target": "p-gim-jaehyeong", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6729", "label": "김재형 『질병, 낙인』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-gim-hyeoncheol", "label": "김현철", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-jaehyeong", "label": "김재형", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC2020J5166 https://isni.org/isni/0000000492245661 http://viaf.org/viaf/650160483873104992778", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC2020J5166", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-gim-hyeoncheol", "target": "cb6729", "type": "wrote", "weight": 1}, {"source": "cb6729", "target": "p-gim-jaehyeong", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

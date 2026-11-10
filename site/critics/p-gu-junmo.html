@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5507", "label": "티머시 미첼 『탄소 민주주의』", "type": "essay", "year": "2017", "degree": 2}, {"id": "p-gu-junmo", "label": "구준모", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-timothy-mitchell", "label": "티머시 미첼", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}], "edges": [{"source": "p-gu-junmo", "target": "cb5507", "type": "wrote", "weight": 1}, {"source": "cb5507", "target": "p-timothy-mitchell", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5507", "label": "티머시 미첼 『탄소 민주주의』", "type": "essay", "year": "2017", "degree": 2}, {"id": "p-gu-junmo", "label": "구준모", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-timothy-mitchell", "label": "티머시 미첼", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q7807402 http://lod.nl.go.kr/resource/KAC201736365 https://isni.org/isni/0000000384839286 http://viaf.org/viaf/277920549", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201736365", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q7807402", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-gu-junmo", "target": "cb5507", "type": "wrote", "weight": 1}, {"source": "cb5507", "target": "p-timothy-mitchell", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

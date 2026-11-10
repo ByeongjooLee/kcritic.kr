@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7190", "label": "사법개혁, 법관의 지배를 넘어 시민의 사법으로", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-han-sanghui", "label": "한상희", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-eulbyeong", "label": "정을병", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-han-sanghui", "target": "cb7190", "type": "wrote", "weight": 1}, {"source": "cb7190", "target": "p-jeong-eulbyeong", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7190", "label": "사법개혁, 법관의 지배를 넘어 시민의 사법으로", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-han-sanghui", "label": "한상희", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-eulbyeong", "label": "정을병", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12615903 http://lod.nl.go.kr/resource/KAC201319236 https://isni.org/isni/0000000117481697 http://viaf.org/viaf/18541549", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201319236", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12615903", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-han-sanghui", "target": "cb7190", "type": "wrote", "weight": 1}, {"source": "cb7190", "target": "p-jeong-eulbyeong", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

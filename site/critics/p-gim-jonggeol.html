@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4321", "label": "우석훈 『한미FTA 폭주를 멈춰라』", "type": "essay", "year": "2006", "degree": 2}, {"id": "p-gim-jonggeol", "label": "김종걸", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-u-seokhun", "label": "우석훈", "type": "critic", "ref": "", "degree": 7, "lod": [], "en": ""}], "edges": [{"source": "p-gim-jonggeol", "target": "cb4321", "type": "wrote", "weight": 1}, {"source": "cb4321", "target": "p-u-seokhun", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4321", "label": "우석훈 『한미FTA 폭주를 멈춰라』", "type": "essay", "year": "2006", "degree": 2}, {"id": "p-gim-jonggeol", "label": "김종걸", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-u-seokhun", "label": "우석훈", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201208031 https://isni.org/isni/000000005197640X http://viaf.org/viaf/76278085", "degree": 7, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201208031", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-gim-jonggeol", "target": "cb4321", "type": "wrote", "weight": 1}, {"source": "cb4321", "target": "p-u-seokhun", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

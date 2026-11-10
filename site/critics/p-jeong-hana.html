@@ -13,9 +13,9 @@
 
   <main class="container index-main">
     <section class="critic-profile-hero">
-      <div class="critic-profile-byline"><span class="chip role-critic">정한아</span></div>
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q41675230" target="_blank" class="chip role-critic chip-linked">정한아 <span class="chip-ext">↗</span></a></div>
       <h1 class="index-heading">정한아</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201103880" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q41675230" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000066029667" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/91106333" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4054", "label": "정한아 소설집 『나를 위해 웃다』", "type": "essay", "year": "2009", "degree": 2}, {"id": "cb6126", "label": "리산 시집 『쓸모없는 노력의 박물관』", "type": "essay", "year": "2013", "degree": 3}, {"id": "p-jeong-hana", "label": "정한아", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-park-jeongdae", "label": "박정대", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-ri-san", "label": "리산", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "cb4054", "target": "p-jeong-hana", "type": "subject_of", "weight": 1}, {"source": "p-jeong-hana", "target": "cb6126", "type": "wrote", "weight": 1}, {"source": "cb6126", "target": "p-park-jeongdae", "type": "subject_of", "weight": 1}, {"source": "cb6126", "target": "p-ri-san", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4054", "label": "정한아 소설집 『나를 위해 웃다』", "type": "essay", "year": "2009", "degree": 2}, {"id": "cb6126", "label": "리산 시집 『쓸모없는 노력의 박물관』", "type": "essay", "year": "2013", "degree": 3}, {"id": "p-jeong-hana", "label": "정한아", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q41675230 http://lod.nl.go.kr/resource/KAC201103880 https://isni.org/isni/0000000066029667 http://viaf.org/viaf/91106333", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201103880", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q41675230", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-park-jeongdae", "label": "박정대", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-ri-san", "label": "리산", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201318601 https://isni.org/isni/0000000476684963 http://viaf.org/viaf/504144928061354340442", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201318601", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "cb4054", "target": "p-jeong-hana", "type": "subject_of", "weight": 1}, {"source": "p-jeong-hana", "target": "cb6126", "type": "wrote", "weight": 1}, {"source": "cb6126", "target": "p-park-jeongdae", "type": "subject_of", "weight": 1}, {"source": "cb6126", "target": "p-ri-san", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

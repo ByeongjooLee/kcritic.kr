@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">허병식</span></div>
       <h1 class="index-heading">허병식</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201414404" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000464320847" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/104145375901383681445" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4280", "label": "김중혁 장편소설 『좀비들』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-heo-byeongsik", "label": "허병식", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-junghyeok", "label": "김중혁", "type": "writer", "ref": "", "degree": 6, "lod": [], "en": ""}], "edges": [{"source": "p-heo-byeongsik", "target": "cb4280", "type": "wrote", "weight": 1}, {"source": "cb4280", "target": "p-kim-junghyeok", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4280", "label": "김중혁 장편소설 『좀비들』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-heo-byeongsik", "label": "허병식", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201414404 https://isni.org/isni/0000000464320847 http://viaf.org/viaf/104145375901383681445", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201414404", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-kim-junghyeok", "label": "김중혁", "type": "writer", "ref": "", "degree": 6, "lod": [], "en": ""}], "edges": [{"source": "p-heo-byeongsik", "target": "cb4280", "type": "wrote", "weight": 1}, {"source": "cb4280", "target": "p-kim-junghyeok", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">조홍섭</span></div>
       <h1 class="index-heading">조홍섭</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201417984" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000463293023" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/662144928082454341996" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4292", "label": "김정욱 『나는 반대한다: 4대강 토건공사에 대한 진실 보고서』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-gim-jeonguk", "label": "김정욱", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jo-hongseop", "label": "조홍섭", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jo-hongseop", "target": "cb4292", "type": "wrote", "weight": 1}, {"source": "cb4292", "target": "p-gim-jeonguk", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4292", "label": "김정욱 『나는 반대한다: 4대강 토건공사에 대한 진실 보고서』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-gim-jeonguk", "label": "김정욱", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201763245 https://isni.org/isni/0000000464383784 http://viaf.org/viaf/152151352047452602482", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201763245", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-jo-hongseop", "label": "조홍섭", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201417984 https://isni.org/isni/0000000463293023 http://viaf.org/viaf/662144928082454341996", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201417984", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-jo-hongseop", "target": "cb4292", "type": "wrote", "weight": 1}, {"source": "cb4292", "target": "p-gim-jeonguk", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

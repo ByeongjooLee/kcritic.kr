@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4313", "label": "문정인 『중국의 내일을 묻다』", "type": "essay", "year": "2011", "degree": 2}, {"id": "p-i-huiok", "label": "이희옥", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-mun-jeongin", "label": "문정인", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-i-huiok", "target": "cb4313", "type": "wrote", "weight": 1}, {"source": "cb4313", "target": "p-mun-jeongin", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4313", "label": "문정인 『중국의 내일을 묻다』", "type": "essay", "year": "2011", "degree": 2}, {"id": "p-i-huiok", "label": "이희옥", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-mun-jeongin", "label": "문정인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12595793 http://lod.nl.go.kr/resource/KAC201220679 https://isni.org/isni/0000000081753557 http://viaf.org/viaf/109818301", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201220679", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12595793", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-i-huiok", "target": "cb4313", "type": "wrote", "weight": 1}, {"source": "cb4313", "target": "p-mun-jeongin", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

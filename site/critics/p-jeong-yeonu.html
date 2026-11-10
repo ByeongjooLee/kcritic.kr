@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4935", "label": "한국언론, 몰락인가 갱생인가", "type": "essay", "year": "2014", "degree": 2}, {"id": "p-jeong-yeonu", "label": "정연우", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-john-milton", "label": "존 밀턴", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeong-yeonu", "target": "cb4935", "type": "wrote", "weight": 1}, {"source": "cb4935", "target": "p-john-milton", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4935", "label": "한국언론, 몰락인가 갱생인가", "type": "essay", "year": "2014", "degree": 2}, {"id": "p-jeong-yeonu", "label": "정연우", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-milton", "label": "밀턴", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q79759 http://lod.nl.go.kr/resource/KAC199618965 https://isni.org/isni/0000000120993562 http://viaf.org/viaf/17226855", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199618965", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q79759", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "John Milton"}], "edges": [{"source": "p-jeong-yeonu", "target": "cb4935", "type": "wrote", "weight": 1}, {"source": "cb4935", "target": "p-milton", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

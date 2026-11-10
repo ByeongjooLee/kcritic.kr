@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">정병호</span></div>
       <h1 class="index-heading">정병호</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201310900" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000005727816" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/56043532" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3322", "label": "재일 조선학교", "type": "essay", "year": "2003", "degree": 1}, {"id": "cb4755", "label": "권헌익‧정병호 『극장국가 북한』", "type": "essay", "year": "2013", "degree": 4}, {"id": "cb4881", "label": "후루이 요시끼찌 『요오꼬‧아내와의 칩거』", "type": "essay", "year": "2014", "degree": 4}, {"id": "cb5887", "label": "정병호 『고난과 웃음의 나라』", "type": "essay", "year": "2020", "degree": 2}, {"id": "p-jeong-byeongho", "label": "정병호", "type": "critic", "ref": "", "degree": 4, "lod": [], "en": ""}], "edges": [{"source": "cb4755", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "cb4881", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "cb5887", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "p-jeong-byeongho", "target": "cb3322", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3322", "label": "재일 조선학교", "type": "essay", "year": "2003", "degree": 1}, {"id": "cb4755", "label": "권헌익‧정병호 『극장국가 북한』", "type": "essay", "year": "2013", "degree": 4}, {"id": "cb4881", "label": "후루이 요시끼찌 『요오꼬‧아내와의 칩거』", "type": "essay", "year": "2014", "degree": 4}, {"id": "cb5887", "label": "정병호 『고난과 웃음의 나라』", "type": "essay", "year": "2020", "degree": 2}, {"id": "p-jeong-byeongho", "label": "정병호", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201310900 https://isni.org/isni/0000000005727816 http://viaf.org/viaf/56043532", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201310900", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "cb4755", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "cb4881", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "cb5887", "target": "p-jeong-byeongho", "type": "uses_theory", "weight": 1}, {"source": "p-jeong-byeongho", "target": "cb3322", "type": "wrote", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

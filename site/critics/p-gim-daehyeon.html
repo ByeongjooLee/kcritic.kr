@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6327", "label": "김순남 『가족을 구성할 권리』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-gim-daehyeon", "label": "김대현", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-sunnam", "label": "김순남", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-gim-daehyeon", "target": "cb6327", "type": "wrote", "weight": 1}, {"source": "cb6327", "target": "p-gim-sunnam", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6327", "label": "김순남 『가족을 구성할 권리』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-gim-daehyeon", "label": "김대현", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-sunnam", "label": "김순남", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201733431 https://isni.org/isni/000000046106514X http://viaf.org/viaf/242150468196304170470", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201733431", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-gim-daehyeon", "target": "cb6327", "type": "wrote", "weight": 1}, {"source": "cb6327", "target": "p-gim-sunnam", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

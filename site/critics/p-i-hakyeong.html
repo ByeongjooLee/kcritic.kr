@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5842", "label": "손홍규 소설집 『톰은 톰과 잤다』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-i-hakyeong", "label": "이학영", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-son-honggyu", "label": "손홍규", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}], "edges": [{"source": "p-i-hakyeong", "target": "cb5842", "type": "wrote", "weight": 1}, {"source": "cb5842", "target": "p-son-honggyu", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5842", "label": "손홍규 소설집 『톰은 톰과 잤다』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-i-hakyeong", "label": "이학영", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-son-honggyu", "label": "손홍규", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q41634609 http://lod.nl.go.kr/resource/KAC201103393 https://isni.org/isni/0000000060701918 http://viaf.org/viaf/88406416", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201103393", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q41634609", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-i-hakyeong", "target": "cb5842", "type": "wrote", "weight": 1}, {"source": "cb5842", "target": "p-son-honggyu", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

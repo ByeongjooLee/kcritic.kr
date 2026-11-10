@@ -13,24 +13,24 @@
 
   <main class="container index-main">
     <section class="critic-profile-hero">
-      <div class="critic-profile-byline"><span class="chip role-critic">손홍규</span></div>
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q41634609" target="_blank" class="chip role-critic chip-linked">손홍규 <span class="chip-ext">↗</span></a></div>
       <h1 class="index-heading">손홍규</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201103393" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q41634609" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000060701918" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/88406416" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="chip role-writer">셔우드 앤더슨</span></div>
+        <div class="chip-group"><span class="chip role-writer">아모스 오즈</span> <span class="chip role-writer">셔우드 앤더슨</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="chip chip-term">아모스 오즈 (1)</span></div>
+        <div class="chip-group"><span class="muted">—</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3448", "label": "손홍규 소설집 『사람의 신화』", "type": "essay", "year": "2005", "degree": 2}, {"id": "cb4584", "label": "아모스 오즈 『시골생활 풍경』", "type": "essay", "year": "2012", "degree": 3}, {"id": "cb5842", "label": "손홍규 소설집 『톰은 톰과 잤다』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-amos-oz", "label": "아모스 오즈", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-s-anderson", "label": "셔우드 앤더슨", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-son-honggyu", "label": "손홍규", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}], "edges": [{"source": "cb3448", "target": "p-son-honggyu", "type": "subject_of", "weight": 1}, {"source": "cb5842", "target": "p-son-honggyu", "type": "subject_of", "weight": 1}, {"source": "p-son-honggyu", "target": "cb4584", "type": "wrote", "weight": 1}, {"source": "cb4584", "target": "p-amos-oz", "type": "uses_theory", "weight": 1}, {"source": "cb4584", "target": "p-s-anderson", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3448", "label": "손홍규 소설집 『사람의 신화』", "type": "essay", "year": "2005", "degree": 2}, {"id": "cb4584", "label": "아모스 오즈 『시골생활 풍경』", "type": "essay", "year": "2012", "degree": 3}, {"id": "cb5842", "label": "손홍규 소설집 『톰은 톰과 잤다』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-amos-oz", "label": "아모스 오즈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q151872 http://lod.nl.go.kr/resource/KAC200104216 https://isni.org/isni/0000000121007576 http://viaf.org/viaf/39382165", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200104216", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q151872", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-anderson", "label": "앤더슨", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q233898 http://lod.nl.go.kr/resource/KAC199600742 https://isni.org/isni/0000000108893083 http://viaf.org/viaf/39372890", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600742", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q233898", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sherwood Anderson"}, {"id": "p-son-honggyu", "label": "손홍규", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q41634609 http://lod.nl.go.kr/resource/KAC201103393 https://isni.org/isni/0000000060701918 http://viaf.org/viaf/88406416", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201103393", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q41634609", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "cb3448", "target": "p-son-honggyu", "type": "subject_of", "weight": 1}, {"source": "cb5842", "target": "p-son-honggyu", "type": "subject_of", "weight": 1}, {"source": "p-son-honggyu", "target": "cb4584", "type": "wrote", "weight": 1}, {"source": "cb4584", "target": "p-amos-oz", "type": "subject_of", "weight": 1}, {"source": "cb4584", "target": "p-anderson", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -165,7 +165,7 @@
           <a href="../essays/cb4584.html">아모스 오즈 『시골생활 풍경』</a>
         </h3>
         <p class="essay-card-source">창작과비평 156호, 창비, 2012</p>
-        <div class="essay-card-tags"><span class="tag">셔우드 앤더슨</span><span class="tag">아모스 오즈</span></div>
+        <div class="essay-card-tags"><span class="tag">아모스 오즈</span> <span class="tag">셔우드 앤더슨</span></div>
       </article>
     </section>
   </main>

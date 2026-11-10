@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2771", "label": "김진애 『이 집은 누구인가』", "type": "essay", "year": "2000", "degree": 2}, {"id": "p-gim-jinae", "label": "김진애", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeon-bonghui", "label": "전봉희", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-bonghui", "target": "cb2771", "type": "wrote", "weight": 1}, {"source": "cb2771", "target": "p-gim-jinae", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2771", "label": "김진애 『이 집은 누구인가』", "type": "essay", "year": "2000", "degree": 2}, {"id": "p-gim-jinae", "label": "김진애", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12588865 http://lod.nl.go.kr/resource/KAC201330017 https://isni.org/isni/0000000082357521 http://viaf.org/viaf/54077213", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201330017", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12588865", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeon-bonghui", "label": "전봉희", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-bonghui", "target": "cb2771", "type": "wrote", "weight": 1}, {"source": "cb2771", "target": "p-gim-jinae", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

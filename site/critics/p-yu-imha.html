@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">유임하</span></div>
       <h1 class="index-heading">유임하</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201204634" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000051645002" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/48765230" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5899", "label": "김성수 『미디어로 다시 보는 북한문학』", "type": "essay", "year": "2020", "degree": 1}, {"id": "p-yu-imha", "label": "유임하", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-yu-imha", "target": "cb5899", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5899", "label": "김성수 『미디어로 다시 보는 북한문학』", "type": "essay", "year": "2020", "degree": 1}, {"id": "p-yu-imha", "label": "유임하", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201204634 https://isni.org/isni/0000000051645002 http://viaf.org/viaf/48765230", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201204634", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-yu-imha", "target": "cb5899", "type": "wrote", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6234", "label": "크리스티나 램 『관통당한 몸』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-christina-lamb", "label": "크리스티나 램", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-yongsuk", "label": "정용숙", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeong-yongsuk", "target": "cb6234", "type": "wrote", "weight": 1}, {"source": "cb6234", "target": "p-christina-lamb", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6234", "label": "크리스티나 램 『관통당한 몸』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-christina-lamb", "label": "크리스티나 램", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q5110817 http://lod.nl.go.kr/resource/KAC201502495 https://isni.org/isni/0000000058301595 http://viaf.org/viaf/30606112", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201502495", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5110817", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-yongsuk", "label": "정용숙", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeong-yongsuk", "target": "cb6234", "type": "wrote", "weight": 1}, {"source": "cb6234", "target": "p-christina-lamb", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

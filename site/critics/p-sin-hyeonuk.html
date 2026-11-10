@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4249", "label": "필립 마이어 『아메리칸 러스트』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-philipp-meyer", "label": "필립 마이어", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-sin-hyeonuk", "label": "신현욱", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-sin-hyeonuk", "target": "cb4249", "type": "wrote", "weight": 1}, {"source": "cb4249", "target": "p-philipp-meyer", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4249", "label": "필립 마이어 『아메리칸 러스트』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-philipp-meyer", "label": "필립 마이어", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q2087069 http://lod.nl.go.kr/resource/KAC201004903 https://isni.org/isni/0000000114540743 http://viaf.org/viaf/103681976", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201004903", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q2087069", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-sin-hyeonuk", "label": "신현욱", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-sin-hyeonuk", "target": "cb4249", "type": "wrote", "weight": 1}, {"source": "cb4249", "target": "p-philipp-meyer", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

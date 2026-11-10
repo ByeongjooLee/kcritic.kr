@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">이인혜</span></div>
       <h1 class="index-heading">이인혜</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201745637" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000463400108" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/21150746863616300284" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6319", "label": "야스다 고이치‧카나이 마키 『전쟁과 목욕탕』", "type": "essay", "year": "2022", "degree": 3}, {"id": "cb7204", "label": "이인혜 『씻는다는 것의 역사』", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-i-inhye", "label": "이인혜", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-kanai-maki", "label": "카나이 마키", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yaseuda-goichi", "label": "야스다 고이치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "cb7204", "target": "p-i-inhye", "type": "uses_theory", "weight": 1}, {"source": "p-i-inhye", "target": "cb6319", "type": "wrote", "weight": 1}, {"source": "cb6319", "target": "p-kanai-maki", "type": "uses_theory", "weight": 1}, {"source": "cb6319", "target": "p-yaseuda-goichi", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6319", "label": "야스다 고이치‧카나이 마키 『전쟁과 목욕탕』", "type": "essay", "year": "2022", "degree": 3}, {"id": "cb7204", "label": "이인혜 『씻는다는 것의 역사』", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-i-inhye", "label": "이인혜", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201745637 https://isni.org/isni/0000000463400108 http://viaf.org/viaf/21150746863616300284", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201745637", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-kanai-maki", "label": "카나이 마키", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yaseuda-goichi", "label": "야스다 고이치", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q11451081 http://lod.nl.go.kr/resource/KAC201316056 https://isni.org/isni/000000008335092X http://viaf.org/viaf/119411349", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201316056", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11451081", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "cb7204", "target": "p-i-inhye", "type": "uses_theory", "weight": 1}, {"source": "p-i-inhye", "target": "cb6319", "type": "wrote", "weight": 1}, {"source": "cb6319", "target": "p-kanai-maki", "type": "uses_theory", "weight": 1}, {"source": "cb6319", "target": "p-yaseuda-goichi", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

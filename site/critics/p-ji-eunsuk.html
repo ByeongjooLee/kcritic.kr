@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7067", "label": "우에노 지즈코 『돌봄의 사회학』", "type": "essay", "year": "2024", "degree": 2}, {"id": "p-ji-eunsuk", "label": "지은숙", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ueno-jijeuko", "label": "우에노 지즈코", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}], "edges": [{"source": "p-ji-eunsuk", "target": "cb7067", "type": "wrote", "weight": 1}, {"source": "cb7067", "target": "p-ueno-jijeuko", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7067", "label": "우에노 지즈코 『돌봄의 사회학』", "type": "essay", "year": "2024", "degree": 2}, {"id": "p-ji-eunsuk", "label": "지은숙", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ueno-jijeuko", "label": "우에노 지즈코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q210343 http://lod.nl.go.kr/resource/KAC199631600 https://isni.org/isni/0000000121037345 http://viaf.org/viaf/108510331", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631600", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q210343", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-ji-eunsuk", "target": "cb7067", "type": "wrote", "weight": 1}, {"source": "cb7067", "target": "p-ueno-jijeuko", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

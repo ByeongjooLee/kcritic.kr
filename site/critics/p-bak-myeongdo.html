@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3042", "label": "청계천 복원과 개발독재의 망령", "type": "essay", "year": "2004", "degree": 2}, {"id": "p-bak-myeongdo", "label": "박명도", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-myeongbak", "label": "이명박", "type": "theorist", "ref": "", "degree": 59, "lod": [], "en": ""}], "edges": [{"source": "p-bak-myeongdo", "target": "cb3042", "type": "wrote", "weight": 1}, {"source": "cb3042", "target": "p-i-myeongbak", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3042", "label": "청계천 복원과 개발독재의 망령", "type": "essay", "year": "2004", "degree": 2}, {"id": "p-bak-myeongdo", "label": "박명도", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-myeongbak", "label": "이명박", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q14342 http://lod.nl.go.kr/resource/KAC201116201 https://isni.org/isni/0000000078831411 http://viaf.org/viaf/54050630", "degree": 59, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116201", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14342", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-bak-myeongdo", "target": "cb3042", "type": "wrote", "weight": 1}, {"source": "cb3042", "target": "p-i-myeongbak", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

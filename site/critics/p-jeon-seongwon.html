@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5840", "label": "장석준 『세계 진보정당 운동사』", "type": "essay", "year": "2020", "degree": 2}, {"id": "p-jang-seokjun", "label": "장석준", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-jeon-seongwon", "label": "전성원", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-seongwon", "target": "cb5840", "type": "wrote", "weight": 1}, {"source": "cb5840", "target": "p-jang-seokjun", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5840", "label": "장석준 『세계 진보정당 운동사』", "type": "essay", "year": "2020", "degree": 2}, {"id": "p-jang-seokjun", "label": "장석준", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201229646 https://isni.org/isni/0000000049652473 http://viaf.org/viaf/59032161", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229646", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-jeon-seongwon", "label": "전성원", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-seongwon", "target": "cb5840", "type": "wrote", "weight": 1}, {"source": "cb5840", "target": "p-jang-seokjun", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

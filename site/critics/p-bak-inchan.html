@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3200", "label": "P. 오스터 『뉴욕 3부작』", "type": "essay", "year": "2003", "degree": 2}, {"id": "p-bak-inchan", "label": "박인찬", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-pol-oseuteo", "label": "폴 오스터", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}], "edges": [{"source": "p-bak-inchan", "target": "cb3200", "type": "wrote", "weight": 1}, {"source": "cb3200", "target": "p-pol-oseuteo", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3200", "label": "P. 오스터 『뉴욕 3부작』", "type": "essay", "year": "2003", "degree": 2}, {"id": "p-bak-inchan", "label": "박인찬", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-pol-oseuteo", "label": "폴 오스터", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q214642 http://lod.nl.go.kr/resource/KAC199601202 https://isni.org/isni/0000000121476081 http://viaf.org/viaf/110344312", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601202", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q214642", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-bak-inchan", "target": "cb3200", "type": "wrote", "weight": 1}, {"source": "cb3200", "target": "p-pol-oseuteo", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

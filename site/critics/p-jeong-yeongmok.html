@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3739", "label": "반전평화를 위한 미술가들의 선언", "type": "essay", "year": "2004", "degree": 2}, {"id": "p-j-derrida", "label": "자크 데리다", "type": "theorist", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-jeong-yeongmok", "label": "정영목", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeong-yeongmok", "target": "cb3739", "type": "wrote", "weight": 1}, {"source": "cb3739", "target": "p-j-derrida", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3739", "label": "반전평화를 위한 미술가들의 선언", "type": "essay", "year": "2004", "degree": 2}, {"id": "p-derrida", "label": "데리다", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q130631 http://lod.nl.go.kr/resource/KAC199606951 https://isni.org/isni/0000000121429146 http://viaf.org/viaf/88958529", "degree": 51, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199606951", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q130631", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-yeongmok", "label": "정영목", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeong-yeongmok", "target": "cb3739", "type": "wrote", "weight": 1}, {"source": "cb3739", "target": "p-derrida", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

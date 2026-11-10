@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6769", "label": "서명숙 『흡연 여성 잔혹사』", "type": "essay", "year": "2023", "degree": 2}, {"id": "p-hwang-hyeonjin", "label": "황현진", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seo-myeongsuk", "label": "서명숙", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-hwang-hyeonjin", "target": "cb6769", "type": "wrote", "weight": 1}, {"source": "cb6769", "target": "p-seo-myeongsuk", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6769", "label": "서명숙 『흡연 여성 잔혹사』", "type": "essay", "year": "2023", "degree": 2}, {"id": "p-hwang-hyeonjin", "label": "황현진", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seo-myeongsuk", "label": "서명숙", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q16090209 http://lod.nl.go.kr/resource/KAC201300609 https://isni.org/isni/0000000464434924 http://viaf.org/viaf/93152138529110980343", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201300609", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16090209", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-hwang-hyeonjin", "target": "cb6769", "type": "wrote", "weight": 1}, {"source": "cb6769", "target": "p-seo-myeongsuk", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

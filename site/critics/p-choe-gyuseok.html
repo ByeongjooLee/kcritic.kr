@@ -13,9 +13,9 @@
 
   <main class="container index-main">
     <section class="critic-profile-hero">
-      <div class="critic-profile-byline"><span class="chip role-critic">최규석</span></div>
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q2964330" target="_blank" class="chip role-critic chip-linked">최규석 <span class="chip-ext">↗</span></a></div>
       <h1 class="index-heading">최규석</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201116804" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q2964330" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000044539076" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/63745854" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4620", "label": "김수박 『사람 냄새』 , 김성희 『먼지 없는 방』", "type": "essay", "year": "2012", "degree": 1}, {"id": "cb4708", "label": "최규석 만화 『대한민국 원주민』", "type": "essay", "year": "2008", "degree": 2}, {"id": "cb5144", "label": "웰컴 투 더 리얼 월드!", "type": "essay", "year": "2015", "degree": 3}, {"id": "cb5516", "label": "세상의 기준은 이미 변했다", "type": "essay", "year": "2018", "degree": 7}, {"id": "p-choe-gyuseok", "label": "최규석", "type": "critic", "ref": "", "degree": 4, "lod": [], "en": ""}], "edges": [{"source": "cb4708", "target": "p-choe-gyuseok", "type": "subject_of", "weight": 1}, {"source": "cb5144", "target": "p-choe-gyuseok", "type": "subject_of", "weight": 1}, {"source": "cb5516", "target": "p-choe-gyuseok", "type": "subject_of", "weight": 1}, {"source": "p-choe-gyuseok", "target": "cb4620", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4620", "label": "김수박 『사람 냄새』 , 김성희 『먼지 없는 방』", "type": "essay", "year": "2012", "degree": 1}, {"id": "cb4708", "label": "최규석 만화 『대한민국 원주민』", "type": "essay", "year": "2008", "degree": 2}, {"id": "cb5144", "label": "웰컴 투 더 리얼 월드!", "type": "essay", "year": "2015", "degree": 3}, {"id": "cb5516", "label": "세상의 기준은 이미 변했다", "type": "essay", "year": "2018", "degree": 7}, {"id": "p-choe-gyuseok", "label": "최규석", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q2964330 http://lod.nl.go.kr/resource/KAC201116804 https://isni.org/isni/0000000044539076 http://viaf.org/viaf/63745854", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201116804", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q2964330", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "cb4708", "target": "p-choe-gyuseok", "type": "subject_of", "weight": 1}, {"source": "cb5144", "target": "p-choe-gyuseok", "type": "subject_of", "weight": 1}, {"source": "cb5516", "target": "p-choe-gyuseok", "type": "subject_of", "weight": 1}, {"source": "p-choe-gyuseok", "target": "cb4620", "type": "wrote", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2922", "label": "뷰파인더로 본 촛불시위", "type": "essay", "year": "2003", "degree": 2}, {"id": "p-gang-miran", "label": "강미란", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-no-muhyeon", "label": "노무현", "type": "theorist", "ref": "", "degree": 53, "lod": [], "en": ""}], "edges": [{"source": "p-gang-miran", "target": "cb2922", "type": "wrote", "weight": 1}, {"source": "cb2922", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2922", "label": "뷰파인더로 본 촛불시위", "type": "essay", "year": "2003", "degree": 2}, {"id": "p-gang-miran", "label": "강미란", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-no-muhyeon", "label": "노무현", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q14345 http://lod.nl.go.kr/resource/KAC201100150 https://isni.org/isni/0000000121219755 http://viaf.org/viaf/15704800", "degree": 53, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201100150", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q14345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-gang-miran", "target": "cb2922", "type": "wrote", "weight": 1}, {"source": "cb2922", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

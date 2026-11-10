@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4668", "label": "‘세대’로 동원되지 않기 위하여", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-gim-jongbae", "label": "김종배", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-gim-junyeon", "label": "김준연", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-gim-junyeon", "target": "cb4668", "type": "wrote", "weight": 1}, {"source": "cb4668", "target": "p-gim-jongbae", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4668", "label": "‘세대’로 동원되지 않기 위하여", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-gim-jongbae", "label": "김종배", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12588663 http://lod.nl.go.kr/resource/KAC201223116 https://isni.org/isni/0000000467950684 http://viaf.org/viaf/233153409665641580654", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201223116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12588663", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gim-junyeon", "label": "김준연", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-gim-junyeon", "target": "cb4668", "type": "wrote", "weight": 1}, {"source": "cb4668", "target": "p-gim-jongbae", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

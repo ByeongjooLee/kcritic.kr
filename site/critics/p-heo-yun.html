@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6273", "label": "변경희‧아이다 유엔 웡 엮음 『패션, 근대를 만나다』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-heo-yun", "label": "허윤", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jang-airing", "label": "장아이링", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-heo-yun", "target": "cb6273", "type": "wrote", "weight": 1}, {"source": "cb6273", "target": "p-jang-airing", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6273", "label": "변경희‧아이다 유엔 웡 엮음 『패션, 근대를 만나다』", "type": "essay", "year": "2022", "degree": 2}, {"id": "p-heo-yun", "label": "허윤", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jang-airing", "label": "장아이링", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q197155 http://lod.nl.go.kr/resource/KAC200203055 https://isni.org/isni/0000000109365864 http://viaf.org/viaf/112523113", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200203055", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q197155", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-heo-yun", "target": "cb6273", "type": "wrote", "weight": 1}, {"source": "cb6273", "target": "p-jang-airing", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

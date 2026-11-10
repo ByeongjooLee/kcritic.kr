@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">박신의</span></div>
       <h1 class="index-heading">박신의</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201322463" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000074190063" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/305130397" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2592", "label": "담론 없는 아시아 근본주의의 덫", "type": "essay", "year": "2000", "degree": 4}, {"id": "p-bak-sinui", "label": "박신의", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-dagvadorj", "label": "다우크도르즈", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jun-nguyen-hatsushiba", "label": "준 구엔 하츠시바", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-krisna-murti", "label": "크리스나 무르티", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-bak-sinui", "target": "cb2592", "type": "wrote", "weight": 1}, {"source": "cb2592", "target": "p-dagvadorj", "type": "subject_of", "weight": 1}, {"source": "cb2592", "target": "p-jun-nguyen-hatsushiba", "type": "subject_of", "weight": 1}, {"source": "cb2592", "target": "p-krisna-murti", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2592", "label": "담론 없는 아시아 근본주의의 덫", "type": "essay", "year": "2000", "degree": 4}, {"id": "p-bak-sinui", "label": "박신의", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201322463 https://isni.org/isni/0000000074190063 http://viaf.org/viaf/305130397", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201322463", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-dagvadorj", "label": "다우크도르즈", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jun-nguyen-hatsushiba", "label": "준 구엔 하츠시바", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-krisna-murti", "label": "크리스나 무르티", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-bak-sinui", "target": "cb2592", "type": "wrote", "weight": 1}, {"source": "cb2592", "target": "p-dagvadorj", "type": "subject_of", "weight": 1}, {"source": "cb2592", "target": "p-jun-nguyen-hatsushiba", "type": "subject_of", "weight": 1}, {"source": "cb2592", "target": "p-krisna-murti", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

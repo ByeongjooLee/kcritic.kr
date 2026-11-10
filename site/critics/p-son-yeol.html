@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">손열</span></div>
       <h1 class="index-heading">손열</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC200900025" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000396057484" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/290892897" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4685", "label": "세계 권력지형 변화 속 한국의 전략", "type": "essay", "year": "2013", "degree": 3}, {"id": "p-bak-geunhye", "label": "박근혜", "type": "theorist", "ref": "", "degree": 41, "lod": [], "en": ""}, {"id": "p-ha-yeongseon", "label": "하영선", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-son-yeol", "label": "손열", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-son-yeol", "target": "cb4685", "type": "wrote", "weight": 1}, {"source": "cb4685", "target": "p-bak-geunhye", "type": "uses_theory", "weight": 1}, {"source": "cb4685", "target": "p-ha-yeongseon", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4685", "label": "세계 권력지형 변화 속 한국의 전략", "type": "essay", "year": "2013", "degree": 3}, {"id": "p-bak-geunhye", "label": "박근혜", "type": "theorist", "ref": "", "degree": 41, "lod": [], "en": ""}, {"id": "p-ha-yeongseon", "label": "하영선", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-son-yeol", "label": "손열", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC200900025 https://isni.org/isni/0000000396057484 http://viaf.org/viaf/290892897", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200900025", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-son-yeol", "target": "cb4685", "type": "wrote", "weight": 1}, {"source": "cb4685", "target": "p-bak-geunhye", "type": "uses_theory", "weight": 1}, {"source": "cb4685", "target": "p-ha-yeongseon", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

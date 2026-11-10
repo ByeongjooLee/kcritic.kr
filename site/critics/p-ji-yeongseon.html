@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2744", "label": "한반도 통일에 얽힌 4강의 이해", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-ji-yeongseon", "label": "지영선", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yen-swetung", "label": "옌쉐퉁", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-ji-yeongseon", "target": "cb2744", "type": "wrote", "weight": 1}, {"source": "cb2744", "target": "p-yen-swetung", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2744", "label": "한반도 통일에 얽힌 4강의 이해", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-ji-yeongseon", "label": "지영선", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yen-swetung", "label": "옌쉐퉁", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q8048184 http://lod.nl.go.kr/resource/KAC200808021 https://isni.org/isni/0000000084123892 http://viaf.org/viaf/115414060", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200808021", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q8048184", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-ji-yeongseon", "target": "cb2744", "type": "wrote", "weight": 1}, {"source": "cb2744", "target": "p-yen-swetung", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

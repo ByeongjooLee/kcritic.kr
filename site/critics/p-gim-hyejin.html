@@ -13,9 +13,9 @@
 
   <main class="container index-main">
     <section class="critic-profile-hero">
-      <div class="critic-profile-byline"><span class="chip role-critic">김혜진</span></div>
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q111015630" target="_blank" class="chip role-critic chip-linked">김혜진 <span class="chip-ext">↗</span></a></div>
       <h1 class="index-heading">김혜진</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201417765" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q111015630" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/000000047905924X" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/117149366209785601192" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5731", "label": "다시, 부패된 조건들을 바라보며", "type": "essay", "year": "2019", "degree": 8}, {"id": "cb5963", "label": "소설이 로컬을 말하는 방법", "type": "essay", "year": "2020", "degree": 6}, {"id": "cb6632", "label": "정원 『올해의 미숙』", "type": "essay", "year": "2019", "degree": 2}, {"id": "cb6962", "label": "주관적 감정의 재현과 보편성", "type": "essay", "year": "2024", "degree": 4}, {"id": "p-gim-hyejin", "label": "김혜진", "type": "critic", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-jeong-won", "label": "정원", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "cb5731", "target": "p-gim-hyejin", "type": "subject_of", "weight": 1}, {"source": "cb5963", "target": "p-gim-hyejin", "type": "subject_of", "weight": 1}, {"source": "cb6962", "target": "p-gim-hyejin", "type": "subject_of", "weight": 1}, {"source": "p-gim-hyejin", "target": "cb6632", "type": "wrote", "weight": 1}, {"source": "cb6632", "target": "p-jeong-won", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5731", "label": "다시, 부패된 조건들을 바라보며", "type": "essay", "year": "2019", "degree": 8}, {"id": "cb5963", "label": "소설이 로컬을 말하는 방법", "type": "essay", "year": "2020", "degree": 6}, {"id": "cb6632", "label": "정원 『올해의 미숙』", "type": "essay", "year": "2019", "degree": 2}, {"id": "cb6962", "label": "주관적 감정의 재현과 보편성", "type": "essay", "year": "2024", "degree": 4}, {"id": "p-gim-hyejin", "label": "김혜진", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q111015630 http://lod.nl.go.kr/resource/KAC201417765 https://isni.org/isni/000000047905924X http://viaf.org/viaf/117149366209785601192", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201417765", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q111015630", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-won", "label": "정원", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "cb5731", "target": "p-gim-hyejin", "type": "subject_of", "weight": 1}, {"source": "cb5963", "target": "p-gim-hyejin", "type": "subject_of", "weight": 1}, {"source": "cb6962", "target": "p-gim-hyejin", "type": "subject_of", "weight": 1}, {"source": "p-gim-hyejin", "target": "cb6632", "type": "wrote", "weight": 1}, {"source": "cb6632", "target": "p-jeong-won", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

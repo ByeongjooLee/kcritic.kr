@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">성혜령</span></div>
       <h1 class="index-heading">성혜령</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC202305282" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000511055418" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7113", "label": "클레어 키건 『푸른 들판을 걷다』", "type": "essay", "year": "2024", "degree": 2}, {"id": "cb7193", "label": "말을 잃은 아버지들", "type": "essay", "year": "2025", "degree": 9}, {"id": "p-claire-keegan", "label": "클레어 키건", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seong-hyeryeong", "label": "성혜령", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "cb7193", "target": "p-seong-hyeryeong", "type": "subject_of", "weight": 1}, {"source": "p-seong-hyeryeong", "target": "cb7113", "type": "wrote", "weight": 1}, {"source": "cb7113", "target": "p-claire-keegan", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7113", "label": "클레어 키건 『푸른 들판을 걷다』", "type": "essay", "year": "2024", "degree": 2}, {"id": "cb7193", "label": "말을 잃은 아버지들", "type": "essay", "year": "2025", "degree": 9}, {"id": "p-claire-keegan", "label": "클레어 키건", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC202401446 https://isni.org/isni/0000000083984324", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202401446", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-seong-hyeryeong", "label": "성혜령", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC202305282 https://isni.org/isni/0000000511055418", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202305282", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "cb7193", "target": "p-seong-hyeryeong", "type": "subject_of", "weight": 1}, {"source": "p-seong-hyeryeong", "target": "cb7113", "type": "wrote", "weight": 1}, {"source": "cb7113", "target": "p-claire-keegan", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

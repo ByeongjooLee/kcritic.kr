@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">허문영</span></div>
       <h1 class="index-heading">허문영</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201411796" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000464927796" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/58153061269419201387" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2712", "label": "한국영화와 국제영화제", "type": "essay", "year": "2001", "degree": 1}, {"id": "p-heo-munyeong", "label": "허문영", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-heo-munyeong", "target": "cb2712", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2712", "label": "한국영화와 국제영화제", "type": "essay", "year": "2001", "degree": 1}, {"id": "p-heo-munyeong", "label": "허문영", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201411796 https://isni.org/isni/0000000464927796 http://viaf.org/viaf/58153061269419201387", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201411796", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-heo-munyeong", "target": "cb2712", "type": "wrote", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

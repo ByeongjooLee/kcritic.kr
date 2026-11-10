@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5801", "label": "함께 풀어야 할 후꾸시마 오염수 문제", "type": "essay", "year": "2019", "degree": 2}, {"id": "p-abe-sinjo", "label": "아베 신조", "type": "theorist", "ref": "", "degree": 8, "lod": [], "en": ""}, {"id": "p-i-heonseok", "label": "이헌석", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-i-heonseok", "target": "cb5801", "type": "wrote", "weight": 1}, {"source": "cb5801", "target": "p-abe-sinjo", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5801", "label": "함께 풀어야 할 후꾸시마 오염수 문제", "type": "essay", "year": "2019", "degree": 2}, {"id": "p-abe-sinjo", "label": "아베 신조", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q132345 http://lod.nl.go.kr/resource/KAC201716487 https://isni.org/isni/0000000078777443 http://viaf.org/viaf/54057111", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201716487", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q132345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-heonseok", "label": "이헌석", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-i-heonseok", "target": "cb5801", "type": "wrote", "weight": 1}, {"source": "cb5801", "target": "p-abe-sinjo", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

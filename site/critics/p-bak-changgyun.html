@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2679", "label": "차종천 옮김 『구장산술/주비산경』", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-bak-changgyun", "label": "박창균", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-cha-jongcheon", "label": "차종천", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-bak-changgyun", "target": "cb2679", "type": "wrote", "weight": 1}, {"source": "cb2679", "target": "p-cha-jongcheon", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2679", "label": "차종천 옮김 『구장산술/주비산경』", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-bak-changgyun", "label": "박창균", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-cha-jongcheon", "label": "차종천", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201723734 https://isni.org/isni/0000000052445272 http://viaf.org/viaf/17122635", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201723734", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-bak-changgyun", "target": "cb2679", "type": "wrote", "weight": 1}, {"source": "cb2679", "target": "p-cha-jongcheon", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

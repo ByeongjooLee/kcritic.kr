@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6972", "label": "한모니까 『DMZ의 역사』", "type": "essay", "year": "2024", "degree": 2}, {"id": "p-han-monikka", "label": "한모니까", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeon-wongeun", "label": "전원근", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-wongeun", "target": "cb6972", "type": "wrote", "weight": 1}, {"source": "cb6972", "target": "p-han-monikka", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb6972", "label": "한모니까 『DMZ의 역사』", "type": "essay", "year": "2024", "degree": 2}, {"id": "p-han-monikka", "label": "한모니까", "type": "theorist", "ref": "http://lod.nl.go.kr/resource/KAC201718266 https://isni.org/isni/000000047369439X http://viaf.org/viaf/14150868119722070649", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201718266", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-jeon-wongeun", "label": "전원근", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jeon-wongeun", "target": "cb6972", "type": "wrote", "weight": 1}, {"source": "cb6972", "target": "p-han-monikka", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">조형래</span></div>
       <h1 class="index-heading">조형래</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201604870" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000463227763" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/24150747034216302524" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5555", "label": "백가흠 소설집 『힌트는 도련님』", "type": "essay", "year": "2011", "degree": 2}, {"id": "p-baek-gaheum", "label": "백가흠", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-jo-hyeongrae", "label": "조형래", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jo-hyeongrae", "target": "cb5555", "type": "wrote", "weight": 1}, {"source": "cb5555", "target": "p-baek-gaheum", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5555", "label": "백가흠 소설집 『힌트는 도련님』", "type": "essay", "year": "2011", "degree": 2}, {"id": "p-baek-gaheum", "label": "백가흠", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q15741004 http://lod.nl.go.kr/resource/KAC201106285 https://isni.org/isni/000000005142690X http://viaf.org/viaf/41629645", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201106285", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q15741004", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jo-hyeongrae", "label": "조형래", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201604870 https://isni.org/isni/0000000463227763 http://viaf.org/viaf/24150747034216302524", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201604870", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-jo-hyeongrae", "target": "cb5555", "type": "wrote", "weight": 1}, {"source": "cb5555", "target": "p-baek-gaheum", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

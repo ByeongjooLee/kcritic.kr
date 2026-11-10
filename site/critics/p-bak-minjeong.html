@@ -13,9 +13,9 @@
 
   <main class="container index-main">
     <section class="critic-profile-hero">
-      <div class="critic-profile-byline"><span class="chip role-critic">박민정</span></div>
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q69697149" target="_blank" class="chip role-critic chip-linked">박민정 <span class="chip-ext">↗</span></a></div>
       <h1 class="index-heading">박민정</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201423492" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q69697149" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000474790164" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/37155706995622411201" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5087", "label": "‘헬조선’에서 ‘탈조선’을 꿈꾼다는 것", "type": "essay", "year": "2016", "degree": 9}, {"id": "cb5337", "label": "너머의 퀴어", "type": "essay", "year": "2017", "degree": 11}, {"id": "cb6650", "label": "대니엘 래저린 『반박하는 여자들』", "type": "essay", "year": "2019", "degree": 2}, {"id": "p-bak-minjeong", "label": "박민정", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-danielle-lazarin", "label": "대니엘 래저린", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "cb5087", "target": "p-bak-minjeong", "type": "subject_of", "weight": 1}, {"source": "cb5337", "target": "p-bak-minjeong", "type": "subject_of", "weight": 1}, {"source": "p-bak-minjeong", "target": "cb6650", "type": "wrote", "weight": 1}, {"source": "cb6650", "target": "p-danielle-lazarin", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5087", "label": "‘헬조선’에서 ‘탈조선’을 꿈꾼다는 것", "type": "essay", "year": "2016", "degree": 9}, {"id": "cb5337", "label": "너머의 퀴어", "type": "essay", "year": "2017", "degree": 11}, {"id": "cb6650", "label": "대니엘 래저린 『반박하는 여자들』", "type": "essay", "year": "2019", "degree": 2}, {"id": "p-bak-minjeong", "label": "박민정", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q69697149 http://lod.nl.go.kr/resource/KAC201423492 https://isni.org/isni/0000000474790164 http://viaf.org/viaf/37155706995622411201", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201423492", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q69697149", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-danielle-lazarin", "label": "대니엘 래저린", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "cb5087", "target": "p-bak-minjeong", "type": "subject_of", "weight": 1}, {"source": "cb5337", "target": "p-bak-minjeong", "type": "subject_of", "weight": 1}, {"source": "p-bak-minjeong", "target": "cb6650", "type": "wrote", "weight": 1}, {"source": "cb6650", "target": "p-danielle-lazarin", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

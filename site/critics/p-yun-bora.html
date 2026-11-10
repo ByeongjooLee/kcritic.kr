@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5510", "label": "톰 니콜스 『전문가와 강적들』", "type": "essay", "year": "2017", "degree": 2}, {"id": "p-tom-nichols", "label": "톰 니콜스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-bora", "label": "윤보라", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-yun-bora", "target": "cb5510", "type": "wrote", "weight": 1}, {"source": "cb5510", "target": "p-tom-nichols", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5510", "label": "톰 니콜스 『전문가와 강적들』", "type": "essay", "year": "2017", "degree": 2}, {"id": "p-tom-nichols", "label": "톰 니콜스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q20675746 http://lod.nl.go.kr/resource/KAC201749971 https://isni.org/isni/0000000116912467 http://viaf.org/viaf/98086971", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201749971", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q20675746", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yun-bora", "label": "윤보라", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-yun-bora", "target": "cb5510", "type": "wrote", "weight": 1}, {"source": "cb5510", "target": "p-tom-nichols", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

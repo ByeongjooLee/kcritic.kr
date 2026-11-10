@@ -15,7 +15,7 @@
     <section class="critic-profile-hero">
       <div class="critic-profile-byline"><span class="chip role-critic">민가경</span></div>
       <h1 class="index-heading">민가경</h1>
-      
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC202303730" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000510867932" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7370", "label": "남기고 간 얼굴, 남아 있는 얼굴", "type": "essay", "year": "2026", "degree": 3}, {"id": "p-baek-onyu", "label": "백온유", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-min-gagyeong", "label": "민가경", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-son-wonpyeong", "label": "손원평", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-min-gagyeong", "target": "cb7370", "type": "wrote", "weight": 1}, {"source": "cb7370", "target": "p-baek-onyu", "type": "subject_of", "weight": 1}, {"source": "cb7370", "target": "p-son-wonpyeong", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7370", "label": "남기고 간 얼굴, 남아 있는 얼굴", "type": "essay", "year": "2026", "degree": 3}, {"id": "p-baek-onyu", "label": "백온유", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q115053225 http://lod.nl.go.kr/resource/KAC202082880 https://isni.org/isni/0000000485187301 http://viaf.org/viaf/100160483746704991836", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202082880", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q115053225", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-min-gagyeong", "label": "민가경", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC202303730 https://isni.org/isni/0000000510867932", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC202303730", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-son-wonpyeong", "label": "손원평", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q97338773 http://lod.nl.go.kr/resource/KAC201715302 https://isni.org/isni/0000000464581043 http://viaf.org/viaf/75149841944002841216", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201715302", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q97338773", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-min-gagyeong", "target": "cb7370", "type": "wrote", "weight": 1}, {"source": "cb7370", "target": "p-baek-onyu", "type": "subject_of", "weight": 1}, {"source": "cb7370", "target": "p-son-wonpyeong", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
