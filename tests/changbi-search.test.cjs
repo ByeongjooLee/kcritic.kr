@@ -57,7 +57,7 @@ test('links go to the Changbi essay page when reviewed, otherwise to the webzine
 test('header searches, explore and unified search all use the index', () => {
   for (const f of ['kc.js', 'kc-shell.js']) assert.ok(read(f).includes('cb_search') && read(f).includes('『창작과비평』 글'), f);
   assert.ok(read('explore.html').includes('renderCB(S.q)'));
-  assert.ok(read('search.js').includes('cbSearch(q,rows,10,true)') && read('search.html').includes('changbi-results'));
+  assert.ok(read('search.js').includes('cbSearch(q,rows,10,true)') && !read('search.html').includes('changbi-results'), 'unified search merges Changbi into the criticism column');
   for (const f of ['explore.html', 'entity.html']) for (const m of read(f).matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(m[1]);
   for (const f of ['kc.js', 'kc-shell.js', 'search.js']) new vm.Script(read(f));
 });
