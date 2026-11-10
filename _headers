@@ -1,0 +1,12 @@
+# 브라우저 캐시 (2026-11-10) — 한국 접속이 Cloudflare 미국(LAX)으로 가서 파일마다 첫 응답이 0.9초쯤 걸린다.
+# 화면(HTML)은 지금처럼 매번 확인하고, 데이터·스크립트·스타일은 10분 동안 다시 묻지 않으며,
+# 그 뒤 일주일까지는 가진 것을 먼저 보이고 뒤에서 새로 받는다(stale-while-revalidate).
+# 배포 직후 10분 안에 다시 들른 사람은 이전 데이터를 볼 수 있다 — 그 정도는 받아들인다.
+/site/data/*
+  Cache-Control: public, max-age=600, stale-while-revalidate=604800
+
+/*.js
+  Cache-Control: public, max-age=600, stale-while-revalidate=604800
+
+/*.css
+  Cache-Control: public, max-age=600, stale-while-revalidate=604800

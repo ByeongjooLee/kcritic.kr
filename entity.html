@@ -104,8 +104,12 @@ db().then(D => {
   // ── 『창작과비평』 글 (검수 통과 해제, 2026-11-10) — 『문학과사회』 글 화면과 같은 틀. 본문 대신 해제·요지·주장, 원문은 창비 웹진으로
   if (T === "essay" && /^cb\d+$/.test(ID || "")) {
     root.innerHTML = `<p class="note">글을 불러오는 중…</p>`;
-    load("changbi_summaries").then(summaries => {
-      // 해제(changbi_summaries) + 관계(essays.json 컬렉션 cb — publish_cb.py 가 해제의 필자·인물·키워드를 옮긴 메타데이터 XML 에서 build)
+    // 해제는 그 호 파일(cb_sum/<호 id>.json, build_changbi_search.py)만 읽는다 — 전체 changbi_summaries.json(1MB) 대신(2026-11-10).
+    // 호 id 는 essays.json 에서, 관계망에 없는 글(필자 보류 19편)은 cb_search.json 에서 찾는다
+    const ce = D.E.get(ID);
+    (ce ? Promise.resolve("cb" + String(ce.issue).padStart(3, "0")) : load("cb_search").then(rows => (rows.find(r => String(r[0]) === ID.slice(2)) || [])[1]))
+      .then(iid => iid ? load(`cb_sum/${iid}`) : {}).then(summaries => {
+      // 해제(cb_sum) + 관계(essays.json 컬렉션 cb — publish_cb.py 가 해제의 필자·인물·키워드를 옮긴 메타데이터 XML 에서 build)
       const entry = summaries[ID.slice(2)], e = D.E.get(ID);
       if (!entry) return root.innerHTML = `<div class="empty">글을 찾을 수 없습니다.</div>`;
       document.title = `${entry.t} — kcritic`;
@@ -227,9 +231,9 @@ db().then(D => {
           <p class="note" style="margin:-4px 0 10px">창비 웹진의 호별 목차를 옮긴 것입니다(웹진에 실린 순서). 웹진 목차에 쪽수가 없어 쪽수는 싣지 않았습니다. 검수된 해제가 있는 글은 이 사이트의 글 화면으로, 나머지는 창비 웹진의 그 기사로 갑니다. 이 사이트는 『창작과비평』의 본문을 싣지 않습니다.</p>
           <div class="rows" id="cbrows"><p class="note">목차를 불러오는 중…</p></div></div>
       </div>
-      <aside class="aside"><div class="panel"><h5>목차와 검수된 해제</h5><p class="note">검수를 통과한 일부 글에 해제·요지·주장을 제공합니다. AI 보조로 작성하고 본문과 대조한 요약이며 원문이 아닙니다. 번역·무기명·복수 저자 및 저작자 확인이 필요한 글은 공개를 보류합니다. 인물 관계망에는 아직 통합하지 않았습니다.</p></div></aside></div>`;
+      <aside class="aside"><div class="panel"><h5>목차와 검수된 해제</h5><p class="note">검수를 통과한 일부 글에 해제·요지·주장을 제공합니다. AI 보조로 작성하고 본문과 대조한 요약이며 원문이 아닙니다. 번역·무기명·복수 저자 및 저작자 확인이 필요한 글은 공개를 보류합니다. 해제가 있는 글은 필자·인물·키워드를 관계망에 넣었습니다(자동 판정).</p></div></aside></div>`;
     // 목차 행: 검수 해제가 있는 글은 이 사이트의 글 화면(entity.html?t=essay&id=cb<Item>)으로 — 『문학과사회』 호 화면처럼 굵게·「해제」, 나머지는 창비 웹진
-    Promise.all([load("issues_cb_items"), load("changbi_summaries").catch(() => ({}))]).then(([X, summaries]) => {
+    Promise.all([load("issues_cb_items"), load(`cb_sum/${ID}`).catch(() => ({}))]).then(([X, summaries]) => {   // 이 호의 해제만(해제 없는 호는 파일 없음)
       document.getElementById("cbrows").innerHTML = (X[ID] || []).map(x => { const s = summaries[String(x.i)];
         return `<article class="row"${s ? "" : ' style="color:var(--faint)"'}>
           <div class="yr num">${x.s}</div><div><h4 style="font-weight:${s ? 600 : 500}">${s ? `<a href="${href.essay(`cb${x.i}`)}">${esc(x.t)}</a>` : `<a href="${CB.item(x.i)}" target="_blank" rel="noopener">${esc(x.t)}</a>`}</h4>
