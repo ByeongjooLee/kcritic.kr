@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "choe-seongmin_kim-youngha-multiple-worlds-one-body_2001", "label": "다중적 세계와 하나뿐인 ‘몸’: 김영하론", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-choe-seongmin", "label": "최성민", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-yeongha", "label": "김영하", "type": "critic", "ref": "", "degree": 17, "lod": [], "en": ""}], "edges": [{"source": "p-choe-seongmin", "target": "choe-seongmin_kim-youngha-multiple-worlds-one-body_2001", "type": "wrote", "weight": 1}, {"source": "choe-seongmin_kim-youngha-multiple-worlds-one-body_2001", "target": "p-kim-yeongha", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "choe-seongmin_kim-youngha-multiple-worlds-one-body_2001", "label": "다중적 세계와 하나뿐인 ‘몸’: 김영하론", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-choe-seongmin", "label": "최성민", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-yeongha", "label": "김영하", "type": "critic", "ref": "", "degree": 29, "lod": [], "en": ""}], "edges": [{"source": "p-choe-seongmin", "target": "choe-seongmin_kim-youngha-multiple-worlds-one-body_2001", "type": "wrote", "weight": 1}, {"source": "choe-seongmin_kim-youngha-multiple-worlds-one-body_2001", "target": "p-kim-yeongha", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

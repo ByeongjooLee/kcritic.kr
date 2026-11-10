@@ -38,6 +38,9 @@ const VENUE_LINK = { mhs: { url: "https://moonji.com/literatureAndSociety/intro"
 // 『창작과비평』은 목차만 싣는다(D.cb = 호 목록 issues_cb.json, 항목은 호 화면에서만 issues_cb_items.json) — 기사·호는 창비 웹진으로 연결
 const CB = { name: "창작과비평", pub: "창작과비평사", item: i => `https://magazine.changbi.com/MCQuarterly/Item/${i}`, list: n => `https://magazine.changbi.com/MCQuarterly/List/${n}` };
 const cbNo = i => i.label === "창간호" ? "창간호" : `${i.no}호`;
+// 글 목록 한 줄의 지면 표기 — 잡지 글은 호 화면으로 잇는다(『문학과사회』 쪽수·난, 『창작과비평』 난)
+const venueLine = e => e.coll === "mhs" ? `<a href="${href.issue(String(e.issue).padStart(3, "0"))}">《문학과사회》 ${e.issue}호</a> · ${esc(e.pages)}면${e.section ? " · " + esc(e.section) : ""}`
+  : e.coll === "cb" ? `<a href="${href.issue("cb" + String(e.issue).padStart(3, "0"))}">《창작과비평》 ${e.issue}호</a>${e.section ? " · " + esc(e.section) : ""}` : esc(e.venue);
 // 『창작과비평』 낱말 검색(2026-11-10) — cb_search.json 한 줄 = [웹진 Item, 호 id, 연도, 표제, 필자, 난, 키워드("|"), 요지]
 // (build_changbi_search.py, 비평·산문 4,558편, 키워드·요지는 검수 통과한 해제가 있는 글만). 띄어쓰기는 무시한다.
 // loose: 문장 질문(통합검색)용 — 낱말마다 조사 떼고 맞은 낱말 수로 순위. 아니면 입력 전체가 한 칸에 들어 있어야 한다.
@@ -56,12 +59,6 @@ function cbSearch(q, rows, n = 5, loose = false) {
   });
   return out.sort((a, b) => b[0] - a[0] || b[1] - a[1] || (b[2][7] ? 1 : 0) - (a[2][7] ? 1 : 0) || b[2][2] - a[2][2]).slice(0, n).map(x => x[2]);
 }
-// 검수 통과 해제가 있는 『창작과비평』 글을 글 목록(explore 「글」)·첫 화면 수치용 꼴로 (2026-11-10).
-// 인물·개념어 관계망에는 아직 넣지 않았으므로 concepts·subjects·theorists 는 비우고, 해제 키워드는 kw 로 따로 둔다.
-const cbEssays = () => _cache._cbE ??= load("cb_search").catch(() => []).then(rows => rows.filter(r => r[7]).map(r => ({
-  id: `cb${r[0]}`, cb: r, coll: "cb", coll_name: "『창작과비평』", year: r[2], title: r[3], critic: `cb:${r[4]}`, critic_name: r[4],
-  venue: `『창작과비평』 ${r[1].replace(/^cb0*/, "")}호`, issue: +r[1].slice(2), section: r[5], pages: "",
-  concepts: [], subjects: [], theorists: [], kw: r[6] ? r[6].split("|") : [], gist: r[7] })));
 // 해제가 있는 글은 이 사이트의 글 화면(entity.html?t=essay&id=cb<Item>)으로, 없는 글은 창비 웹진 기사로
 const cbHref = r => r[7] ? href.essay(`cb${r[0]}`) : CB.item(r[0]);
 const cbMeta = r => `${r[4]} · ${r[2]} · 『창작과비평』 ${r[1].replace(/^cb0*/, "")}호${r[7] ? " · 해제" : " · 창비 웹진"}`;

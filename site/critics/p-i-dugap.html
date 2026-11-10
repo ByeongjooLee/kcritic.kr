@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이두갑 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이두갑</span></div>
+      <h1 class="index-heading">이두갑</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">이광수</span> <span class="chip role-writer">이상</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">다윈 (1)</span> <span class="chip chip-term">아인슈타인 (1)</span> <span class="chip chip-term">미셸 푸코 (1)</span> <span class="chip chip-term">힐러리 로즈 (1)</span> <span class="chip chip-term">이언 해킹 (1)</span> <span class="chip chip-term">장하석 (1)</span> <span class="chip chip-term">정인경 (1)</span> <span class="chip chip-term">로렌조 피오라몬티 (1)</span> <span class="chip chip-term">스티븐 로즈 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb5130", "label": "정인경 『뉴턴의 무정한 세계』", "type": "essay", "year": "2015", "degree": 6}, {"id": "cb5248", "label": "장하석 『장하석의 과학, 철학을 만나다』", "type": "essay", "year": "2015", "degree": 2}, {"id": "cb5397", "label": "로렌조 피오라몬티 『숫자는 어떻게 세상을 지배하는가』", "type": "essay", "year": "2015", "degree": 2}, {"id": "cb5458", "label": "힐러리 로즈‧스티븐 로즈 『급진과학으로 본 유전자, 세포, 뇌』", "type": "essay", "year": "2015", "degree": 3}, {"id": "cb7069", "label": "이언 해킹 『영혼 다시 쓰기』", "type": "essay", "year": "2024", "degree": 3}, {"id": "p-00241", "label": "이광수", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564", "degree": 76, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0043688", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200108735", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q495454", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00244", "label": "이상", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q486028 https://encykorea.aks.ac.kr/Article/E0044568 http://lod.nl.go.kr/resource/KAC200207958 https://isni.org/isni/0000000083874942 http://viaf.org/viaf/61657532", "degree": 75, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0044568", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200207958", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q486028", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-darwin", "label": "다윈", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q1035 http://lod.nl.go.kr/resource/KAC199606307 https://isni.org/isni/0000000121251077 http://viaf.org/viaf/27063124", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199606307", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q1035", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Charles Darwin"}, {"id": "p-einstein", "label": "아인슈타인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q937 http://lod.nl.go.kr/resource/KAC200103196 https://isni.org/isni/000000012281955X http://viaf.org/viaf/75121530", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200103196", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q937", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-foucault", "label": "미셸 푸코", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44272 http://lod.nl.go.kr/resource/KAC199609116 https://isni.org/isni/000000012146278X http://viaf.org/viaf/104722665", "degree": 64, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609116", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44272", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Michel Foucault"}, {"id": "p-hilreori-rojeu", "label": "힐러리 로즈", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-dugap", "label": "이두갑", "type": "critic", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-ian-hacking", "label": "이언 해킹", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jang-haseok", "label": "장하석", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-ingyeong", "label": "정인경", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lorenzo-fioramonti", "label": "로렌조 피오라몬티", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-seutibeun-rojeu", "label": "스티븐 로즈", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-i-dugap", "target": "cb5130", "type": "wrote", "weight": 1}, {"source": "p-i-dugap", "target": "cb5248", "type": "wrote", "weight": 1}, {"source": "p-i-dugap", "target": "cb5397", "type": "wrote", "weight": 1}, {"source": "p-i-dugap", "target": "cb5458", "type": "wrote", "weight": 1}, {"source": "p-i-dugap", "target": "cb7069", "type": "wrote", "weight": 1}, {"source": "cb5130", "target": "p-00241", "type": "subject_of", "weight": 1}, {"source": "cb5130", "target": "p-00244", "type": "subject_of", "weight": 1}, {"source": "cb5130", "target": "p-darwin", "type": "uses_theory", "weight": 1}, {"source": "cb5130", "target": "p-einstein", "type": "uses_theory", "weight": 1}, {"source": "cb5130", "target": "p-jeong-ingyeong", "type": "uses_theory", "weight": 1}, {"source": "cb5248", "target": "p-jang-haseok", "type": "uses_theory", "weight": 1}, {"source": "cb5397", "target": "p-lorenzo-fioramonti", "type": "uses_theory", "weight": 1}, {"source": "cb5458", "target": "p-hilreori-rojeu", "type": "uses_theory", "weight": 1}, {"source": "cb5458", "target": "p-seutibeun-rojeu", "type": "uses_theory", "weight": 1}, {"source": "cb7069", "target": "p-foucault", "type": "uses_theory", "weight": 1}, {"source": "cb7069", "target": "p-ian-hacking", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (5편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2015</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5130.html">정인경 『뉴턴의 무정한 세계』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 167호, 창비, 2015</p>
+        <div class="essay-card-tags"><span class="tag">이광수</span> <span class="tag">이상</span><span class="tag">다윈</span> <span class="tag">아인슈타인</span> <span class="tag">정인경</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2015</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5248.html">장하석 『장하석의 과학, 철학을 만나다』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 168호, 창비, 2015</p>
+        <div class="essay-card-tags"><span class="tag">장하석</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2015</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5397.html">로렌조 피오라몬티 『숫자는 어떻게 세상을 지배하는가』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 169호, 창비, 2015</p>
+        <div class="essay-card-tags"><span class="tag">로렌조 피오라몬티</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2015</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5458.html">힐러리 로즈‧스티븐 로즈 『급진과학으로 본 유전자, 세포, 뇌』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 170호, 창비, 2015</p>
+        <div class="essay-card-tags"><span class="tag">힐러리 로즈</span> <span class="tag">스티븐 로즈</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2024</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb7069.html">이언 해킹 『영혼 다시 쓰기』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 205호, 창비, 2024</p>
+        <div class="essay-card-tags"><span class="tag">미셸 푸코</span> <span class="tag">이언 해킹</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

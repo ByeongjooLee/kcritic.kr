@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이욱연 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이욱연</span></div>
+      <h1 class="index-heading">이욱연</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">8</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">루쉰</span> <span class="chip role-writer">한 사오궁</span> <span class="chip role-writer">김학철</span> <span class="chip role-writer">모옌</span> <span class="chip role-writer">나희덕</span> <span class="chip role-writer">나쓰메 소세키</span> <span class="chip role-writer">루 쉰</span> <span class="chip role-writer">위화</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">백원담 (1)</span> <span class="chip chip-term">백영서 (1)</span> <span class="chip chip-term">김호웅 (1)</span> <span class="chip chip-term">김문학 (1)</span> <span class="chip chip-term">히야마 히사오 (1)</span> <span class="chip chip-term">후지이 쇼조 (1)</span> <span class="chip chip-term">임형택 (1)</span> <span class="chip chip-term">프레드릭 제임슨 (1)</span> <span class="chip chip-term">김상환 (1)</span> <span class="chip chip-term">마오쩌둥 (1)</span> <span class="chip chip-term">다케우치 요시미 (1)</span> <span class="chip chip-term">윤상인 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2714", "label": "히야마 히사오 『동양적 근대의 창출』", "type": "essay", "year": "2001", "degree": 6}, {"id": "cb2969", "label": "옌뼨, 동아시아의 빛과 그늘", "type": "essay", "year": "2002", "degree": 8}, {"id": "cb3432", "label": "중국문학으로 가는 길", "type": "essay", "year": "2005", "degree": 5}, {"id": "cb3560", "label": "타께우찌 요시미 『루 쉰』", "type": "essay", "year": "2004", "degree": 3}, {"id": "cb4075", "label": "백원담 『동아시아의 문화선택 한류』", "type": "essay", "year": "2006", "degree": 2}, {"id": "cb5002", "label": "한 사오궁 소설집 『귀거래』", "type": "essay", "year": "2014", "degree": 3}, {"id": "cb5542", "label": "이욱연 『포스트 사회주의 시대 중국 지성』", "type": "essay", "year": "2018", "degree": 4}, {"id": "p-baek-wondam", "label": "백원담", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-baek-yeongseo", "label": "백영서", "type": "critic", "ref": "", "degree": 43, "lod": [], "en": ""}, {"id": "p-gim-houng", "label": "김호웅", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-munhak", "label": "김문학", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-han-saogung", "label": "한 사오궁", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-hiyama-hisao", "label": "히야마 히사오", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-hujii-syojo", "label": "후지이 쇼조", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-im-hyeongtaek", "label": "임형택", "type": "critic", "ref": "", "degree": 19, "lod": [], "en": ""}, {"id": "p-jameson", "label": "프레드릭 제임슨", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q347362 http://lod.nl.go.kr/resource/KAC199613727 https://isni.org/isni/0000000121468591 http://viaf.org/viaf/108213141", "degree": 33, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199613727", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q347362", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Fredric Jameson"}, {"id": "p-kim-hakcheol", "label": "김학철", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q16261191 http://lod.nl.go.kr/resource/KAC201407190 https://isni.org/isni/0000000037141262 http://viaf.org/viaf/1569578", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201407190", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16261191", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-sanghwan", "label": "김상환", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-ma-ojjeodung", "label": "마오쩌둥", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-mo-yen", "label": "모옌", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-na-huideok", "label": "나희덕", "type": "critic", "ref": "", "degree": 18, "lod": [], "en": ""}, {"id": "p-natsume-soseki", "label": "나쓰메 소세키", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-ru-swin", "label": "루 쉰", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ru-swin-2", "label": "루쉰", "type": "writer", "ref": "", "degree": 11, "lod": [], "en": ""}, {"id": "p-takeuchi-yoshimi", "label": "다케우치 요시미", "type": "theorist", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-wi-hwa", "label": "위화", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-yi-ugyeon", "label": "이욱연", "type": "critic", "ref": "", "degree": 8, "lod": [], "en": ""}, {"id": "p-yun-sangin", "label": "윤상인", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "yu-jungha_lu-xun-images-korea_1998", "label": "우리가 ‘끌어다 쓴’ 루쉰상(像)에 대한 점묘(상)", "type": "essay", "year": "1998", "degree": 43}], "edges": [{"source": "cb5542", "target": "p-yi-ugyeon", "type": "uses_theory", "weight": 1}, {"source": "p-yi-ugyeon", "target": "cb2714", "type": "wrote", "weight": 1}, {"source": "p-yi-ugyeon", "target": "cb2969", "type": "wrote", "weight": 1}, {"source": "p-yi-ugyeon", "target": "cb3432", "type": "wrote", "weight": 1}, {"source": "p-yi-ugyeon", "target": "cb3560", "type": "wrote", "weight": 1}, {"source": "p-yi-ugyeon", "target": "cb4075", "type": "wrote", "weight": 1}, {"source": "p-yi-ugyeon", "target": "cb5002", "type": "wrote", "weight": 1}, {"source": "yu-jungha_lu-xun-images-korea_1998", "target": "p-yi-ugyeon", "type": "uses_theory", "weight": 1}, {"source": "cb2714", "target": "p-hiyama-hisao", "type": "uses_theory", "weight": 1}, {"source": "cb2714", "target": "p-hujii-syojo", "type": "uses_theory", "weight": 1}, {"source": "cb2714", "target": "p-natsume-soseki", "type": "subject_of", "weight": 1}, {"source": "cb2714", "target": "p-ru-swin-2", "type": "subject_of", "weight": 1}, {"source": "cb2714", "target": "p-yun-sangin", "type": "uses_theory", "weight": 1}, {"source": "cb2969", "target": "p-baek-yeongseo", "type": "uses_theory", "weight": 1}, {"source": "cb2969", "target": "p-gim-houng", "type": "uses_theory", "weight": 1}, {"source": "cb2969", "target": "p-gim-munhak", "type": "uses_theory", "weight": 1}, {"source": "cb2969", "target": "p-im-hyeongtaek", "type": "uses_theory", "weight": 1}, {"source": "cb2969", "target": "p-kim-hakcheol", "type": "subject_of", "weight": 1}, {"source": "cb2969", "target": "p-kim-sanghwan", "type": "uses_theory", "weight": 1}, {"source": "cb2969", "target": "p-na-huideok", "type": "subject_of", "weight": 1}, {"source": "cb3432", "target": "p-jameson", "type": "uses_theory", "weight": 1}, {"source": "cb3432", "target": "p-mo-yen", "type": "subject_of", "weight": 1}, {"source": "cb3432", "target": "p-ru-swin-2", "type": "subject_of", "weight": 1}, {"source": "cb3432", "target": "p-wi-hwa", "type": "subject_of", "weight": 1}, {"source": "cb3560", "target": "p-ru-swin", "type": "subject_of", "weight": 1}, {"source": "cb3560", "target": "p-takeuchi-yoshimi", "type": "uses_theory", "weight": 1}, {"source": "cb4075", "target": "p-baek-wondam", "type": "uses_theory", "weight": 1}, {"source": "cb5002", "target": "p-han-saogung", "type": "subject_of", "weight": 1}, {"source": "cb5002", "target": "p-ma-ojjeodung", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (6편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2001</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2714.html">히야마 히사오 『동양적 근대의 창출』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 112호, 창비, 2001</p>
+        <div class="essay-card-tags"><span class="tag">나쓰메 소세키</span> <span class="tag">루쉰</span><span class="tag">히야마 히사오</span> <span class="tag">후지이 쇼조</span> <span class="tag">윤상인</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2002</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2969.html">옌뼨, 동아시아의 빛과 그늘</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 117호, 창비, 2002</p>
+        <div class="essay-card-tags"><span class="tag">김학철</span> <span class="tag">나희덕</span><span class="tag">백영서</span> <span class="tag">김호웅</span> <span class="tag">김문학</span> <span class="tag">임형택</span> <span class="tag">김상환</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2004</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3560.html">타께우찌 요시미 『루 쉰』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 123호, 창비, 2004</p>
+        <div class="essay-card-tags"><span class="tag">루 쉰</span><span class="tag">다케우치 요시미</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3432.html">중국문학으로 가는 길</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 130호, 창비, 2005</p>
+        <div class="essay-card-tags"><span class="tag">모옌</span> <span class="tag">루쉰</span> <span class="tag">위화</span><span class="tag">프레드릭 제임슨</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2006</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4075.html">백원담 『동아시아의 문화선택 한류』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 131호, 창비, 2006</p>
+        <div class="essay-card-tags"><span class="tag">백원담</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2014</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5002.html">한 사오궁 소설집 『귀거래』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 165호, 창비, 2014</p>
+        <div class="essay-card-tags"><span class="tag">한 사오궁</span><span class="tag">마오쩌둥</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

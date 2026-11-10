@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>류신 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">류신</span></div>
+      <h1 class="index-heading">류신</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">8</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">13</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">괴테</span> <span class="chip role-writer">단테</span> <span class="chip role-writer">최영철</span> <span class="chip role-writer">김상욱</span> <span class="chip role-writer">하이네</span> <span class="chip role-writer">김진경</span> <span class="chip role-writer">표성배</span> <span class="chip role-writer">손택수</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">발터 벤야민 (2)</span> <span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">하이데거 (1)</span> <span class="chip chip-term">아도르노 (1)</span> <span class="chip chip-term">바흐친 (1)</span> <span class="chip chip-term">브레히트 (1)</span> <span class="chip chip-term">파울 첼란 (1)</span> <span class="chip chip-term">호미 바바 (1)</span> <span class="chip chip-term">임홍배 (1)</span> <span class="chip chip-term">정과리 (1)</span> <span class="chip chip-term">이경호 (1)</span> <span class="chip chip-term">석영중 (1)</span> <span class="chip chip-term">빌헬름 라이히 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2597", "label": "김진경 최영철 김명수 시집", "type": "essay", "year": "2000", "degree": 6}, {"id": "cb3867", "label": "정과리 평론집 『네안데르탈인의 귀환』", "type": "essay", "year": "2008", "degree": 6}, {"id": "cb4099", "label": "표성배 시집 『기찬 날』", "type": "essay", "year": "2009", "degree": 4}, {"id": "cb4279", "label": "손택수 시집 『나무의 수사학』", "type": "essay", "year": "2010", "degree": 4}, {"id": "cb5346", "label": "토마스 만 『로테, 바이마르에 오다』", "type": "essay", "year": "2017", "degree": 4}, {"id": "cb7159", "label": "석영중 『눈 뇌 문학』", "type": "essay", "year": "2025", "degree": 5}, {"id": "p-00038", "label": "단테", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q1067 http://lod.nl.go.kr/resource/KAC199606278 https://isni.org/isni/0000000121446210 http://viaf.org/viaf/97105654", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199606278", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q1067", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Dante Alighieri"}, {"id": "p-00059", "label": "괴테", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5879 http://lod.nl.go.kr/resource/KAC199610270 https://isni.org/isni/0000000120999104 http://viaf.org/viaf/24602065", "degree": 54, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610270", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5879", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Johann Wolfgang von Goethe"}, {"id": "p-00065", "label": "헤겔", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9235 http://lod.nl.go.kr/resource/KAC199611965 https://isni.org/isni/0000000122828149 http://viaf.org/viaf/89774942", "degree": 79, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611965", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9235", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Wilhelm Friedrich Hegel"}, {"id": "p-00066", "label": "하이데거", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q48301 http://lod.nl.go.kr/resource/KAC199611974 https://isni.org/isni/0000000121244141 http://viaf.org/viaf/24602613", "degree": 66, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611974", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q48301", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Martin Heidegger"}, {"id": "p-adorno", "label": "아도르노", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q152388 http://lod.nl.go.kr/resource/KAC199600199 https://isni.org/isni/0000000121442113 http://viaf.org/viaf/95247377", "degree": 47, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600199", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q152388", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Theodor W. Adorno"}, {"id": "p-bakhtin", "label": "바흐친", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q185375 http://lod.nl.go.kr/resource/KAC199601442 https://isni.org/isni/0000000121029425 http://viaf.org/viaf/88958796", "degree": 34, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601442", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q185375", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Mikhail Bakhtin"}, {"id": "p-bertolt-brecht", "label": "브레히트", "type": "theorist", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-celan", "label": "파울 첼란", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q153905 http://lod.nl.go.kr/resource/KAC199604670 https://isni.org/isni/0000000368652462 http://viaf.org/viaf/106122570", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199604670", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q153905", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Paul Celan"}, {"id": "p-choe-yeongcheol", "label": "최영철", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-gim-sanguk", "label": "김상욱", "type": "critic", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-h-heine", "label": "하이네", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-homi-bhabha", "label": "호미 바바", "type": "theorist", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-im-hongbae", "label": "임홍배", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-jeong-gwari", "label": "정과리", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12615461 http://lod.nl.go.kr/resource/KAC201510864 https://isni.org/isni/0000000027464746 http://viaf.org/viaf/65493534", "degree": 52, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201510864", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12615461", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-jinkyung", "label": "김진경", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q119694174 http://lod.nl.go.kr/resource/KAC201105193 https://isni.org/isni/0000000078445238 http://viaf.org/viaf/50631004", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201105193", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q119694174", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-lee-gyeongho", "label": "이경호", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201415662 https://isni.org/isni/000000004938128X http://viaf.org/viaf/51566526", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201415662", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-pyo-seongbae", "label": "표성배", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ryu-sin", "label": "류신", "type": "critic", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-seok-yeongjung", "label": "석영중", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-son-taeksu", "label": "손택수", "type": "critic", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-walter-benjamin-2", "label": "발터 벤야민", "type": "theorist", "ref": "", "degree": 22, "lod": [], "en": ""}, {"id": "p-wilhelm-reich", "label": "빌헬름 라이히", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-ryu-sin", "target": "cb2597", "type": "wrote", "weight": 1}, {"source": "p-ryu-sin", "target": "cb3867", "type": "wrote", "weight": 1}, {"source": "p-ryu-sin", "target": "cb4099", "type": "wrote", "weight": 1}, {"source": "p-ryu-sin", "target": "cb4279", "type": "wrote", "weight": 1}, {"source": "p-ryu-sin", "target": "cb5346", "type": "wrote", "weight": 1}, {"source": "p-ryu-sin", "target": "cb7159", "type": "wrote", "weight": 1}, {"source": "cb2597", "target": "p-00066", "type": "uses_theory", "weight": 1}, {"source": "cb2597", "target": "p-choe-yeongcheol", "type": "subject_of", "weight": 1}, {"source": "cb2597", "target": "p-gim-sanguk", "type": "subject_of", "weight": 1}, {"source": "cb2597", "target": "p-kim-jinkyung", "type": "subject_of", "weight": 1}, {"source": "cb2597", "target": "p-lee-gyeongho", "type": "uses_theory", "weight": 1}, {"source": "cb3867", "target": "p-00065", "type": "uses_theory", "weight": 1}, {"source": "cb3867", "target": "p-bakhtin", "type": "uses_theory", "weight": 1}, {"source": "cb3867", "target": "p-homi-bhabha", "type": "uses_theory", "weight": 1}, {"source": "cb3867", "target": "p-jeong-gwari", "type": "uses_theory", "weight": 1}, {"source": "cb3867", "target": "p-walter-benjamin-2", "type": "uses_theory", "weight": 1}, {"source": "cb4099", "target": "p-adorno", "type": "uses_theory", "weight": 1}, {"source": "cb4099", "target": "p-pyo-seongbae", "type": "subject_of", "weight": 1}, {"source": "cb4099", "target": "p-wilhelm-reich", "type": "uses_theory", "weight": 1}, {"source": "cb4279", "target": "p-bertolt-brecht", "type": "uses_theory", "weight": 1}, {"source": "cb4279", "target": "p-celan", "type": "uses_theory", "weight": 1}, {"source": "cb4279", "target": "p-son-taeksu", "type": "subject_of", "weight": 1}, {"source": "cb5346", "target": "p-00059", "type": "subject_of", "weight": 1}, {"source": "cb5346", "target": "p-h-heine", "type": "subject_of", "weight": 1}, {"source": "cb5346", "target": "p-im-hongbae", "type": "uses_theory", "weight": 1}, {"source": "cb7159", "target": "p-00038", "type": "subject_of", "weight": 1}, {"source": "cb7159", "target": "p-00059", "type": "subject_of", "weight": 1}, {"source": "cb7159", "target": "p-seok-yeongjung", "type": "uses_theory", "weight": 1}, {"source": "cb7159", "target": "p-walter-benjamin-2", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (6편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2000</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2597.html">김진경 최영철 김명수 시집</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 109호, 창비, 2000</p>
+        <div class="essay-card-tags"><span class="tag">최영철</span> <span class="tag">김상욱</span> <span class="tag">김진경</span><span class="tag">하이데거</span> <span class="tag">이경호</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2008</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3867.html">정과리 평론집 『네안데르탈인의 귀환』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 140호, 창비, 2008</p>
+        <div class="essay-card-tags"><span class="tag">헤겔</span> <span class="tag">바흐친</span> <span class="tag">호미 바바</span> <span class="tag">정과리</span> <span class="tag">발터 벤야민</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2009</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4099.html">표성배 시집 『기찬 날』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 146호, 창비, 2009</p>
+        <div class="essay-card-tags"><span class="tag">표성배</span><span class="tag">아도르노</span> <span class="tag">빌헬름 라이히</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2010</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4279.html">손택수 시집 『나무의 수사학』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 150호, 창비, 2010</p>
+        <div class="essay-card-tags"><span class="tag">손택수</span><span class="tag">브레히트</span> <span class="tag">파울 첼란</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2017</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5346.html">토마스 만 『로테, 바이마르에 오다』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 176호, 창비, 2017</p>
+        <div class="essay-card-tags"><span class="tag">괴테</span> <span class="tag">하이네</span><span class="tag">임홍배</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2025</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb7159.html">석영중 『눈 뇌 문학』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 207호, 창비, 2025</p>
+        <div class="essay-card-tags"><span class="tag">단테</span> <span class="tag">괴테</span><span class="tag">석영중</span> <span class="tag">발터 벤야민</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

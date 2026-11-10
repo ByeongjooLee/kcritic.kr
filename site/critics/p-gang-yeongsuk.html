@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강영숙 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">강영숙</span></div>
+      <h1 class="index-heading">강영숙</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">김기덕</span> <span class="chip role-writer">무라카미 하루키</span> <span class="chip role-writer">나카지마 교코</span> <span class="chip role-writer">온다 리쿠</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">엘리자베스 퀴블러로스 (1)</span> <span class="chip chip-term">클라이스트 (1)</span> <span class="chip chip-term">마쓰시타 류이치 (1)</span> <span class="chip chip-term">장자 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3067", "label": "강영숙 소설집 『날마다 축제』", "type": "essay", "year": "2004", "degree": 3}, {"id": "cb3243", "label": "민족문학의 결여, 리얼리즘의 결여", "type": "essay", "year": "2004", "degree": 10}, {"id": "cb3359", "label": "2000년대, 한국문학을 위한 비판적 단상", "type": "essay", "year": "2005", "degree": 12}, {"id": "cb3510", "label": "성(性)을 사유하는 윤리적 방식", "type": "essay", "year": "2006", "degree": 12}, {"id": "cb3622", "label": "통일시대를 위하여", "type": "essay", "year": "2006", "degree": 11}, {"id": "cb3738", "label": "실어증 환자들의 빈집 순례", "type": "essay", "year": "2004", "degree": 3}, {"id": "cb3921", "label": "문학의 새로움은 어디서 오는가", "type": "essay", "year": "2008", "degree": 14}, {"id": "cb4065", "label": "온다 리꾸 『어제의 세계』", "type": "essay", "year": "2009", "degree": 3}, {"id": "cb4448", "label": "진도 7.0 시대의 문학과 연대", "type": "essay", "year": "2011", "degree": 5}, {"id": "cb4648", "label": "초원민주주의와 유목제국주의", "type": "essay", "year": "2012", "degree": 6}, {"id": "cb5657", "label": "강영숙 소설집 『아령 하는 밤』", "type": "essay", "year": "2012", "degree": 2}, {"id": "p-elrijabeseu-kwibeulreoroseu", "label": "엘리자베스 퀴블러로스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gang-yeongsuk", "label": "강영숙", "type": "critic", "ref": "", "degree": 11, "lod": [], "en": ""}, {"id": "p-gim-gideok", "label": "김기덕", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-kleist", "label": "클라이스트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q28494 http://lod.nl.go.kr/resource/KAC199615089 https://isni.org/isni/0000000121192337 http://viaf.org/viaf/7392307", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199615089", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q28494", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-masseusita-ryuichi", "label": "마쓰시타 류이치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-murakami-haruki-2", "label": "무라카미 하루키", "type": "writer", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-nakajima-gyoko", "label": "나카지마 교코", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-onda-riku", "label": "온다 리쿠", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-zhuangzi", "label": "장자", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q47739 http://lod.nl.go.kr/resource/KAC200601687 https://isni.org/isni/0000000108862375 http://viaf.org/viaf/100166339", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200601687", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q47739", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Zhuang Zhou"}], "edges": [{"source": "cb3067", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb3243", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb3359", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb3510", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb3622", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb3921", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb4648", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "cb5657", "target": "p-gang-yeongsuk", "type": "subject_of", "weight": 1}, {"source": "p-gang-yeongsuk", "target": "cb3738", "type": "wrote", "weight": 1}, {"source": "p-gang-yeongsuk", "target": "cb4065", "type": "wrote", "weight": 1}, {"source": "p-gang-yeongsuk", "target": "cb4448", "type": "wrote", "weight": 1}, {"source": "cb3738", "target": "p-gim-gideok", "type": "subject_of", "weight": 1}, {"source": "cb3738", "target": "p-zhuangzi", "type": "uses_theory", "weight": 1}, {"source": "cb4065", "target": "p-elrijabeseu-kwibeulreoroseu", "type": "uses_theory", "weight": 1}, {"source": "cb4065", "target": "p-onda-riku", "type": "subject_of", "weight": 1}, {"source": "cb4448", "target": "p-kleist", "type": "uses_theory", "weight": 1}, {"source": "cb4448", "target": "p-masseusita-ryuichi", "type": "uses_theory", "weight": 1}, {"source": "cb4448", "target": "p-murakami-haruki-2", "type": "subject_of", "weight": 1}, {"source": "cb4448", "target": "p-nakajima-gyoko", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (3편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2004</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3738.html">실어증 환자들의 빈집 순례</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 126호, 창비, 2004</p>
+        <div class="essay-card-tags"><span class="tag">김기덕</span><span class="tag">장자</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2009</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4065.html">온다 리꾸 『어제의 세계』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 145호, 창비, 2009</p>
+        <div class="essay-card-tags"><span class="tag">온다 리쿠</span><span class="tag">엘리자베스 퀴블러로스</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2011</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4448.html">진도 7.0 시대의 문학과 연대</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 154호, 창비, 2011</p>
+        <div class="essay-card-tags"><span class="tag">무라카미 하루키</span> <span class="tag">나카지마 교코</span><span class="tag">클라이스트</span> <span class="tag">마쓰시타 류이치</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

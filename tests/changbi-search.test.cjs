@@ -62,16 +62,14 @@ test('header searches, explore and unified search all use the index', () => {
   for (const f of ['kc.js', 'kc-shell.js', 'search.js']) new vm.Script(read(f));
 });
 
-test('essays tab, home and about count reviewed Changbi articles (2026-11-10)', () => {
-  const src = read('kc.js');
-  const ctx = { _cache: {}, load: () => Promise.resolve(rows) };
-  vm.runInNewContext(src.slice(src.indexOf('const cbEssays'), src.indexOf('// 해제가 있는 글은')) + ';this.cbEssays=cbEssays;', ctx);
-  return ctx.cbEssays().then(es => {
-    assert.equal(es.length, rows.filter(r => r[7]).length);
-    const e = es[0];
-    assert.equal(e.coll, 'cb'); assert.ok(e.critic.startsWith('cb:'));
-    assert.equal(e.concepts.length + e.subjects.length + e.theorists.length, 0, 'not merged into the relation graph');
-    for (const f of ['explore.html', 'index.html', 'about.html']) assert.ok(read(f).includes('cbEssays()'), f);
-    assert.ok(read('explore.html').includes('D.essays.concat(D.cbE)'));
-  });
+test('Changbi essays are in essays.json with person/concept relations (publish_cb.py, 2026-11-10)', () => {
+  const essays = JSON.parse(read('site/data/v2/essays.json'));
+  const cb = essays.filter(e => e.coll === 'cb');
+  assert.ok(cb.length > 1500 && cb.length <= rows.filter(r => r[7]).length);
+  for (const e of cb) { assert.match(e.id, /^cb\d+$/); assert.ok(summaries[e.id.slice(2)], e.id); assert.ok(Number.isInteger(e.issue)); }
+  assert.ok(cb.some(e => e.subjects.length) && cb.some(e => e.theorists.length) && cb.some(e => e.concepts.length));
+  const people = new Set(JSON.parse(read('site/data/v2/people.json')).map(p => p.id));
+  assert.ok(cb.every(e => people.has(e.critic)), 'every Changbi author has a person page');
+  for (const f of ['explore.html', 'index.html', 'about.html']) assert.ok(!read(f).includes('cbEssays'), f);
+  assert.ok(read('entity.html').includes('D.E.get(ID)') && read('kc.js').includes('const venueLine'));
 });

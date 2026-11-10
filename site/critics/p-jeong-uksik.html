@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정욱식 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">정욱식</span></div>
+      <h1 class="index-heading">정욱식</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">윤석열</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">조지 W. 부시 (3)</span> <span class="chip chip-term">노무현 (2)</span> <span class="chip chip-term">이명박 (1)</span> <span class="chip chip-term">임동원 (1)</span> <span class="chip chip-term">트럼프 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3163", "label": "가위눌린 한반도, 깨어나야 할 우리", "type": "essay", "year": "2003", "degree": 4}, {"id": "cb3276", "label": "북핵문제와 한국의 주도적 역할", "type": "essay", "year": "2005", "degree": 3}, {"id": "cb3345", "label": "정욱식 『동맹의 덫』", "type": "essay", "year": "2005", "degree": 2}, {"id": "cb3973", "label": "동북아 군비경쟁과 국제시민사회", "type": "essay", "year": "2009", "degree": 3}, {"id": "cb7053", "label": "한반도정세의 새 국면과 분단체제", "type": "essay", "year": "2024", "degree": 5}, {"id": "cb7212", "label": "동맹의 사슬을 넘어 동아시아 평화만들기", "type": "essay", "year": "2025", "degree": 3}, {"id": "p-i-myeongbak", "label": "이명박", "type": "theorist", "ref": "", "degree": 59, "lod": [], "en": ""}, {"id": "p-im-dongwon", "label": "임동원", "type": "theorist", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-jeong-uksik", "label": "정욱식", "type": "critic", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-joji-w-busi", "label": "조지 W. 부시", "type": "theorist", "ref": "", "degree": 26, "lod": [], "en": ""}, {"id": "p-no-muhyeon", "label": "노무현", "type": "theorist", "ref": "", "degree": 53, "lod": [], "en": ""}, {"id": "p-teu-reompeu", "label": "트럼프", "type": "theorist", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 34, "lod": [], "en": ""}], "edges": [{"source": "cb3345", "target": "p-jeong-uksik", "type": "uses_theory", "weight": 1}, {"source": "cb7053", "target": "p-jeong-uksik", "type": "uses_theory", "weight": 1}, {"source": "p-jeong-uksik", "target": "cb3163", "type": "wrote", "weight": 1}, {"source": "p-jeong-uksik", "target": "cb3276", "type": "wrote", "weight": 1}, {"source": "p-jeong-uksik", "target": "cb3973", "type": "wrote", "weight": 1}, {"source": "p-jeong-uksik", "target": "cb7212", "type": "wrote", "weight": 1}, {"source": "cb3163", "target": "p-im-dongwon", "type": "uses_theory", "weight": 1}, {"source": "cb3163", "target": "p-joji-w-busi", "type": "uses_theory", "weight": 1}, {"source": "cb3163", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3276", "target": "p-joji-w-busi", "type": "uses_theory", "weight": 1}, {"source": "cb3276", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3973", "target": "p-i-myeongbak", "type": "uses_theory", "weight": 1}, {"source": "cb3973", "target": "p-joji-w-busi", "type": "uses_theory", "weight": 1}, {"source": "cb7212", "target": "p-teu-reompeu", "type": "uses_theory", "weight": 1}, {"source": "cb7212", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (4편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3163.html">가위눌린 한반도, 깨어나야 할 우리</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 121호, 창비, 2003</p>
+        <div class="essay-card-tags"><span class="tag">임동원</span> <span class="tag">조지 W. 부시</span> <span class="tag">노무현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3276.html">북핵문제와 한국의 주도적 역할</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 127호, 창비, 2005</p>
+        <div class="essay-card-tags"><span class="tag">조지 W. 부시</span> <span class="tag">노무현</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2009</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3973.html">동북아 군비경쟁과 국제시민사회</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 143호, 창비, 2009</p>
+        <div class="essay-card-tags"><span class="tag">이명박</span> <span class="tag">조지 W. 부시</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2025</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb7212.html">동맹의 사슬을 넘어 동아시아 평화만들기</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 209호, 창비, 2025</p>
+        <div class="essay-card-tags"><span class="tag">윤석열</span><span class="tag">트럼프</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

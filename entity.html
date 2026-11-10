@@ -24,7 +24,7 @@ db().then(D => {
   // pre: 인물 화면에서 이 글에 그 인물이 나온 문장(제목·서지와 개념어 사이)
   const essayRow = (e, ex, pre) => `<article class="row"><div class="yr num">${e.year}</div><div>
       <h4><a href="${href.essay(e.id)}">${esc(e.title)}</a></h4>
-      <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${e.coll === "mhs" ? `《문학과사회》 ${e.issue}호 · ${esc(e.pages)}면` : esc(e.venue)}</span></div>${pre || ""}
+      <div class="meta"><a href="${href.person(e.critic)}"><span class="dot t-critic"></span> ${esc(e.critic_name)}</a><span>${venueLine(e)}</span></div>${pre || ""}
       <div class="tags">${e.concepts.slice(0, 5).map(c => `<a href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div>${ex || ""}</div><div class="side"></div></article>`;
   const rows = (list, lim = 12, exFn = () => "", preFn = () => "") => {
     const s = [...list].sort((a, b) => ko(a.year, b.year)), row = e => essayRow(e, exFn(e), preFn(e));
@@ -102,44 +102,43 @@ db().then(D => {
   // ── 『창작과비평』 글 (검수 통과 해제, 2026-11-10) — 『문학과사회』 글 화면과 같은 틀. 본문 대신 해제·요지·주장, 원문은 창비 웹진으로
   if (T === "essay" && /^cb\d+$/.test(ID || "")) {
     root.innerHTML = `<p class="note">글을 불러오는 중…</p>`;
-    Promise.all([load("changbi_summaries"), cbEssays()]).then(([summaries, cbe]) => {
-      const entry = summaries[ID.slice(2)], e = cbe.find(x => x.id === ID);
-      if (!entry || !e) return root.innerHTML = `<div class="empty">글을 찾을 수 없습니다.</div>`;
+    load("changbi_summaries").then(summaries => {
+      // 해제(changbi_summaries) + 관계(essays.json 컬렉션 cb — publish_cb.py 가 해제의 필자·인물·키워드를 옮긴 메타데이터 XML 에서 build)
+      const entry = summaries[ID.slice(2)], e = D.E.get(ID);
+      if (!entry) return root.innerHTML = `<div class="empty">글을 찾을 수 없습니다.</div>`;
       document.title = `${entry.t} — kcritic`;
-      const issueId = e.cb[1], kwHref = k => `explore.html?p=essays&kw=${encodeURIComponent(k)}`;
-      const cbRow = (x, tags) => `<article class="row"><div class="yr num">${x.year}</div><div>
-          <h4><a href="${href.essay(x.id)}">${esc(x.title)}</a></h4>
-          <div class="meta"><span><span class="dot t-critic"></span> ${esc(x.critic_name)}</span><span>《창작과비평》 ${x.issue}호${x.section ? " · " + esc(x.section) : ""}</span></div>
-          <div class="tags">${tags.map(k => `<a class="${entry.kw.includes(k) ? "hl" : ""}" href="${kwHref(k)}">${esc(k)}</a>`).join("")}</div></div>
-          <div class="side">${tags === x.kw ? "" : `공유 ${tags.length}`}</div></article>`;
-      const share = cbe.filter(x => x.id !== ID).map(x => ({ x, s: x.kw.filter(k => entry.kw.includes(k)) })).filter(o => o.s.length)
-        .sort((a, b) => b.s.length - a.s.length || b.x.year - a.x.year).slice(0, 8);
-      const sameIssue = cbe.filter(x => x.id !== ID && x.cb[1] === issueId);
-      const web = CB.item(ID.slice(2));
+      const issueNo = e ? e.issue : +(entry.l.match(/(\d+)호/) || [0, 0])[1], issueId = "cb" + String(issueNo).padStart(3, "0");
+      const section = e?.section || "", year = e?.year || entry.y, web = CB.item(ID.slice(2));
+      const subs = e?.subjects || [], ths = e?.theorists || [], cons = e?.concepts || entry.kw;
+      const share = e ? D.essays.filter(x => x.id !== ID).map(x => ({ x, s: x.concepts.filter(c => cons.includes(c)) })).filter(o => o.s.length).sort((a, b) => b.s.length - a.s.length || ko(b.x.year, a.x.year)).slice(0, 8) : [];
+      const sameIssue = D.essays.filter(x => x.coll === "cb" && x.issue === issueNo && x.id !== ID);
+      const who = e ? `<a href="${href.person(e.critic)}"><span class="dot t-critic"></span> <b style="color:var(--ink)">${esc(entry.a)}</b></a>` : `<span><span class="dot t-critic"></span> <b style="color:var(--ink)">${esc(entry.a)}</b></span>`;
       root.innerHTML = `
       <div class="ent-head">
-        <div class="crumb"><a href="explore.html?p=essays">글</a><span>/</span><a href="explore.html?p=essays&coll=cb">『창작과비평』</a><span>/</span><a href="${href.issue(issueId)}">${e.issue}호</a></div>
+        <div class="crumb"><a href="explore.html?p=essays">글</a><span>/</span><a href="explore.html?p=essays&coll=cb">『창작과비평』</a><span>/</span><a href="${href.issue(issueId)}">${issueNo}호</a></div>
         <span class="pill t-essay"><span class="dot t-essay"></span>글</span>
         <h1>${esc(entry.t)}</h1>
-        <div class="ent-sub"><a href="explore.html?p=essays&critic=${encodeURIComponent(e.critic)}"><span class="dot t-critic"></span> <b style="color:var(--ink)">${esc(entry.a)}</b></a><span class="num">${e.year}</span>
-          <span>《창작과비평》 ${e.issue}호${e.section ? " · " + esc(e.section) : ""}</span></div>
+        <div class="ent-sub">${who}<span class="num">${year}</span>
+          <span>《창작과비평》 ${issueNo}호${section ? " · " + esc(section) : ""}</span></div>
       </div>
       <div class="ent"><div>
-        ${kv([[entry.c.length, "주장·근거"], [entry.kw.length, "해제 키워드"], [sameIssue.length + 1, "같은 호 해제"]])}
+        ${kv([[subs.length, "다룬 작가"], [ths.length, "인용 이론가"], [cons.length, "개념어"]])}
         <div class="block"><h3>요지</h3><p style="font-size:17px;font-weight:600;line-height:1.6;margin:0">${esc(entry.s)}</p></div>
         <div class="block"><h3>해제</h3><p style="line-height:1.8;margin:0">${esc(entry.h)}</p></div>
-        <div class="block"><h3><span class="dot t-concept"></span>해제 키워드 <span>${entry.kw.length}</span></h3>${chips(entry.kw.map(k => [k, 1]), "t-concept", kwHref, x => x)}</div>
+        ${e ? `<div class="block"><h3><span class="dot t-writer"></span>다룬 작가 <span>${subs.length}</span></h3>${subs.length ? chips(subs.map(i => [i, 1]), "t-writer", href.person, nm) : `<p class="note">특정 작가를 다루지 않은 글입니다.</p>`}</div>
+        <div class="block"><h3><span class="dot t-theorist"></span>인용 이론가 <span>${ths.length}</span></h3>${ths.length ? chips(ths.map(i => [i, 1]), "t-theorist", href.person, nm) : `<p class="note">없음</p>`}</div>` : ""}
+        <div class="block"><h3><span class="dot t-concept"></span>개념어 <span>${cons.length}</span></h3>${chips(cons.map(c => [c, 1]), "t-concept", href.concept, x => x)}</div>
         <div class="block"><h3>주장·근거 구조 <span>${entry.c.length}</span></h3>
           <div class="rows">${entry.c.map(claim => `<article class="row"><div class="yr">${esc(claim[1])}</div><div><p style="margin:0;line-height:1.7">${esc(claim[0])}</p></div><div class="side"></div></article>`).join("")}</div></div>
-        <div class="block"><h3>키워드를 공유하는 글</h3>${share.length ? `<div class="rows">${share.map(o => cbRow(o.x, o.s)).join("")}</div>` : `<p class="note">공유하는 글이 없습니다.</p>`}</div>
-        ${sameIssue.length ? `<div class="block"><h3>같은 호의 해제 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(x => cbRow(x, x.kw)).join("")}</div></div>` : ""}
+        <div class="block"><h3>개념어를 공유하는 글</h3>${share.length ? `<div class="rows">${share.map(o => `<article class="row"><div class="yr num">${o.x.year}</div><div><h4><a href="${href.essay(o.x.id)}">${esc(o.x.title)}</a></h4><div class="meta"><span>${esc(o.x.critic_name)}</span><span>${venueLine(o.x)}</span></div><div class="tags">${o.s.map(c => `<a class="hl" href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div></div><div class="side">공유 ${o.s.length}</div></article>`).join("")}</div>` : `<p class="note">공유하는 글이 없습니다.</p>`}</div>
+        ${sameIssue.length ? `<div class="block"><h3>같은 호에 실린 비평 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(x => essayRow(x)).join("")}</div></div>` : ""}
       </div>
       <aside class="aside">
-        <div class="panel"><h5>서지</h5><dl><dt>필자</dt><dd>${esc(entry.a)}</dd><dt>연도</dt><dd class="num">${e.year}</dd>
-          <dt>지면</dt><dd><a href="${href.issue(issueId)}">《창작과비평》 ${e.issue}호</a><div class="note">${esc(entry.l)}</div></dd>${e.section ? `<dt>난</dt><dd>${esc(e.section)}</dd>` : ""}<dt>컬렉션</dt><dd>『창작과비평』</dd>
+        <div class="panel"><h5>서지</h5><dl><dt>비평가</dt><dd>${e ? `<a href="${href.person(e.critic)}">${esc(entry.a)}</a>` : esc(entry.a)}</dd><dt>연도</dt><dd class="num">${year}</dd>
+          <dt>지면</dt><dd><a href="${href.issue(issueId)}">《창작과비평》 ${issueNo}호</a><div class="note">${esc(entry.l)}</div></dd>${section ? `<dt>난</dt><dd>${esc(section)}</dd>` : ""}<dt>컬렉션</dt><dd>『창작과비평』</dd>
           <dt>원문 정보</dt><dd><a href="${web}" target="_blank" rel="noopener">창비 웹진의 이 기사 ↗</a></dd></dl></div>
-        <div class="panel"><h5>이 해제에 대하여</h5>
-          <p class="note">AI 보조로 작성하고 본문과 끝까지 대조해 검수를 통과한 요약입니다. 원문이 아니며, 서평은 소개하는 책의 논지와 평자의 평가를 함께 요약했습니다. 필자·키워드는 아직 비평가·개념어 관계망에 넣지 않았습니다.</p>
+        <div class="panel"><h5>더 보기</h5><dl>${e ? `<dt>관계망</dt><dd><a href="${KC}graph.html#${encodeURIComponent(ID)}">이 글 중심으로</a></dd>` : ""}<dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(ID)}</dd></dl>
+          <p class="note" style="margin-top:10px">해제·요지·주장은 AI 보조로 작성하고 본문과 끝까지 대조해 검수를 통과한 요약이며 원문이 아닙니다. 서평은 소개하는 책의 논지와 평자의 평가를 함께 요약했습니다. ${e ? "다룬 작가·인용 이론가·개념어는 해제 작업의 인물·키워드에서 자동으로 옮겼습니다(인물 유형·동일인 판정 자동)." : "이 글의 필자는 동명이인 확인 중이라 관계망에 넣지 않았습니다."}</p>
           <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다. 원문은 발행처에서 확인할 수 있습니다.</p>
           <a class="btn btn-block" style="margin-top:10px" href="${web}" target="_blank" rel="noopener">원문 정보 ↗<small>창비 웹진 『창작과비평』</small></a></div>
       </aside></div>`;

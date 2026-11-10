@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조효제 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">조효제</span></div>
+      <h1 class="index-heading">조효제</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">18</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">윌리엄 브라이티 랜즈</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">한나 아렌트 (1)</span> <span class="chip chip-term">박래군 (1)</span> <span class="chip chip-term">브뤼노 라투르 (1)</span> <span class="chip chip-term">찰스 틸리 (1)</span> <span class="chip chip-term">김현미 (1)</span> <span class="chip chip-term">이희영 (1)</span> <span class="chip chip-term">이매뉴얼 월러스틴 (1)</span> <span class="chip chip-term">조희연 (1)</span> <span class="chip chip-term">존 크로스 (1)</span> <span class="chip chip-term">카를 마르크스 (1)</span> <span class="chip chip-term">마이클 만 (1)</span> <span class="chip chip-term">존 스튜어트 밀 (1)</span> <span class="chip chip-term">나폴레옹 (1)</span> <span class="chip chip-term">시드니 웹 (1)</span> <span class="chip chip-term">티모시 모턴 (1)</span> <span class="chip chip-term">탐 엥겔하트 (1)</span> <span class="chip chip-term">빌리 브란트 (1)</span> <span class="chip chip-term">유시주 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb2570", "label": "환경관리주의와 생태주의의 긴장", "type": "essay", "year": "2000", "degree": 4}, {"id": "cb2938", "label": "조효제 편역 『NGO의 시대』", "type": "essay", "year": "2001", "degree": 2}, {"id": "cb3413", "label": "한국 시민사회의 개념과 현실", "type": "essay", "year": "2004", "degree": 5}, {"id": "cb3762", "label": "유시주‧이희영 『우리는 더 많은 민주주의를 원한다』", "type": "essay", "year": "2007", "degree": 4}, {"id": "cb3876", "label": "탐 엥겔하트 『미국, 변화인가 몰락인가』", "type": "essay", "year": "2008", "degree": 3}, {"id": "cb3908", "label": "S. 알린스키 『급진주의자를 위한 규칙』", "type": "essay", "year": "2008", "degree": 1}, {"id": "cb4076", "label": "미셸린 이샤이 『세계인권사상사』", "type": "essay", "year": "2006", "degree": 3}, {"id": "cb4368", "label": "1호선의 종결자들", "type": "essay", "year": "2011", "degree": 4}, {"id": "cb4742", "label": "이매뉴얼 월러스틴 『유럽적 보편주의』", "type": "essay", "year": "2008", "degree": 2}, {"id": "cb5092", "label": "이주자의 시민권을 민주화하기", "type": "essay", "year": "2016", "degree": 9}, {"id": "cb6202", "label": "돌봄은 어떻게 문학이 되는가", "type": "essay", "year": "2022", "degree": 8}, {"id": "cb6230", "label": "조효제 『침묵의 범죄 에코사이드』", "type": "essay", "year": "2022", "degree": 3}, {"id": "cb6304", "label": "서정시가 필요한 시대", "type": "essay", "year": "2022", "degree": 7}, {"id": "cb6678", "label": "박래군 『우리에겐 기억할 것이 있다』", "type": "essay", "year": "2020", "degree": 3}, {"id": "cb6786", "label": "사회생태 전환은 어떻게 일어나는가", "type": "essay", "year": "2023", "degree": 1}, {"id": "cb7152", "label": "‘수무드’가 가르쳐준 희망(내 삶을 돌본 것 ①)", "type": "essay", "year": "2025", "degree": 5}, {"id": "cb7329", "label": "조효제 『불타는 지구에서 다르게 살 용기』", "type": "essay", "year": "2026", "degree": 2}, {"id": "p-arendt", "label": "한나 아렌트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q60025 http://lod.nl.go.kr/resource/KAC199600908 https://isni.org/isni/0000000121463002 http://viaf.org/viaf/105151053", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199600908", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q60025", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Hannah Arendt"}, {"id": "p-bak-raegun", "label": "박래군", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-bruno-latour", "label": "브뤼노 라투르", "type": "theorist", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-chalseu-tilri", "label": "찰스 틸리", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-gim-hyeonmi", "label": "김현미", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-i-huiyeong", "label": "이희영", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-wallerstein", "label": "이매뉴얼 월러스틴", "type": "theorist", "ref": "", "degree": 25, "lod": [], "en": ""}, {"id": "p-jo-huiyeon", "label": "조희연", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-jo-hyoje", "label": "조효제", "type": "critic", "ref": "", "degree": 17, "lod": [], "en": ""}, {"id": "p-jon-keuroseu", "label": "존 크로스", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-k-marx", "label": "카를 마르크스", "type": "theorist", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-michael-mann", "label": "마이클 만", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-mill", "label": "존 스튜어트 밀", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q50020 http://lod.nl.go.kr/resource/KAC199618826 https://isni.org/isni/0000000121451271 http://viaf.org/viaf/100189299", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199618826", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q50020", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "John Stuart Mill"}, {"id": "p-napoleon", "label": "나폴레옹", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q517 http://lod.nl.go.kr/resource/KAC199635611 https://isni.org/isni/0000000122838283 http://viaf.org/viaf/106964661", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199635611", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q517", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Napoleon"}, {"id": "p-sidney-webb", "label": "시드니 웹", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-timothy-morton", "label": "티모시 모턴", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-tom-engelhardt", "label": "탐 엥겔하트", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-william-brighty-rands", "label": "윌리엄 브라이티 랜즈", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-willy-brandt-2", "label": "빌리 브란트", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-yu-siju", "label": "유시주", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "cb2570", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb2938", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb4076", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb5092", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb6202", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb6230", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb6304", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "cb7329", "target": "p-jo-hyoje", "type": "uses_theory", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb3413", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb3762", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb3876", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb3908", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb4368", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb4742", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb6678", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb6786", "type": "wrote", "weight": 1}, {"source": "p-jo-hyoje", "target": "cb7152", "type": "wrote", "weight": 1}, {"source": "cb3413", "target": "p-chalseu-tilri", "type": "uses_theory", "weight": 1}, {"source": "cb3413", "target": "p-jo-huiyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3413", "target": "p-napoleon", "type": "uses_theory", "weight": 1}, {"source": "cb3413", "target": "p-sidney-webb", "type": "uses_theory", "weight": 1}, {"source": "cb3762", "target": "p-i-huiyeong", "type": "uses_theory", "weight": 1}, {"source": "cb3762", "target": "p-willy-brandt-2", "type": "uses_theory", "weight": 1}, {"source": "cb3762", "target": "p-yu-siju", "type": "uses_theory", "weight": 1}, {"source": "cb3876", "target": "p-michael-mann", "type": "uses_theory", "weight": 1}, {"source": "cb3876", "target": "p-tom-engelhardt", "type": "uses_theory", "weight": 1}, {"source": "cb4368", "target": "p-jon-keuroseu", "type": "uses_theory", "weight": 1}, {"source": "cb4368", "target": "p-k-marx", "type": "uses_theory", "weight": 1}, {"source": "cb4368", "target": "p-william-brighty-rands", "type": "subject_of", "weight": 1}, {"source": "cb4742", "target": "p-i-wallerstein", "type": "uses_theory", "weight": 1}, {"source": "cb6678", "target": "p-bak-raegun", "type": "uses_theory", "weight": 1}, {"source": "cb6678", "target": "p-mill", "type": "uses_theory", "weight": 1}, {"source": "cb7152", "target": "p-arendt", "type": "uses_theory", "weight": 1}, {"source": "cb7152", "target": "p-bruno-latour", "type": "uses_theory", "weight": 1}, {"source": "cb7152", "target": "p-gim-hyeonmi", "type": "uses_theory", "weight": 1}, {"source": "cb7152", "target": "p-timothy-morton", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (9편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2004</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3413.html">한국 시민사회의 개념과 현실</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 123호, 창비, 2004</p>
+        <div class="essay-card-tags"><span class="tag">찰스 틸리</span> <span class="tag">조희연</span> <span class="tag">나폴레옹</span> <span class="tag">시드니 웹</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2007</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3762.html">유시주‧이희영 『우리는 더 많은 민주주의를 원한다』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 138호, 창비, 2007</p>
+        <div class="essay-card-tags"><span class="tag">이희영</span> <span class="tag">빌리 브란트</span> <span class="tag">유시주</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2008</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3876.html">탐 엥겔하트 『미국, 변화인가 몰락인가』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 140호, 창비, 2008</p>
+        <div class="essay-card-tags"><span class="tag">마이클 만</span> <span class="tag">탐 엥겔하트</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2008</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3908.html">S. 알린스키 『급진주의자를 위한 규칙』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 141호, 창비, 2008</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2008</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4742.html">이매뉴얼 월러스틴 『유럽적 보편주의』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 142호, 창비, 2008</p>
+        <div class="essay-card-tags"><span class="tag">이매뉴얼 월러스틴</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2011</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4368.html">1호선의 종결자들</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 152호, 창비, 2011</p>
+        <div class="essay-card-tags"><span class="tag">윌리엄 브라이티 랜즈</span><span class="tag">존 크로스</span> <span class="tag">카를 마르크스</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2020</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6678.html">박래군 『우리에겐 기억할 것이 있다』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 189호, 창비, 2020</p>
+        <div class="essay-card-tags"><span class="tag">박래군</span> <span class="tag">존 스튜어트 밀</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2023</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6786.html">사회생태 전환은 어떻게 일어나는가</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 200호, 창비, 2023</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2025</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb7152.html">‘수무드’가 가르쳐준 희망(내 삶을 돌본 것 ①)</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 207호, 창비, 2025</p>
+        <div class="essay-card-tags"><span class="tag">한나 아렌트</span> <span class="tag">브뤼노 라투르</span> <span class="tag">김현미</span> <span class="tag">티모시 모턴</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유종일 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">유종일</span></div>
+      <h1 class="index-heading">유종일</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">9</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">최장집 (1)</span> <span class="chip chip-term">데이비드 하비 (1)</span> <span class="chip chip-term">김기원 (1)</span> <span class="chip chip-term">임원혁 (1)</span> <span class="chip chip-term">조지프 스티글리츠 (1)</span> <span class="chip chip-term">강준만 (1)</span> <span class="chip chip-term">노무현 (1)</span> <span class="chip chip-term">서동만 (1)</span> <span class="chip chip-term">토머스 프리드먼 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3598", "label": "참여정부의 ‘좌파 신자유주의’ 경제정책", "type": "essay", "year": "2006", "degree": 6}, {"id": "cb3721", "label": "신자유주의, 세계화, 한국경제", "type": "essay", "year": "2007", "degree": 5}, {"id": "cb4005", "label": "정치적 올바름은 미학적 품격과 만날 수 있는가", "type": "essay", "year": "2009", "degree": 7}, {"id": "p-choe-jangjip", "label": "최장집", "type": "theorist", "ref": "", "degree": 19, "lod": [], "en": ""}, {"id": "p-david-harvey-2", "label": "데이비드 하비", "type": "theorist", "ref": "", "degree": 14, "lod": [], "en": ""}, {"id": "p-gim-giwon", "label": "김기원", "type": "critic", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-im-wonhyeok", "label": "임원혁", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-joseph-e-stiglitz", "label": "조지프 스티글리츠", "type": "theorist", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-kang-junman", "label": "강준만", "type": "critic", "ref": "", "degree": 14, "lod": [], "en": ""}, {"id": "p-no-muhyeon", "label": "노무현", "type": "theorist", "ref": "", "degree": 53, "lod": [], "en": ""}, {"id": "p-seo-dongman", "label": "서동만", "type": "critic", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-thomas-friedman", "label": "토머스 프리드먼", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yu-jongil", "label": "유종일", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}], "edges": [{"source": "cb4005", "target": "p-yu-jongil", "type": "uses_theory", "weight": 1}, {"source": "p-yu-jongil", "target": "cb3598", "type": "wrote", "weight": 1}, {"source": "p-yu-jongil", "target": "cb3721", "type": "wrote", "weight": 1}, {"source": "cb3598", "target": "p-choe-jangjip", "type": "uses_theory", "weight": 1}, {"source": "cb3598", "target": "p-im-wonhyeok", "type": "uses_theory", "weight": 1}, {"source": "cb3598", "target": "p-kang-junman", "type": "uses_theory", "weight": 1}, {"source": "cb3598", "target": "p-no-muhyeon", "type": "uses_theory", "weight": 1}, {"source": "cb3598", "target": "p-seo-dongman", "type": "uses_theory", "weight": 1}, {"source": "cb3721", "target": "p-david-harvey-2", "type": "uses_theory", "weight": 1}, {"source": "cb3721", "target": "p-gim-giwon", "type": "uses_theory", "weight": 1}, {"source": "cb3721", "target": "p-joseph-e-stiglitz", "type": "uses_theory", "weight": 1}, {"source": "cb3721", "target": "p-thomas-friedman", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2006</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3598.html">참여정부의 ‘좌파 신자유주의’ 경제정책</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 133호, 창비, 2006</p>
+        <div class="essay-card-tags"><span class="tag">최장집</span> <span class="tag">임원혁</span> <span class="tag">강준만</span> <span class="tag">노무현</span> <span class="tag">서동만</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2007</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3721.html">신자유주의, 세계화, 한국경제</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 137호, 창비, 2007</p>
+        <div class="essay-card-tags"><span class="tag">데이비드 하비</span> <span class="tag">김기원</span> <span class="tag">조지프 스티글리츠</span> <span class="tag">토머스 프리드먼</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

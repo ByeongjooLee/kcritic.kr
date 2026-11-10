@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성은애 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">성은애</span></div>
+      <h1 class="index-heading">성은애</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">아이스킬로스</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">에드워드 사이드 (1)</span> <span class="chip chip-term">이혜미 (1)</span> <span class="chip chip-term">타라 웨스트오버 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "cb3079", "label": "『에드워드 사이드 자서전』", "type": "essay", "year": "2001", "degree": 2}, {"id": "cb3811", "label": "그때가 그리운 사람들, 관람불가", "type": "essay", "year": "2005", "degree": 1}, {"id": "cb3866", "label": "그래도 금자씨가 좋았다", "type": "essay", "year": "2005", "degree": 2}, {"id": "cb3942", "label": "오, 사랑! 진부한 사랑!", "type": "essay", "year": "2005", "degree": 1}, {"id": "cb6100", "label": "이혜미 『자본주의 키즈의 반자본주의적 분투기』", "type": "essay", "year": "2021", "degree": 2}, {"id": "cb6658", "label": "타라 웨스트오버 『배움의 발견』", "type": "essay", "year": "2020", "degree": 2}, {"id": "p-aeschylos", "label": "아이스킬로스", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-edward-said", "label": "에드워드 사이드", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q201538 http://lod.nl.go.kr/resource/KAC199636295 https://isni.org/isni/0000000121027147 http://viaf.org/viaf/82539804", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199636295", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q201538", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-hyemi", "label": "이혜미", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-seong-eunae", "label": "성은애", "type": "critic", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-tara-westover", "label": "타라 웨스트오버", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-seong-eunae", "target": "cb3079", "type": "wrote", "weight": 1}, {"source": "p-seong-eunae", "target": "cb3811", "type": "wrote", "weight": 1}, {"source": "p-seong-eunae", "target": "cb3866", "type": "wrote", "weight": 1}, {"source": "p-seong-eunae", "target": "cb3942", "type": "wrote", "weight": 1}, {"source": "p-seong-eunae", "target": "cb6100", "type": "wrote", "weight": 1}, {"source": "p-seong-eunae", "target": "cb6658", "type": "wrote", "weight": 1}, {"source": "cb3079", "target": "p-edward-said", "type": "uses_theory", "weight": 1}, {"source": "cb3866", "target": "p-aeschylos", "type": "subject_of", "weight": 1}, {"source": "cb6100", "target": "p-i-hyemi", "type": "uses_theory", "weight": 1}, {"source": "cb6658", "target": "p-tara-westover", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (6편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2001</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3079.html">『에드워드 사이드 자서전』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 114호, 창비, 2001</p>
+        <div class="essay-card-tags"><span class="tag">에드워드 사이드</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3811.html">그때가 그리운 사람들, 관람불가</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 127호, 창비, 2005</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3866.html">그래도 금자씨가 좋았다</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 129호, 창비, 2005</p>
+        <div class="essay-card-tags"><span class="tag">아이스킬로스</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb3942.html">오, 사랑! 진부한 사랑!</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 130호, 창비, 2005</p>
+        <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2020</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6658.html">타라 웨스트오버 『배움의 발견』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 187호, 창비, 2020</p>
+        <div class="essay-card-tags"><span class="tag">타라 웨스트오버</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2021</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb6100.html">이혜미 『자본주의 키즈의 반자본주의적 분투기』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 193호, 창비, 2021</p>
+        <div class="essay-card-tags"><span class="tag">이혜미</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>
