@@ -167,7 +167,7 @@ async function renderCB(q) {
       <h4><a href="${cbHref(r)}"${r[7] ? "" : ' target="_blank" rel="noopener"'}>${esc(r[3])}</a></h4>
       <div class="meta"><span>${esc(r[4])}</span><span><a href="${href.issue(r[1])}">《창작과비평》 ${esc(r[1].replace(/^cb0*/, ""))}호</a>${r[5] ? " · " + esc(r[5]) : ""}</span></div>
       ${r[6] ? `<div class="tags">${r[6].split("|").map(k => `<span class="${cbNorm(k).includes(cbNorm(q)) ? "hl" : ""}">${esc(k)}</span>`).join("")}</div>` : ""}</div>
-      <div class="side"><span class="pill${r[7] ? " t-essay" : ""}">${r[7] ? "해제" : "웹진"}</span></div></article>`).join("")}</div>
+      <div class="side"><span>${r[7] ? "해제" : "창비 웹진"}</span></div></article>`).join("")}</div>
     ${all.length > lim ? `<button class="btn morebtn" id="cbmore">${fmt(all.length - lim)}편 더 보기</button>` : ""}</div>`);
   const b = document.getElementById("cbmore"); if (b) b.onclick = () => { S.cbAll = true; document.getElementById("cbres").remove(); renderCB(q); };
 }
@@ -234,9 +234,9 @@ function list(rows) {
         <h4><a href="${cbHref(e.cb)}">${esc(e.title)}</a></h4>
         <div class="meta"><span><span class="dot t-critic"></span> ${esc(e.critic_name)}</span>
           <span><a href="${href.issue(e.cb[1])}">《창작과비평》 ${e.issue}호</a>${e.section ? " · " + esc(e.section) : ""}</span></div>
-        <div class="tags">${e.kw.slice(0, 6).map(k => `<span class="${q && k.includes(q) || S.f.kw?.has(k) ? "hl" : ""}">${esc(k)}</span>`).join("")}</div>
+        <div class="tags">${e.kw.slice(0, 6).map(k => `<a href="explore.html?p=essays&kw=${encodeURIComponent(k)}" class="${q && k.includes(q) || S.f.kw?.has(k) ? "hl" : ""}">${esc(k)}</a>`).join("")}</div>
       </div>
-      <div class="side"><span class="pill t-essay">해제</span></div>
+      <div class="side"><span>해제</span><span>키워드 ${e.kw.length}</span></div>
     </article>` : `
     <article class="row">
       <div class="yr num">${e.year}</div>
