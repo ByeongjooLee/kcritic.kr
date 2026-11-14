@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "hwang-sunjae_kim-sojin-memory-writing_1997", "label": "기억에 관한, 존재론적 글쓰기 — 김소진론", "type": "essay", "year": "1997", "degree": 2}, {"id": "p-hwang-sunjae", "label": "황순재", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-sojin", "label": "김소진", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-hwang-sunjae", "target": "hwang-sunjae_kim-sojin-memory-writing_1997", "type": "wrote", "weight": 1}, {"source": "hwang-sunjae_kim-sojin-memory-writing_1997", "target": "p-kim-sojin", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "hwang-sunjae_kim-sojin-memory-writing_1997", "label": "기억에 관한, 존재론적 글쓰기 — 김소진론", "type": "essay", "year": "1997", "degree": 2}, {"id": "p-hwang-sunjae", "label": "황순재", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-sojin", "label": "김소진", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}], "edges": [{"source": "p-hwang-sunjae", "target": "hwang-sunjae_kim-sojin-memory-writing_1997", "type": "wrote", "weight": 1}, {"source": "hwang-sunjae_kim-sojin-memory-writing_1997", "target": "p-kim-sojin", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

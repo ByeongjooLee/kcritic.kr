@@ -2,17 +2,17 @@
 
 AI 어시스턴트가 이 프로젝트에서 작업할 때 따를 규칙. 새로운 결정이 생기면 즉시 이 파일을 업데이트할 것.
 
-**현재 상태 (2026-11-08 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
+**현재 상태 (2026-11-14 기준)** — 수치를 인용할 땐 여기를 먼저 확인하고, 다르면 재빌드 후 이 블록을 갱신할 것.
 
 | 항목 | 값 |
 |---|---|
-| 수록 비평가 | 1,029인 — 전집 기반 4인(김현 136편·유종호 114편·김우창 109편·황현산 11편) + 『문학과사회』 1–55호(1988–2001) 필자 189명 461편 + 『창작과비평』 107–213호(2000–2026) 검수 해제 1,729편의 필자 (2026-11-10) |
-| 수록 비평글 | 2,560편 (`essays/*.xml`) — 전집 370 + 『문학과사회』 461 (작업 폴더 `../문학과사회/`, 반영 스크립트 `../문학과사회/site_prep/`) + 『창작과비평』 1,729 (본문 없는 메타데이터 XML `essays/cb<Item>.xml`, `../문학과사회/changbi_corpus/site_prep/publish_cb.py`) |
-| 관계망 | 노드 6,843 / 엣지 15,783 · graph.ttl 88,672 트리플 · `_redirects` 1,997줄(인물 정적 1,995 + 동적 2) |
-| 노드 구성 | essay 2,560 · theorist 2,043 · writer 1,212 · critic 1,028 |
-| 엣지 구성 | uses_theory 7,363 · subject_of 5,856 · wrote 2,560 |
-| 목록 데이터 | writers.json 1,388 · thinkers.json 2,387 · concepts.json 13,033(공개 2,328) |
-| 인물 권위 목록 | persons.json 4,846명 — Wikidata 1,125 · NLK 1,172 (2026-09-30 전수 판정 + 『문학과사회』 2026-10-22 498명·10-25 172명·11-08 1,049명 추가: NLK 스냅샷 이름·생년·분야 일치만 연결, 11-08 묶음은 전거 비움) · 『창작과비평』 2026-11-10 2,049명 추가(해제 작업의 인물 설명으로 유형 자동 판정, 같은 이름 1명이면 기존 인물로 연결, 전거 비움) · 같은 날 국중 Person 덤프(Person_json_20261008)·Open API 로 창비 새 인물 2,049명 대조: 확정 1,105(국중 서지 제어번호 일치 768), 같은 사람 56묶음 합침, 미확정 430·없음 514(`../문학과사회/changbi_corpus/site_prep/nlk_cb_judged_20261110.tsv`) |
+| 수록 비평가 | 1,071인 — 전집 기반 4인(김현 136편·유종호 114편·김우창 109편·황현산 11편) + 『문학과사회』 1–73호(1988–2006) 필자 242명 609편 + 『창작과비평』 107–213호(2000–2026) 검수 해제 1,729편의 필자 (2026-11-10) |
+| 수록 비평글 | 2,708편 (`essays/*.xml`) — 전집 370 + 『문학과사회』 609 (창비형 요지·해제·주장 `site/data/v2/mhs_sum/<호>.json` ← `build_mhs_summaries.py`; 작업 폴더 `../문학과사회/`, 반영 스크립트 `../문학과사회/site_prep/`) + 『창작과비평』 1,729 (본문 없는 메타데이터 XML `essays/cb<Item>.xml`, `../문학과사회/changbi_corpus/site_prep/publish_cb.py`) |
+| 관계망 | 노드 7,409 / 엣지 17,864 · graph.ttl 96,557 트리플 · `_redirects` 1,997줄(인물 정적 1,995 + 동적 2) |
+| 노드 구성 | essay 2,708 · theorist 2,232 · writer 1,398 · critic 1,071 |
+| 엣지 구성 | uses_theory 8,087 · subject_of 7,069 · wrote 2,708 |
+| 목록 데이터 | writers.json 1,594 · thinkers.json 2,567 · concepts.json 13,429(공개 2,650) |
+| 인물 권위 목록 | persons.json 5,583명 — Wikidata 1,728 · NLK 2,223 (2026-09-30 전수 판정 + 『문학과사회』 2026-10-22 498명·10-25 172명·11-08 1,049명·11-14 737명 추가: NLK 스냅샷 이름·생년·분야 일치만 연결, 11-08 묶음은 전거 비움) · 『창작과비평』 2026-11-10 2,049명 추가(해제 작업의 인물 설명으로 유형 자동 판정, 같은 이름 1명이면 기존 인물로 연결, 전거 비움) · 같은 날 국중 Person 덤프(Person_json_20261008)·Open API 로 창비 새 인물 2,049명 대조: 확정 1,105(국중 서지 제어번호 일치 768), 같은 사람 56묶음 합침, 미확정 430·없음 514(`../문학과사회/changbi_corpus/site_prep/nlk_cb_judged_20261110.tsv`) |
 | 공식 온톨로지 | **v8** (`critic_v8_schema.rdf` + `critic_v8_data.rdf`) |
 
 ---
@@ -967,6 +967,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - 2026-10-22: 1–13호(1988–1991) 비평 118편 공개. 원본 초안·OCR·기사 분할·인코딩 대장은 `../문학과사회/` (README 참조)
 - 2026-10-25: 14–28호(1991–1994) 101편 추가 공개 → 비평글 589 · 비평가 109 · 노드 2,203 · 엣지 6,377. 반영은 `publish_mhs.py --batch 20261025`(README §6-1). 좌담·심사평은 별도 컬렉션(`../문학과사회/site_prep/jwadam_simsa_collection.tsv`), 편집 동인·발행처 명의 글과 번역 글은 제외. 인물 전거 보강 지침 `../문학과사회/site_prep/NLK_ENRICH_GUIDE.md`
 - 2026-11-08: 29–55호(1995–2001) 242편 추가 → 비평글 831 · 비평가 191 · 노드 3,119 · 엣지 9,251 · 트리플 44,072. 반영은 `../문학과사회/site_prep/publish_mhs_20261108.py`(대상 `pending_stems_20261108.txt` 363편, 제외 121편 `exclude_20261108.tsv` — 단체 명의 93·복수 저자 26·번역 2, 10-25 와 같은 규칙) → `py build.py` → `py build_site_v2.py --max-issue 055`(56호 인코딩 중이라 호 목차는 55호까지) → `PYTHONHASHSEED=0 py build_graph_metrics.py` → `make_cards.py --stems site_prep/published_stems.pending_20261108.txt`. 새 인물 1,049명은 NLK 자동 대조 없이 전거를 비워 등록(보강은 따로). 기록 `../문학과사회/site_prep/report_20261108.md`
+- 2026-11-14: 56–73호(2001 겨울–2006 봄) 148편 추가(대상 235, 제외 87 `exclude_20261114.tsv` — 단체 명의 63·복수 저자 21·번역 3), 새 인물 737명(전거 비움). `publish_mhs_20261114.py --apply` → `py build.py` → `py build_site_v2.py --max-issue 073`(74–76호 인코딩 중) → `PYTHONHASHSEED=0 py build_graph_metrics.py` → `make_cards.py`. 같은 날 **『창작과비평』 형태로 전환**(연구자 「창작과비평 형태로 수정해서 전체적으로 재배포」): 공개 609편마다 요지(한 문장)·해제(200~400자)·주장·근거 2~5개(주장/논거/비판/제언)를 창비 지침(`../문학과사회/changbi_corpus/summary/지침_창비요약.md`)대로 **TEI 구조화 요약에서** AI 보조로 작성 — `../문학과사회/site_prep/mhs_summary_input.py`(입력, 〔인용〕 가림) → `save_mhs_summary.py`(형식·길이·원문 TXT 20자 연속 일치·전자우편 차단, sha 기록) → `mhs_summary/<stem>.json` → `py build_mhs_summaries.py`(build_site_v2 다음, 같은 점검을 다시 하고 sha 가 바뀐 글은 뺌) → `site/data/v2/mhs_sum/<호>.json`(필드 u t a y l s h kw c — 창비 cb_sum 과 같음, kw = TEI 개념어 앞 7개). 글 화면(entity.html 글 갈래)이 요지·해제·주장·근거 구조를, 호 화면이 「해제」 표시를 한다. `find/build_find.py` 도 『문학과사회』 요지·해제를 글 벡터 문장에 더함. 기록 `../문학과사회/site_prep/report_20261114.md`
 - 반영 절차: `../문학과사회/site_prep/census.py`(점검) → `publish_mhs.py --apply`(개념어 통일·persons.json 등록·XML 복사) → `py build.py` → `make_cards.py`(index.html 카드 섹션 `MHS-START`~`MHS-END` 자동 생성)
 - 심사평(복수 심사위원)은 build.py 가 titleStmt 첫 저자만 비평가로 잡아 오귀속되므로 **사이트에서 제외**(작업 폴더에만 있음). 복수 저자 지원은 미구현
 - 역할이 `critic` 뿐인 언급 인물(다른 비평가를 논하는 경우)은 build.py 분류상 관계망 엣지가 생기지 않는다. 비평가 간 논쟁 관계는 `critic:respondsTo` 구현과 함께 다룰 것

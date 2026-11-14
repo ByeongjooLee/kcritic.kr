@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>표정훈 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">표정훈</span></div>
+      <h1 class="index-heading">표정훈</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">30</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">13</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">T. S. 엘리엇</span> <span class="chip role-writer">플로베르</span> <span class="chip role-writer">헨리 제임스</span> <span class="chip role-writer">알랭 드 보통</span> <span class="chip role-writer">베르나르 베르베르</span> <span class="chip role-writer">댄 브라운</span> <span class="chip role-writer">에쿠니 가오리</span> <span class="chip role-writer">검유혼</span> <span class="chip role-writer">공지영</span> <span class="chip role-writer">전동조</span> <span class="chip role-writer">조정래</span> <span class="chip role-writer">존 버니언</span> <span class="chip role-writer">김훈</span> <span class="chip role-writer">김진명</span> <span class="chip role-writer">이경영</span> <span class="chip role-writer">이외수</span> <span class="chip role-writer">이우혁</span> <span class="chip role-writer">이영도</span> <span class="chip role-writer">마이클 크라이튼</span> <span class="chip role-writer">미하엘 엔데</span> <span class="chip role-writer">박상륭</span> <span class="chip role-writer">파울로 코엘료</span> <span class="chip role-writer">류시화</span> <span class="chip role-writer">시오노 나나미</span> <span class="chip role-writer">발터 뫼르스</span> <span class="chip role-writer">야마오카 소하치</span> <span class="chip role-writer">이인성</span> <span class="chip role-writer">이문열</span> <span class="chip role-writer">요시모토 바나나</span> <span class="chip role-writer">조란 지브코비치</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">오르테가 이 가세트 (1)</span> <span class="chip chip-term">헤겔 (1)</span> <span class="chip chip-term">엘빈 커넌 (1)</span> <span class="chip chip-term">아서 웨일리 (1)</span> <span class="chip chip-term">대니얼 J. 부어스틴 (1)</span> <span class="chip chip-term">다르마팔라 (1)</span> <span class="chip chip-term">김진석 (1)</span> <span class="chip chip-term">규기 (1)</span> <span class="chip chip-term">나가르쥬나 (1)</span> <span class="chip chip-term">노엘 코웬 (1)</span> <span class="chip chip-term">진제 (1)</span> <span class="chip chip-term">페터 벤데 (1)</span> <span class="chip chip-term">바수반두 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "ortega", "label": "오르테가 이 가세트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q153020 http://lod.nl.go.kr/resource/KAC199620747 https://isni.org/isni/0000000121441292 http://viaf.org/viaf/95155380", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620747", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q153020", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "José Ortega y Gasset"}, {"id": "p-00045", "label": "T. S. 엘리엇", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q37767 http://lod.nl.go.kr/resource/KAC199608019 https://isni.org/isni/0000000121339888 http://viaf.org/viaf/56609282", "degree": 54, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199608019", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37767", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "T. S. Eliot"}, {"id": "p-00049", "label": "플로베르", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q43444 http://lod.nl.go.kr/resource/KAC199608889 https://isni.org/isni/0000000122762442 http://viaf.org/viaf/9846192", "degree": 28, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199608889", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q43444", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Gustave Flaubert"}, {"id": "p-00065", "label": "헤겔", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9235 http://lod.nl.go.kr/resource/KAC199611965 https://isni.org/isni/0000000122828149 http://viaf.org/viaf/89774942", "degree": 89, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611965", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9235", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Wilhelm Friedrich Hegel"}, {"id": "p-00068", "label": "헨리 제임스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q170509 http://lod.nl.go.kr/resource/KAC199613702 https://isni.org/isni/0000000121280310 http://viaf.org/viaf/36920030", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199613702", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q170509", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Henry James"}, {"id": "p-alain-de-botton", "label": "알랭 드 보통", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-alvin-kernan", "label": "앨빈 커넌", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-arthur-waley", "label": "아서 웨일리", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-bernard-werber", "label": "베르나르 베르베르", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12054 http://lod.nl.go.kr/resource/KAC199629675 https://isni.org/isni/0000000081610484 http://viaf.org/viaf/85414048", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199629675", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12054", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-dan-brown", "label": "댄 브라운", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q7345 http://lod.nl.go.kr/resource/KAC200410983 https://isni.org/isni/0000000109297080 http://viaf.org/viaf/102403515", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200410983", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q7345", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-daniel-boorstin", "label": "대니얼 J. 부어스틴", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-dharmapala", "label": "다르마팔라", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-ekuni-kaori", "label": "에쿠니 가오리", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-geom-yuhon", "label": "검유혼", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gong-jiyeong", "label": "공지영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q483344 http://lod.nl.go.kr/resource/KAC201007577 https://isni.org/isni/0000000121485666 http://viaf.org/viaf/116305807", "degree": 15, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201007577", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q483344", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeon-dongjo", "label": "전동조", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-jo-jungrae", "label": "조정래", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q623737 http://lod.nl.go.kr/resource/KAC201009342 https://isni.org/isni/0000000080867085 http://viaf.org/viaf/7506325", "degree": 22, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009342", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q623737", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-john-bunyan", "label": "존 버니언", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-hoon", "label": "김훈", "type": "critic", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-kim-jinmyeong", "label": "김진명", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-kim-jinseok", "label": "김진석", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201509269 https://isni.org/isni/0000000463288988 http://viaf.org/viaf/115150468210704170586", "degree": 20, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201509269", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-kuiji", "label": "규기", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-gyeongyeong", "label": "이경영", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-oesu", "label": "이외수", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-uhyeok", "label": "이우혁", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-yeongdo-novelist", "label": "이영도", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-michael-crichton", "label": "마이클 크라이튼", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-michael-ende", "label": "미하일 엔데", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-nagarjuna", "label": "용수", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q171195 http://lod.nl.go.kr/resource/KAC199631926 https://isni.org/isni/0000000080880781 http://viaf.org/viaf/8711937", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631926", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q171195", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Nagarjuna"}, {"id": "p-noel-cowen", "label": "노엘 코웬", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-paramartha", "label": "진제", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-park-sangryung", "label": "박상륭", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q7137999 http://lod.nl.go.kr/resource/KAC201008927 https://isni.org/isni/0000000024628434 http://viaf.org/viaf/28396953", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008927", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q7137999", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-paulo-coelho", "label": "파울로 코엘류", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-peter-wende", "label": "페터 벤데", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-pyo-jeonghun", "label": "표정훈", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-ryu-sihwa", "label": "류시화", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-shiono-nanami", "label": "시오노 나나미", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-vasubandhu", "label": "바수반두", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-walter-moers", "label": "발터 뫼르스", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yamaoka-sohachi", "label": "야마오카 소하치", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yi-inseong", "label": "이인성", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q3572265 http://lod.nl.go.kr/resource/KAC201229400 https://isni.org/isni/0000000120228959 http://viaf.org/viaf/27309529", "degree": 55, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201229400", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q3572265", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-munyol", "label": "이문열", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q116288 http://lod.nl.go.kr/resource/KAC201008289 https://isni.org/isni/0000000081755894 http://viaf.org/viaf/109973700", "degree": 31, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008289", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q116288", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yoshimoto-banana", "label": "요시모토 바나나", "type": "writer", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-zoran-zivkovic", "label": "조란 지브코비치", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "label": "외국 소설의 득세와 한국 출판 시장", "type": "essay", "year": "2005", "degree": 33}, {"id": "pyo-jeonghun_journey-to-the-west_2003", "label": "『서유기』에 관한 몇 가지 생각", "type": "essay", "year": "2003", "degree": 12}], "edges": [{"source": "p-pyo-jeonghun", "target": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "type": "wrote", "weight": 1}, {"source": "p-pyo-jeonghun", "target": "pyo-jeonghun_journey-to-the-west_2003", "type": "wrote", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "ortega", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-00045", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-00049", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-00068", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-alain-de-botton", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-alvin-kernan", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-bernard-werber", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-dan-brown", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-daniel-boorstin", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-ekuni-kaori", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-geom-yuhon", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-gong-jiyeong", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-jeon-dongjo", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-jo-jungrae", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-kim-hoon", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-kim-jinmyeong", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-lee-gyeongyeong", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-lee-oesu", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-lee-uhyeok", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-lee-yeongdo-novelist", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-michael-crichton", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-michael-ende", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-paulo-coelho", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-peter-wende", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-ryu-sihwa", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-shiono-nanami", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-walter-moers", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-yamaoka-sohachi", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-yi-inseong", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-yi-munyol", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-yoshimoto-banana", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_foreign-fiction-korean-publishing_2005", "target": "p-zoran-zivkovic", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-00065", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-arthur-waley", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-dharmapala", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-john-bunyan", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-kim-jinseok", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-kuiji", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-nagarjuna", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-noel-cowen", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-paramartha", "type": "uses_theory", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-park-sangryung", "type": "subject_of", "weight": 1}, {"source": "pyo-jeonghun_journey-to-the-west_2003", "target": "p-vasubandhu", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/pyo-jeonghun_journey-to-the-west_2003.html">『서유기』에 관한 몇 가지 생각</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 64호, 문학과지성사, 2003</p>
+        <div class="essay-card-tags"><span class="tag">존 버니언</span> <span class="tag">박상륭</span><span class="tag">헤겔</span> <span class="tag">아서 웨일리</span> <span class="tag">다르마팔라</span> <span class="tag">김진석</span> <span class="tag">규기</span> <span class="tag">나가르쥬나</span> <span class="tag">노엘 코웬</span> <span class="tag">진제</span> <span class="tag">바수반두</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/pyo-jeonghun_foreign-fiction-korean-publishing_2005.html">외국 소설의 득세와 한국 출판 시장</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 72호, 문학과지성사, 2005</p>
+        <div class="essay-card-tags"><span class="tag">T. S. 엘리엇</span> <span class="tag">플로베르</span> <span class="tag">헨리 제임스</span> <span class="tag">알랭 드 보통</span> <span class="tag">베르나르 베르베르</span> <span class="tag">댄 브라운</span> <span class="tag">에쿠니 가오리</span> <span class="tag">검유혼</span> <span class="tag">공지영</span> <span class="tag">전동조</span> <span class="tag">조정래</span> <span class="tag">김훈</span> <span class="tag">김진명</span> <span class="tag">이경영</span> <span class="tag">이외수</span> <span class="tag">이우혁</span> <span class="tag">이영도</span> <span class="tag">마이클 크라이튼</span> <span class="tag">미하엘 엔데</span> <span class="tag">파울로 코엘료</span> <span class="tag">류시화</span> <span class="tag">시오노 나나미</span> <span class="tag">발터 뫼르스</span> <span class="tag">야마오카 소하치</span> <span class="tag">이인성</span> <span class="tag">이문열</span> <span class="tag">요시모토 바나나</span> <span class="tag">조란 지브코비치</span><span class="tag">오르테가 이 가세트</span> <span class="tag">엘빈 커넌</span> <span class="tag">대니얼 J. 부어스틴</span> <span class="tag">페터 벤데</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

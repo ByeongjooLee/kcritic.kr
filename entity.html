@@ -170,9 +170,11 @@ db().then(D => {
       </div>
       <div class="ent"><div>
         ${kv([[e.subjects.length, "다룬 작가"], [e.theorists.length, "인용 이론가"], [e.concepts.length, "개념어"]])}
+        ${e.coll === "mhs" ? `<div id="mhs-sum"></div>` : ""}
         <div class="block"><h3><span class="dot t-writer"></span>다룬 작가 <span>${e.subjects.length}</span></h3>${e.subjects.length ? chips(e.subjects.map(i => [i, 1]), "t-writer", href.person, nm) : `<p class="note">특정 작가를 다루지 않은 글입니다.</p>`}</div>
         <div class="block"><h3><span class="dot t-theorist"></span>인용 이론가 <span>${e.theorists.length}</span></h3>${e.theorists.length ? chips(e.theorists.map(i => [i, 1]), "t-theorist", href.person, nm) : `<p class="note">없음</p>`}</div>
         <div class="block"><h3><span class="dot t-concept"></span>개념어 <span>${e.concepts.length}</span></h3>${chips(e.concepts.map(c => [c, 1]), "t-concept", href.concept, x => x)}</div>
+        ${e.coll === "mhs" ? `<div id="mhs-claims"></div>` : ""}
         <div class="block"><h3>개념어를 공유하는 글</h3>${share.length ? `<div class="rows">${share.map(o => `<article class="row"><div class="yr num">${o.x.year}</div><div><h4><a href="${href.essay(o.x.id)}">${esc(o.x.title)}</a></h4><div class="meta"><span>${esc(o.x.critic_name)}</span></div><div class="tags">${o.s.map(c => `<a class="hl" href="${href.concept(c)}">${esc(c)}</a>`).join("")}</div></div><div class="side">공유 ${o.s.length}</div></article>`).join("")}</div>` : `<p class="note">공유하는 글이 없습니다.</p>`}</div>
         ${sameIssue.length ? `<div class="block"><h3>같은 호에 실린 비평 <span>${sameIssue.length}</span></h3><div class="rows">${sameIssue.map(e => essayRow(e)).join("")}</div></div>` : ""}
       </div>
@@ -182,8 +184,19 @@ db().then(D => {
         <div class="panel"><h5>더 보기</h5><dl><dt>관계망</dt><dd><a href="${KC}graph.html#${encodeURIComponent(e.id)}">이 글 중심으로</a></dd>
           <dt>기존 페이지</dt><dd><a href="${KC}site/essays/${encodeURIComponent(e.id)}.html">현행 메타데이터</a></dd><dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(e.id)}</dd></dl>
           <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.${VENUE_LINK[e.coll] ? ` 원문은 발행처에서 확인할 수 있습니다.` : ""}</p>
-          ${VENUE_LINK[e.coll] ? `<a class="btn btn-block" style="margin-top:10px" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 ↗<small>${esc(VENUE_LINK[e.coll].label)}</small></a>` : ""}</div>
+          ${VENUE_LINK[e.coll] ? `<a class="btn btn-block" style="margin-top:10px" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 ↗<small>${esc(VENUE_LINK[e.coll].label)}</small></a>` : ""}
+          ${e.coll === "mhs" ? `<p class="note" id="mhs-sum-note" style="margin-top:10px" hidden>요지·해제·주장은 이 글의 TEI 구조화 요약(전문을 읽고 인코딩한 3인칭 요약)을 바탕으로 AI 보조로 『창작과비평』 해제와 같은 형식으로 다시 쓴 것이며 원문이 아닙니다.</p>` : ""}</div>
       </aside></div>`;
+    // 『문학과사회』: 창비 글 화면과 같은 요지·해제·주장·근거 구조 — 그 호 파일(mhs_sum/<호>.json, build_mhs_summaries.py)만 읽는다(2026-11-14)
+    if (e.coll === "mhs" && issueId) load(`mhs_sum/${issueId}`).then(m => {
+      const x = m[e.id], box = document.getElementById("mhs-sum"), cl = document.getElementById("mhs-claims");
+      if (!x || !box) return;
+      box.innerHTML = `<div class="block"><h3>요지</h3><p style="font-size:17px;font-weight:600;line-height:1.6;margin:0">${esc(x.s)}</p></div>
+        <div class="block"><h3>해제</h3><p style="line-height:1.8;margin:0">${esc(x.h)}</p></div>`;
+      if (cl && x.c.length) cl.innerHTML = `<div class="block"><h3>주장·근거 구조 <span>${x.c.length}</span></h3>
+        <div class="rows">${x.c.map(claim => `<article class="row"><div class="yr">${esc(claim[1])}</div><div><p style="margin:0;line-height:1.7">${esc(claim[0])}</p></div><div class="side"></div></article>`).join("")}</div></div>`;
+      const note = document.getElementById("mhs-sum-note"); if (note) note.hidden = false;
+    }).catch(() => {});
   }
 
   // ── 개념어 ──
@@ -260,10 +273,12 @@ db().then(D => {
           <p class="note" style="margin:-4px 0 10px">쪽수는 인쇄된 쪽 번호 그대로입니다. 1988~1991년 『문학과사회』는 한 해를 한 권으로 묶고(판권: 「1988년 여름호 · 제Ⅰ권 제2호」), 그 권의 네 호가 쪽 번호를 이어 매겼습니다. 그래서 봄호는 1쪽부터, 여름호는 400쪽대, 가을호는 800~900쪽대, 겨울호는 1200쪽대부터 시작합니다. 목차에는 비평·좌담·심사평만 실어서, 첫 글의 쪽수가 호의 첫 쪽보다 뒤입니다.</p><div class="rows">${i.items.map(x => `<article class="row"${x.stem ? "" : ' style="color:var(--faint)"'}>
           <div class="yr num">${esc(x.pages)}</div><div><h4 style="font-weight:${x.stem ? 600 : 500}">${x.stem ? `<a href="${href.essay(x.stem)}">${esc(x.title)}</a>` : esc(x.title)}</h4>
           <div class="meta"><span>${esc(x.author)}</span><span>${esc(x.section)}</span></div></div>
-          <div class="side"><span class="pill${x.stem ? " t-essay" : ""}">${esc(x.state)}</span></div></article>`).join("")}</div></div>
+          <div class="side"><span class="pill${x.stem ? " t-essay" : ""}"${x.stem ? ` data-stem="${esc(x.stem)}"` : ""}>${esc(x.state)}</span></div></article>`).join("")}</div></div>
       </div>
       <aside class="aside">${es.length ? `<div class="panel t-concept"><h5>이 호의 개념어</h5>${chips(tally(es, e => e.concepts).slice(0, 18), "t-concept", href.concept, x => x)}</div>
         <div class="panel"><h5>이 호에서 다뤄진 작가</h5>${hbars(tally(es, e => e.subjects).slice(0, 8).map(([k, v]) => ({ label: nm(k), v, href: href.person(k), cls: "t-writer" })))}</div>` : `<div class="panel"><p class="note">아직 공개한 글이 없습니다.</p></div>`}</aside></div>`;
+    // 요지·해제·주장이 있는 글은 창비 호 화면처럼 「해제」로 표시(그 호의 mhs_sum 만 읽음, 2026-11-14)
+    if (es.length) load(`mhs_sum/${ID}`).then(m => document.querySelectorAll(".pill[data-stem]").forEach(p => { if (m[p.dataset.stem]) p.textContent = "해제"; })).catch(() => {});
   }
 });
 </script>

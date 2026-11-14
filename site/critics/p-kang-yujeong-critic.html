@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강유정 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">강유정</span></div>
+      <h1 class="index-heading">강유정</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">24</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">다자이 오사무</span> <span class="chip role-writer">무라카미 하루키</span> <span class="chip role-writer">아사다 지로</span> <span class="chip role-writer">천운영</span> <span class="chip role-writer">에쿠니 가오리</span> <span class="chip role-writer">권여선</span> <span class="chip role-writer">이시다 이라</span> <span class="chip role-writer">정이현</span> <span class="chip role-writer">가쿠다 미쓰요</span> <span class="chip role-writer">가네하라 히토미</span> <span class="chip role-writer">가네즈로 가즈키</span> <span class="chip role-writer">김경욱</span> <span class="chip role-writer">김숨</span> <span class="chip role-writer">김연수</span> <span class="chip role-writer">이응준</span> <span class="chip role-writer">이만교</span> <span class="chip role-writer">무라카미 류</span> <span class="chip role-writer">남진우</span> <span class="chip role-writer">온다 리쿠</span> <span class="chip role-writer">다니자키 준이치로</span> <span class="chip role-writer">와타야 리사</span> <span class="chip role-writer">야마다 에이미</span> <span class="chip role-writer">요시모토 바나나</span> <span class="chip role-writer">윤대녕</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">박지원 (1)</span> <span class="chip chip-term">바타유 (1)</span> <span class="chip chip-term">가라타니 고진 (1)</span> <span class="chip chip-term">프랑코 모레티 (1)</span> <span class="chip chip-term">수전 손택 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "kang-yujeong_contagion-age-suicides-greatness_2005", "label": "접촉성 질병의 시대, 자살자의 위대함 — 김경욱 『장국영이 죽었다고?』, 김연수 『나는 유령작가입니다』", "type": "essay", "year": "2005", "degree": 7}, {"id": "kang-yujeong_japanese-literature-why-read_2006", "label": "응고된 부재 사이로 틈입한 도발의 언어 — 오늘의 일본 문학, 왜 읽히는가?", "type": "essay", "year": "2006", "degree": 26}, {"id": "p-00166", "label": "박지원", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q495720 https://encykorea.aks.ac.kr/Article/E0021216 http://lod.nl.go.kr/resource/KAC200105568 https://isni.org/isni/0000000108563092 http://viaf.org/viaf/29682360", "degree": 12, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0021216", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200105568", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q495720", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-asada-jiro", "label": "아사다 지로", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-bataille", "label": "조르주 바타유", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q207359 http://lod.nl.go.kr/resource/KAC199601803 https://isni.org/isni/0000000121295918 http://viaf.org/viaf/41834843", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601803", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q207359", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georges Bataille"}, {"id": "p-cheon-unyeong", "label": "천운영", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q12618947 http://lod.nl.go.kr/resource/KAC201008637 https://isni.org/isni/0000000046491424 http://viaf.org/viaf/41501694", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201008637", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12618947", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-dazai-osamu", "label": "다자이 오사무", "type": "writer", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-ekuni-kaori", "label": "에쿠니 가오리", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-gwon-yeoseon", "label": "권여선", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q15708726 http://lod.nl.go.kr/resource/KAC201007528 https://isni.org/isni/0000000403531499 http://viaf.org/viaf/300037241", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201007528", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q15708726", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-ishida-ira", "label": "이시다 이라", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-ihyeon", "label": "정이현", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q6312529 http://lod.nl.go.kr/resource/KAC201106797 https://isni.org/isni/0000000073307071 http://viaf.org/viaf/66425933", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201106797", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6312529", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kakuta-mitsuyo", "label": "가쿠다 미쓰요", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kanehara-hitomi", "label": "가네하라 히토미", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kaneshiro-kazuki", "label": "가네즈로 가즈키", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kang-yujeong-critic", "label": "강유정", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-karatani-kojin", "label": "가라타니 고진", "type": "theorist", "ref": "", "degree": 36, "lod": [], "en": ""}, {"id": "p-kim-gyeonguk", "label": "김경욱", "type": "critic", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-kim-sum", "label": "김숨", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-kim-yeonsu", "label": "김연수", "type": "critic", "ref": "", "degree": 28, "lod": [], "en": ""}, {"id": "p-lee-eungjun", "label": "이응준", "type": "writer", "ref": "", "degree": 8, "lod": [], "en": ""}, {"id": "p-lee-mangyo", "label": "이만교", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-moretti", "label": "프랑코 모레티", "type": "theorist", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-murakami-haruki", "label": "하루키", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q134798 http://lod.nl.go.kr/resource/KAC199632310 https://isni.org/isni/0000000121468778 http://viaf.org/viaf/108238901", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199632310", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q134798", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-murakami-ryu", "label": "무라카미 류", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-nam-jinwoo", "label": "남진우", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201307295 https://isni.org/isni/0000000046334947 http://viaf.org/viaf/36767934", "degree": 19, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201307295", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-onda-riku", "label": "온다 리쿠", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q5369698 http://lod.nl.go.kr/resource/KAC200507333 https://isni.org/isni/0000000083228844 http://viaf.org/viaf/115767659", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200507333", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5369698", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-susan-sontag", "label": "손탁", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-tanizaki", "label": "다니자키", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q316213 http://lod.nl.go.kr/resource/KAC199631151 https://isni.org/isni/0000000121440791 http://viaf.org/viaf/95021658", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631151", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q316213", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jun'ichirō Tanizaki"}, {"id": "p-wataya-risa", "label": "와타야 리사", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q266984 http://lod.nl.go.kr/resource/KAC200408601 https://isni.org/isni/0000000122843760 http://viaf.org/viaf/117492913", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200408601", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q266984", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yamada-eimi", "label": "야마다 에이미", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-yoshimoto-banana", "label": "요시모토 바나나", "type": "writer", "ref": "", "degree": 7, "lod": [], "en": ""}, {"id": "p-yun-daenyeong", "label": "윤대녕", "type": "writer", "ref": "", "degree": 23, "lod": [], "en": ""}], "edges": [{"source": "p-kang-yujeong-critic", "target": "kang-yujeong_contagion-age-suicides-greatness_2005", "type": "wrote", "weight": 1}, {"source": "p-kang-yujeong-critic", "target": "kang-yujeong_japanese-literature-why-read_2006", "type": "wrote", "weight": 1}, {"source": "kang-yujeong_contagion-age-suicides-greatness_2005", "target": "p-00166", "type": "uses_theory", "weight": 1}, {"source": "kang-yujeong_contagion-age-suicides-greatness_2005", "target": "p-dazai-osamu", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_contagion-age-suicides-greatness_2005", "target": "p-kim-gyeonguk", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_contagion-age-suicides-greatness_2005", "target": "p-kim-yeonsu", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_contagion-age-suicides-greatness_2005", "target": "p-murakami-haruki", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_contagion-age-suicides-greatness_2005", "target": "p-susan-sontag", "type": "uses_theory", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-asada-jiro", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-bataille", "type": "uses_theory", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-cheon-unyeong", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-dazai-osamu", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-ekuni-kaori", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-gwon-yeoseon", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-ishida-ira", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-jeong-ihyeon", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-kakuta-mitsuyo", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-kanehara-hitomi", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-kaneshiro-kazuki", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-karatani-kojin", "type": "uses_theory", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-kim-sum", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-lee-eungjun", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-lee-mangyo", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-moretti", "type": "uses_theory", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-murakami-haruki", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-murakami-ryu", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-nam-jinwoo", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-onda-riku", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-tanizaki", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-wataya-risa", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-yamada-eimi", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-yoshimoto-banana", "type": "subject_of", "weight": 1}, {"source": "kang-yujeong_japanese-literature-why-read_2006", "target": "p-yun-daenyeong", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (2편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kang-yujeong_contagion-age-suicides-greatness_2005.html">접촉성 질병의 시대, 자살자의 위대함 — 김경욱 『장국영이 죽었다고?』, 김연수 『나는 유령작가입니다』</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 71호, 문학과지성사, 2005</p>
+        <div class="essay-card-tags"><span class="tag">오사무</span> <span class="tag">김경욱</span> <span class="tag">김연수</span> <span class="tag">하루키</span><span class="tag">박지원</span> <span class="tag">수전 손택</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2006</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/kang-yujeong_japanese-literature-why-read_2006.html">응고된 부재 사이로 틈입한 도발의 언어 — 오늘의 일본 문학, 왜 읽히는가?</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 73호, 문학과지성사, 2006</p>
+        <div class="essay-card-tags"><span class="tag">아사다 지로</span> <span class="tag">천운영</span> <span class="tag">다자이 오사무</span> <span class="tag">에쿠니 가오리</span> <span class="tag">권여선</span> <span class="tag">이시다 이라</span> <span class="tag">정이현</span> <span class="tag">가쿠다 미쓰요</span> <span class="tag">가네하라 히토미</span> <span class="tag">가네즈로 가즈키</span> <span class="tag">김숨</span> <span class="tag">이응준</span> <span class="tag">이만교</span> <span class="tag">무라카미 하루키</span> <span class="tag">무라카미 류</span> <span class="tag">남진우</span> <span class="tag">온다 리쿠</span> <span class="tag">다니자키 준이치로</span> <span class="tag">와타야 리사</span> <span class="tag">야마다 에이미</span> <span class="tag">요시모토 바나나</span> <span class="tag">윤대녕</span><span class="tag">바타유</span> <span class="tag">가라타니 고진</span> <span class="tag">프랑코 모레티</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3453", "label": "문학동네", "type": "essay", "year": "2006", "degree": 2}, {"id": "p-ju-inseok", "label": "주인석", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201320427 https://isni.org/isni/0000000049753688 http://viaf.org/viaf/62151776778018011369", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201320427", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-ryu-boseon", "label": "류보선", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-ryu-boseon", "target": "cb3453", "type": "wrote", "weight": 1}, {"source": "cb3453", "target": "p-ju-inseok", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3453", "label": "문학동네", "type": "essay", "year": "2006", "degree": 2}, {"id": "p-ju-inseok", "label": "주인석", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201320427 https://isni.org/isni/0000000049753688 http://viaf.org/viaf/62151776778018011369", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201320427", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-ryu-boseon", "label": "류보선", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-ryu-boseon", "target": "cb3453", "type": "wrote", "weight": 1}, {"source": "cb3453", "target": "p-ju-inseok", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

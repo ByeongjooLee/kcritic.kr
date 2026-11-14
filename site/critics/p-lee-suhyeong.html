@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이수형 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">이수형</span></div>
+      <h1 class="index-heading">이수형</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">22</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">26</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">배수아</span> <span class="chip role-writer">김영하</span> <span class="chip role-writer">최인훈</span> <span class="chip role-writer">최남선</span> <span class="chip role-writer">오규원</span> <span class="chip role-writer">염상섭</span> <span class="chip role-writer">이광수</span> <span class="chip role-writer">애거서 크리스티</span> <span class="chip role-writer">백민석</span> <span class="chip role-writer">채만식</span> <span class="chip role-writer">최윤</span> <span class="chip role-writer">은희경</span> <span class="chip role-writer">한유주</span> <span class="chip role-writer">정이현</span> <span class="chip role-writer">김애란</span> <span class="chip role-writer">김중혁</span> <span class="chip role-writer">이원</span> <span class="chip role-writer">마리네티</span> <span class="chip role-writer">로버트슨</span> <span class="chip role-writer">윌리엄 깁슨</span> <span class="chip role-writer">이기영</span> <span class="chip role-writer">이인직</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">가라타니 고진 (3)</span> <span class="chip chip-term">레비 스트로스 (2)</span> <span class="chip chip-term">벤야민 (2)</span> <span class="chip chip-term">에드워드 사이드 (2)</span> <span class="chip chip-term">지젝 (2)</span> <span class="chip chip-term">데카르트 (1)</span> <span class="chip chip-term">칸트 (1)</span> <span class="chip chip-term">루카치 (1)</span> <span class="chip chip-term">필립 아리에스 (1)</span> <span class="chip chip-term">베네딕트 앤더슨 (1)</span> <span class="chip chip-term">샹탈 무페 (1)</span> <span class="chip chip-term">공자 (1)</span> <span class="chip chip-term">어네스토 라클라우 (1)</span> <span class="chip chip-term">르네 지라르 (1)</span> <span class="chip chip-term">황호덕 (1)</span> <span class="chip chip-term">정정호 (1)</span> <span class="chip chip-term">김성기 (1)</span> <span class="chip chip-term">김성곤 (1)</span> <span class="chip chip-term">이기훈 (1)</span> <span class="chip chip-term">이정우 (1)</span> <span class="chip chip-term">맥루한 (1)</span> <span class="chip chip-term">오타케 기요미 (1)</span> <span class="chip chip-term">루소 (1)</span> <span class="chip chip-term">사마천 (1)</span> <span class="chip chip-term">비트겐슈타인 (1)</span> <span class="chip chip-term">유모토 고이치 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "lee-suhyeong_bae-sua-community-other_2003", "label": "공동체와 타자 — 배수아 소설 속의 가치론과 의미론", "type": "essay", "year": "2003", "degree": 12}, {"id": "lee-suhyeong_beyond-media-fantasy_2005", "label": "미디어의 환상을 넘어서 — 김중혁·한유주·김애란의 소설", "type": "essay", "year": "2005", "degree": 8}, {"id": "lee-suhyeong_coming-of-age-korean-fiction_2004", "label": "아이에서 어른 되기, 아무도 속지 않는 거짓말 — 한국 소설 속의 미성년", "type": "essay", "year": "2004", "degree": 27}, {"id": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "label": "낯선 코드와 유혹 — 김영하론", "type": "essay", "year": "2002", "degree": 7}, {"id": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "label": "Ghost in the shell — 이원론", "type": "essay", "year": "2002", "degree": 7}, {"id": "p-00033", "label": "최인훈", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q11274314 http://lod.nl.go.kr/resource/KAC201108593 https://isni.org/isni/0000000116984436 http://viaf.org/viaf/110167855", "degree": 60, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0005204", "label": "한(작품)", "full": "한국민족문화대백과 (작품)", "bg": "#f0ede8", "fg": "#5a3a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201108593", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q11274314", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00034", "label": "최남선", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q626601 https://encykorea.aks.ac.kr/Article/E0057237 http://lod.nl.go.kr/resource/KAC201109675 https://isni.org/isni/0000000081385686 http://viaf.org/viaf/59253949", "degree": 24, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0057237", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201109675", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626601", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00040", "label": "데카르트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9191 http://lod.nl.go.kr/resource/KAC199606962 https://isni.org/isni/0000000121296144 http://viaf.org/viaf/41838958", "degree": 37, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199606962", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9191", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "René Descartes"}, {"id": "p-00093", "label": "칸트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9312 http://lod.nl.go.kr/resource/KAC199614392 https://isni.org/isni/0000000122824025 http://viaf.org/viaf/82088490", "degree": 59, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614392", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9312", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Immanuel Kant"}, {"id": "p-00139", "label": "레비-스트로스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q128126 http://lod.nl.go.kr/resource/KAC200503012 https://isni.org/isni/0000000121035067 http://viaf.org/viaf/102346347", "degree": 18, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200503012", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q128126", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Claude Lévi-Strauss"}, {"id": "p-00146", "label": "루카치", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q151523 http://lod.nl.go.kr/resource/KAC199617179 https://isni.org/isni/0000000121309398 http://viaf.org/viaf/46764285", "degree": 91, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617179", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q151523", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georg Lukács"}, {"id": "p-00162", "label": "오규원", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12607740 https://encykorea.aks.ac.kr/Article/E0071287 http://lod.nl.go.kr/resource/KAC201200668 https://isni.org/isni/0000000026815858 http://viaf.org/viaf/40709448", "degree": 47, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071287", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201200668", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12607740", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00227", "label": "발터 벤야민", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q61078 http://lod.nl.go.kr/resource/KAC199602170 https://isni.org/isni/0000000121010732 http://viaf.org/viaf/46757196", "degree": 67, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602170", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q61078", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Walter Benjamin"}, {"id": "p-00239", "label": "염상섭", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q8054832 https://encykorea.aks.ac.kr/Article/E0037111 http://lod.nl.go.kr/resource/KAC201010743 https://isni.org/isni/0000000109091795 http://viaf.org/viaf/64115500", "degree": 64, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0037111", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201010743", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q8054832", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-00241", "label": "이광수", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q495454 https://encykorea.aks.ac.kr/Article/E0043688 http://lod.nl.go.kr/resource/KAC200108735 https://isni.org/isni/0000000110594496 http://viaf.org/viaf/42639564", "degree": 91, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0043688", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200108735", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q495454", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-agatha-christie", "label": "애거서 크리스티", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-aries-philippe", "label": "필립 아리에스", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-bae-sua", "label": "배수아", "type": "critic", "ref": "", "degree": 36, "lod": [], "en": ""}, {"id": "p-baek-minseok", "label": "백민석", "type": "writer", "ref": "", "degree": 30, "lod": [], "en": ""}, {"id": "p-benedict-anderson", "label": "B. 앤더슨", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-chae-mansik", "label": "채만식", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q623552 http://lod.nl.go.kr/resource/KAC200208052 https://isni.org/isni/0000000108825128 http://viaf.org/viaf/27400351", "degree": 27, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200208052", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q623552", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-chantal-mouffe", "label": "샹탈 무페", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-choe-yun", "label": "최윤", "type": "critic", "ref": "", "degree": 20, "lod": [], "en": ""}, {"id": "p-confucius", "label": "공자", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4604 http://lod.nl.go.kr/resource/KAC199631156 https://isni.org/isni/0000000121430614 http://viaf.org/viaf/89664672", "degree": 20, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631156", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4604", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Confucius"}, {"id": "p-edward-said", "label": "에드워드 사이드", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q201538 http://lod.nl.go.kr/resource/KAC199636295 https://isni.org/isni/0000000121027147 http://viaf.org/viaf/82539804", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199636295", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q201538", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-ernesto-laclau", "label": "에르네스토 라클라우", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-eun-huigyeong", "label": "은희경", "type": "critic", "ref": "", "degree": 26, "lod": [], "en": ""}, {"id": "p-girard", "label": "르네 지라르", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q129228 http://lod.nl.go.kr/resource/KAC199610152 https://isni.org/isni/0000000121495469 http://viaf.org/viaf/121751954", "degree": 22, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610152", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q129228", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "René Girard"}, {"id": "p-han-yuju", "label": "한유주", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q12624275 http://lod.nl.go.kr/resource/KAC201113480 https://isni.org/isni/0000000073346927 http://viaf.org/viaf/103466751", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201113480", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12624275", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-hwang-hodeok", "label": "황호덕", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jeong-ihyeon", "label": "정이현", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q6312529 http://lod.nl.go.kr/resource/KAC201106797 https://isni.org/isni/0000000073307071 http://viaf.org/viaf/66425933", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201106797", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6312529", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-jeong-jeongho", "label": "정정호", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-karatani-kojin", "label": "가라타니 고진", "type": "theorist", "ref": "", "degree": 36, "lod": [], "en": ""}, {"id": "p-kim-aeran", "label": "김애란", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-kim-junghyeok", "label": "김중혁", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-kim-seonggi", "label": "김성기", "type": "theorist", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-kim-seonggon-critic", "label": "김성곤", "type": "theorist", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-kim-yeongha", "label": "김영하", "type": "critic", "ref": "", "degree": 48, "lod": [], "en": ""}, {"id": "p-lee-gihun", "label": "이기훈", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-jeongu", "label": "이정우", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-lee-suhyeong", "label": "이수형", "type": "critic", "ref": "", "degree": 5, "lod": [], "en": ""}, {"id": "p-lee-won", "label": "이원", "type": "critic", "ref": "", "degree": 12, "lod": [], "en": ""}, {"id": "p-marinetti", "label": "마리네티", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-marshall-mcluhan", "label": "마샬 맥루언", "type": "theorist", "ref": "", "degree": 9, "lod": [], "en": ""}, {"id": "p-morgan-robertson", "label": "로버트슨", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-otake-kiyomi", "label": "오타케 기요미", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-rousseau", "label": "장 자크 루소", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q6527 http://lod.nl.go.kr/resource/KAC199623614 https://isni.org/isni/0000000121451116 http://viaf.org/viaf/100184045", "degree": 23, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199623614", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6527", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jean-Jacques Rousseau"}, {"id": "p-sima-qian", "label": "사마천", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9372 http://lod.nl.go.kr/resource/KAC200807079 https://isni.org/isni/0000000121200536 http://viaf.org/viaf/9817411", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200807079", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9372", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sima Qian"}, {"id": "p-slavoj-zizek", "label": "슬라보이 지제크", "type": "theorist", "ref": "", "degree": 8, "lod": [], "en": ""}, {"id": "p-william-gibson", "label": "윌리엄 깁슨", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-wittgenstein", "label": "비트겐슈타인", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9391 http://lod.nl.go.kr/resource/KAC199630388 https://isni.org/isni/0000000120999171 http://viaf.org/viaf/24609378", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199630388", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9391", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Ludwig Wittgenstein"}, {"id": "p-yi-giyeong", "label": "이기영", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q485218 http://lod.nl.go.kr/resource/KAC201109622 https://isni.org/isni/0000000111777139 http://viaf.org/viaf/37083780", "degree": 21, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201109622", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q485218", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-injik", "label": "이인직", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q624419 http://lod.nl.go.kr/resource/KAC201010800 https://isni.org/isni/0000000025656613 http://viaf.org/viaf/72835924", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201010800", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q624419", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yumoto-koichi", "label": "유모토 고이치", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-lee-suhyeong", "target": "lee-suhyeong_bae-sua-community-other_2003", "type": "wrote", "weight": 1}, {"source": "p-lee-suhyeong", "target": "lee-suhyeong_beyond-media-fantasy_2005", "type": "wrote", "weight": 1}, {"source": "p-lee-suhyeong", "target": "lee-suhyeong_coming-of-age-korean-fiction_2004", "type": "wrote", "weight": 1}, {"source": "p-lee-suhyeong", "target": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "type": "wrote", "weight": 1}, {"source": "p-lee-suhyeong", "target": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "type": "wrote", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-00139", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-bae-sua", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-benedict-anderson", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-chantal-mouffe", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-choe-yun", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-edward-said", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-ernesto-laclau", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-jeong-jeongho", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-karatani-kojin", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-kim-seonggi", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_bae-sua-community-other_2003", "target": "p-kim-seonggon-critic", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-00227", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-han-yuju", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-kim-aeran", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-kim-junghyeok", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-marinetti", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-marshall-mcluhan", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_beyond-media-fantasy_2005", "target": "p-yi-giyeong", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00033", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00034", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00093", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00139", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00146", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00239", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-00241", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-aries-philippe", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-bae-sua", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-baek-minseok", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-chae-mansik", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-confucius", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-edward-said", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-eun-huigyeong", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-girard", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-hwang-hodeok", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-jeong-ihyeon", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-karatani-kojin", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-kim-yeongha", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-lee-gihun", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-otake-kiyomi", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-rousseau", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-sima-qian", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-slavoj-zizek", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-yi-injik", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_coming-of-age-korean-fiction_2004", "target": "p-yumoto-koichi", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "target": "p-agatha-christie", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "target": "p-karatani-kojin", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "target": "p-kim-yeongha", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "target": "p-morgan-robertson", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "target": "p-slavoj-zizek", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_kim-youngha-strange-codes-seduction_2002", "target": "p-wittgenstein", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "target": "p-00040", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "target": "p-00162", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "target": "p-00227", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "target": "p-lee-jeongu", "type": "uses_theory", "weight": 1}, {"source": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "target": "p-lee-won", "type": "subject_of", "weight": 1}, {"source": "lee-suhyeong_yi-won-ghost-in-the-shell_2002", "target": "p-william-gibson", "type": "subject_of", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (5편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2002</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-suhyeong_kim-youngha-strange-codes-seduction_2002.html">낯선 코드와 유혹 — 김영하론</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 57호, 문학과지성사, 2002</p>
+        <div class="essay-card-tags"><span class="tag">애거서 크리스티</span> <span class="tag">김영하</span> <span class="tag">로버트슨</span><span class="tag">가라타니 고진</span> <span class="tag">지젝</span> <span class="tag">비트겐슈타인</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2002</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-suhyeong_yi-won-ghost-in-the-shell_2002.html">Ghost in the shell — 이원론</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 60호, 문학과지성사, 2002</p>
+        <div class="essay-card-tags"><span class="tag">오규원</span> <span class="tag">이원</span> <span class="tag">윌리엄 깁슨</span><span class="tag">데카르트</span> <span class="tag">벤야민</span> <span class="tag">이정우</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-suhyeong_bae-sua-community-other_2003.html">공동체와 타자 — 배수아 소설 속의 가치론과 의미론</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 63호, 문학과지성사, 2003</p>
+        <div class="essay-card-tags"><span class="tag">배수아</span> <span class="tag">최윤</span><span class="tag">레비 스트로스</span> <span class="tag">베네딕트 앤더슨</span> <span class="tag">샹탈 무페</span> <span class="tag">에드워드 사이드</span> <span class="tag">어네스토 라클라우</span> <span class="tag">정정호</span> <span class="tag">가라타니 고진</span> <span class="tag">김성기</span> <span class="tag">김성곤</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2004</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-suhyeong_coming-of-age-korean-fiction_2004.html">아이에서 어른 되기, 아무도 속지 않는 거짓말 — 한국 소설 속의 미성년</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 66호, 문학과지성사, 2004</p>
+        <div class="essay-card-tags"><span class="tag">최인훈</span> <span class="tag">최남선</span> <span class="tag">염상섭</span> <span class="tag">이광수</span> <span class="tag">배수아</span> <span class="tag">백민석</span> <span class="tag">채만식</span> <span class="tag">은희경</span> <span class="tag">정이현</span> <span class="tag">김영하</span> <span class="tag">이인직</span><span class="tag">칸트</span> <span class="tag">레비 스트로스</span> <span class="tag">루카치</span> <span class="tag">필립 아리에스</span> <span class="tag">공자</span> <span class="tag">에드워드 사이드</span> <span class="tag">르네 지라르</span> <span class="tag">황호덕</span> <span class="tag">가라타니 고진</span> <span class="tag">이기훈</span> <span class="tag">오타케 기요미</span> <span class="tag">루소</span> <span class="tag">사마천</span> <span class="tag">슬라보예 지젝</span> <span class="tag">유모토 고이치</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2005</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/lee-suhyeong_beyond-media-fantasy_2005.html">미디어의 환상을 넘어서 — 김중혁·한유주·김애란의 소설</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 70호, 문학과지성사, 2005</p>
+        <div class="essay-card-tags"><span class="tag">한유주</span> <span class="tag">김애란</span> <span class="tag">김중혁</span> <span class="tag">마리네티</span> <span class="tag">이기영</span><span class="tag">벤야민</span> <span class="tag">맥루한</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>

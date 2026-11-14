@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3052", "label": "문화사회와 탈노동사회", "type": "essay", "year": "2002", "degree": 2}, {"id": "p-an-jeongok", "label": "안정옥", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-baudrillard", "label": "보드리야르", "type": "theorist", "ref": "", "degree": 25, "lod": [], "en": ""}], "edges": [{"source": "p-an-jeongok", "target": "cb3052", "type": "wrote", "weight": 1}, {"source": "cb3052", "target": "p-baudrillard", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3052", "label": "문화사회와 탈노동사회", "type": "essay", "year": "2002", "degree": 2}, {"id": "p-an-jeongok", "label": "안정옥", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-baudrillard", "label": "보드리야르", "type": "theorist", "ref": "", "degree": 28, "lod": [], "en": ""}], "edges": [{"source": "p-an-jeongok", "target": "cb3052", "type": "wrote", "weight": 1}, {"source": "cb3052", "target": "p-baudrillard", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

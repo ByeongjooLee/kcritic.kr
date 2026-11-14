@@ -12,7 +12,7 @@
 본문 원문·본문 구간 벡터는 내보내지 않는다(원문 보호, CLAUDE.md §1).
 실행: <ocr_train venv python> -X utf8 find/build_find.py
 """
-import os, sys, json, re, time, collections
+import os, sys, json, re, time, collections, glob
 import torch  # noqa: F401  onnxruntime-gpu 가 CUDA DLL 을 찾도록
 import numpy as np
 
@@ -67,6 +67,11 @@ def main():
     sp = os.path.join(REPO, "site/data/v2/changbi_summaries.json")
     cbs = json.load(open(sp, encoding="utf-8")) if os.path.exists(sp) else {}
     cb_of = lambda e: cbs.get(e["id"][2:]) if e["coll"] == "cb" else None
+    # 『문학과사회』(2026-11-14): 창비형 요지·해제(site/data/v2/mhs_sum/<호>.json, build_mhs_summaries.py)도 글 전체 벡터 문장에 더한다.
+    # 본문 희귀어 색인은 지금처럼 원문(TXT, 비공개 Worker 번들)에서 만든다
+    mhs = {}
+    for f in glob.glob(os.path.join(REPO, "site/data/v2/mhs_sum/*.json")):
+        mhs.update(json.load(open(f, encoding="utf-8")))
     M = LocalBGE(max_len=512)
 
     def doc_text(e):
@@ -75,7 +80,7 @@ def main():
         if e["concepts"]: parts.append("개념어: " + ", ".join(e["concepts"]))
         if e["subjects"]: parts.append("다룬 작가: " + ", ".join(filter(None, map(nm, e["subjects"]))))
         if e["theorists"]: parts.append("인용 이론가: " + ", ".join(filter(None, map(nm, e["theorists"]))))
-        cb = cb_of(e)
+        cb = cb_of(e) or (mhs.get(e["id"]) if e["coll"] == "mhs" else None)
         if cb: parts += ["요지: " + cb["s"], "해제: " + cb["h"]]
         return "\n".join(parts)
 

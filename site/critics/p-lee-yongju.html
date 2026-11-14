@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "lee-yongju_na-huideok-getting-dark_2001", "label": "‘어두워진다는 것’에 대한 단상", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-lee-yongju", "label": "이용주", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-na-huideok", "label": "나희덕", "type": "critic", "ref": "", "degree": 18, "lod": [], "en": ""}], "edges": [{"source": "p-lee-yongju", "target": "lee-yongju_na-huideok-getting-dark_2001", "type": "wrote", "weight": 1}, {"source": "lee-yongju_na-huideok-getting-dark_2001", "target": "p-na-huideok", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "lee-yongju_na-huideok-getting-dark_2001", "label": "‘어두워진다는 것’에 대한 단상", "type": "essay", "year": "2001", "degree": 2}, {"id": "p-lee-yongju", "label": "이용주", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-na-huideok", "label": "나희덕", "type": "critic", "ref": "", "degree": 22, "lod": [], "en": ""}], "edges": [{"source": "p-lee-yongju", "target": "lee-yongju_na-huideok-getting-dark_2001", "type": "wrote", "weight": 1}, {"source": "lee-yongju_na-huideok-getting-dark_2001", "target": "p-na-huideok", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

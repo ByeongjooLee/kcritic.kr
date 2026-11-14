@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>송상일 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><span class="chip role-critic">송상일</span></div>
+      <h1 class="index-heading">송상일</h1>
+      
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">19</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="chip role-writer">카뮈</span> <span class="chip role-writer">호메로스</span> <span class="chip role-writer">예이츠</span> <span class="chip role-writer">이청준</span> <span class="chip role-writer">브레히트</span> <span class="chip role-writer">에밀리 브론테</span> <span class="chip role-writer">포크너</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">베이컨 (1)</span> <span class="chip chip-term">프로이트 (1)</span> <span class="chip chip-term">에리히 프롬 (1)</span> <span class="chip chip-term">하이데거 (1)</span> <span class="chip chip-term">홉스 (1)</span> <span class="chip chip-term">칸트 (1)</span> <span class="chip chip-term">마르쿠제 (1)</span> <span class="chip chip-term">니체 (1)</span> <span class="chip chip-term">플라톤 (1)</span> <span class="chip chip-term">발터 벤야민 (1)</span> <span class="chip chip-term">아우구스티누스 (1)</span> <span class="chip chip-term">바타유 (1)</span> <span class="chip chip-term">공자 (1)</span> <span class="chip chip-term">들뢰즈 (1)</span> <span class="chip chip-term">정도전 (1)</span> <span class="chip chip-term">파르메니데스 (1)</span> <span class="chip chip-term">실러 (1)</span> <span class="chip chip-term">소크라테스 (1)</span> <span class="chip chip-term">루터 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "p-00012", "label": "프랜시스 베이컨", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q37388 http://lod.nl.go.kr/resource/KAC199601309 https://isni.org/isni/0000000121265700 http://viaf.org/viaf/31992319", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601309", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37388", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Francis Bacon"}, {"id": "p-00028", "label": "카뮈", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q34670 http://lod.nl.go.kr/resource/KAC200807597 https://isni.org/isni/0000000122832690 http://viaf.org/viaf/97000332", "degree": 31, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200807597", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q34670", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Albert Camus"}, {"id": "p-00051", "label": "프로이트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9215 http://lod.nl.go.kr/resource/KAC199609326 https://isni.org/isni/0000000121272193 http://viaf.org/viaf/34456780", "degree": 94, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609326", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9215", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Sigmund Freud"}, {"id": "p-00052", "label": "에리히 프롬", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q57085 http://lod.nl.go.kr/resource/KAC199609424 https://isni.org/isni/0000000121371685 http://viaf.org/viaf/66467430", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199609424", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q57085", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Erich Fromm"}, {"id": "p-00066", "label": "하이데거", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q48301 http://lod.nl.go.kr/resource/KAC199611974 https://isni.org/isni/0000000121244141 http://viaf.org/viaf/24602613", "degree": 76, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199611974", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q48301", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Martin Heidegger"}, {"id": "p-00071", "label": "토마스 홉스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q37621 http://lod.nl.go.kr/resource/KAC199612493 https://isni.org/isni/0000000121347861 http://viaf.org/viaf/59083895", "degree": 11, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199612493", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q37621", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Thomas Hobbes"}, {"id": "p-00072", "label": "호메로스", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q6691 http://lod.nl.go.kr/resource/KAC199612729 https://isni.org/isni/000000036354151X http://viaf.org/viaf/224924963", "degree": 31, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199612729", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q6691", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Homer"}, {"id": "p-00093", "label": "칸트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9312 http://lod.nl.go.kr/resource/KAC199614392 https://isni.org/isni/0000000122824025 http://viaf.org/viaf/82088490", "degree": 59, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199614392", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9312", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Immanuel Kant"}, {"id": "p-00151", "label": "헤르베르트 마르쿠제", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q60030 http://lod.nl.go.kr/resource/KAC199617703 https://isni.org/isni/0000000121280417 http://viaf.org/viaf/36921579", "degree": 27, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617703", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q60030", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Herbert Marcuse"}, {"id": "p-00161", "label": "니체", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9358 http://lod.nl.go.kr/resource/KAC199620237 https://isni.org/isni/0000000122828181 http://viaf.org/viaf/89798474", "degree": 90, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199620237", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9358", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Nietzsche"}, {"id": "p-00174", "label": "플라톤", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q859 http://lod.nl.go.kr/resource/KAC199621825 https://isni.org/isni/0000000120967858 http://viaf.org/viaf/108159964", "degree": 58, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199621825", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q859", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Plato"}, {"id": "p-00227", "label": "발터 벤야민", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q61078 http://lod.nl.go.kr/resource/KAC199602170 https://isni.org/isni/0000000121010732 http://viaf.org/viaf/46757196", "degree": 67, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199602170", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q61078", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Walter Benjamin"}, {"id": "p-00237", "label": "W.B. 예이츠", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q40213 http://lod.nl.go.kr/resource/KAC199630758 https://isni.org/isni/0000000120960541 http://viaf.org/viaf/46768718", "degree": 14, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199630758", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q40213", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Butler Yeats"}, {"id": "p-00240", "label": "이청준", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q31737 https://encykorea.aks.ac.kr/Article/E0071310 http://lod.nl.go.kr/resource/KAC201103341 https://isni.org/isni/0000000083640089 http://viaf.org/viaf/7437363", "degree": 53, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0071310", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201103341", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q31737", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-augustine", "label": "아우구스티누스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q8018 http://lod.nl.go.kr/resource/KAC199601187 https://isni.org/isni/0000000121376443 http://viaf.org/viaf/66806872", "degree": 8, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601187", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q8018", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Augustine of Hippo"}, {"id": "p-bataille", "label": "조르주 바타유", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q207359 http://lod.nl.go.kr/resource/KAC199601803 https://isni.org/isni/0000000121295918 http://viaf.org/viaf/41834843", "degree": 16, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199601803", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q207359", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Georges Bataille"}, {"id": "p-brecht", "label": "베르톨트 브레히트", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q38757 http://lod.nl.go.kr/resource/KAC199603342 https://isni.org/isni/0000000368636577 http://viaf.org/viaf/2467372", "degree": 31, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199603342", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q38757", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Bertolt Brecht"}, {"id": "p-confucius", "label": "공자", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4604 http://lod.nl.go.kr/resource/KAC199631156 https://isni.org/isni/0000000121430614 http://viaf.org/viaf/89664672", "degree": 20, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199631156", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4604", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Confucius"}, {"id": "p-deleuze", "label": "들뢰즈", "type": "theorist", "ref": "", "degree": 55, "lod": [], "en": ""}, {"id": "p-emily-bronte", "label": "에밀리 블론테", "type": "writer", "ref": "", "degree": 4, "lod": [], "en": ""}, {"id": "p-faulkner", "label": "포크너", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q38392 http://lod.nl.go.kr/resource/KAC199608528 https://isni.org/isni/0000000121287491 http://viaf.org/viaf/39376770", "degree": 10, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199608528", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q38392", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Faulkner"}, {"id": "p-jeong-dojeon", "label": "정도전", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q469396 https://encykorea.aks.ac.kr/Article/E0050093 http://lod.nl.go.kr/resource/KAC201313598 https://isni.org/isni/0000000357233377 http://viaf.org/viaf/196145149", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0050093", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201313598", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q469396", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-parmenides", "label": "파르메니데스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q125551 http://lod.nl.go.kr/resource/KAC201624255 https://isni.org/isni/0000000119450536 http://viaf.org/viaf/57151776745618011100", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201624255", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q125551", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Parmenides"}, {"id": "p-schiller", "label": "프리드리히 실러", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q22670 http://lod.nl.go.kr/resource/KAC199625160 https://isni.org/isni/0000000121032691 http://viaf.org/viaf/96994450", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199625160", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q22670", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Friedrich Schiller"}, {"id": "p-socrates", "label": "소크라테스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q913 http://lod.nl.go.kr/resource/KAC201620129 https://isni.org/isni/0000000121426535 http://viaf.org/viaf/88039167", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201620129", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q913", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Socrates"}, {"id": "p-song-sangil", "label": "송상일", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-루터", "label": "루터", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q9554 http://lod.nl.go.kr/resource/KAC199617217 https://isni.org/isni/0000000121214073 http://viaf.org/viaf/14773105", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199617217", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q9554", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Martin Luther"}, {"id": "song-sangil_statism-literature-conflict_2003", "label": "국가주의와 문학의 갈등", "type": "essay", "year": "2003", "degree": 27}], "edges": [{"source": "p-song-sangil", "target": "song-sangil_statism-literature-conflict_2003", "type": "wrote", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00012", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00028", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00051", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00052", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00066", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00071", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00072", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00093", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00151", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00161", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00174", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00227", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00237", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-00240", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-augustine", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-bataille", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-brecht", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-confucius", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-deleuze", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-emily-bronte", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-faulkner", "type": "subject_of", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-jeong-dojeon", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-parmenides", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-schiller", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-socrates", "type": "uses_theory", "weight": 1}, {"source": "song-sangil_statism-literature-conflict_2003", "target": "p-루터", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2003</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/song-sangil_statism-literature-conflict_2003.html">국가주의와 문학의 갈등</a>
+        </h3>
+        <p class="essay-card-source">문학과사회 62호, 문학과지성사, 2003</p>
+        <div class="essay-card-tags"><span class="tag">카뮈</span> <span class="tag">호메로스</span> <span class="tag">예이츠</span> <span class="tag">이청준</span> <span class="tag">브레히트</span> <span class="tag">에밀리 브론테</span> <span class="tag">포크너</span><span class="tag">베이컨</span> <span class="tag">프로이트</span> <span class="tag">에리히 프롬</span> <span class="tag">하이데거</span> <span class="tag">홉스</span> <span class="tag">칸트</span> <span class="tag">마르쿠제</span> <span class="tag">니체</span> <span class="tag">플라톤</span> <span class="tag">발터 벤야민</span> <span class="tag">아우구스티누스</span> <span class="tag">바타유</span> <span class="tag">공자</span> <span class="tag">들뢰즈</span> <span class="tag">정도전</span> <span class="tag">파르메니데스</span> <span class="tag">실러</span> <span class="tag">소크라테스</span> <span class="tag">루터</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>
