@@ -5,7 +5,8 @@
 입력: ../문학과사회/site_prep/mhs_summary/<stem>.json (save_mhs_summary.py 가 점검 통과분만 씀 — TEI 구조화 요약에서 작성)
   + site/data/v2/essays.json(build_site_v2.py 다음에 실행) 의 『문학과사회』 공개 글.
 공개 필드는 창비와 같다: u t a y l s h kw c — kw 는 TEI 개념어(앞 7개). 원문은 싣지 않는다.
-공개 전 다시 점검: 지금 XML 의 sha = 작성 때 sha(인코딩이 바뀌면 빠짐), 원문(TXT)과 공백·부호 빼고 20자 이상 일치 없음.
+공개 전 다시 점검: 원문 대조 검수(../문학과사회/site_prep/mhs_review/<stem>.json, save_mhs_review.py) pass·fixed 이고 검수 때 요약·원문 해시가 그대로,
+지금 XML 의 sha = 작성 때 sha(인코딩이 바뀌면 빠짐), 원문(TXT)과 공백·부호 빼고 20자 이상 일치 없음.
 ../문학과사회 폴더가 없으면(다른 PC) 기존 파일을 그대로 둔다.
 사용: py build_mhs_summaries.py
 """
@@ -20,6 +21,7 @@ V2 = HERE / "site" / "data" / "v2"
 OUT = V2 / "mhs_sum"
 MHS = HERE.parent / "문학과사회"
 SRC = MHS / "site_prep" / "mhs_summary"
+REV = MHS / "site_prep" / "mhs_review"
 LABELS = {"주장", "논거", "비판", "제언"}
 
 
@@ -48,6 +50,15 @@ def main():
         if not xml.exists() or hashlib.sha1(xml.read_bytes()).hexdigest()[:12] != d["sha"]:
             skipped.append((e["id"], "인코딩이 바뀜 — 다시 작성"))
             continue
+        # 원문 대조 검수(2026-11-14, save_mhs_review.py): pass·fixed 이고 검수 때의 요약·원문 해시가 지금과 같은 글만 공개
+        rp = REV / f"{e['id']}.json"
+        rv = json.loads(rp.read_text(encoding="utf-8")) if rp.exists() else None
+        if not rv:
+            skipped.append((e["id"], "원문 대조 검수 대기")); continue
+        if rv.get("status") not in ("pass", "fixed") or rv.get("full_body_read") is not True:
+            skipped.append((e["id"], "검수 보류")); continue
+        if rv.get("summary_sha") != hashlib.sha1(p.read_bytes()).hexdigest()[:12] or rv.get("body_sha") != hashlib.sha1((MHS / "essays" / f"{e['id']}.txt").read_bytes()).hexdigest()[:12]:
+            skipped.append((e["id"], "검수 뒤 요약·원문 변경 — 재검수")); continue
         texts = [d["s"], d["h"]] + [c[0] for c in d["c"]]
         if not all(isinstance(x, str) and x.strip() for x in texts) or any(c[1] not in LABELS for c in d["c"]):
             skipped.append((e["id"], "형식 오류"))

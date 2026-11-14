@@ -185,7 +185,7 @@ db().then(D => {
           <dt>기존 페이지</dt><dd><a href="${KC}site/essays/${encodeURIComponent(e.id)}.html">현행 메타데이터</a></dd><dt>IRI</dt><dd style="word-break:break-all;font-size:12px">${IRI}essay/${esc(e.id)}</dd></dl>
           <p class="note" style="margin-top:10px">원문은 저작권에 따라 제공하지 않습니다.${VENUE_LINK[e.coll] ? ` 원문은 발행처에서 확인할 수 있습니다.` : ""}</p>
           ${VENUE_LINK[e.coll] ? `<a class="btn btn-block" style="margin-top:10px" href="${VENUE_LINK[e.coll].url}" target="_blank" rel="noopener">원문 정보 ↗<small>${esc(VENUE_LINK[e.coll].label)}</small></a>` : ""}
-          ${e.coll === "mhs" ? `<p class="note" id="mhs-sum-note" style="margin-top:10px" hidden>요지·해제·주장은 이 글의 TEI 구조화 요약(전문을 읽고 인코딩한 3인칭 요약)을 바탕으로 AI 보조로 『창작과비평』 해제와 같은 형식으로 다시 쓴 것이며 원문이 아닙니다.</p>` : ""}</div>
+          ${e.coll === "mhs" ? `<p class="note" id="mhs-sum-note" style="margin-top:10px" hidden>요지·해제·주장은 이 글의 TEI 구조화 요약을 바탕으로 AI 보조로 『창작과비평』 해제와 같은 형식으로 쓰고, 본문과 끝까지 대조해 검수를 통과한 요약이며 원문이 아닙니다.</p>` : ""}</div>
       </aside></div>`;
     // 『문학과사회』: 창비 글 화면과 같은 요지·해제·주장·근거 구조 — 그 호 파일(mhs_sum/<호>.json, build_mhs_summaries.py)만 읽는다(2026-11-14)
     if (e.coll === "mhs" && issueId) load(`mhs_sum/${issueId}`).then(m => {
