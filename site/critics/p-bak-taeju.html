@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2886", "label": "‘전투적 경제주의’에서 ‘공공써비스 노동조합 주의’로", "type": "essay", "year": "2002", "degree": 2}, {"id": "p-bak-taeju", "label": "박태주", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-r-hyman", "label": "리처드 하이만", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-bak-taeju", "target": "cb2886", "type": "wrote", "weight": 1}, {"source": "cb2886", "target": "p-r-hyman", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2886", "label": "‘전투적 경제주의’에서 ‘공공써비스 노동조합 주의’로", "type": "essay", "year": "2002", "degree": 2}, {"id": "p-bak-taeju", "label": "박태주", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-r-hyman", "label": "리처드 하이만", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-bak-taeju", "target": "cb2886", "type": "wrote", "weight": 1}, {"source": "cb2886", "target": "p-r-hyman", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

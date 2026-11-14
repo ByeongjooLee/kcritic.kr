@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7150", "label": "내란 이후 한국경제의 과제", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-i-dongjin", "label": "이동진", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 41, "lod": [], "en": ""}], "edges": [{"source": "p-i-dongjin", "target": "cb7150", "type": "wrote", "weight": 1}, {"source": "cb7150", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7150", "label": "내란 이후 한국경제의 과제", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-i-dongjin", "label": "이동진", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 44, "lod": [], "en": ""}], "edges": [{"source": "p-i-dongjin", "target": "cb7150", "type": "wrote", "weight": 1}, {"source": "cb7150", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

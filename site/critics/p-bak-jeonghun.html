@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7295", "label": "강성현 외 『계엄, 내란 그리고 민주주의』", "type": "essay", "year": "2025", "degree": 3}, {"id": "p-bak-jeonghun", "label": "박정훈", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gang-seonghyeon", "label": "강성현", "type": "theorist", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 41, "lod": [], "en": ""}], "edges": [{"source": "p-bak-jeonghun", "target": "cb7295", "type": "wrote", "weight": 1}, {"source": "cb7295", "target": "p-gang-seonghyeon", "type": "uses_theory", "weight": 1}, {"source": "cb7295", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7295", "label": "강성현 외 『계엄, 내란 그리고 민주주의』", "type": "essay", "year": "2025", "degree": 3}, {"id": "p-bak-jeonghun", "label": "박정훈", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gang-seonghyeon", "label": "강성현", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 44, "lod": [], "en": ""}], "edges": [{"source": "p-bak-jeonghun", "target": "cb7295", "type": "wrote", "weight": 1}, {"source": "cb7295", "target": "p-gang-seonghyeon", "type": "uses_theory", "weight": 1}, {"source": "cb7295", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

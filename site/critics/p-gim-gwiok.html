@@ -17,9 +17,9 @@
       <h1 class="index-heading">김귀옥</h1>
       
       <div class="stat-row">
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
@@ -30,7 +30,7 @@
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="chip chip-term">김태우 (1)</span></div>
+        <div class="chip-group"><span class="chip chip-term">김태우 (1)</span> <span class="chip chip-term">한완상 (1)</span> <span class="chip chip-term">리영희 (1)</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb6051", "label": "김태우 『냉전의 마녀들』", "type": "essay", "year": "2021", "degree": 2}, {"id": "p-gim-gwiok", "label": "김귀옥", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-gim-taeu", "label": "김태우", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201329719 https://isni.org/isni/0000000427853660 http://viaf.org/viaf/306380520", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201329719", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-gim-gwiok", "target": "cb6051", "type": "wrote", "weight": 1}, {"source": "cb6051", "target": "p-gim-taeu", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2636", "label": "또하나의문화 통일소모임 『통일을 준비하는 사람들』", "type": "essay", "year": "2000", "degree": 3}, {"id": "cb6051", "label": "김태우 『냉전의 마녀들』", "type": "essay", "year": "2021", "degree": 2}, {"id": "p-gim-gwiok", "label": "김귀옥", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-gim-taeu", "label": "김태우", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201329719 https://isni.org/isni/0000000427853660 http://viaf.org/viaf/306380520", "degree": 4, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201329719", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-han-wansang", "label": "한완상", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q12624201 http://lod.nl.go.kr/resource/KAC201219426 https://isni.org/isni/0000000084401151 http://viaf.org/viaf/35787702", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201219426", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q12624201", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yi-yonghui", "label": "이영희", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q4991750 https://encykorea.aks.ac.kr/Article/E0079001 http://lod.nl.go.kr/resource/KAC201101585 https://isni.org/isni/0000000081730857 http://viaf.org/viaf/108273069", "degree": 20, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0079001", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC201101585", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q4991750", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-gim-gwiok", "target": "cb2636", "type": "wrote", "weight": 1}, {"source": "p-gim-gwiok", "target": "cb6051", "type": "wrote", "weight": 1}, {"source": "cb2636", "target": "p-han-wansang", "type": "uses_theory", "weight": 1}, {"source": "cb2636", "target": "p-yi-yonghui", "type": "uses_theory", "weight": 1}, {"source": "cb6051", "target": "p-gim-taeu", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -155,8 +155,18 @@
     })();
     </script>
     <section class="essay-grid">
-      <h2 class="section-label">수록 비평글 (1편)</h2>
+      <h2 class="section-label">수록 비평글 (2편)</h2>
       
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2000</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2636.html">또하나의문화 통일소모임 『통일을 준비하는 사람들』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 107호, 창비, 2000</p>
+        <div class="essay-card-tags"><span class="tag">한완상</span> <span class="tag">리영희</span></div>
+      </article>
       <article class="essay-card">
         <div class="essay-card-meta">
           <span class="essay-card-year">2021</span>
