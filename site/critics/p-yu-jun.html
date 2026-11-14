@@ -17,20 +17,20 @@
       <h1 class="index-heading">유준</h1>
       
       <div class="stat-row">
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="chip role-writer">장석남</span></div>
+        <div class="chip-group"><span class="chip role-writer">장석남</span> <span class="chip role-writer">정소현</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="chip chip-term">프레더릭 바이저 (1)</span> <span class="chip chip-term">워즈워스 (1)</span></div>
+        <div class="chip-group"><span class="chip chip-term">자크 라캉 (1)</span> <span class="chip chip-term">프레더릭 바이저 (1)</span> <span class="chip chip-term">워즈워스 (1)</span> <span class="chip chip-term">지그문트 바우만 (1)</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4560", "label": "장석남 시집 『고요는 도망가지 말아라』", "type": "essay", "year": "2012", "degree": 4}, {"id": "p-jang-seoknam", "label": "장석남", "type": "critic", "ref": "", "degree": 13, "lod": [], "en": ""}, {"id": "p-peuredeorik-baijeo", "label": "프레더릭 바이저", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q5497459 http://lod.nl.go.kr/resource/KAC201102927 https://isni.org/isni/0000000121471678 http://viaf.org/viaf/108881799", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201102927", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5497459", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-wordsworth", "label": "워즈워스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q45546 http://lod.nl.go.kr/resource/KAC199630569 https://isni.org/isni/0000000121278691 http://viaf.org/viaf/35723133", "degree": 18, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199630569", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q45546", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Wordsworth"}, {"id": "p-yu-jun", "label": "유준", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-yu-jun", "target": "cb4560", "type": "wrote", "weight": 1}, {"source": "cb4560", "target": "p-jang-seoknam", "type": "subject_of", "weight": 1}, {"source": "cb4560", "target": "p-peuredeorik-baijeo", "type": "uses_theory", "weight": 1}, {"source": "cb4560", "target": "p-wordsworth", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4560", "label": "장석남 시집 『고요는 도망가지 말아라』", "type": "essay", "year": "2012", "degree": 4}, {"id": "cb5992", "label": "정소현 소설집 『실수하는 인간』", "type": "essay", "year": "2013", "degree": 4}, {"id": "p-00125", "label": "자크 라캉", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q169906 http://lod.nl.go.kr/resource/KAC200800551 https://isni.org/isni/0000000121280361 http://viaf.org/viaf/36920510", "degree": 44, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200800551", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q169906", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Jacques Lacan"}, {"id": "p-jang-seoknam", "label": "장석남", "type": "critic", "ref": "", "degree": 14, "lod": [], "en": ""}, {"id": "p-jeong-sohyeon", "label": "정소현", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q111671054 http://lod.nl.go.kr/resource/KAC201107068 https://isni.org/isni/0000000399997068 http://viaf.org/viaf/295907733", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201107068", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q111671054", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-peuredeorik-baijeo", "label": "프레더릭 바이저", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q5497459 http://lod.nl.go.kr/resource/KAC201102927 https://isni.org/isni/0000000121471678 http://viaf.org/viaf/108881799", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201102927", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q5497459", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-wordsworth", "label": "워즈워스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q45546 http://lod.nl.go.kr/resource/KAC199630569 https://isni.org/isni/0000000121278691 http://viaf.org/viaf/35723133", "degree": 18, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199630569", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q45546", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Wordsworth"}, {"id": "p-yu-jun", "label": "유준", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-zygmunt-bauman", "label": "지그문트 바우만", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q158092 http://lod.nl.go.kr/resource/KAC200204409 https://isni.org/isni/0000000121327983 http://viaf.org/viaf/51744696", "degree": 17, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200204409", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q158092", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}], "edges": [{"source": "p-yu-jun", "target": "cb4560", "type": "wrote", "weight": 1}, {"source": "p-yu-jun", "target": "cb5992", "type": "wrote", "weight": 1}, {"source": "cb4560", "target": "p-jang-seoknam", "type": "subject_of", "weight": 1}, {"source": "cb4560", "target": "p-peuredeorik-baijeo", "type": "uses_theory", "weight": 1}, {"source": "cb4560", "target": "p-wordsworth", "type": "uses_theory", "weight": 1}, {"source": "cb5992", "target": "p-00125", "type": "uses_theory", "weight": 1}, {"source": "cb5992", "target": "p-jeong-sohyeon", "type": "subject_of", "weight": 1}, {"source": "cb5992", "target": "p-zygmunt-bauman", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -155,7 +155,7 @@
     })();
     </script>
     <section class="essay-grid">
-      <h2 class="section-label">수록 비평글 (1편)</h2>
+      <h2 class="section-label">수록 비평글 (2편)</h2>
       
       <article class="essay-card">
         <div class="essay-card-meta">
@@ -166,6 +166,16 @@
         </h3>
         <p class="essay-card-source">창작과비평 156호, 창비, 2012</p>
         <div class="essay-card-tags"><span class="tag">장석남</span><span class="tag">프레더릭 바이저</span> <span class="tag">워즈워스</span></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2013</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb5992.html">정소현 소설집 『실수하는 인간』</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 159호, 창비, 2013</p>
+        <div class="essay-card-tags"><span class="tag">정소현</span><span class="tag">자크 라캉</span> <span class="tag">지그문트 바우만</span></div>
       </article>
     </section>
   </main>

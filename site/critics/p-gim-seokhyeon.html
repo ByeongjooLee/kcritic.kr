@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4152", "label": "이일영 『새로운 진보의 대안, 한반도경제』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-gim-seokhyeon", "label": "김석현", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-ilyeong", "label": "이일영", "type": "critic", "ref": "", "degree": 20, "lod": [], "en": ""}], "edges": [{"source": "p-gim-seokhyeon", "target": "cb4152", "type": "wrote", "weight": 1}, {"source": "cb4152", "target": "p-i-ilyeong", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4152", "label": "이일영 『새로운 진보의 대안, 한반도경제』", "type": "essay", "year": "2010", "degree": 2}, {"id": "p-gim-seokhyeon", "label": "김석현", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-i-ilyeong", "label": "이일영", "type": "critic", "ref": "", "degree": 23, "lod": [], "en": ""}], "edges": [{"source": "p-gim-seokhyeon", "target": "cb4152", "type": "wrote", "weight": 1}, {"source": "cb4152", "target": "p-i-ilyeong", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

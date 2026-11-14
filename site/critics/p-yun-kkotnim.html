@@ -18,19 +18,19 @@
       <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201011397" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://isni.org/isni/0000000460154271" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/1145375899583681126" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="chip role-writer">조지프 콘래드</span> <span class="chip role-writer">볼프강 바우어</span></div>
+        <div class="chip-group"><span class="chip role-writer">볼프강 바우어</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="chip chip-term">윌리엄 골딩 (1)</span></div>
+        <div class="chip-group"><span class="chip chip-term">조지프 콘래드 (1)</span> <span class="chip chip-term">윌리엄 골딩 (1)</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3561", "label": "W. 바우어 『찬란한 오후』", "type": "essay", "year": "2004", "degree": 4}, {"id": "p-conrad", "label": "콘라드", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q82925 http://lod.nl.go.kr/resource/KAC200107284 https://isni.org/isni/0000000121023402 http://viaf.org/viaf/73862853", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200107284", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q82925", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Joseph Conrad"}, {"id": "p-golding", "label": "윌리엄 골딩", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44183 http://lod.nl.go.kr/resource/KAC199610323 https://isni.org/isni/0000000121430171 http://viaf.org/viaf/89500102", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610323", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44183", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Golding"}, {"id": "p-wolfgang-bauer", "label": "볼프강 바우어", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-kkotnim", "label": "윤꽃님", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201011397 https://isni.org/isni/0000000460154271 http://viaf.org/viaf/1145375899583681126", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011397", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-yun-kkotnim", "target": "cb3561", "type": "wrote", "weight": 1}, {"source": "cb3561", "target": "p-conrad", "type": "subject_of", "weight": 1}, {"source": "cb3561", "target": "p-golding", "type": "uses_theory", "weight": 1}, {"source": "cb3561", "target": "p-wolfgang-bauer", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3561", "label": "W. 바우어 『찬란한 오후』", "type": "essay", "year": "2004", "degree": 4}, {"id": "p-conrad", "label": "콘라드", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q82925 http://lod.nl.go.kr/resource/KAC200107284 https://isni.org/isni/0000000121023402 http://viaf.org/viaf/73862853", "degree": 6, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200107284", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q82925", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "Joseph Conrad"}, {"id": "p-golding", "label": "윌리엄 골딩", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q44183 http://lod.nl.go.kr/resource/KAC199610323 https://isni.org/isni/0000000121430171 http://viaf.org/viaf/89500102", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199610323", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44183", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "William Golding"}, {"id": "p-wolfgang-bauer", "label": "볼프강 바우어", "type": "writer", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-kkotnim", "label": "윤꽃님", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201011397 https://isni.org/isni/0000000460154271 http://viaf.org/viaf/1145375899583681126", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201011397", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-yun-kkotnim", "target": "cb3561", "type": "wrote", "weight": 1}, {"source": "cb3561", "target": "p-conrad", "type": "uses_theory", "weight": 1}, {"source": "cb3561", "target": "p-golding", "type": "uses_theory", "weight": 1}, {"source": "cb3561", "target": "p-wolfgang-bauer", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -165,7 +165,7 @@
           <a href="../essays/cb3561.html">W. 바우어 『찬란한 오후』</a>
         </h3>
         <p class="essay-card-source">창작과비평 123호, 창비, 2004</p>
-        <div class="essay-card-tags"><span class="tag">조지프 콘래드</span> <span class="tag">볼프강 바우어</span><span class="tag">윌리엄 골딩</span></div>
+        <div class="essay-card-tags"><span class="tag">볼프강 바우어</span><span class="tag">조지프 콘래드</span> <span class="tag">윌리엄 골딩</span></div>
       </article>
     </section>
   </main>

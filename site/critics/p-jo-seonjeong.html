@@ -19,7 +19,7 @@
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
@@ -30,7 +30,7 @@
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="muted">—</span></div>
+        <div class="chip-group"><span class="chip chip-term">F. R. 리비스 (1)</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb3834", "label": "프랭크 레이먼드 리비스 『영국소설의 위대한 전통』", "type": "essay", "year": "2008", "degree": 1}, {"id": "p-jo-seonjeong", "label": "조선정", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jo-seonjeong", "target": "cb3834", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb3834", "label": "프랭크 레이먼드 리비스 『영국소설의 위대한 전통』", "type": "essay", "year": "2008", "degree": 2}, {"id": "leavis", "label": "리비스", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q2428288 http://lod.nl.go.kr/resource/KAC199616182 https://isni.org/isni/0000000109309280 http://viaf.org/viaf/108224907", "degree": 9, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC199616182", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q2428288", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": "F. R. Leavis"}, {"id": "p-jo-seonjeong", "label": "조선정", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-jo-seonjeong", "target": "cb3834", "type": "wrote", "weight": 1}, {"source": "cb3834", "target": "leavis", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -165,7 +165,7 @@
           <a href="../essays/cb3834.html">프랭크 레이먼드 리비스 『영국소설의 위대한 전통』</a>
         </h3>
         <p class="essay-card-source">창작과비평 139호, 창비, 2008</p>
-        <div class="essay-card-tags"></div>
+        <div class="essay-card-tags"><span class="tag">F. R. 리비스</span></div>
       </article>
     </section>
   </main>

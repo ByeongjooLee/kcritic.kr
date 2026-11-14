@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb2841", "label": "농촌문제, 어떻게 볼 것인가", "type": "essay", "year": "2002", "degree": 1}, {"id": "cb5515", "label": "지역문학의 저녁", "type": "essay", "year": "2017", "degree": 5}, {"id": "cb7260", "label": "역사의 몸, 장소의 시", "type": "essay", "year": "2025", "degree": 7}, {"id": "p-i-junggi", "label": "이중기", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201421632 https://isni.org/isni/0000000464611468 http://viaf.org/viaf/169152138630810982440", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201421632", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "cb5515", "target": "p-i-junggi", "type": "subject_of", "weight": 1}, {"source": "cb7260", "target": "p-i-junggi", "type": "subject_of", "weight": 1}, {"source": "p-i-junggi", "target": "cb2841", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb2841", "label": "농촌문제, 어떻게 볼 것인가", "type": "essay", "year": "2002", "degree": 1}, {"id": "p-i-junggi", "label": "이중기", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201421632 https://isni.org/isni/0000000464611468 http://viaf.org/viaf/169152138630810982440", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201421632", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-i-junggi", "target": "cb2841", "type": "wrote", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

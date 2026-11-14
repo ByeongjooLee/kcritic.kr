@@ -18,7 +18,7 @@
       
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">비평 대상 작가</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
@@ -26,7 +26,7 @@
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="chip role-writer">엄창석</span> <span class="chip role-writer">엄원태</span> <span class="chip role-writer">이중기</span> <span class="chip role-writer">조두진</span></div>
+        <div class="chip-group"><span class="chip role-writer">엄창석</span> <span class="chip role-writer">엄원태</span> <span class="chip role-writer">조두진</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5515", "label": "지역문학의 저녁", "type": "essay", "year": "2017", "degree": 5}, {"id": "p-eom-changseok", "label": "엄창석", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201403153 https://isni.org/isni/000000006394929X http://viaf.org/viaf/2309719", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201403153", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-eom-wontae", "label": "엄원태", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-i-junggi", "label": "이중기", "type": "critic", "ref": "http://lod.nl.go.kr/resource/KAC201421632 https://isni.org/isni/0000000464611468 http://viaf.org/viaf/169152138630810982440", "degree": 3, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201421632", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-i-seonuk", "label": "이선욱", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jo-dujin", "label": "조두진", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201009359 https://isni.org/isni/0000000051146238 http://viaf.org/viaf/31767587", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009359", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-i-seonuk", "target": "cb5515", "type": "wrote", "weight": 1}, {"source": "cb5515", "target": "p-eom-changseok", "type": "subject_of", "weight": 1}, {"source": "cb5515", "target": "p-eom-wontae", "type": "subject_of", "weight": 1}, {"source": "cb5515", "target": "p-i-junggi", "type": "subject_of", "weight": 1}, {"source": "cb5515", "target": "p-jo-dujin", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5515", "label": "지역문학의 저녁", "type": "essay", "year": "2017", "degree": 4}, {"id": "p-eom-changseok", "label": "엄창석", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201403153 https://isni.org/isni/000000006394929X http://viaf.org/viaf/2309719", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201403153", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}, {"id": "p-eom-wontae", "label": "엄원태", "type": "writer", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-i-seonuk", "label": "이선욱", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-jo-dujin", "label": "조두진", "type": "writer", "ref": "http://lod.nl.go.kr/resource/KAC201009359 https://isni.org/isni/0000000051146238 http://viaf.org/viaf/31767587", "degree": 1, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201009359", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}], "en": ""}], "edges": [{"source": "p-i-seonuk", "target": "cb5515", "type": "wrote", "weight": 1}, {"source": "cb5515", "target": "p-eom-changseok", "type": "subject_of", "weight": 1}, {"source": "cb5515", "target": "p-eom-wontae", "type": "subject_of", "weight": 1}, {"source": "cb5515", "target": "p-jo-dujin", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -165,7 +165,7 @@
           <a href="../essays/cb5515.html">지역문학의 저녁</a>
         </h3>
         <p class="essay-card-source">창작과비평 178호, 창비, 2017</p>
-        <div class="essay-card-tags"><span class="tag">엄창석</span> <span class="tag">엄원태</span> <span class="tag">이중기</span> <span class="tag">조두진</span></div>
+        <div class="essay-card-tags"><span class="tag">엄창석</span> <span class="tag">엄원태</span> <span class="tag">조두진</span></div>
       </article>
     </section>
   </main>

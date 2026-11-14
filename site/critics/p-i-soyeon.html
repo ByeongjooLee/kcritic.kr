@@ -18,7 +18,7 @@
       
       <div class="stat-row">
         <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">2</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
@@ -26,7 +26,7 @@
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="chip role-writer">김미월</span> <span class="chip role-writer">이혜경</span></div>
+        <div class="chip-group"><span class="chip role-writer">이혜경</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb5660", "label": "김미월 소설집 『아무도 펼쳐보지 않는 책』", "type": "essay", "year": "2012", "degree": 2}, {"id": "cb5988", "label": "이혜경 소설집 『너 없는 그 자리』", "type": "essay", "year": "2013", "degree": 2}, {"id": "cb7374", "label": "이소연 『수상할 만큼 완벽한 결혼식』", "type": "essay", "year": "2026", "degree": 2}, {"id": "p-gim-miwol", "label": "김미월", "type": "writer", "ref": "https://www.wikidata.org/wiki/Q16174564 http://lod.nl.go.kr/resource/KAC201103333 https://isni.org/isni/0000000103035792 http://viaf.org/viaf/153848303", "degree": 2, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201103333", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16174564", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-i-soyeon", "label": "이소연", "type": "critic", "ref": "", "degree": 3, "lod": [], "en": ""}, {"id": "p-yi-hyegyeong", "label": "이혜경", "type": "critic", "ref": "", "degree": 8, "lod": [], "en": ""}], "edges": [{"source": "cb7374", "target": "p-i-soyeon", "type": "uses_theory", "weight": 1}, {"source": "p-i-soyeon", "target": "cb5660", "type": "wrote", "weight": 1}, {"source": "p-i-soyeon", "target": "cb5988", "type": "wrote", "weight": 1}, {"source": "cb5660", "target": "p-gim-miwol", "type": "subject_of", "weight": 1}, {"source": "cb5988", "target": "p-yi-hyegyeong", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb5660", "label": "김미월 소설집 『아무도 펼쳐보지 않는 책』", "type": "essay", "year": "2012", "degree": 1}, {"id": "cb5988", "label": "이혜경 소설집 『너 없는 그 자리』", "type": "essay", "year": "2013", "degree": 2}, {"id": "cb6802", "label": "미완의 문학사라는 가능성", "type": "essay", "year": "2023", "degree": 4}, {"id": "cb7059", "label": "‘살다’의 세가지 변주곡", "type": "essay", "year": "2024", "degree": 7}, {"id": "cb7066", "label": "조돈문 『불평등 이데올로기』", "type": "essay", "year": "2024", "degree": 6}, {"id": "cb7374", "label": "이소연 『수상할 만큼 완벽한 결혼식』", "type": "essay", "year": "2026", "degree": 2}, {"id": "p-i-soyeon", "label": "이소연", "type": "critic", "ref": "", "degree": 6, "lod": [], "en": ""}, {"id": "p-yi-hyegyeong", "label": "이혜경", "type": "critic", "ref": "", "degree": 8, "lod": [], "en": ""}], "edges": [{"source": "cb6802", "target": "p-i-soyeon", "type": "uses_theory", "weight": 1}, {"source": "cb7059", "target": "p-i-soyeon", "type": "uses_theory", "weight": 1}, {"source": "cb7066", "target": "p-i-soyeon", "type": "uses_theory", "weight": 1}, {"source": "cb7374", "target": "p-i-soyeon", "type": "uses_theory", "weight": 1}, {"source": "p-i-soyeon", "target": "cb5660", "type": "wrote", "weight": 1}, {"source": "p-i-soyeon", "target": "cb5988", "type": "wrote", "weight": 1}, {"source": "cb5988", "target": "p-yi-hyegyeong", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -165,7 +165,7 @@
           <a href="../essays/cb5660.html">김미월 소설집 『아무도 펼쳐보지 않는 책』</a>
         </h3>
         <p class="essay-card-source">창작과비평 155호, 창비, 2012</p>
-        <div class="essay-card-tags"><span class="tag">김미월</span></div>
+        <div class="essay-card-tags"></div>
       </article>
       <article class="essay-card">
         <div class="essay-card-meta">

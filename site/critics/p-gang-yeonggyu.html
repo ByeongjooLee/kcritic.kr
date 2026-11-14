@@ -17,9 +17,9 @@
       <h1 class="index-heading">강영규</h1>
       
       <div class="stat-row">
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">수록 비평글</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
-        <div class="stat"><span class="stat-num">0</span><span class="stat-label">활용 이론가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
 
@@ -30,7 +30,7 @@
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
-        <div class="chip-group"><span class="muted">—</span></div>
+        <div class="chip-group"><span class="chip chip-term">백영서 (1)</span></div>
       </div>
     </section>
     
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4114", "label": "젊어서 고생은 사서라도 할래요", "type": "essay", "year": "2009", "degree": 1}, {"id": "p-gang-yeonggyu", "label": "강영규", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}], "edges": [{"source": "p-gang-yeonggyu", "target": "cb4114", "type": "wrote", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4114", "label": "젊어서 고생은 사서라도 할래요", "type": "essay", "year": "2009", "degree": 1}, {"id": "cb4792", "label": "평화의 섬에서 띄우는 공생의 메시지", "type": "essay", "year": "2013", "degree": 2}, {"id": "p-baek-yeongseo", "label": "백영서", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q60992161 http://lod.nl.go.kr/resource/KAC201318789 https://isni.org/isni/0000000378130529 http://viaf.org/viaf/255956817", "degree": 47, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201318789", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q60992161", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-gang-yeonggyu", "label": "강영규", "type": "critic", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-gang-yeonggyu", "target": "cb4114", "type": "wrote", "weight": 1}, {"source": "p-gang-yeonggyu", "target": "cb4792", "type": "wrote", "weight": 1}, {"source": "cb4792", "target": "p-baek-yeongseo", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -155,7 +155,7 @@
     })();
     </script>
     <section class="essay-grid">
-      <h2 class="section-label">수록 비평글 (1편)</h2>
+      <h2 class="section-label">수록 비평글 (2편)</h2>
       
       <article class="essay-card">
         <div class="essay-card-meta">
@@ -166,6 +166,16 @@
         </h3>
         <p class="essay-card-source">창작과비평 146호, 창비, 2009</p>
         <div class="essay-card-tags"></div>
+      </article>
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2013</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb4792.html">평화의 섬에서 띄우는 공생의 메시지</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 161호, 창비, 2013</p>
+        <div class="essay-card-tags"><span class="tag">백영서</span></div>
       </article>
     </section>
   </main>

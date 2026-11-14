@@ -18,7 +18,7 @@
       
       <div class="stat-row">
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
-        <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">비평 대상 작가</span></div>
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">활용 이론가</span></div>
       </div>
     </section>
@@ -26,7 +26,7 @@
     <section class="critic-profile-meta">
       <div class="meta-section">
         <h2 class="meta-label">주요 비평 대상</h2>
-        <div class="chip-group"><span class="muted">—</span></div>
+        <div class="chip-group"><span class="chip role-writer">스티븐 킹</span></div>
       </div>
       <div class="meta-section">
         <h2 class="meta-label">자주 활용한 이론가</h2>
@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb4305", "label": "청소부와 신 사이에서", "type": "essay", "year": "2011", "degree": 2}, {"id": "p-i-jiyeong", "label": "이지영", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-wilrieom-pokeuneo", "label": "윌리엄 포크너", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-i-jiyeong", "target": "cb4305", "type": "wrote", "weight": 1}, {"source": "cb4305", "target": "p-wilrieom-pokeuneo", "type": "uses_theory", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb4305", "label": "청소부와 신 사이에서", "type": "essay", "year": "2011", "degree": 3}, {"id": "p-i-jiyeong", "label": "이지영", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-stephen-king", "label": "스티븐 킹", "type": "writer", "ref": "", "degree": 2, "lod": [], "en": ""}, {"id": "p-wilrieom-pokeuneo", "label": "윌리엄 포크너", "type": "theorist", "ref": "", "degree": 2, "lod": [], "en": ""}], "edges": [{"source": "p-i-jiyeong", "target": "cb4305", "type": "wrote", "weight": 1}, {"source": "cb4305", "target": "p-stephen-king", "type": "subject_of", "weight": 1}, {"source": "cb4305", "target": "p-wilrieom-pokeuneo", "type": "uses_theory", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
@@ -165,7 +165,7 @@
           <a href="../essays/cb4305.html">청소부와 신 사이에서</a>
         </h3>
         <p class="essay-card-source">창작과비평 151호, 창비, 2011</p>
-        <div class="essay-card-tags"><span class="tag">윌리엄 포크너</span></div>
+        <div class="essay-card-tags"><span class="tag">스티븐 킹</span><span class="tag">윌리엄 포크너</span></div>
       </article>
     </section>
   </main>

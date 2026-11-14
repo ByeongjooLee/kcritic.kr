@@ -47,7 +47,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script>
     (function() {
-      var graphData = {"nodes": [{"id": "cb7198", "label": "시민이 만드는 국방정책", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-bak-seokjin", "label": "박석진", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 34, "lod": [], "en": ""}], "edges": [{"source": "p-bak-seokjin", "target": "cb7198", "type": "wrote", "weight": 1}, {"source": "cb7198", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
+      var graphData = {"nodes": [{"id": "cb7198", "label": "시민이 만드는 국방정책", "type": "essay", "year": "2025", "degree": 2}, {"id": "p-bak-seokjin", "label": "박석진", "type": "critic", "ref": "", "degree": 1, "lod": [], "en": ""}, {"id": "p-yun-seokyeol", "label": "윤석열", "type": "writer", "ref": "", "degree": 41, "lod": [], "en": ""}], "edges": [{"source": "p-bak-seokjin", "target": "cb7198", "type": "wrote", "weight": 1}, {"source": "cb7198", "target": "p-yun-seokyeol", "type": "subject_of", "weight": 1}]};
       var elements = [];
       graphData.nodes.forEach(function(n) {
         elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });

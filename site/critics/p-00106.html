@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김지하 — 한국 비평사 온톨로지</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="/kc-shell.css">
+</head>
+<body>
+
+  <main class="container index-main">
+    <section class="critic-profile-hero">
+      <div class="critic-profile-byline"><a href="https://www.wikidata.org/wiki/Q44366" target="_blank" class="chip role-critic chip-linked">김지하 <span class="chip-ext">↗</span></a></div>
+      <h1 class="index-heading">김지하</h1>
+      <div class="lod-links"><a href="http://lod.nl.go.kr/resource/KAC201205697" target="_blank" class="lod-badge" title="국립중앙도서관 LOD">NLK LOD ↗</a> <a href="https://www.wikidata.org/wiki/Q44366" target="_blank" class="lod-badge" title="Wikidata">Wikidata ↗</a> <a href="https://isni.org/isni/0000000081761311" target="_blank" class="lod-badge" title="ISNI">ISNI ↗</a> <a href="http://viaf.org/viaf/110339675" target="_blank" class="lod-badge" title="VIAF">VIAF ↗</a></div>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">수록 비평글</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">비평 대상 작가</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">활용 이론가</span></div>
+      </div>
+    </section>
+
+    <section class="critic-profile-meta">
+      <div class="meta-section">
+        <h2 class="meta-label">주요 비평 대상</h2>
+        <div class="chip-group"><span class="muted">—</span></div>
+      </div>
+      <div class="meta-section">
+        <h2 class="meta-label">자주 활용한 이론가</h2>
+        <div class="chip-group"><span class="chip chip-term">박규수 (1)</span> <span class="chip chip-term">김정희 (1)</span> <span class="chip chip-term">유홍준 (1)</span></div>
+      </div>
+    </section>
+    
+    <section class="critic-mini-graph-section">
+      <h2 class="section-label">관계망</h2>
+      <div id="critic-mini-graph" class="critic-mini-graph"></div>
+      <div class="mini-graph-legend">
+        <span class="mini-legend-item"><span class="mini-dot dot-critic"></span>비평가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-essay"></span>비평글</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-writer"></span>작가</span>
+        <span class="mini-legend-item"><span class="mini-dot dot-theorist"></span>이론가</span>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script>
+    (function() {
+      var graphData = {"nodes": [{"id": "bang-mijin_living-writers-collected-works_1998", "label": "거대한 기표, 그 허와 실 — 생존 작가 전집 출판에 대하여", "type": "essay", "year": "1998", "degree": 19}, {"id": "cb2570", "label": "환경관리주의와 생태주의의 긴장", "type": "essay", "year": "2000", "degree": 4}, {"id": "cb2595", "label": "대안적 이념 모색을 향한 내적 고투", "type": "essay", "year": "2000", "degree": 4}, {"id": "cb2644", "label": "나와 우리, 그리고 세상", "type": "essay", "year": "2001", "degree": 13}, {"id": "cb2651", "label": "제정구를 생각하는 모임 『가짐 없는 큰 자유』", "type": "essay", "year": "2000", "degree": 4}, {"id": "cb2757", "label": "김윤수 교수 정년기념간행위 편 『민족의 길, 예술의 길』", "type": "essay", "year": "2001", "degree": 6}, {"id": "cb2809", "label": "M. 바흐찐 『프랑수아 라블레의 작품과 중세 및 르네상스의 민중문화』", "type": "essay", "year": "2001", "degree": 4}, {"id": "cb2892", "label": "유홍준 『완당 평전』 1·2", "type": "essay", "year": "2002", "degree": 4}, {"id": "cb3285", "label": "침묵과 생명", "type": "essay", "year": "2005", "degree": 6}, {"id": "cb3920", "label": "문학이 무엇인지 다시 묻는 일", "type": "essay", "year": "2008", "degree": 11}, {"id": "cb3923", "label": "대과(大過) 시대의 글쓰기", "type": "essay", "year": "2008", "degree": 8}, {"id": "cb5085", "label": "리얼리티 재장전", "type": "essay", "year": "2016", "degree": 10}, {"id": "cb6259", "label": "시인 김지하가 이룬 것과 남긴 것들", "type": "essay", "year": "2022", "degree": 4}, {"id": "choe-seongsil_lee-seonguk-nomadic-criticism_2004", "label": "유쾌한 유목적 비평을 위하여 — 故 이성욱의 책들", "type": "essay", "year": "2004", "degree": 28}, {"id": "han-gi_mook-era-end_1988", "label": "무크지 시대의 종언 혹은 전환기의 문학적 움직임", "type": "essay", "year": "1988", "degree": 25}, {"id": "hong-jeongseon_literary-institution_1988", "label": "문학 제도와 문학", "type": "essay", "year": "1988", "degree": 17}, {"id": "hong-jeongseon_lotus-raising-fight_1989", "label": "연꽃을 드는 싸움 — 김지하의 최근 시", "type": "essay", "year": "1989", "degree": 3}, {"id": "hong-jeongseon_reality-novel-after-june_1989", "label": "6월 항쟁 이후의 현실과 소설", "type": "essay", "year": "1989", "degree": 29}, {"id": "hong-junhyeong_freedom-of-expression-legal-limits_1997", "label": "표현의 자유와 법적 규제의 한계", "type": "essay", "year": "1997", "degree": 12}, {"id": "hong-yonghui_kim-jiha-life-and-peace_2005", "label": "고대 문화의 원형과 대안 문명의 비전 — 김지하, 『생명과 평화의 길』", "type": "essay", "year": "2005", "degree": 7}, {"id": "hong-yungi_declassed-choice_1988", "label": "탈계급적인 선택과 결단의 문학적 표출 — 해방문학으로서의 대학문학", "type": "essay", "year": "1988", "degree": 13}, {"id": "hwang-jiu_terrible-modernity_1992", "label": "끔찍한 모더니티", "type": "essay", "year": "1992", "degree": 12}, {"id": "im-jaehae_performance-play-literature_1988", "label": "연행 예술로서의 놀이문학과 민중적 현실 인식", "type": "essay", "year": "1988", "degree": 19}, {"id": "im-ugi_why-realism-literature-of-traces_1992", "label": "왜 리얼리즘인가? — ‘흔적의 문학’에 대한 인식", "type": "essay", "year": "1992", "degree": 16}, {"id": "jang-gyeongryeol_kim-hyon-absent-presence_2000", "label": "김현, 그 ‘부재하는 현존, 현존하는 부재’ — 김현의 비평사적 위치", "type": "essay", "year": "2000", "degree": 22}, {"id": "jeong-gwari_baek-minseok-hypercards_1997", "label": "백민석에 관한 두 장의 하이퍼카드", "type": "essay", "year": "1997", "degree": 16}, {"id": "jeong-gwari_literariness-revisited-2_1992", "label": "다시 문학성을 논한다(2)", "type": "essay", "year": "1992", "degree": 31}, {"id": "jeong-gwari_minjung-literature-theory_1988", "label": "민중문학론의 인식 구조", "type": "essay", "year": "1988", "degree": 16}, {"id": "kim-byeongik_modern-literary-circles_1998", "label": "근대 문단의 형성과 그 이후", "type": "essay", "year": "1998", "degree": 32}, {"id": "kim-byeongik_roots-of-winter-tree_1992", "label": "‘겨울 나무’의 뿌리 키우기 — 진보주의적 사유의 새로운 시작을 위하여", "type": "essay", "year": "1992", "degree": 11}, {"id": "kim-hyon_60s-literature_1988", "label": "60년대 문학의 배경과 성과", "type": "essay", "year": "1988", "degree": 60}, {"id": "kim-hyon_ki-hyungdo_1990", "label": "영원히 닫힌 빈방의 체험", "type": "essay", "year": "1990", "degree": 20}, {"id": "kim-hyon_kim-jiha_1988", "label": "속꽃 핀 열매의 꿈", "type": "essay", "year": "1988", "degree": 4}, {"id": "kim-hyon_kim-wonil-a_1988", "label": "달관의 역사적 의미", "type": "essay", "year": "1988", "degree": 7}, {"id": "kim-hyon_kwak-jaegu_1990", "label": "추상적 정열에서 구체적 사랑으로", "type": "essay", "year": "1990", "degree": 14}, {"id": "kim-hyon_literary-situation-1969b_1969", "label": "1969년의 문학적 상황 II", "type": "essay", "year": "1969", "degree": 21}, {"id": "kim-hyon_literary-situation-1971_1971", "label": "1971년의 문학적 상황", "type": "essay", "year": "1971", "degree": 33}, {"id": "kim-hyon_park-namchul_1990", "label": "방법적 인용의 시적 성과", "type": "essay", "year": "1990", "degree": 11}, {"id": "kim-hyon_suffering-poetics_1988", "label": "고난의 시학", "type": "essay", "year": "1988", "degree": 12}, {"id": "kim-inhwan_topography-of-writing_1988", "label": "글쓰기의 지형학 — 김현론", "type": "essay", "year": "1988", "degree": 45}, {"id": "kim-inhwan_twentieth-century-korean-criticism_1999", "label": "20세기 한국 비평의 비판적 검토", "type": "essay", "year": "1999", "degree": 71}, {"id": "kim-jinseok_parody-or-suicide_1993", "label": "패러디냐 자살이냐", "type": "essay", "year": "1993", "degree": 10}, {"id": "kim-juyeon_red-eyed-bird_1993", "label": "눈이 붉은 작은 새, 큰 새가 되어 — 김지하의 시세계를 돌아보며", "type": "essay", "year": "1993", "degree": 5}, {"id": "kim-myeongin_path-of-extinction-flower-of-life_1995", "label": "소멸의 길과 생명의 꽃 — 김명인과 김준태의 90년대", "type": "essay", "year": "1995", "degree": 20}, {"id": "kim-uchang_cultural-subjectivity_1982", "label": "문물과 문화의 주체성 — 우리 문화의 주체적 발전을 위한 조건에 대한 성찰", "type": "essay", "year": "1982", "degree": 7}, {"id": "kim-uchang_korean-poetry-today_1985", "label": "오늘의 한국 시 — 서정에서 현실로", "type": "essay", "year": "1985", "degree": 14}, {"id": "kim-uchang_yu-jongho-1993_1993", "label": "쉰 목소리 속에서 — 유종호 씨의 비평과 리얼리즘", "type": "essay", "year": "1993", "degree": 34}, {"id": "kim-yeonsu_writers-letter_2003", "label": "박인환 생각: 센티멘털리즘의 기원", "type": "essay", "year": "2003", "degree": 16}, {"id": "kwon-seongwoo_three-faces-minjung-poetry_1989", "label": "최근 민중시의 세 가지 모습", "type": "essay", "year": "1989", "degree": 6}, {"id": "lee-gyeongho_rice-of-impoverished-fin-de-siecle_1995", "label": "궁핍한 세기말의 ‘밥’ — 송찬호 시집 『10년 동안의 빈 의자』, 김기택 시집 『바늘구멍 속의 폭풍』", "type": "essay", "year": "1995", "degree": 4}, {"id": "lee-hyeong_endless-han-desire_1991", "label": "한 많은 세상의 한없는 한의 욕망", "type": "essay", "year": "1991", "degree": 10}, {"id": "p-00106", "label": "김지하", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q44366 http://lod.nl.go.kr/resource/KAC201205697 https://isni.org/isni/0000000081761311 http://viaf.org/viaf/110339675", "degree": 60, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201205697", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q44366", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-bak-gyusu", "label": "박규수", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q842646 http://lod.nl.go.kr/resource/KAC201620093 https://isni.org/isni/0000000121015090 http://viaf.org/viaf/56168177", "degree": 5, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC201620093", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q842646", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-kim-jeonghui", "label": "김정희", "type": "theorist", "ref": "https://www.wikidata.org/wiki/Q626484 https://encykorea.aks.ac.kr/Article/E0010428 http://lod.nl.go.kr/resource/KAC200102713 https://isni.org/isni/0000000066788727 http://viaf.org/viaf/74646428", "degree": 3, "lod": [{"href": "https://encykorea.aks.ac.kr/Article/E0010428", "label": "한", "full": "한국민족문화대백과", "bg": "#e8f0e8", "fg": "#2a5a2a"}, {"href": "http://lod.nl.go.kr/resource/KAC200102713", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q626484", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "p-yu-hongjun", "label": "유홍준", "type": "critic", "ref": "https://www.wikidata.org/wiki/Q16079932 http://lod.nl.go.kr/resource/KAC200701972 https://isni.org/isni/0000000082721055 http://viaf.org/viaf/77851156", "degree": 12, "lod": [{"href": "http://lod.nl.go.kr/resource/KAC200701972", "label": "NLK", "full": "NLK LOD", "bg": "#e8eef5", "fg": "#1a3a5a"}, {"href": "https://www.wikidata.org/wiki/Q16079932", "label": "W", "full": "Wikidata", "bg": "", "fg": ""}], "en": ""}, {"id": "park-hyekyung_between-poem-and-poem_1996", "label": "시와 시, 그 소통과 대화의 사잇길", "type": "essay", "year": "1996", "degree": 27}, {"id": "park-maengsu_donghak-cultural-history_1994", "label": "동학 혁명의 문화사적 의미", "type": "essay", "year": "1994", "degree": 7}, {"id": "seong-minyeop_critical-sincerity_1994", "label": "비평적 진정성의 힘", "type": "essay", "year": "1994", "degree": 16}, {"id": "seong-minyeop_hwang-jiwoo-way_1991", "label": "황지우의 길, 벗어남과 돌아옴의 변증법", "type": "essay", "year": "1991", "degree": 4}, {"id": "seong-minyeop_layered-life-layered-literature_1990", "label": "겹의 삶, 겹의 문학 — 후기 이청준에 대하여", "type": "essay", "year": "1990", "degree": 6}, {"id": "yeo-hongsang_literature-modern-cultural-theory_1991", "label": "문학의 새로운 이해와 현대 문화 이론", "type": "essay", "year": "1991", "degree": 18}, {"id": "yu-jongho_v3-01_1987", "label": "변두리 형식의 주류화", "type": "essay", "year": "1987", "degree": 21}, {"id": "yu-jongho_v3-10_1987", "label": "시와 구비적 상상력 — 최근 시의 경향", "type": "essay", "year": "1987", "degree": 22}, {"id": "yu-jongho_v5-04_1995", "label": "벼랑과 노을", "type": "essay", "year": "1993", "degree": 2}], "edges": [{"source": "bang-mijin_living-writers-collected-works_1998", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2570", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2595", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2644", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2651", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2757", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2809", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb3285", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb3920", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb3923", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb5085", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb6259", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "choe-seongsil_lee-seonguk-nomadic-criticism_2004", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "han-gi_mook-era-end_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hong-jeongseon_literary-institution_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hong-jeongseon_lotus-raising-fight_1989", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hong-jeongseon_reality-novel-after-june_1989", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hong-junhyeong_freedom-of-expression-legal-limits_1997", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hong-yonghui_kim-jiha-life-and-peace_2005", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hong-yungi_declassed-choice_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "hwang-jiu_terrible-modernity_1992", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "im-jaehae_performance-play-literature_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "im-ugi_why-realism-literature-of-traces_1992", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "jang-gyeongryeol_kim-hyon-absent-presence_2000", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_baek-minseok-hypercards_1997", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_literariness-revisited-2_1992", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "jeong-gwari_minjung-literature-theory_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_modern-literary-circles_1998", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-byeongik_roots-of-winter-tree_1992", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_60s-literature_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_ki-hyungdo_1990", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-jiha_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kim-wonil-a_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_kwak-jaegu_1990", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-situation-1969b_1969", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_literary-situation-1971_1971", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_park-namchul_1990", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-hyon_suffering-poetics_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_topography-of-writing_1988", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-inhwan_twentieth-century-korean-criticism_1999", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-jinseok_parody-or-suicide_1993", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-juyeon_red-eyed-bird_1993", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-myeongin_path-of-extinction-flower-of-life_1995", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_cultural-subjectivity_1982", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_korean-poetry-today_1985", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-uchang_yu-jongho-1993_1993", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kim-yeonsu_writers-letter_2003", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "kwon-seongwoo_three-faces-minjung-poetry_1989", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "lee-gyeongho_rice-of-impoverished-fin-de-siecle_1995", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "lee-hyeong_endless-han-desire_1991", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "p-00106", "target": "cb2892", "type": "wrote", "weight": 1}, {"source": "park-hyekyung_between-poem-and-poem_1996", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "park-maengsu_donghak-cultural-history_1994", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "seong-minyeop_critical-sincerity_1994", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "seong-minyeop_hwang-jiwoo-way_1991", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "seong-minyeop_layered-life-layered-literature_1990", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "yeo-hongsang_literature-modern-cultural-theory_1991", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v3-01_1987", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v3-10_1987", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "yu-jongho_v5-04_1995", "target": "p-00106", "type": "subject_of", "weight": 1}, {"source": "cb2892", "target": "p-bak-gyusu", "type": "uses_theory", "weight": 1}, {"source": "cb2892", "target": "p-kim-jeonghui", "type": "uses_theory", "weight": 1}, {"source": "cb2892", "target": "p-yu-hongjun", "type": "uses_theory", "weight": 1}]};
+      var elements = [];
+      graphData.nodes.forEach(function(n) {
+        elements.push({ data: { id: n.id, label: n.label, type: n.type, degree: n.degree || 1 } });
+      });
+      graphData.edges.forEach(function(e) {
+        elements.push({ data: { source: e.source, target: e.target, type: e.type, weight: e.weight || 1 } });
+      });
+
+      var TYPE_COLOR = {
+        critic: '#e4b196',
+        writer: '#a7beec',
+        theorist: '#cab2e1',
+        essay: '#89cdc4'
+      };
+      var TYPE_TEXT_COLOR = {
+        critic: '#8a4b24',
+        writer: '#2f4f9a',
+        theorist: '#5f3f94',
+        essay: '#1f6b62'
+      };
+
+      var cy = cytoscape({
+        container: document.getElementById('critic-mini-graph'),
+        elements: elements,
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'background-color': function(ele) { return TYPE_COLOR[ele.data('type')] || '#aaa'; },
+              'label': 'data(label)',
+              'font-family': 'Pretendard, sans-serif',
+              'font-size': function(ele) { return ele.data('type') === 'essay' ? '10px' : '12px'; },
+              'color': function(ele) { return TYPE_TEXT_COLOR[ele.data('type')] || '#333'; },
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': '4px',
+              'text-wrap': 'wrap',
+              'text-max-width': '90px',
+              'width': function(ele) {
+                if (ele.data('type') === 'essay') return 60;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'height': function(ele) {
+                if (ele.data('type') === 'essay') return 30;
+                var d = ele.data('degree') || 1;
+                return Math.min(Math.max(40 + d * 6, 40), 90);
+              },
+              'shape': function(ele) { return ele.data('type') === 'essay' ? 'round-rectangle' : 'ellipse'; },
+              'border-width': 1.5,
+              'border-color': 'rgba(0,0,0,0.15)',
+              'transition-property': 'opacity',
+              'transition-duration': '0.15s',
+            }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': function(ele) { return Math.min(Math.max((ele.data('weight') || 1) * 1.5, 1.5), 5); },
+              'line-color': '#d7dbe2',
+              'target-arrow-color': '#d7dbe2',
+              'target-arrow-shape': 'triangle',
+              'curve-style': 'bezier',
+              'opacity': 0.7,
+            }
+          },
+          {
+            selector: 'node.faded',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.faded',
+            style: { 'opacity': 0.05 }
+          },
+          {
+            selector: 'node.highlighted',
+            style: { 'border-width': 3, 'border-color': '#0f1115' }
+          }
+        ],
+        layout: {
+          name: 'cose',
+          animate: false,
+          randomize: false,
+          nodeRepulsion: 8000,
+          idealEdgeLength: 100,
+          edgeElasticity: 200,
+          gravity: 0.8,
+          numIter: 1000,
+        },
+        userZoomingEnabled: true,
+        userPanningEnabled: true,
+        boxSelectionEnabled: false,
+      });
+
+      // hover 강조
+      cy.on('mouseover', 'node', function(e) {
+        var node = e.target;
+        cy.elements().addClass('faded');
+        node.removeClass('faded').addClass('highlighted');
+        node.neighborhood().removeClass('faded');
+      });
+      cy.on('mouseout', 'node', function() {
+        cy.elements().removeClass('faded highlighted');
+      });
+    })();
+    </script>
+    <section class="essay-grid">
+      <h2 class="section-label">수록 비평글 (1편)</h2>
+      
+      <article class="essay-card">
+        <div class="essay-card-meta">
+          <span class="essay-card-year">2002</span>
+        </div>
+        <h3 class="essay-card-title">
+          <a href="../essays/cb2892.html">유홍준 『완당 평전』 1·2</a>
+        </h3>
+        <p class="essay-card-source">창작과비평 116호, 창비, 2002</p>
+        <div class="essay-card-tags"><span class="tag">박규수</span> <span class="tag">김정희</span> <span class="tag">유홍준</span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/kc-shell.js"></script>
+</body>
+</html>
