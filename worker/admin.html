@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>kcritic 접속 현황</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    /* kcritic.kr 관리자 접속 현황 — worker/index.js 가 /api/admin 으로 내보낸다(공개 화면에서 링크하지 않음).
+       같은 파일을 관리자 컴퓨터에 두고 열어도 된다(file://): 그때는 토큰을 이 파일에 저장해 https://kcritic.kr/api/stats 를 읽는다.
+       로컬 시험(파일로 열 때): 주소 끝에 ?api=http://127.0.0.1:8787 . IP·방문자 식별자는 저장하지 않는다. */
+    :root { --ink: #0f1115; --muted: #5b6270; --faint: #98a0ad; --line: #e6e8ed; --line-2: #d5d9e0; --panel: #f6f7f9;
+      --accent: #e8590c; --blue: #1d4ed8; --green: #0f766e; --violet: #7c3aed; --r: 12px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+    body { font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif; color: var(--ink); background: #fff; font-size: 15px; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+    a { color: inherit; text-decoration: none; } a:hover { color: var(--accent); }
+    .num { font-variant-numeric: tabular-nums; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 24px 64px; }
+    .top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .top h1 { font-size: 28px; letter-spacing: -.03em; } .top h1 b { color: var(--accent); }
+    .top p { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 66ch; line-height: 1.7; }
+    .seg { display: inline-flex; border: 1px solid var(--line-2); border-radius: 999px; padding: 2px; flex-wrap: wrap; }
+    .seg button { border: 0; background: none; padding: 4px 12px; border-radius: 999px; font: inherit; font-size: 13px; cursor: pointer; color: var(--muted); }
+    .seg button.on { background: var(--ink); color: #fff; }
+    .btn { display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-2); background: #fff; font: inherit; font-size: 13px; cursor: pointer; color: var(--ink); }
+    .btn:hover { border-color: var(--ink); } .btn.dark { background: var(--ink); color: #fff; border-color: var(--ink); height: 40px; font-size: 14px; }
+    .ctl { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .stats div { border-left: 3px solid var(--line); padding-left: 12px; }
+    .stats div.u { border-color: var(--accent); } .stats div.m { border-color: var(--green); } .stats div.b { border-color: var(--violet); }
+    .stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -.02em; } .stats span { font-size: 13px; color: var(--muted); }
+    .tabs { display: flex; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+    .tabs button { border: 1px solid var(--line-2); background: #fff; border-radius: 10px; padding: 8px 16px; font: inherit; font-size: 14px; cursor: pointer; color: var(--muted); }
+    .tabs button.on { color: var(--ink); border-color: var(--ink); font-weight: 600; }
+    .tabs button i { font-style: normal; color: var(--faint); margin-left: 6px; font-size: 13px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; margin-top: 16px; min-width: 0; }
+    .panel h5 { font-size: 13px; font-weight: 600; margin-bottom: 12px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .panel h5 span { color: var(--faint); font-weight: 500; }
+    .dash { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .dash .wide { grid-column: 1 / -1; }
+    .hbar { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(60px, 1fr) 52px; gap: 10px; align-items: center; font-size: 13px; padding: 3px 0; }
+    .hbar a, .hbar span.l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .hbar .track { height: 8px; background: var(--panel); border-radius: 4px; overflow: hidden; }
+    .hbar .track i { display: block; height: 100%; border-radius: 4px; background: var(--faint); }
+    .c-u .track i { background: var(--accent); } .c-q .track i { background: var(--blue); } .c-m .track i { background: var(--green); } .c-b .track i { background: var(--violet); }
+    .hbar .v { text-align: right; color: var(--muted); }
+    .tag { display: inline-block; font-size: 11px; color: var(--muted); background: var(--panel); border-radius: 4px; padding: 0 5px; margin-right: 6px; }
+    .none { color: var(--faint); font-size: 13px; }
+    .legend { display: flex; gap: 16px; font-size: 13px; color: var(--muted); font-weight: 500; flex-wrap: wrap; }
+    .legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
+    .chart { position: relative; }
+    .chart svg { display: block; overflow: visible; }
+    .tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(15,17,21,.12); padding: 8px 10px; font-size: 13px; line-height: 1.6; white-space: nowrap; display: none; }
+    details summary { cursor: pointer; font-size: 13px; color: var(--muted); margin-top: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+    th, td { padding: 5px 8px; border-bottom: 1px solid var(--line); text-align: right; } th:first-child, td:first-child { text-align: left; }
+    .gate { max-width: 440px; margin: 36px 0; }
+    .gate input { width: 100%; height: 42px; border: 1px solid var(--line-2); border-radius: 10px; padding: 0 14px; font: inherit; margin: 12px 0; }
+    .gate input:focus { outline: none; border-color: var(--ink); }
+    .note { color: var(--muted); font-size: 13px; line-height: 1.7; margin-top: 12px; }
+    .note code { background: var(--panel); border-radius: 4px; padding: 0 4px; }
+    .ok { color: var(--green); font-weight: 600; } .warn { color: #b45309; font-weight: 600; }
+    .err { color: #b42318; font-size: 14px; margin-top: 10px; }
+    @media (max-width: 760px) { .dash { grid-template-columns: 1fr; } .wrap { padding: 20px 16px 48px; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>kcritic<b>.</b> 접속 현황</h1>
+      <p>방문을 <b>나</b>(관리자 표시가 있는 브라우저) · <b>봇</b>(검색엔진·AI 수집기 등, User-Agent 로 판정) · <b>일반 접속자</b>로 나눠 날짜별 숫자로만 셉니다. IP 주소와 방문자를 알아볼 수 있는 값은 저장하지 않습니다. 이 화면은 공개 화면에서 링크하지 않습니다.</p></div>
+    <div class="ctl" id="ctl" hidden>
+      <div class="seg" id="range"><button data-d="7">7일</button><button data-d="30" class="on">30일</button><button data-d="90">90일</button><button data-d="365">1년</button></div>
+      <button class="btn" id="reload">새로 고침</button><button class="btn" id="logout">나가기</button>
+    </div>
+  </div>
+  <div id="root"></div>
+</div>
+<form id="logoutForm" method="post" action="/api/admin/logout" hidden></form>
+<script>
+// 두 가지로 열린다: ① 사이트의 /api/admin(같은 출처, 관리자 쿠키) ② 관리자 컴퓨터의 파일(file://, 토큰을 이 파일의 저장소에 두고 Bearer 로 읽음)
+const FILE = location.protocol === "file:";
+const API = FILE ? (new URLSearchParams(location.search).get("api") || "https://kcritic.kr").replace(/\/$/, "") : location.origin, SITE = API;
+const root = document.getElementById("root"), KEY = "kcritic-stats-token:" + API;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = n => Number(n || 0).toLocaleString("ko-KR");
+const getTok = () => { try { return localStorage.getItem(KEY) || ""; } catch (e) { return ""; } };
+const setTok = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) {} };
+const nostat = () => { try { return !!localStorage.getItem("kc-nostat"); } catch (e) { return false; } };
+let days = 30, tab = "user", pageFilter = "all", S = null, lastChart = null;
+
+function gate(msg) {
+  document.getElementById("ctl").hidden = true;
+  const bad = msg || (!FILE && new URLSearchParams(location.search).get("e") ? "토큰이 맞지 않습니다." : "");
+  root.innerHTML = FILE
+    ? `<form class="gate" id="gf"><b style="font-size:14px">관리자 토큰</b>
+        <input id="tk" type="password" autocomplete="off" placeholder="관리자 토큰을 붙여 넣으세요" aria-label="관리자 토큰">
+        <button class="btn dark" type="submit">현황 보기</button>${bad ? `<p class="err">${esc(bad)}</p>` : ""}
+        <p class="note">토큰은 「온톨로지/관리자_통계_토큰.txt」에 있습니다. 이 컴퓨터의 이 파일에만 저장됩니다.</p></form>`
+    : `<form class="gate" method="post" action="/api/admin/login"><b style="font-size:14px">관리자 토큰</b>
+        <input name="token" type="password" autocomplete="current-password" placeholder="관리자 토큰을 붙여 넣으세요" aria-label="관리자 토큰" required>
+        <button class="btn dark" type="submit">들어가기</button>${bad ? `<p class="err">${esc(bad)}</p>` : ""}
+        <p class="note">토큰은 「온톨로지/관리자_통계_토큰.txt」에 있습니다. 들어가면 이 브라우저에 관리자 쿠키가 붙고, 그 뒤로 이 브라우저에서 본 화면은 일반 접속자가 아니라 ‘나’로 셉니다.</p></form>`;
+  if (FILE) document.getElementById("gf").onsubmit = e => { e.preventDefault(); const v = document.getElementById("tk").value.trim(); if (v) { setTok(v); load(); } };
+}
+
+async function load() {
+  const headers = {};
+  if (FILE) { const tok = getTok(); if (!tok) return gate(); headers.authorization = "Bearer " + tok; }
+  root.innerHTML = `<p class="note" style="margin:30px 0">불러오는 중…</p>`;
+  let r;
+  try { r = await fetch(`${API}/api/stats?days=${days}`, { headers, cache: "no-store", credentials: FILE ? "omit" : "same-origin" }); }
+  catch (e) { return root.innerHTML = `<p class="err">통계 서버(${esc(API)})에 닿지 못했습니다. 인터넷 연결을 확인해 주세요.</p>`; }
+  if (r.status === 401) { if (FILE) setTok(""); return gate(FILE ? "토큰이 맞지 않습니다." : ""); }
+  if (!r.ok) { let m = ""; try { m = (await r.json()).error || ""; } catch (e) {} return root.innerHTML = `<p class="err">통계를 불러오지 못했습니다 (${r.status}). ${esc(m)}</p>`; }
+  document.getElementById("ctl").hidden = false;
+  S = await r.json(); render();
+}
+
+// 통계 키 → 이름·링크·갈래
+const PAGES = { "/": "첫 화면", "/graph": "관계망", "/about": "소개", "/maker": "만든 사람", "/ask": "질문하기", "/contribute": "참여하기", "/research": "선행연구",
+  "/criticism": "2000년대 시 비평", "/list": "전체 목록(예전)", "/evaluate": "태도 평가", "/evaluate-essay": "글 태도 평가", "/concepts": "개념어 색인(예전)", "/critics": "비평가 목록(예전)",
+  "/writers": "작가 목록(예전)", "/thinkers": "이론가 목록(예전)", "/sparql": "SPARQL", "/search": "통합검색", "/lineage": "계보", "/school": "학교·학맥", "/study": "공부 화면",
+  "/academic-network": "학술 관계망", "/robots.txt": "robots.txt" };
+const EXP = { find: "글 찾기", essays: "글", people: "인물", concepts: "개념어", venues: "지면" };
+function pageInfo(k, N) {          // → [이름, 링크, 갈래]
+  let m;
+  if ((m = k.match(/^entity:(\w+):(.+)$/))) {
+    const [, t, id] = m, u = `${SITE}/entity.html?t=${t}&id=${encodeURIComponent(id)}`;
+    let did = id; try { did = decodeURIComponent(id); } catch (e) {}
+    if (t === "person") return [`${N[k] || did}`, u, "인물"];
+    if (t === "essay") return [`「${N[k] || did}」`, u, "글"];
+    if (t === "concept") return [did, u, "개념어"];
+    if (t === "issue") { const c = did.match(/^cb0*(\d+)$/), n = did.match(/^0*(\d+)$/);
+      return [c ? `『창작과비평』 ${c[1]}호` : n ? `『문학과사회』 ${n[1]}호` : did, u, "호"]; }
+    return [`${did} (${t})`, u, "기타"];
+  }
+  if ((m = k.match(/^explore:(\w+)$/))) return [`탐색 · ${EXP[m[1]] || m[1]}`, `${SITE}/explore.html?p=${m[1]}`, "탐색·기타"];
+  if ((m = k.match(/^\/site\/(essays|critics|writers|thinkers)\//))) return [`${N[k] || decodeURIComponent(k.split("/").pop())} · 예전 화면`, SITE + k, m[1] === "essays" ? "글" : "인물"];
+  return [PAGES[k] || k, SITE + k, "탐색·기타"];
+}
+const region = (() => { try { const d = new Intl.DisplayNames(["ko"], { type: "region" }); return c => (c && c !== "?" && c !== "XX" && c !== "T1" ? d.of(c) : "알 수 없음"); } catch (e) { return c => c; } })();
+const split2 = k => { const i = k.indexOf(":"); return i < 0 ? ["", k] : [k.slice(0, i), k.slice(i + 1)]; };
+
+function bars(list, cls, nameFn, lim = 15) {
+  if (!list || !list.length) return `<p class="none">이 기간에 기록이 없습니다.</p>`;
+  const L = list.slice(0, lim), max = Math.max(1, ...L.map(x => x[1]));
+  return L.map(([k, v]) => { const [label, h, tag] = nameFn(k);
+    const lab = `${tag ? `<span class="tag">${esc(tag)}</span>` : ""}${esc(label)}`;
+    return `<div class="hbar ${cls}">${h ? `<a href="${esc(h)}" target="_blank" rel="noopener noreferrer" title="${esc(label)}">${lab}</a>` : `<span class="l" title="${esc(label)}">${lab}</span>`}` +
+      `<div class="track"><i style="width:${100 * v / max}%"></i></div><span class="v num">${fmt(v)}</span></div>`; }).join("");
+}
+const sumList = l => (l || []).reduce((a, x) => a + x[1], 0);
+function merge(...lists) { const m = new Map(); for (const [tag, l] of lists) for (const [k, n] of l || []) m.set(tag + "\u0000" + k, (m.get(tag + "\u0000" + k) || 0) + n);
+  return [...m].sort((a, b) => b[1] - a[1]); }
+
+function render() {
+  const dates = []; for (let t = new Date(S.since + "T00:00:00Z"); dates.length < S.days; t.setUTCDate(t.getUTCDate() + 1)) dates.push(t.toISOString().slice(0, 10));
+  const by = {}; S.daily.forEach(r => (((by[r.day] ||= {})[r.who] ||= {})[r.kind] = r.n));
+  const val = (d, w, k) => by[d]?.[w]?.[k] || 0;
+  const rows = dates.map(d => ({ d, uv: val(d, "user", "view"), uvis: val(d, "user", "visit"), mv: val(d, "me", "view"), bv: val(d, "bot", "agent") }));
+  const sum = k => rows.reduce((a, r) => a + r[k], 0), today = rows.find(r => r.d === S.today) || {};
+  const T = S.top || {}, U = T.user || {}, M = T.me || {}, B = T.bot || {}, N = S.names || {};
+  const engines = (U.engine || []).filter(([k]) => !k.startsWith("기타:")), engSum = sumList(engines);
+  const tiles = [["u", sum("uvis"), "일반 방문"], ["u", sum("uv"), "일반 페이지뷰"], ["u", Math.round(sum("uvis") / S.days * 10) / 10, "하루 평균 방문"],
+    ["u", today.uvis || 0, "오늘 일반 방문"], ["u", engSum, "검색엔진·AI 유입"], ["m", sum("mv"), "내 페이지뷰"], ["b", sum("bv"), "봇 요청"]];
+  const meState = `${S.me ? `<span class="ok">관리자 쿠키 있음</span>` : FILE ? `<span class="warn">파일로 열어 쿠키는 알 수 없음</span>` : `<span class="warn">관리자 쿠키 없음</span>`}` +
+    (FILE ? "" : ` · ?nostat=1 표시 ${nostat() ? `<span class="ok">있음</span>` : "없음"}`);
+  root.innerHTML = `
+    <div class="stats">${tiles.map(([c, n, l]) => `<div class="${c}"><b class="num">${fmt(n)}</b><span>${l}</span></div>`).join("")}</div>
+    <div class="tabs" id="tabs">${[["user", "일반 접속자", sum("uv")], ["me", "나", sum("mv")], ["bot", "봇·크롤러", sum("bv")]]
+      .map(([k, l, n]) => `<button data-t="${k}" class="${tab === k ? "on" : ""}">${l}<i class="num">${fmt(n)}</i></button>`).join("")}</div>
+    <div id="pane"></div>
+    <p class="note">${S.since} ~ ${S.today} (한국 날짜) · 이 브라우저: ${meState}</p>`;
+  document.getElementById("tabs").onclick = e => { const b = e.target.closest("button"); if (b) { tab = b.dataset.t; render(); } };
+  const pane = document.getElementById("pane");
+  const q = (k, p) => [k, `${SITE}/explore.html?p=${p}&q=${encodeURIComponent(k)}`];
+  const viewPanel = (list, cls, title, note) => {
+    const kinds = ["all", "글", "인물", "호", "개념어", "탐색·기타"];
+    const L = (list || []).filter(([k]) => pageFilter === "all" || pageInfo(k, N)[2] === pageFilter);
+    return `<div class="panel wide"><h5>${title} <span>${note}</span></h5>
+      <div class="seg" id="pf" style="margin-bottom:12px">${kinds.map(x => `<button data-f="${x}" class="${pageFilter === x ? "on" : ""}">${x === "all" ? "전체" : x}</button>`).join("")}</div>
+      ${bars(L, cls, k => pageInfo(k, N), 25)}</div>`;
+  };
+  if (tab === "user") {
+    pane.innerHTML = `
+      <div class="panel"><h5>날짜별 <span class="legend"><span><i style="background:var(--accent)"></i>페이지뷰</span><span><i style="background:var(--blue)"></i>방문</span></span></h5>
+        <div class="chart" id="chart"></div>${table(rows, [["uv", "페이지뷰"], ["uvis", "방문"]])}</div>
+      <div class="dash">
+        ${viewPanel(U.view, "c-u", "많이 본 화면", "entity.html 의 글·인물·호·개념어 포함")}
+        <div class="panel"><h5>검색엔진·AI 유입 <span>새 방문 기준</span></h5>${bars(engines, "c-q", k => { const [c, n] = split2(k); return [n, "", c]; })}
+          <div style="height:10px"></div>${bars((U.engine || []).filter(([k]) => k.startsWith("기타:")), "", k => [split2(k)[1], "", "그 밖"], 3)}</div>
+        <div class="panel"><h5>들어온 사이트 <span>새 방문 기준 · 도메인만</span></h5>${bars(U.ref, "", k => [k, "https://" + k])}</div>
+        <div class="panel"><h5>통합검색어 <span>search.html</span></h5>${bars(U.usearch, "c-q", k => [k, `${SITE}/search.html?q=${encodeURIComponent(k)}`])}</div>
+        <div class="panel"><h5>글 찾기 질문 <span>탐색 · 글 찾기</span></h5>${bars(U.find, "c-q", k => q(k, "find"))}</div>
+        <div class="panel"><h5>머리말 검색어 <span>추천에서 고르거나 전체 검색</span></h5>${bars(U.search, "c-q", k => q(k, "essays"))}</div>
+        <div class="panel"><h5>기기 · 나라 <span>새 방문 기준</span></h5>${bars(U.device, "", k => [k, ""], 3)}<div style="height:12px"></div>${bars(U.country, "", k => [region(k), ""], 8)}</div>
+      </div>`;
+    lastChart = [rows, [["uv", "var(--accent)", "페이지뷰"], ["uvis", "var(--blue)", "방문"]]];
+  } else if (tab === "me") {
+    pane.innerHTML = `
+      <div class="panel"><h5>날짜별 <span class="legend"><span><i style="background:var(--green)"></i>내 페이지뷰</span></span></h5><div class="chart" id="chart"></div>${table(rows, [["mv", "내 페이지뷰"]])}</div>
+      <div class="dash">
+        ${viewPanel(M.view, "c-m", "내가 본 화면", "일반 접속자 숫자에는 들어가지 않음")}
+        <div class="panel wide"><h5>내 검색 <span>통합검색 · 글 찾기 · 머리말</span></h5>${bars(merge(["통합검색", M.usearch], ["글 찾기", M.find], ["머리말", M.search]), "c-m", k => { const [t, x] = k.split("\u0000"); return [x, "", t]; }, 20)}</div>
+      </div>
+      <p class="note">‘나’로 세는 표시는 두 가지입니다. ① 이 화면(<code>${esc(SITE.replace(/^https?:\/\//, ""))}/api/admin</code>)에 토큰으로 들어간 브라우저(관리자 쿠키, 400일) ② 아무 화면이나 <code>?nostat=1</code> 로 한 번 연 브라우저(그 브라우저의 저장소 표시, <code>?nostat=0</code> 이면 지움). 휴대폰 등 다른 브라우저도 각각 한 번씩 들어가 두면 됩니다. IP 로 추측하지 않습니다.</p>`;
+    lastChart = [rows, [["mv", "var(--green)", "내 페이지뷰"]]];
+  } else {
+    const agents = B.agent || [], cats = merge(...agents.map(([k, n]) => [split2(k)[0], [["", n]]])).map(([k, n]) => [k.split("\u0000")[0], n]);
+    pane.innerHTML = `
+      <div class="panel"><h5>날짜별 <span class="legend"><span><i style="background:var(--violet)"></i>봇 요청</span></span></h5><div class="chart" id="chart"></div>${table(rows, [["bv", "봇 요청"]])}</div>
+      <div class="dash">
+        <div class="panel"><h5>갈래 <span>User-Agent 로 판정</span></h5>${bars(cats, "c-b", k => [k, ""], 10)}</div>
+        <div class="panel"><h5>봇 이름</h5>${bars(agents, "c-b", k => { const [c, n] = split2(k); return [n, "", c]; }, 25)}</div>
+        ${viewPanel(B.view, "c-b", "봇이 가져간 화면", "화면(HTML) 요청 기준")}
+      </div>
+      <p class="note">봇은 화면 요청을 Worker 가 먼저 받아 User-Agent 로 셉니다(스크립트를 돌리지 않는 크롤러도 잡힘). 사람인 척하는 봇은 일반 접속자에 섞일 수 있고, 사람 수에는 봇을 넣지 않습니다.</p>`;
+    lastChart = [rows, [["bv", "var(--violet)", "봇 요청"]]];
+  }
+  const pf = document.getElementById("pf"); if (pf) pf.onclick = e => { const b = e.target.closest("button"); if (b) { pageFilter = b.dataset.f; render(); } };
+  chart(...lastChart);
+}
+function table(rows, cols) {
+  return `<details><summary>날짜별 표로 보기</summary><table><thead><tr><th>날짜</th>${cols.map(c => `<th>${c[1]}</th>`).join("")}</tr></thead>
+    <tbody>${[...rows].reverse().map(r => `<tr><td class="num">${r.d}</td>${cols.map(c => `<td class="num">${fmt(r[c[0]])}</td>`).join("")}</tr>`).join("")}</tbody></table></details>`;
+}
+
+// 날짜별 선 그래프 — 같은 단위·같은 축, 마우스를 올리면 그날 값
+function chart(rows, series) {
+  const el = document.getElementById("chart"); if (!el) return;
+  const W = Math.max(300, el.clientWidth), H = 220, L = 36, R = 14, Tp = 12, B = 26;
+  const max = Math.max(4, ...rows.flatMap(r => series.map(s => r[s[0]]))), step = Math.pow(10, Math.floor(Math.log10(max))), nice = Math.ceil(max / step) * step;
+  const x = i => L + (rows.length === 1 ? (W - L - R) / 2 : i * (W - L - R) / (rows.length - 1)), y = v => Tp + (H - Tp - B) * (1 - v / nice);
+  const line = k => rows.map((r, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(r[k]).toFixed(1)}`).join("");
+  const every = Math.max(1, Math.ceil(rows.length / 6));
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="날짜별 ${series.map(s => s[2]).join("·")}">
+    ${[0, nice / 2, nice].map(t => `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)"/><text x="${L - 6}" y="${y(t) + 4}" text-anchor="end" font-size="11" fill="var(--faint)">${fmt(t)}</text>`).join("")}
+    ${rows.map((r, i) => i % every === 0 || i === rows.length - 1 ? `<text x="${x(i)}" y="${H - 6}" text-anchor="middle" font-size="11" fill="var(--faint)">${r.d.slice(5).replace("-", ".")}</text>` : "").join("")}
+    ${series.map(s => `<path d="${line(s[0])}" fill="none" stroke="${s[1]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`).join("")}
+    <line id="xh" y1="${Tp}" y2="${H - B}" stroke="var(--line-2)" visibility="hidden"/>
+    ${series.map((s, j) => `<circle class="dot" data-j="${j}" r="4" fill="${s[1]}" stroke="#fff" stroke-width="2" visibility="hidden"/>`).join("")}
+    <rect x="${L}" y="0" width="${W - L - R}" height="${H}" fill="transparent" id="hit"/></svg><div class="tip" id="tip"></div>`;
+  const svg = el.querySelector("svg"), tip = el.querySelector("#tip"), xh = svg.querySelector("#xh"), dots = [...svg.querySelectorAll(".dot")];
+  const show = ev => {
+    const b = svg.getBoundingClientRect(), px = (ev.clientX - b.left) * W / b.width;
+    const i = Math.max(0, Math.min(rows.length - 1, Math.round((px - L) / ((W - L - R) / Math.max(1, rows.length - 1))))), r = rows[i], X = x(i);
+    xh.setAttribute("visibility", "visible"); xh.setAttribute("x1", X); xh.setAttribute("x2", X);
+    dots.forEach((d, j) => { d.setAttribute("visibility", "visible"); d.setAttribute("cx", X); d.setAttribute("cy", y(r[series[j][0]])); });
+    tip.innerHTML = `<b class="num">${r.d}</b><br>${series.map(s => `${s[2]} <b class="num">${fmt(r[s[0]])}</b>`).join(" · ")}`;
+    tip.style.display = "block";
+    tip.style.left = Math.min(b.width - tip.offsetWidth, Math.max(0, X * b.width / W - tip.offsetWidth / 2)) + "px"; tip.style.top = "-6px";
+  };
+  const hide = () => { xh.setAttribute("visibility", "hidden"); dots.forEach(d => d.setAttribute("visibility", "hidden")); tip.style.display = "none"; };
+  const hit = svg.querySelector("#hit"); hit.addEventListener("mousemove", show); hit.addEventListener("mouseleave", hide);
+  hit.addEventListener("touchstart", e => show(e.touches[0]), { passive: true });
+}
+
+document.getElementById("range").onclick = e => { const b = e.target.closest("button"); if (!b) return;
+  document.querySelectorAll("#range button").forEach(x => x.classList.toggle("on", x === b)); days = +b.dataset.d; load(); };
+document.getElementById("reload").onclick = () => load();
+document.getElementById("logout").onclick = () => { if (FILE) { setTok(""); gate(); } else if (confirm("나가면 이 브라우저의 관리자 쿠키가 지워지고, 그 뒤 방문은 다시 일반 접속자로 셉니다(?nostat=1 표시가 없다면). 나갈까요?")) document.getElementById("logoutForm").submit(); };
+let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => lastChart && chart(...lastChart), 200); });
+load();
+</script>
+</body>
+</html>

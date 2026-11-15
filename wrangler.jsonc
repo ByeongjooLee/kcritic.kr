@@ -2,10 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "kcritic",
   "compatibility_date": "2026-05-19",
-  // /api/* 만 Worker(worker/index.js)가 받고 나머지는 정적 자산. 글 찾기: 질문 임베딩(Workers AI) + 본문 희귀어 조회
+  // /api/* 와 화면 경로만 Worker(worker/index.js)가 먼저 받고 나머지는 정적 자산. 글 찾기: 질문 임베딩(Workers AI) + 본문 희귀어 조회
   "main": "worker/index.js",
   "ai": { "binding": "AI" },
-  // 방문 통계 — 날짜·항목별 숫자만, IP·방문자 식별자는 저장하지 않는다. 표: worker/stats.sql. 보는 화면은 사이트 밖(관리자 컴퓨터의 파일)
+  // 방문 통계 — 날짜·누구(나/봇/일반)·항목별 숫자만, IP·방문자 식별자는 저장하지 않는다. 표: worker/stats.sql. 보는 화면: /api/admin(토큰, 링크 없음)
   "d1_databases": [
     { "binding": "DB", "database_name": "kcritic-stats", "database_id": "79920b2c-7dc4-4a63-be97-765bcd6b237a" }
   ],
@@ -16,7 +16,16 @@
     "directory": ".",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api/*"]
+    // /api/* 와 화면(HTML) 경로는 Worker 가 먼저 받는다 — 화면 요청은 봇·크롤러만 세고 바로 정적 자산으로 넘긴다(worker/index.js countPage)
+    "run_worker_first": [
+      "/api/*", "/", "/index.html", "/robots.txt", "/about", "/about.html", "/academic-network", "/academic-network.html",
+      "/ask", "/ask.html", "/concepts", "/concepts.html", "/contribute", "/contribute.html", "/criticism", "/criticism.html",
+      "/critics", "/critics.html", "/entity", "/entity.html", "/evaluate-essay", "/evaluate-essay.html", "/evaluate", "/evaluate.html",
+      "/explore", "/explore.html", "/graph", "/graph.html", "/lineage", "/lineage.html", "/list", "/list.html",
+      "/maker", "/maker.html", "/research", "/research.html", "/school", "/school.html", "/search", "/search.html",
+      "/sparql", "/sparql.html", "/study", "/study.html", "/thinkers", "/thinkers.html", "/writers", "/writers.html",
+      "/site/essays/*", "/site/critics/*", "/site/writers/*", "/site/thinkers/*"
+    ]
   },
   "compatibility_flags": [
     "nodejs_compat"

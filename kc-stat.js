@@ -1,7 +1,8 @@
 // kcritic 방문 통계 알림 — 화면을 열 때와 머리말 검색을 할 때 /api/hit 에 한 줄을 보낸다(worker/index.js).
 // 보내는 것: 화면 이름(경로), 이 탭에서 처음 연 화면인지, 들어온 사이트 이름, 휴대폰 여부, 검색어.
-// 쿠키·방문자 식별자·IP 는 쓰지 않는다. 관리자 브라우저는 세지 않는다 — 아무 화면이나 ?nostat=1 로 한 번 열면
-// 그 브라우저를 계속 빼고(?nostat=0 이면 다시 셈). 통계를 보는 화면은 사이트에 없다(관리자 컴퓨터의 파일).
+// 방문자 식별자·IP 는 쓰지 않는다. 관리자 브라우저는 '나'로 따로 센다 — 아무 화면이나 ?nostat=1 로 한 번 열면
+// 그 브라우저에 표시가 남고(a:1, ?nostat=0 이면 지움), /api/admin 에 토큰으로 들어간 브라우저는 Worker 가 관리자 쿠키로 알아본다.
+// 통계 화면(/api/admin)은 공개 화면에서 링크하지 않는다.
 // kc.js shell() 과 kc-shell.js(예전 화면)가 이 파일을 불러온다.
 (function () {
   if (window.kcStat) return;
@@ -14,7 +15,8 @@
   try { first = !sessionStorage.getItem("kc-v"); sessionStorage.setItem("kc-v", "1"); } catch (e) {}
   window.KC_NOSTAT = admin;
   const send = o => {
-    if (admin || location.hostname === "localhost" && !/[?&]stat=1/.test(location.search)) return;
+    if (location.hostname === "localhost" && !/[?&]stat=1/.test(location.search)) return;
+    if (admin) o.a = 1;
     const body = JSON.stringify(o);
     try { if (navigator.sendBeacon && navigator.sendBeacon("/api/hit", body)) return; } catch (e) {}
     fetch("/api/hit", { method: "POST", body, keepalive: true }).catch(() => {});
