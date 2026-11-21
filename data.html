@@ -645,7 +645,7 @@
     </div>
 
     <div class="three">
-      <section class="panel"><h5>누가</h5><p>개인 연구자가 만들고 운영합니다. 소속 기관의 공식 사업이 아닙니다. 연락 창구는 아래 「운영과 책임」에 적습니다.</p><a href="#who">운영과 책임 →</a></section>
+      <section class="panel"><h5>누가</h5><p>개인 연구자가 만들고 운영합니다. 소속 기관의 공식 사업이 아닙니다. 문의는 참여하기와 GitHub 이슈로 받습니다.</p><a href="#who">운영과 책임 →</a></section>
       <section class="panel"><h5>어떤 조건으로</h5><p>직접 만든 데이터, 요약문, 코드, 온톨로지, 외부 기관 자료, 원문 인용의 조건이 서로 다릅니다.</p><a href="#terms">이용 조건 →</a></section>
       <section class="panel"><h5>어디서 왔나</h5><p>자료 묶음마다 출처, 기준일, 가공 방법, 알려진 한계를 적었습니다. 원문은 싣지 않습니다.</p><a href="#sources">자료별 출처 →</a></section>
     </div>
@@ -660,7 +660,7 @@
           <div><dt>만든 사람</dt><dd>이병주 <a class="link" href="maker.html">만든 사람 →</a><small>연구 이력과 관련 논문은 「만든 사람」 화면에 있습니다.</small></dd></div>
           <div><dt>운영 주체</dt><dd id="operator">이병주 — 개인 연구자가 만들고 운영합니다. 소속 기관의 공식 사업이 아닙니다.<small>소속과 연구 이력은 「만든 사람」 화면에 있습니다.</small></dd></div>
           <div><dt>연구비</dt><dd><span class="tbd" data-tbd="funding">결정 대기</span> <span class="muted">이 사이트의 구축에 쓰인 연구비가 있으면 과제 이름과 지원 기관을 여기에 적습니다.</span></dd></div>
-          <div><dt>문의·연락</dt><dd><span class="tbd" data-tbd="contact">결정 대기</span> <span class="muted">공개 연락 창구를 정하는 중입니다.</span><small>지금 쓸 수 있는 창구: <a class="link" href="contribute.html">참여하기 · 오류 제보</a>, <a class="link" href="https://github.com/ByeongjooLee/kcritic.kr/issues" target="_blank" rel="noopener">GitHub 저장소의 이슈 ↗</a></small></dd></div>
+          <div><dt>문의·연락</dt><dd id="contact"><a class="link" href="contribute.html">참여하기 · 오류 제보</a> 또는 <a class="link" href="https://github.com/ByeongjooLee/kcritic.kr/issues" target="_blank" rel="noopener">GitHub 저장소의 이슈 ↗</a> 로 알려 주십시오. 전자우편 주소는 따로 두지 않습니다.<small>참여하기는 접수 서버가 깨어나는 데 처음에 1분쯤 걸릴 수 있습니다. GitHub 이슈는 누구나 볼 수 있으니 공개되어도 괜찮은 내용만 적어 주십시오.</small></dd></div>
           <div><dt>서비스 위치</dt><dd id="hosting">—</dd></div>
         </dl>
 
@@ -722,7 +722,7 @@
           <li>싣는 것은 <b>공개된 서지 정보에서 나온 내용</b>입니다: 학위논문의 저자·지도교수·학위 대학·연도, 대학이 공개한 소속, 학술지 논문의 서지. 직급, 연락처, 생년 같은 개인 신상은 싣지 않습니다.</li>
           <li>「이 학위자가 이 교수와 같은 사람인가」는 <b>확정·추론·미확인</b> 세 단계로 표시합니다. 이름만 같다는 이유로 두 사람을 자동으로 합치지 않습니다.</li>
           <li>이 자료는 사람을 평가하거나 줄 세우기 위한 것이 아닙니다. 수치는 모은 자료 안의 연결 수일 뿐입니다.</li>
-          <li>본인 또는 관계자가 <b>잘못된 연결의 정정이나 정보의 삭제</b>를 요청할 수 있습니다. 요청 창구: <span class="tbd" data-tbd="correction_channel">결정 대기</span> <span class="muted">전용 창구를 정하는 중입니다. 그동안은 <a class="link" href="contribute.html">참여하기 · 오류 제보</a>로 알려 주십시오.</span></li>
+          <li>본인 또는 관계자가 <b>잘못된 연결의 정정이나 정보의 삭제</b>를 요청할 수 있습니다. <a class="link" href="contribute.html">참여하기</a>에서 「인물 정보 수정」을 골라, 어느 화면의 어떤 연결인지와 바라는 조치(정정 또는 삭제)를 적어 주십시오. 공개되어도 괜찮은 내용이면 <a class="link" href="https://github.com/ByeongjooLee/kcritic.kr/issues" target="_blank" rel="noopener">GitHub 이슈 ↗</a>로도 받습니다. 확인한 뒤 고치거나 내립니다.</li>
         </ul>
       </section>
 
@@ -782,7 +782,7 @@ shell("");
   // 정해지지 않은 항목 안내
   const und = document.querySelectorAll(".tbd[data-tbd]").length + Object.values(LIC).filter(l => l.status === "undecided").length;
   const b = document.getElementById("tbd-banner");
-  if (und) { b.hidden = false; b.innerHTML = `<b>정해지지 않은 항목이 ${und}개 있습니다.</b> 연락 창구처럼 운영자가 정해야 하는 자리는 <span class="tbd">결정 대기</span> 로 표시했습니다. 정해지는 대로 이 화면에 적습니다.`; }
+  if (und) { b.hidden = false; b.innerHTML = `<b>정해지지 않은 항목이 ${und}개 있습니다.</b> 운영자가 정해야 하는 자리는 <span class="tbd">결정 대기</span> 로 표시했습니다. 정해지는 대로 이 화면에 적습니다.`; }
   document.getElementById("hosting").innerHTML = C.site.hosting.map(h => `${esc(h.what)} — ${esc(h.where)}`).join("<br>");
   document.getElementById("updated").textContent = C.updated;
 

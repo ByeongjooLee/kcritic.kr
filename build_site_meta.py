@@ -372,6 +372,8 @@ def jsonld_website(cat):
         "about": f"{BASE}/data.html",
         "potentialAction": {"@type": "SearchAction", "target": f"{BASE}/search.html?q={{search_term_string}}", "query-input": "required name=search_term_string"},
     }
+    if site.get("contact_urls"):                 # 전자우편 없이 문의 화면 주소만
+        out["contactPoint"] = [{"@type": "ContactPoint", "contactType": "문의·오류 제보·정정 요청", "url": u} for u in site["contact_urls"]]
     c = person_or_none(site)
     if c:
         out["creator"] = c

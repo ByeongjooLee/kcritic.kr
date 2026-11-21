@@ -12,12 +12,12 @@
     },
     "operator": "이병주",
     "operator_status": "decided",
-    "contact": null,
-    "contact_status": "undecided",
+    "contact": "참여하기 폼 또는 GitHub 저장소의 이슈. 전자우편 주소는 따로 두지 않는다.",
+    "contact_status": "decided",
     "funding": null,
     "funding_status": "undecided",
-    "correction_channel": null,
-    "correction_channel_status": "undecided",
+    "correction_channel": "참여하기 폼의 「인물 정보 수정」 또는 GitHub 저장소의 이슈. 확인한 뒤 고치거나 내린다.",
+    "correction_channel_status": "decided",
     "hosting": [
       {
         "what": "사이트·글 찾기·방문 통계",
@@ -37,7 +37,15 @@
       }
     ],
     "operator_type": "person",
-    "operator_note": "개인 연구자가 만들고 운영한다. 소속 기관의 공식 사업이 아니다."
+    "operator_note": "개인 연구자가 만들고 운영한다. 소속 기관의 공식 사업이 아니다.",
+    "contact_urls": [
+      "https://kcritic.kr/contribute.html",
+      "https://github.com/ByeongjooLee/kcritic.kr/issues"
+    ],
+    "correction_channel_urls": [
+      "https://kcritic.kr/contribute.html",
+      "https://github.com/ByeongjooLee/kcritic.kr/issues"
+    ]
   },
   "licenses": {
     "data": {
