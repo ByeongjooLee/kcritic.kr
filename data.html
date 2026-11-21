@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이터와 출처 — kcritic</title>
+  <meta name="description" content="kcritic.kr 을 누가 만들고 운영하는지, 공개 자료를 어떤 조건으로 쓸 수 있는지, 자료마다 어디서 왔고 언제 기준이며 어떻게 가공했는지 밝힙니다.">
+  <link rel="canonical" href="https://kcritic.kr/data.html">
+  <link rel="alternate" type="application/json" href="/site/data/datasets.json" title="자료 목록 (JSON)">
+  <link rel="alternate" type="text/turtle" href="/site/data/void.ttl" title="자료 설명 (VoID · DCAT)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="kc.css">
+  <style>
+    /* 데이터와 출처 — 운영 주체·이용 조건·자료별 출처를 한곳에 밝힌다. 자료 표는 site/data/datasets.json 에서 그린다 */
+    .dt { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 44px; padding-top: 20px; padding-bottom: 56px; align-items: start; }
+    .dt section { scroll-margin-top: 76px; }
+    .dt section + section { margin-top: 48px; }
+    .dt h2 { font-size: 21px; letter-spacing: -.02em; margin-bottom: 6px; }
+    .dt h2 + .sub { color: var(--muted); font-size: 14px; margin-bottom: 16px; max-width: 70ch; }
+    .dt h3 { font-size: 15px; margin: 28px 0 10px; letter-spacing: -.01em; }
+    .dt p { line-height: 1.8; max-width: 70ch; }
+    .dt p + p { margin-top: 10px; }
+    .dt ul.plain { margin: 8px 0 0 18px; line-height: 1.8; max-width: 70ch; }
+    .dt a.link { text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+    .dt a.link:hover { text-decoration-color: var(--accent); }
+    .dt .muted { color: var(--muted); }
+    .lead2 { margin-top: 12px; font-size: 16px; color: var(--muted); max-width: 720px; line-height: 1.75; }
+    /* 정해지지 않은 자리 — 눈에 띄게 */
+    .tbd { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); border: 1px dashed var(--accent); white-space: nowrap; vertical-align: 1px; }
+    .chk { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--panel-2); color: var(--muted); white-space: nowrap; vertical-align: 1px; }
+    .banner { margin-top: 20px; border: 1px dashed var(--accent); background: var(--accent-soft); border-radius: var(--r); padding: 12px 16px; font-size: 14px; line-height: 1.7; max-width: 760px; }
+    .banner[hidden] { display: none; }
+    /* 한눈에 보는 세 칸 */
+    .three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 26px; }
+    .three .panel h5 { margin-bottom: 8px; font-size: 14px; }
+    .three .panel p { font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .three .panel a { color: var(--ink); font-weight: 600; font-size: 13.5px; display: inline-block; margin-top: 10px; }
+    .three .panel a:hover { color: var(--accent); }
+    /* 항목 – 값 목록 */
+    .facts { border-top: 1px solid var(--line); margin-top: 12px; }
+    .facts > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); line-height: 1.75; }
+    .facts dt { color: var(--muted); font-size: 13.5px; font-weight: 600; }
+    .facts dd { font-size: 14.5px; }
+    .facts dd small { display: block; color: var(--faint); font-size: 12.5px; margin-top: 2px; }
+    /* 자료 묶음 카드 */
+    .grp { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin: 30px 0 10px; }
+    .ds { border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; scroll-margin-top: 76px; }
+    .ds + .ds { margin-top: 12px; }
+    .ds:target { border-color: var(--accent); }
+    .ds h4 { font-size: 16px; letter-spacing: -.01em; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .ds .what { margin-top: 6px; font-size: 14.5px; line-height: 1.75; max-width: none; }
+    .ds .nums { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .ds .nums b { color: var(--ink); font-weight: 700; margin-left: 4px; }
+    .ds dl { margin-top: 4px; }
+    .ds dl > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.7; }
+    .ds dl > div:last-child { border-bottom: 0; padding-bottom: 0; }
+    .ds dt { color: var(--muted); font-size: 12.5px; font-weight: 600; padding-top: 1px; }
+    .ds dd ul { margin-left: 16px; }
+    .ds dd li + li { margin-top: 2px; }
+    .ds dd small { color: var(--faint); font-size: 12.5px; }
+    .ds code, .dt code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; background: var(--panel); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    .ds .files a { display: inline-block; margin: 0 6px 4px 0; }
+    .ds .files a:hover code { background: var(--accent-soft); }
+    .dt .tbl td, .dt .tbl th { padding: 10px 8px; line-height: 1.65; }
+    .dt .tbl th { position: static; }
+    .dt .tbl td:first-child { font-weight: 600; min-width: 130px; }
+    .dt .tbl td small { display: block; color: var(--faint); font-size: 12.5px; font-weight: 400; }
+    .dt .tbl td.num { white-space: nowrap; }
+    @media (max-width: 760px) { .dt .tbl { min-width: 640px; } }   /* 좁은 화면: 칸을 쥐어짜지 않고 표 안에서 옆으로 민다 */
+    .cite { background: var(--panel); border-radius: var(--r); padding: 14px 18px; font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
+    .cite + .cite { margin-top: 10px; }
+    .cite small { display: block; color: var(--faint); font-size: 12px; margin-bottom: 4px; }
+    /* 오른쪽 차례 */
+    .toc { position: sticky; top: 84px; }
+    .toc .panel { padding: 14px 16px; }
+    .toc .panel + .panel { margin-top: 12px; }
+    .toc a.ln { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+    .toc a.ln:last-child { border-bottom: 0; }
+    .toc a.ln:hover { color: var(--accent); }
+    .toc a.ln small { color: var(--faint); }
+    @media (max-width: 960px) { .dt { grid-template-columns: 1fr; gap: 28px; } .toc { position: static; order: -1; } .toc .panel + .panel { display: none; } }
+    @media (max-width: 760px) { .three { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) {
+      .facts > div, .ds dl > div { grid-template-columns: 1fr; gap: 2px; }
+      .ds { padding: 16px; }
+    }
+  </style>
+<!-- JSONLD-START -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "DataCatalog",
+ "@id": "https://kcritic.kr/data.html",
+ "name": "kcritic — 한국 비평사 온톨로지 — 데이터와 출처",
+ "url": "https://kcritic.kr/data.html",
+ "inLanguage": "ko",
+ "dateModified": "2026-11-21",
+ "dataset": [
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#essays-collected",
+   "name": "비평가 전집·평론집의 글 — kcritic",
+   "description": "비평가 4인(김현·유종호·김우창·황현산)의 전집·평론집에 실린 비평글의 서지, 비평 대상 작가, 인용 이론가, 개념어.",
+   "url": "https://kcritic.kr/data.html#essays-collected",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-10-12",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/essays.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/graph.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/graph.ttl",
+     "encodingFormat": "text/turtle"
+    }
+   ],
+   "isBasedOn": [
+    "각 비평가의 전집·평론집(인쇄본)"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#essays-mhs",
+   "name": "『문학과사회』 1–73호 비평 — kcritic",
+   "description": "계간 『문학과사회』(문학과지성사) 창간호부터 73호까지(1988–2006)에 처음 실린 비평의 서지(호·발행 계절·난·쪽), 필자, 비평 대상 작가, 인용 이론가, 개념어, 호별 목차. 글마다 요지·해제·주장·근거 요약을 붙였다.",
+   "url": "https://kcritic.kr/data.html#essays-mhs",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-14",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/essays.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/issues.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "『문학과사회』 인쇄본(문학과지성사)"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#essays-changbi",
+   "name": "『창작과비평』 목차·해제 — kcritic",
+   "description": "계간 『창작과비평』(1966–2026, 213호)의 목차와, 그 가운데 비평·산문의 표제·필자. 본문 대조 검수를 통과한 글에는 요지·해제·키워드·주장 요약을 붙였고, 그 일부는 필자·인물·키워드를 관계망에 넣었다.",
+   "url": "https://kcritic.kr/data.html#essays-changbi",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-14",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/issues_cb.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/issues_cb_items.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/cb_search.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/changbi_summaries.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "changbi"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#persons-authority",
+   "name": "인물과 외부 전거 연결 — kcritic",
+   "description": "글에 나오는 비평가·작가·이론가의 정본 이름과 외부 식별자(국립중앙도서관 전거, Wikidata, VIAF, ISNI, 한국민족문화대백과사전·한국현대문학대사전 항목 주소).",
+   "url": "https://kcritic.kr/data.html#persons-authority",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-14",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/people.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/critics.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/writers.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/thinkers.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/graph.ttl",
+     "encodingFormat": "text/turtle"
+    }
+   ],
+   "isBasedOn": [
+    "nlk-lod",
+    "wikidata",
+    "encykorea",
+    "viaf",
+    "isni",
+    "naver-munhak"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#concepts",
+   "name": "개념어 색인 — kcritic",
+   "description": "글마다 표시한 비평 개념어와 그 개념어를 쓴 글 목록. 두 편 이상이 함께 쓴 개념어만 화면에 보인다.",
+   "url": "https://kcritic.kr/data.html#concepts",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-14",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/concepts.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/concepts.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "TEI 인코딩의 개념어 표시(전집·『문학과사회』)와 『창작과비평』 해제 키워드"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#graph-rdf",
+   "name": "관계망과 RDF · 온톨로지 — kcritic",
+   "description": "위 자료를 합친 관계망(점·선)과 그것을 RDF 로 옮긴 파일, 그리고 OWL 온톨로지 v8(스키마와 파일럿 데이터).",
+   "url": "https://kcritic.kr/data.html#graph-rdf",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-14",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/graph.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/graph.ttl",
+     "encodingFormat": "text/turtle"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/graph_metrics.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/critic_v8_schema.rdf",
+     "encodingFormat": "application/rdf+xml"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/critic_v8_data.rdf",
+     "encodingFormat": "application/rdf+xml"
+    }
+   ],
+   "isBasedOn": [
+    "이 사이트의 글·인물 자료에서 빌드",
+    "재사용 어휘: Dublin Core, FOAF, CiTO, schema.org"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#quoted-sentences",
+   "name": "원문에서 옮긴 문장(연구용 인용) — kcritic",
+   "description": "원문 전체는 싣지 않지만 세 곳에서 문장 단위로 인용한다. ① 태도 판정: 태도 표시가 붙은 문장만. ② 개념어 예시: 그 개념어가 든 문장 하나. ③ 인물 인용 문맥: 인물이 나온 문장(두 문장 이내).",
+   "url": "https://kcritic.kr/data.html#quoted-sentences",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-10-23",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/interp_game.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/examples.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/v2/contexts.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/concepts.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "전집·평론집과 『문학과사회』 수록 글(『창작과비평』 글은 문장을 싣지 않는다)"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#find-index",
+   "name": "글 찾기 색인 — kcritic",
+   "description": "뜻으로 글을 찾기 위한 벡터. 제목·개념어·인물 같은 메타데이터와 공개 해제에서만 만든다.",
+   "url": "https://kcritic.kr/data.html#find-index",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-14",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/find/meta.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/find/vec.bin",
+     "encodingFormat": "application/octet-stream"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/find/vocab.bin",
+     "encodingFormat": "application/octet-stream"
+    }
+   ],
+   "isBasedOn": [
+    "이 사이트의 글 메타데이터와 공개 해제",
+    "bge-m3"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#theses",
+   "name": "현대문학 박사학위논문 서지 — kcritic",
+   "description": "한국 현대문학 박사학위논문의 제목·저자·연도·학위 수여 대학·지도교수와 RISS 상세 화면 주소. 본문에서 자동으로 뽑은 인물·개념어 태그와, 보유 논문끼리의 참고문헌 연결도 싣는다.",
+   "url": "https://kcritic.kr/data.html#theses",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-10",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/research-public.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/thesis-topics-public.json",
+     "encodingFormat": "application/json"
+    },
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/thesis-citations-public.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "riss",
+    "nlk-lod",
+    "대학 도서관 목록(서울대 등)"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#lineage",
+   "name": "학맥(지도교수–제자 계보) — kcritic",
+   "description": "박사논문의 지도교수에서 제자로, 그 제자가 교수가 되어 지도한 다음 세대로 이어지는 관계.",
+   "url": "https://kcritic.kr/data.html#lineage",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-10",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/genealogy-library.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "riss",
+    "nlk-lod",
+    "대학 도서관 목록",
+    "대학 교수 소개 등 공개 웹 자료",
+    "연구자 확인"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#academic-network",
+   "name": "학교·소속·사제관계 — kcritic",
+   "description": "논문의 학위 수여 대학과 연구자의 소속을 나눠 보이고, 박사 지도와 그 밖의 사제관계를 구분한 자료.",
+   "url": "https://kcritic.kr/data.html#academic-network",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-10-27",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/academic-network-public.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "riss",
+    "대학 교수 소개 등 공개 웹 자료",
+    "도서관 기록·연구자 확인"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#school-style",
+   "name": "학풍(연구 주제의 닮음) 분석 — kcritic",
+   "description": "지도교수의 논문 묶음과 제자의 박사논문이 주제에서 얼마나 닮았는지 계산한 결과: 2차원 지도 좌표, 토픽 비중, 관계별 효과.",
+   "url": "https://kcritic.kr/data.html#school-style",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-11-02",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/school-style-public.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "kci",
+    "이 사이트의 박사논문 서지와 학맥",
+    "bge-m3"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#kci-citations",
+   "name": "KCI 학술지 논문의 인용 관계 — kcritic",
+   "description": "국어국문학·문학 학술지 논문의 참고문헌 가운데 KCI 논문끼리 이어진 인용 관계. 현대문학 논문끼리의 관계만 담았다.",
+   "url": "https://kcritic.kr/data.html#kci-citations",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "dateModified": "2026-10-30",
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/kci-citations-public.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "kci"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#theses-legacy",
+   "name": "선행연구 목록(예전 화면) — kcritic",
+   "description": "현대문학 박사논문 목록을 작가별로 정리한 예전 자료. 지금의 학술연구 화면과는 따로 만든 것이다.",
+   "url": "https://kcritic.kr/data.html#theses-legacy",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/bibliography.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "현대문학 박사논문 목록(엑셀)"
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "@id": "https://kcritic.kr/data.html#criticism-2000s",
+   "name": "2000년대 이후 시 비평 목록 — kcritic",
+   "description": "2000–2020년대 시 문학을 진단한 비평의 서지 목록.",
+   "url": "https://kcritic.kr/data.html#criticism-2000s",
+   "inLanguage": "ko",
+   "isAccessibleForFree": true,
+   "creator": {
+    "@type": "Person",
+    "name": "이병주",
+    "url": "https://kcritic.kr/maker.html"
+   },
+   "distribution": [
+    {
+     "@type": "DataDownload",
+     "contentUrl": "https://kcritic.kr/site/data/criticism.json",
+     "encodingFormat": "application/json"
+    }
+   ],
+   "isBasedOn": [
+    "시 문학 진단 비평 목록(엑셀)"
+   ]
+  }
+ ],
+ "creator": {
+  "@type": "Person",
+  "name": "이병주",
+  "url": "https://kcritic.kr/maker.html"
+ }
+}
+</script>
+<!-- JSONLD-END -->
+</head>
+<body>
+<main>
+  <div class="wrap">
+    <div class="ent-head">
+      <nav class="crumb"><a href="index.html">처음</a> / <a href="about.html">소개</a> / 데이터와 출처</nav>
+      <h1>데이터와 출처</h1>
+      <p class="lead2">이 사이트를 누가 만들고 운영하는지, 공개한 자료를 어떤 조건으로 쓸 수 있는지, 자료마다 어디서 왔고 언제 기준이며 어떻게 가공했는지 밝힙니다. 확인하지 못한 것은 「확인 필요」로 적었습니다.</p>
+      <div class="banner" id="tbd-banner" hidden></div>
+    </div>
+
+    <div class="three">
+      <section class="panel"><h5>누가</h5><p>연구자 한 사람이 만들었습니다. 운영 주체의 정식 표기와 연락 창구는 아래 「운영과 책임」에 적습니다.</p><a href="#who">운영과 책임 →</a></section>
+      <section class="panel"><h5>어떤 조건으로</h5><p>직접 만든 데이터, 요약문, 코드, 온톨로지, 외부 기관 자료, 원문 인용의 조건이 서로 다릅니다.</p><a href="#terms">이용 조건 →</a></section>
+      <section class="panel"><h5>어디서 왔나</h5><p>자료 묶음마다 출처, 기준일, 가공 방법, 알려진 한계를 적었습니다. 원문은 싣지 않습니다.</p><a href="#sources">자료별 출처 →</a></section>
+    </div>
+  </div>
+
+  <div class="wrap dt">
+    <div>
+      <section id="who">
+        <h2>운영과 책임</h2>
+        <p class="sub">누가 만들었고, 문의는 어디로 하며, 이 사이트의 자료를 어디까지 믿어도 되는지.</p>
+        <dl class="facts">
+          <div><dt>만든 사람</dt><dd>이병주 <a class="link" href="maker.html">만든 사람 →</a><small>연구 이력과 관련 논문은 「만든 사람」 화면에 있습니다.</small></dd></div>
+          <div><dt>운영 주체</dt><dd><span class="tbd" data-tbd="operator">결정 대기</span> <span class="muted">개인 연구자의 연구 사이트인지, 소속 기관·연구 과제와 어떤 관계인지 정식 표기를 정하는 중입니다.</span></dd></div>
+          <div><dt>연구비</dt><dd><span class="tbd" data-tbd="funding">결정 대기</span> <span class="muted">이 사이트의 구축에 쓰인 연구비가 있으면 과제 이름과 지원 기관을 여기에 적습니다.</span></dd></div>
+          <div><dt>문의·연락</dt><dd><span class="tbd" data-tbd="contact">결정 대기</span> <span class="muted">공개 연락 창구를 정하는 중입니다.</span><small>지금 쓸 수 있는 창구: <a class="link" href="contribute.html">참여하기 · 오류 제보</a>, <a class="link" href="https://github.com/ByeongjooLee/kcritic.kr/issues" target="_blank" rel="noopener">GitHub 저장소의 이슈 ↗</a></small></dd></div>
+          <div><dt>서비스 위치</dt><dd id="hosting">—</dd></div>
+        </dl>
+
+        <h3>이 자료를 어디까지 믿어도 되는가</h3>
+        <ul class="plain">
+          <li>이 사이트의 자료는 <b>연구용 작업 데이터</b>입니다. 사람이 직접 확인한 것, 규칙으로 자동 판정한 것, AI 의 도움을 받아 쓴 것이 섞여 있으며, 자료 묶음마다 어느 쪽인지 아래에 적었습니다.</li>
+          <li>서지·전거·지도 관계처럼 <b>사실</b>에 해당하는 내용이 원 자료(책, 잡지, 도서관 기록, 각 기관의 데이터)와 다르면 원 자료가 맞습니다. 다른 점을 알려 주시면 고칩니다.</li>
+          <li>태도 판정, 개념어 선정, 요약, 학풍 분석은 <b>해석</b>입니다. 하나의 정답이 있는 자료가 아닙니다.</li>
+          <li>수치는 모두 <b>이 사이트가 모은 범위 안에서</b> 센 값입니다. 학계 전체나 한 사람의 전체 업적을 뜻하지 않습니다.</li>
+        </ul>
+      </section>
+
+      <section id="terms">
+        <h2>이용 조건</h2>
+        <p class="sub">자료의 성격에 따라 조건이 다릅니다. 「결정 대기」인 항목은 이용 조건을 아직 붙이지 않은 것이며, 자유롭게 써도 된다는 뜻이 아닙니다. 그동안은 출처를 밝힌 인용과 연구 목적의 열람만 해 주십시오.</p>
+        <div class="tbl-wrap"><table class="tbl" id="lic-table"><thead><tr><th>대상</th><th>무엇이 들어가나</th><th>이용 조건</th></tr></thead><tbody></tbody></table></div>
+
+        <h3>외부 기관에서 온 자료의 조건</h3>
+        <p class="muted" style="font-size:14px">전거 식별자·서지·인용 관계처럼 다른 기관이 만든 자료는 그 기관의 조건을 따릅니다. 아래는 각 기관의 공식 안내에서 확인한 내용이며, 확인하지 못한 곳은 그렇게 적었습니다. 다시 쓰려면 반드시 원 제공처의 안내를 직접 확인하십시오.</p>
+        <div class="tbl-wrap"><table class="tbl" id="tp-table"><thead><tr><th>제공처</th><th>이 사이트에서 쓰는 곳</th><th>제공처의 조건</th></tr></thead><tbody></tbody></table></div>
+      </section>
+
+      <section id="sources">
+        <h2>자료별 출처</h2>
+        <p class="sub">자료 묶음마다 무엇이 들어 있고, 어디서 왔으며, 언제 기준이고, 어떻게 가공했고, 무엇을 조심해서 읽어야 하는지 적었습니다. 숫자는 공개 파일에서 직접 센 값입니다.</p>
+        <div class="tbl-wrap"><table class="tbl" id="ds-table"><thead><tr><th>자료 묶음</th><th>규모</th><th>기준일</th><th>주된 출처</th></tr></thead><tbody></tbody></table></div>
+        <div id="ds-cards"><p class="muted" style="margin-top:16px">자료 목록을 불러오는 중…</p></div>
+        <noscript><p>자료 목록은 <a href="/site/data/datasets.json">datasets.json</a> 에서 볼 수 있습니다.</p></noscript>
+      </section>
+
+      <section id="originals">
+        <h2>원문과 인용</h2>
+        <p class="sub">저작권이 있는 원문을 어떻게 다루는지.</p>
+        <ul class="plain">
+          <li>비평글·논문의 <b>원문 전체는 싣지 않습니다.</b> 공개하는 것은 서지, 관계, 개념어, 요약 같은 메타데이터입니다. 인코딩한 원문은 공개 저장소와 사이트에 올리지 않습니다.</li>
+          <li>다만 <b>세 곳에서 문장 단위로 인용</b>합니다: 태도 판정 화면의 문장, 개념어마다 보이는 예시 문장 하나, 인물이 나온 자리의 문장(두 문장 이내). 문장마다 글 제목과 수록 지면을 밝힙니다. 이 문장들의 저작권은 각 필자와 수록 지면의 권리자에게 있습니다.</li>
+          <li>잡지 글은 원문 대신 <b>발행처의 공식 페이지</b>로 연결합니다(『문학과사회』 → 문학과지성사, 『창작과비평』 → 창비 웹진).</li>
+          <li>요지·해제·주장 요약은 원문이 아니라 <b>AI 의 도움을 받아 쓰고 원문과 대조해 검수한 글</b>입니다. 원문과 길게 겹치는 문장은 싣지 않습니다.</li>
+          <li>권리자께서 이 사이트에 실린 인용이나 요약을 내려 달라고 하시면 확인 후 내립니다. 요청 창구는 아래 「정정·삭제 요청」과 같습니다.</li>
+        </ul>
+      </section>
+
+      <section id="privacy">
+        <h2>방문자에게서 받는 정보</h2>
+        <p class="sub">이 사이트가 방문자에 대해 무엇을 저장하고 무엇을 저장하지 않는지.</p>
+        <dl class="facts">
+          <div><dt>방문 통계</dt><dd>날짜별·항목별 <b>건수만</b> 셉니다: 연 화면의 이름, 검색어(80자까지), 들어온 사이트의 이름, 휴대폰 여부. <b>IP 주소·쿠키·방문자 식별자는 저장하지 않습니다.</b> IP 는 분당 요청 수를 제한할 때 서버 메모리에서만 씁니다. 14개월이 지난 기록은 지웁니다.</dd></div>
+          <div><dt>글 찾기·검색</dt><dd>입력한 질문은 뜻으로 찾기 위해 Cloudflare Workers AI 에서 벡터로 바뀝니다. 질문 문구는 위 통계에 건수로만 남습니다.<small>학술연구 검색(/theses/)은 따로 운영되는 서버입니다. 그 서버가 남기는 기록은 확인 필요.</small></dd></div>
+          <div><dt>참여하기</dt><dd>제안을 보내면 적은 이름·전자우편·제안 내용이 접수 서버(Render)에 저장되고 운영자가 검토합니다. 제안이 쌓이면 서식을 맞추기 위해 Google 의 AI(Gemini)에 제출 내용이 전달될 수 있습니다.</dd></div>
+          <div><dt>태도 판정</dt><dd>판정값이 닉네임과 브라우저마다 만들어지는 임의의 번호와 함께 운영자의 Google 시트로 전송됩니다. 전자우편 같은 개인정보는 받지 않습니다.</dd></div>
+          <div><dt>외부에서 불러오는 것</dt><dd>글꼴과 일부 화면의 라이브러리를 jsDelivr 등 공개 CDN 에서 불러옵니다. 이때 방문자의 브라우저가 그 CDN 에 직접 접속합니다.</dd></div>
+        </dl>
+      </section>
+
+      <section id="people">
+        <h2>실존 인물 정보와 정정·삭제 요청</h2>
+        <p class="sub">학맥·학교 소속·학풍 화면은 지금 활동하는 연구자의 이름을 다룹니다.</p>
+        <ul class="plain">
+          <li>싣는 것은 <b>공개된 서지 정보에서 나온 내용</b>입니다: 학위논문의 저자·지도교수·학위 대학·연도, 대학이 공개한 소속, 학술지 논문의 서지. 직급, 연락처, 생년 같은 개인 신상은 싣지 않습니다.</li>
+          <li>「이 학위자가 이 교수와 같은 사람인가」는 <b>확정·추론·미확인</b> 세 단계로 표시합니다. 이름만 같다는 이유로 두 사람을 자동으로 합치지 않습니다.</li>
+          <li>이 자료는 사람을 평가하거나 줄 세우기 위한 것이 아닙니다. 수치는 모은 자료 안의 연결 수일 뿐입니다.</li>
+          <li>본인 또는 관계자가 <b>잘못된 연결의 정정이나 정보의 삭제</b>를 요청할 수 있습니다. 요청 창구: <span class="tbd" data-tbd="correction_channel">결정 대기</span> <span class="muted">전용 창구를 정하는 중입니다. 그동안은 <a class="link" href="contribute.html">참여하기 · 오류 제보</a>로 알려 주십시오.</span></li>
+        </ul>
+      </section>
+
+      <section id="cite">
+        <h2>인용하는 법</h2>
+        <p class="sub">초안입니다. 자료는 계속 바뀌므로 접속한 날짜나 자료의 기준일을 함께 적어 주십시오.</p>
+        <div class="cite"><small>사이트</small>이병주, 「한국 비평사 온톨로지」, kcritic.kr, 2026, https://kcritic.kr (접속일: 연-월-일).</div>
+        <div class="cite"><small>자료 묶음 (기준일은 위 「자료별 출처」의 값)</small>이병주, 「〈자료 묶음 이름〉」, 『한국 비평사 온톨로지』, kcritic.kr, 기준일 연-월-일, https://kcritic.kr/data.html#〈자료 묶음 id〉.</div>
+        <div class="cite"><small>개체 (인물·글의 고정 주소)</small>https://kcritic.kr/resource/〈인물 id〉 · https://kcritic.kr/resource/essay/〈글 id〉</div>
+        <p class="muted" style="margin-top:12px;font-size:14px">관련 논문의 서지는 <a class="link" href="maker.html#cite">만든 사람 화면</a>에 있습니다. 판(버전)별 고정 주소(DOI)는 아직 없습니다.</p>
+      </section>
+
+      <section id="machine">
+        <h2>기계가 읽는 정보</h2>
+        <p class="sub">이 화면의 내용을 프로그램이 읽을 수 있는 형태로도 둡니다.</p>
+        <dl class="facts">
+          <div><dt>자료 목록</dt><dd><a class="link" href="/site/data/datasets.json"><code>/site/data/datasets.json</code></a><small>이 화면의 원본. 묶음별 출처·기준일·가공·한계·이용 조건·규모.</small></dd></div>
+          <div><dt>RDF 설명</dt><dd><a class="link" href="/site/data/void.ttl"><code>/site/data/void.ttl</code></a><small>VoID · DCAT. 이용 조건이 정해진 묶음에만 <code>dcterms:license</code> 가 붙습니다.</small></dd></div>
+          <div><dt>화면 속 표시</dt><dd>첫 화면에 schema.org <code>WebSite</code>, 이 화면에 <code>DataCatalog</code>·<code>Dataset</code> (JSON-LD)</dd></div>
+          <div><dt>RDF 전체</dt><dd><a class="link" href="/site/data/graph.ttl"><code>/site/data/graph.ttl</code></a> · 온톨로지 <a class="link" href="/critic_v8_schema.rdf"><code>critic_v8_schema.rdf</code></a><small>브라우저에서 바로 질의하려면 <a class="link" href="ask.html">질문하기(SPARQL)</a>.</small></dd></div>
+          <div><dt>이 화면을 고친 날</dt><dd id="updated">—</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <aside class="toc">
+      <section class="panel"><h5>이 화면의 차례</h5>
+        <a class="ln" href="#who">운영과 책임 <small>→</small></a>
+        <a class="ln" href="#terms">이용 조건 <small>→</small></a>
+        <a class="ln" href="#sources">자료별 출처 <small>→</small></a>
+        <a class="ln" href="#originals">원문과 인용 <small>→</small></a>
+        <a class="ln" href="#privacy">방문자에게서 받는 정보 <small>→</small></a>
+        <a class="ln" href="#people">실존 인물 · 정정 요청 <small>→</small></a>
+        <a class="ln" href="#cite">인용하는 법 <small>→</small></a>
+        <a class="ln" href="#machine">기계가 읽는 정보 <small>→</small></a>
+      </section>
+      <section class="panel"><h5>함께 보기</h5>
+        <a class="ln" href="about.html">소개 · 방법 <small>→</small></a>
+        <a class="ln" href="maker.html">만든 사람 <small>→</small></a>
+        <a class="ln" href="contribute.html">참여하기 · 오류 제보 <small>→</small></a>
+      </section>
+    </aside>
+  </div>
+</main>
+<script src="kc.js"></script>
+<script>
+shell("");
+(async () => {
+  const TBD = '<span class="tbd">결정 대기</span>', CHK = '<span class="chk">확인 필요</span>';
+  const link = (u, t) => `<a class="link" href="${esc(u)}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener"' : ""}>${t}</a>`;
+  let C;
+  try { C = await fetch("/site/data/datasets.json").then(r => r.json()); }
+  catch (e) { document.getElementById("ds-cards").innerHTML = '<p class="muted">자료 목록을 불러오지 못했습니다. <a class="link" href="/site/data/datasets.json">datasets.json</a></p>'; return; }
+  const TP = new Map((C.third_party || []).map(t => [t.id, t])), LIC = C.licenses;
+
+  // 정해지지 않은 항목 안내
+  const und = document.querySelectorAll(".tbd[data-tbd]").length + Object.values(LIC).filter(l => l.status === "undecided").length;
+  const b = document.getElementById("tbd-banner");
+  if (und) { b.hidden = false; b.innerHTML = `<b>정해지지 않은 항목이 ${und}개 있습니다.</b> 운영 주체의 표기, 연락 창구, 이용 조건처럼 운영자가 정해야 하는 자리는 <span class="tbd">결정 대기</span> 로 표시했습니다. 정해지는 대로 이 화면에 적습니다.`; }
+  document.getElementById("hosting").innerHTML = C.site.hosting.map(h => `${esc(h.what)} — ${esc(h.where)}`).join("<br>");
+  document.getElementById("updated").textContent = C.updated;
+
+  // 이용 조건
+  const licCell = l => l.status === "undecided" ? TBD : (l.license_url ? link(l.license_url, esc(l.license)) : esc(l.license));
+  document.querySelector("#lic-table tbody").innerHTML = Object.values(LIC).map(l => `<tr><td>${esc(l.label)}</td><td>${esc(l.covers)}</td><td>${licCell(l)}</td></tr>`).join("");
+  const licOf = d => [d.license_key, d.license_key_extra].filter(Boolean).map(k => LIC[k]).map(l => `${esc(l.label)}: ${l.status === "undecided" ? TBD : (l.license_url ? link(l.license_url, esc(l.license)) : esc(l.license))}`).join("<br>");
+
+  // 외부 제공처
+  const st = { confirmed: "", partial: ' <span class="chk">일부만 확인</span>', unconfirmed: " " + CHK };
+  document.querySelector("#tp-table tbody").innerHTML = (C.third_party || []).map(t =>
+    `<tr id="tp-${esc(t.id)}"><td>${t.url ? link(t.url, esc(t.name)) : esc(t.name)}<small>${t.how === "link" ? "연결만" : "자료 사용"}</small></td><td>${esc(t.used_for)}</td>` +
+    `<td>${t.terms ? esc(t.terms) : ""}${st[t.terms_status] ?? ""}${t.terms_url ? `<small>${link(t.terms_url, "제공처 안내 ↗")}${t.checked ? ` · ${esc(t.checked)} 확인` : ""}</small>` : ""}</td></tr>`).join("")
+    || `<tr><td colspan="3" class="muted">정리 중입니다.</td></tr>`;
+
+  // 자료 묶음
+  const srcName = s => { const t = s.ref && TP.get(s.ref); return t ? `<a class="link" href="#tp-${esc(t.id)}">${esc(t.name)}</a>` : (s.url ? link(s.url, esc(s.name)) : esc(s.name || s.ref)); };
+  const chk = s => esc(s).replace(/확인 필요/g, CHK);
+  const big = d => (d.counts || []).slice(0, 2).map(([l, n]) => `${esc(l)} ${fmt(n)}`).join(" · ") || "—";
+  document.querySelector("#ds-table tbody").innerHTML = C.datasets.map(d =>
+    `<tr><td><a href="#${esc(d.id)}">${esc(d.title)}</a><small>${esc(d.group)}</small></td><td class="num">${big(d)}</td><td class="num">${d.as_of ? esc(d.as_of) : CHK}</td><td>${d.sources.map(srcName).join(", ")}</td></tr>`).join("");
+  const fileLink = f => f.includes("*") ? `<code>${esc(f)}</code> ` : `<a href="/${esc(f)}"><code>${esc(f.replace(/^site\/data\//, ""))}</code></a>`;
+  let html = "", grp = "";
+  for (const d of C.datasets) {
+    if (d.group !== grp) { grp = d.group; html += `<div class="grp">${esc(grp)}</div>`; }
+    html += `<article class="ds" id="${esc(d.id)}">
+      <h4>${esc(d.title)}${d.personal_data ? '<span class="pill">실존 인물 이름 포함</span>' : ""}</h4>
+      <p class="what">${esc(d.what)}</p>
+      ${d.counts?.length ? `<div class="nums num">${d.counts.map(([l, n]) => `<span>${esc(l)}<b>${fmt(n)}</b></span>`).join("")}</div>` : ""}
+      <dl>
+        <div><dt>출처</dt><dd><ul>${d.sources.map(s => `<li>${srcName(s)}${s.note ? ` <small>— ${chk(s.note)}</small>` : ""}</li>`).join("")}</ul></dd></div>
+        <div><dt>기준일</dt><dd>${d.as_of ? `<span class="num">${esc(d.as_of)}</span>${d.as_of_auto ? " <small>(데이터 파일에 적힌 날짜)</small>" : d.as_of_note ? ` <small>(${esc(d.as_of_note)})</small>` : ""}` : CHK}</dd></div>
+        <div><dt>가공 방법</dt><dd>${chk(d.processing)}</dd></div>
+        <div><dt>알려진 한계</dt><dd><ul>${d.limitations.map(x => `<li>${chk(x)}</li>`).join("")}</ul></dd></div>
+        ${d.personal_data_note ? `<div><dt>인물 정보</dt><dd>${esc(d.personal_data_note)} <a class="link" href="#people">정정·삭제 요청 →</a></dd></div>` : ""}
+        <div><dt>이용 조건</dt><dd>${licOf(d)}</dd></div>
+        <div><dt>파일</dt><dd class="files">${d.files.map(fileLink).join("")}${d.screens?.length ? `<br><small>보는 곳: ${d.screens.map(s => `<a class="link" href="${esc(s)}">${esc(s)}</a>`).join(" · ")}</small>` : ""}</dd></div>
+      </dl></article>`;
+  }
+  document.getElementById("ds-cards").innerHTML = html;
+  if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+})();
+</script>
+</body>
+</html>

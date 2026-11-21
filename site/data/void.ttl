@@ -1,0 +1,166 @@
+# kcritic.kr 공개 자료 설명 (VoID · DCAT) — build_site_meta.py 가 site/data/datasets.json 에서 만든다.
+# 사람이 읽는 안내: https://kcritic.kr/data.html
+# dcterms:license 가 없는 묶음은 이용 조건이 아직 정해지지 않은 것이다(없음 ≠ 자유 이용).
+
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix kcd:     <https://kcritic.kr/data.html#> .
+
+<https://kcritic.kr/data.html> a dcat:Catalog ;
+  dcterms:title "kcritic — 한국 비평사 온톨로지 — 데이터와 출처"@ko ;
+  foaf:homepage <https://kcritic.kr> ;
+  dcterms:creator "이병주"@ko ;
+  dcterms:modified "2026-11-21"^^xsd:date ;
+  dcat:dataset kcd:essays-collected, kcd:essays-mhs, kcd:essays-changbi, kcd:persons-authority, kcd:concepts, kcd:graph-rdf, kcd:quoted-sentences, kcd:find-index, kcd:theses, kcd:lineage, kcd:academic-network, kcd:school-style, kcd:kci-citations, kcd:theses-legacy, kcd:criticism-2000s .
+
+kcd:essays-collected a dcat:Dataset ;
+  dcterms:title "비평가 전집·평론집의 글"@ko ;
+  dcterms:description "비평가 4인(김현·유종호·김우창·황현산)의 전집·평론집에 실린 비평글의 서지, 비평 대상 작가, 인용 이론가, 개념어."@ko ;
+  dcterms:modified "2026-10-12"^^xsd:date ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/essays.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/graph.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/graph.ttl> ;
+  dcat:landingPage <https://kcritic.kr/data.html#essays-collected> .
+
+kcd:essays-mhs a dcat:Dataset ;
+  dcterms:title "『문학과사회』 1–73호 비평"@ko ;
+  dcterms:description "계간 『문학과사회』(문학과지성사) 창간호부터 73호까지(1988–2006)에 처음 실린 비평의 서지(호·발행 계절·난·쪽), 필자, 비평 대상 작가, 인용 이론가, 개념어, 호별 목차. 글마다 요지·해제·주장·근거 요약을 붙였다."@ko ;
+  dcterms:modified "2026-11-14"^^xsd:date ;
+  dcterms:source <https://moonji.com/literatureAndSociety/intro> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/essays.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/issues.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#essays-mhs> .
+
+kcd:essays-changbi a dcat:Dataset ;
+  dcterms:title "『창작과비평』 목차·해제"@ko ;
+  dcterms:description "계간 『창작과비평』(1966–2026, 213호)의 목차와, 그 가운데 비평·산문의 표제·필자. 본문 대조 검수를 통과한 글에는 요지·해제·키워드·주장 요약을 붙였고, 그 일부는 필자·인물·키워드를 관계망에 넣었다."@ko ;
+  dcterms:modified "2026-11-14"^^xsd:date ;
+  dcterms:source <https://magazine.changbi.com> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/issues_cb.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/issues_cb_items.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/cb_search.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/changbi_summaries.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#essays-changbi> .
+
+kcd:persons-authority a dcat:Dataset ;
+  dcterms:title "인물과 외부 전거 연결"@ko ;
+  dcterms:description "글에 나오는 비평가·작가·이론가의 정본 이름과 외부 식별자(국립중앙도서관 전거, Wikidata, VIAF, ISNI, 한국민족문화대백과사전·한국현대문학대사전 항목 주소)."@ko ;
+  dcterms:modified "2026-11-14"^^xsd:date ;
+  dcterms:source <https://lod.nl.go.kr> ;
+  dcterms:source <https://www.wikidata.org> ;
+  dcterms:source <https://encykorea.aks.ac.kr> ;
+  dcterms:source <https://viaf.org> ;
+  dcterms:source <https://isni.org> ;
+  dcterms:source <https://terms.naver.com> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/people.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/critics.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/writers.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/thinkers.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/graph.ttl> ;
+  dcat:landingPage <https://kcritic.kr/data.html#persons-authority> .
+
+kcd:concepts a dcat:Dataset ;
+  dcterms:title "개념어 색인"@ko ;
+  dcterms:description "글마다 표시한 비평 개념어와 그 개념어를 쓴 글 목록. 두 편 이상이 함께 쓴 개념어만 화면에 보인다."@ko ;
+  dcterms:modified "2026-11-14"^^xsd:date ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/concepts.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/concepts.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#concepts> .
+
+kcd:graph-rdf a dcat:Dataset, void:Dataset ;
+  dcterms:title "관계망과 RDF · 온톨로지"@ko ;
+  dcterms:description "위 자료를 합친 관계망(점·선)과 그것을 RDF 로 옮긴 파일, 그리고 OWL 온톨로지 v8(스키마와 파일럿 데이터)."@ko ;
+  dcterms:modified "2026-11-14"^^xsd:date ;
+  void:triples 105620 ;
+  void:dataDump <https://kcritic.kr/site/data/graph.ttl> ;
+  void:uriSpace "https://kcritic.kr/resource/" ;
+  void:vocabulary <http://kcritic.kr/ontology/critic#>, <http://purl.org/dc/terms/>, <http://xmlns.com/foaf/0.1/>, <http://purl.org/spar/cito/> ;
+  dcat:distribution <https://kcritic.kr/site/data/graph.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/graph.ttl> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/graph_metrics.json> ;
+  dcat:distribution <https://kcritic.kr/critic_v8_schema.rdf> ;
+  dcat:distribution <https://kcritic.kr/critic_v8_data.rdf> ;
+  dcat:landingPage <https://kcritic.kr/data.html#graph-rdf> .
+
+kcd:quoted-sentences a dcat:Dataset ;
+  dcterms:title "원문에서 옮긴 문장(연구용 인용)"@ko ;
+  dcterms:description "원문 전체는 싣지 않지만 세 곳에서 문장 단위로 인용한다. ① 태도 판정: 태도 표시가 붙은 문장만. ② 개념어 예시: 그 개념어가 든 문장 하나. ③ 인물 인용 문맥: 인물이 나온 문장(두 문장 이내)."@ko ;
+  dcterms:modified "2026-10-23"^^xsd:date ;
+  dcterms:rights "재이용 허락 없음 — 저작권은 각 필자와 수록 지면의 권리자에게 있다. 이 사이트는 연구·비평을 위한 인용으로만 싣는다."@ko ;
+  dcat:distribution <https://kcritic.kr/site/data/interp_game.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/examples.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/v2/contexts.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/concepts.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#quoted-sentences> .
+
+kcd:find-index a dcat:Dataset ;
+  dcterms:title "글 찾기 색인"@ko ;
+  dcterms:description "뜻으로 글을 찾기 위한 벡터. 제목·개념어·인물 같은 메타데이터와 공개 해제에서만 만든다."@ko ;
+  dcterms:modified "2026-11-14"^^xsd:date ;
+  dcterms:source <https://huggingface.co/BAAI/bge-m3> ;
+  dcat:distribution <https://kcritic.kr/site/data/find/meta.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/find/vec.bin> ;
+  dcat:distribution <https://kcritic.kr/site/data/find/vocab.bin> ;
+  dcat:landingPage <https://kcritic.kr/data.html#find-index> .
+
+kcd:theses a dcat:Dataset ;
+  dcterms:title "현대문학 박사학위논문 서지"@ko ;
+  dcterms:description "한국 현대문학 박사학위논문의 제목·저자·연도·학위 수여 대학·지도교수와 RISS 상세 화면 주소. 본문에서 자동으로 뽑은 인물·개념어 태그와, 보유 논문끼리의 참고문헌 연결도 싣는다."@ko ;
+  dcterms:modified "2026-11-10"^^xsd:date ;
+  dcterms:source <https://www.riss.kr> ;
+  dcterms:source <https://lod.nl.go.kr> ;
+  dcat:distribution <https://kcritic.kr/site/data/research-public.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/thesis-topics-public.json> ;
+  dcat:distribution <https://kcritic.kr/site/data/thesis-citations-public.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#theses> .
+
+kcd:lineage a dcat:Dataset ;
+  dcterms:title "학맥(지도교수–제자 계보)"@ko ;
+  dcterms:description "박사논문의 지도교수에서 제자로, 그 제자가 교수가 되어 지도한 다음 세대로 이어지는 관계."@ko ;
+  dcterms:modified "2026-11-10"^^xsd:date ;
+  dcterms:source <https://www.riss.kr> ;
+  dcterms:source <https://lod.nl.go.kr> ;
+  dcat:distribution <https://kcritic.kr/site/data/genealogy-library.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#lineage> .
+
+kcd:academic-network a dcat:Dataset ;
+  dcterms:title "학교·소속·사제관계"@ko ;
+  dcterms:description "논문의 학위 수여 대학과 연구자의 소속을 나눠 보이고, 박사 지도와 그 밖의 사제관계를 구분한 자료."@ko ;
+  dcterms:modified "2026-10-27"^^xsd:date ;
+  dcterms:source <https://www.riss.kr> ;
+  dcat:distribution <https://kcritic.kr/site/data/academic-network-public.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#academic-network> .
+
+kcd:school-style a dcat:Dataset ;
+  dcterms:title "학풍(연구 주제의 닮음) 분석"@ko ;
+  dcterms:description "지도교수의 논문 묶음과 제자의 박사논문이 주제에서 얼마나 닮았는지 계산한 결과: 2차원 지도 좌표, 토픽 비중, 관계별 효과."@ko ;
+  dcterms:modified "2026-11-02"^^xsd:date ;
+  dcterms:source <https://www.kci.go.kr> ;
+  dcterms:source <https://huggingface.co/BAAI/bge-m3> ;
+  dcat:distribution <https://kcritic.kr/site/data/school-style-public.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#school-style> .
+
+kcd:kci-citations a dcat:Dataset ;
+  dcterms:title "KCI 학술지 논문의 인용 관계"@ko ;
+  dcterms:description "국어국문학·문학 학술지 논문의 참고문헌 가운데 KCI 논문끼리 이어진 인용 관계. 현대문학 논문끼리의 관계만 담았다."@ko ;
+  dcterms:modified "2026-10-30"^^xsd:date ;
+  dcterms:source <https://www.kci.go.kr> ;
+  dcterms:rights "각 제공처의 조건을 따른다(아래 third_party 목록)."@ko ;
+  dcat:distribution <https://kcritic.kr/site/data/kci-citations-public.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#kci-citations> .
+
+kcd:theses-legacy a dcat:Dataset ;
+  dcterms:title "선행연구 목록(예전 화면)"@ko ;
+  dcterms:description "현대문학 박사논문 목록을 작가별로 정리한 예전 자료. 지금의 학술연구 화면과는 따로 만든 것이다."@ko ;
+  dcat:distribution <https://kcritic.kr/site/data/bibliography.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#theses-legacy> .
+
+kcd:criticism-2000s a dcat:Dataset ;
+  dcterms:title "2000년대 이후 시 비평 목록"@ko ;
+  dcterms:description "2000–2020년대 시 문학을 진단한 비평의 서지 목록."@ko ;
+  dcat:distribution <https://kcritic.kr/site/data/criticism.json> ;
+  dcat:landingPage <https://kcritic.kr/data.html#criticism-2000s> .
+
