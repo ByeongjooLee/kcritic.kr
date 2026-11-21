@@ -154,13 +154,14 @@ kcd:kci-citations a dcat:Dataset ;
 
 kcd:theses-legacy a dcat:Dataset ;
   dcterms:title "선행연구 목록(예전 화면)"@ko ;
-  dcterms:description "현대문학 박사논문 목록을 작가별로 정리한 예전 자료. 지금의 학술연구 화면과는 따로 만든 것이다."@ko ;
+  dcterms:description "2000–2019년 현대문학 박사논문 목록을 작가별로 정리한 예전 자료. 지금의 학술연구 화면과는 따로 만든 것이다."@ko ;
+  dcterms:source <https://doi.org/10.22936/sh.60..202010.012> ;
   dcat:distribution <https://kcritic.kr/site/data/bibliography.json> ;
   dcat:landingPage <https://kcritic.kr/data.html#theses-legacy> .
 
 kcd:criticism-2000s a dcat:Dataset ;
   dcterms:title "2000년대 이후 시 비평 목록"@ko ;
-  dcterms:description "2000–2020년대 시 문학을 진단한 비평의 서지 목록."@ko ;
+  dcterms:description "2005–2024년에 발표된, 2000년대 이후 시 문학을 진단한 비평의 서지 목록."@ko ;
   dcat:distribution <https://kcritic.kr/site/data/criticism.json> ;
   dcat:landingPage <https://kcritic.kr/data.html#criticism-2000s> .
 

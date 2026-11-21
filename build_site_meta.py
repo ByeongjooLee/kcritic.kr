@@ -193,7 +193,9 @@ def counts_for(did):
             add("수집 대상 전체 논문", (k.get("coverage") or {}).get("list_articles"))
     elif did == "theses-legacy":
         b = load("site/data/bibliography.json")
-        add("기록(작가별로 나눈 뒤)", len(b) if b is not None else None)
+        if b is not None:
+            add("박사논문", len({r.get("orig_id") for r in b}))
+            add("기록(작가별로 나눈 뒤)", len(b))
     elif did == "criticism-2000s":
         c = load("site/data/criticism.json")
         add("기록", len(c["records"]) if c else None)
