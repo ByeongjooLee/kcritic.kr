@@ -274,6 +274,35 @@ def _contrib_count_pending() -> int:
     return len(_pending_files())
 
 # ── Gemini로 서식 정규화 ──
+# Gemini(Google)에 넘기는 칸은 서식을 맞출 내용뿐이다. 제안자의 이름·전자우편·소속,
+# 접수 번호·시각은 넘기지 않는다 — 참여하기는 사이트의 연락·정정 창구이고(data.html),
+# 화면에 전자우편은 "외부에 공개되지 않습니다" 라고 적혀 있다. 이 목록에 칸을 더하지 말 것.
+GEMINI_FIELDS = ("type", "detail")
+DETAIL_MAX = 20000   # Contribution.detail 의 상한과 같게
+
+def _gemini_payload(contributions: list[dict]) -> list[dict]:
+    """Gemini 에 보낼 목록 — 순번(n)과 GEMINI_FIELDS 만 담는다."""
+    return [{"n": i, **{k: c.get(k) for k in GEMINI_FIELDS}} for i, c in enumerate(contributions)]
+
+def _merge_normalized(contributions: list[dict], returned) -> list[dict]:
+    """Gemini 가 돌려준 것에서 detail 만 받아 원래 기록에 얹는다.
+
+    돌려준 JSON 을 기록째로 믿지 않는다 — 순번이 맞고 detail 이 상한 안의 글일 때만
+    그 칸을 바꾸고, 나머지 칸(이름·전자우편·상태 등)은 서버에 있던 그대로 둔다.
+    """
+    merged = [dict(c) for c in contributions]
+    if not isinstance(returned, list):
+        return merged
+    for item in returned:
+        if not isinstance(item, dict):
+            continue
+        n, detail = item.get("n"), item.get("detail")
+        if isinstance(n, bool) or not isinstance(n, int) or not 0 <= n < len(merged):
+            continue
+        if isinstance(detail, str) and detail.strip() and len(detail) <= DETAIL_MAX:
+            merged[n]["detail"] = detail
+    return merged
+
 def gemini_normalize(contributions: list[dict]) -> list[dict]:
     if not GEMINI_KEY:
         return contributions
@@ -284,11 +313,12 @@ def gemini_normalize(contributions: list[dict]) -> list[dict]:
 - 연도는 4자리 숫자
 - 한국어 이름 표기 통일
 - 원래 의미를 바꾸지 말 것
+- 각 항목의 n(순번)은 그대로 둘 것
 
 입력 JSON:
-{json.dumps(contributions, ensure_ascii=False, indent=2)}
+{json.dumps(_gemini_payload(contributions), ensure_ascii=False, indent=2)}
 
-정규화된 JSON만 출력하세요. 설명 없이."""
+같은 순서·같은 모양(n, type, detail)의 JSON 배열만 출력하세요. 설명 없이."""
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}"
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode()
@@ -298,7 +328,7 @@ def gemini_normalize(contributions: list[dict]) -> list[dict]:
             result = json.load(r)
         text = result["candidates"][0]["content"]["parts"][0]["text"].strip()
         text = text.replace("```json", "").replace("```", "").strip()
-        return json.loads(text)
+        return _merge_normalized(contributions, json.loads(text))
     except Exception:
         return contributions   # 실패 시 원본 반환
 
