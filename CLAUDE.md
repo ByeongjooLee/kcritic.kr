@@ -541,6 +541,8 @@ py build.py → py build_site_v2.py → git push → npx wrangler deploy   (.\de
 
 **⚠️ git push만으로는 라이브 반영 안 됨.** GitHub Actions/자동배포 없음 → 반드시 `npx wrangler deploy` 실행해야 Cloudflare에 반영. `deploy.ps1`이 build+add -A+commit+push+deploy를 한 번에 처리.
 
+> 2026-11-22 확인: GitHub 저장소에 Cloudflare 「Workers Builds: kcritic」 검사가 연결돼 있어 **main 에 push 할 때마다 Cloudflare 쪽 빌드가 시도된다**. 확인한 push(11-14·11-15·11-21·11-22)는 모두 실패로 끝났고 라이브 사이트는 바뀌지 않았다(11-22 push 뒤 `/data.html` 404 그대로). 실패 원인은 밖에서 볼 수 없다 — `worker/index.js` 가 저장소에 없는 `./private/shards.js` 를 불러오기 때문으로 추정하며, 확인은 Cloudflare 대시보드의 Builds. 이 빌드가 성공하게 되면 push 만으로 배포되므로, 그 연결을 고치거나 끊을 때는 이 절을 함께 고칠 것.
+
 **배포 검증:** `curl -s -o /dev/null -w "%{http_code}" https://kcritic.kr/site/essays/{stem}.html` 로 200/307 확인. 보안 재확인: `/.env`·`/essays/*.xml`·`/build.py`·`/CLAUDE.md`가 **404**여야 함(노출 금지). 공개되어야 하는 것: `/critic_v8_schema.rdf`·`/critic_v8_data.rdf`·`/site/data/graph.ttl` 이 **200**.
 
 ### `.assetsignore` 주의 (배포 자산 제외)
@@ -1134,7 +1136,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - 적용한 곳: 학풍 탭(`school.html`·`school.js`·`site/data/school-style-public.json` 의 라벨), 내보내기 스크립트 `수집도구\export_school_style.py`, 논문 초고(`논문초안_20261101`, 그림 1 은 `그림_20261121`). 이 파일의 2026-11-21 이전 기록과 옛 분석 보고서·공개 파생표 README 는 당시 표기 그대로 둔다.
 - 「3촌」은 소리 내 읽으면 「삼촌」과 같으므로 발표·영문에서는 「지도교수의 동문」으로 풀어 쓴다. 「동문」은 같은 대학 졸업생이 아니라 같은 지도교수의 제자를 뜻하며, 화면에서는 처음 나올 때 뜻을 풀어 준다.
 
-## 데이터와 출처 · 이용 조건 안내 (2026-11-21, 브랜치 `claude/site-transparency-6ca367` — main 미병합·미배포)
+## 데이터와 출처 · 이용 조건 안내 (2026-11-21 작성 · 2026-11-22 main 에 올림 `e5d18e2d` — 사이트 미배포)
 
 - **배경**: 외부 평가에서 「운영 주체, 데이터 라이선스, 상세한 출처 정보를 밝히지 않는다」는 지적을 받았다. 조사해 보니 만든 사람(`maker.html`)·원문 비공개 문구·자료별 한계 문구는 화면마다 흩어져 있었으나 ① 운영 주체의 정식 표기와 연락 창구 ② 이용 조건(저장소에 LICENSE 없음, RDF·TTL·JSON 에 라이선스 선언 없음) ③ 자료별 출처·기준일·가공 방법을 한곳에 모은 안내 ④ 기계가 읽는 표시(JSON-LD·VoID)가 없었다.
 - **구조**: 원본은 `site/data/datasets.json` 하나다 — `site`(만든 사람·운영 주체·연락·연구비·정정 창구·서비스 위치), `licenses`(직접 만든 데이터 / 해제·요약 / 온톨로지 / 코드 / 원문 인용 / 외부 자료), `third_party`(외부 제공처별 조건·근거 주소·확인한 날), `datasets`(자료 묶음 15개: 무엇·출처·기준일·가공·한계·파일·이용 조건·실존 인물 포함 여부). `py -X utf8 build_site_meta.py`(표준 라이브러리, 결정적; `--check` 는 바뀔 것이 있으면 종료 코드 1)가 ① 묶음별 규모(`counts`)와 데이터 파일에 날짜가 적힌 묶음의 기준일을 공개 파일에서 다시 세어 되쓰고 ② `site/data/void.ttl`(VoID·DCAT) ③ `data.html`(schema.org DataCatalog·Dataset)·`index.html`(WebSite)의 JSON-LD 블록(`<!-- JSONLD-START -->`~`<!-- JSONLD-END -->`)을 만든다. graph.ttl 트리플 수는 이 스크립트의 계산값이 rdflib `len(graph)` 과 같다(105,620).
