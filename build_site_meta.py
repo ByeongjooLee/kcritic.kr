@@ -249,7 +249,7 @@ def build_void(cat):
     L = [
         "# kcritic.kr 공개 자료 설명 (VoID · DCAT) — build_site_meta.py 가 site/data/datasets.json 에서 만든다.",
         "# 사람이 읽는 안내: https://kcritic.kr/data.html",
-        "# dcterms:license 가 없는 묶음은 이용 조건이 아직 정해지지 않은 것이다(없음 ≠ 자유 이용).",
+        "# dcterms:license 는 묶음 전체에 한 조건이 적용될 때만 붙인다. 외부 서지가 섞인 묶음은 dcterms:rights 에 글로 적는다(없음 ≠ 자유 이용).",
         "",
         "@prefix dcat:    <http://www.w3.org/ns/dcat#> .",
         "@prefix dcterms: <http://purl.org/dc/terms/> .",
@@ -283,9 +283,11 @@ def build_void(cat):
             if u:
                 L.append(f"  dcterms:source <{u}> ;")
         k = lic.get(d.get("license_key") or "", {})
-        if k.get("license_url"):
-            L.append(f"  dcterms:license <{k['license_url']}> ;")
-        elif k.get("status") == "fixed" and k.get("license"):
+        if d.get("rights_caveat"):               # 외부 서지가 섞인 묶음 — dcterms:license 를 통째로 붙이지 않는다
+            L.append(f"  dcterms:rights {ttl_str(d['rights_caveat'])}@ko ;")
+        elif k.get("license_url"):
+            L.append(f"  dcterms:license <{k.get('license_uri') or k['license_url']}> ;")
+        elif k.get("license"):
             L.append(f"  dcterms:rights {ttl_str(k['license'])}@ko ;")
         if d["id"] == "graph-rdf":
             n = dict(map(tuple, d.get("counts", []))).get("RDF 트리플(graph.ttl)")
@@ -326,8 +328,11 @@ def jsonld_catalog(cat):
         if creator:
             o["creator"] = creator
         k = lic.get(d.get("license_key") or "", {})
-        if k.get("license_url"):
-            o["license"] = k["license_url"]          # 정해지지 않았으면 쓰지 않는다
+        if k.get("license_url") and not d.get("rights_caveat"):
+            o["license"] = k.get("license_uri") or k["license_url"]          # 정해지지 않았으면 쓰지 않는다
+        elif d.get("rights_caveat"):                 # 외부 서지가 섞인 묶음 — 통째로 선언하지 않고 조건을 글로 적는다
+            o["usageInfo"] = f"{BASE}/data.html#terms"
+            o["conditionsOfAccess"] = d["rights_caveat"]
         files = [f for f in d.get("files", []) if "*" not in f]
         if files:
             o["distribution"] = [{"@type": "DataDownload", "contentUrl": file_url(f),

@@ -51,6 +51,9 @@
     <rdfs:label xml:lang="ko">한국 비평사 온톨로지 스키마</rdfs:label>
     <rdfs:comment xml:lang="ko">한국 문학비평에서 "누가·누구를·어떻게·어떤 이론으로" 비평했는가를 표현하는 온톨로지 (v8-kcritic)</rdfs:comment>
     <owl:versionInfo>8.0-kcritic</owl:versionInfo>
+    <dcterms:creator xml:lang="ko">이병주</dcterms:creator>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/" />
+    <dcterms:rights xml:lang="ko">CC BY 4.0 — 출처(이병주, 한국 비평사 온톨로지, https://kcritic.kr)를 밝히면 누구나 쓸 수 있다.</dcterms:rights>
   </owl:Ontology>
 
   <!-- ============================================================

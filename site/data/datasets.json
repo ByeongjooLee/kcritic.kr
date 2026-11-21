@@ -10,8 +10,8 @@
       "name": "이병주",
       "page": "https://kcritic.kr/maker.html"
     },
-    "operator": null,
-    "operator_status": "undecided",
+    "operator": "이병주",
+    "operator_status": "decided",
     "contact": null,
     "contact_status": "undecided",
     "funding": null,
@@ -35,36 +35,43 @@
         "what": "학술연구 검색(/theses/)",
         "where": "Cloudflare Workers (별도 Worker)"
       }
-    ]
+    ],
+    "operator_type": "person",
+    "operator_note": "개인 연구자가 만들고 운영한다. 소속 기관의 공식 사업이 아니다."
   },
   "licenses": {
     "data": {
       "label": "직접 만든 메타데이터·관계 데이터",
       "covers": "글의 서지, 비평가–글–작가·이론가 관계, 개념어 색인, 인물 연결표, 학맥·학교 소속·학풍 공개 파일, graph.ttl · graph.json",
-      "license": null,
-      "license_url": null,
-      "status": "undecided"
+      "license": "CC BY 4.0 (저작자표시 4.0 국제)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ko",
+      "status": "decided",
+      "note": "출처를 밝히면 누구나 복제·가공·재배포할 수 있다. 외부 기관에서 온 부분(RISS 서지, 다른 연구자가 만든 목록 등), 요약문, 원문에서 옮긴 문장은 여기에 들어가지 않는다.",
+      "license_uri": "https://creativecommons.org/licenses/by/4.0/"
     },
     "summaries": {
       "label": "해제·요지·주장 요약",
       "covers": "『문학과사회』·『창작과비평』 글에 붙인 요지·해제·주장·근거 문장(AI — Claude Opus 5.5 — 의 도움을 받아 쓰고 원문과 대조해 검수한 글)",
-      "license": null,
+      "license": "이용 조건을 붙이지 않음 — 열람과 출처를 밝힌 인용만 할 수 있다.",
       "license_url": null,
-      "status": "undecided"
+      "status": "decided",
+      "note": "요약문을 통째로 복제하거나 다시 배포하려면 운영자에게 먼저 문의해야 한다."
     },
     "ontology": {
       "label": "온톨로지 스키마",
       "covers": "critic_v8_schema.rdf · critic_v8_data.rdf",
-      "license": null,
-      "license_url": null,
-      "status": "undecided"
+      "license": "CC BY 4.0 (저작자표시 4.0 국제)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ko",
+      "status": "decided",
+      "license_uri": "https://creativecommons.org/licenses/by/4.0/"
     },
     "code": {
       "label": "사이트·빌드 코드",
       "covers": "GitHub 저장소의 HTML·CSS·JavaScript·Python",
-      "license": null,
-      "license_url": null,
-      "status": "undecided"
+      "license": "MIT",
+      "license_url": "https://spdx.org/licenses/MIT.html",
+      "status": "decided",
+      "note": "저장소에 함께 실린 외부 라이브러리(Comunica·N3 묶음 등)는 각자의 라이선스를 따른다."
     },
     "quotes": {
       "label": "원문에서 옮긴 문장",
@@ -76,7 +83,7 @@
     "third_party": {
       "label": "외부 기관에서 온 자료",
       "covers": "전거 식별자, 서지, 인용 관계 등",
-      "license": "각 제공처의 조건을 따른다(아래 third_party 목록).",
+      "license": "각 제공처의 조건을 따른다(아래 「외부 기관에서 온 자료의 조건」 표).",
       "license_url": null,
       "status": "fixed"
     }
@@ -312,7 +319,8 @@
           "요약이 붙은 글",
           609
         ]
-      ]
+      ],
+      "rights_caveat": "요지·해제·주장 요약 문장에는 이용 조건을 붙이지 않았다. CC BY 4.0 은 서지·관계·개념어에만 적용된다."
     },
     {
       "id": "essays-changbi",
@@ -369,7 +377,8 @@
           "관계망에 넣은 글",
           2129
         ]
-      ]
+      ],
+      "rights_caveat": "목차의 표제·필자는 창비 웹진에서 온 서지 사실이며, 창비의 이용 조건은 확인하지 못했다. 요약 문장에는 이용 조건을 붙이지 않았다. CC BY 4.0 은 이 사이트가 더한 부분(난 분류, 인물·키워드 관계)에만 적용된다."
     },
     {
       "id": "persons-authority",
@@ -447,7 +456,8 @@
           "국립중앙도서관 전거 연결",
           2312
         ]
-      ]
+      ],
+      "rights_caveat": "외부 식별자(국립중앙도서관 전거, Wikidata, VIAF, ISNI)는 각 제공처의 조건을 따른다. CC BY 4.0 은 이 사이트가 만든 연결표와 정본 이름에 적용된다."
     },
     {
       "id": "concepts",
@@ -483,7 +493,8 @@
           "화면에 보이는 개념어(2편 이상)",
           2902
         ]
-      ]
+      ],
+      "rights_caveat": "concepts.json 에 든 예시 문장은 원문에서 옮긴 것이라 CC BY 4.0 대상이 아니다. 개념어와 그 개념어를 쓴 글의 목록에만 적용된다."
     },
     {
       "id": "graph-rdf",
@@ -671,7 +682,8 @@
           "참고문헌 연결이 있는 논문",
           646
         ]
-      ]
+      ],
+      "rights_caveat": "서지 항목(제목·저자·연도·제어번호)은 RISS 등 원 제공처의 조건을 따른다. CC BY 4.0 은 이 사이트가 더한 부분(관계 판정, 표기 통일, 태그, 연결)에만 적용된다."
     },
     {
       "id": "lineage",
@@ -743,7 +755,8 @@
           1740
         ]
       ],
-      "as_of_auto": true
+      "as_of_auto": true,
+      "rights_caveat": "서지 항목(제목·저자·연도·제어번호)은 RISS 등 원 제공처의 조건을 따른다. CC BY 4.0 은 이 사이트가 더한 부분(관계 판정, 표기 통일, 태그, 연결)에만 적용된다."
     },
     {
       "id": "academic-network",
@@ -798,7 +811,8 @@
           170
         ]
       ],
-      "as_of_auto": true
+      "as_of_auto": true,
+      "rights_caveat": "서지 항목(제목·저자·연도·제어번호)은 RISS 등 원 제공처의 조건을 따른다. CC BY 4.0 은 이 사이트가 더한 부분(관계 판정, 표기 통일, 태그, 연결)에만 적용된다."
     },
     {
       "id": "school-style",
@@ -852,7 +866,8 @@
           27
         ]
       ],
-      "as_of_auto": true
+      "as_of_auto": true,
+      "rights_caveat": "논문 서지는 KCI·RISS 등 원 제공처의 조건을 따른다. CC BY 4.0 은 이 사이트가 계산한 값(좌표, 토픽 비중, 효과 추정치)에만 적용된다."
     },
     {
       "id": "kci-citations",
@@ -915,7 +930,7 @@
       "files": [
         "site/data/bibliography.json"
       ],
-      "license_key": "data",
+      "license_key": "third_party",
       "personal_data": true,
       "personal_data_note": "논문 저자 이름(공개 서지 정보).",
       "screens": [
@@ -931,7 +946,8 @@
           1859
         ]
       ],
-      "as_of_text": "2000–2019년 논문 (원 논문은 2020년 발행)"
+      "as_of_text": "2000–2019년 논문 (원 논문은 2020년 발행)",
+      "rights_caveat": "다른 연구자가 만든 목록을 옮긴 것이다. 다시 쓰려면 원 작성자에게 확인해야 한다."
     },
     {
       "id": "criticism-2000s",
@@ -951,7 +967,7 @@
       "files": [
         "site/data/criticism.json"
       ],
-      "license_key": "data",
+      "license_key": "third_party",
       "personal_data": false,
       "screens": [
         "/criticism.html"
@@ -962,7 +978,8 @@
           136
         ]
       ],
-      "as_of_text": "2005–2024년 발표분 (목록을 만든 시점은 확인 필요)"
+      "as_of_text": "2005–2024년 발표분 (목록을 만든 시점은 확인 필요)",
+      "rights_caveat": "다른 연구자가 만든 목록을 옮긴 것이다. 다시 쓰려면 원 작성자에게 확인해야 한다."
     }
   ]
 }

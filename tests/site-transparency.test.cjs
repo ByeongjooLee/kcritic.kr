@@ -70,9 +70,27 @@ test('JSON-LD 는 읽히고, 정해지지 않은 라이선스·운영 주체를 
   for (const d of dc.dataset) {
     const src = cat.datasets.find(x => d['@id'].endsWith('#' + x.id));
     const lic = cat.licenses[src.license_key];
-    assert.strictEqual(d.license, lic.license_url || undefined, `${src.id} license`);
+    // 외부 서지가 섞인 묶음(rights_caveat)은 통째로 선언하지 않고 조건을 글로 적는다
+    assert.strictEqual(d.license, src.rights_caveat ? undefined : (lic.license_uri || lic.license_url || undefined), `${src.id} license`);
+    if (src.rights_caveat) assert.strictEqual(d.conditionsOfAccess, src.rights_caveat, `${src.id} 단서`);
   }
   if (!cat.site.operator) { assert.strictEqual(dc.publisher, undefined); assert.strictEqual(ws.publisher, undefined); }
+});
+
+test('다른 사람이 만든 목록과 RISS 서지가 든 묶음에는 이 사이트의 라이선스를 통째로 붙이지 않는다', () => {
+  for (const id of ['theses-legacy', 'criticism-2000s']) assert.strictEqual(cat.datasets.find(d => d.id === id).license_key, 'third_party', id);
+  for (const id of ['theses', 'lineage', 'academic-network', 'school-style', 'essays-mhs', 'essays-changbi', 'concepts']) assert.ok(cat.datasets.find(d => d.id === id).rights_caveat, `${id} 단서`);
+  const voidTtl = read('site/data/void.ttl');
+  for (const id of ['theses', 'lineage', 'academic-network', 'theses-legacy', 'criticism-2000s']) {
+    const block = voidTtl.split(`kcd:${id} a dcat:Dataset`)[1].split(/\r?\n\r?\n/)[0];
+    assert.ok(!block.includes('dcterms:license'), `void.ttl ${id}`);
+  }
+  if (cat.licenses.code.status === 'decided') {
+    assert.ok(fs.existsSync(path.join(root, 'LICENSE')), 'LICENSE 파일');
+    assert.strictEqual(JSON.parse(read('package.json')).license, cat.licenses.code.license, 'package.json license');
+  }
+  if (cat.licenses.ontology.license_url) for (const f of ['critic_v8_schema.rdf', 'critic_v8_data.rdf'])
+    assert.ok(read(f).includes(`<dcterms:license rdf:resource="${cat.licenses.ontology.license_uri}"`), `${f} dcterms:license`);
 });
 
 test('공개 파일에 메일 주소·로컬 경로·원문 경로가 없다', () => {
