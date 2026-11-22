@@ -5,12 +5,12 @@
   "site": {
     "name": "kcritic — 한국 비평사 온톨로지",
     "url": "https://kcritic.kr",
-    "repository": "https://github.com/ByeongjooLee/kcritic.kr",
+    "repository": "https://kcritic.kr/data.html",
     "creator": {
-      "name": "이병주",
+      "name": "kcritic.kr 운영자",
       "page": "https://kcritic.kr/maker.html"
     },
-    "operator": "이병주",
+    "operator": "kcritic.kr 운영자",
     "operator_status": "decided",
     "contact": "참여하기 폼 또는 GitHub 저장소의 이슈. 전자우편 주소는 따로 두지 않는다.",
     "contact_status": "decided",
@@ -40,11 +40,11 @@
     "operator_note": "개인 연구자가 만들고 운영한다.",
     "contact_urls": [
       "https://kcritic.kr/contribute.html",
-      "https://github.com/ByeongjooLee/kcritic.kr/issues"
+      "https://kcritic.kr/contribute.html"
     ],
     "correction_channel_urls": [
       "https://kcritic.kr/contribute.html",
-      "https://github.com/ByeongjooLee/kcritic.kr/issues"
+      "https://kcritic.kr/contribute.html"
     ]
   },
   "licenses": {

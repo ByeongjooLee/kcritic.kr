@@ -12,8 +12,8 @@
 <https://kcritic.kr/data.html> a dcat:Catalog ;
   dcterms:title "kcritic — 한국 비평사 온톨로지 — 데이터와 출처"@ko ;
   foaf:homepage <https://kcritic.kr> ;
-  dcterms:creator "이병주"@ko ;
-  dcterms:publisher "이병주"@ko ;
+  dcterms:creator "kcritic.kr 운영자"@ko ;
+  dcterms:publisher "kcritic.kr 운영자"@ko ;
   dcterms:modified "2026-11-21"^^xsd:date ;
   dcat:dataset kcd:essays-collected, kcd:essays-mhs, kcd:essays-changbi, kcd:persons-authority, kcd:concepts, kcd:graph-rdf, kcd:quoted-sentences, kcd:find-index, kcd:theses, kcd:lineage, kcd:academic-network, kcd:school-style, kcd:kci-citations, kcd:theses-legacy, kcd:criticism-2000s .
 

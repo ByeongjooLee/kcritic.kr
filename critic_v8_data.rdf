@@ -8,7 +8,7 @@
     스키마 : critic_v8_schema.rdf (http://kcritic.kr/ontology/)
     작성일 : 2026-06-10
     버전  : 8.0-kcritic
-    작성자 : 이병주
+    작성자 : kcritic.kr 운영자
 
     수록 인스턴스 (총 152 NamedIndividual)
     - 비평가 개인: 2명 (김우창, 유종호)
@@ -34,9 +34,9 @@
     <rdfs:label xml:lang="ko">한국 비평사 온톨로지 데이터</rdfs:label>
     <owl:imports rdf:resource="http://kcritic.kr/ontology/" />
     <owl:versionInfo>8.0-kcritic</owl:versionInfo>
-    <dcterms:creator xml:lang="ko">이병주</dcterms:creator>
+    <dcterms:creator xml:lang="ko">kcritic.kr 운영자</dcterms:creator>
     <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/" />
-    <dcterms:rights xml:lang="ko">CC BY 4.0 — 출처(이병주, 한국 비평사 온톨로지, https://kcritic.kr)를 밝히면 누구나 쓸 수 있다. 외부 식별자(Wikidata 등)는 각 제공처의 조건을 따른다.</dcterms:rights>
+    <dcterms:rights xml:lang="ko">CC BY 4.0 — 출처(kcritic.kr 운영자, 한국 비평사 온톨로지, https://kcritic.kr)를 밝히면 누구나 쓸 수 있다. 외부 식별자(Wikidata 등)는 각 제공처의 조건을 따른다.</dcterms:rights>
   </owl:Ontology>
 
   <!-- ============================================================
