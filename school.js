@@ -11,7 +11,7 @@ const BAR = '#2a78d6', VIEWS = ['topic', 'map'], PAGE = 20, MIN_LIN = 10, SMALL 
 const el = id => document.getElementById(id), fmt = n => Number(n).toLocaleString('ko-KR'), esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const pct = v => v == null ? '—' : (v * 100).toFixed(v * 100 >= 10 ? 0 : 1) + '%';
 const sgn = v => v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(4);
-let D, P = new Map(), T = new Map(), L = new Map(), byAdv = new Map(), colorBy = 'group', lineageFocus = null, selected = null, showTheses = true, showEdges = true, query = '';
+let D, P = new Map(), T = new Map(), L = new Map(), byAdv = new Map(), colorBy = 'root', lineageFocus = null, selected = null, showTheses = true, showEdges = true, query = '';
 let topRoots = [], topUnis = [], rootColor = new Map(), uniColor = new Map();
 let view = 'topic', topicSel = null, topicLin = null, topicShown = PAGE, showSmall = false, topicFocus = null, mapShown = false, TP = new Map();
 const svgNS = 'http://www.w3.org/2000/svg';
@@ -27,11 +27,12 @@ function colorOf(n) {
 function groupLabel(i) { const gr = D.groups.find(x => x.i === i); return gr ? gr.label : '기타'; }
 function topicLabel(k, n = 3) { const t = TP.get(k); return t ? (t.name || t.words.slice(0, n).join('·')) : `t${k}`; }   // 번호(t2) 대신 상위 낱말. 연구자가 이름을 정하면 name 을 쓴다
 function nameOf(id) { return P.get(id)?.name || id; }
+function rootName(id) { return L.get(id)?.name || P.get(id)?.name || String(id ?? '').split(':').pop(); }   // 계보 이름: 뿌리 교수가 교수 목록에 없어도(표본 밖 상위 지도교수) 이름만 보인다
 
 // ── 범례와 목록
 function renderLegend() {
   const items = colorBy === 'group' ? D.groups.map(gr => [gr.i === 7 ? OTHER : PALETTE[gr.i], gr.label + (TP.get(gr.topic)?.review ? ' (검토 중)' : ''), gr.words.slice(0, 5).join(' · ')])
-    : colorBy === 'root' ? [...topRoots.map(r => [rootColor.get(r), nameOf(r) + ' 계보', '']), [OTHER, '그 밖의 계보', '']]
+    : colorBy === 'root' ? [...topRoots.map(r => [rootColor.get(r), rootName(r) + ' 계보', '']), [OTHER, '그 밖의 계보', '']]
     : [...topUnis.map(u => [uniColor.get(u), u, '']), [OTHER, '그 밖의 대학', '']];
   el('legend').innerHTML = items.map(([c, l, t]) => `<span title="${esc(t)}"><i style="background:${c}"></i>${esc(l)}</span>`).join('') +
     `<span><i class="small" style="background:${OTHER}"></i>박사논문(작은 점)</span><span><i class="virtual"></i>KCI 묶음 없는 상위 지도교수(제자 평균 위치)</span><span><s></s>교수→교수 지도 간선</span>`;
@@ -94,7 +95,7 @@ function paint() {
 }
 function tip(n, kind, ev) {
   const t = el('tip');
-  t.innerHTML = kind === 'prof' ? `<b>${esc(n.name)}</b><span class="k">${esc((n.unis || []).join(' · ') || '소속 미확인')}${n.source === 'descendants' ? ' · KCI 묶음 없음(제자 평균 위치)' : ` · KCI 논문 ${fmt(n.n_articles)}편`}</span><br>${esc(nameOf(n.root))} 계보 · 표본 안 지도논문 ${n.n_advisees}편<br>${n.topics ? '주제 ' + esc(n.topics.slice(0, 2).map(([k, v]) => topicLabel(k, 2) + ' ' + pct(v)).join(', ')) : ''}`
+  t.innerHTML = kind === 'prof' ? `<b>${esc(n.name)}</b><span class="k">${esc((n.unis || []).join(' · ') || '소속 미확인')}${n.source === 'descendants' ? ' · KCI 묶음 없음(제자 평균 위치)' : ` · KCI 논문 ${fmt(n.n_articles)}편`}</span><br>${esc(rootName(n.root))} 계보 · 표본 안 지도논문 ${n.n_advisees}편<br>${n.topics ? '주제 ' + esc(n.topics.slice(0, 2).map(([k, v]) => topicLabel(k, 2) + ' ' + pct(v)).join(', ')) : ''}`
     : `<b>${esc(n.title)}</b><span class="k">${esc(n.year)} · ${esc(n.uni)} · 지도 ${esc(nameOf(n.advisor))}</span><br>${n.rank_uni ? `지도교수 묶음 순위 같은 대학 ${n.rank_uni}/${n.n_uni} · 전체 ${n.rank_all}/${D.summary.professors}` : ''}${n.topics ? '<br>주제 ' + esc(n.topics.slice(0, 2).map(([k, v]) => topicLabel(k, 2) + ' ' + pct(v)).join(', ')) : ''}`;
   t.style.display = 'block'; moveTip(ev);
 }
@@ -130,10 +131,10 @@ function showDetail() {
     const p = P.get(selected.id), adv = (byAdv.get(p.id) || []).slice().sort((a, b) => (a.year || '').localeCompare(b.year || '')), col = colorOf(p), rs = p.resid;
     const edgesIn = D.edges.filter(e => e.t === p.id), edgesOut = D.edges.filter(e => e.s === p.id);
     box.innerHTML = `<div class="sc-detail-head"><div><h2>${esc(p.name)}<span class="sc-badge">${p.source === 'descendants' ? 'KCI 묶음 없음 · 제자 평균' : `KCI 논문 ${fmt(p.n_articles)}편 묶음`}</span></h2>
-<p class="muted">${esc((p.unis || []).join(' · ') || '소속 미확인')} · ${esc(nameOf(p.root))} 계보${p.advisor ? ` · 지도교수 ${esc(nameOf(p.advisor))}` : ''}${p.phd_year ? ` · 박사 ${esc(p.phd_year)}` : ''} · 동일인 판정 ${esc(p.identity || '—')}</p></div>
+<p class="muted">${esc((p.unis || []).join(' · ') || '소속 미확인')} · ${esc(rootName(p.root))} 계보${p.advisor ? ` · 지도교수 ${esc(nameOf(p.advisor))}` : ''}${p.phd_year ? ` · 박사 ${esc(p.phd_year)}` : ''} · 동일인 판정 ${esc(p.identity || '—')}</p></div>
 <div class="actions"><a class="sc-btn" href="/lineage.html?person=${encodeURIComponent(p.id)}">학맥에서 보기 →</a><a class="sc-btn" href="/academic-network.html?name=${encodeURIComponent(p.name)}#faculty">학교·소속 →</a><button class="sc-btn" id="flyBtn" type="button">지도에서 찾기</button></div></div>
 <h3>연구 주제 (토픽 비중 상위 5)</h3>${bars(p.topics, col)}
-${p.source === 'descendants' ? `<p class="muted">이 교수는 KCI 수집 범위(2000년 이후) 안에 본인 논문 묶음이 없어, 토픽은 ${esc(nameOf(p.root))} 계보 박사논문의 평균이고 위치는 표본 안 제자 교수 ${p.n_student_profs}명의 평균입니다.</p>` : `
+${p.source === 'descendants' ? `<p class="muted">이 교수는 KCI 수집 범위(2000년 이후) 안에 본인 논문 묶음이 없어, 토픽은 ${esc(rootName(p.root))} 계보 박사논문의 평균이고 위치는 표본 안 제자 교수 ${p.n_student_profs}명의 평균입니다.</p>` : `
 <h3>학풍 지표 (bge-m3, 수집 범위 안)</h3><div class="sc-tiles">${tile(fmt(p.n_advisees), '표본 안 지도논문', '본인이 지도한 박사논문')}${tile(p.top1_uni == null ? '—' : pct(p.top1_uni), '지도교수 묶음 1위 비율', `같은 대학 교수 묶음 중 · ${p.n_ranked}편 기준`)}${tile(sgn(rs?.advisees), '제자 논문과의 잔차', '지도한 논문 평균 (양수 = 더 닮음)')}${tile(sgn(rs?.sibling), '동문 교수 제자와의 잔차', '같은 지도교수에게서 배운 다른 교수의 제자')}${tile(sgn(rs?.same_uni), '계보 밖 같은 대학과의 잔차', '학위 대학만 같은 논문')}</div>`}
 ${adv.length ? `<h3>표본 안 지도논문 ${adv.length}편</h3><ol>${adv.map(t => `<li><a href="#" data-thesis="${esc(t.id)}">${esc(t.title)}</a> <span class="muted">${esc(t.year)} · ${esc(t.uni)}${t.rank_uni ? ` · 지도교수 묶음 순위 ${t.rank_uni}/${t.n_uni}` : ''}</span></li>`).join('')}</ol>` : ''}
 ${edgesIn.length || edgesOut.length ? `<h3>교수 간 지도 간선</h3><p>${edgesIn.map(e => `${esc(nameOf(e.s))} → <b>${esc(p.name)}</b> (${esc(e.year || '연도 미상')}, ${esc(e.status)})`).concat(edgesOut.map(e => `<b>${esc(p.name)}</b> → ${esc(nameOf(e.t))} (${esc(e.year || '연도 미상')}, ${esc(e.status)})`)).join('<br>')}</p>` : ''}
@@ -141,7 +142,7 @@ ${edgesIn.length || edgesOut.length ? `<h3>교수 간 지도 간선</h3><p>${edg
     el('flyBtn').onclick = () => flyTo(p);
   } else {
     const t = T.get(selected.id), a = P.get(t.advisor), col = colorOf(t);
-    box.innerHTML = `<div class="sc-detail-head"><div><h2>${esc(t.title)}</h2><p class="muted">${esc(t.year)} · ${esc(t.uni)} · 지도교수 <a href="#" data-prof="${esc(t.advisor)}">${esc(nameOf(t.advisor))}</a> · ${esc(nameOf(t.root))} 계보 · 학위자 동일인 판정 ${esc(t.identity)}</p></div>
+    box.innerHTML = `<div class="sc-detail-head"><div><h2>${esc(t.title)}</h2><p class="muted">${esc(t.year)} · ${esc(t.uni)} · 지도교수 <a href="#" data-prof="${esc(t.advisor)}">${esc(nameOf(t.advisor))}</a> · ${esc(rootName(t.root))} 계보 · 학위자 동일인 판정 ${esc(t.identity)}</p></div>
 <div class="actions">${t.riss ? `<a class="sc-btn" href="${esc(t.riss)}" target="_blank" rel="noopener">RISS 서지 →</a>` : ''}<button class="sc-btn" id="flyBtn" type="button">지도에서 찾기</button></div></div>
 <h3>연구 주제 (박사논문 본문 토픽 상위 5)</h3>${bars(t.topics, col)}
 <h3>지도교수와의 닮음 (bge-m3)</h3><div class="sc-tiles">${tile(t.sim_advisor == null ? '—' : t.sim_advisor.toFixed(3), '지도교수 묶음과의 코사인', a ? `${esc(a.name)} 묶음 ${fmt(a.n_articles)}편` : '')}${tile(t.rank_uni ? `${t.rank_uni} / ${t.n_uni}` : '—', '같은 대학 교수 중 순위', '1위 = 지도교수 묶음이 가장 닮음')}${tile(t.rank_all ? `${t.rank_all} / ${D.summary.professors}` : '—', '교수 전체 중 순위', '')}</div>
@@ -184,7 +185,7 @@ el('clearFocus').onclick = () => { lineageFocus = null; renderLineages(); paint(
 el('clearSel').onclick = () => { selected = null; showDetail(); paint(); };
 el('csv').onclick = () => {
   const rows = [['id', 'name', 'universities', 'lineage_root', 'source', 'n_kci_articles', 'n_advisees_in_sample', 'top1_share_same_uni', 'resid_advisees', 'resid_sibling', 'resid_uncle', 'resid_same_uni', 'top_topics', 'x', 'y']];
-  for (const p of D.professors) rows.push([p.id, p.name, (p.unis || []).join(';'), nameOf(p.root), p.source, p.n_articles, p.n_advisees, p.top1_uni ?? '', p.resid?.advisees ?? '', p.resid?.sibling ?? '', p.resid?.uncle ?? '', p.resid?.same_uni ?? '', (p.topics || []).map(([kk, v]) => `t${kk}:${v}`).join(' '), p.x, p.y]);
+  for (const p of D.professors) rows.push([p.id, p.name, (p.unis || []).join(';'), rootName(p.root), p.source, p.n_articles, p.n_advisees, p.top1_uni ?? '', p.resid?.advisees ?? '', p.resid?.sibling ?? '', p.resid?.uncle ?? '', p.resid?.same_uni ?? '', (p.topics || []).map(([kk, v]) => `t${kk}:${v}`).join(' '), p.x, p.y]);
   const blob = new Blob(['﻿' + rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n')], { type: 'text/csv;charset=utf-8' });
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `학풍_교수_${D.as_of}.csv`; a.click(); URL.revokeObjectURL(a.href);
 };
@@ -249,8 +250,8 @@ ${!t.stable && !t.review ? '<p class="callout">이 묶음은 모형을 다시 �
 <section class="sc-sec" aria-labelledby="tl-title"><h3 id="tl-title">이 주제를 많이 다루는 계보</h3><p class="sc-muted">계보는 지도교수를 거슬러 올라간 맨 위 교수의 이름으로 부릅니다. 막대는 그 계보 박사논문의 평균 비중, 세로선은 전체 평균(${pct(t.share_thesis)})입니다. 계보를 누르면 아래 목록에 그 계보의 논문만 남습니다.</p>
 <div class="sc-linbars" role="group" aria-label="계보별 평균 비중">${lins.map(([l, v]) => `<button type="button" class="sc-linbar${topicLin === l.root ? ' on' : ''}" data-root="${esc(l.root)}" aria-pressed="${topicLin === l.root}" title="${esc(l.name)} 계보 · 평균 ${pct(v)} · 전체 평균의 ${(v / Math.max(t.share_thesis, 1e-6)).toFixed(1)}배 · 토픽이 붙은 논문 ${l.n_topic}편"><span class="nm">${esc(l.name)} <small>${l.n_topic}편</small></span><span class="track"><i style="width:${(v / max * 100).toFixed(1)}%"></i><b style="left:${avgX}%"></b></span><span class="v">${pct(v)}</span></button>`).join('')}</div>
 <p class="sc-muted">토픽이 붙은 논문이 ${MIN_LIN}편 이상인 계보 가운데 위에서 열 개입니다.</p></section>
-<section class="sc-sec" aria-labelledby="tt-title"><div class="sc-sec-head"><div><h3 id="tt-title">박사논문 <span class="sc-muted">${fmt(list.length)}편${topicLin ? ` · ${esc(nameOf(topicLin))} 계보만` : ''}</span></h3><p class="sc-muted">이 주제의 비중이 큰 순서입니다. 제목을 누르면 RISS 서지가 새 창에서 열립니다.</p></div>${topicLin ? '<button class="sc-btn" id="linClear" type="button">계보 고르기 해제</button>' : ''}</div>
-${list.length ? `<ol class="sc-tlist">${list.slice(0, topicShown).map(([x, v]) => `<li><span class="w" title="이 논문에서 이 주제의 비중 ${pct(v)}"><i style="width:${Math.round(v * 100)}%"></i></span><span class="pv">${pct(v)}</span><span class="tt">${x.riss ? `<a href="${esc(x.riss)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : esc(x.title)}<small>${esc(x.year)} · ${esc(x.uni)} · 지도교수 <a href="/school.html?view=map&amp;prof=${encodeURIComponent(x.advisor)}">${esc(nameOf(x.advisor))}</a> · ${esc(nameOf(x.root))} 계보</small></span></li>`).join('')}</ol>` : '<p class="sc-muted">해당하는 논문이 없습니다.</p>'}
+<section class="sc-sec" aria-labelledby="tt-title"><div class="sc-sec-head"><div><h3 id="tt-title">박사논문 <span class="sc-muted">${fmt(list.length)}편${topicLin ? ` · ${esc(rootName(topicLin))} 계보만` : ''}</span></h3><p class="sc-muted">이 주제의 비중이 큰 순서입니다. 제목을 누르면 RISS 서지가 새 창에서 열립니다.</p></div>${topicLin ? '<button class="sc-btn" id="linClear" type="button">계보 고르기 해제</button>' : ''}</div>
+${list.length ? `<ol class="sc-tlist">${list.slice(0, topicShown).map(([x, v]) => `<li><span class="w" title="이 논문에서 이 주제의 비중 ${pct(v)}"><i style="width:${Math.round(v * 100)}%"></i></span><span class="pv">${pct(v)}</span><span class="tt">${x.riss ? `<a href="${esc(x.riss)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : esc(x.title)}<small>${esc(x.year)} · ${esc(x.uni)} · 지도교수 <a href="/school.html?view=map&amp;prof=${encodeURIComponent(x.advisor)}">${esc(nameOf(x.advisor))}</a> · ${esc(rootName(x.root))} 계보</small></span></li>`).join('')}</ol>` : '<p class="sc-muted">해당하는 논문이 없습니다.</p>'}
 ${list.length > topicShown ? `<button class="sc-btn sc-more" id="moreTheses" type="button">더 보기 (${fmt(list.length - topicShown)}편 남음)</button>` : ''}</section>`;
   box.querySelectorAll('.sc-linbar').forEach(b => b.onclick = () => { const r = b.dataset.root; topicLin = topicLin === r ? null : r; topicShown = PAGE; renderTopicPanel(); [...box.querySelectorAll('.sc-linbar')].find(x => x.dataset.root === r)?.focus(); });
   const lc = el('linClear'); if (lc) lc.onclick = () => { topicLin = null; topicShown = PAGE; renderTopicPanel(); };

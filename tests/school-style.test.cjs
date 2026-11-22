@@ -51,6 +51,7 @@ test('school page defaults to the topic view, keeps the map view as a choice, an
  assert(page.includes('data-view="topic"')&&page.includes('data-view="map"'));
  assert(js.includes("'kc-school-view'"));assert(js.includes("q.get('view')"));
  assert(!js.includes('`t${k} `'),'topic labels must be words, not t-numbers');
+ assert(js.includes("colorBy = 'root'"),'map colours default to lineage');assert(page.indexOf('<option value="root">')<page.indexOf('<option value="group">'));
  for(const old of ['형제','삼촌','조부 '])assert(!page.includes(old)&&!js.includes(old),old);
 });
 test('school page ships its local dependencies and is linked from the lineage tab and the theses tab bar',()=>{

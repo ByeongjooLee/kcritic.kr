@@ -12,7 +12,7 @@
 <section class="sc-main" id="topicPanel" aria-live="polite"></section></div>
 
 <!-- 보기 2: 지도·표 (2026-11-02 화면 그대로) -->
-<div id="view-map" class="sc-layout" hidden><aside class="sc-filter"><h3>색 기준</h3><select id="colorBy" aria-label="색 기준"><option value="group">주된 연구 주제 (토픽 묶음)</option><option value="root">계보 뿌리 (상위 7개)</option><option value="uni">학위 대학 (상위 7개)</option></select>
+<div id="view-map" class="sc-layout" hidden><aside class="sc-filter"><h3>색 기준</h3><select id="colorBy" aria-label="색 기준"><option value="root">계보 뿌리 (상위 7개)</option><option value="group">주된 연구 주제 (토픽 묶음)</option><option value="uni">학위 대학 (상위 7개)</option></select>
 <h3>표시</h3><label class="sc-check"><input id="showTheses" type="checkbox" checked>박사논문 점 보이기</label><label class="sc-check"><input id="showEdges" type="checkbox" checked>교수 간 지도 간선 보이기</label>
 <h3>검색</h3><input id="search" type="search" placeholder="교수 이름 · 논문 제목" aria-label="교수·논문 검색">
 <h3>계보</h3><p class="sc-muted">누르면 그 계보의 교수·논문만 강조합니다. <button id="clearFocus" class="sc-btn sc-btn-sm" type="button" disabled>해제</button></p><p id="lin-count" class="sc-muted"></p><div id="lineages" aria-label="계보 목록"></div></aside>
@@ -20,7 +20,7 @@
 <p id="topicFocusNote" class="sc-focus-note" hidden></p>
 <div id="legend" class="sc-legend" aria-label="범례"></div>
 <div class="sc-stage" id="viewport"><svg id="map" role="img" aria-label="교수 묶음과 박사논문의 주제 지도"></svg><div id="tip" class="sc-tip" role="tooltip"></div></div>
-<p class="sc-help">위치는 bge-m3 임베딩을 t-SNE로 2차원에 내린 것이라 거리는 상대적입니다. 색은 토픽 20개 가운데 교수들의 주된 토픽 일곱 개이고, 토픽은 이름 대신 상위 낱말로 나타냅니다. 점선 테두리의 큰 점은 2000년 이전 세대 등 KCI 묶음이 없는 상위 지도교수로, 표본 안 제자 교수들의 평균 위치에 두었습니다. 교수 간 선은 박사논문 지도 간선이며 점선은 동일인 판정이 추론·미확인인 간선입니다. <span id="projNote"></span></p>
+<p class="sc-help">위치는 bge-m3 임베딩을 t-SNE로 2차원에 내린 것이라 거리는 상대적입니다. 색은 계보(박사논문이 많은 일곱 계보)이고, 왼쪽 「색 기준」에서 주된 연구 주제나 학위 대학으로 바꿀 수 있습니다. 주제는 토픽 20개 가운데 교수들의 주된 토픽 일곱 개이며 이름 대신 상위 낱말로 나타냅니다. 점선 테두리의 큰 점은 2000년 이전 세대 등 KCI 묶음이 없는 상위 지도교수로, 표본 안 제자 교수들의 평균 위치에 두었습니다. 교수 간 선은 박사논문 지도 간선이며 점선은 동일인 판정이 추론·미확인인 간선입니다. <span id="projNote"></span></p>
 <div id="detail" class="sc-detail" aria-live="polite"></div>
 <section class="sc-sec" aria-labelledby="heat-title"><div class="sc-sec-head"><div><h2 id="heat-title">계보별 주제 분포</h2><p class="sc-muted">계보 뿌리별 박사논문의 평균 토픽 비중(%). 토픽이 붙은 논문이 10편 이상인 계보만 싣고, 괄호 안은 그 논문 수입니다. 열은 교수들의 주된 토픽과 계보별 상위 토픽을 합친 것이고, 토픽은 상위 낱말 세 개로 나타냅니다. 계보 이름을 누르면 지도에서 강조됩니다.</p></div></div><div id="heat" class="sc-table-wrap"></div></section>
 <section class="sc-sec" aria-labelledby="eff-title"><div class="sc-sec-head"><div><h2 id="eff-title">관계별 주제 닮음의 크기</h2><p class="sc-muted">제자 박사논문 × 교수 묶음의 잔차 유사도를 관계별로 회귀한 표준화 효과(계수 ÷ 잔차 표준편차). 동문 = 같은 지도교수에게서 배운 교수, 3촌 = 지도교수의 동문, 조부모 = 지도교수의 지도교수. 지도교수 ≈ 동문 &gt; 3촌 ≫ 같은 계보 기타 0, 계보 밖 같은 대학 ≈ 0 의 순서는 어느 표현에서나 같습니다. 조부모 효과는 표현에 따라 갈립니다. 「토픽 20개」 열은 토픽이 붙은 표본(교수 295명·논문 1,115편)에서 계산한 값이라 다른 열과 표본이 다릅니다. n.s. = Holm 보정 뒤 비유의. 마우스를 올리면 t 값과 쌍 수가 보입니다.</p></div></div><div id="effects" class="sc-table-wrap"></div></section>
