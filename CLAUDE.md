@@ -1153,3 +1153,9 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - **지킬 것**: 연구자의 메일 주소는 연구자가 명시적으로 정해 주기 전에는 datasets.json·data.html·void.ttl 어디에도 넣지 않는다(스크립트와 테스트가 막는다). 확인되지 않은 사실은 「확인 필요」로 적는다(2026-11-21 현재 남은 것: 2000년대 시 비평 목록을 만든 시점, `/theses/` 검색 서버가 남기는 기록).
 - **조사 중 발견한 것(이 브랜치에서 고치지 않음, 후속)**: `README.md` 의 수치·탭 구성이 2026-09 판이다 · `contribute.html` 의 제안은 Gemini 서식 검증 때 항목 전체(이름·전자우편 포함)가 Google API 로 넘어갔다(`neo4j_api.py` `gemini_normalize`) → **2026-11-22 고침**(§1 API 서버 보안 규칙, 유형과 「상세 내용」만 넘김; Render 재배포 전까지 라이브는 예전 코드) · `site/data/kci-citations-public.json` 은 배포되지만 보여 주는 화면이 없다 · `site/data/lineage-public.json` 은 화면에서 쓰지 않는 옛 파일이다 · `AGENTS.md` 는 2026-10-29 이후 CLAUDE.md 와 맞춰지지 않았다.
 - **연구자가 알려 준 사실 (2026-11-21, datasets.json 에 반영)**: 전집 370편 인코딩 = 1차 AI 초벌, 2차 연구자 1인 검수 · 『문학과사회』·『창작과비평』 요약에 쓴 AI 모델 = Claude Opus 5.5 · 창비 웹진 목차 수집 시점 = 2026년(수집 방식은 적지 않았다) · 박사논문 원문 입수 = 국립중앙도서관과 국내 대학 도서관 · 선행연구 엑셀(`bibliography.json`, 2000–2019년 1,528편 → 작가별 1,859건)의 원 출처 = 김병준·천정환, 「박사학위 논문(2000∼2019) 데이터 분석을 통해 본 한국 현대문학 연구의 변화와 전망」, 『상허학보』 60, 2020, 443–517면, DOI 10.22936/sh.60..202010.012 (연구자가 RISS 서지를 붙여 줌) · 2000년대 시 비평 목록(`criticism.json`, 2005–2024년 136건) = 고려대 대학원 연구자가 만든 목록 — **화면과 datasets.json 에는 지도교수 이름을 적지 않는다**(연구자 결정 「지워도 돼」).
+
+## 만든 사람 표기 잠시 가림 (2026-11-22 밤, 연구자 지시 「kcritic.kr 만든사람 잠깐 가려줘」)
+
+- 학맥·학풍 논문의 심사(블라인드) 기간 동안 사이트에서 만든 사람의 이름·계정이 보이지 않게 했다. 커밋 `037f4bb1`(배포 Version 40c86e61): `maker.html` 본문을 안내문으로 바꾸고, `about.html`·`data.html`·`index.html`(구조화 데이터)·`site/data/datasets.json`·`site/data/void.ttl`·`critic_v8_schema.rdf`·`critic_v8_data.rdf`·`LICENSE` 의 이름을 「kcritic.kr 운영자」로, GitHub 저장소·이슈 링크를 사이트 안 주소로 바꿨다.
+- **되돌리기는 연구자가 말할 때만**: `git revert 037f4bb1` 뒤 배포. 그 전에 이 파일들을 고치거나 `build_site_meta.py` 를 돌릴 때 이름을 되살리지 말 것(원본인 `datasets.json` 도 가려져 있다).
+- 가리지 않은 것: 연구비 과제명(`data.html`·`datasets.json` 의 funding), GitHub 공개 저장소 자체, `/theses/*` 를 서빙하는 별도 Worker, 자료 안에 인물로 실린 같은 이름(소설가 등).
