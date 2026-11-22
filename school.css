@@ -101,3 +101,72 @@ section.sc-sec { margin: 30px 0; }
 .sc-coverage { color: var(--muted); font-size: 12.5px; margin: 20px 0 48px; line-height: 1.7; }
 @media (max-width: 900px) { .sc-layout { grid-template-columns: 1fr; } .sc-stage { height: 460px; } .sc-intro { flex-direction: column; align-items: flex-start; } #lineages { max-height: 32vh; } }
 @media (prefers-reduced-motion: reduce) { .sc-node, .sc-edge { transition: none !important; } }
+
+/* ── 2026-11-22: 보기 전환(주제로 보기 / 지도·표로 보기)과 주제 고르기 화면.
+   주제 화면의 막대는 크기만 나타내므로 한 가지 색(--sc-bar, 히트맵 램프의 기준 파랑)만 쓰고 글자는 먹색 토큰을 쓴다 */
+:root { --sc-bar: #2a78d6; }
+[hidden] { display: none !important; }
+.sc-intro { align-items: flex-start; }
+.sc-intro p { max-width: 760px; font-size: 14px; line-height: 1.65; margin-top: 6px; }
+.sc-intro-side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex: none; }
+.sc-view button { height: 36px; padding: 0 16px; font-size: 14px; background: #fff; color: var(--ink); cursor: pointer; }
+.sc-view button:focus-visible, .sc-topic:focus-visible, .sc-linbar:focus-visible, .sc-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.sc-status-line { color: var(--muted); font-size: 14px; margin: 24px 0; }
+.sc-btn-sm { height: 26px; padding: 0 8px; font-size: 12px; }
+.sc-more { margin-top: 10px; }
+#topicSelect { display: none; }
+.sc-topics h4 { font-size: 13px; margin: 18px 0 2px; display: flex; gap: 6px; align-items: baseline; }
+.sc-topics h4 span { color: var(--faint); font-weight: 500; font-variant-numeric: tabular-nums; }
+.sc-topics p { font-size: 12px; margin-bottom: 6px; }
+.sc-topic { display: grid; grid-template-columns: 1fr auto; column-gap: 8px; row-gap: 2px; width: 100%; text-align: left; background: #fff; border: 0; border-top: 1px solid var(--line); padding: 9px 8px 9px 10px; cursor: pointer; font-size: 13.5px; color: var(--ink); }
+.sc-topic:hover { background: var(--panel); }
+.sc-topic strong { font-weight: 600; }
+.sc-topic .n { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sc-topic small { grid-column: 1 / -1; color: var(--muted); font-size: 11.5px; }
+.sc-topic small em { font-style: normal; border: 1px solid var(--line-2); border-radius: 999px; padding: 0 6px; margin-left: 4px; }
+.sc-topic .bar { grid-column: 1 / -1; height: 4px; background: var(--panel-2); border-radius: 2px; margin-top: 3px; }
+.sc-topic .bar i { display: block; height: 100%; background: var(--sc-bar); border-radius: 2px; }
+.sc-topic.on { background: var(--panel); box-shadow: inset 3px 0 var(--ink); }
+.sc-topic-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.sc-topic-head h2 { font-size: 26px; letter-spacing: -.03em; }
+.sc-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.sc-badges .sc-badge { margin-left: 0; }
+.sc-badge.ok { background: #e8f1fc; color: #184f95; }
+.sc-badge.warn { background: #fff; border: 1px solid var(--ink); color: var(--ink); }
+.sc-words { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 4px; }
+.sc-words span { border: 1px solid var(--line-2); border-radius: 999px; padding: 3px 11px; font-size: 13.5px; }
+.sc-words span:nth-child(-n+3) { border-color: var(--ink); font-weight: 600; }
+#topicPanel .callout { background: var(--panel); border-radius: var(--r-sm); padding: 9px 12px; font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+#topicPanel .sc-tiles { margin-top: 14px; max-width: 640px; }
+#topicPanel section.sc-sec { margin: 26px 0 0; }
+#topicPanel h3 { font-size: 16px; letter-spacing: -.02em; }
+#topicPanel h3 .sc-muted { font-weight: 500; margin-left: 4px; }
+#topicPanel .sc-sec > .sc-muted, #topicPanel .sc-sec-head .sc-muted { margin-top: 2px; }
+.sc-linbars { margin: 10px 0 6px; max-width: 760px; }
+.sc-linbar { display: grid; grid-template-columns: 132px 1fr 44px; gap: 10px; align-items: center; width: 100%; background: none; border: 0; padding: 4px 6px; border-radius: var(--r-sm); cursor: pointer; font-size: 13.5px; color: var(--ink); text-align: left; }
+.sc-linbar:hover { background: var(--panel); }
+.sc-linbar.on { background: var(--panel-2); font-weight: 600; }
+.sc-linbar .nm small { color: var(--faint); font-size: 11.5px; font-weight: 400; }
+.sc-linbar .track { position: relative; height: 14px; }
+.sc-linbar .track i { display: block; height: 100%; background: var(--sc-bar); border-radius: 0 4px 4px 0; min-width: 2px; }
+.sc-linbar .track b { position: absolute; top: -3px; bottom: -3px; width: 0; border-left: 1.5px solid var(--ink); }
+.sc-linbar .v { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12.5px; }
+.sc-tlist { list-style: none; padding: 0; margin: 10px 0 0; border-top: 1px solid var(--line); }
+.sc-tlist li { display: grid; grid-template-columns: 56px 40px 1fr; gap: 10px; align-items: center; padding: 8px 4px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.sc-tlist .w { height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; }
+.sc-tlist .w i { display: block; height: 100%; background: var(--sc-bar); border-radius: 4px; }
+.sc-tlist .pv { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12.5px; text-align: right; }
+.sc-tlist .tt a { color: var(--ink); text-decoration: none; }
+.sc-tlist .tt > a:hover, .sc-tlist small a:hover { text-decoration: underline; }
+.sc-tlist small { display: block; color: var(--muted); font-size: 12px; margin-top: 1px; }
+.sc-tlist small a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 2px; }
+.sc-focus-note { font-size: 13px; color: var(--muted); background: var(--panel); border-radius: var(--r-sm); padding: 6px 10px; margin: 0 0 8px; }
+.sc-focus-note b { color: var(--ink); }
+@media (max-width: 900px) {
+  .sc-intro-side { align-items: flex-start; }
+  .sc-intro #totals { white-space: normal; }
+  #topicSelect { display: block; margin-top: 8px; } .sc-topics { display: none; }
+  .sc-topic-head h2 { font-size: 22px; }
+  .sc-linbar { grid-template-columns: 96px 1fr 40px; gap: 8px; }
+  .sc-tlist li { grid-template-columns: 36px 1fr; } .sc-tlist .w { display: none; }
+}
