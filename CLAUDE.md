@@ -1158,4 +1158,5 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 
 - 학맥·학풍 논문의 심사(블라인드) 기간 동안 사이트에서 만든 사람의 이름·계정이 보이지 않게 했다. 커밋 `037f4bb1`(배포 Version 40c86e61): `maker.html` 본문을 안내문으로 바꾸고, `about.html`·`data.html`·`index.html`(구조화 데이터)·`site/data/datasets.json`·`site/data/void.ttl`·`critic_v8_schema.rdf`·`critic_v8_data.rdf`·`LICENSE` 의 이름을 「kcritic.kr 운영자」로, GitHub 저장소·이슈 링크를 사이트 안 주소로 바꿨다.
 - **되돌리기는 연구자가 말할 때만**: `git revert 037f4bb1` 뒤 배포. 그 전에 이 파일들을 고치거나 `build_site_meta.py` 를 돌릴 때 이름을 되살리지 말 것(원본인 `datasets.json` 도 가려져 있다).
-- 가리지 않은 것: 연구비 과제명(`data.html`·`datasets.json` 의 funding), GitHub 공개 저장소 자체, `/theses/*` 를 서빙하는 별도 Worker, 자료 안에 인물로 실린 같은 이름(소설가 등).
+- 같은 날 연구자 지시 「과제명도 가려줘」로 연구비 과제명도 가렸다(`data.html` 연구비 칸·`datasets.json` 의 funding 을 「한국연구재단」만 남김). 되돌릴 때는 이 커밋도 함께 revert 한다.
+- 가리지 않은 것: GitHub 공개 저장소 자체, `/theses/*` 를 서빙하는 별도 Worker, 자료 안에 인물로 실린 같은 이름(소설가 등).
