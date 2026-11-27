@@ -7,6 +7,7 @@
   ["search", "통합검색", "/search.html"],
   ["find", "현장비평", "/explore.html?p=find"],
   ["theses", "학술연구", "/theses/"],
+  ["lineage", "학맥·학풍", "/lineage.html"],
 ];
   const TYPE = { essay: ["글", "t-essay"], critic: ["비평가", "t-critic"], writer: ["작가", "t-writer"], theorist: ["이론가", "t-theorist"], concept: ["개념어", "t-concept"] };
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -29,7 +30,7 @@
   <footer class="ft"><div class="wrap cols">
     <div><b style="color:var(--kc-ink);font-size:15px">kcritic.</b><p style="margin-top:6px;max-width:360px">한국 현대 문학비평을 TEI XML로 인코딩해 비평가·작가·이론가·개념어의 관계를 연결 데이터로 공개합니다. 원문은 제공하지 않습니다.</p></div>
     <div><h6>분석</h6><a href="${R}ask.html">질문하기 · SPARQL</a><a href="${R}evaluate.html">태도 평가</a><a href="${R}graph.html">관계망</a></div>
-    <div><h6>참고 데이터</h6><a href="${R}theses/">학술연구 · 박사논문 검색</a><a href="${R}criticism.html">2000년대 시 비평 목록</a></div>
+    <div><h6>참고 데이터</h6><a href="${R}theses/">학술연구 · 박사논문 검색</a><a href="${R}lineage.html">학맥·학풍 · 지도교수와 제자</a><a href="${R}criticism.html">2000년대 시 비평 목록</a></div>
     <div><h6>프로젝트</h6><a href="${R}about.html">소개 · 방법</a><a href="${R}data.html">데이터와 출처 · 이용 조건</a><a href="${R}maker.html">만든 사람</a><a href="${R}contribute.html">참여하기</a><a href="${R}site/data/graph.ttl">데이터 내려받기 (TTL)</a><a href="${R}critic_v8_schema.rdf">온톨로지 (OWL)</a><a href="${R}list.html">전체 목록 (예전 화면)</a></div>
   </div></footer>`);
     const nav = document.getElementById("kcs-nav");

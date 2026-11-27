@@ -24,6 +24,12 @@
 .ln-person small { grid-column: 1 / -1; display: block; color: var(--faint); font-size: 11.5px; line-height: 1.5; }
 .ln-person.on { background: var(--accent-soft); box-shadow: inset 3px 0 var(--accent); }
 .ln-person.on .ln-n { color: var(--accent); font-weight: 600; }
+/* 이름 검색 결과: 지도교수 / 제자(학위자) 묶음 머리와 제자 줄(학위 대학·지도교수·논문 제목) */
+.ln-group { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: baseline; padding: 7px 10px 7px 12px; font-size: 12px; font-weight: 600; color: var(--muted); background: var(--panel); border-bottom: 1px solid var(--line); }
+.ln-group b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.ln-person.ln-found small { color: var(--muted); }
+.ln-person .ln-thesis { color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ln-more { padding: 10px 12px; line-height: 1.6; }
 
 .ln-main { min-width: 0; }
 .ln-toolbar { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }

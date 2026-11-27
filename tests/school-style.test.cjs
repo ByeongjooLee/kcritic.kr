@@ -54,10 +54,11 @@ test('school page defaults to the topic view, keeps the map view as a choice, an
  assert(js.includes("colorBy = 'root'"),'map colours default to lineage');assert(page.indexOf('<option value="root">')<page.indexOf('<option value="group">'));
  for(const old of ['형제','삼촌','조부 '])assert(!page.includes(old)&&!js.includes(old),old);
 });
-test('school page ships its local dependencies and is linked from the lineage tab and the theses tab bar',()=>{
+test('school page ships its local dependencies and is linked from the lineage tab; the theses tab bar links the chapter',()=>{
  const page=fs.readFileSync(path.join(root,'school.html'),'utf8');
  for(const [,url] of page.matchAll(/(?:src|href)="([^"?#]+\.(?:js|css))"/g)){if(/^https?:/.test(url))continue;assert.ok(fs.existsSync(path.join(root,url.replace(/^\//,''))),url);}
  assert(fs.readFileSync(path.join(root,'lineage.html'),'utf8').includes('/school.html'));
- assert(fs.readFileSync(path.join(root,'thesis-browse.js'),'utf8').includes('/school.html'));
+ const browse=fs.readFileSync(path.join(root,'thesis-browse.js'),'utf8');assert(browse.includes('/lineage.html'));assert(!browse.includes('/school.html'));   // 학맥·학풍은 별도 묶음(2026-11-27): 학술연구 탭 줄에는 묶음으로 가는 링크 하나만
+ assert(page.includes('<h1>학맥·학풍</h1>')&&page.includes("shell('lineage')"));
  assert(fs.readFileSync(path.join(root,'lineage.js'),'utf8').includes('/school.html?prof='));
 });

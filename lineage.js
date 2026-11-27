@@ -1,5 +1,6 @@
 // 학맥(學脈) 탭 — 박사 지도교수를 시작점으로 제자와 다음 세대를 시간축(학위 연도) 위에 펼치는 계보 트리
 // 데이터: /site/data/genealogy-library.json (노드 교수·학위자, 간선 지도논문). 배치·지표 계산과 데이터는 분리되어 있다.
+// 주소: ?person=<시작 교수 id>&focus=<선택한 인물 id>&view=radial|simple|time. person 이 제자(시작 교수가 될 수 없는 사람)이면 그 지도교수를 시작점으로 열고 그 사람을 선택한다.
 (() => { 'use strict';
 const el = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -14,7 +15,7 @@ const RADIUS = { student: 4.5, professor: 7.5, mentor: 7.5, root: 10 };
 const PALETTE = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#6250d6', '#e34948'], OTHER = '#9aa6b8';
 
 const COL = 250;                                       // 간단 보기: 세대 사이 열 간격
-let D, N, adj, root, selected, selectedEdge = null, highlight = null, uniFocus = null, view = null, uniColor = new Map(), metricsCache = new Map(), sortKey = 'descendants', sortDir = -1;
+let D, N, adj, inc, root, selected, selectedEdge = null, highlight = null, uniFocus = null, view = null, uniColor = new Map(), metricsCache = new Map(), sortKey = 'descendants', sortDir = -1;
 // 기본은 간단 보기. 시간축 보기는 ?view=time 이나 버튼으로 고르고, 마지막 선택은 localStorage 에 남긴다.
 // 보기: 'radial' = 원형(기본, 세대 고리·역할 색), 'simple' = 세대 열·역할 색, 'time' = 시간축·대학 색. ?view= 가 우선, 없으면 마지막 선택.
 const VIEWS = ['radial', 'simple', 'time'];
@@ -268,7 +269,7 @@ function paint() {
   svg.querySelectorAll('.ln-span').forEach((p, i) => { p.style.opacity = on || uniFocus ? '.06' : ''; });
   el('clearHighlight').disabled = !highlight && !uniFocus;
 }
-function select(item) { selected = item.id; selectedEdge = item.kind === 'mentor' ? null : item.via; highlight = item.id; showDetail(); paint(); }
+function select(item) { selected = item.id; selectedEdge = item.kind === 'mentor' ? null : item.via; highlight = item.id; showDetail(); paint(); syncUrl(); }
 function reroot(item) { if (item.n.kind === 'professor' && item.id !== root) setRoot(item.id); else select(item); }
 // 클릭 한 번의 뜻(클릭해 펼치기 모드): 접힌 교수 → 그 아래 세대를 펼치고 그쪽으로 확대 · 이미 펼친 교수를 다시 클릭 → 접기 · 그 밖 → 계보 강조·상세와 함께 그 인물 쪽으로 확대
 function activate(item) {
@@ -277,7 +278,7 @@ function activate(item) {
   if (item.kids.length && item.depth > 0 && item.id === selected) { collapseBelow(item.id); focusNode(item); flyTo(item.parent ? item.parent.id : item.id); return; }
   select(item); flyTo(item.id);
 }
-function focusNode(item) { selected = item.id; selectedEdge = item.kind === 'mentor' ? null : item.via; highlight = item.id; draw(); showDetail(); }
+function focusNode(item) { selected = item.id; selectedEdge = item.kind === 'mentor' ? null : item.via; highlight = item.id; draw(); showDetail(); syncUrl(); }
 function collapseBelow(id) {   // 그 교수와 그 아래 모든 후손을 접는다
   const it = view.items.find(x => x.id === id); if (!it) return;
   (function down(x) { expanded.delete(x.id); x.kids.forEach(down); })(it);
@@ -286,14 +287,16 @@ function expandNext() {        // 지금 보이는 접힌 교수를 모두 한 �
   view.items.filter(x => x.hidden).forEach(x => expanded.add(x.id));
   draw(); showDetail(); flyAll();
 }
-function collapseAll() { expanded = new Set(); selected = root; selectedEdge = null; highlight = null; draw(); showDetail(); flyTo(root); }
+function collapseAll() { expanded = new Set(); selected = root; selectedEdge = null; highlight = null; draw(); showDetail(); flyTo(root); syncUrl(); }
 // 카메라: 그 인물과 (펼쳐진) 제자들이 화면에 들어오도록 부드럽게 확대·이동한다. 배율은 0.4~1.6 사이에서 정한다.
-function flyTo(id) {
+// withParent: 이름 검색·주소로 찾아온 인물은 지도교수와 함께 화면에 잡는다(혼자 확대되면 어디에 속한 사람인지 보이지 않는다). instant: 첫 화면은 움직임 없이.
+function flyTo(id, withParent = false, instant = false) {
   const vp = el('viewport'), it = view.items.find(x => x.id === id); if (!it) return;
-  const pts = [it, ...it.kids], mx = radial() ? 170 : 130, my = radial() ? 170 : 50;
+  const pts = [it, ...it.kids, ...(withParent && it.parent ? [it.parent] : [])], mx = radial() ? 170 : 130, my = radial() ? 170 : 50;
   const x0 = Math.min(...pts.map(p => p.x)) - mx, x1 = Math.max(...pts.map(p => p.x)) + (radial() ? mx : 230), y0 = Math.min(...pts.map(p => p.y)) - my, y1 = Math.max(...pts.map(p => p.y)) + my;
   const k = Math.max(.4, Math.min(1.6, (vp.clientWidth - 32) / (x1 - x0), (vp.clientHeight - 32) / (y1 - y0)));
-  animateZ({ k, x: vp.clientWidth / 2 - (x0 + x1) / 2 * k, y: vp.clientHeight / 2 - (y0 + y1) / 2 * k });
+  const to = { k, x: vp.clientWidth / 2 - (x0 + x1) / 2 * k, y: vp.clientHeight / 2 - (y0 + y1) / 2 * k };
+  if (instant) { Object.assign(Z, to); apply(); } else animateZ(to);
 }
 function flyAll() {
   const vp = el('viewport'), k = Math.max(.2, Math.min(1.2, (vp.clientWidth - 24) / view.width, (vp.clientHeight - 24) / view.height));
@@ -394,22 +397,97 @@ function downloadCsv() {
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `kcritic_학맥지표_${D.as_of}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
-// ── 왼쪽 목록
-function options() {
-  const q = el('search').value.trim().toLowerCase();
-  const list = D.nodes.filter(n => n.kind === 'professor' && studentCount(n.id) > 0 && (!q || [n.name, ...(n.aliases || []), ...n.affiliations].join(' ').toLowerCase().includes(q)))
-    .sort((a, b) => metrics(b.id).descendants - metrics(a.id).descendants || studentCount(b.id) - studentCount(a.id) || a.name.localeCompare(b.name, 'ko'));   // 학맥 인원(후손 수) 순, 2026-10-28
-  el('list-count').textContent = `${list.length}명 · 학맥 인원 순`;
-  el('people').innerHTML = list.map(n => `<button class="ln-person${n.id === root ? ' on' : ''}" data-root="${esc(n.id)}" aria-pressed="${n.id === root}" title="후손 ${metrics(n.id).descendants}명 · 직접 제자 ${studentCount(n.id)}명"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${metrics(n.id).descendants}명</span><small>${esc(n.affiliations.join(' / ') || '소속 미확인')}</small></button>`).join('') || '<p class="ln-muted">검색 결과가 없습니다.</p>';
-  el('people').querySelectorAll('[data-root]').forEach(b => b.onclick = () => setRoot(b.dataset.root));
+// ── 왼쪽 목록 · 이름 검색
+// 검색어가 없으면 지도교수 목록(학맥 인원 순). 검색어가 있으면 지도교수와 제자(학위자)를 함께 찾는다(2026-11-27, 연구자 요청).
+// 제자는 이름으로만 찾고, 같은 이름이라도 노드(학위논문)가 다르면 합치지 않고 학위 대학·연도·지도교수를 붙여 따로 보인다.
+const FOUND_MAX = 60;
+const norm = s => String(s || '').toLowerCase().replace(/\s+/g, '');
+const namesOf = n => [n.name, n.display_name, ...(n.aliases || [])].filter(Boolean);
+const canRoot = id => N.get(id)?.kind === 'professor' && studentCount(id) > 0;        // 시작 교수가 될 수 있는 사람 = 지도논문이 있는 교수
+// 그 사람이 학위를 받은 지도 간선(들). 여럿이면(공동지도·학위 둘) 연도순, 같은 해는 학맥이 큰 지도교수 먼저.
+const degreeEdges = id => (inc.get(id) || []).slice().sort((a, b) => (yearOf(a) || 9999) - (yearOf(b) || 9999) || metrics(b.source).descendants - metrics(a.source).descendants || a.source.localeCompare(b.source));
+function degreeInfo(id) {
+  const es = degreeEdges(id); if (!es.length) return null;
+  return { year: yearOf(es[0]), uni: shortUni(affiliationName(es[0].university)), advisors: [...new Set(es.map(e => nameOf(N.get(e.source))))], title: es[0].title || '', root: es[0].source };
 }
-function setRoot(id, remember = true) {
+function searchPeople(query) {
+  const q = norm(query); if (!q) return { profs: [], others: [], total: 0 };
+  const profs = D.nodes.filter(n => canRoot(n.id) && norm([...namesOf(n), ...n.affiliations].join(' ')).includes(q))
+    .sort((a, b) => metrics(b.id).descendants - metrics(a.id).descendants || studentCount(b.id) - studentCount(a.id) || a.name.localeCompare(b.name, 'ko'));
+  const rank = n => Math.min(...namesOf(n).map(x => { const s = norm(x); return s === q ? 0 : s.startsWith(q) ? 1 : s.includes(q) ? 2 : 9; }));
+  const hits = D.nodes.filter(n => !canRoot(n.id)).map(n => ({ n, r: rank(n) })).filter(x => x.r < 9).map(x => ({ ...x, d: degreeInfo(x.n.id) }))
+    .sort((a, b) => a.r - b.r || a.n.name.localeCompare(b.n.name, 'ko') || (a.d?.year || 9999) - (b.d?.year || 9999) || a.n.id.localeCompare(b.n.id));
+  return { profs, others: hits.slice(0, FOUND_MAX), total: hits.length };
+}
+const profRow = n => `<button class="ln-person${n.id === root ? ' on' : ''}" data-root="${esc(n.id)}" aria-pressed="${n.id === root}" title="후손 ${metrics(n.id).descendants}명 · 직접 제자 ${studentCount(n.id)}명"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${metrics(n.id).descendants}명</span><small>${esc(n.affiliations.join(' / ') || '소속 미확인')}</small></button>`;
+function foundRow({ n, d }) {
+  const line = [d ? `${d.uni || '대학 미상'} 박사` : '', d ? `지도 ${d.advisors.join('·')}` : '', n.kind === 'professor' ? `${n.affiliations.join(' / ') || '소속 미확인'} 교수` : ''].filter(Boolean).join(' · ');
+  const tip = [nameOf(n), d ? `${d.uni} ${d.year || '연도 미상'} 박사` : '', d ? `지도교수 ${d.advisors.join('·')}` : '', d?.title].filter(Boolean).join(' · ');
+  return `<button class="ln-person ln-found${n.id === selected ? ' on' : ''}" data-go="${esc(n.id)}" aria-pressed="${n.id === selected}" title="${esc(tip)}"><strong>${esc(nameOf(n))}</strong><span class="ln-n">${d?.year || '연도 미상'}</span><small>${esc(line)}</small>${d?.title ? `<small class="ln-thesis">${esc(d.title)}</small>` : ''}</button>`;
+}
+function options() {
+  const box = el('people'), query = el('search').value.trim();
+  if (!query) {
+    const list = D.nodes.filter(n => canRoot(n.id))
+      .sort((a, b) => metrics(b.id).descendants - metrics(a.id).descendants || studentCount(b.id) - studentCount(a.id) || a.name.localeCompare(b.name, 'ko'));   // 학맥 인원(후손 수) 순, 2026-10-28
+    el('list-count').textContent = `지도교수 ${list.length}명 · 학맥 인원 순`;
+    box.innerHTML = list.map(profRow).join('');
+  } else {
+    const f = searchPeople(query);
+    el('list-count').textContent = `지도교수 ${f.profs.length}명 · 제자 ${fmt(f.total)}명`;
+    box.innerHTML = (f.profs.length ? `<h4 class="ln-group">지도교수 <b>${f.profs.length}</b></h4>` + f.profs.map(profRow).join('') : '')
+      + (f.total ? `<h4 class="ln-group">제자(학위자) <b>${fmt(f.total)}</b></h4>` + f.others.map(foundRow).join('') : '')
+      + (f.total > f.others.length ? `<p class="ln-muted ln-more">${fmt(f.total)}명 중 ${f.others.length}명만 보입니다. 이름을 더 넣어 좁혀 주세요.</p>` : '')
+      || '<p class="ln-muted ln-more">검색 결과가 없습니다. 수집한 박사논문 서지 안의 지도교수·학위자만 찾을 수 있습니다.</p>';
+  }
+  box.querySelectorAll('[data-root]').forEach(b => b.onclick = () => { setRoot(b.dataset.root); toStage(); });
+  box.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { goPerson(b.dataset.go); toStage(); });
+}
+// 시작 교수에서 그 인물까지 가는 길(지도 간선들). 지금 켜진 거르기(교수만·추론 포함)를 따른다.
+function pathTo(target) {
+  const via = new Map([[root, null]]), queue = [root];
+  while (queue.length && !via.has(target)) { const x = queue.shift(); for (const e of children(x)) if (!via.has(e.target)) { via.set(e.target, e); queue.push(e.target); } }
+  if (!via.has(target)) return null;
+  const path = []; for (let e = via.get(target); e; e = via.get(e.source)) path.unshift(e);
+  return path;
+}
+// 그 인물이 보이도록 길 위의 교수를 펼치고(클릭해 펼치기가 켜져 있어도) 선택·강조한다. 거르기에 가려 있으면 거르기를 푼다.
+function reveal(target) {
+  let path = pathTo(target), changed = false;
+  if (!path) {
+    if (profOnly()) el('profOnly').checked = false;
+    if (!showInferred()) { el('inferred').checked = true; metricsCache.clear(); changed = true; }
+    path = pathTo(target);
+  }
+  if (!path || !path.length) return false;
+  path.slice(0, -1).forEach(e => expanded.add(e.target));
+  selected = target; selectedEdge = path[path.length - 1]; highlight = target;
+  if (changed) renderCompare();
+  return true;
+}
+// 이름 검색·주소에서 고른 인물로 간다: 지도논문이 있는 교수는 지금처럼 시작점으로, 제자는 지도교수를 시작점으로 열고 그 사람까지 펼쳐 강조한다.
+function goPerson(id) {
+  if (!N.has(id)) return false;
+  if (canRoot(id)) { setRoot(id); return true; }
+  const d = degreeInfo(id); if (!d) return false;
+  setRoot(d.root, true, id); return true;
+}
+function setRoot(id, remember = true, focus = null) {
   if (!N.has(id)) return;
   if (remember && id !== root) trail.push(root);
   root = id; selected = id; selectedEdge = null; highlight = null; uniFocus = null; expanded = new Set();   // 새 시작 교수: 직접 제자부터 다시 펼친다
-  const u = new URL(location.href); u.searchParams.set('person', id); history.replaceState(null, '', u);
-  options(); draw(); home(); showDetail(); revealInList(); markCompareRow();
+  const shown = !!focus && focus !== id && reveal(focus);
+  options(); draw(); if (shown) flyTo(focus, true); else home(); showDetail(); revealInList(); markCompareRow(); syncUrl();
   el('backRoot').disabled = !trail.length;
+}
+function syncUrl() {   // 주소에 시작 교수(person)와 선택한 인물(focus)을 남겨 그대로 공유할 수 있게 한다
+  const u = new URL(location.href); u.searchParams.set('person', root);
+  if (selected && selected !== root) u.searchParams.set('focus', selected); else u.searchParams.delete('focus');
+  history.replaceState(null, '', u);
+}
+function toStage() {   // 좁은 화면에서는 목록이 그림 위에 있으므로, 고른 뒤 그림이 보이게 내려 준다
+  const r = el('viewport').getBoundingClientRect();
+  if (r.top > innerHeight * .6 || r.bottom < 0) el('viewport').scrollIntoView({ block: 'center', behavior: 'smooth' });
 }
 function markCompareRow() { el('compare').querySelectorAll('tr[data-root]').forEach(tr => tr.classList.toggle('on', tr.dataset.root === root)); }
 function revealInList() {   // 목록 안에서만 스크롤 (페이지 전체는 움직이지 않는다)
@@ -419,6 +497,7 @@ function revealInList() {   // 목록 안에서만 스크롤 (페이지 전체�
 
 // ── 이벤트
 el('search').oninput = options;
+el('search').onkeydown = e => { if (e.key === 'Enter' && el('search').value.trim()) { e.preventDefault(); el('people').querySelector('[data-root], [data-go]')?.click(); } };   // Enter = 첫 결과
 el('profOnly').onchange = () => { draw(); home(); showDetail(); };
 el('inferred').onchange = () => { metricsCache.clear(); draw(); home(); showDetail(); renderCompare(); };
 el('minus').onclick = () => zoomTo(Z.k / 1.25); el('plus').onclick = () => zoomTo(Z.k * 1.25);
@@ -473,6 +552,7 @@ fetch('/site/data/genealogy-library.json').then(r => { if (!r.ok) throw Error(r.
   D = d; N = new Map(D.nodes.map(n => [n.id, n])); adj = new Map();
   D.nodes.forEach(n => { n.affiliations = [...new Set((n.affiliations || []).map(affiliationName).filter(Boolean))]; });
   D.edges.forEach(e => { if (!adj.has(e.source)) adj.set(e.source, []); adj.get(e.source).push(e); });
+  inc = new Map(); D.edges.forEach(e => { if (!inc.has(e.target)) inc.set(e.target, []); inc.get(e.target).push(e); });   // 이름 검색용: 인물 → 학위를 받은 지도 간선
   // 대학 색: 전체 지도논문 수 상위 8개 대학에 고정 배정 (시작 교수가 바뀌어도 같은 대학은 같은 색)
   const uc = new Map(); D.edges.forEach(e => { const u = affiliationName(e.university); uc.set(u, (uc.get(u) || 0) + 1); });
   [...uc.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko')).slice(0, PALETTE.length).forEach(([u], i) => uniColor.set(u, PALETTE[i]));
@@ -481,9 +561,15 @@ fetch('/site/data/genealogy-library.json').then(r => { if (!r.ok) throw Error(r.
   const lv = D.summary.identity_levels;   // 동일인 판정 3단계 건수 (2026-10-29)
   if (lv && el('levelNote')) el('levelNote').textContent = `동일인 판정 — 교수 본인 박사논문: 확정 ${fmt(lv.professors_own_thesis['확정'])} · 추론 ${fmt(lv.professors_own_thesis['추론'])} · 미확인(연구자 지시 반영) ${fmt(lv.professors_own_thesis['미확인'])} / 지도논문 저자: 확정 ${fmt(lv.edges['확정'])} · 추론 ${fmt(lv.edges['추론'])} · 미확인 ${fmt(lv.edges['미확인'])}. 미확인은 교수 여부를 확인하지 못했다는 뜻이며 비교수 판정이 아닙니다.`;
   el('coverage').innerHTML = `전체 ${fmt(D.summary.advisor_thesis_edges)}개 지도논문 연결 · 지도논문이 있는 교수 ${fmt(D.summary.faculty_with_advisees)}개 인물 ID. <a href="/site/data/genealogy-library.json">근거 포함 데이터</a> · 기본 교수 명단과 기존 학맥 검수의 교수 이력을 합쳤습니다. 동일인 미확정 교수행은 별도로 남아 있습니다. 지표는 Rossi 외(2018)의 계보 지표(직접 제자·후손·세대·교수 배출)를 이 자료에 맞게 줄인 것입니다.`;
-  const want = new URLSearchParams(location.search).get('person');
+  const q0 = new URLSearchParams(location.search), want = q0.get('person'), wantFocus = q0.get('focus');
   root = N.has(want) ? want : D.default_root; selected = root;
-  options(); draw(); home(); showDetail(); revealInList(); renderCompare();
-  window.genealogyState = () => ({ root, profOnly: profOnly(), stepwise: stepwise(), expanded: [...expanded], visible: view.items.map(x => ({ name: x.n.name, kind: x.n.kind, depth: x.depth, year: x.year, uni: x.uni, hidden: x.hidden })), metrics: metrics(root), summary: D.summary });
+  let target = N.has(wantFocus) && wantFocus !== root ? wantFocus : null;
+  if (!canRoot(root) && degreeInfo(root)) { target = root; root = degreeInfo(root).root; selected = root; }   // ?person= 이 제자면 지도교수를 시작점으로
+  const shown = !!target && reveal(target);
+  options(); draw(); if (shown) flyTo(target, true, true); else home(); showDetail(); revealInList(); renderCompare();
+  if (target) syncUrl();
+  window.lineageSearch = q => { const f = searchPeople(q), row = (n, d = degreeInfo(n.id)) => ({ id: n.id, name: nameOf(n), kind: n.kind, year: d?.year ?? null, university: d?.uni ?? '', advisors: d?.advisors ?? [], title: d?.title ?? '' }); return { professors: f.profs.map(n => row(n)), students: f.others.map(x => row(x.n, x.d)), total: f.total }; };
+  window.lineageGo = goPerson;
+  window.genealogyState = () => ({ root, selected, profOnly: profOnly(), stepwise: stepwise(), expanded: [...expanded], visible: view.items.map(x => ({ id: x.id, name: x.n.name, kind: x.n.kind, depth: x.depth, year: x.year, uni: x.uni, hidden: x.hidden })), metrics: metrics(root), summary: D.summary });
 }).catch(err => { console.error(err); el('status').textContent = '학맥 데이터를 불러오지 못했습니다. 새로고침해 주세요.'; });
 })();

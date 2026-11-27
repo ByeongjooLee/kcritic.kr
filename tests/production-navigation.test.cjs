@@ -2,12 +2,13 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
-test('both headers preserve the three production navigation destinations',()=>{
+test('both headers carry the same four navigation destinations (학맥·학풍 added 2026-11-27)',()=>{
  for(const file of ['kc.js','kc-shell.js']){
   const source=fs.readFileSync(path.join(root,file),'utf8');
   const declaration=source.match(/const NAV = \[[\s\S]*?\];/)[0];
   const nav=JSON.parse(JSON.stringify(vm.runInNewContext(declaration+'NAV')));
-  assert.deepEqual(nav,[['search','통합검색','/search.html'],['find','현장비평','/explore.html?p=find'],['theses','학술연구','/theses/']]);
+  assert.deepEqual(nav,[['search','통합검색','/search.html'],['find','현장비평','/explore.html?p=find'],['theses','학술연구','/theses/'],['lineage','학맥·학풍','/lineage.html']]);
+  assert(fs.existsSync(path.join(root,'lineage.html')));
  }
 });
 test('restored research screens ship all local dependencies and resolvable citations',()=>{
