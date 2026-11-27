@@ -1050,6 +1050,7 @@ py -c "import json,sys; sys.stdout.reconfigure(encoding='utf-8'); [print(c['name
 - 시험용 고리: `window.lineageSearch(q)`(검색 결과를 평범한 객체로) · `window.lineageGo(id)` · `genealogyState()` 에 `selected`·`visible[].id`. `tests/lineage-chapter.test.cjs` 가 가짜 DOM 에서 `lineage.js` 를 돌려 검색·이동·주소를 확인한다. 테스트 실행은 `node --test "tests/*.test.cjs"`(Node 24 는 `node --test tests/` 를 폴더로 받지 않는다).
 - 하지 않은 것(제안): 상단 통합 검색(`globalSearch()`·`search()`)에 학맥 인물을 넣는 일 — 학맥 데이터가 4MB 라 머리글에서 받기엔 무겁다. 넣으려면 이름·학위 연도·대학·지도교수만 담은 작은 색인 파일을 `export_genealogy_public.py` 가 함께 내도록 하는 것이 맞다(연구자 결정).
 - 미리보기: `.claude/launch.json` 의 `static` 은 주 체크아웃(`C:\Users\hgohg\kcritic.kr`)을 서빙한다. 워크트리를 보려면 `--directory <워크트리>` 를 준 설정을 주 체크아웃의 launch.json 에 더한다(이번에는 `static-hakmaek`, 8771).
+- **병합·배포 (2026-11-27, 연구자 「병합하고배포」)**: 브랜치 `feat/hakmaek-chapter` 에 origin/main(같은 날 학맥 데이터 4커밋)을 병합해 main 으로 push(caa3eb3f, 테스트 38 통과) → OneDrive 체크아웃 fast-forward → `npx wrangler deploy`(Version e3b8fb19, 올라간 자산 12개). 배포 전 라이브 12개 파일이 배포용 체크아웃과 같음을 확인(차이는 Cloudflare 가 HTML 끝에 넣는 스크립트뿐). 라이브 확인: 상단 메뉴 4개, 실제 `/theses/?p=advisors` 탭 줄 끝 `학맥·학풍 →`, 학맥 「김현주」 검색 = 지도교수 1 + 제자 4(연세대 2003·숙명여대 2005·홍익대 2010·영남대 2011), 제자를 고르면 `?person=…&focus=…`, 콘솔 오류 없음; `/.env`·`/CLAUDE.md`·`/build.py`·원문 XML·`/worker/private/`·`/tests/` 404.
 
 ## 학맥 세대별 계보 트리 (2026-10-27, 원형 보기 대체)
 
