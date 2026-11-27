@@ -496,8 +496,17 @@ function revealInList() {   // 목록 안에서만 스크롤 (페이지 전체�
 }
 
 // ── 이벤트
-el('search').oninput = options;
-el('search').onkeydown = e => { if (e.key === 'Enter' && el('search').value.trim()) { e.preventDefault(); el('people').querySelector('[data-root], [data-go]')?.click(); } };   // Enter = 첫 결과
+// 찾은 사람이 딱 한 명이면 결과 줄을 누르지 않아도 0.6초 뒤 그 사람을 연다(제자면 지도교수의 학맥) — 2026-11-27 연구자 「이병주 검색하면 지도교수의 학맥이 나와야지」.
+// 여럿이면(동명이인 포함) 고르게 둔다. 자동으로 열 때는 화면을 내리지 않는다(Enter·누르기만 toStage). 한글 조합 중에도 값이 0.6초 멈추면 연다.
+let soloTimer = 0;
+function soleMatch(query) { const f = searchPeople(query); return f.profs.length + f.total === 1 ? (f.profs[0]?.id || f.others[0].n.id) : null; }
+function autoOpen() {
+  clearTimeout(soloTimer);
+  const q = el('search').value.trim(); if (!q) return;
+  soloTimer = setTimeout(() => { if (el('search').value.trim() !== q) return; const id = soleMatch(q); if (id && id !== selected && id !== root) goPerson(id); }, 600);
+}
+el('search').oninput = () => { options(); autoOpen(); };
+el('search').onkeydown = e => { if (e.key === 'Enter' && el('search').value.trim()) { e.preventDefault(); clearTimeout(soloTimer); el('people').querySelector('[data-root], [data-go]')?.click(); } };   // Enter = 첫 결과
 el('profOnly').onchange = () => { draw(); home(); showDetail(); };
 el('inferred').onchange = () => { metricsCache.clear(); draw(); home(); showDetail(); renderCompare(); };
 el('minus').onclick = () => zoomTo(Z.k / 1.25); el('plus').onclick = () => zoomTo(Z.k * 1.25);

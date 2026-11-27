@@ -45,18 +45,19 @@ test('footers, the home page and the about page point at the chapter',()=>{
 
 // ── 학맥 화면을 가짜 DOM 에서 돌려 이름 검색·이동·주소를 확인한다
 async function boot(search=''){
- const els=new Map();
+ const els=new Map(),timers=[];
  const stub=id=>({id,value:'',checked:id==='stepwise'||id==='inferred',innerHTML:'',textContent:'',hidden:false,disabled:false,dataset:{},style:{},clientWidth:1000,clientHeight:700,scrollTop:0,
   classList:{toggle(){},add(){},remove(){}},setAttribute(){},addEventListener(){},querySelectorAll:()=>[],querySelector:()=>null,getBoundingClientRect:()=>({top:0,bottom:700,left:0}),scrollIntoView(){}});
  const location={search,href:'https://kcritic.kr/lineage.html'+search};
  const ctx={document:{getElementById:id=>{if(!els.has(id))els.set(id,stub(id));return els.get(id);},createElement:()=>stub('x')},location,
   history:{replaceState(_s,_t,u){location.href=String(u);location.search=new URL(String(u)).search;}},
   localStorage:{getItem:()=>null,setItem(){}},fetch:async()=>({ok:true,json:async()=>JSON.parse(JSON.stringify(data))}),
-  URL,URLSearchParams,Element:{prototype:{}},performance:{now:()=>0},requestAnimationFrame:()=>0,cancelAnimationFrame(){},innerHeight:800,console,addEventListener(){}};
+  URL,URLSearchParams,Element:{prototype:{}},performance:{now:()=>0},requestAnimationFrame:()=>0,cancelAnimationFrame(){},innerHeight:800,console,addEventListener(){},
+  setTimeout:f=>timers.push(f),clearTimeout:i=>{if(i)timers[i-1]=null;}};
  ctx.window=ctx;vm.runInNewContext(read('lineage.js'),ctx);
  for(let i=0;i<20&&!ctx.genealogyState;i++)await new Promise(r=>setImmediate(r));
  assert(ctx.genealogyState,'lineage.js started');
- return {ctx,els,location,q:()=>new URL(location.href).searchParams};
+ return {ctx,els,location,q:()=>new URL(location.href).searchParams,flush:()=>{for(const f of timers.splice(0))f&&f();}};
 }
 const out=new Map(),inc=new Map();for(const e of data.edges){(out.get(e.source)||out.set(e.source,[]).get(e.source)).push(e);(inc.get(e.target)||inc.set(e.target,[]).get(e.target)).push(e);}
 const byId=new Map(data.nodes.map(n=>[n.id,n]));
@@ -116,4 +117,33 @@ test('a focus address expands the collapsed generations down to that person, and
  assert.equal(viaPerson.q().get('person'),t.root);assert.equal(viaPerson.q().get('focus'),student.id);
  // 주소가 없으면 예전과 같다
  const plain=await boot();assert.equal(plain.ctx.genealogyState().root,data.default_root);assert.equal(plain.location.search,'');
+});
+
+test('a search with exactly one match opens that person without a click; several matches wait for a choice',async()=>{
+ const {ctx,els,flush}=await boot();
+ const type=v=>{els.get('search').value=v;els.get('search').oninput();};
+ const hits=name=>data.nodes.filter(n=>[n.name,n.display_name,...(n.aliases||[])].some(x=>x&&x.replace(/\s+/g,'').includes(name))||(canRoot(n.id)&&(n.affiliations||[]).join(' ').replace(/\s+/g,'').includes(name)));
+ // 자료에서 이름이 하나뿐인 학위자(지도교수가 시작 교수가 아닌 사람)를 고른다
+ const start=ctx.genealogyState().root;
+ const solo=data.nodes.find(n=>n.kind==='student'&&inc.has(n.id)&&!inc.get(n.id).some(e=>e.source===start)&&hits(n.name).length===1);assert(solo,'a uniquely named student exists');
+ type(solo.name);assert.equal(ctx.genealogyState().root,start,'nothing moves before the pause');
+ flush();const st=ctx.genealogyState();
+ assert.equal(st.selected,solo.id);assert(inc.get(solo.id).some(e=>e.source===st.root),'advisor is the root');
+ // 고친 뒤 다시 타이핑하면 앞선 예약은 버린다
+ const {ctx:c2,els:e2,flush:f2}=await boot();const s2=c2.genealogyState().root;
+ e2.get('search').value=solo.name;e2.get('search').oninput();e2.get('search').value='';e2.get('search').oninput();f2();
+ assert.equal(c2.genealogyState().root,s2);
+ // 같은 이름이 여럿이면 자동으로 열지 않는다
+ const groups=new Map();for(const n of data.nodes)if(!canRoot(n.id))(groups.get(n.name)||groups.set(n.name,[]).get(n.name)).push(n);
+ const [many]=[...groups].sort((a,b)=>b[1].length-a[1].length)[0];
+ e2.get('search').value=many;e2.get('search').oninput();f2();
+ assert.equal(c2.genealogyState().root,s2);assert.equal(c2.genealogyState().selected,s2);
+});
+
+test('chapter pages version their scripts and styles so a deploy is not hidden by the browser cache',()=>{
+ const vs=new Set();
+ for(const f of ['lineage.html','school.html','academic-network.html']){const page=read(f);
+  const tags=[...page.matchAll(/(?:src|href)="\/([\w-]+\.(?:js|css))(\?v=([\w-]+))?"/g)];assert(tags.length>=4,f);
+  for(const t of tags){assert(t[3],f+' '+t[1]+' has ?v=');vs.add(t[3]);}}
+ assert.equal(vs.size,1,'one version across the chapter');
 });
