@@ -49,3 +49,7 @@ qid_fix_*.csv
 
 # 글 찾기 Worker 비공개 색인 (본문 희귀어 — 원문 파생, 공개 금지)
 worker/private/
+
+# 사이트맵 — 배포 때 deploy.ps1 이 build_sitemap.py 를 부르니 저장소에는 두지 않는다(1MB 생성물).
+# 두면 글이 늘 때마다 통짜 차이가 난다.
+sitemap.xml

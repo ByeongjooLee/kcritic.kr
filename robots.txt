@@ -1,0 +1,14 @@
+# kcritic.kr — 한국 비평사 온톨로지
+#
+# 검색 엔진은 환영합니다. 연구자에게 알려지는 것이 이 사이트의 목적입니다.
+# AI 학습 크롤러와 SEO·마케팅 수집기 차단은 Cloudflare 쪽에서 합니다 —
+# Cloudflare 가 관리형 robots.txt(Content Signals Policy 포함)를 이 파일 "앞에" 덧붙여 내보내므로,
+# 실제 kcritic.kr/robots.txt 에는 그 선언이 먼저 나오고 그 뒤에 이 내용이 붙습니다.
+# 차단 목록을 고치려면 Cloudflare 대시보드(AI 크롤러 제어 · 보안 규칙)에서 하십시오.
+# 안내: 온톨로지 폴더의 kcritic_봇차단_안내.md
+
+User-agent: *
+Disallow: /api/
+Allow: /
+
+Sitemap: https://kcritic.kr/sitemap.xml

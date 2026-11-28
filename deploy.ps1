@@ -16,6 +16,10 @@ py build_graph_metrics.py
 if (-not $?) { Write-Host "[오류] build_graph_metrics.py 실패" -ForegroundColor Red; exit 1 }
 if (-not (Test-Path "worker\private\shards.js")) { Write-Host "[오류] worker\private 없음 — find/build_find.py(GPU)를 먼저 실행" -ForegroundColor Red; exit 1 }
 
+Write-Host "1d. build_sitemap.py (사이트맵)..." -ForegroundColor Cyan
+py build_sitemap.py
+if (-not $?) { Write-Host "[오류] build_sitemap.py 실패" -ForegroundColor Red; exit 1 }
+
 Write-Host "2. 변경 파일 스테이징 (gitignore가 원문·크레덴셜 차단)..." -ForegroundColor Cyan
 git add -A
 
