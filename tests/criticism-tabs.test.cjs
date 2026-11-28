@@ -23,6 +23,8 @@ test('explore.html and graph.html both draw the shared strip and keep the 현장
   assert(s.includes('id="ptabs"'),name+' has the strip');
   assert(s.includes('showPerspTabs('),name+' draws it with the shared function');
   assert(!/const PERSP\s*=/.test(s),name+' must not redeclare PERSP (kc.js owns it)');
+  // 화면은 매번 새로 받지만 kc.js 는 브라우저가 예전 것을 먼저 쓴다(_headers) — 새 함수를 쓰는 화면은 판 번호 붙인 주소로 불러야 한다
+  assert(/<script src="kc\.js\?v=\d{8}[a-z]?"><\/script>/.test(s),name+' loads kc.js with a version');
  }
  assert(gr.includes('shell("graph")')&&gr.includes('showPerspTabs("graph"'));
  assert(/\["essays","people","concepts","venues","graph"\]\.includes\(current\)\) current="find"/.test(kc));
