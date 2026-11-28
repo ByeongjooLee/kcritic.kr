@@ -129,7 +129,7 @@ kcd:theses a dcat:Dataset ;
 kcd:lineage a dcat:Dataset ;
   dcterms:title "학맥(지도교수–제자 계보)"@ko ;
   dcterms:description "박사논문의 지도교수에서 제자로, 그 제자가 교수가 되어 지도한 다음 세대로 이어지는 관계."@ko ;
-  dcterms:modified "2026-11-10"^^xsd:date ;
+  dcterms:modified "2026-11-28"^^xsd:date ;
   dcterms:source <https://www.riss.kr> ;
   dcterms:source <https://lod.nl.go.kr> ;
   dcterms:rights "서지 항목(제목·저자·연도·제어번호)은 RISS 등 원 제공처의 조건을 따른다. CC BY 4.0 은 이 사이트가 더한 부분(관계 판정, 표기 통일, 태그, 연결)에만 적용된다."@ko ;
