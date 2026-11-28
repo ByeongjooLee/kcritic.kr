@@ -16,8 +16,8 @@
       --g-edge-sub: #cddbf6; --g-edge-thy: #e2d4f0; --g-edge-wrote: #f2d4c4; --g-edge-sim: #f1cfbe;
       --g-co: #dbdee3; --g-x: #e5e8ec; --g-bar: #eac5b2;
     }
-    .gr-head { padding: 40px 0 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .gr-head h1 { font-size: 30px; letter-spacing: -.03em; }
+    .gr-head { padding: 22px 0 18px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .gr-head h2 { font-size: 22px; letter-spacing: -.02em; }
     .gr-head p { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 640px; }
     .gr-ctl { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; padding: 12px 0 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .gr-ctl input[type=search] { width: 230px; height: 36px; border: 1px solid var(--line-2); border-radius: 999px; padding: 0 14px; font-size: 14px; outline: none; background: var(--panel); }
@@ -75,9 +75,13 @@
 </head>
 <body>
 <main class="wrap">
+  <div class="ex-head">
+    <h1>탐색</h1>
+    <div class="tabs" id="ptabs"></div>
+  </div>
   <div class="gr-head">
     <div>
-      <h1>관계망</h1>
+      <h2>관계망</h2>
       <p>한 사람(또는 한 글)을 가운데 두고 바로 이어진 사람을, 또는 그 사람과 비슷한 사람을 보여 줍니다. 점을 누르면 그 사람이 가운데로 옵니다.</p>
     </div>
     <div class="old">전체 7,409개 점을 한꺼번에 보려면 <a href="site/graph_full.html">예전 관계망</a></div>
@@ -106,6 +110,7 @@
 <script src="kc.js"></script>
 <script>
 shell("graph");
+showPerspTabs("graph");   // 현장비평 탭 줄(kc.js) — 수는 자료를 읽은 뒤 채운다
 const KIND = {
   sub:   { label: "다룸", col: "var(--g-edge-sub)" },   subby: { label: "다룸", col: "var(--g-edge-sub)" },
   thy:   { label: "활용", col: "var(--g-edge-thy)" },   thyby: { label: "활용", col: "var(--g-edge-thy)" },
@@ -121,6 +126,7 @@ let D, M, asCritic, mentioned, inv, NE, view = "ego";
 
 Promise.all([db(), fetch("site/data/v2/graph_metrics.json").then(r => r.json()).catch(() => null)]).then(([d, m]) => {
   D = d; M = m; NE = D.essays.length;
+  showPerspTabs("graph", { essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length + D.cb.length });
   asCritic = new Map(); mentioned = new Map(); inv = new Map();      // 사람 → 쓴 글 / 나온 글 / 관련된 글 전체
   const push = (mp, k, v) => (mp.get(k) || mp.set(k, []).get(k)).push(v);
   const touch = (k, e) => (inv.get(k) || inv.set(k, new Set()).get(k)).add(e.id);

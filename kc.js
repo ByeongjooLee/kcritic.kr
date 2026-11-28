@@ -21,6 +21,18 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "
 const fmt = n => Number(n || 0).toLocaleString("ko-KR");
 const ko = (a, b) => String(a).localeCompare(String(b), "ko");
 const qs = new URLSearchParams(location.search);
+// 현장비평 탭 줄 — explore.html 과 graph.html 이 같이 쓴다. 관계망은 화면이 따로(/graph.html)라 주소만 다르다 (2026-11-28, 연구자 요청).
+const PERSP = { find: "글 찾기", essays: "글", people: "인물", concepts: "개념어", venues: "지면", graph: "관계망" };
+const perspHref = k => k === "graph" ? "/graph.html" : `/explore.html?p=${k}`;
+const perspTabs = (cur, counts = {}) => Object.entries(PERSP).map(([k, l]) =>
+  `<a href="${perspHref(k)}" class="${k === cur ? "on" : ""}">${k === "find" ? `<span class="dot" style="background:var(--accent)"></span>` : ""}${l}${counts[k] != null ? ` <small class="num">${fmt(counts[k])}</small>` : ""}</a>`).join("");
+function showPerspTabs(cur, counts) {   // 탭 줄(#ptabs)을 그리고, 좁은 화면에서 켜진 탭이 가려져 있으면 보이는 데까지 옆으로 민다
+  const el = document.getElementById("ptabs"); if (!el) return;
+  el.innerHTML = perspTabs(cur, counts);
+  const on = el.querySelector(".on"); if (!on) return;
+  const a = on.getBoundingClientRect(), b = el.getBoundingClientRect();
+  if (a.right > b.right) el.scrollLeft += a.right - b.right + 12; else if (a.left < b.left) el.scrollLeft -= b.left - a.left + 12;
+}
 
 const _cache = {};
 const load = name => (_cache[name] ??= fetch(`/site/data/v2/${name}.json`).then(r => r.json()));

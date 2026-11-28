@@ -30,7 +30,7 @@
 <script>
 const P = qs.get("p") || "find";
 shell(P);
-const PERSP = { find: "글 찾기", essays: "글", people: "인물", concepts: "개념어", venues: "지면" };
+if (P === "graph") location.replace("/graph.html");   // 탭 줄(PERSP·perspTabs)은 kc.js 에 있다 — 관계망은 따로 있는 화면
 document.getElementById("title").textContent = "탐색";
 document.getElementById("ftoggle").onclick = () => document.getElementById("facets").classList.toggle("show");
 
@@ -55,8 +55,7 @@ let D;
 db().then(d => {
   D = d;   // 『창작과비평』 검수 글은 essays.json 에 컬렉션 cb 로 들어 있다(publish_cb.py → build, 2026-11-10)
   const counts = { find: null, essays: D.essays.length, people: D.people.length, concepts: D.concepts.length, venues: D.issues.length + D.cb.length };
-  document.getElementById("ptabs").innerHTML = Object.entries(PERSP).map(([k, l]) =>
-    `<a href="explore.html?p=${k}" class="${k === P ? "on" : ""}">${k === "find" ? `<span class="dot" style="background:var(--accent)"></span>` : ""}${l}${counts[k] != null ? ` <small class="num">${fmt(counts[k])}</small>` : ""}</a>`).join("");
+  showPerspTabs(P, counts);
   prepare(); render();
 });
 
